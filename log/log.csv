@@ -1462,3 +1462,15 @@
 2026-10-10 22:39:22;kontrol;n1240;das Training;sıradaki tekrar;biliyorum;biliyor;antrenman;kart:3
 2026-10-10 22:39:22;kontrol;w0344;nass;sıradaki tekrar;biliyorum;biliyor;ıslak;kart:3
 2026-10-10 22:39:22;kontrol;n0691;die Kunst;sıradaki tekrar;biliyorum;biliyor;sanat;kart:2
+2026-10-10 22:39:22;kontrol;n1076;das Semester;sıradaki tekrar;biliyorum;biliyor;dönem (üniversite);kart:2
+2026-10-10 22:39:22;kontrol;v030;sich anmelden für;sıradaki tekrar;biliyorum;biliyor;(bir şeye) kaydolmak;kart:1
+2026-10-10 22:39:22;kontrol;n1279;die Universität;sıradaki tekrar;biliyorum;biliyor;üniversite;kart:2
+2026-10-10 22:39:22;kontrol;x1483;der Dozent;sıradaki tekrar;biliyorum;biliyor;öğretim görevlisi (üniversite);kart:2
+2026-10-10 22:39:22;kontrol;n0969;das Referat;sıradaki tekrar;emin değilim;emin-degil;sunum ödevi;kart:2
+2026-10-10 22:39:22;kontrol;x1484;der Kommilitone;sıradaki tekrar;emin değilim;emin-degil;sınıf arkadaşı (üniversite);kart:2
+2026-10-10 22:39:22;kontrol;n0781;die Mensa;sıradaki tekrar;emin değilim;emin-degil;üniversite yemekhanesi;kart:2
+2026-10-10 22:39:22;kontrol;n0169;die Bibliothek;sıradaki tekrar;biliyorum;biliyor;kütüphane;kart:2
+2026-10-10 22:39:22;akt;kontrol;gerçekten biliyor musun?;die Erlaubnis, die Wettervorhersage, die Praxis, die Kälte, das Training, nass, die Kunst, das Semester, sich anmelden für, die Universität, der Dozent, das Referat, der Kommilitone, die Mensa, die Bibliothek;;richtig;;biliyor:12 emin-degil:3 bilmiyor:0
+2026-10-10 22:39:27;erk;n0969:erk;das Referat;das Referat;sunum ödevi;richtig;sunum ödevi;sek:4 | ipucu:0
+2026-10-10 22:40:03;erk;x1484:erk;der Kommilitone;der Kommilitone;sınıf arkadaşı;fast;sınıf arkadaşı (üniversite);yavaş | sek:35 | ipucu:0
+2026-10-10 22:40:14;erk;n0972:erk;die Regel;Bei uns Menschen liegt die normale Körpertemperatur in aller Regel nicht über 37 Grad Celsius.;sakin, oturan;falsch;kural;sek:10 | ipucu:0
