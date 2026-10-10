@@ -1444,3 +1444,7 @@
 2026-10-10 22:11:07;kontrol;n0179;der Blitz;sıradaki tekrar;biliyorum;biliyor;şimşek;kart:3
 2026-10-10 22:11:07;kontrol;w0290;kühl;sıradaki tekrar;biliyorum;biliyor;serin;kart:2
 2026-10-10 22:11:07;akt;kontrol;gerçekten biliyor musun?;der Rat, die Regel, entschlossen, der Hausmeister, durcheinander, der Roman, der Himmel, die Luft, doppelt, entlang, sich streiten mit, sich verlassen auf, trocken, der Blitz, kühl;;fast;;biliyor:6 emin-degil:7 bilmiyor:2
+2026-10-10 22:15:34;erk;w0114:erk;durcheinander;Nach der Party war die ganze Wohnung durcheinander.;karmakarışık;fast;karmakarışık;yavaş | sek:265 | ipucu:0
+2026-10-10 22:15:48;refl;v119:refl;sich beruhigen;Nach dem Streit hat er sich schnell _____.;beruhigt;richtig;beruhigt;sek:13 | ipucu:0
+2026-10-10 22:15:57;satz;v509:satz;sich streiten mit;Ich habe mich gestern mit meinem Mitbewohner _____.;gestreitet;falsch;gestritten;artikel/çekim | sek:7 | ipucu:0
+2026-10-10 22:16:02;erk;n0520:erk;der Hausmeister;Der Hausmeister hat mir geholfen, den Schrank in die Wohnung zu tragen.;kapıcı, apartman görevlisi;richtig;kapıcı, apartman görevlisi;sek:4 | ipucu:0
