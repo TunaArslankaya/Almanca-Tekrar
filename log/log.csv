@@ -1448,3 +1448,7 @@
 2026-10-10 22:15:48;refl;v119:refl;sich beruhigen;Nach dem Streit hat er sich schnell _____.;beruhigt;richtig;beruhigt;sek:13 | ipucu:0
 2026-10-10 22:15:57;satz;v509:satz;sich streiten mit;Ich habe mich gestern mit meinem Mitbewohner _____.;gestreitet;falsch;gestritten;artikel/çekim | sek:7 | ipucu:0
 2026-10-10 22:16:02;erk;n0520:erk;der Hausmeister;Der Hausmeister hat mir geholfen, den Schrank in die Wohnung zu tragen.;kapıcı, apartman görevlisi;richtig;kapıcı, apartman görevlisi;sek:4 | ipucu:0
+2026-10-10 22:16:06;prod;w0139:prod;entschlossen;kararlı;entschlossen;richtig;entschlossen;sek:4 | ipucu:0
+2026-10-10 22:16:16;akt;match;eşleştir;der Wohnsitz, sich beschweren bei, berichten über, durcheinander, sich verlassen auf, übertreiben;;richtig;;hata:0
+2026-10-10 22:16:20;art;n1003:art;der Roman;Roman;der;richtig;der Roman;sek:2 | ipucu:0
+2026-10-10 22:16:24;prod;w0103:prod;doppelt;çift, iki kat;doppelt;richtig;doppelt;sek:3 | ipucu:0
