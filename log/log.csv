@@ -1508,3 +1508,7 @@
 2026-10-10 22:48:26;erk;n0781:erk;die Mensa;üniversite yemekhanesi;die Mensa;richtig;die Mensa;sek:5 | ipucu:0
 2026-10-10 22:48:29;art;n0969:art;das Referat;Referat;das;richtig;das Referat;sek:2 | ipucu:0
 2026-10-10 22:48:33;refl;v592:refl;sich verletzen;Ich habe mir den Arm _____.;verletzt;richtig;verletzt;sek:4 | ipucu:0
+2026-10-10 23:05:32;fiilmetin;v399;nennen;nennt → Präteritum | Das Erfinden von Melodien nennt man komponieren.;nennte;falsch;nannte;k71
+2026-10-10 23:05:38;fiilmetin;v245;fangen;fingen → Perfekt | Schon im  Alten Ägypten fingen die Menschen an, sich eine Schrift für die Musik auszudenken.;ist gefangt;falsch;hat gefangen;k71
+2026-10-10 23:05:42;fiilmetin;v594;verlieren;verloren → mastar | Wenn mit Hilfe dieser Noten die Melodie aufgeschrieben wird, geht sie nicht verloren.;verlieren;richtig;verlieren;k71
+2026-10-10 23:05:46;fiilmetin;v292;geschehen;geschieht → Präteritum | Dies geschieht mit Schallwellen.;geschehen;falsch;geschah;k71
