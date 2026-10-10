@@ -1452,3 +1452,13 @@
 2026-10-10 22:16:16;akt;match;eşleştir;der Wohnsitz, sich beschweren bei, berichten über, durcheinander, sich verlassen auf, übertreiben;;richtig;;hata:0
 2026-10-10 22:16:20;art;n1003:art;der Roman;Roman;der;richtig;der Roman;sek:2 | ipucu:0
 2026-10-10 22:16:24;prod;w0103:prod;doppelt;çift, iki kat;doppelt;richtig;doppelt;sek:3 | ipucu:0
+2026-10-10 22:38:35;frm;v111:frm;sich bemühen um;sich bemühen um — er / sie Perfekt;hat sich bemüht ;richtig;hat sich bemüht;sek:1331 | ipucu:0
+2026-10-10 22:38:47;frm;v673:frm;zweifeln an;zweifeln an — er / sie Perfekt;er hat geweifelte;falsch;hat gezweifelt;farklı | sek:9 | ipucu:0
+2026-10-10 22:38:51;prod;w0138:prod;entlang;boyunca (die Straße entlang);entlang;richtig;entlang;sek:3 | ipucu:0
+2026-10-10 22:39:22;kontrol;n0313;die Erlaubnis;sıradaki tekrar;biliyorum;biliyor;izin;kart:1
+2026-10-10 22:39:22;kontrol;n1376;die Wettervorhersage;sıradaki tekrar;biliyorum;biliyor;hava tahmini;kart:1
+2026-10-10 22:39:22;kontrol;n0926;die Praxis;sıradaki tekrar;biliyorum;biliyor;muayenehane;kart:2
+2026-10-10 22:39:22;kontrol;n0587;die Kälte;sıradaki tekrar;biliyorum;biliyor;soğuk;kart:4
+2026-10-10 22:39:22;kontrol;n1240;das Training;sıradaki tekrar;biliyorum;biliyor;antrenman;kart:3
+2026-10-10 22:39:22;kontrol;w0344;nass;sıradaki tekrar;biliyorum;biliyor;ıslak;kart:3
+2026-10-10 22:39:22;kontrol;n0691;die Kunst;sıradaki tekrar;biliyorum;biliyor;sanat;kart:2
