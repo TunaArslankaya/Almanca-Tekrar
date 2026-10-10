@@ -1483,3 +1483,13 @@
 2026-10-10 22:41:34;refl;v629:refl;sich(D) vorstellen;So schwierig habe ich mir die Arbeit nicht _____.;vorgestellt;richtig;vorgestellt;sek:10 | ipucu:0
 2026-10-10 22:41:38;wort;n1003:wort;der Roman;roman;der Roman;richtig;der Roman;sek:4 | ipucu:0
 2026-10-10 22:41:48;frm;v673:frm;zweifeln an;zweifeln an — er / sie Perfekt;hat gezweifelt;richtig;hat gezweifelt;sek:9 | ipucu:0
+2026-10-10 22:47:29;leech;v278;sich fürchten vor;(bir şeyden) korkmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-10
+2026-10-10 22:47:29;kontrol;v278;sich fürchten vor;sıradaki tekrar;bilmiyorum;bilmiyor;(bir şeyden) korkmak;kart:3
+2026-10-10 22:47:29;kontrol;v590;sich verlaufen;sıradaki tekrar;bilmiyorum;bilmiyor;(yürürken) yolunu kaybetmek;kart:3
+2026-10-10 22:47:29;kontrol;v673;zweifeln an;sıradaki tekrar;biliyorum;biliyor;(bir şeyden) şüphe etmek;kart:2
+2026-10-10 22:47:29;kontrol;n0433;die Geduld;sıradaki tekrar;biliyorum;biliyor;sabır;kart:3
+2026-10-10 22:47:29;kontrol;n1094;das Sonderangebot;sıradaki tekrar;bilmiyorum;bilmiyor;özel indirim;kart:2
+2026-10-10 22:47:29;kontrol;n1173;der Supermarkt;sıradaki tekrar;biliyorum;biliyor;süpermarket;kart:1
+2026-10-10 22:47:29;kontrol;n0449;das Gemüse;sıradaki tekrar;biliyorum;biliyor;sebze;kart:1
+2026-10-10 22:47:29;kontrol;n0928;der Preis;sıradaki tekrar;biliyorum;biliyor;"fiyat; ödül";kart:1
+2026-10-10 22:47:29;kontrol;n0602;die Kasse;sıradaki tekrar;biliyorum;biliyor;kasa;kart:1
