@@ -1493,3 +1493,17 @@
 2026-10-10 22:47:29;kontrol;n0449;das Gemüse;sıradaki tekrar;biliyorum;biliyor;sebze;kart:1
 2026-10-10 22:47:29;kontrol;n0928;der Preis;sıradaki tekrar;biliyorum;biliyor;"fiyat; ödül";kart:1
 2026-10-10 22:47:29;kontrol;n0602;die Kasse;sıradaki tekrar;biliyorum;biliyor;kasa;kart:1
+2026-10-10 22:47:29;kontrol;n1254;die Tüte;sıradaki tekrar;biliyorum;biliyor;poşet;kart:2
+2026-10-10 22:47:29;kontrol;n0121;das Bargeld;sıradaki tekrar;biliyorum;biliyor;nakit;kart:2
+2026-10-10 22:47:29;kontrol;n0948;die Quittung;sıradaki tekrar;emin değilim;emin-degil;makbuz, fiş;kart:2
+2026-10-10 22:47:29;kontrol;w0108;drinnen;sıradaki tekrar;biliyorum;biliyor;içeride;kart:1
+2026-10-10 22:47:29;kontrol;n0047;der Antrag;sıradaki tekrar;emin değilim;emin-degil;başvuru, dilekçe;kart:2
+2026-10-10 22:47:29;kontrol;n0629;das Klima;sıradaki tekrar;biliyorum;biliyor;iklim;kart:3
+2026-10-10 22:47:29;akt;kontrol;gerçekten biliyor musun?;sich fürchten vor, sich verlaufen, zweifeln an, die Geduld, das Sonderangebot, der Supermarkt, das Gemüse, der Preis, die Kasse, die Tüte, das Bargeld, die Quittung, drinnen, der Antrag, das Klima;;falsch;;biliyor:10 emin-degil:2 bilmiyor:3
+2026-10-10 22:47:37;erk;n0948:erk;die Quittung;makbuz, fiş;das Quittung;falsch;die Quittung;sek:6 | ipucu:0
+2026-10-10 22:47:39;art;n0047:art;der Antrag;Antrag;der;richtig;der Antrag;sek:1 | ipucu:2
+2026-10-10 22:47:44;refl;v111:refl;sich bemühen um;Er _____ sich um eine neue Stelle.;bemüht;richtig;bemüht;sek:5 | ipucu:0
+2026-10-10 22:47:49;nsatz;n0972:nsatz;die Regel;Im Laufe der Zeit hat Fußball seine heutigen _____ bekommen.;Regel;falsch;Regeln;artikel/çekim | sek:3 | ipucu:0
+2026-10-10 22:48:21;frm;v646:frm;widersprechen;widersprechen — er / sie Präteritum;er widersprahte;falsch;widersprach;artikel/çekim | sek:14 | ipucu:0
+2026-10-10 22:48:26;erk;n0781:erk;die Mensa;üniversite yemekhanesi;die Mensa;richtig;die Mensa;sek:5 | ipucu:0
+2026-10-10 22:48:29;art;n0969:art;das Referat;Referat;das;richtig;das Referat;sek:2 | ipucu:0
