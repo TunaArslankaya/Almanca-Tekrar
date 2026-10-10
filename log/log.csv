@@ -1427,3 +1427,13 @@
 2026-10-09 14:09:04;kontrol;v509;sich streiten mit;sıradaki tekrar;emin değilim;emin-degil;(biriyle) kavga etmek, tartışmak;kart:2
 2026-10-09 14:09:04;kontrol;v589;sich verlassen auf;sıradaki tekrar;emin değilim;emin-degil;(birine / bir şeye) güvenmek;kart:1
 2026-10-09 14:09:04;akt;kontrol;gerçekten biliyor musun?;das Zimmer, die Anzeige, die Wohnung, entschlossen, der Hausmeister, das Visum, durcheinander, der Roman, das Eis, der Himmel, die Luft, doppelt, entlang, sich streiten mit, sich verlassen auf;;fast;;biliyor:5 emin-degil:8 bilmiyor:2
+2026-10-10 22:11:07;kontrol;n0957;der Rat;sıradaki tekrar;biliyorum;biliyor;tavsiye, öğüt;kart:3
+2026-10-10 22:11:07;leech;n0972;die Regel;kural;;takiliyor;;günler:2026-10-02,2026-10-09,2026-10-10
+2026-10-10 22:11:07;kontrol;n0972;die Regel;sıradaki tekrar;bilmiyorum;bilmiyor;kural;kart:4
+2026-10-10 22:11:07;kontrol;w0139;entschlossen;sıradaki tekrar;emin değilim;emin-degil;kararlı;kart:1
+2026-10-10 22:11:07;kontrol;n0520;der Hausmeister;sıradaki tekrar;emin değilim;emin-degil;kapıcı, apartman görevlisi;kart:4
+2026-10-10 22:11:07;kontrol;w0114;durcheinander;sıradaki tekrar;emin değilim;emin-degil;karmakarışık;kart:3
+2026-10-10 22:11:07;kontrol;n1003;der Roman;sıradaki tekrar;emin değilim;emin-degil;roman;kart:2
+2026-10-10 22:11:07;kontrol;n0536;der Himmel;sıradaki tekrar;biliyorum;biliyor;gökyüzü;kart:2
+2026-10-10 22:11:07;kontrol;n0746;die Luft;sıradaki tekrar;biliyorum;biliyor;hava;kart:2
+2026-10-10 22:11:07;kontrol;w0103;doppelt;sıradaki tekrar;emin değilim;emin-degil;çift, iki kat;kart:1
