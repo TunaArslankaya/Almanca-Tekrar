@@ -23,7 +23,7 @@
 ## Yapı
 
 - `index.html` + `js/app.js` (arayüz, kuyruk, log) · `js/grammatik.js` (çekim, cümle üretimi, kontrol) · `js/fsrs.js`
-- Elle düzenlenen kaynaklar: `quellen/verben.txt`, `quellen/nomen.txt`, `quellen/nomen_extra.txt`, `quellen/rahmen.txt`,
+- Elle düzenlenen kaynaklar: `quellen/verben.txt` (**yeni fiil hep sona**: kimlik satır sırasından; Goethe'de yoksa 5. alanda çekim), `quellen/nomen.txt`, `quellen/nomen_extra.txt` (yeni isim sona), `quellen/rahmen.txt`,
   `quellen/woerter.txt` (sıfat/zarf/bağlaç…, **yalnız sona ekle**: kimlik satır sırasından), `quellen/pakete.txt` (konulu paketler, yeni paket sona),
   `quellen/wort_saetze.txt` (isim / diğer kelime çeviri cümleleri: `öğe | kelime | Almanca | Türkçe`),
   `quellen/saetze_refl.txt` (dönüşlü fiil çeviri cümleleri), `quellen/aufgaben.txt` (serbest yazma görevleri, sona ekle),
@@ -43,8 +43,9 @@
   - Okuma: `lesen` (Klexikon / DW metni okundu: ergebnis `gelesen`; Goethe Übungssatz görevi `quellen/goethe_lesen.json`: id `ge2:7` = ge2'nin 7. sorusu, antwort seçtiği, loesung doğrusu, görev sonu id `ge2` notiz `puan:2/3`. Metinler: `tools/klexikon.py`, `tools/dw_topthema.py` — okuma metnini ve sorularını Claude yazmaz), `lesen-wort` (metinde anlamına baktığı kelime: bilmediği kelimeler!)
   - Günün fiil metni: `fiilmetin` (her gün 04:00'te değişen gerçek metin, A2/B1 düzensiz fiillerin çekimli hâlleri işaretli; id = fiil, frage `form → hedef | cümle` (hedef: metindekinden başka zaman Präsens / Präteritum / Perfekt, ya da `mastar`), antwort seçtiği form, loesung doğru form; metin sonu id = metin, ergebnis `gelesen`, notiz `puan:x/y`). Çekim (`stamm`) sorusu yalnız düzensiz fiillerde ve formları görüldükten sonra (`S.formGesehen`).
   - Ünite: `unite` (kitaptaki konunun listesi; `quellen/uniteN.txt` + `uniteN_texte.txt` + `uniteN_aufgaben.txt` → `daten/unite.js`; id `u1-005` = kelime, frage = basamak `intro/mc/mcrev/art/lk/typ/formen` ya da `text/match/diktat/ordnen`; id `u1:t3` = 4. boşluklu metin, notiz `puan:x/y`; `u1:sort` ayırma sonucu `k:biliyor u:emin değil n:bilmiyor`; yazma görevleri modus `text`, id `u1-a1`).
-  Yeni ünite: Tuna listeyi verince `quellen/unite2.txt` (biçim dosyanın başında), 6–8 boşluklu metin, 2 yazma görevi; `tools/build.py`'de `unite_lesen(2)` ekle. Goethe listesinde olmayan isimler `nomen_extra.txt`'e, sıfat/zarf/kalıp `woerter.txt` sonuna (her ünite kelimesinin ana listede karşılığı olsun).
-  Aktif ünitenin kelimeleri Çalış'ta yeni öğe olarak önce gelir, metinleri boşluklu metin havuzuna girer. Ünite bitince `@geschlossen` ekle: açılışta ünitede çalışılmış (basamağa girmiş) kelimeler tekrar sistemine alınır, çalışılmayanlar alınmaz, bölüm gizlenir. Ünite 1 kapandı (15 kelime aktarıldı).
+  Yeni ünite: Tuna listeyi verince `quellen/uniteN.txt` (biçim dosyanın başında; `@bis YYYY-MM-DD` = o gün bitince kendiliğinden kapanır), 6–8 boşluklu metin, 2 yazma görevi; `tools/build.py`'de `unite_lesen(N)` ekle.
+  Metindeki boşluk çekimli olabilir (Knödeln, creme, gewundert): kelimeye kendiliğinden bağlanır (`uKand`); görmediği kelime boşluk olmaz. Goethe listesinde olmayan isimler `nomen_extra.txt`'e, sıfat/zarf/kalıp `woerter.txt` sonuna (her ünite kelimesinin ana listede karşılığı olsun).
+  Aktif ünitenin kelimeleri Çalış'ta yeni öğe olarak önce gelir, metinleri boşluklu metin havuzuna girer. Ünite bitince `@geschlossen` ekle: açılışta ünitede çalışılmış (basamağa girmiş) kelimeler tekrar sistemine alınır, çalışılmayanlar alınmaz, bölüm gizlenir. Ünite 1 kapandı (15 kelime aktarıldı). Ünite 2 (fit und gesund bleiben, 112 kelime, 8 metin) açık: `@bis 2026-10-13`.
   - Paket: `paket` (id `p01:3` = 1. paketin 4. boşluğu; paket sonu `p01:pak`, notiz `puan:%`, `önce okudu`)
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
   - ergebnis: `richtig`, `fast`, `falsch`, `neu`, `bekannt`

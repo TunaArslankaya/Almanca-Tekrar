@@ -1660,8 +1660,9 @@
     const all = S.unite = S.unite || {};
     return all[U.id] = all[U.id] || { sort: {}, idx: {}, next: {}, done: {}, step: 0, texte: {}, runde: 1, fertig: false, uebernommen: false, sortI: 0 };
   }
-  // kapanmış (@geschlossen) ya da aktarılmış ünite artık gösterilmez
-  const uAktiv = U => !U.geschlossen && !(S.unite && S.unite[U.id] && S.unite[U.id].uebernommen);
+  // kapanmış (@geschlossen ya da @bis tarihi geçmiş) ya da aktarılmış ünite artık gösterilmez
+  const uZu = U => !!U.geschlossen || (!!U.bis && tag() > U.bis);
+  const uAktiv = U => !uZu(U) && !(S.unite && S.unite[U.id] && S.unite[U.id].uebernommen);
   const uAktuell = () => UNITEN.find(uAktiv) || UNITEN[UNITEN.length - 1];
   // ünite kelimesi → ana listedeki öğe (isim / fiil / diğer kelime)
   function uMainId(it) {
@@ -1678,7 +1679,7 @@
     } catch (e) { flash('Bu tarayıcıda ses yok.'); }
   }
   const uLabel = it => it.de;
-  const uNorm = s => (s || '').toLowerCase().replace(/[.,!?;:„“"()]/g, '').replace(/\s+/g, ' ').trim()
+  const uNorm = s => (s || '').toLowerCase().replace(/[.,!?;:„“"()…]/g, '').replace(/\s+/g, ' ').trim()
     .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
   // yazma kontrolü: tam doğru / küçük hata (artikel eksik, tek harf, umlaut) / yanlış
   function uPruef(eingabe, ziel, alts) {
@@ -1755,8 +1756,18 @@
     return null;
   }
   // ünite metninde boşluk yalnız gördüğün (tanıtılmış / biliyorum dediğin) kelimelerde; görmediğin kelime metinde yazılı durur
+  // metindeki çekimli biçim de kelimeye bağlanır (Knödeln → der Knödel, creme → eincremen, oberen → obere)
+  function uKand(it) {
+    const k = new Set(), add = x => { if (x && x.length >= 3) k.add(x.toLowerCase()); };
+    [it.lk, it.lemma, it.de].forEach(add);
+    it.de.replace(/^(sich|der|die|das) /, '').split(/[ …]+/).forEach(add);
+    (it.ex.match(/[A-Za-zÄÖÜäöüß]+/g) || []).filter(x => !/^(hat|ist|sich|trennbar|Sg|Pl|an|auf|zu|für|von|vor|über|mit|nur|nicht|mir|Infinitiv|[GDA])$/i.test(x)).forEach(add);
+    return [...k];
+  }
   function uGesehen(U, st, f) {
-    const it = U.items.find(i => i.lk === f || i.lemma === f || i.de === f || i.de.split(' ').slice(-1)[0] === f);
+    const g0 = f.toLowerCase(), gs = [g0].concat(g0.startsWith('ge') ? [g0.slice(2)] : []), stamm = c => c.replace(/(e?n|e?t)$/, '');
+    const passt = i => uKand(i).some(c => gs.some(g => g === c || (stamm(c).length >= 4 && g.startsWith(stamm(c)) && g.length - stamm(c).length <= 4)));
+    const it = U.items.find(i => i.lk === f || i.lemma === f || i.de === f || i.de.split(' ').slice(-1)[0] === f) || U.items.find(passt);
     return !it || st.idx[it.id] != null || !!st.done[it.id] || st.sort[it.id] === 'k';
   }
   const uLuecken = (U, st, T) => T.teile.filter(x => typeof x !== 'string' && uGesehen(U, st, x.f)).map(x => x.f);
@@ -3557,7 +3568,7 @@
     const t = now();
     UNITEN.forEach(U => {
       const st = S.unite && S.unite[U.id];
-      if (!U.geschlossen || !st || st.uebernommen) return;
+      if (!uZu(U) || !st || st.uebernommen) return;
       const gearbeitet = U.items.filter(it => st.idx[it.id] != null || st.done[it.id]);
       const alinan = [], ohne = [];
       gearbeitet.forEach(it => {
@@ -3580,6 +3591,6 @@
   })();
   zeige();
   ordnerLaden();
-  window.__tekrar = { get S() { return S; }, get aktuell() { return aktuell; }, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, VERBEN, byId, wById, pById, G,
+  window.__tekrar = { get S() { return S; }, get aktuell() { return aktuell; }, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
     _testOrdner: h => { ordner = h; return dateiSchreiben(true); } };
 })();

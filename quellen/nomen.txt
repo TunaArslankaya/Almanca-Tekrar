@@ -637,7 +637,7 @@ der Kloß | 3 | köfte biçimli hamur (patates vb.)
 die Kneipe | 3 | birahane
 das Knie | 2 | diz
 der Knochen | 3 | kemik
-der Knödel | 3 | hamur köftesi (A)
+der Knödel | 3 | knödel (patates / ekmek köftesi; Güney Almanya, Avusturya)
 der Knopf | 3 | düğme
 der Koch | 2 | aşçı (erkek)
 die Köchin | 2 | aşçı (kadın)

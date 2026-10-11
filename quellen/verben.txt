@@ -1,5 +1,6 @@
 # Fiil anlamları (Goethe B1 listesindeki fiiller + edatlı kullanımlar)
 # Biçim:  gösterim | hâl/edat | seviye(1=A1,2=A2,3=B1) | Türkçe | [çekim düzeltmesi: 3.tekil, Präteritum, Perfekt]
+# Yeni fiil HEP SONA eklenir (kimlik satır sırasından; araya eklemek bütün ilerlemeyi bozar).
 # hâl/edat: A = Akkusativ nesne, D = Dativ nesne, auf+A = edat + hâl, - = nesnesiz. Sıra Almanca kalıptaki sıradır.
 # gösterimde "sich" = Akk dönüşlü, "sich(D)" = Dativ dönüşlü.
 abbiegen | - | 2 | (bir yöne) dönmek, sapmak
@@ -676,3 +677,14 @@ zuschauen | D | 3 | (birini) seyretmek
 zustimmen | D | 3 | (birine) katılmak, onaylamak
 zweifeln an | an+D | 3 | (bir şeyden) şüphe etmek
 zwingen zu | A zu+D | 3 | (birini bir şeye) zorlamak
+# Ünite 2 (fit und gesund bleiben) — yeni fiiller hep sona (kimlik satır sırasından; araya ekleme)
+kühlen | A | 3 | soğutmak | kühlt, kühlte, hat gekühlt
+eincremen | A | 3 | krem sürmek | cremt ein, cremte ein, hat eingecremt
+leiden an | an+D | 3 | (bir hastalıktan) muzdarip olmak, çekmek
+krankschreiben | A | 3 | (birine) hastalık raporu vermek | schreibt krank, schrieb krank, hat krankgeschrieben
+aufbewahren | A | 3 | saklamak, muhafaza etmek | bewahrt auf, bewahrte auf, hat aufbewahrt
+kämmen | A | 3 | (saç) taramak | kämmt, kämmte, hat gekämmt
+empfinden | A | 3 | hissetmek, duymak | empfindet, empfand, hat empfunden
+betragen | A | 3 | (miktar) tutmak, olmak | beträgt, betrug, hat betragen
+gelangen | - | 3 | (bir yere) ulaşmak, varmak | gelangt, gelangte, ist gelangt
+kommen auf | auf+A | 3 | (bir çözümü / fikri) bulmak, aklına gelmek

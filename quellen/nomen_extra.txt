@@ -76,3 +76,27 @@ die Schildkröte, -n | 2 | kaplumbağa
 die Schlagzeile, -n | 3 | manşet
 die Gegenwart | 3 | şimdiki zaman, günümüz
 die Konzentration | 3 | konsantrasyon, dikkat
+# Ünite 2 (fit und gesund bleiben) — yeni isimler sona (kimlik satır sırasından)
+das Gehirn, -e | 3 | beyin
+der Geist, -er | 3 | zihin, ruh; hayalet
+die Hauptmahlzeit, -en | 3 | ana öğün
+der Pfannkuchen, - | 2 | krep, pankek
+der Schweinebraten, - | 3 | domuz rostosu
+das Steak, -s | 2 | biftek
+die Heilung, -en | 3 | iyileşme
+der Klinikaufenthalt, -e | 3 | hastanede kalış
+die Besuchszeit, -en | 3 | ziyaret saati
+der Haupteingang, ¨-e | 3 | ana giriş
+der Bademantel, ¨- | 3 | bornoz
+der Hausschuh, -e | 3 | ev terliği
+der Schlafanzug, ¨-e | 2 | pijama
+die Zahnpasta | 2 | diş macunu
+der Alarmknopf, ¨-e | 3 | alarm düğmesi
+das Festnetz | 3 | sabit hat (telefon)
+der Klang, ¨-e | 3 | ses, tını
+der Jazz | 3 | caz
+die Klassik | 3 | klasik müzik
+die Forscherin, -nen | 3 | araştırmacı (kadın)
+die Beerdigung, -en | 3 | cenaze töreni
+der Moderator, -en | 3 | sunucu (TV / radyo)
+die Motivation | 3 | motivasyon

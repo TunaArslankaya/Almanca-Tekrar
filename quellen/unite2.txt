@@ -1,0 +1,128 @@
+# Ünite 2: kurstaki kitabın konusu (fit und gesund bleiben). Tuna'nın listesi; örnek cümleler kitaptan (varsa) ya da Claude.
+# tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
+# tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat
+# @bis YYYY-MM-DD: o gün bitince ünite kendiliğinden kapanır (@geschlossen gibi: çalışılan kelimeler tekrar sistemine geçer)
+@titel fit und gesund bleiben
+@bis 2026-10-13
+@gruppe fit und gesund bleiben
+n | die Gymnastik | (Sg.) | jimnastik, egzersiz | Jeden Morgen mache ich zehn Minuten Gymnastik. | Gymnastik | Her sabah on dakika jimnastik yapıyorum.
+v | sich anstrengen | trennbar: strengt sich an | çaba göstermek, kendini zorlamak | Du musst dich mehr anstrengen, wenn du die Prüfung bestehen willst. | anstrengen | Sınavı geçmek istiyorsan daha çok çaba göstermelisin.
+n | das Gehirn | die Gehirne | beyin | Schlaf ist wichtig für das Gehirn. | Gehirn | Uyku beyin için önemlidir.
+n | der Geist | die Geister | zihin, ruh | Sport ist gut für Körper und Geist. | Geist | Spor beden ve zihin için iyidir.
+v | raten | zu + D · rät, riet, hat geraten | tavsiye etmek, öğüt vermek | Ich rate dir, auf deine Gesundheit zu achten. | rate | Sana sağlığına dikkat etmeni tavsiye ederim.
+v | kühlen | | soğutmak | Nach dem Sport solltest du dein Knie mit Eis kühlen. | kühlen | Spordan sonra dizini buzla soğutmalısın.
+v | eincremen | trennbar: cremt ein | krem sürmek | Hast du dich schon mit Sonnencreme eingecremt? | eingecremt | Güneş kremi sürdün mü?
+n | der Schatten | die Schatten | gölge | Im Sommer sitze ich lieber im Schatten. | Schatten | Yazın gölgede oturmayı tercih ederim.
+@gruppe Essen und Trinken
+n | die Flüssigkeit | die Flüssigkeiten | sıvı | Bei Fieber braucht der Körper viel Flüssigkeit. | Flüssigkeit | Ateşte vücudun çok sıvıya ihtiyacı vardır.
+n | die Hauptmahlzeit | die Hauptmahlzeiten | ana öğün | Für viele Deutsche ist das Mittagessen die Hauptmahlzeit. | Hauptmahlzeit | Birçok Alman için öğle yemeği ana öğündür.
+n | der Knödel | die Knödel | knödel (patates / ekmek köftesi) | In Bayern isst man oft Knödel zum Braten. | Knödel | Bavyera'da rostonun yanında sık sık knödel yenir.
+n | der Pfannkuchen | die Pfannkuchen | krep, pankek | Am Sonntag backt meine Mutter Pfannkuchen. | Pfannkuchen | Pazar günü annem krep yapar.
+n | der Schweinebraten | die Schweinebraten | domuz rostosu | Ich esse kein Fleisch, also auch keinen Schweinebraten. | Schweinebraten | Et yemiyorum, yani domuz rostosu da yemiyorum.
+n | das Steak | die Steaks | biftek | Wie möchten Sie Ihr Steak? – Medium, bitte. | Steak | Bifteğinizi nasıl istersiniz? – Orta pişmiş, lütfen.
+a | roh | | çiğ | Karotten kann man auch roh essen. | roh | Havuç çiğ de yenebilir.
+a | blutig | | kanlı; az pişmiş (et) | Ich mag mein Steak nicht blutig. | blutig | Bifteğimi kanlı sevmem.
+a | essbar | | yenilebilir | Sind diese Pilze essbar? | essbar | Bu mantarlar yenilebilir mi?
+a | eiskalt | | buz gibi | Im Sommer trinke ich gern eiskalte Limonade. | eiskalte | Yazın buz gibi limonata içmeyi severim.
+@gruppe rund um den Körper
+v | atmen | | nefes almak | Bei Stress hilft es, ruhig zu atmen. | atmen | Streste sakin nefes almak yardımcı olur.
+a | blass | | solgun | Du bist so blass. Geht es dir nicht gut? | blass | Çok solgunsun. İyi değil misin?
+a | schwindelig | mir ist schwindelig | başı dönen | Mir ist schwindelig, ich muss mich hinsetzen. | schwindelig | Başım dönüyor, oturmam lazım.
+n | die Brust | die Brüste | göğüs | Ich habe Schmerzen in der Brust. | Brust | Göğsümde ağrı var.
+n | die Schulter | die Schultern | omuz | Nach dem Training tut mir die Schulter weh. | Schulter | Antrenmandan sonra omzum ağrıyor.
+v | leiden an | an + D · leidet, litt, hat gelitten | (bir hastalıktan) muzdarip olmak, çekmek | Viele Menschen leiden an Allergien. | leiden | Birçok insan alerjiden muzdarip.
+@gruppe im Krankenhaus
+n | die Heilung | die Heilungen | iyileşme | Für eine schnelle Heilung brauchen Sie viel Ruhe. | Heilung | Çabuk iyileşmek için çok dinlenmeniz gerekiyor.
+n | die Medizin | (Sg.) | tıp; ilaç | Meine Schwester studiert Medizin. | Medizin | Kız kardeşim tıp okuyor.
+n | das Schmerzmittel | die Schmerzmittel | ağrı kesici | Nehmen Sie nicht zu viele Schmerzmittel. | Schmerzmittel | Çok fazla ağrı kesici almayın.
+v | einnehmen | trennbar: nimmt ein, nahm ein, hat eingenommen | (ilaç) almak, kullanmak | Die Tabletten müssen Sie dreimal täglich einnehmen. | einnehmen | Tabletleri günde üç kez almanız gerekiyor.
+v | auflösen | trennbar: löst auf | (suda) eritmek, çözmek | Die Tablette muss man in Wasser auflösen. | auflösen | Tableti suda eritmek gerekiyor.
+v | verschreiben | verschreibt, verschrieb, hat verschrieben | (ilaç) yazmak | Der Arzt hat mir ein Schmerzmittel verschrieben. | verschrieben | Doktor bana bir ağrı kesici yazdı.
+v | krankschreiben | trennbar: schreibt krank, schrieb krank, hat krankgeschrieben | hastalık raporu vermek | Die Ärztin hat mich für drei Tage krankgeschrieben. | krankgeschrieben | Doktor bana üç gün rapor verdi.
+n | der Krankenwagen | die Krankenwagen | ambulans | Schnell, ruf einen Krankenwagen! | Krankenwagen | Çabuk, ambulans çağır!
+n | die Notaufnahme | die Notaufnahmen | acil servis | Nach dem Unfall musste er in die Notaufnahme. | Notaufnahme | Kazadan sonra acile gitmesi gerekti.
+n | die Versichertenkarte | die Versichertenkarten | sigorta kartı | Bitte zeigen Sie Ihre Versichertenkarte. | Versichertenkarte | Lütfen sigorta kartınızı gösterin.
+n | der Klinikaufenthalt | die Klinikaufenthalte | hastanede kalış | Nach dem Klinikaufenthalt muss er sich noch ausruhen. | Klinikaufenthalt | Hastanede kaldıktan sonra hâlâ dinlenmesi gerekiyor.
+n | die Entlassung | die Entlassungen | taburcu olma; işten çıkarılma | Die Entlassung aus dem Krankenhaus ist am Freitag. | Entlassung | Hastaneden taburcu olma cuma günü.
+n | die Besuchszeit | die Besuchszeiten | ziyaret saati | Die Besuchszeit ist von 14 bis 18 Uhr. | Besuchszeit | Ziyaret saati 14.00 ile 18.00 arası.
+n | der Haupteingang | die Haupteingänge | ana giriş | Wir treffen uns am Haupteingang. | Haupteingang | Ana girişte buluşuyoruz.
+n | der Notausgang | die Notausgänge | acil çıkış | Der Notausgang muss immer frei sein. | Notausgang | Acil çıkış her zaman boş olmalı.
+n | der Notruf | die Notrufe | acil çağrı (112) | Der Notruf in Deutschland ist 112. | Notruf | Almanya'da acil numara 112.
+n | der Pfleger | die Pfleger | hasta bakıcı (erkek) | Der Pfleger bringt mir das Essen. | Pfleger | Hasta bakıcı bana yemeği getiriyor.
+x | zur Verfügung stehen | + D | (birinin) hizmetinde olmak, kullanılabilir olmak | Für Fragen stehe ich Ihnen gern zur Verfügung. | Verfügung | Sorularınız için memnuniyetle hizmetinizdeyim.
+v | aufbewahren | trennbar: bewahrt auf | saklamak, muhafaza etmek | Medikamente sollte man kühl aufbewahren. | aufbewahren | İlaçlar serin yerde saklanmalı.
+x | untersagt sein | | yasak olmak | Rauchen ist im ganzen Krankenhaus untersagt. | untersagt | Bütün hastanede sigara içmek yasaktır.
+v | warnen vor | vor + D | (bir şeye karşı) uyarmak | Die Ärzte warnen vor zu viel Zucker. | warnen | Doktorlar çok fazla şekere karşı uyarıyor.
+a | zuständig | für + A | sorumlu, yetkili | Wer ist hier für die Anmeldung zuständig? | zuständig | Burada kayıttan kim sorumlu?
+@gruppe Kleidung und Hygiene
+n | der Bademantel | die Bademäntel | bornoz | Im Krankenhaus brauchst du einen Bademantel. | Bademantel | Hastanede bornoza ihtiyacın var.
+n | der Hausschuh | die Hausschuhe | ev terliği | Zu Hause trage ich immer Hausschuhe. | Hausschuhe | Evde hep terlik giyerim.
+n | der Schlafanzug | die Schlafanzüge | pijama | Vergiss deinen Schlafanzug nicht! | Schlafanzug | Pijamanı unutma!
+n | die Zahnbürste | die Zahnbürsten | diş fırçası | Ich habe meine Zahnbürste zu Hause vergessen. | Zahnbürste | Diş fırçamı evde unuttum.
+n | die Zahnpasta | die Zahnpasten | diş macunu | Wir brauchen neue Zahnpasta. | Zahnpasta | Yeni diş macunu lazım.
+v | kämmen | | (saç) taramak | Das Kind will sich nicht die Haare kämmen. | kämmen | Çocuk saçını taramak istemiyor.
+n | die Drogerie | die Drogerien | drogeri (dm, Rossmann gibi) | Shampoo und Zahnpasta kaufe ich in der Drogerie. | Drogerie | Şampuan ve diş macununu drogeriden alırım.
+@gruppe Technik
+n | der Alarmknopf | die Alarmknöpfe | alarm düğmesi | Wenn Sie Hilfe brauchen, drücken Sie den Alarmknopf. | Alarmknopf | Yardıma ihtiyacınız olursa alarm düğmesine basın.
+n | der Apparat | die Apparate | cihaz, alet; telefon | Dieser Apparat misst den Blutdruck. | Apparat | Bu cihaz tansiyonu ölçüyor.
+n | die Bedienungsanleitung | die Bedienungsanleitungen | kullanım kılavuzu | Lies zuerst die Bedienungsanleitung! | Bedienungsanleitung | Önce kullanım kılavuzunu oku!
+n | die Chipkarte | die Chipkarten | çipli kart | Mit der Chipkarte kann man im Krankenhaus telefonieren. | Chipkarte | Çipli kartla hastanede telefon edilebiliyor.
+n | die Fernbedienung | die Fernbedienungen | uzaktan kumanda | Wo ist die Fernbedienung für den Fernseher? | Fernbedienung | Televizyonun kumandası nerede?
+n | das Festnetz | (Sg.) | sabit hat | Ich habe kein Festnetz, nur ein Handy. | Festnetz | Sabit hattım yok, sadece cep telefonum var.
+@gruppe Musik und Emotionen
+n | der Klang | die Klänge | ses, tını | Ich mag den Klang der Gitarre. | Klang | Gitarın sesini seviyorum.
+n | der Jazz | (Sg.) | caz | Mein Vater hört gern Jazz. | Jazz | Babam caz dinlemeyi sever.
+n | die Klassik | (Sg.) | klasik müzik | Beim Lernen höre ich am liebsten Klassik. | Klassik | Ders çalışırken en çok klasik müzik dinlerim.
+a | klassisch | | klasik | Sie spielt seit Jahren klassische Musik. | klassische | Yıllardır klasik müzik çalıyor.
+n | das Stück | die Stücke | (müzik) parça; parça | Ich spiele ein Stück von Mozart. | Stück | Mozart'tan bir parça çalıyorum.
+a | beruhigend | | sakinleştirici, rahatlatıcı | Diese Musik wirkt sehr beruhigend. | beruhigend | Bu müzik çok rahatlatıcı.
+n | die Wirkung | die Wirkungen | etki | Musik hat eine starke Wirkung auf unsere Gefühle. | Wirkung | Müziğin duygularımız üzerinde güçlü bir etkisi var.
+v | empfinden | empfindet, empfand, hat empfunden | hissetmek, duymak | Jeder Mensch empfindet Musik anders. | empfindet | Her insan müziği farklı hisseder.
+v | spüren | | (bedende) hissetmek, sezmek | Ich spüre die Musik im ganzen Körper. | spüre | Müziği bütün vücudumda hissediyorum.
+n | die Forscherin | die Forscherinnen | araştırmacı (kadın) | Die Forscherin untersucht die Wirkung von Musik. | Forscherin | Araştırmacı müziğin etkisini inceliyor.
+a | feierlich | | törensel, görkemli | Die Musik bei der Hochzeit war sehr feierlich. | feierlich | Düğündeki müzik çok görkemliydi.
+@gruppe besondere Orte
+a | barrierearm | | engelliler için erişilebilir | Das Museum ist barrierearm, es gibt überall Aufzüge. | barrierearm | Müze engelliler için erişilebilir, her yerde asansör var.
+a | familienfreundlich | | aile dostu | Das Hotel ist sehr familienfreundlich. | familienfreundlich | Otel çok aile dostu.
+a | fantasievoll | | hayal gücü zengin, yaratıcı | Die Kinder haben fantasievolle Bilder gemalt. | fantasievolle | Çocuklar çok yaratıcı resimler yaptı.
+a | geeignet | für + A | uygun | Dieser Film ist nicht für Kinder geeignet. | geeignet | Bu film çocuklar için uygun değil.
+a | interaktiv | | etkileşimli | Im Museum gibt es viele interaktive Stationen. | interaktive | Müzede birçok etkileşimli istasyon var.
+a | ungewöhnlich | | alışılmadık, sıra dışı | Das ist ein ungewöhnlicher Ort für ein Konzert. | ungewöhnlicher | Burası konser için alışılmadık bir yer.
+v | sich wundern über | über + A | (bir şeye) şaşırmak | Die Besucher wundern sich über das ungewöhnliche Museum. | wundern | Ziyaretçiler bu sıra dışı müzeye şaşırıyor.
+@gruppe andere wichtige Wörter
+a | alltäglich | | gündelik, sıradan | Stress ist für viele ein alltägliches Problem. | alltägliches | Stres birçokları için gündelik bir sorun.
+a | ausreichend | | yeterli | Trinken Sie ausreichend Wasser! | ausreichend | Yeterli su için!
+n | die Beerdigung | die Beerdigungen | cenaze töreni | Zur Beerdigung kamen viele Freunde. | Beerdigung | Cenazeye birçok arkadaş geldi.
+v | betragen | beträgt, betrug, hat betragen | (miktar) tutmak, olmak | Die Kosten betragen 50 Euro. | betragen | Masraflar 50 avro tutuyor.
+a | bisher | | şimdiye kadar | Ich war bisher noch nie im Krankenhaus. | bisher | Şimdiye kadar hiç hastaneye yatmadım.
+x | brauchen … zu | nur / nicht + zu + Infinitiv | (sadece) … yapman yeter; … yapmana gerek yok | Sie brauchen mich nur zu rufen, wenn ich Ihnen helfen soll. | brauchen | Yardım etmemi isterseniz sadece beni çağırmanız yeterli.
+a | einigermaßen | | kısmen, idare eder | Ich habe die Prüfung einigermaßen gut geschafft. | einigermaßen | Sınavı fena sayılmayacak şekilde geçtim.
+k | einschließlich | + G | dahil | Der Preis beträgt 80 Euro einschließlich Frühstück. | einschließlich | Fiyat kahvaltı dahil 80 avro.
+a | vermutlich | | muhtemelen | Er kommt vermutlich etwas später. | vermutlich | Muhtemelen biraz geç gelecek.
+v | gelangen | ist gelangt | (bir yere) ulaşmak, varmak | Über diese Treppe gelangen Sie zum Haupteingang. | gelangen | Bu merdivenden ana girişe ulaşırsınız.
+a | glatt | | kaygan; düz, pürüzsüz | Vorsicht, die Straße ist glatt! | glatt | Dikkat, yol kaygan!
+a | grundsätzlich | | prensipte, temelde | Ich trinke grundsätzlich keinen Alkohol. | grundsätzlich | Prensip olarak alkol içmem.
+v | kleben | | yapıştırmak | Ich klebe ein Pflaster auf die Wunde. | klebe | Yaraya yara bandı yapıştırıyorum.
+n | das Rätsel | die Rätsel | bilmece, bulmaca | Kannst du dieses Rätsel lösen? | Rätsel | Bu bilmeceyi çözebilir misin?
+v | kommen auf | auf + A · kommt, kam, ist gekommen | (çözümü / fikri) bulmak, aklına gelmek | Ich komme gerade nicht auf die Lösung. | komme | Şu an çözümü bulamıyorum.
+x | durch den Kopf gehen | + D | aklından geçmek | Mir geht so viel durch den Kopf. | Kopf | Aklımdan o kadar çok şey geçiyor ki.
+k | mithilfe | + G / von + D | yardımıyla | Ich lerne Vokabeln mithilfe einer App. | mithilfe | Kelimeleri bir uygulama yardımıyla öğreniyorum.
+n | der Moderator | die Moderatoren | sunucu (TV / radyo) | Der Moderator stellt die Gäste vor. | Moderator | Sunucu konukları tanıtıyor.
+n | die Motivation | (Sg.) | motivasyon | Mir fehlt heute die Motivation zum Lernen. | Motivation | Bugün ders çalışmak için motivasyonum yok.
+a | motiviert | | motive, istekli | Die Schüler sind sehr motiviert. | motiviert | Öğrenciler çok istekli.
+n | die Nachfrage | die Nachfragen | talep | Die Nachfrage nach Fahrrädern ist gestiegen. | Nachfrage | Bisiklete olan talep arttı.
+a | obere | | üst(teki) | Die Medikamente liegen im oberen Fach. | oberen | İlaçlar üst gözde duruyor.
+n | die Reklame | die Reklamen | reklam | Im Fernsehen gibt es zu viel Reklame. | Reklame | Televizyonda çok fazla reklam var.
+n | der Rest | die Reste | kalan, artık | Den Rest des Kuchens essen wir morgen. | Rest | Pastanın kalanını yarın yiyoruz.
+n | die Rücksicht | (Sg.) · Rücksicht nehmen auf + A | saygı, başkasını düşünme | Bitte nehmen Sie Rücksicht auf Ihre Nachbarn. | Rücksicht | Lütfen komşularınızı düşünün.
+x | zur Seite gehen | | kenara çekilmek | Könnten Sie bitte kurz zur Seite gehen? | Seite | Lütfen biraz kenara çekilir misiniz?
+a | sichtbar | | görünür | Die Wunde ist kaum noch sichtbar. | sichtbar | Yara artık neredeyse hiç görünmüyor.
+v | sinken | sinkt, sank, ist gesunken | düşmek, azalmak | Das Fieber ist endlich gesunken. | gesunken | Ateş nihayet düştü.
+v | überprüfen | | kontrol etmek | Bitte überprüfen Sie Ihre Daten. | überprüfen | Lütfen bilgilerinizi kontrol edin.
+@gruppe zweiteilige Konnektoren
+k | einerseits … andererseits | | bir yandan … diğer yandan | Einerseits will ich Sport machen, andererseits bin ich oft müde. | andererseits | Bir yandan spor yapmak istiyorum, diğer yandan çoğu zaman yorgunum.
+k | entweder … oder | | ya … ya da | Wir gehen entweder ins Kino oder ins Theater. | entweder | Ya sinemaya ya da tiyatroya gideriz.
+k | nicht nur … sondern auch | | sadece … değil, … de | Sport ist nicht nur gesund, sondern macht auch Spaß. | sondern | Spor sadece sağlıklı değil, aynı zamanda eğlenceli.
+k | sowohl … als auch | | hem … hem de | Ich spreche sowohl Deutsch als auch Englisch. | sowohl | Hem Almanca hem İngilizce konuşuyorum.
+k | weder … noch | | ne … ne de | Ich habe weder Zeit noch Geld. | weder | Ne vaktim var ne de param.
+k | zwar … aber | | gerçi …, ama | Das Essen war zwar teuer, aber sehr lecker. | zwar | Yemek gerçi pahalıydı ama çok lezzetliydi.

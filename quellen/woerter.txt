@@ -602,3 +602,27 @@ selbe | pron | 3 | aynı (im selben Haus)
 entgegen | präp | 3 | -e rağmen, aksine (+ G)
 eingespannt sein | andere | 3 | çok meşgul olmak (iş yüzünden)
 vor Gericht gehen | andere | 3 | mahkemeye gitmek
+blutig | adj | 3 | kanlı; az pişmiş (et)
+essbar | adj | 3 | yenilebilir
+eiskalt | adj | 3 | buz gibi
+schwindelig | adj | 3 | başı dönen (mir ist schwindelig)
+zur Verfügung stehen | andere | 3 | (birinin) hizmetinde olmak, kullanılabilir olmak
+untersagt sein | andere | 3 | yasak olmak
+klassisch | adj | 3 | klasik
+beruhigend | adj | 3 | sakinleştirici, rahatlatıcı
+feierlich | adj | 3 | törensel, görkemli
+barrierearm | adj | 3 | engelliler için erişilebilir
+familienfreundlich | adj | 3 | aile dostu
+fantasievoll | adj | 3 | hayal gücü zengin, yaratıcı
+interaktiv | adj | 3 | etkileşimli
+brauchen … zu | andere | 3 | (sadece) … yapman yeter; … yapmana gerek yok
+einigermaßen | adv | 3 | kısmen, bir dereceye kadar, idare eder
+grundsätzlich | adv | 3 | prensipte, temelde
+durch den Kopf gehen | andere | 3 | aklından geçmek
+mithilfe | präp | 3 | yardımıyla (+ G / von + D)
+motiviert | adj | 3 | motive, istekli
+obere | adj | 3 | üst(teki)
+zur Seite gehen | andere | 3 | kenara çekilmek
+sichtbar | adj | 3 | görünür
+einerseits … andererseits | konj | 3 | bir yandan … diğer yandan
+nicht nur … sondern auch | konj | 3 | sadece … değil, … de

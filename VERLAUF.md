@@ -129,3 +129,12 @@ Son incelenen log satırı en alttaki notta yazar.
 - Aynı gün (Tuna): liste 10–15 kelime olsun, "emin değilim" de olsun, her tekrar böyle değerlendirilsin → **ön kontrol**: vadesi gelen kelime tekrarları önce listede
   (yazma sorusu varsa Türkçesi → Almancası, yoksa Almancası → anlamı), biliyorum = bugünkü tekrar yapılmış, emin değilim = hemen sorulur, bilmiyorum = sıklaşır + cümle.
   Gerçek veriyle: 136 vadeli → 3 liste + 60 soruda 73'e indi. Telefon genişliğinde yatay taşma (Bölüm listesi) da düzeltildi.
+
+## 2026-10-11 — Ünite 2: fit und gesund bleiben
+
+- Tuna'nın kitap listesi (112 kelime / kalıp): `quellen/unite2.txt` (örnek cümle + boşluk + Türkçe), 8 boşluklu metin (Claude yazdı), 2 yazma görevi.
+  `@bis 2026-10-13`: o gün bitince ünite kendiliğinden kapanır, çalışılan kelimeler tekrar sistemine geçer (yeni: tarihle kapanma).
+- Ana listede karşılığı olmayan 57 kelime eklendi (kimlikler değişmeden, hep sona): 23 isim `nomen_extra.txt`, 10 fiil `verben.txt` (kühlen, eincremen, leiden an,
+  krankschreiben, aufbewahren, kämmen, empfinden, betragen, gelangen, kommen auf), 24 kelime / kalıp `woerter.txt`. der Knödel artık bölgesel diye atlanmıyor.
+- Ünite metninde çekimli boşluk (Knödeln, creme, gewundert) kelimeye bağlanıyor; "…" yazmadan "entweder oder" kabul.
+

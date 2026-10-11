@@ -110,7 +110,7 @@ LEMMA_FIX = {"Hinweise": "Hinweis", "Erdgeschoss/ Ergeschoß": "Erdgeschoss", "H
 LEMMA_ALT = {"Zahncreme": ["Zahnpasta"], "Hähnchen": ["Hühnchen"], "Soße": ["Sauce"], "Ski": ["Schi"],
              "Fantasie": ["Phantasie"], "Erdgeschoss": ["Erdgeschoß"], "Müsli": ["Müesli"],
              "Familienname": ["Nachname"]}
-SKIP = {"Bancomat/Bankomat", "Bankomat-Karte", "Coiffeur", "Fleischhauer", "Gehsteig", "Knödel", "Trottoir",
+SKIP = {"Bancomat/Bankomat", "Bankomat-Karte", "Coiffeur", "Fleischhauer", "Gehsteig", "Trottoir",
         "Serviceangestellte", "Portemonnaie/Port-", "Nord-/Ostsee", "Phantasie/Fantasie"}
 
 
@@ -669,6 +669,7 @@ def unite_lesen(nr):
         if not line.strip() or line.startswith("#"): continue
         if line.startswith("@titel "): U["titel"] = line[7:].strip(); continue
         if line.strip() == "@geschlossen": U["geschlossen"] = True; continue
+        if line.startswith("@bis "): U["bis"] = line[5:].strip(); continue  # bu gün bitince kendiliğinden kapanır
         if line.startswith("@gruppe "): gruppe = line[8:].strip(); continue
         p = [x.strip() for x in line.split("|")]
         if len(p) != 7: errors.append(f"unite{nr}: {line}"); continue
@@ -699,7 +700,7 @@ def unite_lesen(nr):
             t, de, tr, w = [x.strip() for x in line.split("|")]
             U["aufgaben"].append({"id": f"u{nr}-a{len(U['aufgaben'])+1}", "titel": t, "de": de, "tr": tr, "woerter": [x.strip() for x in w.split(";")]})
     return U
-_un = [u for u in [unite_lesen(1)] if u]
+_un = [u for u in [unite_lesen(1), unite_lesen(2)] if u]
 dump("unite.js", "UNITE", _un)
 print(f"ünite: {sum(len(u['items']) for u in _un)} kelime, {sum(len(u['texte']) for u in _un)} metin")
 # Goethe Zertifikat B1 Übungssatz, Lesen Teil 1–5: orijinal sorular + çözümler
