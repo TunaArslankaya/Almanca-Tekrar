@@ -1524,3 +1524,15 @@
 2026-10-11 17:44:05;kontrol;v278;sich fürchten vor;sıradaki tekrar;bilmiyorum;bilmiyor;(bir şeyden) korkmak;kart:3
 2026-10-11 17:44:05;kontrol;n1094;das Sonderangebot;sıradaki tekrar;biliyorum;biliyor;özel indirim;kart:3
 2026-10-11 17:44:05;kontrol;n0948;die Quittung;sıradaki tekrar;biliyorum;biliyor;makbuz, fiş;kart:2
+2026-10-11 17:44:05;kontrol;n0047;der Antrag;sıradaki tekrar;biliyorum;biliyor;başvuru, dilekçe;kart:1
+2026-10-11 17:44:05;kontrol;v672;zustimmen;sıradaki tekrar;biliyorum;biliyor;(birine) katılmak, onaylamak;kart:3
+2026-10-11 17:44:05;kontrol;w0599;eingespannt sein;sıradaki tekrar;biliyorum;biliyor;çok meşgul olmak (iş yüzünden);kart:3
+2026-10-11 17:44:05;kontrol;x1503;die Erwartung;sıradaki tekrar;emin değilim;emin-degil;beklenti;kart:2
+2026-10-11 17:44:05;kontrol;w0600;vor Gericht gehen;sıradaki tekrar;emin değilim;emin-degil;mahkemeye gitmek;kart:1
+2026-10-11 17:44:05;akt;kontrol;gerçekten biliyor musun?;die Regel, der Hausmeister, durcheinander, sich streiten mit, sich verlassen auf, der Kommilitone, die Mensa, sich fürchten vor, das Sonderangebot, die Quittung, der Antrag, zustimmen, eingespannt sein, die Erwartung, vor Gericht gehen;;fast;;biliyor:8 emin-degil:5 bilmiyor:2
+2026-10-11 17:44:10;erk;n0520:erk;der Hausmeister;Der Hausmeister hat mir geholfen, den Schrank in die Wohnung zu tragen.;kapıcı, apartman görevlisi;richtig;kapıcı, apartman görevlisi;sek:4 | ipucu:1
+2026-10-11 17:44:21;wort;n0972:wort;die Regel;kural;die Geduld;falsch;die Regel;kelime yanlış | sek:7 | ipucu:0
+2026-10-11 17:44:25;bed;v509:bed;sich streiten mit;sich streiten mit;kavga etmek, tartışmak;richtig;(biriyle) kavga etmek, tartışmak;sek:4 | ipucu:0
+2026-10-11 17:44:30;refl;v629:refl;sich(D) vorstellen;Ich möchte mich _____: Mein Name ist Schuster.;vorstellen;richtig;vorstellen;sek:5 | ipucu:0
+2026-10-11 17:44:58;erk;x1503:erk;die Erwartung;die Erwartung;beklenti;fast;beklenti;yavaş | sek:26 | ipucu:0
+2026-10-11 17:45:13;akt;match;eşleştir;die Mensa, sich verlassen auf, sich streiten mit, reagieren auf, übertreiben, rechnen mit;;richtig;;hata:0
