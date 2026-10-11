@@ -1536,3 +1536,6 @@
 2026-10-11 17:44:30;refl;v629:refl;sich(D) vorstellen;Ich möchte mich _____: Mein Name ist Schuster.;vorstellen;richtig;vorstellen;sek:5 | ipucu:0
 2026-10-11 17:44:58;erk;x1503:erk;die Erwartung;die Erwartung;beklenti;fast;beklenti;yavaş | sek:26 | ipucu:0
 2026-10-11 17:45:13;akt;match;eşleştir;die Mensa, sich verlassen auf, sich streiten mit, reagieren auf, übertreiben, rechnen mit;;richtig;;hata:0
+2026-10-11 17:45:20;leech;v592;sich verletzen;yaralanmak;;takiliyor;;günler:2026-10-07,2026-10-09,2026-10-11
+2026-10-11 17:45:20;refl;v592:refl;sich verletzen;Pass auf, dass du dich nicht _____!;verletzen;falsch;verletzt;artikel/çekim | sek:4 | ipucu:0
+2026-10-11 17:45:24;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;sek:3 | ipucu:0
