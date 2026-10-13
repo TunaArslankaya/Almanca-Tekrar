@@ -104,6 +104,20 @@ Hedef "yapılmış gibi" görünen ama öğrenme olmayan cevapları ayırmak ve 
 - **Plan şeridi ve gün eşiği:** Hızlı tur → Paket → Karışık sırası ve hedefleri hep görünür; 10 sayılan cevap = gün seriye sayılır.
   Küçük bir eşik, "bugün hiç yapmayayım" yerine "10 soru yapayım"ı kolaylaştırır.
 
+## Birikme yayma (Ekim 2026)
+
+Ara verilince vadesi geçen kartlar tek güne yığılıyordu (13 Ekim: 535 kartın 359'u vadeli); 150'yi aşınca yeni öğe gelmediğinden
+aktif ünitenin kelimelerine hiç sıra gelmiyor, yığın da caydırıyordu (günlük cevap 220 → 87 → 25 → 0). Çözüm Anki'nin "load balancer" fikri:
+
+- Açılışta (günde bir) vadesi dünden önce geçmiş kartlar günde 45 ile ileri günlere dağıtılır; o günün zaten vadeli kartları sayılır,
+  böylece hiçbir gün 45'in üstünde "eski" tekrar almaz. Sıra: gerçek tekrarlar en eski asıl vadeden; en sona hiç sorulmamış ek birimler
+  (bilinen kelimenin yeni açılan anlam / artikel kartı: gecikmesi en az zarar). Öğrenme adımındaki kartlar (dün yanlış, bugün tekrar) yerinde kalır.
+- FSRS aralık hesabı `last`'a (son cevap) bakar; `due`nun kayması takvimi bozmaz. Asıl vade `urspr`'de saklanır: ertelenen kartın kardeş
+  kredisi asıl vadeye göre verilir, kart cevaplanınca iz silinir.
+- Kapasite sınır değil, dağıtımdır: günün kuyruğu bitince ertelenenler asıl vade sırasıyla öne çekilir; fazla çalışan gün yığını eritir.
+- Birikmede de aktif ünitenin kelimeleri (kitap bekliyor) yeni öğe olarak gelir, yarı hızda; başka yeni kelime gelmez.
+- Bugün vadesi gelen (dünkü cevapların doğal tekrarı) kartlar yayılmaz: onlar genç kartlardır, gecikmesi en çok unutturur.
+
 ## Kaynaklar
 
 - [The role of variable retrieval in effective learning (PNAS, 2024)](https://www.pnas.org/doi/10.1073/pnas.2413511121)

@@ -2612,3 +2612,43 @@ x1503 | die Erwartung | Ich hatte keine großen Erwartungen an den Urlaub. | Tat
 x1504 | die Behauptung | Das ist nur eine Behauptung, du hast keine Beweise. | Bu sadece bir iddia, hiç kanıtın yok.
 x1504 | die Behauptung | Seine Behauptung stimmt nicht. | Onun iddiası doğru değil.
 x1504 | die Behauptung | Ich verstehe deine Behauptung nicht. | İddianı anlamıyorum.
+w0119 | eher | Das Zimmer ist eher klein, aber sehr hell. | Oda daha ziyade küçük ama çok aydınlık.
+w0119 | eher | Ich trinke eher Tee als Kaffee. | Kahveden ziyade çay içerim.
+w0119 | eher | Mein Bruder ist eher ruhig und spricht nicht viel. | Erkek kardeşim daha çok sessiz biridir, fazla konuşmaz.
+n0972 | die Regel | In unserem Sprachkurs gibt es eine Regel: Wir sprechen nur Deutsch. | Dil kursumuzda bir kural var: sadece Almanca konuşuyoruz.
+n0972 | die Regel | Die Lehrerin hat uns die neuen Regeln erklärt. | Öğretmen bize yeni kuralları açıkladı.
+n0972 | die Regel | Es gibt keine Regel ohne Ausnahme. | İstisnasız kural olmaz.
+n0520 | der Hausmeister | Die Heizung ist kaputt, ich rufe den Hausmeister an. | Kalorifer bozuk, kapıcıyı arıyorum.
+n0520 | der Hausmeister | Der Hausmeister hat den Schlüssel für den Keller. | Kapıcıda bodrumun anahtarı var.
+n0520 | der Hausmeister | Unser Hausmeister wohnt im Erdgeschoss und ist sehr freundlich. | Kapıcımız zemin katta oturuyor ve çok cana yakın.
+w0114 | durcheinander | Die Papiere auf dem Schreibtisch liegen alle durcheinander. | Çalışma masasındaki kâğıtların hepsi karmakarışık duruyor.
+w0114 | durcheinander | In meinem Kopf ist gerade alles durcheinander. | Kafamın içinde şu an her şey karmakarışık.
+w0114 | durcheinander | Mein Zeitplan für diese Woche ist völlig durcheinander. | Bu haftaki programım tamamen karmakarışık.
+n1094 | das Sonderangebot | Im Supermarkt gibt es diese Woche viele Sonderangebote. | Süpermarkette bu hafta bir sürü özel indirim var.
+n1094 | das Sonderangebot | Das Sonderangebot gilt nur bis Samstag. | Özel indirim sadece cumartesiye kadar geçerli.
+n1094 | das Sonderangebot | Hast du das Sonderangebot für die Winterjacken gesehen? | Kışlık montlardaki özel indirimi gördün mü?
+w0011 | allerdings | Das Hotel war schön, allerdings ziemlich teuer. | Otel güzeldi, ancak epey pahalıydı.
+w0011 | allerdings | Ich habe die E-Mail bekommen, allerdings noch nicht gelesen. | E-postayı aldım, gerçi henüz okumadım.
+w0026 | anwesend | Der Chef war bei der Besprechung nicht anwesend. | Patron toplantıda hazır bulunmuyordu.
+w0026 | anwesend | Heute sind nur zwölf Schüler anwesend, die anderen sind krank. | Bugün sadece on iki öğrenci mevcut, diğerleri hasta.
+w0213 | gleichzeitig | Die beiden Gäste sind gleichzeitig angekommen. | İki misafir aynı anda geldi.
+w0213 | gleichzeitig | Sie telefoniert und kocht gleichzeitig. | Aynı anda hem telefonla konuşuyor hem yemek yapıyor.
+n0341 | der Fall | Die Polizei untersucht den Fall seit zwei Wochen. | Polis vakayı iki haftadır araştırıyor.
+n0341 | der Fall | Im schlimmsten Fall müssen wir den Flug verschieben. | En kötü durumda uçuşu ertelemek zorunda kalırız.
+w0547 | weltweit | Dieses Lied kennt man weltweit. | Bu şarkı dünya çapında biliniyor.
+w0547 | weltweit | Die Firma hat weltweit mehr als 5000 Mitarbeiter. | Firmanın dünya çapında 5000'den fazla çalışanı var.
+w0100 | digital | Viele Leute lesen die Zeitung heute nur noch digital. | Birçok insan bugün gazeteyi artık sadece dijital okuyor.
+w0100 | digital | Die Bibliothek bietet viele Bücher auch digital an. | Kütüphane birçok kitabı dijital olarak da sunuyor.
+x1460 | das Missverständnis | Das war nur ein Missverständnis, ich habe deine Nachricht falsch verstanden. | Bu sadece bir yanlış anlaşılmaydı, mesajını yanlış anladım.
+x1460 | das Missverständnis | Es gab ein Missverständnis zwischen mir und meinem Vermieter. | Ev sahibimle aramda bir yanlış anlaşılma oldu.
+w0164 | fett | Pommes sind lecker, aber ziemlich fett. | Patates kızartması lezzetli ama epey yağlı.
+w0164 | fett | Die Suppe im Restaurant war viel zu fett und salzig. | Restorandaki çorba fazlasıyla yağlı ve tuzluydu.
+n1422 | das Ziel | Mein Ziel ist es, nächstes Jahr in Bremen zu studieren. | Hedefim gelecek yıl Bremen'de üniversite okumak.
+n1422 | das Ziel | Nach drei Stunden haben wir endlich das Ziel erreicht. | Üç saat sonra nihayet hedefe ulaştık.
+n0244 | die Diskussion | Nach dem Vortrag gab es eine lange Diskussion. | Sunumdan sonra uzun bir tartışma oldu.
+n0244 | die Diskussion | Die Diskussion mit meinem Vermieter hat nichts gebracht. | Ev sahibimle tartışma bir işe yaramadı.
+w0117 | eben | Ich habe eben mit meiner Mutter telefoniert. | Az önce annemle telefonda konuştum.
+w0117 | eben | Das Auto ist alt, deshalb ist es eben billig. | Araba eski, o yüzden ucuz işte.
+n0914 | die Politik | Mein Vater diskutiert gern über Politik. | Babam siyaset hakkında tartışmayı sever.
+n0914 | die Politik | Die Politik muss mehr für die Umwelt tun. | Siyaset çevre için daha fazlasını yapmalı.
+w0344 | nass | Nach dem Regen war die Bank im Park noch nass. | Yağmurdan sonra parktaki bank hâlâ ıslaktı.

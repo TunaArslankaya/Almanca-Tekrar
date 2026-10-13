@@ -52,6 +52,11 @@
   - notiz: hata etiketleri, `öneri:X` (sistem önerisi kendi notundan farklıysa), `sek:N`, `ipucu:N`, `sayılmadı` (çok hızlı / boş: hedefe sayılmadı), `çok hızlı`, `yavaş`, `bilmiyorum`
 - `log/zustand.json`: ilerleme yedeği (FSRS kartları). Ana bölüm **`akis` (Çalış)**: tek akış, günlük hedef 80; tanıma + yazma + cümle + yeni öğe (önce aktif ünite, sonra her 4 yeniden biri fiil `einf`, diğerleri ön test) karışık,
   tür dengesi hızlı (erk/bed/art) 4 : yazma 3 : cümle 3, aynı tür en fazla 2 kez üst üste; birikme eşiği 150 (diğer bölümlerde 80).
+  Birikme yayma (`stauVerteilen`, günde bir, `S.verteiltTag`): vadesi dünden önce geçmiş kartlar günde `STAU_KAP` (45) ile ileri günlere yayılır
+  (o günün zaten vadeli kartları sayılır; önce gerçek tekrarlar en eski vadeden, en sona hiç sorulmamış ek birimler; öğrenme adımındaki kart yerinde kalır),
+  asıl vade kartta `urspr` (cevaplanınca / kardeş kredisinde silinir, kardeş kredisi asıl vadeye bakar); günün kuyruğu bitince ertelenenler asıl vade
+  sırasıyla öne çekilir (`vorziehen`); plan satırında `yayıldı: N tekrar`. Birikmede (150+) yeni kelime yok ama aktif ünitenin kelimeleri gelir (yarı hızda).
+  Simülasyon: `node tests/sim_stau.js` (gerçek `log/zustand.json` ile: yayma, ünite kelimesi, öne çekme, ertesi gün).
   Her 7 soruda bir ara etkinlik (log modus `akt`): `luecke` (gerçek metin pasajı, yalnız görülmüş kelimeler boşluk; id `luecke:<metin>`, notiz `puan:x/y`), `match` (eşleştirme, notiz `hata:n`),
   `diktat` (dinle–yaz; id `diktat:<öğe>`, antwort yazdığı, loesung cümle), `ordnen` (cümle dizme), günde en çok bir paket tekrarı; 25 cevaptan sonra fiil metni, 45'ten sonra yazma önerisi (`angebot`).
   Ön kontrol (`kontrol`, Çalış): vadesi gelen kelime tekrarları önce 10–15'lik listede (en eski vade önce; yazma / cümle sorusu varsa Türkçesi gösterilir → Almancası, yoksa Almancası → anlamı + artikeli),

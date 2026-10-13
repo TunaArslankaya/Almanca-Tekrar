@@ -311,3 +311,13 @@ v111 | Ich bemühe mich um eine Stelle in Bremen. | Bremen'de bir iş bulmaya u�
 v111 | Er hat sich sehr um eine gute Note bemüht. | İyi bir not için çok çabaladı.
 v642 | Mit Fragen zu den Kosten wenden Sie sich bitte an das Sekretariat. | Masraflarla ilgili sorularınız için lütfen sekreterliğe başvurun.
 v642 | Wegen der Kritik habe ich mich an meinen Lehrer gewendet. | Eleştiri yüzünden öğretmenime başvurdum.
+v589 | Ihr könnt euch auf unseren Hausmeister verlassen. | Kapıcımıza güvenebilirsiniz.
+v589 | Wir haben uns auf den Zug verlassen und sind zu spät gekommen. | Trene güvendik ve geç kaldık.
+v589 | Verlass dich nicht auf das Wetter, nimm einen Regenschirm mit. | Havaya güvenme, yanına bir şemsiye al.
+v278 | Viele Menschen fürchten sich vor Spinnen. | Birçok insan örümceklerden korkar.
+v278 | Als Kind habe ich mich vor dem Zahnarzt gefürchtet. | Çocukken dişçiden korkardım.
+v278 | Fürchtet ihr euch nicht vor der langen Reise? | Uzun yolculuktan korkmuyor musunuz?
+v590 | Ohne Handy verlaufe ich mich in jeder fremden Stadt. | Telefonsuz her yabancı şehirde yolumu kaybederim.
+v590 | Er hat sich auf dem Weg zum Bahnhof verlaufen. | Gara giderken yolunu kaybetti.
+v590 | Passt auf, dass ihr euch im Park nicht verlauft! | Dikkat edin, parkta yolunuzu kaybetmeyin!
+v177 | Diese Schuhe eignen sich nicht für nasses Wetter. | Bu ayakkabılar ıslak hava için uygun değil.

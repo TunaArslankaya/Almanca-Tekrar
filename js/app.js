@@ -18,6 +18,7 @@
   const INTRO_MIN = 2000;    // tanıtım kartı en az bu kadar ekranda kalır
   const STAU = 80;           // bu kadar birikmiş tekrar varsa yeni kelime gelmez (bölüm başına)
   const stauGrenze = m => m === 'akis' ? 150 : STAU;  // tek akış bütün kartları birlikte sayar
+  const STAU_KAP = 45;       // birikmiş tekrarlar günlere yayılırken günlük pay (stauVerteilen); sınır değil, dağıtım
 
   // ================= Veri =================
   const byId = Object.fromEntries(window.NOMEN.liste.map(n => [n.id, n]));
@@ -406,8 +407,9 @@
     if (m === 'paket') { const offen = PAKETE.find(p => S.pakete[p.id] && !paketFertig(p.id)); if (offen) return { paket: offen.id }; }
     // tekrar yükü arttıkça yeni öğe azalır (birikmiş STAU'da sıfır); tekrarları bitirdikçe yeniden açılır.
     // Hızlı tur ve paketler yazma tekrarlarını da, paketler Hızlı tur tekrarlarını da hesaba katar.
-    const druck = f => Math.min(1, faellig(f).length / stauGrenze(m));
+    const druck = f => Math.min(1, rueckstand(f) / stauGrenze(m));
     let yuk = druck(FILTER[m]);
+    if (m === 'akis' && uniteNeuId()) yuk = Math.min(yuk, 0.5);  // aktif ünitenin kelimeleri birikmede de gelir (en az yarı hızda)
     if (m === 'blitz' || m === 'paket') yuk = Math.max(yuk, druck(FILTER.normal));
     if (m === 'paket') yuk = Math.max(yuk, druck(FILTER.blitz));
     const faktor = m === 'paket' ? (yuk >= 1 ? 0 : 1) : 1 - yuk;
@@ -456,7 +458,7 @@
   // hep doğru bilinen kelime: kardeş kartları ileri at (yalnız son cevabı doğru ve az unutulmuş kartlar; sorunlu artikel kartı yerinde kalır)
   function seriSeyrek(id, seri, t) {
     const ab = t + Math.min(21, 3 * seri) * DAY;
-    unitsOf(id).forEach(u => { const k = S.karten[id + ':' + u]; if (k && k.S && !k.lern && k.lastG === 3 && (k.lapses || 0) < 3 && k.due < ab) k.due = ab; });
+    unitsOf(id).forEach(u => { const k = S.karten[id + ':' + u]; if (k && k.S && !k.lern && k.lastG === 3 && (k.lapses || 0) < 3 && k.due < ab) { k.due = ab; delete k.urspr; } });
   }
   // yazarak doğru (üretim) → aynı kelimenin kolay kartları (anlam / artikel) ayrıca sorulmasın: sanal "doğru" tekrar.
   // Ters seçmeli (Türkçe → artikelli Almanca) doğruysa artikel kartı da. Son cevabı yanlış ya da öğrenme adımındaki kart kendi sorusuyla gelir.
@@ -464,15 +466,67 @@
   function kardesKredi(id, quelle, t) {
     (KREDI[quelle] || []).forEach(u => {
       const uid = id + ':' + u, k = S.karten[uid];
-      if (!k || k.lastG === 1 || k.lern != null || (k.S && k.due > t + DAY)) return;
+      if (!k || k.lastG === 1 || k.lern != null || (k.S && (k.urspr != null ? k.urspr : k.due) > t + DAY)) return;
       const c = FSRS.review(k.S ? k : {}, k.S ? 3 : 4, t, S.einst.ret);
-      delete c.neu; c.kredi = (k.kredi || 0) + 1;
+      delete c.neu; delete c.urspr; c.kredi = (k.kredi || 0) + 1;
       S.karten[uid] = c;
     });
   }
   // ertesi günün başı: bugün iki kez yanlış yapılan kart bugün bir daha gelmesin
   function morgen(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + 1); return d.getTime(); }
+
+  // ================= Birikme yayma =================
+  // Ara verince biriken tekrarlar (vadesi dünden önce geçmiş kartlar) tek güne yığılmasın ve yeni kelimeyi (ünite) kilitlemesin:
+  // günde en çok STAU_KAP; fazlası sırayla yarına, öbür güne … (o günün zaten vadeli kartları sayılarak). Günde bir kez (S.verteiltTag).
+  // Sıra: gerçek tekrarlar en eski vadeden, en sona hiç sorulmamış ek birimler (bilinen kelimenin yeni açılan anlam / artikel kartı).
+  // Orijinal vade `urspr`'de kalır (FSRS aralığı `last`'a bakar, due'nun kayması takvimi bozmaz); kart cevaplanınca silinir.
+  // Günün kuyruğu bitince ertelenenler öne çekilir (waehle → vorziehen): kapasite sınır değil, dağıtım.
+  function stauVerteilen() {
+    const d = tag();
+    if (S.verteiltTag === d) return null;
+    S.verteiltTag = d;
+    const t = now(), h = new Date(t); h.setHours(0, 0, 0, 0);
+    const start = h.getTime();
+    const alle = Object.keys(S.karten).filter(u => FILTER.akis(u) && gueltig(u));
+    // dünden önce vadesi geçmiş + daha önce yayılmış kartlar birlikte yeniden planlanır (yarım kalan / atlanan günde en eskiler yine önce gelsin)
+    const alt = alle.filter(u => { const c = S.karten[u]; return (c.due < start || c.urspr != null) && c.lern == null; });
+    const urDue = u => S.karten[u].urspr != null ? S.karten[u].urspr : S.karten[u].due;
+    const zurueck = u => { const c = S.karten[u]; if (c.urspr != null) { c.due = c.urspr; delete c.urspr; } };
+    if (alt.length <= STAU_KAP) { alt.forEach(zurueck); save(); return null; }
+    const last = [];
+    alle.forEach(u => { const c = S.karten[u]; if (c.due >= start && c.urspr == null) { const k = Math.floor((c.due - start) / DAY); if (k < 90) last[k] = (last[k] || 0) + 1; } });
+    alt.sort((a, b) => (S.karten[a].S ? 0 : 1) - (S.karten[b].S ? 0 : 1) || urDue(a) - urDue(b));
+    let k = 0, i = 0, verschoben = 0;
+    alt.forEach(u => {
+      while ((last[k] || 0) >= STAU_KAP) { k++; i = 0; }
+      last[k] = (last[k] || 0) + 1;
+      if (!k) { zurueck(u); return; }
+      const c = S.karten[u];
+      if (c.urspr == null) c.urspr = c.due;
+      c.due = start + k * DAY + 4 * 3600000 + i++ * 60000;
+      verschoben++;
+    });
+    save();
+    return { alt: alt.length, heute: alt.length - verschoben, verschoben, tage: k + 1 };
+  }
+  // günün kuyruğu bitti: yayılmış tekrarlardan en eski asıl vadeli 10'u bugüne çekilir; normal akışa girer (ön kontrol listesi dahil)
+  function vorziehen(filterFn) {
+    const vor = ertelenmis().filter(u => filterFn(u) && izOk(itemOf(u))).sort((a, b) => S.karten[a].urspr - S.karten[b].urspr).slice(0, 10);
+    if (!vor.length) return 0;
+    const t = now();
+    vor.forEach(u => { S.karten[u].due = t; });
+    session.vorgezogen = (session.vorgezogen || 0) + vor.length;
+    save();
+    return vor.length;
+  }
+  // gerçek birikme: vadesi gelen + yayılmış (ertelenmiş) kartlar — yeni kelime baskısı buna göre
+  const rueckstand = f => faellig(f).length + ertelenmis().filter(f).length;
+  const ertelenmis = () => Object.keys(S.karten).filter(u => S.karten[u].urspr != null && S.karten[u].due > now() && gueltig(u));
   function waehle() {
+    if (S.verteiltTag !== tag()) stauVerteilen();
+    // şu an sorulabilir vadeli kart yoksa (aralık / günlük sınır yüzünden bekleyenler sayılmaz) yayılmış tekrarlardan öne çek
+    const sorulabilir = u => izOk(itemOf(u)) && (typOf(u) !== 'stamm' || stammErlaubt());
+    if (session.modus !== 'paket' && !faellig(FILTER[session.modus]).some(sorulabilir)) vorziehen(FILTER[session.modus]);
     const m = session.modus;
     // 1) oturum içi yanlışların tekrarı (4 soru sonra)
     const rq = session.requeue.findIndex(r => r.nach <= session.q && S.karten[r.uid] && FILTER[m](r.uid) && izOk(itemOf(r.uid)) && gueltig(r.uid) && (typOf(r.uid) !== 'stamm' || stammErlaubt()));
@@ -492,7 +546,7 @@
       const a = aktTriage();
       if (a) { session.letzteAkt = session.q; return a; }
     }
-    if (m === 'akis') triVar = triOffen().length > 0 || faellig(u => FILTER.akis(u) && triFaehig(u) && !triGesehen(u)).length > 0;
+    if (m === 'akis') triVar = triOffen().length > 0 || faellig(u => FILTER.akis(u) && triFaehig(u) && !triGesehen(u)).length > 0 || ertelenmis().length > 0;
     // tekrar yokken: 20–30 cevapta bir "gerçekten biliyor musun?" (rastgele öğrenilmiş kelime / fiil)
     if (m === 'akis' && session.q > 0 && !triVar) {
       if (session.kontrolBei == null) session.kontrolBei = session.q + 20 + Math.floor(Math.random() * 11);
@@ -512,12 +566,14 @@
     const filter = FILTER[m];
     const dueAlle = faellig(filter);
     let due = dueAlle.filter(u => izOk(itemOf(u)) && triTor(u));
-    // birikme: ara verdiysen önce tekrarlar
-    session.stau = dueAlle.length > stauGrenze(m) ? dueAlle.length : 0;
+    // birikme: ara verdiysen önce tekrarlar (yayılmış kartlar da sayılır: yayma yükü gizlemez, yalnız dağıtır)
+    const rs = rueckstand(filter);
+    session.stau = rs > stauGrenze(m) ? rs : 0;
     // Hızlı tur / Paket: yazma tekrarları (Karışık) birikmişse yeni kelime yok; kolay kısmı yapıp zoru atlamaya karşı
-    session.schreibStau = (m === 'blitz' || m === 'paket') ? faellig(FILTER.normal).length : 0;
+    session.schreibStau = (m === 'blitz' || m === 'paket') ? rueckstand(FILTER.normal) : 0;
     if (session.schreibStau <= STAU) session.schreibStau = 0;
-    const kannNeu = !session.stau && !session.schreibStau && !dikkatAktiv();
+    // birikmede yeni kelime yok; aktif ünitenin kelimeleri hariç (kitap bekliyor, birikme bitmeden ünite kapanmasın)
+    const kannNeu = !session.schreibStau && !dikkatAktiv() && (!session.stau || (m === 'akis' && !!uniteNeuId()));
 
     // 2) yeni öğe: vade azsa ya da her 4 soruda bir (sınır dolmadıysa)
     if (kannNeu) {
@@ -745,6 +801,8 @@
           // büyük harfle küçültme yalnız cümle başında (ortadaki "Schienen" isim, scheinen fiili değil)
           const x = m.get(c) || (i === 0 || /[:„“"]$/.test(ws[i - 1]) || /^[„“"]/.test(w) ? m.get(c.charAt(0).toLowerCase() + c.slice(1)) : null);
           if (!x || gesehen.has(x)) return;
+          // dönüşlü fiilin cümlesinde dönüşlü zamir yoksa o fiil değildir ("in einigen Gegenden" ≠ sich einigen, "die Krankheit verläuft" ≠ sich verlaufen)
+          if (kind(x) === 'v' && vById[x].refl && !/\b(sich|mich|dich|uns|euch)\b/.test(satz)) return;
           gesehen.add(x);
           const l = _kontextIdx[x] = _kontextIdx[x] || [];
           if (l.length < 6) l.push({ s: satz, w: c, q: t.quelle });
@@ -1999,7 +2057,7 @@
   // Bu etkinlikler tekrar takvimini değiştirmez (ek maruz kalma); günlük hedefe 1 cevap sayılır.
   const gesehen = id => !!S.items[id] && !S.items[id].a1 && kind(id) !== 'p' && gueltig(id + ':x') && tierOf(id) >= 2;
   const lernend = id => gesehen(id) && !S.items[id].bekannt;
-  const itemFaellig = id => unitsOf(id).some(u => S.karten[id + ':' + u] && S.karten[id + ':' + u].due <= now());
+  const itemFaellig = id => unitsOf(id).some(u => { const c = S.karten[id + ':' + u]; return c && (c.due <= now() || c.urspr != null); });
   const tokRein = w => w.replace(/^[„“"(‚‘»«]+|[.,!?;:“"”)…’‘»«]+$/g, '');
   let _aktSaetze = null;
   // bütün metinler cümle cümle; her kelimenin listedeki karşılığı (formIdx)
@@ -2089,6 +2147,8 @@
   const triGesehen = u => !!(session.tri && session.tri.uids.has(u));
   const triTor = u => session.modus !== 'akis' || !triFaehig(u) || triGesehen(u);
   const triOffen = () => session.tri ? [...session.tri.offen].filter(u => S.karten[u] && S.karten[u].due <= now() && gueltig(u) && izOk(itemOf(u))) : [];
+  // listedeki kelimenin kartları: vadesi gelenler + yayılmış (ertelenmiş) olanlar — "biliyorum" hepsini kapatır, "emin değilim" hepsini bugüne çeker
+  const triKarten = id => Object.keys(S.karten).filter(u => itemOf(u) === id && triFaehig(u) && (S.karten[u].due <= now() || S.karten[u].urspr != null));
   function aktTriage() {
     const by = new Map();
     faellig(u => FILTER.akis(u) && triFaehig(u) && !triGesehen(u)).forEach(u => { const id = itemOf(u), d = S.karten[u].due; if (S.items[id] && (!by.has(id) || d < by.get(id))) by.set(id, d); });
@@ -2096,7 +2156,7 @@
     if (!ids.length) return null;
     // yön: o kelimenin vadesi gelen yazma / cümle sorusu varsa Türkçe → Almanca, yoksa Almanca → anlam (isimde artikeliyle)
     const yon = {}, artDa = {};
-    ids.forEach(id => { const us = faellig(u => itemOf(u) === id && triFaehig(u)); yon[id] = us.some(u => TRI_PROD.has(typOf(u))) ? 'tr' : 'de'; artDa[id] = us.some(u => typOf(u) === 'art'); });
+    ids.forEach(id => { const us = triKarten(id); yon[id] = us.some(u => TRI_PROD.has(typOf(u))) ? 'tr' : 'de'; artDa[id] = us.some(u => typOf(u) === 'art'); });
     return { akt: 'kontrol', tri: true, ids, antw: {}, yon, artDa };
   }
   // "Gerçekten biliyor musun?": rastgele 8 öğrenilmiş (ya da ön testte bilinen) kelime / fiil; bugün sorulmamış, vadesi gelmemiş, son 5 günde kontrol edilmemiş
@@ -2113,9 +2173,10 @@
     it.seri = 0;
     it.satzBis = t + 7 * DAY;
     S.karten[id + ':' + rek] = Object.assign(FSRS.review(k && k.S ? k : {}, 1, t, S.einst.ret), { lern: 0 });
+    delete S.karten[id + ':' + rek].urspr;
     // bu oturumda bir kez daha (cümle içinde), kalabalık tekrar kuyruğunu beklemeden
     session.requeue.push({ uid: id + ':' + rek, nach: session.q + 8, mal: 0 });
-    unitsOf(id).forEach(u => { const c = S.karten[id + ':' + u]; if (u !== rek && c && c.S) { c.S = Math.min(c.S, 2); c.due = c.due <= t ? t + 3 * 3600000 : Math.min(c.due, morgen(t) + 6 * 3600000); } });
+    unitsOf(id).forEach(u => { const c = S.karten[id + ':' + u]; if (u !== rek && c && c.S) { c.S = Math.min(c.S, 2); c.due = c.due <= t ? t + 3 * 3600000 : Math.min(c.due, morgen(t) + 6 * 3600000); delete c.urspr; } });
     const su = kind(id) === 'v' ? 'satz' : 'nsatz';
     if (unitsOf(id).includes(su)) neueKarte(id + ':' + su, t + DAY / 2);
     leechPruefen(id);
@@ -2147,11 +2208,11 @@
       n[a].push(id);
       kz[id] = t;
       // listedeki tekrar kartları: biliyorum → bugünkü tekrarı yapılmış (doğru), emin değilim → şimdi normal sorulur
-      const uids = tri ? faellig(u => itemOf(u) === id && triFaehig(u) && !tri.uids.has(u)) : [];
+      const uids = tri ? triKarten(id).filter(u => !tri.uids.has(u)) : [];
       uids.forEach(u => tri.uids.add(u));
       if (a === 'n') kontrolBilmiyor(id, t);
-      else if (a === 'b') uids.forEach(u => { const c = Object.assign(FSRS.review(S.karten[u].S ? S.karten[u] : {}, 3, t, S.einst.ret), { selbst: (S.karten[u].selbst || 0) + 1 }); delete c.neu; delete c.lern; S.karten[u] = c; });
-      else if (tri) uids.forEach(u => tri.offen.add(u));
+      else if (a === 'b') uids.forEach(u => { const c = Object.assign(FSRS.review(S.karten[u].S ? S.karten[u] : {}, 3, t, S.einst.ret), { selbst: (S.karten[u].selbst || 0) + 1 }); delete c.neu; delete c.lern; delete c.urspr; S.karten[u] = c; });
+      else if (tri) uids.forEach(u => { const c = S.karten[u]; if (c.urspr != null) { c.due = t; delete c.urspr; } tri.offen.add(u); });
       if (tri && a !== 'e') zaehlen({ typ: 'erk' }, a === 'b' ? 'richtig' : 'falsch');  // emin değilim: asıl soru sayılır
       logEintrag({ modus: 'kontrol', id, item: label(id), frage: tri ? 'sıradaki tekrar' : 'rastgele', antwort: KT_AD[a], ergebnis: { b: 'biliyor', e: 'emin-degil', n: 'bilmiyor' }[a], loesung: trOf(id), notiz: tri ? `kart:${uids.length}` : '' });
     });
@@ -2593,7 +2654,7 @@
     h.classList.remove('kisa');
     const msgs = [];
     if (session.hinweis && session.q < (session.hinweisBis || 0)) msgs.push(session.hinweis);
-    if (session.stau) msgs.push(`${session.stau} tekrar birikmiş: ${stauGrenze(session.modus)}'in altına inene kadar yeni kelime yok. Önce hâlâ hatırladıkların geliyor.`);
+    if (session.stau) msgs.push(`${session.stau} tekrar birikmiş: ${stauGrenze(session.modus)}'in altına inene kadar yeni kelime yok${session.modus === 'akis' && UNITEN.some(uAktiv) ? ' (ünite kelimeleri hariç)' : ''}. Önce hâlâ hatırladıkların geliyor.`);
     if (session.schreibStau) msgs.push(`Karışık'ta ${session.schreibStau} yazma tekrarı bekliyor: azalana kadar burada yeni kelime yok. Tanıdığını yazamıyorsan öğrenmiş sayılmazsın.`);
     if (session.vollBis > session.q) msgs.push('Bugünkü yeni sınırına ulaştın. Bundan sonra tekrarlar geliyor.');
     if (session.willkommen && session.q < 8) msgs.push(session.willkommen);
@@ -2855,6 +2916,7 @@
     const t = now();
     const alt = S.karten[q.uid] || {};
     const c = FSRS.review(alt, g, t, S.einst.ret);
+    delete c.urspr;  // ertelenmiş (yayılmış) kart cevaplandı: asıl vade izi kalksın
     // zorlanılan genç kartın ilk tekrarları kısa aralıkla (2 gün ara verince unutulmasın): küçük hata ya da daha önce unutulmuşsa en çok 2 / 4 gün.
     // Hep hızlı doğru bilinen kart FSRS aralığıyla gider (bildiğin kelime boş yere sık gelmesin).
     if (g >= 2 && (c.reps || 0) <= 5 && (g === 2 || (alt.lapses || 0) > 0)) c.due = Math.min(c.due, t + ((c.reps || 0) <= 3 ? 2 : 4) * DAY);
@@ -3132,7 +3194,9 @@
     // log klasörü bağlı değilse cevaplar dosyaya yazılmaz, Claude göremez
     const logUyari = ordner || ghToken() ? '' : `<button class="plan-log" type="button" data-git="ayar" title="Cevaplar log/log.csv'ye yazılmıyor">log kaydedilmiyor: Ayarlar'dan bağla</button>`;
     const neuInfo = `<span class="plan-et" title="Günlük yeni sınırı (Ayarlar'dan)">yeni: kelime ${neuHeute('n')}/${neuGrenze('n')} · fiil ${neuHeute('v')}/${neuGrenze('v')}</span>`;
-    $('#plan').innerHTML = `<span class="plan-et">bugün</span>${chips}${neuInfo}<span class="plan-min ${sayildi ? 'ok' : ''}" title="En az ${MIN_TAG} sayılan cevap: gün seriye sayılır">${min}</span>${logUyari}`;
+    const ert = ertelenmis().length;
+    const ertInfo = ert ? `<span class="plan-et" title="Birikmiş tekrarlar günlere yayıldı (günde ~${STAU_KAP}); bugünkü kuyruk bitince öne çekilir">yayıldı: ${ert} tekrar</span>` : '';
+    $('#plan').innerHTML = `<span class="plan-et">bugün</span>${chips}${neuInfo}${ertInfo}<span class="plan-min ${sayildi ? 'ok' : ''}" title="En az ${MIN_TAG} sayılan cevap: gün seriye sayılır">${min}</span>${logUyari}`;
   }
 
   function itemStatus(id) {
@@ -3581,6 +3645,11 @@
       session.willkommen = `Ünite kapandı: çalıştığın ${alinan.length} kelime tekrar listene eklendi (${alinan.slice(0, 6).join(', ')}${alinan.length > 6 ? ' …' : ''}). Çalışmadıkların eklenmedi.`;
       save();
     });
+  })();
+  (function stauStart() {
+    // birikmiş tekrarlar (ara verildiyse) günlere yayılır; bugün ne geldiği söylenir
+    const r = stauVerteilen();
+    if (r && r.verschoben) session.willkommen = `${session.willkommen ? session.willkommen + ' ' : ''}Birikmiş ${r.alt} tekrar ${r.tage} güne yayıldı (günde ~${STAU_KAP}): bugün ${faellig(FILTER.akis).length} tekrar${UNITEN.some(uAktiv) ? ' + ünite kelimeleri' : ''}. Kuyruk bitince ertelenenler öne çekilir.`;
   })();
   (function startModus() {
     // aynı gün içinde son bölüm; yeni günde planın ilk bitmemiş adımı

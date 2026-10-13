@@ -138,3 +138,36 @@ Son incelenen log satırı en alttaki notta yazar.
   krankschreiben, aufbewahren, kämmen, empfinden, betragen, gelangen, kommen auf), 24 kelime / kalıp `woerter.txt`. der Knödel artık bölgesel diye atlanmıyor.
 - Ünite metninde çekimli boşluk (Knödeln, creme, gewundert) kelimeye bağlanıyor; "…" yazmadan "entweder oder" kabul.
 
+
+## 2026-10-09 — sonuçlar 10-06 → 10-08 (yan dalda kalmıştı, 13 Ekim'de bu dala taşındı)
+
+- 320 satır. Çoğu doğru; zayıf noktalar: Partizip (gerechnet, geblitzt, geregnet, verzichtet, widersprochen, bemüht, gestritten),
+  benzer kelime karışıklığı (sich verlaufen/verändern/verlieren, eingespannt/entspannt, beweisen/beschweren, aufregen/anstrengen, Gedicht/Geduld, Burg/Kunst),
+  artikel (die Kunst, die Unterschrift, die Geduld, die Heimat, das Klima, das Projekt), çekim (werden: wurde, ist geworden; dürfen: durfte).
+- Eklendi: 42 düzeltme (feedback.js), kanca (sich bemühen um; ötekiler zaten vardı), 10 çeviri cümlesi + glossen.
+- Not: sistem notu bazı yerde cömert (öneri:falsch iken fast: hat verzicht, die Kält, der Kunst). 10-06 21:16 `dikkat cok-yanlis` — hava durumu kelimeleri toplu yanlış.
+- Son incelenen log satırı: 2026-10-08 21:32:31.
+
+## 2026-10-13 — birikme yayma, Ünite 2 uzatıldı, sonuçlar 10-09 → 10-11
+
+- Tuna: "çok tekrar birikti, karıştır; yoğun tekrarlar yüzünden hiç dokunamadıklarım var." Durum: 535 kartın 359'unun vadesi geçmiş
+  (günlük cevap 10-09'dan beri 174 → 64 → 18 → 0 → 0); birikme 150'yi aşınca hiç yeni öğe gelmediğinden Ünite 2'nin 112 kelimesine hiç sıra gelmemiş,
+  ünite 13 Ekim'de kendiliğinden kapanıp 0 kelime aktaracaktı.
+- Birikme yayma (`stauVerteilen`, TASARIM.md): vadesi dünden önce geçmiş kartlar günde 45 ile ileri günlere yayılır (o günün vadeli kartları sayılarak;
+  önce gerçek tekrarlar en eski vadeden, en sona hiç sorulmamış ek birimler; öğrenme adımındakiler yerinde), asıl vade `urspr`; kuyruk bitince ertelenenler
+  öne çekilir; birikmede de ünite kelimeleri gelir (yarı hızda); plan satırında `yayıldı: N tekrar`, açılışta mesaj.
+  Gerçek dosyayla simülasyon (`tests/sim_stau.js`): 260 eski tekrar 8 güne yayıldı, bugün 66 tekrar; 90 adımda 22 ünite kelimesi + 5 ön kontrol listesi;
+  kuyruk bitince 150 adımda ertelenen 238 → 103; ertesi gün dünden kalan 6. e2e duman testi geçti.
+- Ünite 2 `@bis 2026-10-26` (hiç başlanmamıştı).
+- "Metinde" cümlesi: dönüşlü fiilin cümlesinde dönüşlü zamir yoksa eşleşmez ("in einigen Gegenden" ≠ sich einigen, "die Krankheit verläuft" ≠ sich verlaufen).
+- Sonuçlar (332 satır): düzensiz fiilde -t'li Partizip / -te'li Präteritum (gestreitet, verlauft, gefangt, leihte, nennte, geschah yerine geschehen),
+  özne–fiil uyumu (Ihre Augen blitzt, Es folgt die Nachrichten, man fürchten), boşlukta sözlük biçimi (kühl→kühler, Regel→Regeln, nass→nasse),
+  -heit/-e türetme (Kinderheit, Kält, Kälter), yakın kelime (frech/feucht, Antrag/Vertrag, einziehen/umziehen, verlassen auf/verzichten auf),
+  artikel (das Projekt, die Unterschrift, der Nebel, der Wohnsitz, das Missverständnis; TR→DE şıkta die Politik/Mensa/Quittung).
+  Kendine not cömert: folgt (richtig), gezweifelt (hat'sız richtig), Kinderheit, Kälter, Situtation, verlauft; makul: Veränderung, kühl, hâl yazılmadı.
+- Eklendi: 56 düzeltme (feedback.js), 10 kanca (blitzen, zweifeln an, zustimmen, vorschlagen, sich eignen für, donnern, nass, die Regel, sich fürchten vor,
+  sich verletzen), 56 çeviri cümlesi + glossen (bilmiyorum: eher, die Regel, der Hausmeister, durcheinander, das Sonderangebot, sich verlassen auf,
+  sich fürchten vor, sich verlaufen · okuma: allerdings, anwesend, gleichzeitig, der Fall, weltweit · yeni: digital, das Missverständnis, fett, das Ziel,
+  die Diskussion, eben, die Politik, folgen · takılan: zustimmen, vorschlagen, sich eignen für, donnern, blitzen, nass).
+- Bilinen eksik: fiil metninde "fingen … an" (anfangen) fangen diye soruldu (ayrılabilir ön ek cümle sonunda; dizin tek kelimeye bakıyor).
+- Son incelenen log satırı: 2026-10-11 17:45:24.

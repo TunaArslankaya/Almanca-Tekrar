@@ -3992,3 +3992,69 @@ Ich hatte keine großen Erwartungen an den Urlaub. | -
 Das ist nur eine Behauptung, du hast keine Beweise. | der Beweis = kanıt
 Seine Behauptung stimmt nicht. | stimmen = doğru olmak
 Ich verstehe deine Behauptung nicht. | -
+Im Nebel haben wir uns auf dem Weg zur Burg verlaufen. | der Nebel = sis; die Burg = kale
+Mit etwas Geduld hat sich das Kind schnell beruhigt. | die Geduld = sabır; schnell = çabuk
+Wenn Sie ein Problem haben, wenden Sie sich bitte an das Amt. | das Problem = sorun; das Amt = kurum
+Er hat sich lange um einen Studienplatz bemüht. | der Studienplatz = üniversite kontenjanı
+Ich rege mich über die Kälte im Büro auf. | die Kälte = soğuk; das Büro = ofis
+Der Arzt konnte die Krankheit mit einem Test beweisen. | die Krankheit = hastalık; der Test = test
+Du übertreibst, die Kunst war gar nicht so teuer! | die Kunst = sanat; gar nicht = hiç değil
+Im Museum muss man nicht schweigen, aber leise sprechen. | das Museum = müze; leise = sessiz
+Wegen der Kälte verzichten wir auf den Ausflug. | wegen = yüzünden; der Ausflug = gezi
+Die Nachbarn haben sich gestern wegen der Miete gestritten. | der Nachbar = komşu; die Miete = kira
+Das Zimmer ist eher klein, aber sehr hell. | hell = aydınlık
+Ich trinke eher Tee als Kaffee. | -
+Mein Bruder ist eher ruhig und spricht nicht viel. | ruhig = sakin, sessiz
+In unserem Sprachkurs gibt es eine Regel: Wir sprechen nur Deutsch. | der Sprachkurs = dil kursu
+Die Lehrerin hat uns die neuen Regeln erklärt. | erklären = açıklamak
+Es gibt keine Regel ohne Ausnahme. | die Ausnahme = istisna
+Die Heizung ist kaputt, ich rufe den Hausmeister an. | die Heizung = kalorifer
+Der Hausmeister hat den Schlüssel für den Keller. | der Keller = bodrum
+Unser Hausmeister wohnt im Erdgeschoss und ist sehr freundlich. | das Erdgeschoss = zemin kat
+Die Papiere auf dem Schreibtisch liegen alle durcheinander. | -
+In meinem Kopf ist gerade alles durcheinander. | -
+Mein Zeitplan für diese Woche ist völlig durcheinander. | der Zeitplan = zaman planı, program; völlig = tamamen
+Im Supermarkt gibt es diese Woche viele Sonderangebote. | -
+Das Sonderangebot gilt nur bis Samstag. | gelten = geçerli olmak
+Hast du das Sonderangebot für die Winterjacken gesehen? | die Winterjacke = kışlık mont
+Ihr könnt euch auf unseren Hausmeister verlassen. | der Hausmeister = kapıcı
+Wir haben uns auf den Zug verlassen und sind zu spät gekommen. | zu spät kommen = geç kalmak
+Verlass dich nicht auf das Wetter, nimm einen Regenschirm mit. | der Regenschirm = şemsiye; mitnehmen = yanına almak
+Viele Menschen fürchten sich vor Spinnen. | die Spinne = örümcek
+Als Kind habe ich mich vor dem Zahnarzt gefürchtet. | der Zahnarzt = dişçi; als Kind = çocukken
+Fürchtet ihr euch nicht vor der langen Reise? | -
+Ohne Handy verlaufe ich mich in jeder fremden Stadt. | fremd = yabancı
+Er hat sich auf dem Weg zum Bahnhof verlaufen. | auf dem Weg zu = -e giderken
+Passt auf, dass ihr euch im Park nicht verlauft! | aufpassen = dikkat etmek
+Das Hotel war schön, allerdings ziemlich teuer. | ziemlich = epey
+Ich habe die E-Mail bekommen, allerdings noch nicht gelesen. | -
+Der Chef war bei der Besprechung nicht anwesend. | die Besprechung = (iş) toplantısı
+Heute sind nur zwölf Schüler anwesend, die anderen sind krank. | -
+Die beiden Gäste sind gleichzeitig angekommen. | die beiden = ikisi
+Sie telefoniert und kocht gleichzeitig. | -
+Die Polizei untersucht den Fall seit zwei Wochen. | untersuchen = araştırmak, incelemek
+Im schlimmsten Fall müssen wir den Flug verschieben. | schlimmst- = en kötü; verschieben = ertelemek
+Dieses Lied kennt man weltweit. | das Lied = şarkı
+Die Firma hat weltweit mehr als 5000 Mitarbeiter. | der Mitarbeiter = çalışan
+Viele Leute lesen die Zeitung heute nur noch digital. | nur noch = artık sadece
+Die Bibliothek bietet viele Bücher auch digital an. | anbieten = sunmak
+Das war nur ein Missverständnis, ich habe deine Nachricht falsch verstanden. | die Nachricht = mesaj
+Es gab ein Missverständnis zwischen mir und meinem Vermieter. | der Vermieter = ev sahibi; zwischen = arasında
+Pommes sind lecker, aber ziemlich fett. | die Pommes (Pl.) = patates kızartması; ziemlich = epey
+Die Suppe im Restaurant war viel zu fett und salzig. | salzig = tuzlu
+Mein Ziel ist es, nächstes Jahr in Bremen zu studieren. | -
+Nach drei Stunden haben wir endlich das Ziel erreicht. | erreichen = ulaşmak; endlich = nihayet
+Nach dem Vortrag gab es eine lange Diskussion. | der Vortrag = sunum, konuşma
+Die Diskussion mit meinem Vermieter hat nichts gebracht. | der Vermieter = ev sahibi; nichts bringen = işe yaramamak
+Ich habe eben mit meiner Mutter telefoniert. | -
+Das Auto ist alt, deshalb ist es eben billig. | deshalb = o yüzden
+Mein Vater diskutiert gern über Politik. | diskutieren über = hakkında tartışmak
+Die Politik muss mehr für die Umwelt tun. | die Umwelt = çevre
+Der Hund ist mir bis zur Haustür gefolgt. | die Haustür = ev kapısı
+Wir folgen dem Weg bis zum Fluss. | der Fluss = nehir
+Meine Eltern haben meinem Vorschlag sofort zugestimmt. | der Vorschlag = öneri
+Mein Kollege hat mir ein besseres Programm vorgeschlagen. | -
+Diese Schuhe eignen sich nicht für nasses Wetter. | nass = ıslak
+Es donnert schon, wir sollten schnell nach Hause gehen. | sollten = -se iyi olur (Konjunktiv II)
+Draußen blitzt es, bleib lieber im Haus. | draußen = dışarıda; lieber = daha iyisi
+Nach dem Regen war die Bank im Park noch nass. | die Bank = (oturma) bankı
