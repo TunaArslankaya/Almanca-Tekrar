@@ -1539,3 +1539,13 @@
 2026-10-11 17:45:20;leech;v592;sich verletzen;yaralanmak;;takiliyor;;günler:2026-10-07,2026-10-09,2026-10-11
 2026-10-11 17:45:20;refl;v592:refl;sich verletzen;Pass auf, dass du dich nicht _____!;verletzen;falsch;verletzt;artikel/çekim | sek:4 | ipucu:0
 2026-10-11 17:45:24;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;sek:3 | ipucu:0
+2026-10-13 20:21:51;kontrol;n0520;der Hausmeister;sıradaki tekrar;biliyorum;biliyor;kapıcı, apartman görevlisi;kart:4
+2026-10-13 20:21:51;kontrol;v509;sich streiten mit;sıradaki tekrar;biliyorum;biliyor;(biriyle) kavga etmek, tartışmak;kart:3
+2026-10-13 20:21:51;kontrol;v589;sich verlassen auf;sıradaki tekrar;emin değilim;emin-degil;(birine / bir şeye) güvenmek;kart:3
+2026-10-13 20:21:51;kontrol;v278;sich fürchten vor;sıradaki tekrar;emin değilim;emin-degil;(bir şeyden) korkmak;kart:3
+2026-10-13 20:21:52;kontrol;x1504;die Behauptung;sıradaki tekrar;emin değilim;emin-degil;iddia;kart:2
+2026-10-13 20:21:52;kontrol;v232;erleichtern;sıradaki tekrar;biliyorum;biliyor;kolaylaştırmak;kart:1
+2026-10-13 20:21:52;kontrol;v063;sich aufregen über;sıradaki tekrar;emin değilim;emin-degil;(bir şeye) sinirlenmek, heyecanlanmak;kart:2
+2026-10-13 20:21:52;leech;v466;schweigen;susmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-13
+2026-10-13 20:21:52;kontrol;v466;schweigen;sıradaki tekrar;bilmiyorum;bilmiyor;susmak;kart:2
+2026-10-13 20:21:52;kontrol;x1503;die Erwartung;sıradaki tekrar;emin değilim;emin-degil;beklenti;kart:2
