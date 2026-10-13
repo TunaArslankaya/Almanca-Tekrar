@@ -1549,3 +1549,10 @@
 2026-10-13 20:21:52;leech;v466;schweigen;susmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-13
 2026-10-13 20:21:52;kontrol;v466;schweigen;sıradaki tekrar;bilmiyorum;bilmiyor;susmak;kart:2
 2026-10-13 20:21:52;kontrol;x1503;die Erwartung;sıradaki tekrar;emin değilim;emin-degil;beklenti;kart:2
+2026-10-13 20:21:52;kontrol;v142;beweisen;sıradaki tekrar;bilmiyorum;bilmiyor;kanıtlamak;kart:3
+2026-10-13 20:21:52;kontrol;v564;untersuchen;sıradaki tekrar;biliyorum;biliyor;muayene etmek, incelemek;kart:2
+2026-10-13 20:21:52;kontrol;v272;frieren;sıradaki tekrar;emin değilim;emin-degil;"üşümek; donmak";kart:2
+2026-10-13 20:21:52;kontrol;v117;berichten über;sıradaki tekrar;bilmiyorum;bilmiyor;(bir şey hakkında) haber vermek, anlatmak;kart:2
+2026-10-13 20:21:52;kontrol;v447;scheinen;sıradaki tekrar;biliyorum;biliyor;"(güneş) parlamak; … gibi görünmek";kart:2
+2026-10-13 20:21:52;kontrol;n0381;die Forderung;sıradaki tekrar;emin değilim;emin-degil;talep;kart:2
+2026-10-13 20:21:52;akt;kontrol;gerçekten biliyor musun?;der Hausmeister, sich streiten mit, sich verlassen auf, sich fürchten vor, die Behauptung, erleichtern, sich aufregen über, schweigen, die Erwartung, beweisen, untersuchen, frieren, berichten über, scheinen, die Forderung;;falsch;;biliyor:5 emin-degil:7 bilmiyor:3
