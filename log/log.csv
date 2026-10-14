@@ -1566,3 +1566,38 @@
 2026-10-14 19:11:33;kontrol;n1286;die Unterschrift;sıradaki tekrar;biliyorum;biliyor;imza;kart:2
 2026-10-14 19:11:33;kontrol;n0617;die Kindheit;sıradaki tekrar;biliyorum;biliyor;çocukluk;kart:4
 2026-10-14 19:11:33;kontrol;n0028;die Änderung;sıradaki tekrar;biliyorum;biliyor;değişiklik;kart:4
+2026-10-14 19:11:33;kontrol;n1088;die Situation;sıradaki tekrar;biliyorum;biliyor;durum;kart:3
+2026-10-14 19:11:33;kontrol;w0172;frech;sıradaki tekrar;emin değilim;emin-degil;arsız, şımarık;kart:3
+2026-10-14 19:11:33;kontrol;x1460;das Missverständnis;sıradaki tekrar;biliyorum;biliyor;yanlış anlaşılma;kart:1
+2026-10-14 19:11:33;kontrol;n0914;die Politik;sıradaki tekrar;biliyorum;biliyor;siyaset;kart:4
+2026-10-14 19:11:33;kontrol;n0207;die Burg;sıradaki tekrar;biliyorum;biliyor;kale, şato;kart:4
+2026-10-14 19:11:33;akt;kontrol;gerçekten biliyor musun?;blitzen, vorschlagen, übertreiben, sich bemühen um, sich aufregen über, folgen, der Wohnsitz, die Unterschrift, die Kindheit, die Änderung, die Situation, frech, das Missverständnis, die Politik, die Burg;;fast;;biliyor:11 emin-degil:3 bilmiyor:1
+2026-10-14 19:11:38;pretest;n0496:erk;die Gymnastik;die Gymnastik;jimnastik;bekannt;jimnastik;sek:4
+2026-10-14 19:11:42;art;n1389:art;der Wohnsitz;Wohnsitz;der;richtig;der Wohnsitz;sek:3 | ipucu:0
+2026-10-14 19:11:48;refl;v592:refl;sich verletzen;Ich habe mich beim Kochen _____.;verletzt;richtig;verletzt;sek:6 | ipucu:0
+2026-10-14 19:11:54;nsatz;w0172:nsatz;frech;Das Kind war sehr _____ zu seiner Lehrerin.;freuch;richtig;frech;yazım | öneri:fast | sek:5 | ipucu:0
+2026-10-14 19:12:58;yeni;v039;sich anstrengen;;;neu;;
+2026-10-14 19:13:03;bed;v063:bed;sich aufregen über;sich aufregen über;sinirlenmek, heyecanlanmak;richtig;(bir şeye) sinirlenmek, heyecanlanmak;sek:4 | ipucu:0
+2026-10-14 19:14:15;kontrol;n0025;das Amt;sıradaki tekrar;biliyorum;biliyor;resmî daire;kart:3
+2026-10-14 19:14:15;kontrol;v197;einziehen;sıradaki tekrar;biliyorum;biliyor;(yeni eve) taşınmak;kart:1
+2026-10-14 19:14:15;kontrol;n0753;die Mahnung;sıradaki tekrar;biliyorum;biliyor;ihtar (ödeme);kart:1
+2026-10-14 19:14:15;kontrol;x1501;die Clique;sıradaki tekrar;biliyorum;biliyor;klik, arkadaş grubu;kart:2
+2026-10-14 19:14:15;kontrol;v305;hageln;sıradaki tekrar;emin değilim;emin-degil;dolu yağmak;kart:2
+2026-10-14 19:14:15;kontrol;w0119;eher;sıradaki tekrar;emin değilim;emin-degil;daha çok, daha ziyade;kart:2
+2026-10-14 19:14:15;kontrol;n1354;die Wahrheit;sıradaki tekrar;biliyorum;biliyor;gerçek;kart:4
+2026-10-14 19:14:15;kontrol;n0381;die Forderung;sıradaki tekrar;biliyorum;biliyor;talep;kart:2
+2026-10-14 19:14:15;kontrol;v423;reagieren auf;sıradaki tekrar;biliyorum;biliyor;(bir şeye) tepki vermek;kart:2
+2026-10-14 19:14:15;kontrol;v119;sich beruhigen;sıradaki tekrar;biliyorum;biliyor;sakinleşmek;kart:3
+2026-10-14 19:14:15;kontrol;v642;sich wenden an;sıradaki tekrar;emin değilim;emin-degil;(birine) başvurmak;kart:3
+2026-10-14 19:14:15;kontrol;v425;rechnen mit;sıradaki tekrar;emin değilim;emin-degil;(bir şeyi) hesaba katmak, beklemek;kart:3
+2026-10-14 19:14:15;kontrol;v125;sich beschweren bei;sıradaki tekrar;emin değilim;emin-degil;(birine) şikâyette bulunmak;kart:3
+2026-10-14 19:14:15;kontrol;v089;beantragen;sıradaki tekrar;biliyorum;biliyor;(resmî bir şey için) başvurmak;kart:1
+2026-10-14 19:14:15;kontrol;v561;unterschreiben;sıradaki tekrar;biliyorum;biliyor;imzalamak;kart:1
+2026-10-14 19:14:15;akt;kontrol;gerçekten biliyor musun?;das Amt, einziehen, die Mahnung, die Clique, hageln, eher, die Wahrheit, die Forderung, reagieren auf, sich beruhigen, sich wenden an, rechnen mit, sich beschweren bei, beantragen, unterschreiben;;richtig;;biliyor:10 emin-degil:5 bilmiyor:0
+2026-10-14 19:14:21;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit d;richtig;rechnen mit (mit + Dat);sek:5 | ipucu:2
+2026-10-14 19:14:28;satz;v125:satz;sich beschweren bei;Wir haben uns beim Hausmeister über den Lärm _____.;beschwert;richtig;beschwert;sek:7 | ipucu:0
+2026-10-14 19:15:07;pretest;x1523:erk;das Gehirn;das Gehirn;;neu;beyin;bilmiyorum
+2026-10-14 19:15:21;bed;v642:bed;sich wenden an;sich wenden an;başvurmak;fast;(birine) başvurmak;yavaş | sek:9 | ipucu:1
+2026-10-14 19:15:36;frm;v620:frm;verzichten auf;verzichten auf — er / sie Perfekt;hat verzicht;falsch;hat verzichtet;artikel/çekim | sek:12 | ipucu:0
+2026-10-14 19:15:51;nsatz;w0119:nsatz;eher;Das Klima hingegen besagt, ob es an einem Ort normalerweise _____ warm oder eher kalt ist, im Durchschnitt vieler Jahre.;eher;richtig;eher;sek:14 | ipucu:0
+2026-10-14 19:15:57;bed;v111:bed;sich bemühen um;Er hat sich lange um einen Studienplatz bemüht.;çabalamak;richtig;(bir şey için) çabalamak;sek:5 | ipucu:0
