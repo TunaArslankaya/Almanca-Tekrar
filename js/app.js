@@ -1595,7 +1595,8 @@
     $('#cevap').disabled = true;
     $('#sonuc').innerHTML = `<div class="sonuc ${r.urteil}"><div class="baslik">${{ richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[r.urteil]}</div>
       ${r.urteil !== 'richtig' ? `<div class="satir"><span class="et">doğrusu</span><span class="deger">${deHTML(l.form)} <span class="soluk">(${esc(label(l.id))})</span></span></div>${kancaHTML(l.id)}` : ''}
-      <div class="soluk">Devam: <kbd>Enter</kbd></div></div>`;
+      <button class="btn ana devam-btn" data-act="paket-weiter" type="button">Devam <kbd>Enter</kbd></button></div>`;
+    kart.classList.add('cevaplandi');
     save();
   }
   function paketAbschluss(q) {
@@ -1783,7 +1784,9 @@
   }
   // kapanmış (@geschlossen ya da @bis tarihi geçmiş) ya da aktarılmış ünite artık gösterilmez
   const uZu = U => !!U.geschlossen || (!!U.bis && tag() > U.bis);
-  const uAktiv = U => !uZu(U) && !(S.unite && S.unite[U.id] && S.unite[U.id].uebernommen);
+  // @inaktiv ünite (kitapta henüz gelmemiş Kapitel): Ayarlar'dan "Aç" denene kadar görünmez
+  const uOffen = U => !U.inaktiv || !!(S.unite && S.unite[U.id] && S.unite[U.id].aktiv);
+  const uAktiv = U => uOffen(U) && !uZu(U) && !(S.unite && S.unite[U.id] && S.unite[U.id].uebernommen);
   const uAktuell = () => UNITEN.find(uAktiv) || UNITEN[UNITEN.length - 1];
   // ünite kelimesi → ana listedeki öğe (isim / fiil / diğer kelime)
   function uMainId(it) {
@@ -3546,6 +3549,13 @@
     $('#a-ses').checked = sesAcik();
     $('#a-titresim').checked = titresimAcik();
     $('#a-kur').innerHTML = standalone() ? '✓ Uygulama olarak açık.' : iOS ? 'iPhone: Safari\'de Paylaş <b>⬆︎</b> → <b>Ana Ekrana Ekle</b>. Ana ekrandan açınca ilerlemen Safari temizliğinde silinmez.' : 'Android / Chrome: menü (⋮) → <b>Uygulamayı yükle</b> ya da <b>Ana ekrana ekle</b>.';
+    // üniteler: kitapta sırası gelmeyen (@inaktiv) Kapitel buradan açılır; açık olan kapatılabilir
+    const ua = $('#a-unite');
+    if (ua) ua.innerHTML = UNITEN.length ? UNITEN.map(U => {
+      const st = S.unite && S.unite[U.id], durum = uZu(U) || (st && st.uebernommen) ? 'bitti' : uOffen(U) ? 'açık' : 'kapalı';
+      const n = U.items.length, bis = U.bis ? ` · ${esc(U.bis)}'e kadar` : '';
+      return `<div class="oge"><span class="de">${esc(U.titel)}</span><span class="tr">${n} kelime${bis}${U.inaktiv && durum === 'kapalı' ? ' · kitapta sırası gelince aç' : ''}</span><span class="yan">${durum === 'bitti' ? '<span class="durum-pil sitzt">bitti</span>' : `<button class="btn mini" data-unite-ac="${U.id}" type="button">${durum === 'açık' ? 'Kapat' : 'Aç'}</button>`}</span></div>`;
+    }).join('') : '<span class="soluk">Ünite yok.</span>';
   }
 
   // ================= Uygulama kabuğu: Bugün ekranı, tur, seri, puan, efektler =================
@@ -3649,6 +3659,7 @@
   }
   // ---- tur ----
   function turBaslat() {
+    const fx = $('#fx'); if (fx) fx.replaceChildren();
     session.tur = { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0, start: now(), w: {}, neu: [], hedefOnce: heute().n >= ziel('akis'), seriOnce: gunAktif(tag()) };
     otRender();
   }
@@ -3670,6 +3681,7 @@
   }
   function turSonuRender(sebep) {
     clearTimers();
+    kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis', 'cevaplandi');
     const tu = session.tur || { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0, start: now(), w: {} };
     tu.bitti = true;
     const dk = Math.max(1, Math.round((now() - tu.start) / 60000));
@@ -3978,16 +3990,21 @@
   function oyunCevap(a) {
     const o = session.oyun; if (!o || o.durum !== 'oyun' || !aktuell || !aktuell.id) return;
     const id = aktuell.id, n = byId[id], ok = a === n.art, t = now(), uid = id + ':art', c = S.karten[uid];
+    if (t - o.start > OYUN_SN * 1000) return oyunBitir();
+    if (o.sonT && t - o.sonT < 250) return;  // basılı tutma / çift dokunuş sayılmaz
+    const dusunulmus = !o.sonT || t - o.sonT >= 400;
+    o.sonT = t;
     o.toplam++; o.i++;
     if (ok) { o.dogru++; o.kombo++; o.enKombo = Math.max(o.enKombo, o.kombo); o.son = 'ok'; o.duzelt = ''; ton(o.kombo % 5 === 0 ? 'seri' : 'tik'); titret(8); }
     else { o.kombo = 0; o.son = 'yanlis'; o.yanlis.push(id); o.duzelt = `${artHTML(n)}`; ton('yanlis'); titret([12, 40, 12]); }
     // takvim: vadesi gelmişse normal tekrar; değilse yanlışta yarına çekilir
-    if (c) {
+    if (c && dusunulmus) {
       if (c.due <= t && c.S) { const r = FSRS.review(c, ok ? 3 : 1, t, S.einst.ret); delete r.urspr; if (!ok) r.due = Math.max(r.due, morgen(t)); S.karten[uid] = r; }
       else if (!ok) { c.due = Math.min(c.due, morgen(t) + 4 * 3600000); c.lastG = 1; }
     }
-    const d = heute(); d.n++; d[ok ? 'richtig' : 'falsch']++; heuteM('artoyun').n++;
-    xpEkle(ok ? 2 : 0); gunSayac(d);
+    // oyun günlük hedefe / seriye sayılmaz (emek harcamadan dolmasın); yalnız artikel kartlarını ilerletir
+    const d = heute(); d.oyun = (d.oyun || 0) + 1; heuteM('artoyun').n++;
+    xpEkle(ok ? 2 : 0);
     artOyunRender();
   }
   function oyunBitir() {
@@ -4022,7 +4039,12 @@
     if (!b || !b.dataset.v) return;
     if (b.dataset.v === 'calis') calisBasla(); else zeigView(b.dataset.v);
   });
-  $('#calis-kapat').addEventListener('click', () => { clearTimers(); zeigView('ana'); });
+  // cevaplanmış ama notlanmamış soru (sonuç paneli açıkken çıkış): sistem notuyla kaydedilir, cevap kaybolmaz
+  function cikisNotla() {
+    const q = aktuell;
+    if (q && q.done && !q.benotet && q.res && typeof q.pruef === 'function') { try { benoten(q.res.urteil === 'richtig' ? 3 : q.vorschlag || 1); } catch (e) { console.warn(e); } }
+  }
+  $('#calis-kapat').addEventListener('click', () => { clearTimers(); cikisNotla(); zeigView('ana'); });
   $('#ses-btn').addEventListener('click', () => { S.einst.ses = !sesAcik(); save(); otRender(); if (sesAcik()) ton('dogru'); });
   $('#ana').addEventListener('click', e => {
     const a = e.target.closest('[data-act-ana]'); if (!a) return;
@@ -4120,7 +4142,7 @@
     else if (act === 'paket-lesen') { aktuell.schritt = 'lesen'; aktuell.gelesen = true; aktuell.schrittStart = now(); paketRender(aktuell); }
     else if (act === 'weiter') zeige();
     else if (act === 'extra') { session.extra = true; zeige(); }
-    else if (act === 'tur-devam') { turBaslat(); session.tur.mod = session.modus; zeige(); }
+    else if (act === 'tur-devam') { const b = session.tur && session.tur.boyu; turBaslat(); session.tur.mod = session.modus; if (b) session.tur.boyu = b; zeige(); }
     else if (act === 'oyun-basla') oyunBasla();
   });
   document.addEventListener('click', e => {
@@ -4136,14 +4158,15 @@
     if ($('#v-calis').hidden || !aktuell) return;
     const q = aktuell;
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
-    if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); zeigView('ana'); return; }
+    if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'oyun') {
+      if (e.repeat) return;
       if (!inInput && /^[123]$/.test(e.key) && session.oyun && session.oyun.durum === 'oyun') { e.preventDefault(); oyunCevap(['der', 'die', 'das'][+e.key - 1]); }
       else if (e.key === 'Enter' && !inInput && (!session.oyun || session.oyun.durum !== 'oyun')) { e.preventDefault(); oyunBasla(); }
       return;
     }
     if (q.typ === 'turSonu') {
-      if (e.key === 'Enter' && !inInput) { e.preventDefault(); if (q.sebep === 'leer') zeigView('ana'); else { turBaslat(); session.tur.mod = session.modus; zeige(); } }
+      if (e.key === 'Enter' && !inInput) { e.preventDefault(); if (q.sebep === 'leer') zeigView('ana'); else { const b = session.tur && session.tur.boyu; turBaslat(); session.tur.mod = session.modus; if (b) session.tur.boyu = b; zeige(); } }
       return;
     }
     if (q.typ === 'akt') {
@@ -4291,6 +4314,15 @@
     catch (e) { ghDurum('Anahtar çalışmadı: ' + e.message); }
   });
   $('#gh-simdi').addEventListener('click', () => ghSync(true));
+  $('#v-ayar').addEventListener('click', e => {
+    const b = e.target.closest('[data-unite-ac]'); if (!b) return;
+    const U = UNITEN.find(u => u.id === b.dataset.uniteAc); if (!U) return;
+    const st = uState(U);
+    st.aktiv = !uOffen(U);
+    if (!st.aktiv && !U.inaktiv) st.aktiv = false, U.inaktiv = true;  // elle kapatılan ünite de kapalı sayılır
+    save(); renderAyar(); renderPlan(); if (!$('#v-ana').hidden) renderAna();
+    toast(st.aktiv ? `${U.titel}: açıldı, yeni kelimeleri Çalış'ta gelir.` : `${U.titel}: kapatıldı.`);
+  });
   $('#gh-claude').addEventListener('click', e => { e.target.disabled = true; claudeGonder().then(() => { e.target.disabled = false; }); });
   // A1 + modal fiiller: bilinen say (öğrencinin bilmediği dört kelime hariç). İsimlerde yalnız artikel sorulur,
   // ama bariz artikeller atlanır: -e / -ung / -heit / -keit / -ion … kuralına uyan die'ler, -in ile biten kadın isimleri,
@@ -4391,7 +4423,11 @@
     });
   }
   // ana ekran kısayolları: ?tur=kisa (klavyesiz 8), ?tur=artikel (Artikel 60 sn)
-  try { const tp = new URLSearchParams(location.search).get('tur'); if (tp === 'kisa') setTimeout(() => calisBasla('blitz', 8), 0); else if (tp === 'artikel') setTimeout(() => calisBasla('artoyun'), 0); } catch (e) { /* yok */ }
+  try {
+    const sp = new URLSearchParams(location.search), tp = sp.get('tur');
+    if (tp) { sp.delete('tur'); history.replaceState(null, '', location.pathname + (sp.toString() ? '?' + sp : '') + location.hash); }
+    if (tp === 'kisa') setTimeout(() => calisBasla('blitz', 8), 0); else if (tp === 'artikel') setTimeout(() => calisBasla('artoyun'), 0);
+  } catch (e) { /* yok */ }
   try { if (navigator.storage && navigator.storage.persist) navigator.storage.persisted().then(p => p || navigator.storage.persist()).catch(() => {}); } catch (e) { /* yok */ }
   // Kapanmış ünite: ünitede çalıştığın (basamağa giren) kelimeler tekrar sistemine; çalışmadıkların alınmaz (B1 listesindeyse sırası gelince gelir)
   // tek seferlik: geçmiş cevaplardan (S.log) her kelimenin art arda doğru serisi; 4+ ise bildiğin kelime seyrekleşir

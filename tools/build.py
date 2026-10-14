@@ -692,6 +692,7 @@ def unite_lesen(nr):
         if line.startswith("@titel "): U["titel"] = line[7:].strip(); continue
         if line.strip() == "@geschlossen": U["geschlossen"] = True; continue
         if line.startswith("@bis "): U["bis"] = line[5:].strip(); continue  # bu gün bitince kendiliğinden kapanır
+        if line.strip() == "@inaktiv": U["inaktiv"] = True; continue  # Tuna Ayarlar'dan açana kadar kapalı (kitapta henüz gelmemiş Kapitel)
         if line.startswith("@gruppe "): gruppe = line[8:].strip(); continue
         p = [x.strip() for x in line.split("|")]
         if len(p) != 7: errors.append(f"unite{nr}: {line}"); continue
