@@ -21,6 +21,10 @@
   const stauGrenze = m => m === 'akis' ? Math.max(60, 2 * gunHedef()) : STAU;
   const STAU_KAP = 45;       // (eski sabit) birikmiş tekrarların günlük payı artık günlük hedefe bağlı: stauKap()
   const stauKap = () => Math.max(30, Math.round(0.8 * gunHedef()));
+  // v5 M−1: öz-değerlendirme listesi (aktTriage) ve rastgele kontrol (aktKontrol) kapalı; tekrarlar gerçek soruyla sorulur
+  const KONTROL = false;
+  // senkron koruması: bu kodun anladığı en yeni şema (uzaktaki S.surum bundan büyükse birleştirme ve yazma yok)
+  const CODE_SURUM = 3;
 
   // ================= Veri =================
   const byId = Object.fromEntries(window.NOMEN.liste.map(n => [n.id, n]));
@@ -570,13 +574,13 @@
     // Çalış: sıradaki 10–15 tekrar önce listede (biliyorum / emin değilim / bilmiyorum); listedeki "emin değilim" kartları
     // sorulunca (ya da aralık kuralı yüzünden şimdilik sorulamıyorsa) sıradaki liste
     let triVar = false;
-    if (m === 'akis' && session.letzteAkt !== session.q && !triOffen().length) {
+    if (KONTROL && m === 'akis' && session.letzteAkt !== session.q && !triOffen().length) {
       const a = aktTriage();
       if (a) { session.letzteAkt = session.q; return a; }
     }
-    if (m === 'akis') triVar = triOffen().length > 0 || faellig(u => FILTER.akis(u) && triFaehig(u) && !triGesehen(u)).length > 0 || ertelenmis().length > 0;
+    if (KONTROL && m === 'akis') triVar = triOffen().length > 0 || faellig(u => FILTER.akis(u) && triFaehig(u) && !triGesehen(u)).length > 0 || ertelenmis().length > 0;
     // tekrar yokken: 20–30 cevapta bir "gerçekten biliyor musun?" (rastgele öğrenilmiş kelime / fiil)
-    if (m === 'akis' && session.q > 0 && !triVar) {
+    if (KONTROL && m === 'akis' && session.q > 0 && !triVar) {
       if (session.kontrolBei == null) session.kontrolBei = session.q + 20 + Math.floor(Math.random() * 11);
       if (session.q >= session.kontrolBei && session.letzteAkt !== session.q) {
         session.kontrolBei = session.q + 20 + Math.floor(Math.random() * 11);
@@ -2232,7 +2236,7 @@
     return TRI_TYP.has(typOf(u)) && !!c && !!it && !(it.seit && tag(it.seit) === tag()) && !(c.last && now() - c.last < 3 * 3600000);
   };
   const triGesehen = u => !!(session.tri && session.tri.uids.has(u));
-  const triTor = u => session.modus !== 'akis' || !triFaehig(u) || triGesehen(u);
+  const triTor = u => !KONTROL || session.modus !== 'akis' || !triFaehig(u) || triGesehen(u);
   const triOffen = () => session.tri ? [...session.tri.offen].filter(u => S.karten[u] && S.karten[u].due <= now() && gueltig(u) && izOk(itemOf(u))) : [];
   // listedeki kelimenin kartları: vadesi gelenler + yayılmış (ertelenmiş) olanlar — "biliyorum" hepsini kapatır, "emin değilim" hepsini bugüne çeker
   const triKarten = id => Object.keys(S.karten).filter(u => itemOf(u) === id && triFaehig(u) && (S.karten[u].due <= now() || S.karten[u].urspr != null));
@@ -2307,10 +2311,8 @@
       if (a === 'n') kontrolBilmiyor(id, t);
       else if (a === 'e') { if (tri) uids.forEach(jetzt); }
       else if (dogrula) uids.forEach(u => { S.karten[u].dogrula = 1; jetzt(u); });
-      else {
-        uids.filter(u => typOf(u) === 'art').forEach(jetzt);
-        uids.filter(u => typOf(u) !== 'art').forEach(u => { const c = Object.assign(FSRS.review(S.karten[u].S ? S.karten[u] : {}, 3, t, S.einst.ret), { selbst: (S.karten[u].selbst || 0) + 1 }); delete c.neu; delete c.lern; delete c.urspr; S.karten[u] = c; });
-      }
+      // biliyorum: öz-not artık karta yazılmaz (selbst yok); kartlar gerçek soruyla sorulur
+      else if (tri) uids.forEach(jetzt);
       // emin değilim ve doğrulama: asıl soru sayılır; liste kalemleri iki kalemde bir cevap sayılır (tıklama ilerlemeyi şişirmesin)
       if (tri && a !== 'e' && !dogrula && (session.ktSay = (session.ktSay || 0) + 1) % 2 === 0) zaehlen({ typ: 'erk', kontrol: true }, a === 'b' ? 'richtig' : 'falsch');
       if (a !== 'e') turKelime(id, a === 'b' ? 3 : 1);
@@ -3276,6 +3278,14 @@
     return normalize(m);
   }
   let ghUzakZaman = '';  // en son birleştirilen uzak kaydın zamanı
+  // "Uygulamayı yenile" çubuğu: yeni SW sürümü devraldıysa ya da GitHub'daki kayıt bu koddan yeni şemadaysa
+  function yenileGoster(neden) {
+    const c = $('#yenile-cubuk'); if (!c) return;
+    if (neden) c.querySelector('span').textContent = neden;
+    c.hidden = false;
+    try { if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistration().then(r => r && r.update()).catch(() => {}); } catch (e) { /* yok */ }
+  }
+  { const c = $('#yenile-cubuk'); if (c) c.querySelector('button').addEventListener('click', () => location.reload()); }
   // Gece işinin (GitHub Actions'ta Claude) düzeltmeleri: log/feedback.json → Geçmiş'te, index.html yenilenmeden
   const FB_KEY = 'almanca-tekrar-fb';
   let fbUzak = [];
@@ -3321,18 +3331,20 @@
       if (!z.text) return false;
       const uz = JSON.parse(z.text);
       if (uz.gespeichert && uz.gespeichert === ghUzakZaman) return false;
+      const karar = Kern.yazabilir(S, uz, CODE_SURUM);
+      if (!karar.birlestir) { if (karar.sebep === 'yeni-sema') yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); return false; }
       const once = Object.keys(S.karten).length;
       S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save();
       if (!sessiz) ghDurum(`İlerleme GitHub ile birleştirildi (${uz.gespeichert || ''}).`);
       return Object.keys(S.karten).length >= once;
     } catch (e) { console.warn('çekilemedi', e); return false; }
   }
-  let ghLaeuft = false, ghZuletzt = 0;
+  let ghLaeuft = false, ghZuletzt = 0, ghSemaUyari = false, ghBosYerel = false;
   async function ghSync(zustandAuch) {
     if (!ghToken() || ghLaeuft) return;
     const batch = (S.ghPending || []).slice();
     if (!batch.length && !zustandAuch) return;
-    ghLaeuft = true;
+    ghLaeuft = true; ghSemaUyari = ghBosYerel = false;
     try {
       if (batch.length) {
         for (let versuch = 0; versuch < 2; versuch++) {
@@ -3355,8 +3367,18 @@
         for (let versuch = 0; versuch < 2; versuch++) {
           try {
             const alt = await ghLesen('log/zustand.json');
-            // önce uzaktakini birleştir (başka cihazda çalışılmış olabilir), sonra yaz
-            if (alt.text) { try { const uz = JSON.parse(alt.text); if (uz.gespeichert !== ghUzakZaman) { S = zustandBirlestir(S, uz); save(); } } catch (e) { console.warn('uzak durum okunamadı', e); } }
+            // önce uzaktakini birleştir (başka cihazda çalışılmış olabilir), sonra yaz.
+            // Koruma: uzaktaki yeni şemadaysa (yeni sürüm) dokunma; yerel neredeyse boşsa (yeni cihaz) yalnız birleştir, yazma
+            let karar = { birlestir: true, yaz: true, sebep: 'ok' };
+            if (alt.text) {
+              try {
+                const uz = JSON.parse(alt.text);
+                karar = Kern.yazabilir(S, uz, CODE_SURUM);
+                if (karar.birlestir && uz.gespeichert !== ghUzakZaman) { S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save(); }
+              } catch (e) { console.warn('uzak durum okunamadı', e); }
+            }
+            if (karar.sebep === 'yeni-sema') { yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); ghSemaUyari = true; break; }
+            if (!karar.yaz) { ghBosYerel = true; break; }
             const zaman = zeitStr(now());
             await ghSchreiben('log/zustand.json', JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: zaman })), alt.sha, 'ilerleme');
             ghUzakZaman = zaman;
@@ -3365,7 +3387,10 @@
         }
       }
       ghZuletzt = now();
-      ghDurum(`GitHub'a kaydedildi (${zeitStr(now()).slice(11, 16)}).`);
+      if (ghSemaUyari) ghDurum('Cevaplar gönderildi; ilerleme yazılmadı: GitHub\'daki kayıt daha yeni bir sürümden. Uygulamayı yenile.');
+      else if (ghBosYerel) ghDurum('Cevaplar gönderildi; bu cihazdaki ilerleme GitHub\'dakiyle birleştirildi (ilk eşitleme, bu kez üzerine yazılmadı).');
+      else ghDurum(`GitHub'a kaydedildi (${zeitStr(now()).slice(11, 16)}).`);
+      ghSemaUyari = ghBosYerel = false;
     } catch (e) { ghDurum('GitHub\'a yazılamadı: ' + e.message); console.warn(e); }
     ghLaeuft = false;
     renderPlan();
@@ -3378,6 +3403,7 @@
       const z = await ghLesen('log/zustand.json');
       if (!z.text) { ghDurum('GitHub\'da kayıtlı ilerleme yok.'); return; }
       const uz = JSON.parse(z.text);
+      if (Kern.yazabilir(S, uz, CODE_SURUM).sebep === 'yeni-sema') { yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); ghDurum('Alınmadı: GitHub\'daki ilerleme daha yeni bir uygulama sürümünden. Önce uygulamayı yenile.'); return; }
       S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save(); renderAyar(); renderHedef();
       if (!$('#v-ana').hidden) renderAna(); else if (!$('#v-calis').hidden) zeige();
       ghDurum(`İlerleme GitHub'dan alındı ve birleştirildi (${uz.gespeichert || ''}).`);
@@ -3559,6 +3585,8 @@
     $('#a-tur').value = String(turBoyu());
     $('#a-ses').checked = sesAcik();
     $('#a-titresim').checked = titresimAcik();
+    const sv = $('#a-surum');
+    if (sv) sv.textContent = `Kod sürümü ${CODE_SURUM} · şema ${S.surum || 3}${S.goc4 ? ' · göç ' + zeitStr(S.goc4.zaman).slice(0, 10) : ''} · çekirdek ${typeof Kern === 'object' ? 'yüklü' : 'yok'}`;
     $('#a-kur').innerHTML = standalone() ? '✓ Uygulama olarak açık.' : iOS ? 'iPhone: Safari\'de Paylaş <b>⬆︎</b> → <b>Ana Ekrana Ekle</b>. Ana ekrandan açınca ilerlemen Safari temizliğinde silinmez.' : 'Android / Chrome: menü (⋮) → <b>Uygulamayı yükle</b> ya da <b>Ana ekrana ekle</b>.';
     // üniteler: kitapta sırası gelmeyen (@inaktiv) Kapitel buradan açılır; açık olan kapatılabilir
     const ua = $('#a-unite');
@@ -4575,13 +4603,19 @@
   window.addEventListener('pageshow', gunKontrol);
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(e => console.warn('service worker', e)));
-    let sonKontrol = now(), yeniSurum = false;
-    let hadi = !!navigator.serviceWorker.controller;  // ilk kurulumda değil, güncellemede yenile
-    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadi) yeniSurum = true; hadi = true; });
+    let sonKontrol = 0, yeniSurum = false;
+    // ilk kurulumda (sayfayı henüz SW yönetmiyorken) gelen ilk controllerchange güncelleme değildir; sonrakilerin hepsi güncellemedir
+    let ilkKurulum = !navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (ilkKurulum) { ilkKurulum = false; return; }
+      yeniSurum = true;
+      yenileGoster();
+    });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) { save(); return; }
-      if (yeniSurum && !$('#v-ana').hidden) { location.reload(); return; }
-      if (now() - sonKontrol > 30 * 60000) { sonKontrol = now(); navigator.serviceWorker.getRegistration().then(r => r && r.update()).catch(() => {}); }
+      if (yeniSurum && !$('#v-ana').hidden && !session.tur) { location.reload(); return; }
+      // sayfa görünür olunca yeni sürüm var mı bak (en çok dakikada bir)
+      if (now() - sonKontrol > 60000) { sonKontrol = now(); navigator.serviceWorker.getRegistration().then(r => r && r.update()).catch(() => {}); }
     });
   }
   // ana ekran kısayolları: ?tur=kisa (klavyesiz 8), ?tur=artikel (Artikel 60 sn)
@@ -4651,6 +4685,6 @@
   })();
   zeige();
   ordnerLaden();
-  window.__tekrar = { get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
+  window.__tekrar = { Kern: window.Kern, CODE_SURUM, get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
     _testOrdner: h => { ordner = h; return dateiSchreiben(true); } };
 })();

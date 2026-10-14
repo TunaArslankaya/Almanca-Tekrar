@@ -96,7 +96,17 @@ const DAY = 86400000;
   const kontrol = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'kontrol').length);
   console.log('kontrol listesi:', kontrol, 'satır');
   const fehler = [];
-  if (!kontrol) fehler.push('"gerçekten biliyor musun?" listesi hiç gelmedi');
+  // v5 M−1: öz-değerlendirme listesi kapalı → hiç kontrol satırı yok, 'selbst' (öz-not) yazılmış kart yok
+  if (kontrol) fehler.push(`kontrol listesi geldi (${kontrol} satır); kapalı olmalı`);
+  const selbst = await p.evaluate(() => Object.values(window.__tekrar.S.karten).filter(c => c.selbst).length);
+  if (selbst) fehler.push(`${selbst} kartta selbst (öz-not) yazıldı`);
+  // Ayarlar'da kod sürümü görünür; çekirdek (Kern) yüklü
+  await p.evaluate(() => { const b = document.querySelector('.alt-nav [data-v="ayar"]'); if (b) b.click(); });
+  await wait(150);
+  const surum = await p.evaluate(() => (document.querySelector('#a-surum') || {}).textContent || '');
+  console.log('ayarlar:', surum);
+  if (!/Kod sürümü 3/.test(surum)) fehler.push('Ayarlar\'da kod sürümü görünmüyor');
+  if (!(await p.evaluate(() => !!(window.__tekrar.Kern && window.__tekrar.Kern.sec)))) fehler.push('Kern yüklenmedi');
   if (!/tur/i.test(plan)) fehler.push('Bugün ekranında tur yok');
   const turlar = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'tur').length);
   console.log('tur sonu:', turlar);

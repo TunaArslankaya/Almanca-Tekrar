@@ -48,18 +48,25 @@
 
   // card: {S, D, last (ms), due (ms), reps, lapses}
   // gibt eine neue Karte zurück; die alte bleibt unverändert.
-  function review(card, g, now, retention) {
+  // opts (isteğe bağlı, v5): c = biçim ofseti (doğru cevapta büyüme R_ef = σ(logit R + c) ile; yanlışta kullanılmaz),
+  //   uzun = aynı gün/kısa ara dalı (sShortTerm) yerine her zaman sRecall/sForget
+  function review(card, g, now, retention, opts) {
     retention = retention || 0.9;
+    opts = opts || {};
     const c = Object.assign({ reps: 0, lapses: 0 }, card);
     if (!c.S) {
       c.S = initS(g);
       c.D = initD(g);
     } else {
       const elapsed = (now - c.last) / DAY;
-      if (elapsed < 1) {
+      if (elapsed < 1 && !opts.uzun) {
         c.S = sShortTerm(c.S, g);
       } else {
-        const R = retrievability(elapsed, c.S);
+        let R = retrievability(Math.max(0, elapsed), c.S);
+        if (g > 1 && opts.c) {
+          const r = Math.min(0.999, Math.max(0.001, R));
+          R = 1 / (1 + Math.exp(-(Math.log(r / (1 - r)) + opts.c)));
+        }
         c.S = g === 1 ? sForget(c.D, c.S, R) : sRecall(c.D, c.S, R, g);
       }
       c.D = nextD(c.D, g);

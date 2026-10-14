@@ -1,0 +1,645 @@
+// Almanca Tekrar v5 çekirdeği: tek hafıza (m) + artikel (art) + kök (kok), soru merdiveni, sistem notu, seçim, kota, göç.
+// DOM'suz ve saf: tarayıcıda global `Kern`, Node'da module.exports. Rastgelelik dışarıdan (rnd) verilir.
+// Tasarım: TASARIM.md / v5 spesifikasyonu (§3 merdiven, §4 puanlama, §5 seçim, §8 göç).
+(function (root, factory) {
+  const FSRS = root.FSRS || (typeof require === 'function' ? require('./fsrs.js') : null);
+  const api = factory(FSRS);
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  else root.Kern = api;
+})(this, function (FSRS) {
+  'use strict';
+
+  const DAY = 86400000, SAAT = 3600000;
+  const sig = z => 1 / (1 + Math.exp(-z));
+  const logit = p => Math.log(p / (1 - p));
+  const kirp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+  // ================= Bağlam (uygulamadan) =================
+  // kind(id) 'n'|'v'|'w'|'p' · tierOf · byId/vById/wById · istNdek · istRefl · base(id) (fiil kökü) · plOnly ·
+  // trKey (Türkçe anlam anahtarı) · lemma · uluslararasi · uniteKonu (ünite ya da konu kelimesi) · konu(id) ·
+  // ablaut(id) · stark(id) (düzensiz) · uniteSira() · BLITZ_ORDER · VERB_ORDER · tazeCumle · goetheLuecke ·
+  // lueckeVar (hedef G.luecke ile cümlede bulunur) · kontextVar · lesenWort() · LEX (has)
+  const VARSAY = {
+    kind: id => id[0] === 'v' ? 'v' : id[0] === 'w' ? 'w' : id[0] === 'p' ? 'p' : 'n',
+    tierOf: () => 2, byId: {}, vById: {}, wById: {},
+    istNdek: () => false, istRefl: () => false, base: id => id, plOnly: () => false,
+    trKey: () => '', lemma: () => '', uluslararasi: () => false, uniteKonu: () => false, konu: () => '',
+    ablaut: () => '', stark: () => false, uniteSira: () => [], BLITZ_ORDER: [], VERB_ORDER: [],
+    tazeCumle: () => true, goetheLuecke: () => false, lueckeVar: () => true, kontextVar: () => true,
+    lesenWort: () => [], LEX: { has: () => false },
+  };
+  let C = Object.assign({}, VARSAY);
+  function init(ctx) { C = Object.assign({}, VARSAY, ctx || {}); return api; }
+
+  // ================= Zaman: öğrenme günü 04:00'te başlar =================
+  const tagStr = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  const gun4 = t => tagStr(t - 4 * SAAT);
+  // öğrenme gününün başı (04:00) ve ertesi öğrenme günü 04:00
+  const gunBas4 = t => { const d = new Date(t - 4 * SAAT); d.setHours(4, 0, 0, 0); return d.getTime(); };
+  const ertesiGun4 = t => { const d = new Date(t - 4 * SAAT); d.setDate(d.getDate() + 1); d.setHours(4, 0, 0, 0); return d.getTime(); };
+  const gunFark = (a, b) => Math.round((new Date(a + 'T12:00:00') - new Date(b + 'T12:00:00')) / DAY);
+
+  const R = (h, t) => h && h.S ? FSRS.retrievability(Math.max(0, (t - h.last) / DAY), h.S) : 0;
+
+  // ================= Puanlama (§4) =================
+  // biçim ofseti c: doğru cevapta büyüme R_ef = σ(logit R + c) ile; zor biçime negatif c yok
+  const OFS = { sec: 1.5, anla: 0.5, metinde: 0.5, yaz0: 0.5, bos0: 0.5, yaz: 0, bos: 0, cumle: 0, metin: 0, yoklama: 0, artikel: 0.5, kokSec: 1.0, kok: 0, kokSatz: 0 };
+  const KISMI = 0.7;                      // yazım / yavaşlık: not 3, büyüme biraz az, D değişmez
+  const PK_BICIM = new Set(['yaz', 'bos', 'cumle', 'metin', 'yoklama']);
+  const SECMELI = new Set(['sec', 'anla', 'metinde']);
+  const YAVAS = 15000, COK_HIZLI = 400, FLAS_SURE = 8000;
+  const W_RET = { 0.8: 1.15, 0.85: 1, 0.9: 0.8 };
+
+  // §4.5: FSRS + c, yanlışta yarın 04:00, yeni öğe gününde en geç yarın, pk kapısı (pk0 → 7 g, pk1 → 14 g)
+  // opts: { yeniGun, pkSay } — pk/pkGun yalnız pkSay (sayılan biçim, ipucusuz, başarılı) ise ve günde en çok +1
+  function guncelle(h, g, t, ret, c, opts) {
+    opts = opts || {};
+    ret = ret || 0.85;
+    const eski = h && h.S ? h : null;
+    const f = FSRS.review(eski || {}, g, t, ret, { c: g >= 2 ? (c || 0) : 0, uzun: true });
+    const n = Object.assign({}, h || {}, { S: f.S, D: f.D, last: t, reps: f.reps, lapses: f.lapses, lastG: g });
+    const pk0 = (h && h.pk) || 0;
+    let due;
+    if (g === 1) due = ertesiGun4(t);
+    else {
+      let gun = FSRS.intervalDays(n.S, ret);
+      // kapı bu cevaptan önceki pk ile (simülasyondaki kademe): erken üretim kanıtı olmadan uzun aralık yok
+      if (pk0 === 0) gun = Math.min(gun, 7); else if (pk0 === 1) gun = Math.min(gun, 14);
+      due = t + gun * DAY;
+    }
+    if (opts.yeniGun) due = Math.min(due, ertesiGun4(t));
+    n.due = Math.max(due, t);
+    n.pk = pk0;
+    if (opts.pkSay && g >= 3 && n.pkGun !== gun4(t)) { n.pk = pk0 + 1; n.pkGun = gun4(t); }
+    return n;
+  }
+
+  // §4.2 sonuç → not. sonuc: { bicim, tip, sure (ms), artikel: {sinandi, dogru, verilen, dogrusu, eksik}, etiketler[], yanlis (Stammform), kokYanlis }
+  // tip: dogru | yazim | mastar | umlaut | hal | edat | donuslu | cekim | cumleFast | cumleYanlis | yanlis | bos | goster | bilmiyorum | yoklama | flas | stamm
+  function notVer(sonuc) {
+    const s = sonuc || {}, b = s.bicim, c = OFS[b] || 0, et = (s.etiketler || []).slice();
+    const art = s.artikel || null;
+    const aNot = () => art && art.sinandi ? (art.dogru ? 3 : 1) : null;
+    const artEt = () => { if (art && art.sinandi && !art.dogru) et.push(art.eksik || !art.verilen ? 'artikel eksik' : `artikel ${art.verilen} → ${art.dogrusu}`); };
+    const r = (m, a, ergebnis, x) => Object.assign({ bicim: b, m, a, k: null, c, ca: b === 'sec' ? OFS.artikel : 0, ck: 0, ergebnis, etiketler: et }, x || {});
+    const secmeli = SECMELI.has(b);
+    switch (s.tip) {
+      case 'flas': {
+        if (!s.dogru) return r(null, 1, 'falsch', { ca: OFS.artikel });
+        const yavas = (s.sure || 0) > FLAS_SURE;
+        if (yavas) et.push('yavaş');
+        return r(null, 3, 'richtig', { ca: OFS.artikel + (yavas ? KISMI : 0) });
+      }
+      case 'stamm': {
+        const y = s.yanlis || 0;
+        return r(null, null, y === 0 ? 'richtig' : y === 1 ? 'fast' : 'falsch', { k: y === 0 ? 3 : y === 1 ? 2 : 1, ck: OFS[b] || 0 });
+      }
+      case 'yoklama': {
+        et.push('yoklama');
+        return r(4, art && art.sinandi ? (art.dogru ? 4 : 1) : null, 'richtig', { c: 0 });
+      }
+    }
+    if (secmeli && s.sure != null && s.sure < COK_HIZLI) { et.push('sayılmadı'); return r(null, null, null); }
+    switch (s.tip) {
+      case 'dogru':
+        if (art && art.sinandi && !art.dogru) { artEt(); return r(3, 1, 'fast'); }
+        if (secmeli && (s.sure || 0) > YAVAS) { et.push('yavaş'); return r(3, aNot(), 'richtig', { c: c + KISMI }); }
+        return r(3, aNot(), 'richtig');
+      case 'yazim': et.unshift('yazım'); artEt(); return r(3, aNot(), 'fast', { c: c + KISMI });
+      case 'mastar': et.unshift('mastar eki'); return r(3, null, 'fast', { c: c + KISMI });
+      case 'umlaut': et.unshift('umlaut'); return r(2, null, 'fast');
+      case 'hal': et.unshift('hâl'); return r(2, null, 'fast');
+      case 'edat': et.unshift('edat'); return r(1, null, 'falsch');
+      case 'donuslu': et.unshift('dönüşlü'); return r(1, null, 'falsch');
+      case 'cekim': if (!et.length) et.push('çekim'); return r(2, null, 'fast', s.kokYanlis ? { k: 1 } : null);
+      case 'cumleFast': return r(3, null, 'fast');
+      case 'cumleYanlis': return r(1, null, 'falsch');
+      case 'bos': case 'goster': case 'bilmiyorum': et.push('bilmiyorum'); return r(1, null, 'falsch');
+      default: return r(1, null, 'falsch');   // yanlış: isim yanlışsa artikel güncellenmez
+    }
+  }
+
+  // günde tek kalıcı yazım: her hafıza (m, art, kok) öğrenme gününün ilk değerlendirilen cevabıyla güncellenir
+  // opts: { ipucu, b, yeniGun } → { yazildi, m:{R, S}, a, k, seviyeOnce, seviyeSonra }
+  function uygula(S, id, not, t, opts) {
+    opts = opts || {};
+    const it = S.items[id] = S.items[id] || { seit: t };
+    const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, seviyeOnce: seviye(it) };
+    const yeniGun = opts.yeniGun != null ? opts.yeniGun : !!(it.tanit && gun4(it.tanit) === g);
+    const yaz = (h, not_, c, pkSay) => {
+      const once = R(h, t);
+      if (h && h.gun === g) return { h, r: { R: once, S: h.S, yazildi: false } };
+      const n = guncelle(h, not_, t, ret, c, { yeniGun, pkSay });
+      n.gun = g;
+      out.yazildi = true;
+      return { h: n, r: { R: once, S: n.S, yazildi: true } };
+    };
+    if (not.m != null) {
+      let x;
+      if (not.m === 4 && (not.etiketler || []).includes('yoklama') && !(it.m && it.m.S)) {
+        // yoklama doğru: kolay başlangıç, pk=1 (kotaya sayılmaz)
+        const f = FSRS.review({}, 4, t, ret);
+        x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g }), r: { R: 0, S: f.S, yazildi: true } };
+        out.yazildi = true;
+      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu);
+      it.m = x.h; out.m = x.r;
+      if (x.r.yazildi) { delete it.m.dogrula; delete it.yarim; }
+      if (opts.b) it.m.b = opts.b;
+    }
+    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca); it.art = x.h; out.a = x.r; }
+    if (not.k != null) {
+      const bs = C.base(id), kk = S.kok = S.kok || {};
+      const x = yaz(kk[bs] && kk[bs].S ? kk[bs] : null, not.k, not.ck);
+      kk[bs] = Object.assign({}, kk[bs] || {}, x.h, { ornek: (kk[bs] && kk[bs].ornek) || id });
+      delete kk[bs].yeni;
+      out.k = x.r;
+    }
+    out.seviyeSonra = seviye(it);
+    return out;
+  }
+
+  // ================= Merdiven (§3) =================
+  const seviye = it => {
+    const h = it && it.m;
+    if (!h || !h.S) return 0;
+    return h.S < 2 ? 1 : h.S < 7 ? 2 : h.S < 21 ? 3 : h.S < 90 ? 4 : (h.pk || 0) >= 2 ? 5 : 4;
+  };
+  // bag: { id, t, isinma, momentum, kurtarma, klavyesiz } → { b, yenidenTanit }
+  function basamak(it, bag, rnd) {
+    bag = bag || {}; rnd = rnd || Math.random;
+    const id = bag.id, h = it.m || {}, S = h.S || 0, r = R(h, bag.t), pk = h.pk || 0, k = C.kind(id);
+    let b = S < 2 ? 1 : S < 7 ? 2 : S < 21 ? 3 : 4;
+    if (pk === 0) b = Math.min(b, 2); else if (pk === 1) b = Math.min(b, 3);
+    if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) b = Math.min(b, 3);
+    const yenidenTanit = !!(h.S && r < 0.35);
+    if (bag.kurtarma || r < 0.5) b = 1;
+    if (bag.isinma || bag.momentum || h.dogrula) b -= 1;
+    if (b >= 3 && rnd() < 0.2) b -= 1;
+    if (b >= 3 && !C.tazeCumle(id)) b -= 1;
+    if (b === 4 && !C.lueckeVar(id)) b = 3;
+    if (bag.klavyesiz) b = 1;
+    b = Math.max(1, b);
+    if (it.a1 && !bag.kurtarma) b = Math.max(2, b);   // A1: anlam sorulmaz (kurtarmada 'sec' serbest, artikeli sınar)
+    return { b, yenidenTanit };
+  }
+  // §3 biçim tablosu; son: son sorulan biçimler (aynı biçim en çok 2 kez üst üste) → { bicim, uretec } ya da null
+  function bicimSec(it, b, bag, rnd, son) {
+    bag = bag || {}; rnd = rnd || Math.random; son = son || [];
+    const id = bag.id, h = it.m || {}, k = C.kind(id), kx = C.kontextVar(id);
+    const tekrarli = x => son.length >= 2 && son[son.length - 1] === x && son[son.length - 2] === x;
+    let aday;
+    if (b <= 1) {
+      const u = rnd();
+      if (it.a1) aday = ['sec'];
+      else if (k === 'v') aday = u < 0.5 ? ['sec', 'metinde', 'anla'] : u < 0.7 ? ['anla', 'sec', 'metinde'] : ['metinde', 'sec', 'anla'];
+      else aday = u < 0.6 ? ['sec', 'metinde'] : ['metinde', 'sec'];
+      if (!kx) aday = aday.filter(x => x !== 'metinde');
+    } else if (b === 2) aday = [(h.S || 0) < 4 || h.lastG === 1 ? 'yaz0' : 'yaz'];
+    else if (b === 3) aday = [(h.S || 0) < 10 ? 'bos0' : 'bos'];
+    else aday = ['cumle'];
+    const bicim = aday.find(x => !tekrarli(x));
+    if (!bicim) return null;
+    let uretec = null;
+    if (b === 3) {
+      if (k === 'n' && C.istNdek(id) && rnd() < 1 / 3) uretec = 'ndek';
+      else if (k === 'v' && C.istRefl(id) && rnd() < 1 / 3) uretec = 'refl';
+      else if (k === 'v' && C.goetheLuecke(id) && rnd() < 1 / 4) uretec = 'luecke';
+    }
+    return { bicim, uretec };
+  }
+
+  // ================= Seçim (§5) =================
+  const wRet = ret => W_RET[ret] != null ? W_RET[ret] : ret <= 0.8 ? 1.15 : ret >= 0.9 ? 0.8 : ret < 0.85 ? 1.15 - (ret - 0.8) * 3 : 1 - (ret - 0.85) * 4;
+  // vadeli hafızalar: m (anlam), yalnız art (artikel flaşı), kok (kök)
+  function vadeliler(S, t, filtre) {
+    const out = [];
+    Object.entries(S.items || {}).forEach(([id, it]) => {
+      if (filtre && !filtre(id)) return;
+      if (C.kind(id) === 'p') return;
+      if (it.m && it.m.S && it.m.due <= t) out.push({ id, tur: 'm', R: R(it.m, t), due: it.m.due });
+      else if (it.art && it.art.S && it.art.due <= t) out.push({ id, tur: 'art', R: R(it.art, t), due: it.art.due });
+    });
+    Object.entries(S.kok || {}).forEach(([bs, k]) => {
+      if (!k.S || k.due > t || !k.ornek || (filtre && !filtre(k.ornek))) return;
+      out.push({ id: k.ornek, tur: 'kok', base: bs, R: R(k, t), due: k.due });
+    });
+    return out;
+  }
+  const bugunYeni = (S, t) => Object.values(S.items || {}).filter(it => it.yeni4 === gun4(t)).length;
+  // 3+ gün aradan sonra bugün henüz cevap yoksa: dönüş turu (o turda yeni yok)
+  function donusMu(S, t) {
+    const g = gun4(t), tage = S.tage || {};
+    if (tage[g] && tage[g].n) return false;
+    const once = Object.keys(tage).filter(d => d < g && tage[d] && tage[d].n).sort().pop();
+    return !!once && gunFark(g, once) >= 3;
+  }
+  // §5.2 kota. durum: { S, kap (günlük hedef, cevap), bonus (bugünkü bonus tur), donus, uniteKalan {kalan, gun} }
+  function kota(durum, t) {
+    const S = durum.S, ret = (S.einst && S.einst.ret) || 0.85;
+    const kap = (durum.kap || 36) * wRet(ret), b4 = gunBas4(t);
+    const L = Object.values(S.items || {});
+    const genc = L.filter(it => it.m && it.m.S && it.m.S < 7).length;
+    const birikme = L.filter(it => (it.m && it.m.S && it.m.due < b4) || (it.art && it.art.S && it.art.due < b4)).length;
+    const taban = ((S.ayar4 || {}).yeniGunluk) || 6;
+    let q = birikme > 2 * kap ? 2 : genc > 1.6 * kap ? 2 : genc > 1.1 * kap ? 4 : taban, sebep = q === taban ? 'normal' : birikme > 2 * kap ? 'birikme' : 'genç';
+    if (durum.bonus && genc < 2 * kap) q += Math.min(4, 2 * durum.bonus);
+    if (S.goc4 && S.goc4.zaman && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
+    q = Math.max(2, q);
+    let qUnite = q;
+    const uh = durum.uniteKalan;
+    if (uh && uh.gun > 0) qUnite = Math.max(q, Math.min(10, Math.ceil(uh.kalan / uh.gun)));
+    if (durum.donus) { q = 0; qUnite = 0; sebep = 'dönüş'; }
+    const yapilan = bugunYeni(S, t);
+    return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan };
+  }
+  // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
+  function yeniSira(S) {
+    const yarim = Object.keys(S.items || {}).filter(id => S.items[id].yarim && !(S.items[id].m && S.items[id].m.S));
+    const onde = new Set();
+    const ilk = [].concat(C.lesenWort() || [], C.uniteSira() || []).filter(id => !S.items[id]);
+    ilk.forEach(id => onde.add(id));
+    const yeniMi = id => !S.items[id] && !onde.has(id);
+    const t3 = l => l.filter(yeniMi).map((id, i) => [id, i]).sort((a, b) => (C.tierOf(a[0]) === 3 ? 0 : 1) - (C.tierOf(b[0]) === 3 ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
+    const nv = t3(C.BLITZ_ORDER || []), vv = t3(C.VERB_ORDER || []), karisik = [];
+    while (nv.length || vv.length) karisik.push(karisik.length % 3 === 2 && vv.length ? vv.shift() : nv.length ? nv.shift() : vv.shift());
+    const g = new Set(), out = [];
+    yarim.concat(ilk, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
+    return out;
+  }
+  function lev(a, b) {
+    a = String(a || '').toLowerCase(); b = String(b || '').toLowerCase();
+    if (a === b) return 0;
+    let p = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const q = [i];
+      for (let j = 1; j <= b.length; j++) q[j] = Math.min(p[j] + 1, q[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      p = q;
+    }
+    return p[b.length];
+  }
+  // §5.4 karışma kapısı: aynı anlam, aynı kök / Ablaut, benzer lemma (lev ≤ 2), aynı konudan 2'den fazla öğe birlikte girmez
+  function karismaOk(id, digerleri) {
+    const tk = C.trKey(id), bs = C.kind(id) === 'v' ? C.base(id) : '', ab = C.ablaut(id), lm = C.lemma(id), kn = C.konu(id);
+    let ayniKonu = 0;
+    for (const o of digerleri) {
+      if (tk && C.trKey(o) === tk) return false;
+      if (bs && C.kind(o) === 'v' && C.base(o) === bs) return false;
+      if (ab && C.ablaut(o) === ab) return false;
+      if (lm && C.lemma(o) && lev(lm, C.lemma(o)) <= 2) return false;
+      if (kn && C.konu(o) === kn) ayniKonu++;
+    }
+    return ayniKonu < 2;
+  }
+  const yoklamaAday = (S, id) => !S.items[id] && (C.tierOf(id) === 1 || C.uluslararasi(id));
+  // yeni parti: kotadan n öğe; bugün tanıtılanlarla birlikte karışma kapısından geçer
+  function yeniParti(S, t, n, opts) {
+    opts = opts || {};
+    const bugun = Object.keys(S.items || {}).filter(id => S.items[id].tanit && gun4(S.items[id].tanit) === gun4(t));
+    const sec = [], yoklama = [];
+    let yarimSay = Object.values(S.items || {}).filter(it => it.yarimGun === gun4(t)).length;
+    for (const id of yeniSira(S)) {
+      if (sec.length >= n) break;
+      if (opts.filtre && !opts.filtre(id)) continue;
+      const yarim = !!(S.items[id] && S.items[id].yarim);
+      if (yarim && yarimSay >= 3) continue;
+      if (!karismaOk(id, bugun.concat(sec))) continue;
+      sec.push(id);
+      if (yarim) yarimSay++;
+      else if (yoklama.length < (opts.yoklamaHak == null ? 2 : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id);
+    }
+    return { ids: sec, yoklama };
+  }
+
+  // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
+  // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
+  const ARA = 8, ART_TUR = 3;
+  function sec(durum, oturum, t, rnd) {
+    rnd = rnd || Math.random;
+    const S = durum.S, o = oturum, adim = o.adim || 0, boy = o.boy || 12, gs = durum.gunSay || {};
+    const gecmis = o.gecmis || [], sonIds = gecmis.slice(-(ARA - 1)).map(x => x.id), sonBicim = gecmis.map(x => x.bicim);
+    const yakin = id => sonIds.includes(id);
+    const m1 = (id, kaynak, bag) => {
+      const it = S.items[id];
+      const bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag), rnd);
+      const bc = bicimSec(it, bs.b, { id, t }, rnd, sonBicim);
+      return bc ? { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: bs.yenidenTanit, R: R(it.m, t) } : null;
+    };
+    // 1) oturum kuyruğu: yanlış (yeniden sorma), mini, ikinci; ilk gelen ilk çıkar
+    const kq = (o.kuyruk || []).find(k => k.at <= adim && (!o.filtre || o.filtre(k.id)));
+    if (kq) {
+      const it = S.items[kq.id] || {}, bc = kq.bicim ? { bicim: kq.bicim, uretec: null } : bicimSec(it, kq.b || 1, { id: kq.id, t }, rnd, []);
+      return { tur: 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq };
+    }
+    const kt = kota(durum, t);
+    const partiAc = () => {
+      const n = Math.min(kt.kalan, boy >= 25 ? 5 : 3);
+      if (n <= 0) return null;
+      const p = yeniParti(S, t, n, { filtre: o.filtre, yoklamaHak: Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
+      return p.ids.length ? { tur: 'parti', kaynak: 'parti', ids: p.ids, yoklama: p.yoklama } : null;
+    };
+    // 2) yeni parti: turda bir kez, 3 ≤ adım ≤ boy − 7
+    if (!o.parti && adim >= 3 && adim <= boy - 7) { const p = partiAc(); if (p) return p; }
+    const vad = vadeliler(S, t, o.filtre).filter(v => !yakin(v.id));
+    const mVad = vad.filter(v => v.tur === 'm');
+    // 3) metin etkinliği: turda bir, günde en çok 3; 8 ≤ adım ≤ boy − 3; boşluklar m.S ≥ 1,5 ve (vadeli ya da R < 0,9)
+    if (!o.metin && !o.klavyesiz && adim >= 8 && adim <= boy - 3 && (gs.metin || 0) < 3) {
+      const ad = Object.keys(S.items).filter(id => { const h = S.items[id].m; return h && h.S >= 1.5 && (h.due <= t || R(h, t) < 0.9) && !yakin(id) && C.kind(id) !== 'p' && (!o.filtre || o.filtre(id)); })
+        .sort((a, b) => R(S.items[b].m, t) - R(S.items[a].m, t));
+      if (ad.length >= 2) return { tur: 'metin', kaynak: 'metin', adaylar: ad.slice(0, 8), diktat: !gs.diktat };
+    }
+    // 4) kurtarma: turda bir, adım ≥ 6; R < 0,6 ya da 3 gündür bekleyen vadeli öğelerden R'si en düşük, B1
+    if (!o.kurtarma && adim >= 6) {
+      const k = mVad.filter(v => v.R < 0.6 || t - v.due >= 3 * DAY).sort((a, b) => a.R - b.R)[0];
+      if (k) { const x = m1(k.id, 'kurtarma', { kurtarma: true }); if (x) return x; }
+    }
+    // 5) ısınma (ilk 3) ve momentum (art arda 2 yanlış): R'si en yüksek vadeli öğe, bir basamak aşağıdan
+    if (adim < 3 || (o.yanlisSeri || 0) >= 2) {
+      const kaynak = adim < 3 ? 'isinma' : 'momentum';
+      for (const v of mVad.slice().sort((a, b) => b.R - a.R)) { const x = m1(v.id, kaynak, { isinma: adim < 3, momentum: kaynak === 'momentum' }); if (x) return x; }
+    }
+    // 6) vadeli öğeler, R azalan; artikel flaşı turda ≤ 3 (der olmayan önce); kök turda 1, günde 4
+    const artSay = gecmis.filter(x => x.tur === 'art').length, kokSay = gecmis.filter(x => x.tur === 'kok').length;
+    const derMi = id => ((C.byId[id] || {}).art || '') === 'der';
+    const sirali = vad.slice().sort((a, b) => b.R - a.R);
+    const artlar = sirali.filter(v => v.tur === 'art').sort((a, b) => (derMi(a.id) ? 1 : 0) - (derMi(b.id) ? 1 : 0) || b.R - a.R);
+    let ilkAday = null;
+    for (const v of sirali) {
+      if (v.tur === 'art') {
+        if (artSay >= ART_TUR) continue;
+        const a = artlar[0];
+        return { tur: 'art', kaynak: 'vadeli', id: a.id, b: 0, bicim: 'artikel', R: a.R };
+      }
+      if (v.tur === 'kok') {
+        if (kokSay >= 1 || (gs.kok || 0) >= 4) continue;
+        const k = S.kok[v.base];
+        return { tur: 'kok', kaynak: 'vadeli', id: v.id, base: v.base, b: 0, bicim: k.S < 7 ? 'kokSatz' : 'kok', R: v.R };
+      }
+      const x = m1(v.id, 'vadeli', {});
+      if (x) return x;
+      ilkAday = ilkAday || v;
+    }
+    // biçim kuralı hiçbir adaya uymadıysa ilk aday kuralsız
+    if (ilkAday) {
+      const it = S.items[ilkAday.id], bs = basamak(it, { id: ilkAday.id, t, klavyesiz: o.klavyesiz }, rnd);
+      const bc = bicimSec(it, bs.b, { id: ilkAday.id, t }, rnd, []);
+      return { tur: 'm', kaynak: 'vadeli', id: ilkAday.id, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, R: ilkAday.R };
+    }
+    // 6b) yeni kök: günde en çok 2 (düzensiz fiil, formları görülmüş, m.S ≥ 2)
+    if (kokSay < 1 && (gs.kok || 0) < 4 && (gs.kokYeni || 0) < 2) {
+      const yk = Object.entries(S.kok || {}).find(([, k]) => !k.S && k.ornek && S.items[k.ornek] && S.items[k.ornek].m && S.items[k.ornek].m.S >= 2 && !yakin(k.ornek) && (!o.filtre || o.filtre(k.ornek)));
+      if (yk) return { tur: 'kok', kaynak: 'yeniKok', id: yk[1].ornek, base: yk[0], b: 0, bicim: 'kokSatz', R: 0 };
+    }
+    // 7) vadeli yoksa: kota varsa parti; yoksa tur biter (+3 yeni teklifi günde bir)
+    if (!o.parti) { const p = partiAc(); if (p) return p; }
+    return { tur: 'bitti', kaynak: 'bitti', teklif: gs.ekYeniTeklif ? null : '+3' };
+  }
+  // cevaptan sonra oturumu ilerlet: adım, geçmiş, art arda yanlış, yeniden sorma kuyruğu (§4.4)
+  function oturumIsle(o, secim, sonuc, rnd) {
+    rnd = rnd || Math.random;
+    o.kuyruk = o.kuyruk || []; o.gecmis = o.gecmis || [];
+    const i = o.kuyruk.indexOf(secim._k); if (i >= 0) o.kuyruk.splice(i, 1);
+    o.adim = (o.adim || 0) + 1;
+    o.gecmis.push({ id: secim.id, bicim: secim.bicim, tur: secim.tur });
+    if (secim.kaynak === 'kurtarma') o.kurtarma = true;
+    const yanlis = sonuc && sonuc.ergebnis === 'falsch';
+    o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
+    if (yanlis && secim.tur === 'm') {
+      const d = secim.deneme || 1;
+      if (d === 1) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), deneme: 2, b: Math.max(1, (secim.b || 1) - 1), bicim: secim.b > 1 ? null : 'sec' });
+      else if (d === 2) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 1, (o.boy || 12) - 1), deneme: 3, b: 1, bicim: 'sec' });
+    }
+    return o;
+  }
+  // parti başladı: tanıtımlar (sayılmaz) art arda; mini sorular karışık sırayla hemen, ikinci hatırlama ≥ 4 soru sonra
+  function partiBasladi(o, ids, rnd) {
+    rnd = rnd || Math.random;
+    o.parti = true; o.kuyruk = o.kuyruk || [];
+    const a = o.adim || 0, karisik = ids.slice();
+    for (let i = karisik.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [karisik[i], karisik[j]] = [karisik[j], karisik[i]]; }
+    karisik.forEach(id => o.kuyruk.push({ id, neden: 'mini', at: a, b: 1, bicim: 'sec', deneme: 1 }));
+    // ikinci hatırlama mini sorusuyla aynı sırada, ondan 4 soru sonra
+    karisik.forEach((id, i) => o.kuyruk.push({ id, neden: 'ikinci', at: a + 4 + i, b: 2, bicim: o.klavyesiz ? 'sec' : 'yaz0', deneme: 1 }));
+    return o;
+  }
+
+  // §4.3 yazım hoşgörüsü: lemma ≥ 5 ve lev 1 ya da ≥ 10 ve lev ≤ 2; umlaut farkı değil; yazılan sözlükte başka kelime değil
+  const UML = s => s.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+  const ACIK = s => s.toLowerCase().replace(/ae/g, 'ä').replace(/oe/g, 'ö').replace(/ue/g, 'ü').replace(/ss/g, 'ß');
+  function yazimMi(yazilan, hedef) {
+    const y = String(yazilan || '').trim().toLowerCase(), h = String(hedef || '').trim().toLowerCase();
+    if (!y || y === h || ACIK(y) === ACIK(h)) return false;
+    if (UML(y) === UML(h)) return false;
+    if (C.LEX && C.LEX.has(y)) return false;
+    const d = lev(y, h);
+    return (h.length >= 5 && d === 1) || (h.length >= 10 && d <= 2);
+  }
+
+  // ================= Göç (§8) =================
+  const PROD = new Set(['wort', 'prod', 'abr', 'nsatz', 'satz', 'refl', 'ndek']);
+  const REK = new Set(['erk', 'bed']);
+  const TUR_OFS = { erk: 0.5, bed: 0.5, art: 0.5, wort: 0, prod: 0, abr: 0, nsatz: 0, satz: 0, refl: 0, ndek: 0, stamm: 0, pak: 0, luecke: 0 };
+  const gecerli = id => { const k = C.kind(id); return k === 'v' ? !!C.vById[id] : k === 'w' ? !!C.wById[id] : k === 'n' ? !!C.byId[id] : false; };
+  const hafiza = (c, S_) => ({ S: S_ == null ? c.S : S_, D: c.D, last: c.last, reps: c.reps || 0, lapses: c.lapses || 0, lastG: c.lastG || 3 });
+  // öğe başına idempotent: m'si olmayan her öğe kendi kartlarından kurulur (eski istemcinin birleştirmesine karşı kendini onarır)
+  function goc(S, t, ret) {
+    ret = ret || (S.einst && S.einst.ret) || 0.85;
+    const K = S.karten || {}, kz = S.kontrol || {}, items = S.items = S.items || {};
+    const kartlar = {};
+    Object.keys(K).forEach(u => { const i = u.lastIndexOf(':'), id = u.slice(0, i); (kartlar[id] = kartlar[id] || []).push({ t: u.slice(i + 1), c: K[u] }); });
+    const selbstSon = (id, c) => !!(c.selbst && kz[id] && c.last === kz[id]);
+    const uretimHedef = (id, it) => C.kind(id) === 'v' || C.tierOf(id) <= 2 || it.quelle === 'unite' || !!it.a1;
+    const vade = h => { h.due = h.last + FSRS.intervalDays(h.S, ret) * DAY; return h; };
+    const r = { oge: 0, m: 0, mProd: 0, mRek: 0, mRekIndirim: 0, mSelbst: 0, yarim: 0, art: 0, artSelbst: 0, kok: 0, kokS: 0, pak: 0, olu: 0 };
+    if (!S.kartenV3 && Object.keys(K).length) S.kartenV3 = JSON.parse(JSON.stringify(K));   // dondurulmuş kopya (geri dönüş)
+    Object.keys(items).forEach(id => {
+      const it = items[id];
+      if (!gecerli(id)) { r.olu++; return; }
+      r.oge++;
+      const ks = (kartlar[id] || []).filter(k => k.c && k.c.S);
+      if (!(it.m && it.m.S)) {
+        const guv = k => !selbstSon(id, k.c);
+        const son = l => l.sort((a, b) => b.c.last - a.c.last)[0];
+        const p = son(ks.filter(k => PROD.has(k.t) && guv(k)));
+        const q = son(ks.filter(k => REK.has(k.t) && guv(k)));
+        const sb = son(ks.filter(k => (PROD.has(k.t) || REK.has(k.t)) && !guv(k)));
+        let m = null;
+        if (p) { const c = p.c; m = Object.assign(hafiza(c), { pk: c.lastG >= 2 ? ((c.reps || 0) - (c.lapses || 0) >= 2 ? 2 : 1) : 0 }); r.mProd++; }
+        else if (q) { const c = q.c, ind = uretimHedef(id, it); m = Object.assign(hafiza(c, ind ? c.S * 0.5 : c.S), { pk: 0 }); if (ind) { m.D = Math.max(c.D, 5); r.mRekIndirim++; } r.mRek++; }
+        else if (sb) { const c = sb.c; m = Object.assign(hafiza(c, Math.min(c.S, 2)), { pk: 0, dogrula: 1 }); r.mSelbst++; }
+        if (m) { it.m = vade(m); delete it.yarim; } else { it.m = null; it.yarim = 1; }
+      }
+      if (it.m && it.m.S) r.m++; else r.yarim++;
+      const ak = K[id + ':art'];
+      if (!it.art && C.kind(id) === 'n' && !C.plOnly(id) && ak && ak.S) {
+        const s = selbstSon(id, ak);
+        it.art = vade(hafiza(ak, s ? Math.min(ak.S, 2) : ak.S));
+        if (s) r.artSelbst++;
+      }
+      if (it.art) r.art++;
+      const st = K[id + ':stamm'];
+      if (st && C.kind(id) === 'v') {
+        const bs = C.base(id), kk = S.kok = S.kok || {};
+        if (!kk[bs] || (!kk[bs].S && st.S)) kk[bs] = st.S ? Object.assign(vade(hafiza(st)), { ornek: id }) : { ornek: id, yeni: 1 };
+        (S.formGesehen = S.formGesehen || {})[id] = true;
+      }
+    });
+    Object.keys(K).filter(u => u.endsWith(':pak')).forEach(u => {
+      const pid = u.slice(0, -4), c = K[u], pk = S.pakete = S.pakete || {};
+      if (!c.S) return;
+      pk[pid] = pk[pid] || {};
+      if (!pk[pid].m) { pk[pid].m = vade(hafiza(c)); r.pak++; }
+    });
+    r.kok = Object.keys(S.kok || {}).length; r.kokS = Object.values(S.kok || {}).filter(k => k.S).length;
+    r.vadeli = Object.values(items).filter(it => (it.m && it.m.S && it.m.due <= t) || (it.art && it.art.S && it.art.due <= t)).length;
+    r.ret = ret;
+    if (!S.goc4) S.goc4 = { zaman: t, rapor: r };
+    S.surum = Math.max(S.surum || 0, 4);
+    return r;
+  }
+  // eski istemcinin (v3) göçten sonra yazdığı kart cevaplarını öğe hafızasına uygular; gölge kartlar (last === m.last) iki kez sayılmaz
+  function v3Yetis(S, t) {
+    if (!S.goc4 || !S.karten) return 0;
+    const ret = (S.einst && S.einst.ret) || 0.85, z = S.goc4.zaman;
+    const l = Object.entries(S.karten).filter(([, c]) => c && c.S && c.last > z && !c.selbst && c.g4 !== c.last).sort((a, b) => a[1].last - b[1].last);
+    let n = 0;
+    l.forEach(([u, c]) => {
+      const i = u.lastIndexOf(':'), id = u.slice(0, i), tur = u.slice(i + 1), g = c.lastG || 3, ofs = TUR_OFS[tur] || 0;
+      if (tur === 'pak') { const p = (S.pakete || {})[id]; if (p && (!p.m || c.last > p.m.last)) { p.m = guncelle(p.m, g, c.last, ret, ofs); n++; } return; }
+      if (tur === 'stamm') { const bs = C.base(id), kk = S.kok = S.kok || {}; const h = kk[bs] && kk[bs].S ? kk[bs] : null; if (!h || c.last > h.last) { kk[bs] = Object.assign({}, kk[bs] || {}, guncelle(h, g, c.last, ret, ofs), { ornek: (kk[bs] && kk[bs].ornek) || id }); n++; } return; }
+      const it = S.items[id]; if (!it) return;
+      const anah = tur === 'art' ? 'art' : 'm';
+      if (anah === 'm' && !PROD.has(tur) && !REK.has(tur)) return;
+      const h = it[anah] && it[anah].S ? it[anah] : null;
+      if (h && c.last <= h.last) return;
+      it[anah] = guncelle(h, g, c.last, ret, ofs, { pkSay: anah === 'm' && PROD.has(tur) && g >= 3 });
+      if (anah === 'm') delete it.yarim;
+      n++;
+    });
+    return n;
+  }
+  // gölge yazım (göçten sonra 30 gün): hafıza güncellemesi sorulan biçimin eski kartına da yazılır (v3'e dönüş veri kaybetmesin)
+  const ESKI = { n: { sec: 'erk', anla: 'erk', metinde: 'erk', yaz0: 'wort', yaz: 'wort', yoklama: 'wort', bos0: 'nsatz', bos: 'nsatz', cumle: 'nsatz', metin: 'nsatz' },
+    v: { sec: 'bed', anla: 'bed', metinde: 'bed', yaz0: 'abr', yaz: 'abr', yoklama: 'abr', bos0: 'satz', bos: 'satz', cumle: 'satz', metin: 'satz' },
+    w: { sec: 'erk', anla: 'erk', metinde: 'erk', yaz0: 'prod', yaz: 'prod', yoklama: 'prod', bos0: 'nsatz', bos: 'nsatz', cumle: 'nsatz', metin: 'nsatz' } };
+  function eskiTur(id, bicim, uretec) {
+    if (bicim === 'artikel') return 'art';
+    if (bicim === 'kok' || bicim === 'kokSatz' || bicim === 'kokSec') return 'stamm';
+    if (uretec === 'ndek' || uretec === 'refl') return uretec;
+    return (ESKI[C.kind(id)] || ESKI.w)[bicim] || null;
+  }
+  function golge(S, id, tur, h, t) {
+    if (!S.karten || !h || !h.S || !tur) return false;
+    if (S.goc4 && t - S.goc4.zaman > 30 * DAY) return false;
+    const u = (tur === 'stamm' && h.ornek ? h.ornek : id) + ':' + tur;
+    S.karten[u] = Object.assign({}, S.karten[u] || {}, { S: h.S, D: h.D, last: h.last, due: h.due, lastG: h.lastG, reps: h.reps, lapses: h.lapses, g4: h.last });
+    ['neu', 'lern', 'urspr', 'selbst', 'kredi', 'dogrula'].forEach(k => delete S.karten[u][k]);
+    return true;
+  }
+
+  // ================= Senkron =================
+  // uzaktaki kayıt bu koddan yeni şemadaysa dokunma; yerel neredeyse boşsa (yeni cihaz) yalnız birleştir, yazma
+  function yazabilir(lok, uz, kodSurum) {
+    if (!uz) return { birlestir: false, yaz: true, sebep: 'ok' };
+    if ((uz.surum || 0) > kodSurum) return { birlestir: false, yaz: false, sebep: 'yeni-sema' };
+    const say = s => kodSurum >= 4 ? Object.values((s && s.items) || {}).filter(it => it && it.m && it.m.S).length : Object.keys((s && s.karten) || {}).length;
+    if (say(lok) < say(uz) / 2) return { birlestir: true, yaz: false, sebep: 'bos-yerel' };
+    return { birlestir: true, yaz: true, sebep: 'ok' };
+  }
+  const sonra = (a, b) => (!a ? b : !b ? a : ((a.last || 0) >= (b.last || 0) ? a : b));
+  // alan alan birleştirme: hafızalarda last'ı büyük olan; fehlTage birleşim, leech VEYA, seit en küçük; tageC cihaz başına (G-Counter)
+  function birlestir(lok, uz) {
+    if (!uz || typeof uz !== 'object') return lok;
+    const m = Object.assign({}, uz, lok);
+    const her = (k, f) => { const o = Object.assign({}, uz[k] || {}); Object.entries(lok[k] || {}).forEach(([x, v]) => { o[x] = o[x] === undefined ? v : f(v, o[x]); }); m[k] = o; };
+    her('karten', sonra);
+    her('items', (a, b) => {
+      const x = Object.assign({}, b, a);
+      x.m = sonra(a.m, b.m); x.art = sonra(a.art, b.art);
+      if (!x.m) x.m = a.m === undefined ? b.m : a.m;
+      if (x.m && x.m.S) delete x.yarim;
+      x.fehlTage = [...new Set([...(b.fehlTage || []), ...(a.fehlTage || [])])].sort();
+      if (a.leech || b.leech) x.leech = true;
+      if (a.seit || b.seit) x.seit = Math.min(a.seit || Infinity, b.seit || Infinity);
+      ['m', 'art'].forEach(k => { if (x[k] === undefined) delete x[k]; });
+      return x;
+    });
+    her('kok', (a, b) => Object.assign({}, b, a, sonra(a.S ? a : null, b.S ? b : null) || {}));
+    her('pakete', (a, b) => { const x = Object.assign({}, b, a); const h = sonra(a.m, b.m); if (h) x.m = h; return x; });
+    if (lok.tageC || uz.tageC) {
+      const tc = {};
+      [uz.tageC || {}, lok.tageC || {}].forEach(src => Object.entries(src).forEach(([g, cs]) => Object.entries(cs).forEach(([cih, v]) => {
+        tc[g] = tc[g] || {};
+        if (!tc[g][cih] || (v.n || 0) >= (tc[g][cih].n || 0)) tc[g][cih] = v;
+      })));
+      m.tageC = tc;
+      her('tage', (a, b) => ((a.n || 0) >= (b.n || 0) ? a : b));
+      Object.entries(tc).forEach(([g, cs]) => {
+        const top = { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0 };
+        Object.values(cs).forEach(v => Object.keys(top).forEach(k => { top[k] += v[k] || 0; }));
+        m.tage[g] = Object.assign({}, m.tage[g] || {}, top);
+      });
+    }
+    m.surum = Math.max(lok.surum || 0, uz.surum || 0) || undefined;
+    if (m.surum === undefined) delete m.surum;
+    if (lok.goc4 || uz.goc4) m.goc4 = !lok.goc4 ? uz.goc4 : !uz.goc4 ? lok.goc4 : (lok.goc4.zaman <= uz.goc4.zaman ? lok.goc4 : uz.goc4);
+    m.log = lok.log; m.pending = lok.pending; m.ghPending = lok.ghPending;
+    return m;
+  }
+
+  // ================= Toparlanma tahmini (§5.6) =================
+  // sim5 mantığı: günde kap cevap, üretimde gerçek başarı modelden δ = −0,4 logit düşük; 3 tohum, medyan.
+  // Döner: günün başındaki vadeli öğe sayısının ≤ 0,75·kap'a indiği ilk gün (0 = bugün), ya da null (3 haftadan uzun)
+  function tohum(seed) { let s = seed >>> 0; return () => (s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296; }
+  function tahmin(durum, kap, t) {
+    const S = durum.S, ret = (S.einst && S.einst.ret) || 0.85, delta = -0.4, GUN = 21;
+    const tek = seed => {
+      const rnd = tohum(seed);
+      const A = Object.entries(S.items || {}).filter(([id]) => C.kind(id) !== 'p').map(([id, it]) => {
+        let t3 = false; try { t3 = C.kind(id) !== 'v' && C.tierOf(id) === 3 && !C.uniteKonu(id); } catch (e) { /* bilinmeyen öğe */ }
+        return { id, t3, m: it.m && it.m.S ? Object.assign({}, it.m) : null, a: it.art && it.art.S ? Object.assign({}, it.art) : null };
+      });
+      const bas = (h, r) => { let b = h.S < 2 ? 1 : h.S < 7 ? 2 : h.S < 21 ? 3 : 4; const pk = h.pk || 0; if (pk === 0) b = Math.min(b, 2); else if (pk === 1) b = Math.min(b, 3); if (r < 0.5) b = 1; if (b >= 3 && rnd() < 0.2) b--; return b; };
+      let q0 = kota(Object.assign({}, durum, { donus: false }), t).q;
+      for (let d = 0; d < GUN; d++) {
+        const t0 = t + d * DAY;
+        const vad = A.filter(x => (x.m && x.m.due <= t0) || (x.a && x.a.due <= t0));
+        if (vad.length <= 0.75 * kap) return d;
+        let butce = kap;
+        // yeni kelime: tanıtım + mini + ikinci ≈ 2 cevap (ilk 3 gün göç kotası)
+        const q = d < 3 ? Math.min(q0, 2) : q0;
+        for (let i = 0; i < q && butce > 2; i++) { const ok = rnd() < 0.9; A.push({ id: 'y' + d + i, t3: false, m: Object.assign(FSRS.review({}, ok ? 3 : 1, t0, ret), { pk: 0, due: ertesiGun4(t0) }), a: null }); butce -= ok ? 2 : 3; }
+        const sira = vad.map(x => ({ x, r: x.m && x.m.due <= t0 ? R(x.m, t0) : R(x.a, t0) })).sort((a, b) => b.r - a.r);
+        for (const { x } of sira) {
+          if (butce <= 0) break;
+          const tt = t0 + 60000;
+          if (x.m && x.m.due <= t0) {
+            let b = bas(x.m, R(x.m, tt)); if (x.t3) b = Math.min(b, 3);
+            const bic = b === 1 ? 'sec' : b === 2 ? (x.m.S < 4 ? 'yaz0' : 'yaz') : b === 3 ? (x.m.S < 10 ? 'bos0' : 'bos') : 'cumle';
+            const dd = b === 1 ? 0.5 : bic.endsWith('0') ? delta + 0.2 : delta;
+            const ok = rnd() < sig(logit(kirp(R(x.m, tt), 0.01, 0.99)) + dd);
+            x.m = guncelle(x.m, ok ? 3 : 1, tt, ret, OFS[bic], { pkSay: ok && PK_BICIM.has(bic) });
+            butce -= ok ? 1 : 2;
+            if (x.a && x.a.due <= t0 && ok && b <= 2) { const okA = rnd() < sig(logit(kirp(R(x.a, tt), 0.01, 0.99)) - 0.2); x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel); }
+          } else {
+            const okA = rnd() < sig(logit(kirp(R(x.a, tt), 0.01, 0.99)) - 0.2);
+            x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel);
+            butce -= okA ? 1 : 2;
+          }
+        }
+      }
+      return null;
+    };
+    const r = [1, 2, 3].map(tek).map(x => x == null ? Infinity : x).sort((a, b) => a - b)[1];
+    return r === Infinity ? null : r;
+  }
+
+  const api = {
+    init, get ctx() { return C; },
+    DAY, OFS, KISMI, PK_BICIM, ARA,
+    gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
+    guncelle, notVer, uygula, seviye, basamak, bicimSec,
+    vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
+    goc, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin,
+  };
+  return api;
+});
