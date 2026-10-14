@@ -3218,7 +3218,8 @@
   const b64dec = s => decodeURIComponent(escape(atob(s.replace(/\n/g, ''))));
   const ghDurum = t => { const el = $('#gh-durum'); if (el) el.textContent = t; };
   async function ghApi(path, opt) {
-    const r = await fetch(`https://api.github.com/repos/${GH.repo}${path}`, Object.assign({}, opt, {
+    // okumalar HTTP önbelleğinden gelmesin (GitHub max-age=60 → eski sha → 409)
+    const r = await fetch(`https://api.github.com/repos/${GH.repo}${path}`, Object.assign({ cache: 'no-store' }, opt, {
       headers: { Authorization: 'Bearer ' + ghToken(), Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' } }));
     if (r.status === 404) return null;
     if (!r.ok) throw new Error(`${r.status} ${(await r.text()).slice(0, 120)}`);
@@ -3863,6 +3864,19 @@
     herunterladen('almanca-hatirlatici.ics', ics, 'text/calendar;charset=utf-8');
   }
 
+  // Android'de .ics içe aktarılamıyor: Google Takvim'de tek dokunuşla her gün tekrarlayan etkinlik
+  function googleTakvim() {
+    const saat = ($('#a-saat') && $('#a-saat').value) || '19:00';
+    const [hh, mm] = saat.split(':');
+    const y = new Date(now() + DAY), ymd = `${y.getFullYear()}${String(y.getMonth() + 1).padStart(2, '0')}${String(y.getDate()).padStart(2, '0')}`;
+    const bit = new Date(y.getFullYear(), y.getMonth(), y.getDate(), +hh, +mm + 10);
+    const hm2 = `${String(bit.getHours()).padStart(2, '0')}${String(bit.getMinutes()).padStart(2, '0')}`;
+    const url = location.href.split('#')[0].split('?')[0];
+    const q = new URLSearchParams({ action: 'TEMPLATE', text: 'Almanca: 1 tur (4 dk)', dates: `${ymd}T${hh}${mm}00/${ymd}T${hm2}00`,
+      ctz: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Berlin', recur: 'RRULE:FREQ=DAILY', details: `Seri bozulmasın: ${url}?tur=kisa` });
+    window.open('https://calendar.google.com/calendar/render?' + q.toString(), '_blank', 'noopener');
+  }
+
   // ================= Artikel 60 sn (mini oyun) =================
   // Öğrendiğin isimler (önce vadesi gelen ve zayıf artikel kartları), 60 saniyede olabildiğince çok der/die/das. Kombo, kişisel rekor.
   // Vadesi gelen artikel kartı normal tekrar sayılır (FSRS); vadesi gelmemişte yanlış → kart yarın sorulur, doğru → takvim değişmez.
@@ -4223,6 +4237,7 @@
   });
   $('#klasor').addEventListener('click', ordnerVerbinden);
   $('#a-hatirlat').addEventListener('click', hatirlaticiIndir);
+  $('#a-gtakvim').addEventListener('click', googleTakvim);
   $('#gh-token').value = ghToken() ? '••••••••' : '';
   if (ghToken()) ghDurum('Anahtar kayıtlı: cevaplar GitHub\'a yazılıyor.');
   $('#gh-kaydet').addEventListener('click', async () => {
@@ -4325,8 +4340,8 @@
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(e => console.warn('service worker', e)));
     let sonKontrol = now(), yeniSurum = false;
-    const hadi = !!navigator.serviceWorker.controller;  // ilk kurulumda değil, güncellemede yenile
-    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadi) yeniSurum = true; });
+    let hadi = !!navigator.serviceWorker.controller;  // ilk kurulumda değil, güncellemede yenile
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadi) yeniSurum = true; hadi = true; });
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) { save(); return; }
       if (yeniSurum && !$('#v-ana').hidden) { location.reload(); return; }
