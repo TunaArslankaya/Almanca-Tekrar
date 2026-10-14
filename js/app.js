@@ -186,6 +186,7 @@
     yazma: { ad: 'Yazma', grup: 'Yazma', ziel: 1, neu: 1, neuTr: 'metin (3–4 günde bir)' },
     zayif: { ad: 'Zayıflar', grup: '', ziel: 10, neu: 0, neuTr: '' },
     artoyun: { ad: 'Artikel 60 sn', grup: 'Oyun', ziel: 1, neu: 0, neuTr: 'oyun (soru yok)' },
+    sprechen: { ad: 'Konuşma', grup: 'Beceri', ziel: 1, neu: 0, neuTr: 'shadowing + kayıt (soru yok)' },
   };
   // Tek akış: tanıma, yazma, cümle, yeni kelime ve ara etkinlikler tek kuyrukta. Diğer bölümler odak için "Bölüm" listesinde.
   const PLAN = ['akis'];
@@ -367,6 +368,7 @@
     unite: () => false,
     kalip: () => false,
     artoyun: () => false,
+    sprechen: () => false,
   };
   // seçili konu
   const themaId = () => (thById[S.einst.thema] ? S.einst.thema : (THEMEN[0] && THEMEN[0].id));
@@ -2782,6 +2784,7 @@
     if (session.modus === 'unite') { uniteRender(); return; }
     if (session.modus === 'kalip') { kalipRender(); return; }
     if (session.modus === 'artoyun') { artOyunRender(); return; }
+    if (session.modus === 'sprechen') { sprechenRender(); return; }
     const m = session.modus;
     if (!session.tur || session.tur.bitti) { turBaslat(); session.tur.mod = m; }
     if (turBitti()) { turSonuRender(); return; }
@@ -3581,6 +3584,7 @@
     ['normal', '🎲', 'Karışık yazma', 'fiil + isim yazarak'],
     ['kalip', '💬', 'Kalıplar', 'fiillerin kullanımı'],
     ['lesen', '📖', 'Okuma', 'Goethe, DW, Klexikon'],
+    ['sprechen', '🎙️', 'Konuşma', 'shadowing · Sprechen Teil 1–3'],
   ];
   // ---- puan (XP) ----
   function xpEkle(n) {
@@ -3928,6 +3932,119 @@
     window.open('https://calendar.google.com/calendar/render?' + q.toString(), '_blank', 'noopener');
   }
 
+
+  // ================= Konuşma (Sprechen) =================
+  // Tek başına konuşma pratiği: (1) shadowing — gerçek cümleyi dinle, hemen ardından yüksek sesle tekrarla, kendini kaydet, karşılaştır;
+  // (2) Goethe B1 Sprechen Teil 2 sunum (2 dk, yapı + Redemittel + kayıt); (3) Teil 1 planlama ve Teil 3 geri bildirim kartları.
+  // Kayıt tarayıcıda kalır (MediaRecorder), hiçbir yere gönderilmez. Log modus `sprechen`: id `shadow:<öğe>` / `teil2:<konu>` / `teil1` / `teil3`.
+  const SP_KONULAR = [
+    ['Fast Food – gut oder schlecht?', 'Fast food iyi mi kötü mü?'], ['Leben ohne Auto', 'Arabasız yaşam'], ['Haustiere in der Stadt', 'Şehirde evcil hayvan'],
+    ['Online einkaufen', 'İnternetten alışveriş'], ['Fremdsprachen lernen – wie am besten?', 'Yabancı dil en iyi nasıl öğrenilir?'], ['Arbeiten im Ausland', 'Yurt dışında çalışmak'],
+    ['Soziale Netzwerke im Alltag', 'Günlük hayatta sosyal ağlar'], ['Bei den Eltern wohnen oder allein?', 'Ailenin yanında mı, tek başına mı?'], ['Urlaub: Meer oder Berge?', 'Tatil: deniz mi dağ mı?'],
+    ['Ehrenamt – Zeit für andere', 'Gönüllü çalışma'], ['Müll trennen – wichtig oder nicht?', 'Çöp ayırmak önemli mi?'], ['Sport im Alltag', 'Günlük hayatta spor'],
+    ['Frühstück – die wichtigste Mahlzeit?', 'Kahvaltı en önemli öğün mü?'], ['Handy in der Schule', 'Okulda cep telefonu'], ['Geschenke selbst machen oder kaufen?', 'Hediye: el yapımı mı satın mı?'],
+  ];
+  const SP_PLAN = [
+    ['Ein Freund hat Geburtstag: eine Party organisieren', 'Arkadaşın doğum günü: parti düzenleyin (yer, zaman, yemek, kim ne getirir)'],
+    ['Ein gemeinsamer Ausflug am Wochenende', 'Hafta sonu ortak gezi (nereye, nasıl gidilecek, ne alınacak)'],
+    ['Eine Kollegin ist krank: Besuch und Hilfe planen', 'Hasta bir arkadaşı ziyaret: ne zaman, ne götürülecek, kim arayacak)'],
+    ['Ein Abschiedsgeschenk für den Lehrer', 'Öğretmene veda hediyesi (ne, kaç para, kim alacak)'],
+    ['Einen Deutsch-Lernabend organisieren', 'Almanca çalışma akşamı düzenleyin (nerede, saat kaçta, ne çalışılacak)'],
+  ];
+  let spKayit = null;  // { rec, chunks, url, start }
+  function spKayitBaslat(btn) {
+    if (!navigator.mediaDevices || !window.MediaRecorder) { toast('Bu tarayıcıda kayıt yok.'); return; }
+    navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+      const rec = new MediaRecorder(stream), chunks = [];
+      rec.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+      rec.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        const blob = new Blob(chunks, { type: rec.mimeType || 'audio/webm' });
+        if (spKayit && spKayit.url) URL.revokeObjectURL(spKayit.url);
+        spKayit = { url: URL.createObjectURL(blob), sn: Math.round((now() - spKayit.start) / 1000) };
+        sprechenRender();
+      };
+      spKayit = { rec, start: now() };
+      rec.start();
+      sprechenRender();
+    }).catch(() => toast('Mikrofon izni verilmedi.'));
+  }
+  function spKayitDurdur() { if (spKayit && spKayit.rec && spKayit.rec.state !== 'inactive') spKayit.rec.stop(); }
+  function spShadowSatz() {
+    // öğrenilmiş öğelerin gerçek cümleleri (kendi çeviri cümleleri önce, sonra metinlerden); son görülenler atlanır
+    const ids = Object.keys(S.items).filter(id => kind(id) !== 'p' && gueltig(id + ':x'));
+    const gesehen = session.spGesehen = session.spGesehen || new Set();
+    for (let i = 0; i < 40 && ids.length; i++) {
+      const id = pick(ids), pool = satzPool(id), alle = pool.own.concat(pool.extra);
+      const c = alle.filter(x => !gesehen.has(x.de));
+      if (c.length) { const x = pick(c); gesehen.add(x.de); return { id, de: x.de, tr: x.tr || '', quelle: x.quelle || '' }; }
+    }
+    return null;
+  }
+  const spKalip = typ => (KAL.yazma[typ] || []).map(k => `<li><b>${esc(k.de)}</b> <span class="soluk">${esc(k.tr)}</span></li>`).join('');
+  function sprechenRender() {
+    aktuell = { typ: 'sprechen' };
+    const sp = session.sp = session.sp || { tab: 'shadow' };
+    $('#durum-satiri').innerHTML = '';
+    const kayitUI = () => {
+      const r = spKayit;
+      if (r && r.rec && r.rec.state === 'recording') return `<div class="sira"><button class="btn ana" data-act="sp-stop" type="button">⏹ Kaydı bitir</button><span class="soluk sp-rec">● kaydediliyor…</span></div>`;
+      return `<div class="sira"><button class="btn ana" data-act="sp-rec" type="button">🎙️ Kendini kaydet</button>${r && r.url ? `<audio controls src="${r.url}"></audio><span class="soluk">${r.sn} sn</span>` : '<span class="soluk">kayıt yalnız bu tarayıcıda kalır</span>'}</div>`;
+    };
+    const sekme = `<div class="chips sp-sekme">${[['shadow', 'Shadowing'], ['teil2', 'Sunum (Teil 2)'], ['teil1', 'Planlama (Teil 1)'], ['teil3', 'Geri bildirim (Teil 3)']].map(([k, ad]) => `<button class="chip${sp.tab === k ? ' aktif' : ''}" data-sp-tab="${k}" type="button">${ad}</button>`).join('')}</div>`;
+    let h = `<div class="tur"><span class="yeni">konuşma</span><span>yüksek sesle · ${esc({ shadow: 'dinle, hemen tekrarla', teil2: '2 dakikalık sunum', teil1: 'birlikte plan yapma', teil3: 'sunuma tepki ve soru' }[sp.tab])}</span></div>${sekme}`;
+    if (sp.tab === 'shadow') {
+      if (!sp.satz) sp.satz = spShadowSatz();
+      const z = sp.satz;
+      if (!z) h += '<div class="bos">Önce birkaç kelime öğren; cümleleri buraya gelir.</div>';
+      else h += `<div class="sp-kart"><div class="buyuk-kelime sp-cumle">${deHTML(z.de)}</div>${z.tr ? `<div class="soluk">${esc(z.tr)}</div>` : ''}<div class="soluk">${esc(label(z.id))}${z.quelle ? ' · ' + esc(z.quelle) : ''}</div>
+        <div class="sira"><button class="btn" data-act="sp-oku" type="button">🔊 Dinle</button><button class="btn" data-act="sp-oku-yavas" type="button">🐢 Yavaş</button><button class="btn mini" data-act="sp-sonraki" type="button">Sıradaki cümle →</button></div>
+        <p class="aciklama">Sesi dinlerken ya da hemen ardından aynı anda yüksek sesle söyle (shadowing). 3 kez tekrarla, sonra kendini kaydedip karşılaştır: vurgu, uzun/kısa sesli harfler, cümle melodisi.</p>${kayitUI()}
+        <div class="sira"><button class="btn ana" data-act="sp-bitti" type="button">Söyledim ✓</button></div></div>`;
+    } else if (sp.tab === 'teil2') {
+      if (sp.konuI == null) sp.konuI = Math.floor(Math.random() * SP_KONULAR.length);
+      const [de, tr] = SP_KONULAR[sp.konuI];
+      const kalan = sp.timerBis ? Math.max(0, Math.round((sp.timerBis - now()) / 1000)) : null;
+      h += `<div class="sp-kart"><div class="soru">${esc(de)}</div><div class="soluk">${esc(tr)} · <button class="btn mini" data-act="sp-konu" type="button">başka konu</button></div>
+        <ol class="erkl sp-yapi"><li><b>Einleitung:</b> konuyu söyle, yapıyı anlat</li><li><b>Meine Erfahrungen:</b> kendi deneyimin (1–2 örnek)</li><li><b>In meinem Heimatland:</b> Türkiye'de durum</li><li><b>Vor- und Nachteile:</b> en az 2 + 2</li><li><b>Meine Meinung + Schluss:</b> görüşün, teşekkür</li></ol>
+        <details class="ceviri"><summary>Redemittel (Teil 2)</summary><ul class="erkl">${spKalip('sprechen2')}</ul></details>
+        <div class="sira"><button class="btn" data-act="sp-timer" type="button">⏱ 2 dakika başlat</button>${kalan != null ? `<b class="sp-timer${kalan === 0 ? ' bitti' : ''}">${String(Math.floor(kalan / 60))}:${String(kalan % 60).padStart(2, '0')}</b>` : ''}</div>${kayitUI()}
+        <p class="aciklama">Sınavda bu bölüm yaklaşık 3 dakika sürer; hedefin 2 dakika kesintisiz konuşmak. Kaydı dinleyip işaretle:</p>
+        <div class="sp-liste">${['5 bölümün hepsi var', 'Cümleler tam, fiil 2. yerde / yan cümlede sonda', 'En az 3 Redemittel kullandım', 'Çok duraklamadım (ähm yok)'].map((t, i) => `<label><input type="checkbox" data-sp-ol="${i}"${sp.ol && sp.ol[i] ? ' checked' : ''}> ${t}</label>`).join('')}</div>
+        <div class="sira"><button class="btn ana" data-act="sp-bitti" type="button">Sunumu bitirdim ✓</button></div></div>`;
+    } else if (sp.tab === 'teil1') {
+      if (sp.planI == null) sp.planI = Math.floor(Math.random() * SP_PLAN.length);
+      const [de, tr] = SP_PLAN[sp.planI];
+      h += `<div class="sp-kart"><div class="soru">${esc(de)}</div><div class="soluk">${esc(tr)} · <button class="btn mini" data-act="sp-plan" type="button">başka görev</button></div>
+        <p class="aciklama">Sınavda partnerinle 4 noktayı birlikte kararlaştırırsın (öneri → tepki → karşı öneri → anlaşma). Burada iki rolü de sen konuş: önce öneri yap, sonra partner gibi cevap ver. Her noktada en az bir öneri + bir tepki.</p>
+        <details class="ceviri" open><summary>Redemittel (Teil 1)</summary><ul class="erkl">${spKalip('sprechen1')}</ul></details>${kayitUI()}
+        <div class="sira"><button class="btn ana" data-act="sp-bitti" type="button">Planladım ✓</button></div></div>`;
+    } else {
+      if (sp.konuI == null) sp.konuI = Math.floor(Math.random() * SP_KONULAR.length);
+      const [de, tr] = SP_KONULAR[sp.konuI];
+      h += `<div class="sp-kart"><div class="soru">Partnerin „${esc(de)}“ sundu.</div><div class="soluk">${esc(tr)} · <button class="btn mini" data-act="sp-konu" type="button">başka konu</button></div>
+        <p class="aciklama">Teil 3: sunuma kısa bir tepki ver (ne hoşuna gitti) ve bir soru sor; sonra kendi sunumuna gelen bir soruya cevap ver. 30–45 saniye.</p>
+        <details class="ceviri" open><summary>Redemittel (Teil 3)</summary><ul class="erkl">${spKalip('sprechen3')}</ul></details>${kayitUI()}
+        <div class="sira"><button class="btn ana" data-act="sp-bitti" type="button">Söyledim ✓</button></div></div>`;
+    }
+    kart.innerHTML = h;
+    tastatur();
+    if (sp.timerBis && now() < sp.timerBis) later(sprechenRender, 1000);
+  }
+  function spBitti() {
+    const sp = session.sp || {};
+    const id = sp.tab === 'shadow' ? 'shadow:' + ((sp.satz || {}).id || '') : sp.tab === 'teil2' ? 'teil2:' + (sp.konuI ?? '') : sp.tab === 'teil1' ? 'teil1:' + (sp.planI ?? '') : 'teil3:' + (sp.konuI ?? '');
+    const frage = sp.tab === 'shadow' ? ((sp.satz || {}).de || '') : sp.tab === 'teil1' ? SP_PLAN[sp.planI || 0][0] : SP_KONULAR[sp.konuI || 0][0];
+    const ol = sp.ol ? Object.keys(sp.ol).filter(k => sp.ol[k]).length : 0;
+    logEintrag({ modus: 'sprechen', id, item: sp.tab, frage, antwort: spKayit && spKayit.sn ? `kayıt:${spKayit.sn}sn` : '', ergebnis: 'gemacht', loesung: '', notiz: sp.tab === 'teil2' ? `liste:${ol}/4` : '' });
+    heuteM('sprechen').n++; xpEkle(sp.tab === 'shadow' ? 5 : 25);
+    if (spKayit && spKayit.url) URL.revokeObjectURL(spKayit.url);
+    spKayit = null; sp.ol = null; sp.timerBis = null;
+    if (sp.tab === 'shadow') sp.satz = spShadowSatz(); else { sp.konuI = null; sp.planI = null; }
+    save(); toast(sp.tab === 'shadow' ? '+5 · sıradaki cümle' : '+25 · konuşma kaydedildi (sayı, kayıt değil)');
+    sprechenRender();
+  }
+
   // ================= Artikel 60 sn (mini oyun) =================
   // Öğrendiğin isimler (önce vadesi gelen ve zayıf artikel kartları), 60 saniyede olabildiğince çok der/die/das. Kombo, kişisel rekor.
   // Vadesi gelen artikel kartı normal tekrar sayılır (FSRS); vadesi gelmemişte yanlış → kart yarın sorulur, doğru → takvim değişmez.
@@ -4109,6 +4226,8 @@
     const mc = e.target.closest('[data-mc]');
     if (mc) { mcWahl(+mc.dataset.mc); return; }
     const oy = e.target.closest('[data-oyun]'); if (oy) { oyunCevap(oy.dataset.oyun); return; }
+    const spt = e.target.closest('[data-sp-tab]'); if (spt) { session.sp = session.sp || {}; session.sp.tab = spt.dataset.spTab; sprechenRender(); return; }
+    const spo = e.target.closest('[data-sp-ol]'); if (spo) { session.sp.ol = session.sp.ol || {}; session.sp.ol[spo.dataset.spOl] = spo.checked; return; }
     const ar = e.target.closest('[data-art]');
     if (ar) { artWahl(ar.dataset.art); return; }
     const a = e.target.closest('[data-act]');
@@ -4125,6 +4244,14 @@
     else if (act === 'metin-gonder') metinGonder();
     else if (act === 'claude-gonder') { e.target.disabled = true; claudeGonder().then(ok => { if (!ok) e.target.disabled = false; }); }
     else if (act === 'lesen-baska') lesenRender(true);
+    else if (act === 'sp-rec') spKayitBaslat();
+    else if (act === 'sp-stop') spKayitDurdur();
+    else if (act === 'sp-oku' || act === 'sp-oku-yavas') { const z = session.sp && session.sp.satz; if (z) sprich(z.de, act === 'sp-oku-yavas' ? 0.7 : 0.95); }
+    else if (act === 'sp-sonraki') { session.sp.satz = spShadowSatz(); sprechenRender(); }
+    else if (act === 'sp-konu') { session.sp.konuI = (session.sp.konuI + 1 + Math.floor(Math.random() * (SP_KONULAR.length - 1))) % SP_KONULAR.length; sprechenRender(); }
+    else if (act === 'sp-plan') { session.sp.planI = (session.sp.planI + 1) % SP_PLAN.length; sprechenRender(); }
+    else if (act === 'sp-timer') { session.sp.timerBis = now() + 120000; sprechenRender(); }
+    else if (act === 'sp-bitti') spBitti();
     else if (act === 'lesen-oku' || act === 'lesen-oku-yavas') { const L = session.lesen; if (L) sprich(L.text.split('\n').slice(0, 12).join('. '), act === 'lesen-oku-yavas' ? 0.75 : 0.95); }
     else if (act === 'fv-test') fvTestStart();
     else if (act === 'u-weiter') uWeiter();

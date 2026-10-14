@@ -672,3 +672,16 @@ mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding
 }
 .unite-ayar { display: grid; gap: .5rem; }
 .unite-ayar .oge { align-items: center; }
+
+/* konuşma */
+.sp-kart { display: grid; gap: .7rem; }
+.sp-cumle { font-size: 1.5rem; }
+.sp-sekme { margin-bottom: .4rem; }
+.sp-sekme .chip.aktif { background: var(--accent); color: var(--accent-ink, #fff); border-color: var(--accent); }
+.sp-liste { display: grid; gap: .35rem; }
+.sp-liste label { display: flex; gap: .5rem; align-items: center; min-height: 36px; }
+.sp-timer { font-family: var(--f-disp); font-size: 1.4rem; align-self: center; }
+.sp-timer.bitti { color: var(--bad); }
+.sp-rec { color: var(--bad); animation: yanip 1s infinite; }
+@keyframes yanip { 50% { opacity: .3; } }
+.sp-yapi li { margin: .15rem 0; }
