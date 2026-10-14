@@ -3699,11 +3699,14 @@
     const turYapilan = Math.floor(d.n / b), tamam = d.n >= z;
     const sr = seriDurum(), seri = seriSay(), bugunSayildi = gunAktif(tag());
     const tekrar = faellig(FILTER.akis).length;
-    const yeniVar = !!(UNITEN.some(uAktiv) && uniteNeuId()) || neuHeute('n') < neuGrenze('n');
+    const birikme = rueckstand(FILTER.akis) > stauGrenze('akis');
+    const yeniVar = !birikme && (!!(UNITEN.some(uAktiv) && uniteNeuId()) || neuHeute('n') < neuGrenze('n'));
     const dkTur = Math.max(3, Math.round(b * 0.28));
+    // sayı değil süre: bugünün tekrar payı (yayılmış birikme sayılmaz)
+    const dkBugun = Math.max(dkTur, Math.round(Math.min(tekrar, stauKap()) * 9 / 60));
     const altMetin = tamam ? 'Günlük hedef tamam. İstersen bonus tur.'
-      : tekrar ? `Sırada ${tekrar} tekrar${yeniVar ? ' + yeni kelimeler' : ''} · tur başına ~${dkTur} dk`
-      : 'Tekrar yok: yeni kelimeler ve alıştırmalar';
+      : tekrar ? `Bugünkü tekrar ≈ ${dkBugun} dk${yeniVar ? ' + yeni kelimeler' : birikme ? ' · önce eskiler sağlamlaşıyor' : ''} · 1 tur ~${dkTur} dk`
+      : yeniVar ? 'Tekrar yok: yeni kelimeler seni bekliyor' : 'Tekrar yok: alıştırmalar ve okuma';
     const btnMetin = session.tur && !session.tur.bitti && session.tur.n ? 'Devam et' : tamam ? 'Bonus tur' : !bugunSayildi ? 'Günü kurtar' : 'Sıradaki tur';
     const ic = tamam ? '<span class="halka-ok">✓</span>' : `<b>${Math.min(turYapilan, turHedef)}/${turHedef}</b><span>tur</span>`;
     // günün işleri

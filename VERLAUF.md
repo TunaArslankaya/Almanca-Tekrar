@@ -171,3 +171,32 @@ Son incelenen log satırı en alttaki notta yazar.
   die Diskussion, eben, die Politik, folgen · takılan: zustimmen, vorschlagen, sich eignen für, donnern, blitzen, nass).
 - Bilinen eksik: fiil metninde "fingen … an" (anfangen) fangen diye soruldu (ayrılabilir ön ek cümle sonunda; dizin tek kelimeye bakıyor).
 - Son incelenen log satırı: 2026-10-11 17:45:24.
+
+## 2026-10-14 — uygulama yeniden tasarımı (v4): Bugün ekranı, turlar, seri, PWA, verim
+
+- Tuna: "uygulamaya hiç girmek gelmiyor, 300 tekrar birikti; daha çekici ve verimli olsun, benzer uygulamalara bak, kullanıcı simülasyonu yap."
+- Yöntem: gerçek ilerleme dosyasıyla ekran kayıtları (`tools/film.js`: telefon / masaüstü / yeni kullanıcı / ertesi gün), 3 Tuna personası + UX uzmanı +
+  öğrenme bilimi uzmanı kayıtları ve log'u inceledi; 5 konuda web araştırması (birikme ve verim, motivasyon, kart arayüzü, Almancaya özgü, PWA). Ayrıntı: TASARIM.md.
+- Bulunanlar: telefonda soru kartı ekranın ortasından başlıyordu (üstte çipler, bölüm seçici, "248 tekrar birikmiş"); sonuç ve not düğmeleri ekranın altında;
+  sayacın %80'ini öz-değerlendirme listeleri dolduruyordu; seçmelide 3,5 sn'den yavaş doğru "zor" sayılıp 101 cevap 2–4 güne çekilmişti (birikmeyi uygulama büyütüyordu);
+  ön testte "biliyorum" 8 gün sonraya atıyordu ama ilk gerçek testte %37 yanlış; 2–3 Ekim'de 128 öğe (547 kart) açılması birikmenin kök nedeni.
+- Yapılanlar:
+  - Bugün ekranı (seri 🔥 + dondurucu ❄️, tur halkası, tek Başla, ⚡ klavyesiz 8 soru / 🧘 uzun 25 soru, günün işleri: Ünite / fiil metni / yazma / Zayıflar,
+    odak kartları, bu hafta, B1 yolu), alt gezinti çubuğu (telefon), çalışırken yalnız kart + tur çubuğu (✕ / Esc).
+  - Tur: 12 cevap, tur sonu özeti (doğruluk, puan, dakika, güçlenen / yakında tekrar, yarınki süre, seri), "bir tur daha". Günü kurtar = 10 cevap; günlük hedef uyarlanır (3–4 tur).
+  - Seri dondurucu (7 günde 1, en çok 2), dün kaçtıysa bugün 2 turla onarım, ara verip dönünce ilk tur çift puan; puan emeğe göre; ses / titreşim / konfeti / kombo; cevaptan sonra Almanca seslendirme.
+  - Telefonda sonuç alttan açılan panelde; yanlışta büyük "Devam" (sistem notu), "küçük hata say" / "aslında doğru" (artikel hatasında "doğru" yok); doğru yazmada panele dokununca geç.
+  - Hızlı tekrar listesi tek tek kart (10 kelime), az önceki kelimenin cevabı altta + "yanılmışım"; iki kalem bir cevap; artikel kartı "biliyorum"la kapanmaz;
+    "biliyorum"ların dörtte biri (tutma %80'in altındaysa yarısı) gerçek soruyla doğrulanır, tutma oranı gösterilir.
+  - Notlama: seçmelide doğru = İyi (zor yalnız 15 sn üstü), artikelde 8 sn; ön test "biliyorum" = İyi (~2 gün) ve artikel gizli; fiil yazmada hâl notasyonu zorunlu değil;
+    en çok 4 şık; şıklar 1,2 sn sonra ya da dokununca; tam cümle çevirisi seyrek (en pahalı tür).
+  - Verim: yeni sınırı 8 kelime + 2 fiil, hedef hatırlama %85 (Ayarlar: Rahat / Dengeli / Sıkı), birikme eşiği iki günlük kapasite, birikmede kısa kartlar ve R'si yüksek önce,
+    kelime başına günde tek kart (önce yazma; yanlışta kardeşler yarına), ilk gün öğrenme adımı kısaldı, ısınma ve art arda iki yanlıştan sonra kolay kart, ara etkinlik her 7 gerçek soruda.
+  - Yeni kelime tanıtımı sade (ses düğmesi, ünite kitap cümlesi Türkçesiyle, ayrıntılar "daha fazla" altında, "bir kez yaz" isteğe bağlı), yeni öğrenilen kelime turda sayılır,
+    bir fiile en az 3 isim / kelime. Bileşik isim artikel kuralı (son parça belirler, 204 isim).
+  - Artikel 60 sn oyunu (kombo, rekor; vadesi gelen artikel kartı tekrar sayılır). İlerleme sayfası (seri, puan, 5 haftalık takvim, 7 günlük yük). Ayarlar sade (tur uzunluğu,
+    ses, titreşim, tekrar yükü, takvim hatırlatıcısı .ics, ana ekrana ekleme; bölüm tabloları "Gelişmiş" altında).
+  - PWA: manifest (kısayollar), service worker (çevrimdışı açılış, arka plandan dönünce güncelleme), ikonlar; iPhone ana ekran uygulaması ayrı başladığı için "ilerlemeni getir"
+    (GitHub anahtarı) ve Safari'de "anahtarı kopyala".
+- Testler: `tests/e2e_smoke.js` turlarla güncellendi (paket önce; akış için yeni sınırı testte 25), `tests/sim_stau.js` birikme yayma; ikisi de geçti.
+- Son incelenen log satırı değişmedi: 2026-10-11 17:45:24 (bu not uygulama değişikliği).
