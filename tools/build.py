@@ -463,6 +463,28 @@ for x in lern:
         x["regel"] = [best, art, pct, cnt]
         regel_n += 1
 
+# ---------------- Bileşik isim: artikeli son parça belirler (das Jahr → das Frühjahr) ----------------
+# Listedeki 223 bileşiğin %95'i baş isimle aynı artikelde. Uymayanlar çoğunlukla sahte bölme (Ant-wort, Ver-lust):
+# yalnız artikeli tutan bileşiğe kural yazılır, yanlış kural öğretilmez. İki artikelli başlar hariç.
+ZWEI_ART = {"Teil", "See", "Band", "Leiter", "Messer", "Gehalt", "Steuer", "Tor", "Kiefer", "Moment", "Erbe", "Verdienst"}
+_lem = {}
+for x in lern:
+    _lem.setdefault(x["lemma"], x)
+kopf_n = 0
+for x in lern:
+    lem = x["lemma"]
+    for i in range(3, len(lem) - 3):
+        tail = lem[i:]
+        cand = tail[0].upper() + tail[1:]
+        k = _lem.get(cand)
+        if k is None or cand == lem or cand in ZWEI_ART:
+            continue
+        if k["art"] == x["art"]:
+            x["kopf"] = [cand, k["art"]]
+            kopf_n += 1
+        break
+print(f"bileşik isim kuralı: {kopf_n} isim")
+
 # ---------------- Paketler ----------------
 pakete = []
 item_by_key = {}
@@ -782,6 +804,17 @@ _alt = open(_ih, encoding="utf-8").read()
 _neu = re.sub(r'((?:src|href)=")((?:js|css|daten)/[^"?]+)(?:\?v=[0-9a-f]+)?"', _surum, _alt)
 if _neu != _alt:
     open(_ih, "w", encoding="utf-8").write(_neu)
+# sw.js: önbelleğe alınacak dosyalar (index.html'deki ?v= adresleri + simgeler) ve sürüm (hepsinin özeti)
+_assets = ["./", "manifest.webmanifest", "img/icon-192.png", "img/icon-512.png", "img/icon-maskable-512.png", "img/apple-touch-icon.png", "img/icon.svg"]
+_assets += re.findall(r'(?:src|href)="((?:js|css|daten)/[^"]+\?v=[0-9a-f]+)"', _neu)
+_sw = P("sw.js")
+if os.path.exists(_sw):
+    _ver = hashlib.md5((_neu + "".join(_assets)).encode("utf-8")).hexdigest()[:10]
+    _salt = open(_sw, encoding="utf-8").read()
+    _swneu = re.sub(r"/\*VERSION\*/.*?/\*VERSION_END\*/", "/*VERSION*/'" + _ver + "'/*VERSION_END*/", _salt)
+    _swneu = re.sub(r"/\*ASSETS\*/.*?/\*ASSETS_END\*/", lambda m: "/*ASSETS*/" + json.dumps(_assets, ensure_ascii=False) + "/*ASSETS_END*/", _swneu, flags=re.S)
+    if _swneu != _salt:
+        open(_sw, "w", encoding="utf-8").write(_swneu)
 for w in warnings:
     print("uyarı:", w)
 for e in errors:

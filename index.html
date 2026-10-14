@@ -4,24 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Almanca Tekrar</title>
+<meta name="theme-color" content="#eef1f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10151b" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tekrar">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="css/stil.css?v=656242f5">
+<link rel="stylesheet" href="css/stil.css?v=6f25be98">
 </head>
 <body>
 <header class="bar">
   <div class="bar-in">
-    <div class="marke">
+    <button class="marke" type="button" data-v="ana" aria-label="Bugün">
       <span class="logo" aria-hidden="true"><i class="der"></i><i class="die"></i><i class="das"></i></span>
       <span>Tekrar</span>
-    </div>
+    </button>
     <nav class="tabs" role="tablist">
-      <button role="tab" data-v="calis" aria-selected="true">Çalış</button>
-      <button role="tab" data-v="zayif">Zayıflar</button>
+      <button role="tab" data-v="ana" aria-selected="true">Bugün</button>
+      <button role="tab" data-v="calis">Çalış</button>
       <button role="tab" data-v="liste">Kelimeler</button>
-      <button role="tab" data-v="gecmis">Geçmiş</button>
+      <button role="tab" data-v="zayif">Zayıflar</button>
+      <button role="tab" data-v="gecmis">İlerleme</button>
       <button role="tab" data-v="ayar">Ayarlar</button>
     </nav>
+    <div class="ust-seri" id="ust-seri" title="Seri"></div>
     <div class="hedef" id="hedef" title="Bugünkü hedef">
       <span class="hedef-sayi"><b id="hedef-n">0</b> / <span id="hedef-z">20</span></span>
       <span class="hedef-cubuk"><span id="hedef-dolu"></span></span>
@@ -30,27 +41,32 @@
 </header>
 
 <main>
-  <section id="v-calis" class="view">
-    <nav id="plan" class="plan" aria-label="Bugünün planı"></nav>
+  <section id="v-ana" class="view">
+    <div id="ana"></div>
+  </section>
+
+  <section id="v-calis" class="view" hidden>
+    <div class="calis-ust">
+      <button class="ikon-btn" type="button" id="calis-kapat" aria-label="Turu bitir, ana sayfaya dön" title="Ana sayfa (Esc)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="ot-cubuk" id="ot-cubuk" role="progressbar" aria-label="Tur ilerlemesi" aria-valuemin="0" aria-valuemax="20" aria-valuenow="0"><span id="ot-dolu"></span></div>
+      <span class="ot-sayi" id="ot-sayi">0/20</span>
+      <button class="ikon-btn" type="button" id="ses-btn" aria-label="Ses" title="Ses açık / kapalı"></button>
+    </div>
     <div class="odak-satir">
-      <label for="odak">Bölüm</label>
-      <select id="odak">
+      <span class="ot-mod" id="ot-mod"></span>
+      <select id="odak" aria-label="Bölüm" hidden>
         <option value="akis">Çalış (hepsi karışık)</option>
-        <optgroup label="Odak: ezber (hızlı)">
-          <option value="blitz">Hızlı tur</option>
-          <option value="paket">Paketler</option>
-          <option value="thema">Konu (B1 konuları)</option>
-        </optgroup>
-        <optgroup label="Odak: yazarak">
-          <option value="normal">Karışık</option>
-          <option value="verben">Fiiller</option>
-          <option value="woerter">Kelimeler (yazarak)</option>
-        </optgroup>
-        <optgroup label="Odak: dilbilgisi">
-          <option value="ndek">n-Deklination</option>
-          <option value="refl">Dönüşlü fiiller</option>
-          <option value="stark">Düzensiz fiiller (Präteritum + Perfekt)</option>
-        </optgroup>
+        <option value="blitz">Hızlı tur</option>
+        <option value="paket">Paketler</option>
+        <option value="thema">Konu (B1 konuları)</option>
+        <option value="normal">Karışık</option>
+        <option value="verben">Fiiller</option>
+        <option value="woerter">Kelimeler (yazarak)</option>
+        <option value="ndek">n-Deklination</option>
+        <option value="refl">Dönüşlü fiiller</option>
+        <option value="stark">Düzensiz fiiller (Präteritum + Perfekt)</option>
         <option value="lesen">Okuma (Goethe, DW, Klexikon)</option>
         <option value="unite">Ünite (kitaptaki konu)</option>
         <option value="fiilmetin">Günün fiil metni (çekimler)</option>
@@ -61,9 +77,10 @@
       <select id="thema-sec" aria-label="Konu" hidden></select>
       <span class="ust-bilgi" id="durum-satiri"></span>
     </div>
+    <nav id="plan" class="plan" aria-label="Bugünün planı" hidden></nav>
     <div id="hinweis" class="hinweis" role="status" hidden></div>
     <div id="kart" class="kart" aria-live="polite"></div>
-    <div class="klavye" id="umlaut">
+    <div class="klavye" id="umlaut" hidden>
       <button type="button" data-c="ä">ä</button><button type="button" data-c="ö">ö</button>
       <button type="button" data-c="ü">ü</button><button type="button" data-c="ß">ß</button>
       <button type="button" data-c="Ä">Ä</button><button type="button" data-c="Ö">Ö</button>
@@ -98,7 +115,8 @@
   </section>
 
   <section id="v-gecmis" class="view" hidden>
-    <h1>Geçmiş</h1>
+    <h1>İlerleme</h1>
+    <div id="ilerleme-ust"></div>
     <div class="tiles" id="ozet"></div>
     <h2>Son 21 gün</h2>
     <div class="grafik" id="grafik"></div>
@@ -111,12 +129,27 @@
 
   <section id="v-ayar" class="view" hidden>
     <h1>Ayarlar</h1>
-    <p class="aciklama">Her bölümün kendi günlük hedefi ve yeni öğe sınırı var. Birinde çalışınca diğerinin sayacı değişmez; ama öğrendiğin kelimeler Karışık'ta da tekrar gelir.</p>
-    <div class="tablo-kap"><table class="tablo ayar-tablo" id="a-modi"></table></div>
+    <h2>Uygulama</h2>
     <div class="form">
-      <label for="a-ret">Hedef hatırlama</label>
-      <select id="a-ret"><option value="0.85">%85 (daha az tekrar)</option><option value="0.9">%90 (önerilen)</option><option value="0.95">%95 (daha sık tekrar)</option></select>
+      <label for="a-tur">Tur uzunluğu</label>
+      <select id="a-tur"><option value="5">5 cevap (~2 dk)</option><option value="10">10 cevap (~3 dk)</option><option value="12">12 cevap (~4 dk, önerilen)</option><option value="15">15 cevap (~5 dk)</option><option value="20">20 cevap (~6 dk)</option><option value="30">30 cevap (~9 dk)</option></select>
+      <label for="a-ses">Ses efektleri</label>
+      <input id="a-ses" type="checkbox">
+      <label for="a-titresim">Titreşim (Android)</label>
+      <input id="a-titresim" type="checkbox">
+      <label for="a-ret">Tekrar yükü</label>
+      <select id="a-ret"><option value="0.8">Rahat · %80 hatırlama (en az tekrar)</option><option value="0.85">Dengeli · %85 (önerilen)</option><option value="0.9">Sıkı · %90 (~%20 daha çok tekrar)</option></select>
     </div>
+    <h2>Günlük hatırlatıcı</h2>
+    <p class="aciklama">Telefonunun takvimine her gün seçtiğin saatte bildirim gelen 10 dakikalık bir etkinlik ekler. İndirdiğin dosyayı aç, takvim "ekle" diye sorar.</p>
+    <div class="sira"><input id="a-saat" type="time" value="19:00" aria-label="Hatırlatma saati"><button class="btn ana" id="a-hatirlat" type="button">Takvime ekle</button></div>
+    <h2>Ana ekrana ekle</h2>
+    <p class="aciklama" id="a-kur"></p>
+    <details class="daha gelismis">
+      <summary>Gelişmiş: bölüm hedefleri ve günlük yeni sınırları</summary>
+      <p class="aciklama">Çalış'ın günlük hedefi son 7 gününe göre kendiliğinden ayarlanır; buraya sayı yazarsan sabitlenir. Yeni kelime sınırı düşük tutulursa tekrarlar birikmez (önerilen: günde 8 kelime + 2 fiil).</p>
+      <div class="tablo-kap"><table class="tablo ayar-tablo" id="a-modi"></table></div>
+    </details>
     <h2>Bildiğim kelimeler</h2>
     <p class="aciklama">A1 kelimelerini (yaklaşık 520: isim, fiil, diğer) ve bütün modal fiilleri bildiğin say. Bunlar yeni kelime olarak sorulmaz, cümle yardımında gösterilmez. Artikelleri bilmediğin için A1 isimlerinin <b>sadece artikeli</b> 2 haftaya yayılarak sorulur; A1 fiillerinin çekimleri (Präteritum, Perfekt) 1 aya yayılarak Fiiller'de gelir.</p>
     <div class="sira"><button class="btn" id="a1-bekannt" type="button">A1'i bildiğimi say</button><span id="a1-durum" class="soluk"></span></div>
@@ -151,8 +184,18 @@
   </section>
 </main>
 
+<nav class="alt-nav" aria-label="Gezinti">
+  <button type="button" data-v="ana" aria-label="Bugün"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg><span>Bugün</span></button>
+  <button type="button" data-v="liste" aria-label="Kelimeler"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h11a3 3 0 013 3v12H8a3 3 0 01-3-3z"/><path d="M5 16.5a3 3 0 013-3h11"/></svg><span>Kelimeler</span></button>
+  <button type="button" data-v="zayif" aria-label="Zayıflar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg><span>Zayıflar</span></button>
+  <button type="button" data-v="gecmis" aria-label="İlerleme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5h16"/><path d="M7 16v-5M12 16V7M17 16v-8"/></svg><span>İlerleme</span></button>
+  <button type="button" data-v="ayar" aria-label="Ayarlar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M5.5 18.5l1.7-1.7M16.8 7.2l1.7-1.7"/></svg><span>Ayarlar</span></button>
+</nav>
+<div id="fx" class="fx" aria-hidden="true"></div>
+<div id="toast" class="toast" role="status" hidden></div>
+
 <script src="daten/verben.js?v=fb6699d3"></script>
-<script src="daten/nomen.js?v=09e3b51d"></script>
+<script src="daten/nomen.js?v=8063d127"></script>
 <script src="daten/woerter.js?v=d72b296c"></script>
 <script src="daten/pakete.js?v=954acb6c"></script>
 <script src="daten/kancalar.js?v=10005887"></script>
@@ -171,6 +214,6 @@
 <script src="daten/feedback.js?v=124ee784"></script>
 <script src="js/fsrs.js?v=cb1ce83e"></script>
 <script src="js/grammatik.js?v=05491372"></script>
-<script src="js/app.js?v=8ee47ddb"></script>
+<script src="js/app.js?v=b3f99fb2"></script>
 </body>
 </html>

@@ -1,0 +1,57 @@
+// Service worker: uygulama çevrimdışı açılır, telefonda ana ekrana eklenince tam ekran uygulama gibi çalışır.
+// index.html ağdan (yeni sürüm hemen gelir), ?v= özetli dosyalar önbellekten (özet değişince adres de değişir).
+// GitHub API isteklerine dokunulmaz. VERSION ve ASSETS'i tools/build.py yazar: elle düzenleme.
+const VERSION = /*VERSION*/'f5ed854148'/*VERSION_END*/;
+const ASSETS = /*ASSETS*/["./", "manifest.webmanifest", "img/icon-192.png", "img/icon-512.png", "img/icon-maskable-512.png", "img/apple-touch-icon.png", "img/icon.svg", "css/stil.css?v=6f25be98", "daten/verben.js?v=fb6699d3", "daten/nomen.js?v=8063d127", "daten/woerter.js?v=d72b296c", "daten/pakete.js?v=954acb6c", "daten/kancalar.js?v=10005887", "daten/saetze.js?v=e8ca8aee", "daten/themen.js?v=2c02586c", "daten/saetze_refl.js?v=94a825b1", "daten/nsaetze.js?v=c9f20fe8", "daten/glossen.js?v=92a80111", "daten/lesen.js?v=eec5c231", "daten/lesetexte.js?v=88b63eb4", "daten/lesetexte_dw.js?v=da1a8962", "daten/goethe_lesen.js?v=4300c92c", "daten/unite.js?v=24b6183a", "daten/kaliplar.js?v=81d567d5", "daten/aufgaben.js?v=d40b26c2", "daten/feedback.js?v=124ee784", "js/fsrs.js?v=cb1ce83e", "js/grammatik.js?v=05491372", "js/app.js?v=b3f99fb2"]/*ASSETS_END*/;
+const CACHE = 'tekrar-' + VERSION;
+const FONTS = 'tekrar-fonts';
+
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE)
+    .then(c => c.addAll(ASSETS.map(a => new Request(a, { cache: 'reload' }))))
+    .then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys()
+    .then(ks => Promise.all(ks.filter(k => k.startsWith('tekrar-') && k !== CACHE && k !== FONTS).map(k => caches.delete(k))))
+    .then(() => self.clients.claim()));
+});
+
+function zamanAsimi(p, ms) { return Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('zaman aşımı')), ms))]); }
+async function agOnce(req, anahtar) {
+  const c = await caches.open(CACHE);
+  try {
+    const r = await zamanAsimi(fetch(req), 4000);
+    if (r && r.ok) c.put(anahtar || req, r.clone());
+    return r;
+  } catch (e) {
+    const hit = await c.match(anahtar || req, { ignoreSearch: true });
+    if (hit) return hit;
+    throw e;
+  }
+}
+async function onbellekOnce(req) {
+  const hit = await caches.match(req);
+  if (hit) return hit;
+  const r = await fetch(req);
+  if (r && r.ok) (await caches.open(CACHE)).put(req, r.clone());
+  return r;
+}
+async function eskiyiVerYenile(req) {
+  const c = await caches.open(FONTS);
+  const hit = await c.match(req);
+  const yeni = fetch(req).then(r => { if (r && (r.ok || r.type === 'opaque')) c.put(req, r.clone()); return r; }).catch(() => hit);
+  return hit || yeni;
+}
+self.addEventListener('fetch', e => {
+  const r = e.request;
+  if (r.method !== 'GET') return;
+  const u = new URL(r.url);
+  if (u.origin !== self.location.origin) {
+    if (/^fonts\.(googleapis|gstatic)\.com$/.test(u.hostname)) e.respondWith(eskiyiVerYenile(r));
+    return;
+  }
+  if (r.mode === 'navigate') { e.respondWith(agOnce(r, new URL('./', self.registration.scope).href)); return; }
+  if (u.searchParams.has('v')) { e.respondWith(onbellekOnce(r)); return; }
+  e.respondWith(agOnce(r));
+});

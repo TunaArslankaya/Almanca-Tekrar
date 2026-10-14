@@ -5,55 +5,39 @@ A2 → B1 için yerel çalışma uygulaması. Kelimeler Goethe-Zertifikat B1 lis
 
 ## Kullanım (site)
 
-Uygulama GitHub Pages'ta: **https://mahmutarsla.github.io/Almanca-Tekrar/** — Claude pushlayınca kendiliğinden güncellenir,
-sayfayı yenilemen yeter. Ayarlar → **GitHub'a otomatik kayıt**'a bir kez anahtar girersen cevaplar ve ilerleme repoya yazılır;
+Uygulama GitHub Pages'ta: **https://mahmutarsla.github.io/Almanca-Tekrar/** — Claude pushlayınca kendiliğinden güncellenir.
+Ayarlar → **GitHub'a otomatik kayıt**'a bir kez anahtar girersen cevaplar ve ilerleme repoya yazılır;
 sonra Claude'a "sonuçlarıma bak" demen yeter (push yok, telefonda da çalışır).
 
-## Kullanım (yerel, eski yol)
+**Telefona uygulama olarak ekle** (önerilir): iPhone'da Safari → Paylaş ⬆︎ → *Ana Ekrana Ekle*; Android'de Chrome menüsü ⋮ →
+*Uygulamayı yükle*. Ana ekrandan tam ekran açılır, internetsiz de çalışır, iPhone'un 7 günlük site verisi temizliği ilerlemeni silmez.
+**Günlük hatırlatıcı:** Ayarlar → *Takvime ekle* (seçtiğin saatte her gün takvim bildirimi).
 
-1. Repoyu indir (`git clone` ya da GitHub'dan ZIP).
-2. `index.html`'i **Chrome ya da Edge** ile aç.
-3. **Ayarlar → Klasörü bağla** ile repo klasörünü seç. Cevaplar `log/log.csv`'ye yazılır.
-4. Çalıştıktan sonra log'u pushla:
-   ```
-   git add log && git commit -m "log" && git push
-   ```
-5. Claude'a **"sonuçlarıma bak"** de. Düzeltmeleri yazar, takıldığın kelimelere hafıza kancası yazar,
-   tekrar eden hatalarına göre yeni cümle kalıbı ekler, pushlar. Sen `git pull` yapınca yeni içerik gelir.
+## Günlük akış
 
-## Günlük plan
+Açılışta **Bugün** ekranı: seri 🔥, bugünkü tur halkası ve tek büyük düğme.
 
-Tek düğme: **Çalış** (günde 80 cevap, ~30–40 dk). Her şey tek akışta karışık gelir:
-seçmeli anlam ve der/die/das, Türkçeden Almancaya kelime / fiil yazma, cümle çevirisi, yeni kelime ön testi ve fiil tanıtımı,
-her 5 soruda bir **metinde** kartı (öğrendiğin kelime gerçek bir metin cümlesinde) ve her 7 soruda bir **ara etkinlik**:
+- **Tur:** 12 soruluk kısa oturum (~4 dk; Ayarlar'dan 5–30). Bitince özet: doğruluk, puan, güçlenen ve yakında tekrar gelecek kelimeler,
+  yarınki tahmini süre; "Bir tur daha" ya da "Bitir". Tur sırasında ekranda yalnız kart ve ilerleme çubuğu var (✕ ya da Esc: Bugün'e dön).
+- **Günü kurtar = 1 tur** (en az 10 cevap): gün seriye sayılır. Günlük hedef son 7 gününe göre 3–4 tur; sonrası bonus.
+- **Seri dondurucu ❄️:** her 7 günlük seride bir tane (en çok 2); kaçırdığın günü kendiliğinden kapatır. Dondurucu yoksa ve dün kaçtıysa
+  bugün 2 tur yaparak seriyi **onarabilirsin**. Ara verip dönünce ilk tur **çift puan**, en iyi hatırladıkların önce gelir.
+- **Puan:** emeğe göre (tanıma 5, yazma 10, cümle / çekim 15, okuma 25, yazma görevi 50). Hızlı / boş basılan cevap puan almaz.
+- **⚡ klavyesiz · 8 soru:** yorgunsan yalnız dokunarak (seçmeli + der/die/das). **🧘 uzun · 25 soru:** vakit varsa.
+- **Günün işleri** kartları: Ünite (kitaptaki konu), günün fiil metni, yazma görevi, Zayıflar. **Odak** kartları: Hızlı tur, Fiiller,
+  Düzensiz fiiller, Kelime yazma, Dönüşlü, n-Deklination, Konular, Paketler, Karışık yazma, Kalıplar, Okuma.
+- Tur içinde: seçmeli anlam ve der/die/das (en çok 4 şık, şıklar 1,2 sn sonra ya da dokununca açılır), Türkçeden Almancaya yazma,
+  cümle çevirisi, her 5 soruda bir **metinde** kartı, her 7 gerçek soruda bir **ara etkinlik** (metinde boşluk, eşleştirme, dinle–yaz, cümle dizme),
+  ve **hızlı tekrar**: vadesi gelen 10 kelime tek tek; aklından söyle → *Biliyorum / Emin değilim / Bilmiyorum* (az önceki kelimenin cevabı altta açılır,
+  "yanılmışım" ile düzeltilir; "biliyorum"ların dörtte biri hemen gerçek soruyla doğrulanır).
+- Cevaptan sonra sonuç telefonda alttan açılır; yanlışta büyük **Devam** sistem notunu kullanır, "küçük hata say" / "aslında doğru" ile düzeltirsin.
+  Ses açıksa doğru/yanlış sesi ve kelimenin Almanca okunuşu gelir (sağ üstteki 🔊 ile kapanır); art arda doğrularda 🔥 kombo.
+- **İlerleme** sekmesi: seri, puan, 5 haftalık takvim, önümüzdeki 7 günün tekrar yükü, günlük tablo, Claude'un düzeltmeleri.
 
-- **Metinde boşluk:** DW / Klexikon / Goethe / kitap ünitesi metninden 2–5 cümle. Yalnız daha önce gördüğün kelimeler boşluk olur,
-  görmediğin kelimeler yazılı durur (basınca anlamı); kelime kutusunda 2 çeldirici.
-- **Eşleştirme**, **dinle–yaz** (tarayıcı Almanca okur), **cümle dizme** (fiilin yeri), günde en çok bir **paket tekrarı**.
-- 25 cevaptan sonra **günün fiil metni**, sırası geldiyse 45 cevaptan sonra **yazma görevi** önerilir ("Sonra" denebilir).
-- **Ön kontrol:** tekrarlar önce 10–15'lik listede gelir. Türkçesi verilenin Almancasını (isimde artikeliyle), Almancası verilenin anlamını aklından söyle,
-  sonra **biliyorum** (bugünkü tekrarı yapılmış sayılır) / **emin değilim** (hemen sorulur) / **bilmiyorum** (3 örnek cümle; daha sık ve bir hafta cümle içinde gelir).
-  Emin olmadıkların bitince sıradaki liste. Tekrar yokken 20–30 cevapta bir rastgele 8 kelimeyle "gerçekten biliyor musun?".
-
-Uygulama açılınca Çalış'la başlar. En az 10 sayılan cevap verdiğin gün seriye sayılır.
-Belirli bir şeye odaklanmak istersen **Bölüm** listesinden tek tür seçebilirsin:
-
-| Odak bölümü | Hedef | Günde yeni | Ne yapar |
-|---|---|---|---|
-| Hızlı tur | 40 | 10 bilinmeyen kelime | Yalnız seçmeli anlam + der/die/das. |
-| Paketler | 10 | 1 paket | Bir sahnenin 10 kelimesi + kısa B1 metni, sonra metinde boşluk doldurma. |
-| Karışık / Fiiller / Kelimeler | 20 / 15 / 20 | 4 / 3 / 0 | Yalnız yazarak sorular. |
-| Konu | 30 | 15 kelime | Seçtiğin B1 konusunun (17 konu) kelime ve fiilleri. |
-| n-Deklination / Dönüşlü / Düzensiz fiiller | 15 / 15 / 20 | 5 / 3 / 5 | Dilbilgisi odakları. |
-| Okuma, Fiil metni, Kalıplar, Yazma, Zayıflar | | | Metin okuma, günün fiil metni, fiil kalıpları, serbest yazma, yanlışların. |
-
-Fiil tanıtımında ve fiil sorularının cevabında o fiilin **kalıpları** da gösterilir (Stell dir vor! · Ich kann mir das gut vorstellen.).
-Kitaptan yeni bir kelime listesi verirsen (ünite), o kelimeler Çalış'ta yeni kelime olarak önce gelir, ünitenin metinleri boşluklu metin olur.
-
-Hedefler ve sınırlar Ayarlar'dan değişir. Bir bölümde çalışınca diğerinin sayacı değişmez.
-
-Yeni kelimeler önce B1 seviyesinden gelir (sonra A2, A1). Yeni kelime yolu: **tanı → seçmeli tekrar → (oturunca) yazarak üret**. Tanıma kartı birkaç gün dayanınca aynı kelimenin
-yazma sorusu Karışık / Kelimeler'de açılır. Fiillerde yazma hemen açılır, çünkü cümle alıştırmaları fiilden gelir.
+Tekrar birikirse (ara verdiysen) eski tekrarlar günlere bölünür (günde ~0,8 × hedef), toplam sayı gösterilmez; günün payı bitince ertelenenler öne çekilir.
+Birikme sürerken yeni kelime gelmez ve en verimli kısa kartlar (anlam, artikel, kelime yazma) önce gelir; tam cümle ve çekim kartları birikme erince.
+Yeni kelime sınırı günde 8 kelime + 2 fiil (Ayarlar → Gelişmiş): tek seferde çok kelime açmak birkaç gün sonra tekrar yığını demek.
+Tekrar yükü Ayarlar'dan: Rahat %80 / **Dengeli %85** / Sıkı %90 hatırlama.
 
 ## Baştan savma günleri için
 
@@ -63,23 +47,24 @@ Uygulama yorgun ya da isteksiz çalıştığın anları fark edip kendini ayarla
 - **Boş / rastgele cevap** (`asdf`, `xxxx`, tek harf) "bilmiyorum" sayılır ve hedefe sayılmaz. "Bilmiyorum" deyince kendine not veremezsin.
 - **Dikkat uyarısı:** son 8 cevabın 5'i yanlışsa ya da 3'ü çok hızlı / boşsa 10 soru boyunca yeni kelime gelmez, kolay sorular gelir.
 - **Okumadan geçme yok:** tanıtım kartı en az 2 sn, paket metni kelime sayısına göre 6–15 sn ekranda kalır.
-- **Birikme sınırı:** 80'den fazla tekrar birikmişse yeni kelime gelmez; önce hâlâ hatırladıkların sorulur.
+- **Birikme sınırı:** iki günlük kapasiteden (günlük hedefin 2 katı) fazla tekrar birikmişse yeni kelime gelmez; önce hâlâ hatırladıkların sorulur.
   Karışık'taki yazma tekrarları birikmişse Hızlı tur da yeni kelime vermez (kolay kısmı yapıp zoru atlamaya karşı).
-- **Ara verdiysen:** 3+ gün sonra açınca "Hızlı tur'u bitirmen yeter" der, suçlamaz.
+- **Ara verdiysen:** suçlamaz; "tekrar hoş geldin", ilk tur çift puan, kolay kartlarla başlar.
 - **Takılan kelime:** üç ayrı günde yanlış yaptığın kelime 🪝 ile işaretlenir; Claude "sonuçlarıma bak"ta ona hafıza kancası yazar,
   kanca o kelime her yanlışta gösterilir.
 
 ## Sekmeler
 
-- **Çalış:** plan şeridi, bölüm seçimi, sorular.
+- **Bugün:** seri, tur halkası, Başla, günün işleri, odak bölümleri, bu hafta, B1 yolu.
 - **Zayıflar:** yanlış yaptıkların, yeni cümlelerde tekrar. Takılanlar ve kancaları en üstte.
 - **Kelimeler:** bütün liste (fiil, isim, diğer), durumlarıyla. İstediğini "Ekle" ile hemen öğrenmeye alabilirsin.
-- **Geçmiş:** bölüm başına bugünkü durum, son 21 gün, sayılmayan cevaplar, Claude'un düzeltmeleri, son cevaplar.
-- **Ayarlar:** bölüm başına günlük hedef ve yeni sınırı, hedef hatırlama, log klasörü, yedek.
+- **İlerleme:** seri, puan, 5 haftalık takvim, 7 günlük yük tahmini, son 21 gün, Claude'un düzeltmeleri, son cevaplar.
+- **Ayarlar:** tur uzunluğu, ses, titreşim, tekrar yükü, takvim hatırlatıcısı, ana ekrana ekleme, (gelişmiş) bölüm hedefleri, GitHub kaydı, yedek.
 
 ## Kısayollar
 
-Seçmeli: `1`–`4` seç · `0` bilmiyorum · Artikel: `1` der · `2` die · `3` das ·
+Bugün: `Enter` başla · Tur: `Esc` Bugün'e dön · Seçmeli: `1`–`4` seç · `0` bilmiyorum · Artikel: `1` der · `2` die · `3` das ·
+Hızlı tekrar: `1` biliyorum · `2` emin değilim · `3` bilmiyorum ·
 Yazarak: `Enter` kontrol / geç · `1` `2` `3` not (yanlış / küçük hata / doğru) ·
 `a:` → ä, `o:` → ö, `u:` → ü, `s:` → ß
 

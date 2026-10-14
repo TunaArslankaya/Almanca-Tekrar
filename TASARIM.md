@@ -118,6 +118,33 @@ aktif ünitenin kelimelerine hiç sıra gelmiyor, yığın da caydırıyordu (g�
 - Birikme (vadeli + yayılmış) 150'nin altına inene kadar yeni kelime yok, ünite kelimeleri de. İlk denemede ünite kelimeleri birikmede yarı hızda geliyordu; Tuna istemedi, kaldırıldı.
 - Bugün vadesi gelen (dünkü cevapların doğal tekrarı) kartlar yayılmaz: onlar genç kartlardır, gecikmesi en çok unutturur.
 
+## Uygulama kabuğu (Ekim 2026, v4): neden turlar, seri, puan
+
+Tuna 14 Ekim'de "uygulamaya hiç girmek gelmiyor" dedi. Kendi verisi tipik "hızlı başla, yorul, kop" eğrisi: 2–3 Ekim'de 128 öğe (547 kart) açıldı,
+günlük cevap 217 → 170 → … → 18 → 0 → 8 → 35. Telefonda ekranın üst yarısı plan çipleri, bölüm seçici ve "248 tekrar birikmiş" uyarısıyla doluydu,
+soru kartı ekranın ortasından başlıyordu; sonuç ve not düğmeleri ekranın altında kalıyordu. Kullanıcı simülasyonu (gerçek ilerleme dosyasıyla kaydedilen
+ekran görüntüleri, `tools/film.js`; üç persona + UX uzmanı + öğrenme bilimi uzmanı) ve literatür taraması aynı sonuca vardı: içerik ve zamanlayıcı güçlü,
+kabuk kontrol paneli gibi.
+
+- **Günü kurtar = 1 kısa tur.** Duolingo seriyi günlük hedeften ayırıp tek derse bağlayınca 14. gün tutunma +%3,3, 7+ günlük seriler +%40.
+  Aralıklı / uyarlanır hedef (Scott & Nowlis 2013) sabit büyük hedeften daha çok yeniden katılım getiriyor. Burada: tur 12 cevap (~4 dk), seri için 10 cevap,
+  günlük hedef son 7 günün medyanından 3–4 tur; sonrası bonus. Tur sonu özeti (zirve-son kuralı): doğruluk, puan, güçlenen / yakında gelecek kelimeler, yarınki süre.
+- **Büyük sayı yok.** Koo & Fishbach 2012 (küçük alan): hedefe uzakken yapılana odaklanmak bağlılığı artırıyor; Steel 2007: görev iticiliği ertelemenin en güçlü yordayıcısı.
+  Birikme sayısı hiçbir ekranda yok; Bugün ekranı yalnız bugünkü turu söyler.
+- **Affeden seri.** Silverman & Barasch 2023: sağlam seri görmek katılımı artırıyor, onarılabilir seri kırılmanın zararını azaltıyor. Dondurucu (7 günde 1, en çok 2),
+  dün kaçtıysa bugün 2 turla onarım. Milkman vd. 2021 megastudy: kaçırıp geri dönene küçük ödül en etkili müdahale (+%27) → dönüş turu çift puan, kolay kartlarla başlar.
+- **Puan emeğe.** Oyunlaştırmanın etkisi küçük-orta (Sailer & Homner 2020, g≈0,25–0,5), ceza içsel motivasyonu düşürüyor: can / puan kaybı yok;
+  puan tanıma < yazma < cümle; hızlı / boş basılan cevap puan almaz.
+- **Odak ekranı, alttan sonuç paneli, büyük dokunma hedefleri, ses / titreşim / kombo, kısayol etiketleri dokunmatikte gizli** (persona ve UX bulguları).
+  Hızlı tekrar listesi tek tek kart; liste kalemleri ilerlemeyi şişirmesin diye iki kalem bir cevap, "biliyorum"ların dörtte biri gerçek soruyla doğrulanır
+  (sistem önerisinden ayrılan 92 öz-notun 88'i daha cömertti).
+- **Verim.** Birikmenin kök nedeni yeni kart girişinin kapasiteyi aşması (Anki: yeni kart sınırı tekrar sınırının ~10'da biri): yeni sınırı 8 kelime + 2 fiil,
+  birikme eşiği iki günlük kapasite. Hedef hatırlama %90 → %85: FSRS ağırlıklarıyla iş yükü ~%19–26 az. Eski kelime günde bir kez; birikmede yalnız kısa geri çağırma
+  (flashcard anlam kazancı %77, boşluk doldurma %43; Webb vd. 2020), R'si yüksek kart önce (Anki 24.11 birikme sırası). Öğrenme adımı: ikinci hatırlama doğruysa FSRS aralığı.
+  En çok 4 şık (Roediger & Marsh 2005: çok çeldirici yanlış bilgiyi besler). Bileşik isimde artikel son parçadan (listede %95).
+- **Uygulama (PWA).** GitHub Pages'tan manifest + service worker: ana ekrandan tam ekran, çevrimdışı açılış, iPhone'un 7 günlük site verisi temizliğinden korunma;
+  takvim (.ics) hatırlatıcısı (sunucusuz, her telefonda çalışır).
+
 ## Kaynaklar
 
 - [The role of variable retrieval in effective learning (PNAS, 2024)](https://www.pnas.org/doi/10.1073/pnas.2413511121)

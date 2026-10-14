@@ -1,0 +1,68 @@
+{
+  "id": "./?kaynak=uygulama",
+  "name": "Almanca Tekrar",
+  "short_name": "Tekrar",
+  "description": "A2 → B1 Almanca kelime ve fiil tekrarı (Goethe B1 Wortliste, FSRS)",
+  "lang": "tr",
+  "start_url": "./?kaynak=uygulama",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f141a",
+  "theme_color": "#13202b",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Klavyesiz kısa tur (8 soru)",
+      "short_name": "Kısa tur",
+      "url": "./?tur=kisa",
+      "icons": [
+        {
+          "src": "img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Artikel 60 sn",
+      "short_name": "Artikel",
+      "url": "./?tur=artikel",
+      "icons": [
+        {
+          "src": "img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Zayıflar",
+      "short_name": "Zayıflar",
+      "url": "./#/zayif",
+      "icons": [
+        {
+          "src": "img/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

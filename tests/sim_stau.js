@@ -10,7 +10,7 @@ try { ({ chromium } = require('playwright')); } catch (e) {
 }
 const URL = 'file://' + path.resolve(__dirname, '..', 'index.html');
 const DAY = 86400000;
-const KAP = 45;
+const KAP = 45;  // stauKap(): 0,8 × günlük hedef, en az 30 (gerçek dosyada 38)
 const zustand = fs.readFileSync(path.resolve(__dirname, '..', process.argv[2] || 'log/zustand.json'), 'utf8');
 const gespeichert = JSON.parse(zustand).gespeichert || '2026-10-13 17:12:40';
 // simülasyon saati: kaydedildikten 1 saat sonra, yerel saat
@@ -44,7 +44,7 @@ const off0 = ziel - Date.now();
   const st = () => p.evaluate(() => {
     const a = window.__tekrar.aktuell; if (!a) return {};
     return { typ: a.typ, id: a.id, uid: a.uid, mc: !!a.mc, art: !!a.artFrage, input: !!a.input, done: !!a.done, wartet: !!a.wartet,
-      ziel: a.ziel, abschreib: a.abschreib, schritt: a.schritt, warte: !!a.warte, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, akt: a.art };
+      ziel: a.ziel, abschreib: a.abschreib, leer: a.sebep === 'leer', schritt: a.schritt, warte: !!a.warte, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, akt: a.art };
   });
   let k = 0;
   const gesehen = [];
@@ -52,6 +52,7 @@ const off0 = ziel - Date.now();
     const s = await st();
     gesehen.push(s.typ === 'akt' ? 'akt:' + s.akt : s.typ === 'pretest' || s.typ === 'einf' || s.typ === 'licht' ? s.typ + ':' + s.id : s.typ);
     if (s.typ === 'leer' || s.typ === 'pause') return s.typ;
+    if (s.typ === 'turSonu') { if (s.leer) return 'leer'; await p.keyboard.press('Enter'); await wait(120); return 'turSonu'; }
     if (s.typ === 'akt') {
       const a = await p.evaluate(() => { const q = window.__tekrar.aktuell; return { art: q.art, wartet: !!q.wartet, blanks: q.blanks ? q.blanks.map(b => b.form) : null, ids: q.ids || null, satz: q.satz ? q.satz.de : null, order: q.toks ? q.toks.map((t, i) => [t.i, i]).sort((x, y) => x[0] - y[0]).map(x => x[1]) : null }; });
       if (a.wartet) { await p.keyboard.press('Enter'); }
@@ -109,7 +110,7 @@ const off0 = ziel - Date.now();
   if (!/yayıldı/.test(s0.plan)) fehler.push('plan satırında "yayıldı" yok');
   const uIds = await p.evaluate(() => { const T = window.__tekrar; const U = T.UNITEN.find(u => !u.geschlossen); return U ? U.items.map(it => T.uMainId(it)).filter(Boolean) : []; });
   console.log('aktif ünite kelimeleri (ana listede):', uIds.length);
-  await p.selectOption('#odak', 'akis'); await wait(100);
+  await p.evaluate(() => window.__tekrar.starte('akis')); await wait(100);
   const r1 = await lauf(90);
   const s1 = await stat();
   const neuU = gesehen.filter(g => /^(pretest|einf):/.test(g) && uIds.includes(g.split(':')[1])).length;

@@ -27,13 +27,14 @@ const DAY = 86400000;
   const st = () => p.evaluate(() => {
     const a = window.__tekrar.aktuell; if (!a) return {};
     return { typ: a.typ, id: a.id, uid: a.uid, mc: !!a.mc, art: !!a.artFrage, input: !!a.input, done: !!a.done, wartet: !!a.wartet,
-      ziel: a.ziel, abschreib: a.abschreib, schritt: a.schritt, warte: !!a.warte, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1 };
+      ziel: a.ziel, abschreib: a.abschreib, leer: a.sebep === 'leer', schritt: a.schritt, warte: !!a.warte, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1 };
   });
   const wait = ms => p.waitForTimeout(ms);
   let k = 0;
   async function schritt() {
     const s = await st();
     if (s.typ === 'leer' || s.typ === 'pause') return s.typ;
+    if (s.typ === 'turSonu') { if (s.leer) return 'leer'; await p.keyboard.press('Enter'); await wait(120); return 'turSonu'; }
     if (s.typ === 'akt') {
       const a = await p.evaluate(() => { const q = window.__tekrar.aktuell; return { art: q.art, wartet: !!q.wartet, blanks: q.blanks ? q.blanks.map(b => b.form) : null, ids: q.ids || null, satz: q.satz ? q.satz.de : null, order: q.toks ? q.toks.map((t, i) => [t.i, i]).sort((x, y) => x[0] - y[0]).map(x => x[1]) : null }; });
       if (a.wartet) { await p.keyboard.press('Enter'); }
@@ -77,23 +78,29 @@ const DAY = 86400000;
     return s.typ || 'soru';
   }
   async function bolum(m, n) {
-    await p.selectOption('#odak', m); await wait(100);
+    await p.evaluate(m => window.__tekrar.starte(m), m); await wait(100);
     let r = '';
     for (let i = 0; i < n; i++) { r = await schritt(); if (r === 'leer' || r === 'pause') break; }
     const d = await p.evaluate(m => { const S = window.__tekrar.S; const t = Object.keys(S.tage).sort().pop(); return S.tage[t].modi[m]; }, m);
     console.log(m.padEnd(7), `${d.n} soru, ${d.neu} yeni, son: ${r}`);
     return d;
   }
-  const plan = await p.evaluate(() => document.querySelector('#plan').innerText);
-  const akis = await bolum('akis', 140);
+  const plan = await p.evaluate(() => document.querySelector('#ana').innerText);
+  // akışı bol soruyla sınamak için günlük yeni sınırı yükseltilir (varsayılan 8 kelime + 2 fiil)
+  await p.evaluate(() => { const S = window.__tekrar.S; S.einst.neuWoerter = 25; S.einst.neuVerben = 5; });
+  // paket önce: bir paket ~10 yeni kelime getirir, günlük yeni sınırı (8) Çalış'ta dolarsa paket o gün açılmaz
   const paket = await bolum('paket', 40);
+  const akis = await bolum('akis', 140);
   await bump(DAY); await p.reload(); await wait(200);
   const akis2 = await bolum('akis', 60);
   const kontrol = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'kontrol').length);
   console.log('kontrol listesi:', kontrol, 'satır');
   const fehler = [];
   if (!kontrol) fehler.push('"gerçekten biliyor musun?" listesi hiç gelmedi');
-  if (!/Çalış/.test(plan)) fehler.push('plan şeridinde Çalış yok');
+  if (!/tur/i.test(plan)) fehler.push('Bugün ekranında tur yok');
+  const turlar = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'tur').length);
+  console.log('tur sonu:', turlar);
+  if (!turlar) fehler.push('hiç tur bitmedi (tur sonu ekranı gelmedi)');
   if (akis.n < 40) fehler.push('Çalış akışı 40 cevaba ulaşmadı');
   if (akis2.n < 20) fehler.push('2. gün Çalış akışı ilerlemedi');
   if (paket.n < 10) fehler.push('paket tamamlanmadı');
