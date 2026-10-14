@@ -1587,3 +1587,14 @@
 2026-10-14 19:14:15;kontrol;n1354;die Wahrheit;sıradaki tekrar;biliyorum;biliyor;gerçek;kart:4
 2026-10-14 19:14:15;kontrol;n0381;die Forderung;sıradaki tekrar;biliyorum;biliyor;talep;kart:2
 2026-10-14 19:14:15;kontrol;v423;reagieren auf;sıradaki tekrar;biliyorum;biliyor;(bir şeye) tepki vermek;kart:2
+2026-10-14 19:14:15;kontrol;v119;sich beruhigen;sıradaki tekrar;biliyorum;biliyor;sakinleşmek;kart:3
+2026-10-14 19:14:15;kontrol;v642;sich wenden an;sıradaki tekrar;emin değilim;emin-degil;(birine) başvurmak;kart:3
+2026-10-14 19:14:15;kontrol;v425;rechnen mit;sıradaki tekrar;emin değilim;emin-degil;(bir şeyi) hesaba katmak, beklemek;kart:3
+2026-10-14 19:14:15;kontrol;v125;sich beschweren bei;sıradaki tekrar;emin değilim;emin-degil;(birine) şikâyette bulunmak;kart:3
+2026-10-14 19:14:15;kontrol;v089;beantragen;sıradaki tekrar;biliyorum;biliyor;(resmî bir şey için) başvurmak;kart:1
+2026-10-14 19:14:15;kontrol;v561;unterschreiben;sıradaki tekrar;biliyorum;biliyor;imzalamak;kart:1
+2026-10-14 19:14:15;akt;kontrol;gerçekten biliyor musun?;das Amt, einziehen, die Mahnung, die Clique, hageln, eher, die Wahrheit, die Forderung, reagieren auf, sich beruhigen, sich wenden an, rechnen mit, sich beschweren bei, beantragen, unterschreiben;;richtig;;biliyor:10 emin-degil:5 bilmiyor:0
+2026-10-14 19:14:21;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit d;richtig;rechnen mit (mit + Dat);sek:5 | ipucu:2
+2026-10-14 19:14:28;satz;v125:satz;sich beschweren bei;Wir haben uns beim Hausmeister über den Lärm _____.;beschwert;richtig;beschwert;sek:7 | ipucu:0
+2026-10-14 19:15:07;pretest;x1523:erk;das Gehirn;das Gehirn;;neu;beyin;bilmiyorum
+2026-10-14 19:15:21;bed;v642:bed;sich wenden an;sich wenden an;başvurmak;fast;(birine) başvurmak;yavaş | sek:9 | ipucu:1
