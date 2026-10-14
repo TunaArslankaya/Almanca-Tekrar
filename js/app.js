@@ -3234,6 +3234,46 @@
   async function ghSchreiben(datei, text, sha, msg) {
     return ghApi(`/contents/${datei}`, { method: 'PUT', body: JSON.stringify({ message: msg, content: b64enc(text), branch: GH.branch, sha: sha || undefined }) });
   }
+  // Cihazlar arası birleştirme (telefon + bilgisayar): GitHub'daki durumla yerel durum kart kart birleşir, son cevaplanan kazanır.
+  // Boş bir cihaz (yeni ana ekran uygulaması) böylece uzaktaki ilerlemeyi asla ezemez.
+  function zustandBirlestir(lok, uz) {
+    if (!uz || typeof uz !== 'object' || !uz.karten) return lok;
+    const m = Object.assign({}, uz, lok);
+    const sonra = (a, b) => ((a && a.last) || 0) >= ((b && b.last) || 0) ? a : b;
+    const birles = (k, f) => {
+      const o = Object.assign({}, uz[k] || {});
+      Object.entries(lok[k] || {}).forEach(([key, v]) => { o[key] = o[key] === undefined ? v : f(v, o[key]); });
+      m[k] = o;
+    };
+    birles('karten', sonra);
+    birles('items', (a, b) => Object.assign({}, b, a, { fehlTage: [...new Set([...(b.fehlTage || []), ...(a.fehlTage || [])])].sort() }));
+    birles('tage', (a, b) => ((a.n || 0) >= (b.n || 0) ? a : b));
+    birles('unite', (a, b) => Object.assign({}, b, a, { idx: Object.assign({}, b.idx, a.idx), done: Object.assign({}, b.done, a.done) }));
+    ['kontext', 'iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'pakete', 'fiilMetin', 'kontrol'].forEach(k => birles(k, a => a));
+    m.xpToplam = Math.max(lok.xpToplam || 0, uz.xpToplam || 0);
+    if (uz.seri || lok.seri) {
+      const a = lok.seri || {}, b = uz.seri || {};
+      m.seri = Object.assign({}, b, a, { rekor: Math.max(a.rekor || 0, b.rekor || 0), donmus: Object.assign({}, b.donmus, a.donmus) });
+    }
+    if (uz.oyun || lok.oyun) m.oyun = Object.assign({}, uz.oyun, lok.oyun, { rekor: Math.max((lok.oyun || {}).rekor || 0, (uz.oyun || {}).rekor || 0) });
+    m.einst = lok.einst && Object.keys(lok.karten || {}).length ? lok.einst : (uz.einst || lok.einst);
+    m.log = lok.log; m.pending = lok.pending; m.ghPending = lok.ghPending;
+    return normalize(m);
+  }
+  let ghUzakZaman = '';  // en son birleştirilen uzak kaydın zamanı
+  async function ghCek(sessiz) {
+    if (!ghToken()) return false;
+    try {
+      const z = await ghLesen('log/zustand.json');
+      if (!z.text) return false;
+      const uz = JSON.parse(z.text);
+      if (uz.gespeichert && uz.gespeichert === ghUzakZaman) return false;
+      const once = Object.keys(S.karten).length;
+      S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save();
+      if (!sessiz) ghDurum(`İlerleme GitHub ile birleştirildi (${uz.gespeichert || ''}).`);
+      return Object.keys(S.karten).length >= once;
+    } catch (e) { console.warn('çekilemedi', e); return false; }
+  }
   let ghLaeuft = false, ghZuletzt = 0;
   async function ghSync(zustandAuch) {
     if (!ghToken() || ghLaeuft) return;
@@ -3259,8 +3299,17 @@
         save();
       }
       if (zustandAuch) {
-        const alt = await ghLesen('log/zustand.json');
-        await ghSchreiben('log/zustand.json', JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: zeitStr(now()) })), alt.sha, 'ilerleme');
+        for (let versuch = 0; versuch < 2; versuch++) {
+          try {
+            const alt = await ghLesen('log/zustand.json');
+            // önce uzaktakini birleştir (başka cihazda çalışılmış olabilir), sonra yaz
+            if (alt.text) { try { const uz = JSON.parse(alt.text); if (uz.gespeichert !== ghUzakZaman) { S = zustandBirlestir(S, uz); save(); } } catch (e) { console.warn('uzak durum okunamadı', e); } }
+            const zaman = zeitStr(now());
+            await ghSchreiben('log/zustand.json', JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: zaman })), alt.sha, 'ilerleme');
+            ghUzakZaman = zaman;
+            break;
+          } catch (e) { if (versuch || !/^(409|422)/.test(e.message)) throw e; }
+        }
       }
       ghZuletzt = now();
       ghDurum(`GitHub'a kaydedildi (${zeitStr(now()).slice(11, 16)}).`);
@@ -3275,10 +3324,10 @@
     try {
       const z = await ghLesen('log/zustand.json');
       if (!z.text) { ghDurum('GitHub\'da kayıtlı ilerleme yok.'); return; }
-      const neu = normalize(JSON.parse(z.text));
-      neu.log = S.log; neu.ghPending = S.ghPending || []; neu.pending = S.pending;
-      S = neu; save(); renderAyar(); renderHedef(); zeige();
-      ghDurum(`İlerleme GitHub'dan alındı (${(JSON.parse(z.text).gespeichert) || ''}).`);
+      const uz = JSON.parse(z.text);
+      S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save(); renderAyar(); renderHedef();
+      if (!$('#v-ana').hidden) renderAna(); else if (!$('#v-calis').hidden) zeige();
+      ghDurum(`İlerleme GitHub'dan alındı ve birleştirildi (${uz.gespeichert || ''}).`);
     } catch (e) { ghDurum('Alınamadı: ' + e.message); }
   }
 
@@ -3500,7 +3549,18 @@
   };
   // ---- seri ----
   const gunAktif = k => !!(S.tage[k] && S.tage[k].n >= MIN_TAG);
-  const seriDurum = () => (S.seri = S.seri || { frz: 1, donmus: {}, rekor: 0 });
+  // geçmiş günlerdeki en uzun seri (rekor sıfırdan başlamasın)
+  function enUzunSeri() {
+    const gunler = Object.keys(S.tage).filter(gunAktif).sort();
+    let enIyi = 0, n = 0, onceki = null;
+    gunler.forEach(d => { n = onceki && Math.round((new Date(d) - new Date(onceki)) / DAY) === 1 ? n + 1 : 1; enIyi = Math.max(enIyi, n); onceki = d; });
+    return enIyi;
+  }
+  const seriDurum = () => {
+    if (!S.seri) S.seri = { frz: 1, donmus: {}, rekor: 0 };
+    if (!S.seri.rekorGoc) { S.seri.rekor = Math.max(S.seri.rekor || 0, enUzunSeri()); S.seri.rekorGoc = true; }
+    return S.seri;
+  };
   function seriSay() {
     const sr = seriDurum(), t = now();
     let n = 0;
@@ -4242,6 +4302,26 @@
   if (session.donduruldu) session.willkommenAna = `❄️ Seri dondurucu kullanıldı: kaçırdığın ${session.donduruldu} gün serini bozmadı.`;
   const start = (location.hash || '').replace(/^#\/?/, '');
   zeigView(['zayif', 'liste', 'gecmis', 'ayar'].includes(start) ? start : 'ana');
+  // başka cihazda çalışıldıysa: açılışta ve uygulamaya dönünce GitHub'daki ilerlemeyle birleştir
+  let ghCekZaman = 0;
+  const ghCekVeCiz = () => {
+    if (!ghToken() || now() - ghCekZaman < 60000) return;
+    ghCekZaman = now();
+    ghCek(true).then(d => { if (d && !$('#v-ana').hidden) renderAna(); });
+  };
+  ghCekVeCiz();
+  // gün değişimi: uygulama arka planda açık kalıp ertesi gün dönülünce de seri / yayma / Bugün ekranı yenilenir
+  let sonGun = tag();
+  function gunKontrol() {
+    if (tag() === sonGun) return;
+    sonGun = tag();
+    seriBakim(); stauVerteilen();
+    if (session.tur && (!aktuell || aktuell.benotet || !aktuell.done)) session.tur = null;
+    if (!$('#v-ana').hidden) renderAna(); else renderHedef();
+  }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) { gunKontrol(); ghCekVeCiz(); } });
+  window.addEventListener('focus', gunKontrol);
+  window.addEventListener('pageshow', gunKontrol);
   if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
     window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(e => console.warn('service worker', e)));
     let sonKontrol = now(), yeniSurum = false;
