@@ -1,0 +1,92 @@
+# Gramer konusu: Türkçeden gelen tuzaklar. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id tuerkisch-fallen
+@titel Typische Fehler aus dem Türkischen
+@tr Türkçeden gelen tuzaklar: -e / -de, fiilin hâli, kelime sırası, yardımcı fiil
+@stufe A2–B1
+@kapitel tekrar (her Kapitel)
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@etiket hâl
+@kurz Türkçe -e → Akkusativ (in die Stadt), -de → Dativ (in der Stadt); zu / nach / bei / mit hep Dativ; fiil 2. yerde, yan cümlede sonda.
+
+@erklaerung
+Türkçeden Almancaya geçerken aynı hatalar tekrar tekrar çıkar; çoğu Türkçenin mantığını Almancaya taşımaktan gelir. Bu konu, log'unda en sık görülen beş tuzağı toplar.
+
+1. Yön ve yer: Türkçe -e (nereye?) Almancada Wechselpräposition + Akkusativ, -de (nerede?) + Dativ: Ich gehe in die Stadt. · Ich bin in der Stadt. Ama zu, nach, bei, mit, von, aus hep Dativ alır: Ich gehe zum Arzt (zu + dem).
+2. Fiilin istediği hâl Türkçeyle örtüşmeyebilir: fragen + Akk (ich frage dich, "sana" değil), helfen / danken / gratulieren / folgen / gefallen + Dativ (ich helfe dir), anrufen + Akk (ich rufe dich an).
+3. Kelime sırası: ana cümlede çekimli fiil hep 2. yerde (Heute gehe ich …, "Heute ich gehe" değil); yan cümlede (weil, dass, wenn, obwohl …) en sonda. Perfekt'te Partizip en sonda: Ich habe gestern Deutsch gelernt.
+4. Perfekt'te yardımcı fiil: hareket (gehen, fahren, kommen) ve durum değişimi (aufstehen, einschlafen) + sein; bleiben, sein, werden, passieren de sein; gerisi haben.
+5. Küçük ama sık: "ich" cümle ortasında küçük yazılır; isimler büyük; dönüşlü zamir unutulmaz (ich erinnere mich); "es gibt" + Akkusativ (es gibt einen Park); yaş "Ich bin 20 Jahre alt" (ich habe … değil).
+
+Sınavda: Schreiben'de her e-postada yön/yer edatı, Perfekt ve weil/dass geçer; Strukturen puanı bunlara bakar. Konuşmada "Heute ich …" ilk saniyede fark edilir.
+@ende
+
+@tabelle Türkçe ek → Almanca edat
+Türkçe | soru | Almanca | örnek
+-e (yön) | wohin? | Wechselpräposition + Akkusativ | in die Schule, auf den Markt, ans Meer
+-de (yer) | wo? | Wechselpräposition + Dativ | in der Schule, auf dem Markt, am Meer
+-e (kişiye / şehre) | wohin? | zu + Dativ / nach + şehir | zum Arzt, zur Arbeit, nach Berlin
+-den (çıkış) | woher? | aus / von + Dativ | aus der Türkei, vom Bahnhof
+@ende
+
+@tabelle Fiil + hâl: Türkçeyle ters düşenler
+fiil | hâl | örnek | Türkçe
+fragen | Akkusativ | Ich frage den Lehrer. | öğretmene sormak (-e ama Akk!)
+anrufen | Akkusativ | Ich rufe dich an. | seni aramak
+helfen | Dativ | Ich helfe dir. | sana yardım etmek
+danken | Dativ | Ich danke Ihnen. | size teşekkür etmek
+gratulieren | Dativ | Wir gratulieren ihm. | onu kutlamak (-i ama Dat!)
+gefallen | Dativ | Das Buch gefällt mir. | kitap hoşuma gidiyor
+folgen | Dativ | Folgen Sie dem Weg. | yolu takip edin
+@ende
+
+@beispiel Am Wochenende fahre ich mit meiner Freundin nach Hamburg. | Hafta sonu kız arkadaşımla Hamburg'a gidiyorum.
+@beispiel Ich habe gestern meinen Bruder angerufen, weil er Geburtstag hatte. | Dün erkek kardeşimi aradım, çünkü doğum günüydü.
+@beispiel Kannst du mir bitte helfen? Ich bin gerade in die neue Wohnung gezogen. | Bana yardım eder misin? Yeni daireye yeni taşındım.
+
+@teil richtung | -e / -de: Akkusativ mı Dativ mi? | hâl
+wahl | 1 | Ich gehe jetzt ___ Supermarkt. | in den | in den / in dem / im | Şimdi süpermarkete gidiyorum. | Nereye? (-e) → Akkusativ: in den Supermarkt. "im" (in dem) nerede sorusuna cevap verir. | der Supermarkt
+wahl | 1 | Wo ist Tuna? – Er ist ___ Bibliothek. | in der | in der / in die / zur | Tuna nerede? – Kütüphanede. | Nerede? (-de) → Dativ: in der Bibliothek. "in die" nereye sorusuna cevap verir. | die Bibliothek
+luecke | 2 | Wir fahren im Sommer ___ Meer. (an + das) | ans | | Yazın denize gidiyoruz. | Nereye? → an + Akkusativ: an das Meer = ans Meer. Yerde olsaydı: am Meer. | das Meer
+luecke | 2 | Die Kinder spielen ___ Garten. (in + der) | im | | Çocuklar bahçede oynuyor. | Nerede? → in + Dativ: in dem Garten = im Garten. | der Garten
+luecke | 2 | Ich muss heute ___ Arzt. (zu + der) | zum | | Bugün doktora gitmem lazım. | Kişiye gitmek: zu + Dativ (zu dem Arzt = zum Arzt); "in den Arzt" olmaz. | der Arzt
+fehler | 2 | Ich bin gestern in dem Kino gegangen. | Ich bin gestern ins Kino gegangen. | in dem Kino | Dün sinemaya gittim. | gehen yön bildirir → nereye? → Akkusativ: in das Kino = ins Kino. | das Kino
+fehler | 2 | Meine Eltern wohnen in der Türkei. | Meine Eltern wohnen in der Türkei. | - | Ailem Türkiye'de yaşıyor. | Cümle doğru: wohnen yer bildirir (nerede?) → Dativ: in der Türkei. | wohnen
+umform | 3 | Ich bin in der Schule. → Wohin? (gehen) | Ich gehe in die Schule. | | Okuldayım. → Okula gidiyorum. | Yer (Dativ: in der Schule) yön olunca Akkusativ olur: in die Schule. | die Schule
+ordnen | 2 | am Samstag / wir / fahren / nach Bremen / mit dem Zug | Am Samstag fahren wir mit dem Zug nach Bremen. / Wir fahren am Samstag mit dem Zug nach Bremen. | | Cumartesi trenle Bremen'e gidiyoruz. | Şehre gitmek: nach (artikelsiz). Araç: mit + Dativ (mit dem Zug). Zaman öne alınırsa fiil yine 2. yerde. | fahren; der Zug
+
+@teil kasus | Fiilin hâli Türkçeyle örtüşmez | hâl
+wahl | 1 | Kannst du ___ helfen? | mir | mir / mich / ich | Bana yardım edebilir misin? | helfen hep Dativ alır: mir. Türkçedeki "bana" burada tesadüfen uyar, ama "jemandem helfen" diye ezberle. | helfen
+wahl | 1 | Ich frage ___, ob er Zeit hat. | ihn | ihn / ihm / er | Ona vakti olup olmadığını soruyorum. | fragen + Akkusativ: ihn. Türkçe "ona sormak" (-e) yanıltır; Almancada kişi Akkusativ'tir. | fragen
+luecke | 2 | Ich danke ___ für die Einladung. (Sie) | Ihnen | | Davet için size teşekkür ederim. | danken + Dativ: Ihnen (büyük harf: resmî siz). "Ich danke Sie" en sık hatalardan. | danken; die Einladung
+luecke | 2 | Wir gratulieren ___ zum Geburtstag. (du) | dir | | Doğum gününü kutlarız. | gratulieren + Dativ: dir. Türkçe "seni kutlamak" (-i) yanıltır. | gratulieren; der Geburtstag
+luecke | 2 | Das neue Handy gefällt ___ sehr gut. (ich) | mir | | Yeni telefon çok hoşuma gidiyor. | gefallen: hoşa giden şey özne, kişi Dativ (mir). "Ich gefalle das Handy" olmaz. | gefallen; das Handy
+fehler | 2 | Ich habe dir gestern angerufen. | Ich habe dich gestern angerufen. | dir | Dün seni aradım. | anrufen + Akkusativ: dich. "jemanden anrufen" (Türkçedeki -i ile aynı). | anrufen
+fehler | 3 | Kannst du mich bitte das Buch geben? | Kannst du mir bitte das Buch geben? | mich | Bana kitabı verir misin? | geben: kime? (Dativ: mir) + neyi? (Akkusativ: das Buch). Kişi Dativ, nesne Akkusativ. | geben; das Buch
+umform | 3 | Ich helfe meiner Schwester. → Perfekt | Ich habe meiner Schwester geholfen. | | Kız kardeşime yardım ediyorum. → yardım ettim. | helfen düzensiz: geholfen; Dativ (meiner Schwester) Perfekt'te de değişmez. | helfen; die Schwester
+
+@teil v2 | Fiil 2. yerde; yan cümlede sonda | kelime sırası
+wahl | 1 | Welcher Satz ist richtig? | Heute lerne ich Deutsch. | Heute lerne ich Deutsch. / Heute ich lerne Deutsch. / Heute ich Deutsch lerne. | Bugün Almanca çalışıyorum. | Ana cümlede çekimli fiil hep 2. yerde: Heute (1) lerne (2) ich … Türkçedeki "bugün ben çalışıyorum" sırası Almancada yanlış. | lernen
+ordnen | 2 | nächste Woche / ich / habe / eine Prüfung | Nächste Woche habe ich eine Prüfung. / Ich habe nächste Woche eine Prüfung. | | Gelecek hafta sınavım var. | Zaman öne gelince özne fiilin arkasına geçer (inversion): Nächste Woche habe ich … | die Prüfung
+fehler | 2 | Am Montag ich gehe zum Deutschkurs. | Am Montag gehe ich zum Deutschkurs. | ich gehe | Pazartesi Almanca kursuna gidiyorum. | "Am Montag" 1. yerdeyse fiil hemen arkasına: gehe ich. En sık Türk hatası. | der Deutschkurs
+luecke | 2 | Ich bleibe zu Hause, weil ich ___. (krank sein) | krank bin | | Evde kalıyorum, çünkü hastayım. | weil yan cümle açar: çekimli fiil en sona (bin). Türkçedeki "hastayım" sondaki fiil gibi düşün. | krank
+fehler | 2 | Ich weiß, dass du hast morgen keine Zeit. | Ich weiß, dass du morgen keine Zeit hast. | du hast | Yarın vaktin olmadığını biliyorum. | dass'tan sonra çekimli fiil en sonda: … keine Zeit hast. | wissen; die Zeit
+umform | 3 | Ich habe Kopfschmerzen. Ich gehe nicht zur Arbeit. → weil | Ich gehe nicht zur Arbeit, weil ich Kopfschmerzen habe. | | Başım ağrıyor. İşe gitmiyorum. → Başım ağrıdığı için işe gitmiyorum. | Sebep weil ile yan cümleye girer, fiil (habe) sona. "weil ich habe Kopfschmerzen" konuşma dilidir, sınavda hata. | die Kopfschmerzen; die Arbeit
+ordnen | 3 | wenn / ich / Zeit / habe / ich / dich / besuche | Wenn ich Zeit habe, besuche ich dich. / Ich besuche dich, wenn ich Zeit habe. | | Vaktim olursa seni ziyaret ederim. | Yan cümle başa gelirse ana cümle fiille başlar: …, besuche ich dich (fiil, virgül, fiil). | besuchen; die Zeit
+
+@teil hilfsverb | Perfekt: haben mı sein mi? | yardımcı fiil
+wahl | 1 | Gestern ___ ich um sieben Uhr aufgestanden. | bin | bin / habe / war | Dün saat yedide kalktım. | aufstehen durum değişimi (yatmaktan ayağa) → sein: ich bin aufgestanden. | aufstehen
+wahl | 1 | Wir ___ den ganzen Tag gearbeitet. | haben | haben / sind / waren | Bütün gün çalıştık. | arbeiten hareket değil, durum değişimi değil → haben. | arbeiten
+luecke | 2 | Letztes Jahr ___ wir nach Italien ___. (fahren · Perfekt) | sind ; gefahren | | Geçen yıl İtalya'ya gittik. | fahren = A'dan B'ye hareket → sein + gefahren. | fahren
+luecke | 2 | Ich ___ gestern lange ___. (schlafen · Perfekt) | habe ; geschlafen | | Dün uzun uyudum. | schlafen'de hareket yok → haben + geschlafen (einschlafen ise durum değişimi: ist eingeschlafen). | schlafen
+fehler | 2 | Ich habe am Wochenende zu Hause geblieben. | Ich bin am Wochenende zu Hause geblieben. | habe | Hafta sonu evde kaldım. | bleiben istisna: hareket yok ama sein alır: ist geblieben. | bleiben
+fehler | 2 | Sie ist gestern ihre Oma besucht. | Sie hat gestern ihre Oma besucht. | ist | Dün büyükannesini ziyaret etti. | besuchen Akkusativ nesne alır (geçişli) → haben. Nesnesi olan fiil neredeyse hep haben'dir. | besuchen; die Oma
+umform | 3 | Was passiert? → Perfekt | Was ist passiert? | | Ne oluyor? → Ne oldu? | passieren sein alır: ist passiert (olay "olur", kimse yapmaz). | passieren
+
+@teil klein | Küçük ama sık: ich, dönüşlü zamir, es gibt, yaş | artikel/çekim
+fehler | 1 | Morgen fahre Ich nach Hamburg. | Morgen fahre ich nach Hamburg. | Ich | Yarın Hamburg'a gidiyorum. | "ich" yalnız cümle başında büyük; ortada hep küçük. İsimler ise her yerde büyük. | fahren
+luecke | 2 | Ich erinnere ___ nicht an seinen Namen. (sich erinnern) | mich | | Adını hatırlamıyorum. | Dönüşlü zamir unutulmaz: ich erinnere mich. Türkçede karşılığı yok, o yüzden düşer. | sich erinnern an; der Name
+luecke | 2 | In Bremen gibt es ___ schönen Park. (ein) | einen | | Bremen'de güzel bir park var. | es gibt + Akkusativ: einen Park. "Es gibt ein Park" sık hata. | der Park
+wahl | 1 | Wie alt bist du? – Ich ___ 22 Jahre alt. | bin | bin / habe / werde | Kaç yaşındasın? – 22 yaşındayım. | Yaş sein ile söylenir: Ich bin 22 (Jahre alt). "Ich habe 22 Jahre" Türkçe/İspanyolca kalıbı, Almancada yanlış. | alt
+fehler | 2 | Ich freue mich auf das Wochenende. | Ich freue mich auf das Wochenende. | - | Hafta sonunu dört gözle bekliyorum. | Cümle doğru: sich freuen auf + Akkusativ, dönüşlü zamir yerinde. | sich freuen auf; das Wochenende
