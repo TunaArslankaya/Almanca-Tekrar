@@ -23,7 +23,9 @@
 ## Yapı
 
 - `index.html` + `js/app.js` (arayüz, kuyruk, log) · `js/grammatik.js` (çekim, cümle üretimi, kontrol) · `js/fsrs.js`
-- Uygulama (PWA): `manifest.webmanifest`, `sw.js` (önbellek listesi ve sürümü `tools/build.py` yazar: elle düzenleme), `img/` (ikonlar; kaynak `img/icon.svg`).
+- Uygulama (PWA): `manifest.webmanifest` (`id` `/Almanca-Tekrar/`), `sw.js` (kabuk önbellekten anında, yenisi arka planda; önbellek listesi ve sürümü `tools/build.py` yazar: elle düzenleme), `img/` (ikonlar; kaynak `img/icon.svg`).
+  Cihazlar arası: açılışta ve uygulamaya dönünce `log/zustand.json` çekilip kart kart birleştirilir (`zustandBirlestir`: son cevaplanan kazanır), yazmadan önce de birleştirilir; GitHub okumaları `cache: 'no-store'`.
+  Ünite dosyasında `@kapitel N` (Netzwerk neu Kapitel; gramer konuları `@kapitel` ile eşleşir) ve `@inaktiv` (Tuna Ayarlar → Üniteler'den açana kadar kapalı; `S.unite[id].aktiv`). Okuma: DW metinlerinde `audio` (mp3 adresi, `tools/dw_topthema.py`) oynatıcı; yoksa TTS "sesli oku".
   Kabuk (`js/app.js` "Uygulama kabuğu"): Bugün ekranı (`renderAna`), tur (`session.tur`, `turBaslat`, `turSonuRender`, varsayılan 12 cevap, `S.einst.tur`),
   seri (`seriSay`, `seriBakim`: dondurucu `S.seri.frz` her 7 günde +1, en çok 2; dün kaçtıysa bugün 2 turla onarım), puan (`xpEkle`, `S.xpToplam`, `tage[gün].xp`;
   emeğe göre: tanıma 5, yazma 10, cümle/çekim 15, liste kalemi 2, okuma 25, yazma 50; ara verip dönünce ilk tur ×2), efektler (`ton`, `titret`, `konfeti`, kombo),
@@ -39,6 +41,7 @@
 - `python3 tools/build.py` index.html'deki js/css/daten bağlantılarına `?v=` sürüm özeti de yazar (önbellek): `js/app.js` ya da `css/stil.css` değişince de çalıştır.
 - Üretilen: `daten/verben.js`, `daten/nomen.js`, `daten/woerter.js`, `daten/pakete.js`, `daten/saetze.js` → **elle düzenleme**, `python3 tools/build.py` çalıştır.
 - Elle: `daten/feedback.js` (Claude'un düzeltmeleri, Geçmiş sekmesinde görünür), `daten/kancalar.js` (takılan kelimelere hafıza kancası).
+- Gece işi (`.github/workflows/gece.yml`, GitHub Actions, Claude Code aboneliğiyle: secret `CLAUDE_CODE_OAUTH_TOKEN`): her gece 04:17 Berlin `tools/istem_gece.md` ile "sonuçlarıma bak" sürecini kendisi yapar, DW/Klexikon metinlerini çeker, build eder, commit'ler. Uygulamadaki "Claude'a gönder" `gorev=geribildirim` ile tetikler (`tools/istem_geribildirim.md`). Düzeltmeler `daten/feedback.js` → `node tools/feedback_json.js` → `log/feedback.json` (uygulama açılışta çeker, Geçmiş'te gösterir). Gece işi `js/`, `css/`, `index.html`, `tools/` dosyalarına dokunmaz.
 - `log/log.csv` (uygulama yazar, `;` ayırıcı, UTF-8 BOM): `zeit;modus;id;item;frage;antwort;ergebnis;loesung;notiz`
   - Yazarak: `abr` (TR→DE fiil), `frm` (çekim), `satz` (cümle kur), `luecke` (Goethe boşluk), `wort` (isim TR→DE, artikelli), `prod` (diğer kelime TR→DE), `ndek` (n-Deklination), `refl` (dönüşlü zamir), `yeni` (derin tanıtım)
   - Seçmeli (Hızlı tur): `erk` (isim/diğer DE→TR), `bed` (fiil DE→TR; sadece fiil + edat gösterilir), `art` (der/die/das), `pretest` (yeni kelime ön testi: ergebnis `bekannt` = biliyordu, `neu` = tanıtıldı)
@@ -54,6 +57,8 @@
   Metindeki boşluk çekimli olabilir (Knödeln, creme, gewundert): kelimeye kendiliğinden bağlanır (`uKand`); görmediği kelime boşluk olmaz. Goethe listesinde olmayan isimler `nomen_extra.txt`'e, sıfat/zarf/kalıp `woerter.txt` sonuna (her ünite kelimesinin ana listede karşılığı olsun).
   Aktif ünitenin kelimeleri Çalış'ta yeni öğe olarak önce gelir, metinleri boşluklu metin havuzuna girer. Ünite bitince `@geschlossen` ekle: açılışta ünitede çalışılmış (basamağa girmiş) kelimeler tekrar sistemine alınır, çalışılmayanlar alınmaz, bölüm gizlenir. Ünite 1 kapandı (15 kelime aktarıldı). Ünite 2 (fit und gesund bleiben, 112 kelime, 8 metin) açık: `@bis 2026-10-26`.
   - Paket: `paket` (id `p01:3` = 1. paketin 4. boşluğu; paket sonu `p01:pak`, notiz `puan:%`, `önce okudu`)
+  - Gramer: `gram` (id `g:<konu>:<sıra>` alıştırma, item `konu/teil`, notiz `tür:luecke | z:2 | <hata etiketi> | ghost:N | ipucu:1 | öneri:X | sek:N`; `g:<konu>` tanıtım `neu` / okudu `gelesen` / set sonu `giriş`|`tekrar`|`kontrast` → ergebnis set notu, notiz `puan:x/y | teil:…`). İçerik `quellen/grammatik/<konu>.txt` (biçim ve tekrar kuralları: `quellen/grammatik/FORMAT.md`; **yeni alıştırma hep sona**: kimlik satır sırasından), build → `daten/grammatik.js`, motor `js/gramer.js` (konu başına tek FSRS kartı `S.gram.konu[id].karte`, teil istatistiği, hayalet `S.gram.ghost`). Takılan teil: `leech` satırı id `g:<konu>:<teil>` → o teil'e 3–5 yeni alıştırma yaz.
+  - Konuşma: `sprechen` (id `shadow:<öğe>` / `teil2:<konu>` / `teil1:<görev>` / `teil3:<konu>`, ergebnis `gemacht`, antwort `kayıt:Nsn`; kayıt tarayıcıda kalır). Redemittel: `quellen/redemittel.txt` türleri `sprechen1/2/3`.
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
   - Tur sonu: `tur` (id = bölüm, ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4`): oturum uzunluğu ve sıklığı buradan okunur.
   - ergebnis: `richtig`, `fast`, `falsch`, `neu`, `bekannt`
@@ -76,7 +81,7 @@
   bir hafta anlam sorusu cümle içinde (`satzBis`), cümle kartı açılır, 3 örnek cümle gösterilir. Bekleyen "emin değilim" kartları bitince sıradaki liste.
   Listeye girmeyen (normal sorulan): bugün tanıtılan kelime, son 3 saatte sorulan kart, çekim / dönüşlü / n-Deklination. Tekrar yokken 20–30 cevapta bir rastgele 8 öğrenilmiş kelime ("gerçekten biliyor musun?").
   Log: modus `kontrol`, id = öğe, frage `sıradaki tekrar` / `rastgele`, ergebnis `biliyor` / `emin-degil` / `bilmiyor`, loesung anlamı, notiz `kart:n`; özet satırı modus `akt`, id `kontrol`.
-  Odak bölümleri (`MODI`): blitz (Hızlı tur), paket, normal (Karışık), verben, woerter, ndek, refl, thema, stark, lesen, fiilmetin, kalip, yazma, zayif, unite;
+  Odak bölümleri (`MODI`): blitz (Hızlı tur), paket, normal (Karışık), verben, woerter, ndek, refl, thema, stark, lesen, fiilmetin, kalip, yazma, zayif, unite, artoyun, sprechen, gram;
   her birinin hedefi/yeni sınırı ayrı, günlük sayaçlar `tage[gün].modi[bölüm]` (`bekannt`, `ungezaehlt` dahil). Hızlı tur'da fiil yok.
 - Birimler (`öğe:tür`): isim `erk`, `art`, `wort`, `nsatz` (kelime cümlesi, log modus `nsatz`), `ndek` · fiil `bed`, `abr`, `frm`, `satz`, `refl` · diğer `erk`, `prod` · paket `pak`.
   Yeni kart öğrenme adımları (yalnız bugün tanıtılan öğede ya da ilk cevap tam doğru değilse): ilk gün 3 hatırlama (tanıtım → birkaç soru → ~10 dk), ertesi gün kesin tekrar;
