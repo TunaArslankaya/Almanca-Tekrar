@@ -188,6 +188,7 @@
     artoyun: { ad: 'Artikel 60 sn', grup: 'Oyun', ziel: 1, neu: 0, neuTr: 'oyun (soru yok)' },
     sprechen: { ad: 'Konuşma', grup: 'Beceri', ziel: 1, neu: 0, neuTr: 'shadowing + kayıt (soru yok)' },
     gram: { ad: 'Gramer', grup: 'Dilbilgisi', ziel: 9, neu: 0, neuTr: 'konu başına kural + alıştırma' },
+    pruefung: { ad: 'Prüfung', grup: 'Sınav', ziel: 1, neu: 0, neuTr: 'Goethe B1 provası (soru yok)' },
   };
   // Tek akış: tanıma, yazma, cümle, yeni kelime ve ara etkinlikler tek kuyrukta. Diğer bölümler odak için "Bölüm" listesinde.
   const PLAN = ['akis'];
@@ -371,6 +372,7 @@
     artoyun: () => false,
     sprechen: () => false,
     gram: () => false,
+    pruefung: () => false,
   };
   // seçili konu
   const themaId = () => (thById[S.einst.thema] ? S.einst.thema : (THEMEN[0] && THEMEN[0].id));
@@ -1748,8 +1750,10 @@
     const t = now(), g = S.gelesen || {};
     const son = {};
     Object.entries(S.items).forEach(([id, it]) => { if (t - (it.seit || 0) < 3 * DAY) (THEMA_VON[id] || []).forEach(th => { son[th] = (son[th] || 0) + 1; }); });
-    const c = LT.filter(x => !g[x.id] && !(anders && session.lesen && session.lesen.id === x.id));
-    const pool = c.length ? c : LT;
+    // Goethe sınav metinleri Prüfung bölümüne ayrıldı (taze deneme kalsın); okuma havuzunda DW + Klexikon
+    const havuz = LT.filter(x => !x.aufgaben);
+    const c = havuz.filter(x => !g[x.id] && !(anders && session.lesen && session.lesen.id === x.id));
+    const pool = c.length ? c : havuz;
     // Goethe (sınav görevleri), DW (B1 haber metinleri), Klexikon dönüşümlü; konu eşleşirse öne
     const puan = x => (x.thema && x.thema === S.einst.thema ? 5 : 0) + (son[x.thema] || 0) + (x.quelle !== session.lesenQ ? 4 : 0) + (x.aufgaben ? 1 : 0) + Math.random() * 2;
     return pool.slice().sort((a, b) => puan(b) - puan(a))[0];
@@ -2788,6 +2792,7 @@
     if (session.modus === 'artoyun') { artOyunRender(); return; }
     if (session.modus === 'sprechen') { sprechenRender(); return; }
     if (session.modus === 'gram') { aktuell = { typ: 'gram' }; Gramer.yenile(); Gramer.render(); tastatur(); return; }
+    if (session.modus === 'pruefung') { aktuell = { typ: 'pruefung' }; Pruefung.yenile(); Pruefung.render(); return; }
     const m = session.modus;
     if (!session.tur || session.tur.bitti) { turBaslat(); session.tur.mod = m; }
     if (turBitti()) { turSonuRender(); return; }
@@ -3589,6 +3594,7 @@
     ['lesen', '📖', 'Okuma', 'Goethe, DW, Klexikon'],
     ['sprechen', '🎙️', 'Konuşma', 'shadowing · Sprechen Teil 1–3'],
     ['gram', '📐', 'Gramer', 'B1 kuralları + alıştırma'],
+    ['pruefung', '🎓', 'Prüfung', 'Goethe B1 provası: Lesen, Schreiben, Sprechen'],
   ];
   // ---- puan (XP) ----
   function xpEkle(n) {
@@ -3843,6 +3849,7 @@
     if (yazmaFaellig() || heuteM('yazma').n) { const yOk = heuteM('yazma').n > 0; isler.push(`<button class="is-kart${yOk ? ' bitti' : ''}" data-modus="yazma" type="button"><span class="is-ikon">✏️</span><span class="is-metin"><b>Yazma görevi</b><span>${yOk ? 'gönderildi ✓' : '~80 kelime · Claude düzeltir'}</span></span><span class="is-ok">${yOk ? '✓' : '›'}</span></button>`); }
     const zayifN = Object.keys(S.items).filter(id => gueltig(id + ':x') && schwach(id)).length;
     if (zayifN) isler.push(`<button class="is-kart" data-modus="zayif" type="button"><span class="is-ikon">🎯</span><span class="is-metin"><b>Zayıflar</b><span>${zayifN} kelime · yeni cümlelerde tekrar</span></span><span class="is-ok">›</span></button>`);
+    try { const po = Pruefung.ozet(); if (po.gun != null && po.gun >= 0) isler.push(`<button class="is-kart" data-modus="pruefung" type="button"><span class="is-ikon">🎓</span><span class="is-metin"><b>Sınava ${po.gun} gün</b><span>${po.son ? `son: ${esc(po.son.modul)} ${po.son.puan != null ? po.son.puan + ' puan' : ''}` : 'ilk provayı yap: mini Lesen 10 dk'}</span></span><span class="is-ok">›</span></button>`); } catch (e) { /* yok */ }
     try { const go = Gramer.ozet(); if (go.due || go.ghost || (!go.acik && go.toplam)) isler.push(`<button class="is-kart" data-modus="gram" type="button"><span class="is-ikon">📐</span><span class="is-metin"><b>Gramer</b><span>${go.due ? `${go.due} konu tekrar zamanı` : go.ghost ? `${go.ghost} hayalet tekrar (az önce yanlış)` : 'ilk konuyu aç: kural + 5 alıştırma'} · ~4 dk</span></span><span class="is-ok">›</span></button>`); } catch (e) { /* gramer yok */ }
     // odak bölümleri: vadesi gelen sayısıyla
     const odak = ODAK.map(([m, ik, ad, alt]) => {
@@ -4166,7 +4173,7 @@
     const q = aktuell;
     if (q && q.done && !q.benotet && q.res && typeof q.pruef === 'function') { try { benoten(q.res.urteil === 'richtig' ? 3 : q.vorschlag || 1); } catch (e) { console.warn(e); } }
   }
-  $('#calis-kapat').addEventListener('click', () => { clearTimers(); cikisNotla(); zeigView('ana'); });
+  $('#calis-kapat').addEventListener('click', () => { if (session.modus === 'pruefung' && aktuell && aktuell.typ === 'pruefung') { if (!confirm('Sınavı yarıda bırak?')) return; Pruefung.reset(); } clearTimers(); cikisNotla(); zeigView('ana'); });
   $('#ses-btn').addEventListener('click', () => { S.einst.ses = !sesAcik(); save(); otRender(); if (sesAcik()) ton('dogru'); });
   $('#ana').addEventListener('click', e => {
     const a = e.target.closest('[data-act-ana]'); if (!a) return;
@@ -4231,6 +4238,7 @@
     const mc = e.target.closest('[data-mc]');
     if (mc) { mcWahl(+mc.dataset.mc); return; }
     if (session.modus === 'gram' && !$('#v-calis').hidden && e.target.closest('[data-g]')) { if (Gramer.klick(e)) return; }
+    if (session.modus === 'pruefung' && !$('#v-calis').hidden && e.target.closest('[data-p]')) { if (Pruefung.klick(e)) return; }
     const oy = e.target.closest('[data-oyun]'); if (oy) { oyunCevap(oy.dataset.oyun); return; }
     const spt = e.target.closest('[data-sp-tab]'); if (spt) { session.sp = session.sp || {}; session.sp.tab = spt.dataset.spTab; sprechenRender(); return; }
     const spo = e.target.closest('[data-sp-ol]'); if (spo) { session.sp.ol = session.sp.ol || {}; session.sp.ol[spo.dataset.spOl] = spo.checked; return; }
@@ -4293,6 +4301,7 @@
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
+    if (q.typ === 'pruefung') { if (e.key === 'Escape') { if (confirm('Sınavı yarıda bırak?')) { Pruefung.reset(); zeigView('ana'); } } return; }
     if (q.typ === 'oyun') {
       if (e.repeat) return;
       if (!inInput && /^[123]$/.test(e.key) && session.oyun && session.oyun.durum === 'oyun') { e.preventDefault(); oyunCevap(['der', 'die', 'das'][+e.key - 1]); }
@@ -4525,6 +4534,10 @@
       sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(d); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
       leech: (id, ad) => logEintrag({ modus: 'leech', id, item: ad, frage: '', antwort: '', ergebnis: 'takiliyor', loesung: '', notiz: 'gramer' }),
     });
+  })();
+  (function pruefungBagla() {
+    Pruefung.init({ S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, now, tag, zeitStr, konfeti, tastatur, kart: () => kart,
+      durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, kalipHTML: a => yazmaKalipHTML(a), kalipListe: typ => spKalip(typ), senkron: () => ghSync(true) });
   })();
   (function willkommen() {
     // ara verdiysen: önce birikmişler, kısa tur önerisi
