@@ -409,7 +409,6 @@
     // Hızlı tur ve paketler yazma tekrarlarını da, paketler Hızlı tur tekrarlarını da hesaba katar.
     const druck = f => Math.min(1, rueckstand(f) / stauGrenze(m));
     let yuk = druck(FILTER[m]);
-    if (m === 'akis' && uniteNeuId()) yuk = Math.min(yuk, 0.5);  // aktif ünitenin kelimeleri birikmede de gelir (en az yarı hızda)
     if (m === 'blitz' || m === 'paket') yuk = Math.max(yuk, druck(FILTER.normal));
     if (m === 'paket') yuk = Math.max(yuk, druck(FILTER.blitz));
     const faktor = m === 'paket' ? (yuk >= 1 ? 0 : 1) : 1 - yuk;
@@ -572,8 +571,7 @@
     // Hızlı tur / Paket: yazma tekrarları (Karışık) birikmişse yeni kelime yok; kolay kısmı yapıp zoru atlamaya karşı
     session.schreibStau = (m === 'blitz' || m === 'paket') ? rueckstand(FILTER.normal) : 0;
     if (session.schreibStau <= STAU) session.schreibStau = 0;
-    // birikmede yeni kelime yok; aktif ünitenin kelimeleri hariç (kitap bekliyor, birikme bitmeden ünite kapanmasın)
-    const kannNeu = !session.schreibStau && !dikkatAktiv() && (!session.stau || (m === 'akis' && !!uniteNeuId()));
+    const kannNeu = !session.stau && !session.schreibStau && !dikkatAktiv();
 
     // 2) yeni öğe: vade azsa ya da her 4 soruda bir (sınır dolmadıysa)
     if (kannNeu) {
@@ -2654,7 +2652,7 @@
     h.classList.remove('kisa');
     const msgs = [];
     if (session.hinweis && session.q < (session.hinweisBis || 0)) msgs.push(session.hinweis);
-    if (session.stau) msgs.push(`${session.stau} tekrar birikmiş: ${stauGrenze(session.modus)}'in altına inene kadar yeni kelime yok${session.modus === 'akis' && UNITEN.some(uAktiv) ? ' (ünite kelimeleri hariç)' : ''}. Önce hâlâ hatırladıkların geliyor.`);
+    if (session.stau) msgs.push(`${session.stau} tekrar birikmiş: ${stauGrenze(session.modus)}'in altına inene kadar yeni kelime yok. Önce hâlâ hatırladıkların geliyor.`);
     if (session.schreibStau) msgs.push(`Karışık'ta ${session.schreibStau} yazma tekrarı bekliyor: azalana kadar burada yeni kelime yok. Tanıdığını yazamıyorsan öğrenmiş sayılmazsın.`);
     if (session.vollBis > session.q) msgs.push('Bugünkü yeni sınırına ulaştın. Bundan sonra tekrarlar geliyor.');
     if (session.willkommen && session.q < 8) msgs.push(session.willkommen);
@@ -3649,7 +3647,7 @@
   (function stauStart() {
     // birikmiş tekrarlar (ara verildiyse) günlere yayılır; bugün ne geldiği söylenir
     const r = stauVerteilen();
-    if (r && r.verschoben) session.willkommen = `${session.willkommen ? session.willkommen + ' ' : ''}Birikmiş ${r.alt} tekrar ${r.tage} güne yayıldı (günde ~${STAU_KAP}): bugün ${faellig(FILTER.akis).length} tekrar${UNITEN.some(uAktiv) ? ' + ünite kelimeleri' : ''}. Kuyruk bitince ertelenenler öne çekilir.`;
+    if (r && r.verschoben) session.willkommen = `${session.willkommen ? session.willkommen + ' ' : ''}Birikmiş ${r.alt} tekrar ${r.tage} güne yayıldı (günde ~${STAU_KAP}): bugün ${faellig(FILTER.akis).length} tekrar. Kuyruk bitince ertelenenler öne çekilir.`;
   })();
   (function startModus() {
     // aynı gün içinde son bölüm; yeni günde planın ilk bitmemiş adımı

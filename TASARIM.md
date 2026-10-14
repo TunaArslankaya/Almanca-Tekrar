@@ -115,7 +115,7 @@ aktif ünitenin kelimelerine hiç sıra gelmiyor, yığın da caydırıyordu (g�
 - FSRS aralık hesabı `last`'a (son cevap) bakar; `due`nun kayması takvimi bozmaz. Asıl vade `urspr`'de saklanır: ertelenen kartın kardeş
   kredisi asıl vadeye göre verilir, kart cevaplanınca iz silinir.
 - Kapasite sınır değil, dağıtımdır: günün kuyruğu bitince ertelenenler asıl vade sırasıyla öne çekilir; fazla çalışan gün yığını eritir.
-- Birikmede de aktif ünitenin kelimeleri (kitap bekliyor) yeni öğe olarak gelir, yarı hızda; başka yeni kelime gelmez.
+- Birikme (vadeli + yayılmış) 150'nin altına inene kadar yeni kelime yok, ünite kelimeleri de. İlk denemede ünite kelimeleri birikmede yarı hızda geliyordu; Tuna istemedi, kaldırıldı.
 - Bugün vadesi gelen (dünkü cevapların doğal tekrarı) kartlar yayılmaz: onlar genç kartlardır, gecikmesi en çok unutturur.
 
 ## Kaynaklar
