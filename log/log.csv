@@ -1611,3 +1611,11 @@
 2026-10-14 19:35:08;kontrol;v127;besichtigen;sıradaki tekrar;emin değilim;emin-degil;(görülecek yeri) gezmek;kart:1
 2026-10-14 19:35:08;kontrol;n0524;die Heimat;sıradaki tekrar;emin değilim;emin-degil;memleket, vatan;kart:3
 2026-10-14 19:35:08;kontrol;v256;feststellen;sıradaki tekrar;emin değilim;emin-degil;tespit etmek;kart:1
+2026-10-14 19:35:08;kontrol;v184;sich einigen auf;sıradaki tekrar;emin değilim;emin-degil;(bir şeyde) anlaşmak, uzlaşmak;kart:1
+2026-10-14 19:35:08;kontrol;w0171;folgend;sıradaki tekrar;emin değilim;emin-degil;aşağıdaki, sonraki;kart:1
+2026-10-14 19:35:08;kontrol;w0109;drüben;sıradaki tekrar;emin değilim;emin-degil;karşıda, öte tarafta;kart:1
+2026-10-14 19:35:08;kontrol;w0165;feucht;sıradaki tekrar;emin değilim;emin-degil;nemli;kart:2
+2026-10-14 19:35:08;kontrol;v590;sich verlaufen;sıradaki tekrar;emin değilim;emin-degil;(yürürken) yolunu kaybetmek;kart:3
+2026-10-14 19:35:08;akt;kontrol;gerçekten biliyor musun?;sich aufregen über, frech, hageln, eher, sich wenden an, rechnen mit, die Aussage, besichtigen, die Heimat, feststellen, sich einigen auf, folgend, drüben, feucht, sich verlaufen;;richtig;;biliyor:0 emin-degil:15 bilmiyor:0
+2026-10-14 19:35:13;art;n1389:art;der Wohnsitz;Wohnsitz;der;richtig;der Wohnsitz;sek:2 | ipucu:1
+2026-10-14 19:35:21;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über (über + Akk);hâl yazılmadı (über + Akk) | öneri:fast | sek:6 | ipucu:0
