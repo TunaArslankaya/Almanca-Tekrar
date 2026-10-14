@@ -1759,6 +1759,7 @@
     const gl = (L.glossar || []).length ? `<details class="ceviri"><summary>DW sözlüğü (${L.glossar.length} kelime, Almanca açıklama)</summary><ul class="erkl">${L.glossar.map(g => `<li><b>${esc(g.de)}</b>: ${esc(g.erkl)}</li>`).join('')}</ul></details>` : '';
     kart.innerHTML = `<div class="tur"><span class="yeni">okuma</span><span>${esc(L.reihe || L.quelle)}${thById[L.thema] ? ' · ' + esc(thById[L.thema].tr) : ''} · bilmediğin kelimeye bas</span></div>
       <div class="soru">${esc(L.titel)}</div>${L.anweisung ? `<div class="soluk">${esc(L.anweisung)}${L.beispiel ? '<br>Beispiel: ' + esc(L.beispiel) : ''}</div>` : ''}
+      ${L.audio ? `<div class="dinle"><audio controls preload="none" src="${esc(L.audio)}"></audio><span class="soluk">DW sesi: önce dinle, sonra oku (ya da okurken dinle)</span></div>` : `<div class="sira"><button class="btn mini" data-act="lesen-oku" type="button">🔊 Sesli oku</button><button class="btn mini" data-act="lesen-oku-yavas" type="button">🐢 Yavaş</button></div>`}
       <div class="paket-text" id="lesen-text">${text}</div>
       <div id="lesen-wort" class="kural" hidden></div>
       ${gl}${L.aufgaben ? goetheAufgabenHTML(L) : ''}
@@ -4102,6 +4103,7 @@
     else if (act === 'metin-gonder') metinGonder();
     else if (act === 'claude-gonder') { e.target.disabled = true; claudeGonder().then(ok => { if (!ok) e.target.disabled = false; }); }
     else if (act === 'lesen-baska') lesenRender(true);
+    else if (act === 'lesen-oku' || act === 'lesen-oku-yavas') { const L = session.lesen; if (L) sprich(L.text.split('\n').slice(0, 12).join('. '), act === 'lesen-oku-yavas' ? 0.75 : 0.95); }
     else if (act === 'fv-test') fvTestStart();
     else if (act === 'u-weiter') uWeiter();
     else if (act === 'u-text-pruef') uTextPruef();

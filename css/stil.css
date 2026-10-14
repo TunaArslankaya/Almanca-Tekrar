@@ -649,3 +649,7 @@ html, body { overscroll-behavior-y: contain; }
 .btn, .mc-opt, .art-btn, .kt-secim .btn, .alt-nav button, .odak-kart, .is-kart, .tur-secim button { -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
 .kur-kart.getir { border-color: var(--warn); background: var(--warn-soft); }
 .kur-kart.getir input { flex: 1 1 10rem; min-width: 0; padding: .5rem .7rem; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+
+/* dinleme: DW sesi (okuma) */
+.dinle { display: flex; flex-direction: column; gap: .3rem; margin: .4rem 0 .8rem; }
+.dinle audio { width: 100%; max-width: 420px; }
