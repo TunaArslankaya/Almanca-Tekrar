@@ -724,7 +724,7 @@ def unite_lesen(nr):
             t, de, tr, w = [x.strip() for x in line.split("|")]
             U["aufgaben"].append({"id": f"u{nr}-a{len(U['aufgaben'])+1}", "titel": t, "de": de, "tr": tr, "woerter": [x.strip() for x in w.split(";")]})
     return U
-_un = [u for u in [unite_lesen(1), unite_lesen(2)] if u]
+_un = [u for u in [unite_lesen(n) for n in range(1, 13)] if u]  # quellen/unite1..12.txt (varsa)
 dump("unite.js", "UNITE", _un)
 print(f"ünite: {sum(len(u['items']) for u in _un)} kelime, {sum(len(u['texte']) for u in _un)} metin")
 # Goethe Zertifikat B1 Übungssatz, Lesen Teil 1–5: orijinal sorular + çözümler
