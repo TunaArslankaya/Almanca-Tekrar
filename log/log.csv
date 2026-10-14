@@ -1566,3 +1566,14 @@
 2026-10-14 19:11:33;kontrol;n1286;die Unterschrift;sıradaki tekrar;biliyorum;biliyor;imza;kart:2
 2026-10-14 19:11:33;kontrol;n0617;die Kindheit;sıradaki tekrar;biliyorum;biliyor;çocukluk;kart:4
 2026-10-14 19:11:33;kontrol;n0028;die Änderung;sıradaki tekrar;biliyorum;biliyor;değişiklik;kart:4
+2026-10-14 19:11:33;kontrol;n1088;die Situation;sıradaki tekrar;biliyorum;biliyor;durum;kart:3
+2026-10-14 19:11:33;kontrol;w0172;frech;sıradaki tekrar;emin değilim;emin-degil;arsız, şımarık;kart:3
+2026-10-14 19:11:33;kontrol;x1460;das Missverständnis;sıradaki tekrar;biliyorum;biliyor;yanlış anlaşılma;kart:1
+2026-10-14 19:11:33;kontrol;n0914;die Politik;sıradaki tekrar;biliyorum;biliyor;siyaset;kart:4
+2026-10-14 19:11:33;kontrol;n0207;die Burg;sıradaki tekrar;biliyorum;biliyor;kale, şato;kart:4
+2026-10-14 19:11:33;akt;kontrol;gerçekten biliyor musun?;blitzen, vorschlagen, übertreiben, sich bemühen um, sich aufregen über, folgen, der Wohnsitz, die Unterschrift, die Kindheit, die Änderung, die Situation, frech, das Missverständnis, die Politik, die Burg;;fast;;biliyor:11 emin-degil:3 bilmiyor:1
+2026-10-14 19:11:38;pretest;n0496:erk;die Gymnastik;die Gymnastik;jimnastik;bekannt;jimnastik;sek:4
+2026-10-14 19:11:42;art;n1389:art;der Wohnsitz;Wohnsitz;der;richtig;der Wohnsitz;sek:3 | ipucu:0
+2026-10-14 19:11:48;refl;v592:refl;sich verletzen;Ich habe mich beim Kochen _____.;verletzt;richtig;verletzt;sek:6 | ipucu:0
+2026-10-14 19:11:54;nsatz;w0172:nsatz;frech;Das Kind war sehr _____ zu seiner Lehrerin.;freuch;richtig;frech;yazım | öneri:fast | sek:5 | ipucu:0
+2026-10-14 19:12:58;yeni;v039;sich anstrengen;;;neu;;
