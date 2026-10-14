@@ -2,6 +2,7 @@
 # tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
 # tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat
 # @bis YYYY-MM-DD: o gün bitince ünite kendiliğinden kapanır (@geschlossen gibi: çalışılan kelimeler tekrar sistemine geçer)
+@kapitel 8
 @titel fit und gesund bleiben
 @bis 2026-10-26
 @gruppe fit und gesund bleiben

@@ -187,6 +187,7 @@
     zayif: { ad: 'Zayıflar', grup: '', ziel: 10, neu: 0, neuTr: '' },
     artoyun: { ad: 'Artikel 60 sn', grup: 'Oyun', ziel: 1, neu: 0, neuTr: 'oyun (soru yok)' },
     sprechen: { ad: 'Konuşma', grup: 'Beceri', ziel: 1, neu: 0, neuTr: 'shadowing + kayıt (soru yok)' },
+    gram: { ad: 'Gramer', grup: 'Dilbilgisi', ziel: 9, neu: 0, neuTr: 'konu başına kural + alıştırma' },
   };
   // Tek akış: tanıma, yazma, cümle, yeni kelime ve ara etkinlikler tek kuyrukta. Diğer bölümler odak için "Bölüm" listesinde.
   const PLAN = ['akis'];
@@ -369,6 +370,7 @@
     kalip: () => false,
     artoyun: () => false,
     sprechen: () => false,
+    gram: () => false,
   };
   // seçili konu
   const themaId = () => (thById[S.einst.thema] ? S.einst.thema : (THEMEN[0] && THEMEN[0].id));
@@ -2785,6 +2787,7 @@
     if (session.modus === 'kalip') { kalipRender(); return; }
     if (session.modus === 'artoyun') { artOyunRender(); return; }
     if (session.modus === 'sprechen') { sprechenRender(); return; }
+    if (session.modus === 'gram') { aktuell = { typ: 'gram' }; Gramer.yenile(); Gramer.render(); tastatur(); return; }
     const m = session.modus;
     if (!session.tur || session.tur.bitti) { turBaslat(); session.tur.mod = m; }
     if (turBitti()) { turSonuRender(); return; }
@@ -3585,6 +3588,7 @@
     ['kalip', '💬', 'Kalıplar', 'fiillerin kullanımı'],
     ['lesen', '📖', 'Okuma', 'Goethe, DW, Klexikon'],
     ['sprechen', '🎙️', 'Konuşma', 'shadowing · Sprechen Teil 1–3'],
+    ['gram', '📐', 'Gramer', 'B1 kuralları + alıştırma'],
   ];
   // ---- puan (XP) ----
   function xpEkle(n) {
@@ -3839,6 +3843,7 @@
     if (yazmaFaellig() || heuteM('yazma').n) { const yOk = heuteM('yazma').n > 0; isler.push(`<button class="is-kart${yOk ? ' bitti' : ''}" data-modus="yazma" type="button"><span class="is-ikon">✏️</span><span class="is-metin"><b>Yazma görevi</b><span>${yOk ? 'gönderildi ✓' : '~80 kelime · Claude düzeltir'}</span></span><span class="is-ok">${yOk ? '✓' : '›'}</span></button>`); }
     const zayifN = Object.keys(S.items).filter(id => gueltig(id + ':x') && schwach(id)).length;
     if (zayifN) isler.push(`<button class="is-kart" data-modus="zayif" type="button"><span class="is-ikon">🎯</span><span class="is-metin"><b>Zayıflar</b><span>${zayifN} kelime · yeni cümlelerde tekrar</span></span><span class="is-ok">›</span></button>`);
+    try { const go = Gramer.ozet(); if (go.due || go.ghost || (!go.acik && go.toplam)) isler.push(`<button class="is-kart" data-modus="gram" type="button"><span class="is-ikon">📐</span><span class="is-metin"><b>Gramer</b><span>${go.due ? `${go.due} konu tekrar zamanı` : go.ghost ? `${go.ghost} hayalet tekrar (az önce yanlış)` : 'ilk konuyu aç: kural + 5 alıştırma'} · ~4 dk</span></span><span class="is-ok">›</span></button>`); } catch (e) { /* gramer yok */ }
     // odak bölümleri: vadesi gelen sayısıyla
     const odak = ODAK.map(([m, ik, ad, alt]) => {
       const n = FILTER[m] && SORU_MODI.has(m) ? faellig(FILTER[m]).length : 0;
@@ -4225,6 +4230,7 @@
     if (n) { benoten(aktuell && aktuell.nurFalsch ? 1 : +n.dataset.note); return; }
     const mc = e.target.closest('[data-mc]');
     if (mc) { mcWahl(+mc.dataset.mc); return; }
+    if (session.modus === 'gram' && !$('#v-calis').hidden && e.target.closest('[data-g]')) { if (Gramer.klick(e)) return; }
     const oy = e.target.closest('[data-oyun]'); if (oy) { oyunCevap(oy.dataset.oyun); return; }
     const spt = e.target.closest('[data-sp-tab]'); if (spt) { session.sp = session.sp || {}; session.sp.tab = spt.dataset.spTab; sprechenRender(); return; }
     const spo = e.target.closest('[data-sp-ol]'); if (spo) { session.sp.ol = session.sp.ol || {}; session.sp.ol[spo.dataset.spOl] = spo.checked; return; }
@@ -4286,6 +4292,7 @@
     const q = aktuell;
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
+    if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
     if (q.typ === 'oyun') {
       if (e.repeat) return;
       if (!inInput && /^[123]$/.test(e.key) && session.oyun && session.oyun.durum === 'oyun') { e.preventDefault(); oyunCevap(['der', 'die', 'das'][+e.key - 1]); }
@@ -4504,6 +4511,21 @@
   });
 
   // ================= Başlat =================
+  // Gramer bölümü (js/gramer.js): uygulama yardımcıları
+  (function gramerBagla() {
+    const labelIdx = {};
+    try { NL.forEach(n => { labelIdx[label(n.id)] = n.id; }); VERBEN.forEach(v => { labelIdx[v.anz || v.inf] = v.id; if (v.inf) labelIdx[v.inf] = labelIdx[v.inf] || v.id; }); WOERTER.forEach(w => { labelIdx[w.de] = w.id; }); } catch (e) { console.warn(e); }
+    Gramer.init({
+      S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur,
+      kart: () => kart, ret: () => S.einst.ret, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
+      fx: u => fxCevap(u), soruSayisi: () => session.q, odakla: () => !!(window.matchMedia && matchMedia('(hover: hover)').matches),
+      aktifKapitel: () => { const U = UNITEN.find(uAktiv); return U && U.kapitel ? 'K' + U.kapitel : null; },
+      birikme: () => rueckstand(FILTER.akis) > stauGrenze('akis'),
+      kelimeAnlam: w => { const id = labelIdx[w]; return id ? trOf(id) : ''; }, kelimeGesehen: w => { const id = labelIdx[w]; return !id || !!S.items[id]; },
+      sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(d); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
+      leech: (id, ad) => logEintrag({ modus: 'leech', id, item: ad, frage: '', antwort: '', ergebnis: 'takiliyor', loesung: '', notiz: 'gramer' }),
+    });
+  })();
   (function willkommen() {
     // ara verdiysen: önce birikmişler, kısa tur önerisi
     const tage = Object.keys(S.tage).filter(k => S.tage[k].n > 0).sort();

@@ -685,3 +685,20 @@ mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding
 .sp-rec { color: var(--bad); animation: yanip 1s infinite; }
 @keyframes yanip { 50% { opacity: .3; } }
 .sp-yapi li { margin: .15rem 0; }
+
+/* gramer */
+.g-soru { font-size: 1.25rem; line-height: 1.6; }
+.g-luecke .g-inp { display: inline-block; width: 8.5em; max-width: 60%; margin: 0 .15em; padding: .25rem .5rem; font: inherit; border: 0; border-bottom: 2px solid var(--accent); background: var(--surface-2); border-radius: 6px 6px 0 0; }
+.g-inp.g-tam { width: 100%; padding: .7rem .9rem; border: 1.5px solid var(--line); border-radius: 12px; font: inherit; font-size: 1.05rem; background: var(--surface-2); }
+.g-inp:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.g-dizi { min-height: 3rem; padding: .5rem .6rem; border: 1.5px dashed var(--line); border-radius: 12px; margin: .4rem 0; display: flex; flex-wrap: wrap; gap: .35rem; align-items: center; }
+.g-dizi .chip.g-sec { background: var(--accent-soft); }
+.g-fehler .g-tok { font: inherit; font-size: 1.15rem; background: none; border: 0; border-bottom: 2px solid transparent; padding: .1rem .15rem; color: inherit; cursor: pointer; border-radius: 4px; }
+.g-fehler .g-tok:hover, .g-fehler .g-tok.secili { background: var(--warn-soft); border-bottom-color: var(--warn); }
+.g-kurz { font-weight: 700; }
+.g-erkl p { margin: .5rem 0; }
+.g-bsp li { margin: .35rem 0; }
+.g-oge .yan { gap: .3rem; }
+.mc-opt.dogru { border-color: var(--ok); background: var(--ok-soft, var(--surface)); }
+.mc-opt.yanlis { border-color: var(--bad); }
+.g-woerter .chip { cursor: default; }
