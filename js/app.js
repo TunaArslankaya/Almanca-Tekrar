@@ -38,7 +38,6 @@
   const wById = Object.fromEntries(WOERTER.map(w => [w.id, w]));
   const PAKETE = window.PAKETE || [];
   const pById = Object.fromEntries(PAKETE.map(p => [p.id, p]));
-  const FEEDBACK = window.FEEDBACK || [];
   const KANCA = window.KANCA || {};
   const SAETZE = window.SAETZE || {};
   const THEMEN = window.THEMEN || [];   // Goethe B1 konuları: [{id, de, tr, items}]
@@ -1677,8 +1676,8 @@
     ghSync(true);
     save();
     session.aufgabe = null;
-    kart.innerHTML = `<div class="bos"><div class="buyuk">Gönderildi ✓</div><div class="soluk">${n} kelime. Claude'a "sonuçlarıma bak" de: hatalarını tek tek düzeltir, düzeltmeler Geçmiş'te görünür.</div>
-      <div class="sira"><button class="btn ana" data-modus="akis" type="button">Çalış'a dön</button></div></div>`;
+    kart.innerHTML = `<div class="bos"><div class="buyuk">Gönderildi ✓</div><div class="soluk">${n} kelime. Claude cümle cümle düzeltir; düzeltme birkaç dakika sonra Geçmiş'te görünür (gece de kendiliğinden bakar).</div>
+      <div class="sira"><button class="btn ana" data-act="claude-gonder" type="button">Claude'a şimdi gönder</button><button class="btn" data-modus="akis" type="button">Çalış'a dön</button></div></div>`;
     renderPlan();
   }
 
@@ -3262,8 +3261,46 @@
     return normalize(m);
   }
   let ghUzakZaman = '';  // en son birleştirilen uzak kaydın zamanı
+  // Gece işinin (GitHub Actions'ta Claude) düzeltmeleri: log/feedback.json → Geçmiş'te, index.html yenilenmeden
+  const FB_KEY = 'almanca-tekrar-fb';
+  let fbUzak = [];
+  try { fbUzak = JSON.parse(localStorage.getItem(FB_KEY) || '[]'); } catch (e) { fbUzak = []; }
+  const feedbackListe = () => {
+    const g = new Set(), out = [];
+    (window.FEEDBACK || []).concat(fbUzak).forEach(f => { const k = (f.zeit || '') + '|' + (f.id || ''); if (!g.has(k)) { g.add(k); out.push(f); } });
+    return out.sort((a, b) => (a.zeit || '').localeCompare(b.zeit || ''));
+  };
+  async function fbCek() {
+    try {
+      const z = await ghLesen('log/feedback.json');
+      if (!z.text) return 0;
+      const liste = JSON.parse(z.text);
+      if (!Array.isArray(liste)) return 0;
+      const once = feedbackListe().length;
+      fbUzak = liste;
+      try { localStorage.setItem(FB_KEY, JSON.stringify(liste)); } catch (e) { /* yer yok */ }
+      const yeni = feedbackListe().length - once;
+      if (yeni > 0) { session.yeniFeedback = (session.yeniFeedback || 0) + yeni; toast(`Claude'dan ${yeni} yeni düzeltme geldi → Geçmiş`, 3500); if (!$('#v-gecmis').hidden) renderGecmis(); }
+      return yeni;
+    } catch (e) { return 0; }
+  }
+  // Uygulamadan Claude'a "bak" demek: gece iş akışını (geribildirim görevi) tetikler; düzeltme birkaç dakika sonra feedback.json'a düşer
+  async function claudeGonder() {
+    if (!ghToken()) { toast('Önce Ayarlar → GitHub anahtarı.'); return false; }
+    await ghSync(true);
+    try {
+      const r = await fetch(`https://api.github.com/repos/${GH.repo}/actions/workflows/gece.yml/dispatches`, { method: 'POST', cache: 'no-store',
+        headers: { Authorization: 'Bearer ' + ghToken(), Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ref: GH.branch, inputs: { gorev: 'geribildirim' } }) });
+      if (r.status === 204) { session.claudeBekliyor = now(); toast('Claude bakıyor: düzeltme birkaç dakika sonra Geçmiş\'e düşer.', 4000); return true; }
+      const m = r.status === 404 ? 'iş akışı bulunamadı (repo\'da .github/workflows/gece.yml ve secret kurulu mu?)' : r.status === 403 || r.status === 401 ? 'anahtarın Actions yetkisi yok (fine-grained: Actions → Read and write)' : `${r.status}`;
+      toast('Gönderilemedi: ' + m, 5000);
+    } catch (e) { toast('Gönderilemedi: ' + e.message, 4000); }
+    return false;
+  }
   async function ghCek(sessiz) {
     if (!ghToken()) return false;
+    fbCek();
     try {
       const z = await ghLesen('log/zustand.json');
       if (!z.text) return false;
@@ -3454,6 +3491,7 @@
     $('#grafik').innerHTML = svg;
     $('#gun-tablo').innerHTML = `<thead><tr><th>gün</th><th class="num">cevap</th><th class="num">cümle</th><th class="num">kelime</th><th class="num">anlam</th><th class="num">doğru</th><th class="num">küçük h.</th><th class="num">yanlış</th><th class="num">yeni</th><th class="num">sayılmadı</th><th>bölümler</th></tr></thead><tbody>` +
       tage.slice().reverse().filter(([, x]) => x.n || x.neuV || x.neuN || x.ungezaehlt).map(([k, x]) => `<tr><td>${k}</td><td class="num">${x.n}</td><td class="num">${x.satz || 0}</td><td class="num">${x.wort || 0}</td><td class="num">${x.anlam || 0}</td><td class="num e-richtig">${x.richtig}</td><td class="num e-fast">${x.fast}</td><td class="num e-falsch">${x.falsch}</td><td class="num">${(x.neuV || 0) + (x.neuN || 0)}</td><td class="num">${x.ungezaehlt || 0}</td><td>${bolum(x)}</td></tr>`).join('') + '</tbody>';
+    const FEEDBACK = feedbackListe();
     $('#feedback').innerHTML = FEEDBACK.length ? FEEDBACK.slice().reverse().slice(0, 60).map(f => `<div class="oge"><span class="de">${esc(f.antwort || '')} → ${deHTML(f.richtig || '')}</span><span class="tr">${esc(f.text || '')}</span><span class="yan"><span class="durum-pil ${f.urteil === 'richtig' ? 'sitzt' : f.urteil === 'falsch' ? 'schwach' : 'lernt'}">${esc(f.zeit || '')}</span></span></div>`).join('')
       : '<div class="oge"><span class="tr">Henüz yok. Log dosyasını pushlayıp Claude\'a "sonuçlarıma bak" de.</span></div>';
     $('#son-tablo').innerHTML = `<thead><tr><th>zaman</th><th>tür</th><th>öğe</th><th>cevap</th><th>sonuç</th><th>doğrusu</th></tr></thead><tbody>` +
@@ -4062,6 +4100,7 @@
     else if (act === 'licht-weiter') lichtWeiter();
     else if (act === 'paket-weiter') paketWeiter();
     else if (act === 'metin-gonder') metinGonder();
+    else if (act === 'claude-gonder') { e.target.disabled = true; claudeGonder().then(ok => { if (!ok) e.target.disabled = false; }); }
     else if (act === 'lesen-baska') lesenRender(true);
     else if (act === 'fv-test') fvTestStart();
     else if (act === 'u-weiter') uWeiter();
@@ -4250,6 +4289,7 @@
     catch (e) { ghDurum('Anahtar çalışmadı: ' + e.message); }
   });
   $('#gh-simdi').addEventListener('click', () => ghSync(true));
+  $('#gh-claude').addEventListener('click', e => { e.target.disabled = true; claudeGonder().then(() => { e.target.disabled = false; }); });
   // A1 + modal fiiller: bilinen say (öğrencinin bilmediği dört kelime hariç). İsimlerde yalnız artikel sorulur,
   // ama bariz artikeller atlanır: -e / -ung / -heit / -keit / -ion … kuralına uyan die'ler, -in ile biten kadın isimleri,
   // erkek meslek ve aile isimleri (der), das Bier / das Wasser. Fiilde çekim (1 aya yayılı). Tekrar basılırsa düzeltir.

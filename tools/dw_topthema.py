@@ -22,7 +22,17 @@ for item in rss.split('<item>')[1:]:
     paras = [p for p in paras if p and not p.startswith('Arbeitsauftrag') and not p.lower().startswith('autor')]
     gloss = [{'de': html.unescape(v['shortTitle']).strip(), 'erkl': html.unescape(re.sub(r'<[^>]+>', '', v['text'])).strip()}
              for v in d.values() if isinstance(v, dict) and v.get('__typename') == 'Knowledge' and v.get('knowledgeType') == 'GLOSSARY' and v.get('shortTitle')]
-    alt[lid] = {'id': lid, 'quelle': 'DW Top-Thema', 'titel': titel, 'text': '\n'.join(paras), 'glossar': gloss, 'url': link}
+    # ses: dersin JSON'undaki Audio nesnesi (mp3Src) ya da ham metindeki ilk .mp3 adresi (uygulama DW'den çalar, dosya kopyalanmaz)
+    audio = ''
+    for v in d.values():
+        if isinstance(v, dict) and 'Audio' in str(v.get('__typename', '')):
+            for kk, vv in v.items():
+                if isinstance(vv, str) and '.mp3' in vv: audio = vv; break
+        if audio: break
+    if not audio:
+        mm = re.search(r'https?://[^"\s]+\.mp3', json.dumps(d))
+        audio = mm.group(0) if mm else ''
+    alt[lid] = {'id': lid, 'quelle': 'DW Top-Thema', 'titel': titel, 'text': '\n'.join(paras), 'glossar': gloss, 'url': link, 'audio': audio}
     print('ok', titel, len(' '.join(paras).split()), 'kelime', len(gloss), 'sözlük')
 json.dump(list(alt.values()), open(ziel, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(alt), 'metin')

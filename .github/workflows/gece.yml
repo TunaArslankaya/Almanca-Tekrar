@@ -1,0 +1,91 @@
+# Gece işi: Claude Code senin aboneliğinle (CLAUDE_CODE_OAUTH_TOKEN) çalışır, CLAUDE.md'deki "sonuçlarıma bak" sürecini
+# kendisi yapar (düzeltmeler, kancalar, yeni cümleler), günün DW / Klexikon metinlerini çeker, build eder; değişiklikler bu dala commit'lenir.
+# Uygulama açılınca yeni içerik ve düzeltmeler (log/feedback.json) gelir.
+#
+# Kurulum (bir kez):
+#   1. Bilgisayarda: npm i -g @anthropic-ai/claude-code && claude setup-token  → çıkan token'ı kopyala
+#   2. GitHub → repo → Settings → Secrets and variables → Actions → New repository secret:
+#        Name: CLAUDE_CODE_OAUTH_TOKEN   Secret: (token)
+#   3. Actions sekmesinde iş akışları kapalıysa "Enable". Elle denemek için: Actions → "Gece: Claude inceler" → Run workflow.
+# Uygulamadaki "Claude'a gönder" düğmesi bu akışı (gorev=geribildirim) GitHub API ile tetikler; bunun için GitHub anahtarında
+# Actions: Read and write (fine-grained) ya da repo kapsamı (classic) olmalı.
+name: "Gece: Claude inceler"
+
+on:
+  schedule:
+    - cron: "17 2 * * *"   # 04:17 Berlin (yaz saati); kış saatinde 03:17
+  workflow_dispatch:
+    inputs:
+      gorev:
+        description: "gece = tam inceleme + içerik · geribildirim = yalnız son cevapların düzeltmesi"
+        default: "gece"
+        type: choice
+        options: [gece, geribildirim]
+
+concurrency:
+  group: gece
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  gece:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Günün içeriği (DW Top-Thema, Klexikon)
+        if: ${{ github.event.inputs.gorev != 'geribildirim' }}
+        run: |
+          python3 tools/dw_topthema.py || echo "DW alınamadı"
+          python3 tools/klexikon.py || echo "Klexikon alınamadı"
+          python3 tools/build.py >/dev/null
+
+      - name: İstem dosyasını seç
+        id: istem
+        run: |
+          if [ "${{ github.event.inputs.gorev }}" = "geribildirim" ]; then f=tools/istem_geribildirim.md; else f=tools/istem_gece.md; fi
+          echo "dosya=$f" >> "$GITHUB_OUTPUT"
+          { echo 'metin<<__SON__'; cat "$f"; echo '__SON__'; } >> "$GITHUB_OUTPUT"
+
+      - name: Claude Code (abonelik token'ı)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: ${{ steps.istem.outputs.metin }}
+          claude_args: |
+            --max-turns 120
+            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(python3:*),Bash(node:*),Bash(git log:*),Bash(git diff:*),Bash(git status:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(grep:*)"
+
+      - name: Build, testler, feedback.json
+        run: |
+          python3 tools/build.py >/dev/null
+          node tests/test_grammatik.js
+          node tools/feedback_json.js
+
+      - name: Commit ve push
+        run: |
+          git config user.name "claude-gece[bot]"
+          git config user.email "claude-gece@users.noreply.github.com"
+          git add -A quellen daten log/feedback.json VERLAUF.md index.html sw.js
+          git diff --cached --quiet && { echo "değişiklik yok"; exit 0; }
+          git commit -m "gece: Claude incelemesi ve günün içeriği (${{ github.event.inputs.gorev || 'gece' }})"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin HEAD:"${{ github.ref_name }}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
