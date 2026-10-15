@@ -1661,3 +1661,8 @@
 2026-10-15 07:09:50;prod;w0171:prod;folgend;aşağıdaki, sonraki;folgend;richtig;folgend;sek:3 | ipucu:0
 2026-10-15 07:09:54;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
 2026-10-15 07:09:55;erk;n1375:erk;der Wetterbericht;hava raporu;die Wetterbericht;falsch;der Wetterbericht;sek:5 | ipucu:1
+2026-10-15 07:10:58;leech;w0165;feucht;nemli;;takiliyor;;günler:2026-10-02,2026-10-03,2026-10-15
+2026-10-15 07:10:58;erk;w0165:erk;feucht;nemli;mild;falsch;feucht;sek:61 | ipucu:0
+2026-10-15 07:11:06;bed;v278:bed;sich fürchten vor;Man sagt dann auch: Man fürchtet sich vor diesen Dingen.;sinirlenmek, heyecanlanmak;falsch;(bir şeyden) korkmak;sek:7 | ipucu:0
+2026-10-15 07:11:11;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;sek:4 | ipucu:0
+2026-10-15 07:11:14;bed;v589:bed;sich verlassen auf;Du kannst dich nicht immer auf andere verlassen.;güvenmek;richtig;(birine / bir şeye) güvenmek;sek:3 | ipucu:0
