@@ -1692,3 +1692,11 @@
 2026-10-15 07:17:29;wort;n0972:wort;die Regel;kural;die Regel;richtig;die Regel;sek:6 | ipucu:0
 2026-10-15 07:17:32;art;n0244:art;die Diskussion;Diskussion;das;falsch;die Diskussion;artikel: das → die | sek:2 | ipucu:0
 2026-10-15 07:17:38;nsatz;n1044:nsatz;der Schmerz;Nach dem Sport hatte ich starke _____ im Rücken.;Schmertz;falsch;Schmerzen;artikel / ek | sek:5 | ipucu:0
+2026-10-15 07:17:42;satz;v111:satz;sich bemühen um;Ich werde mich um einen Termin _____.;bemühen;richtig;bemühen;sek:3 | ipucu:0
+2026-10-15 07:17:53;akt;match;eşleştir;sich einigen auf, der Antrag, die Politik, sich verlaufen, eben, das Amt;;richtig;;hata:0
+2026-10-15 07:18:03;nsatz;n1320:nsatz;die Versichertenkarte;Ich habe meine _____ zu Hause vergessen.;Versichertenkarte;richtig;Versichertenkarte;sek:9 | ipucu:0
+2026-10-15 07:18:07;nsatz;n1390:nsatz;die Wohnung;Versichern kann man sich gegen Krankheiten und Unfälle, aber auch gegen Diebstahl, einen Brand in der _____ und andere Schäden.;Wohnung;richtig;Wohnung;sek:3 | ipucu:0
+2026-10-15 07:18:09;nsatz;n1336:nsatz;das Visum;Das _____ ist für drei Monate gültig.;Visum;richtig;Visum;sek:2 | ipucu:0
+2026-10-15 07:18:18;wort;n0925:wort;die Präsentation;sunum;die Präsentation;richtig;die Präsentation;sek:8 | ipucu:0
+2026-10-15 07:18:21;nsatz;n0994:nsatz;das Rezept;Diese Schmerztabletten gibt es nur auf _____.;Rezept;richtig;Rezept;sek:3 | ipucu:0
+2026-10-15 07:18:28;satz;v063:satz;sich aufregen über;Warum hast du dich so _____?;aufgeregt;richtig;aufgeregt;sek:7 | ipucu:0
