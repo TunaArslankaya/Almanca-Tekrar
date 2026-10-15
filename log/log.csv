@@ -1812,3 +1812,13 @@
 2026-10-15 16:07:32;paket;p05:7;bezahlen;Im Supermarkt;Bezahlen;fast;bezahle;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı | biçim: metinde bezahle
 2026-10-15 16:07:35;paket;p05:8;die Tüte;Im Supermarkt;Tüte;richtig;Tüte;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı
 2026-10-15 16:07:38;paket;p05:9;die Quittung;Im Supermarkt;Rechnung;falsch;Quittung;basamak:B3 | bicim:metin | not:m1 | R:0.65 | S:0.1 | farklı
+2026-10-15 16:07:39;paket;p05:pak;Im Supermarkt;yeni paket;;falsch;;puan:58
+2026-10-15 16:07:45;paket;p04:0;das Semester;An der Uni;Semestar;fast;Semester;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı | biçim: metinde Semester
+2026-10-15 16:07:53;paket;p04:1;die Universität;An der Uni;Universität;richtig;Universität;basamak:B3 | bicim:metin | not:- | R:1.00 | S:4.4 | hafıza:yazılmadı
+2026-10-15 16:07:59;paket;p04:2;sich anmelden für;An der Uni;wenden;falsch;anmelden;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı | farklı
+2026-10-15 16:08:05;paket;p04:3;das Seminar;An der Uni;seminer;fast;Seminar;basamak:B3 | bicim:metin | not:- | R:0.92 | S:8.3 | hafıza:yazılmadı | biçim: metinde Seminar
+2026-10-15 16:08:12;paket;p04:4;der Dozent;An der Uni;Konsultat;falsch;Dozent;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı | farklı
+2026-10-15 16:08:19;paket;p04:5;das Referat;An der Uni;Präsentation;falsch;Referat;basamak:B3 | bicim:metin | not:- | R:1.00 | S:6.0 | hafıza:yazılmadı | farklı
+2026-10-15 16:08:23;paket;p04:6;die Prüfung;An der Uni;Prüfung;richtig;Prüfung;basamak:B3 | bicim:metin | not:- | R:0.92 | S:8.3 | hafıza:yazılmadı
+2026-10-15 16:08:28;paket;p04:7;der Kommilitone;An der Uni;Komilitone;falsch;Kommilitonen;basamak:B3 | bicim:metin | not:- | R:1.00 | S:3.3 | hafıza:yazılmadı | artikel/çekim
+2026-10-15 16:08:33;paket;p04:8;die Mensa;An der Uni;Melsa;fast;Mensa;basamak:B3 | bicim:metin | not:m3 | R:0.66 | S:2.1 | yazım
