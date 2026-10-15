@@ -2746,6 +2746,11 @@
 
   // cevap işlendi: hafıza + gölge + log, sayaçlar (tur, gün, puan, seri), oturum kuyruğu (yanlış → 3–5 soru sonra), takılan kelime
   const KOK_BICIM = new Set(['kok', 'kokSatz', 'kokSec']);
+  // yoklamada bildi: 'yeni;bekannt' satırı + bekannt bayrağı (cevapIsle ve açılıştaki bekleyenIsle'den)
+  function yoklamaBildi(id, q, r) {
+    logEintrag({ modus: 'yeni', id, item: label(id), frage: 'yoklama', antwort: q.antwort || '', ergebnis: 'bekannt', loesung: trOf(id), notiz: `basamak:B2 | bicim:yoklama | not:${[r.out.m && r.out.m.yazildi ? 'm4' : '', r.out.a && r.out.a.yazildi ? 'a' + r.not.a : ''].filter(Boolean).join(',') || '-'} | yoklama${r.ergebnis === 'fast' ? ' | ' + (r.not.etiketler || []).filter(x => /^artikel/.test(x)).join(', ') : ''}` });
+    if (S.items[id]) S.items[id].bekannt = true;
+  }
   function cevapIsle(q, sonuc, sessiz) {
     if (!q || q.islendi) return;
     q.islendi = true;
@@ -2770,8 +2775,7 @@
       // yoklama: doğruysa "zaten biliyorsun" (kotaya sayılmaz); yanlışsa tanıtım kartı gelir
       const bildi = r.ergebnis !== 'falsch' && !q.bos;
       if (bildi) {
-        logEintrag({ modus: 'yeni', id, item: label(id), frage: 'yoklama', antwort: q.antwort || '', ergebnis: 'bekannt', loesung: trOf(id), notiz: `basamak:B2 | bicim:yoklama | not:${[r.out.m && r.out.m.yazildi ? 'm4' : '', r.out.a && r.out.a.yazildi ? 'a' + r.not.a : ''].filter(Boolean).join(',') || '-'} | yoklama${r.ergebnis === 'fast' ? ' | ' + (r.not.etiketler || []).filter(x => /^artikel/.test(x)).join(', ') : ''}` });
-        if (S.items[id]) S.items[id].bekannt = true;
+        yoklamaBildi(id, q, r);
         session.notCip = 'zaten biliyorsun ✓';   // sonraki kartın durum satırında (flash zeige'de hemen gizlenirdi)
         if (ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id) { partiIlerle(sessiz); return; }
       } else if (ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id) ot.tanitSira[0] = { id, yoklama: false, yoklamaDan: true };
@@ -3475,7 +3479,7 @@
     if (tu.n < b) return false;
     const ot = session.ot, bek = ot ? (ot.kuyruk || []).filter(k => k.neden === 'yanlis') : [];
     // uzatmada bekleyen yanlış hemen değil, en erken 2 soru sonra (uzatmaya sığmıyorsa 1 soru sonra) gelir
-    if (bek.length && tu.n < b + TUR_UZAT) { const a = ot.adim || 0, ara = tu.n + 2 <= b + TUR_UZAT ? 2 : 1; bek.forEach(k => { k.at = Math.min(k.at, a + ara); }); return false; }
+    if (bek.length && tu.n < b + TUR_UZAT) { const a = ot.adim || 0, ara = tu.n + 3 <= b + TUR_UZAT ? 2 : 1; bek.forEach((k, i) => { k.at = Math.min(k.at, a + ara + i); }); return false; }
     return true;
   }
   function otRender() {
@@ -4567,13 +4571,17 @@
     let r = null; try { r = JSON.parse(localStorage.getItem(BEKLEYEN_KEY) || 'null'); } catch (e) { r = null; }
     bekleyenSil();
     if (!r || !r.id || !r.sonuc || !(byId[r.id] || vById[r.id] || wById[r.id]) || !(now() - r.t < 3 * DAY)) return;
+    const m0 = session.modus;
     try {
-      const m0 = session.modus; if (r.modusB && MODI[r.modusB]) session.modus = r.modusB;
+      if (r.modusB && MODI[r.modusB]) session.modus = r.modusB;
       const h = hafizaYaz(r, r.sonuc, r.t, { ek: 'arka planda kapandı' });
-      r.ungezaehlt = h.sayilmadi; zaehlen(r, h.ergebnis);
-      if (h.ergebnis === 'falsch' && !r.yoklama && !KOK_BICIM.has(r.bicim) && r.modus !== 'stamm') leechPruefen(r.id);
-      session.modus = m0; save();
+      // gün sayacı yalnız aynı öğrenme günündeyse (dün kapanıp bugün açıldıysa dünün cevabı bugünün hedefine sayılmaz)
+      if (Kern.gun4(r.t) === Kern.gun4(now())) { r.ungezaehlt = h.sayilmadi; zaehlen(r, h.ergebnis); }
+      if (r.kontext) { const hk = S.kontext[r.id] || (S.kontext[r.id] = []); hk.push(r.kontext); if (hk.length > 12) hk.shift(); }
+      if (r.yoklama) { if (h.ergebnis !== 'falsch' && !r.bos) yoklamaBildi(r.id, r, h); }
+      else if (h.ergebnis === 'falsch' && !KOK_BICIM.has(r.bicim) && r.modus !== 'stamm') leechPruefen(r.id);
     } catch (e) { console.warn('bekleyen cevap işlenemedi', e); }
+    finally { session.modus = m0; save(); }
   })();
   if (!$('#v-calis').hidden) zeige();
   ordnerLaden();
