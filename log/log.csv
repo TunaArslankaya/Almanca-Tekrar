@@ -1619,3 +1619,88 @@
 2026-10-14 19:35:08;akt;kontrol;gerçekten biliyor musun?;sich aufregen über, frech, hageln, eher, sich wenden an, rechnen mit, die Aussage, besichtigen, die Heimat, feststellen, sich einigen auf, folgend, drüben, feucht, sich verlaufen;;richtig;;biliyor:0 emin-degil:15 bilmiyor:0
 2026-10-14 19:35:13;art;n1389:art;der Wohnsitz;Wohnsitz;der;richtig;der Wohnsitz;sek:2 | ipucu:1
 2026-10-14 19:35:21;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über (über + Akk);hâl yazılmadı (über + Akk) | öneri:fast | sek:6 | ipucu:0
+2026-10-15 07:04:33;bed;v127:bed;besichtigen;besichtigen;gezmek;richtig;(görülecek yeri) gezmek;sek:4 | ipucu:1
+2026-10-15 07:04:42;erk;n0474:erk;das Gewitter;fırtına (gök gürültülü);der Donner;falsch;das Gewitter;sek:7 | ipucu:1
+2026-10-15 07:04:46;erk;n1392:erk;die Wolke;bulut;die Wolke;richtig;die Wolke;sek:4 | ipucu:1
+2026-10-15 07:04:53;refl;v592:refl;sich verletzen;Ich habe mich an der Hand _____.;verletzt;richtig;verletzt;sek:5 | ipucu:0
+2026-10-15 07:04:57;wort;n0524:wort;die Heimat;memleket, vatan;die Heimat;richtig;die Heimat;sek:4 | ipucu:2
+2026-10-15 07:05:02;bed;v305:bed;hageln;hageln;dolu yağmak;richtig;dolu yağmak;sek:4 | ipucu:0
+2026-10-15 07:05:09;wort;x1479:wort;die Aussage;ifade, beyan;die Aussage;richtig;die Aussage;sek:6 | ipucu:2
+2026-10-15 07:05:23;akt;match;eşleştir;der Antrag, der Wohnsitz, das Amt, sich verlassen auf, sich verlaufen, beweisen;;richtig;;hata:0
+2026-10-15 07:05:34;leech;w0172;frech;arsız, şımarık;;takiliyor;;günler:2026-10-02,2026-10-09,2026-10-15
+2026-10-15 07:05:34;prod;w0172:prod;frech;arsız, şımarık;furch;falsch;frech;farklı | sek:7 | ipucu:0
+2026-10-15 07:06:12;erk;w0119:erk;eher;Doch für viele Menschen aus dem englischsprachigen Ausland ist daraus eher „Doobie Scoot Canoe“ geworden.;daha çok, daha ziyade;fast;daha çok, daha ziyade;yavaş | sek:37 | ipucu:0
+2026-10-15 07:06:18;erk;w0209:erk;glatt;kaygan;nass;falsch;glatt;sek:3 | ipucu:1
+2026-10-15 07:06:26;abr;v642:abr;sich wenden an;(birine) başvurmak;wenden an;falsch;sich wenden an (an + Akk);dönüşlü zamir | sek:4 | ipucu:1
+2026-10-15 07:06:30;erk;n1169:erk;der Sturm;fırtına;der Sturm;richtig;der Sturm;sek:4 | ipucu:1
+2026-10-15 07:06:38;prod;w0171:prod;folgend;aşağıdaki, sonraki;folgende;falsch;folgend;ek | sek:5 | ipucu:1
+2026-10-15 07:06:42;bed;v256:bed;feststellen;Einen deutlichen Zeitverlust kann ich persönlich nicht feststellen.;tespit etmek;richtig;tespit etmek;sek:4 | ipucu:0
+2026-10-15 07:06:46;erk;n0474:erk;das Gewitter;das Gewitter;fırtına;richtig;fırtına (gök gürültülü);sek:3 | ipucu:0
+2026-10-15 07:06:52;paket;p03:0;die Anmeldung;Anmeldung beim Bürgeramt;Anmeldung;richtig;Anmeldung;
+2026-10-15 07:06:55;paket;p03:1;das Amt;Anmeldung beim Bürgeramt;Amt;richtig;Amt;
+2026-10-15 07:07:00;paket;p03:2;das Formular;Anmeldung beim Bürgeramt;Vertrag;falsch;Formular;farklı
+2026-10-15 07:07:05;paket;p03:3;ausfüllen;Anmeldung beim Bürgeramt;ausfüllen;richtig;ausfüllen;
+2026-10-15 07:07:08;paket;p03:4;der Pass;Anmeldung beim Bürgeramt;Pass;richtig;Pass;
+2026-10-15 07:07:12;paket;p03:5;die Unterschrift;Anmeldung beim Bürgeramt;unterschrift;fast;Unterschrift;groß/klein: isim büyük harfle
+2026-10-15 07:07:22;paket;p03:6;die Bestätigung;Anmeldung beim Bürgeramt;Bestätigung;richtig;Bestätigung;
+2026-10-15 07:07:28;paket;p03:7;der Wohnsitz;Anmeldung beim Bürgeramt;Wohnsitz;richtig;Wohnsitz;
+2026-10-15 07:07:30;paket;p03:8;die Behörde;Anmeldung beim Bürgeramt;Amt;falsch;Behörden;farklı
+2026-10-15 07:07:41;paket;p03:9;beantragen;Anmeldung beim Bürgeramt;beantragen;richtig;beantragen;
+2026-10-15 07:07:41;paket;p03:pak;Anmeldung beim Bürgeramt;paket tekrarı;;fast;;puan:76
+2026-10-15 07:07:42;tur;akis;Çalış;;;bitti;;cevap:26 | doğru:17 | küçük:2 | yanlış:7 | puan:206 | dk:3
+2026-10-15 07:07:50;erk;w0325:erk;mild;ılık;mild;richtig;mild;sek:3 | ipucu:1
+2026-10-15 07:07:55;erk;n1359:erk;die Wärme;die Wärme;sıcaklık;richtig;sıcaklık;sek:4 | ipucu:1
+2026-10-15 07:08:02;erk;n0844:erk;der Nebel;sis;der Nebel;richtig;der Nebel;yavaş | sek:7 | ipucu:1
+2026-10-15 07:08:08;bed;v184:bed;sich einigen auf;Das Regenwasser wird zu Grundwasser unter der Erde, und an einigen Orten bilden sich Quellen.;tanımak, bilmek;falsch;(bir şeyde) anlaşmak, uzlaşmak;sek:5 | ipucu:0
+2026-10-15 07:08:13;prod;w0172:prod;frech;arsız, şımarık;feuch;falsch;frech;farklı | sek:4 | ipucu:0
+2026-10-15 07:08:18;erk;n1028:erk;der Schatten;gölge;die Schatten;falsch;der Schatten;sek:5 | ipucu:1
+2026-10-15 07:08:21;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;sek:2 | ipucu:0
+2026-10-15 07:08:25;abr;v642:abr;sich wenden an;(birine) başvurmak;sich wenden an;richtig;sich wenden an (an + Akk);bilgi: an + Akk | sek:3 | ipucu:0
+2026-10-15 07:08:51;akt;diktat:n1286;dinle–yaz;Hier fehlt noch Ihre Unterschrift.;Ihr fehlt noch ihre unterschrift;fast;Hier fehlt noch Ihre Unterschrift.;bir kelime farklı
+2026-10-15 07:09:46;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlassen;falsch;sich verlaufen;çekim | sek:8 | ipucu:0
+2026-10-15 07:09:50;prod;w0171:prod;folgend;aşağıdaki, sonraki;folgend;richtig;folgend;sek:3 | ipucu:0
+2026-10-15 07:09:54;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-10-15 07:09:55;erk;n1375:erk;der Wetterbericht;hava raporu;die Wetterbericht;falsch;der Wetterbericht;sek:5 | ipucu:1
+2026-10-15 07:10:58;leech;w0165;feucht;nemli;;takiliyor;;günler:2026-10-02,2026-10-03,2026-10-15
+2026-10-15 07:10:58;erk;w0165:erk;feucht;nemli;mild;falsch;feucht;sek:61 | ipucu:0
+2026-10-15 07:11:06;bed;v278:bed;sich fürchten vor;Man sagt dann auch: Man fürchtet sich vor diesen Dingen.;sinirlenmek, heyecanlanmak;falsch;(bir şeyden) korkmak;sek:7 | ipucu:0
+2026-10-15 07:11:11;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;sek:4 | ipucu:0
+2026-10-15 07:11:14;bed;v589:bed;sich verlassen auf;Du kannst dich nicht immer auf andere verlassen.;güvenmek;richtig;(birine / bir şeye) güvenmek;sek:3 | ipucu:0
+2026-10-15 07:11:51;akt;luecke:u1:t1;metinde boşluk;Das ist nur eine Behauptung! Ich habe mich sehr darüber aufgeregt, denn er übertreibt immer. Am Abend haben wir versucht, das Problem in Ruhe zu klären. Wir waren beide bereit zu einem Kompromiss. Am Ende haben wir uns auf einen Putzplan geeinigt.;Behauptung / aufgeregt / übertreibt / geeinigt;richtig;Behauptung / aufgeregt / übertreibt / geeinigt;puan:4/4
+2026-10-15 07:12:30;bed;v117:bed;berichten über;In Deutschland gibt es immer weniger Lokalzeitungen, sodass weniger über die politische Arbeit in den Kommunen berichtet wird.;haber vermek, anlatmak;fast;(bir şey hakkında) haber vermek, anlatmak;yavaş | sek:38 | ipucu:0
+2026-10-15 07:12:37;bed;v466:bed;schweigen;Sie sprach viel, aber ihr Mann schwieg den ganzen Abend lang.;susmak;richtig;susmak;yavaş | sek:6 | ipucu:0
+2026-10-15 07:12:45;frm;v620:frm;verzichten auf;verzichten auf — er / sie Perfekt;hat verzichtet;richtig;hat verzichtet;sek:7 | ipucu:0
+2026-10-15 07:12:50;erk;n1028:erk;der Schatten;der Schatten;gölge;richtig;gölge;yavaş | sek:5 | ipucu:0
+2026-10-15 07:13:04;wort;n0972:wort;die Regel;kural;die Geduld;falsch;die Regel;kelime yanlış | sek:8 | ipucu:0
+2026-10-15 07:13:08;abr;v142:abr;beweisen;kanıtlamak;beweisen;richtig;beweisen (Akk);sek:4 | ipucu:0
+2026-10-15 07:13:14;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;sek:4 | ipucu:0
+2026-10-15 07:14:07;akt;ordnen:w0119;cümle dizme;Ich stehe meist eher auf als mein Mann.;Ich stehe meist als eher mein Mann auf;falsch;Ich stehe meist eher auf als mein Mann.;
+2026-10-15 07:14:24;tur;akis;Çalış;;;bitti;;cevap:25 | doğru:14 | küçük:2 | yanlış:9 | puan:131 | dk:7
+2026-10-15 07:14:42;luecke;v111:satz;sich bemühen um;Ich werde mich um einen Termin _____.;bemühte;falsch;bemühen;çekim | sek:9 | ipucu:0
+2026-10-15 07:14:49;erk;n1375:erk;der Wetterbericht;hava raporu;die Wetterbericht;falsch;der Wetterbericht;sek:7 | ipucu:0
+2026-10-15 07:14:53;erk;w0165:erk;feucht;feucht;nemli;richtig;nemli;sek:3 | ipucu:0
+2026-10-15 07:14:59;bed;v278:bed;sich fürchten vor;Mein kleiner Bruder fürchtet sich vor Hunden.;haber vermek, anlatmak;falsch;(bir şeyden) korkmak;sek:4 | ipucu:0
+2026-10-15 07:15:03;satz;v425:satz;rechnen mit;Wir _____ mit etwa fünfzig Gästen.;rechnen;richtig;rechnen;sek:4 | ipucu:0
+2026-10-15 07:15:06;bed;v184:bed;sich einigen auf;sich einigen auf;anlaşmak, uzlaşmak;richtig;(bir şeyde) anlaşmak, uzlaşmak;sek:2 | ipucu:0
+2026-10-15 07:16:02;leech;v063;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-15
+2026-10-15 07:16:02;satz;v063:satz;sich aufregen über;Bu kadar sinirlenme!;Reg dich nicht das viel auf;falsch;Reg dich nicht so auf!;farklı | sek:48 | ipucu:0
+2026-10-15 07:16:46;akt;luecke:k28;metinde boşluk;Deshalb misst man das Fieber auch dort: meist im Mund, im Po oder auch im Ohr oder unter den Achseln. Der Regler für die Temperatur unseres Körpers sitzt im Gehirn. Wenn das Fieber steigt, empfindet man oft ein Frieren, wenn es sinkt, schwitzt man.;Gehirn / Fieber / Gehirn / Temperatur;falsch;Fieber / Temperatur / Gehirn / Frieren;puan:1/4
+2026-10-15 07:17:14;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-10-15 07:17:15;erk;w0117:erk;eben;„In einem reizüberfluteten Land“, wie Lefèvre es sagt, können eben alle ein wenig Ruhe gebrauchen.;karşıda, öte tarafta;falsch;az önce;sek:11 | ipucu:0
+2026-10-15 07:17:20;erk;x1504:erk;die Behauptung;iddia;die Behauptung;richtig;die Behauptung;sek:4 | ipucu:0
+2026-10-15 07:17:23;art;n1422:art;das Ziel;Ziel;der;falsch;das Ziel;artikel: der → das | sek:2 | ipucu:0
+2026-10-15 07:17:29;wort;n0972:wort;die Regel;kural;die Regel;richtig;die Regel;sek:6 | ipucu:0
+2026-10-15 07:17:32;art;n0244:art;die Diskussion;Diskussion;das;falsch;die Diskussion;artikel: das → die | sek:2 | ipucu:0
+2026-10-15 07:17:38;nsatz;n1044:nsatz;der Schmerz;Nach dem Sport hatte ich starke _____ im Rücken.;Schmertz;falsch;Schmerzen;artikel / ek | sek:5 | ipucu:0
+2026-10-15 07:17:42;satz;v111:satz;sich bemühen um;Ich werde mich um einen Termin _____.;bemühen;richtig;bemühen;sek:3 | ipucu:0
+2026-10-15 07:17:53;akt;match;eşleştir;sich einigen auf, der Antrag, die Politik, sich verlaufen, eben, das Amt;;richtig;;hata:0
+2026-10-15 07:18:03;nsatz;n1320:nsatz;die Versichertenkarte;Ich habe meine _____ zu Hause vergessen.;Versichertenkarte;richtig;Versichertenkarte;sek:9 | ipucu:0
+2026-10-15 07:18:07;nsatz;n1390:nsatz;die Wohnung;Versichern kann man sich gegen Krankheiten und Unfälle, aber auch gegen Diebstahl, einen Brand in der _____ und andere Schäden.;Wohnung;richtig;Wohnung;sek:3 | ipucu:0
+2026-10-15 07:18:09;nsatz;n1336:nsatz;das Visum;Das _____ ist für drei Monate gültig.;Visum;richtig;Visum;sek:2 | ipucu:0
+2026-10-15 07:18:18;wort;n0925:wort;die Präsentation;sunum;die Präsentation;richtig;die Präsentation;sek:8 | ipucu:0
+2026-10-15 07:18:21;nsatz;n0994:nsatz;das Rezept;Diese Schmerztabletten gibt es nur auf _____.;Rezept;richtig;Rezept;sek:3 | ipucu:0
+2026-10-15 07:18:28;satz;v063:satz;sich aufregen über;Warum hast du dich so _____?;aufgeregt;richtig;aufgeregt;sek:7 | ipucu:0
+2026-10-15 07:18:44;abr;v272:abr;frieren;"üşümek; donmak";fresch;falsch;frieren;farklı | sek:6 | ipucu:0
+2026-10-15 07:19:11;akt;diktat:v589;dinle–yaz;Du kannst dich nicht immer auf andere verlassen.;Du kannst nicht immer andere verlassen ;falsch;Du kannst dich nicht immer auf andere verlassen.;
+2026-10-15 07:19:21;nsatz;n0973:nsatz;der Regen;In der Landwirtschaft braucht man sowohl Sonnenschein als auch _____, damit die Pflanzen genug Wasser bekommen.;Regen;richtig;Regen;sek:6 | ipucu:0
+2026-10-15 07:19:21;tur;akis;Çalış;;;bitti;;cevap:25 | doğru:14 | küçük:0 | yanlış:11 | puan:192 | dk:5
