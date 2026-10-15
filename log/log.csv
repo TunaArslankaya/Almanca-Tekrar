@@ -1822,3 +1822,6 @@
 2026-10-15 16:08:23;paket;p04:6;die Prüfung;An der Uni;Prüfung;richtig;Prüfung;basamak:B3 | bicim:metin | not:- | R:0.92 | S:8.3 | hafıza:yazılmadı
 2026-10-15 16:08:28;paket;p04:7;der Kommilitone;An der Uni;Komilitone;falsch;Kommilitonen;basamak:B3 | bicim:metin | not:- | R:1.00 | S:3.3 | hafıza:yazılmadı | artikel/çekim
 2026-10-15 16:08:33;paket;p04:8;die Mensa;An der Uni;Melsa;fast;Mensa;basamak:B3 | bicim:metin | not:m3 | R:0.66 | S:2.1 | yazım
+2026-10-15 16:08:40;paket;p04:9;die Bibliothek;An der Uni;Bibliothek;richtig;Bibliothek;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı
+2026-10-15 16:08:40;paket;p04:pak;An der Uni;paket tekrarı;;falsch;;puan:48
+2026-10-15 16:08:42;tur;paket;Paketler;;;bitti;;cevap:20 | doğru:7 | küçük:6 | yanlış:7 | puan:180 | dk:3 | yeni:0 | seviye+:0 | tekrar:0
