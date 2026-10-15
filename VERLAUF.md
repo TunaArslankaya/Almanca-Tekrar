@@ -236,3 +236,4 @@ Test ölçütleri gerçek veriye göre düzeltildi: simülasyonda "3 gün üst �
 - Testler: `tests/sim_akis.js` yük ölçütü tohum ortalamasına (yankı dalgası), `e2e_smoke` ikinci hatırlama parti boyu + ara tekrar payı, tur 12–15 cevap, aynı öğe ≥ 7; `e2e_ui` Bonus tur kabul; `tests/surucu.js` kabuk hazır olana dek bekler.
 
 - (geri bildirim, otomatik) 2026-10-15 16:00: 21 düzeltme, son satır 2026-10-15 15:25:26
+- (geri bildirim, otomatik) 2026-10-15 16:30: 0 düzeltme, son satır 2026-10-15 15:28:27
