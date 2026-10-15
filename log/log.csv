@@ -1639,3 +1639,13 @@
 2026-10-15 07:06:52;paket;p03:0;die Anmeldung;Anmeldung beim Bürgeramt;Anmeldung;richtig;Anmeldung;
 2026-10-15 07:06:55;paket;p03:1;das Amt;Anmeldung beim Bürgeramt;Amt;richtig;Amt;
 2026-10-15 07:07:00;paket;p03:2;das Formular;Anmeldung beim Bürgeramt;Vertrag;falsch;Formular;farklı
+2026-10-15 07:07:05;paket;p03:3;ausfüllen;Anmeldung beim Bürgeramt;ausfüllen;richtig;ausfüllen;
+2026-10-15 07:07:08;paket;p03:4;der Pass;Anmeldung beim Bürgeramt;Pass;richtig;Pass;
+2026-10-15 07:07:12;paket;p03:5;die Unterschrift;Anmeldung beim Bürgeramt;unterschrift;fast;Unterschrift;groß/klein: isim büyük harfle
+2026-10-15 07:07:22;paket;p03:6;die Bestätigung;Anmeldung beim Bürgeramt;Bestätigung;richtig;Bestätigung;
+2026-10-15 07:07:28;paket;p03:7;der Wohnsitz;Anmeldung beim Bürgeramt;Wohnsitz;richtig;Wohnsitz;
+2026-10-15 07:07:30;paket;p03:8;die Behörde;Anmeldung beim Bürgeramt;Amt;falsch;Behörden;farklı
+2026-10-15 07:07:41;paket;p03:9;beantragen;Anmeldung beim Bürgeramt;beantragen;richtig;beantragen;
+2026-10-15 07:07:41;paket;p03:pak;Anmeldung beim Bürgeramt;paket tekrarı;;fast;;puan:76
+2026-10-15 07:07:42;tur;akis;Çalış;;;bitti;;cevap:26 | doğru:17 | küçük:2 | yanlış:7 | puan:206 | dk:3
+2026-10-15 07:07:50;erk;w0325:erk;mild;ılık;mild;richtig;mild;sek:3 | ipucu:1
