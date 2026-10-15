@@ -1738,3 +1738,9 @@
 2026-10-15 15:20:35;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:5.6 | kapı:7g | sek:6
 2026-10-15 15:20:39;erk;n0341:erk;der Fall;durum, vaka;der Fall;richtig;der Fall;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2
 2026-10-15 15:20:39;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:8 | küçük:2 | yanlış:4 | puan:56 | dk:3 | yeni:1 | seviye+:3 | tekrar:12
+2026-10-15 15:24:29;erk;n1279:erk;die Universität;üniversite;die Universität;richtig;die Universität;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:4.4 | ısınma | kapı:7g | sek:4
+2026-10-15 15:24:35;bed;v030:bed;sich anmelden für;(bir şeye) kaydolmak;sich anmelden für;richtig;sich anmelden für;basamak:B1 | bicim:sec | not:m3 | R:0.83 | S:5.6 | ısınma | kapı:7g | sek:5
+2026-10-15 15:24:39;erk;n0957:erk;der Rat;Hier trifft sich der Stadtrat oder Rat, das heißt die Volksvertretung der Stadt.;tavsiye, öğüt;richtig;tavsiye, öğüt;basamak:B1 | bicim:metinde | not:m3 | R:0.83 | S:12.6 | ısınma | kapı:7g | sek:3
+2026-10-15 15:24:41;art;n0602:art;die Kasse;Kasse;die;richtig;die Kasse;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:11.3 | sek:1
+2026-10-15 15:24:45;erk;x1483:erk;der Dozent;öğretim görevlisi (üniversite);der Dozent;richtig;der Dozent;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:5.6 | kapı:7g | sek:4
+2026-10-15 15:24:49;erk;n0169:erk;die Bibliothek;kütüphane;die Bibliothek;richtig;die Bibliothek;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:5.6 | kapı:7g | sek:3
