@@ -197,6 +197,49 @@ if (Z) {
     const e = K.yazabilir(v4(T), Object.assign(kopya(uz), { surum: 5 }), 4);
     ok(!e.birlestir && !e.yaz && e.sebep === 'yeni-sema', '(e) uzak surum 5: birleştirmez, yazmaz', e);
   }
+  // (f) göçten ÖNCE başka cihazda verilmiş, bu cihazın göç anında çekmediği cevap (uygulama sırası: kernAc → ghCek → kernAc)
+  {
+    const lok = kopya(Z); retGoc(lok);
+    const uz = kopya(Z); retGoc(uz);
+    const u = Object.keys(uz.karten).find(k => k.endsWith(':wort') && uz.karten[k].S && uz.karten[k].last < T - 2 * SAAT), id = u.split(':')[0];
+    eskiCevap(uz, u, 1, T - SAAT);
+    ac(lok, T);
+    const oncekiLast = lok.items[id].m.last;
+    const m = K.birlestir(lok, uz);
+    const y = ac(m, T + 60000);
+    ok(y >= 1 && m.items[id].m.last === T - SAAT && m.items[id].m.lastG === 1 && oncekiLast < T - SAAT, '(f) göç öncesi çekilmemiş uzak cevap m\'ye işlendi', { y, last: m.items[id].m.last, g: m.items[id].m.lastG });
+    eq(ac(m, T + 120000), 0, '(f) bir kez');
+  }
+  // (g) dört adım: masaüstü (eski) cevap → telefon (yeni, bayat) göç + birleştir + yaz → masaüstü eski kabukla çeker, yazar → masaüstü yeni koda geçer
+  {
+    const tel0 = kopya(Z); retGoc(tel0);
+    const masa = kopya(Z); retGoc(masa);
+    const u = Object.keys(masa.karten).find(k => k.endsWith(':wort') && masa.karten[k].S && masa.karten[k].last < T - 2 * SAAT), id = u.split(':')[0];
+    eskiCevap(masa, u, 1, T - SAAT);
+    ac(tel0, T);
+    const tel = K.birlestir(tel0, kopya(masa)); ac(tel, T + 60000);
+    const masa2 = eskiZustandBirlestir(masa, kopya(tel));
+    const uzak = kopya(masa2);
+    ac(masa2, T + 3 * SAAT);
+    const son = K.birlestir(masa2, uzak); ac(son, T + 3 * SAAT + 60000);
+    ok(son.items[id].m.last === T - SAAT && son.items[id].m.lastG === 1, '(g) dört adımlı geçişte masaüstünün yanlış cevabı m\'de', { last: son.items[id].m.last, g: son.items[id].m.lastG });
+    ok(tel.items[id].m.last === T - SAAT, '(g) telefon da birleştirmede cevabı uyguladı');
+  }
+  // (h) yalnız uzakta olan öğe (yerel göç onu görmedi): m birleştirmeden sonra kurulur; göçün atladığı yeni tanıma kartı v3Yetis'te ikinci kez uygulanmaz
+  {
+    const lok = kopya(Z); retGoc(lok);
+    const uz = kopya(Z); retGoc(uz);
+    const id = Object.keys(uz.items).find(i => uz.karten[i + ':wort'] && uz.karten[i + ':wort'].S && uz.karten[i + ':erk'] && uz.karten[i + ':erk'].S && !uz.karten[i + ':wort'].selbst && !uz.karten[i + ':erk'].selbst);
+    Object.keys(lok.karten).filter(u => u.startsWith(id + ':')).forEach(u => delete lok.karten[u]);
+    delete lok.items[id];
+    eskiCevap(uz, id + ':wort', 3, T - 3 * SAAT); eskiCevap(uz, id + ':erk', 1, T - SAAT);   // üretim eski, tanıma (yanlış) yeni
+    ac(lok, T);
+    ok(!lok.items[id], '(h) öğe yerelde yok');
+    const m = K.birlestir(lok, uz); ac(m, T + 60000);
+    ok(m.items[id].m && m.items[id].m.last === T - 3 * SAAT && m.items[id].m.lastG === 3, '(h) m üretim kartından kuruldu, yeni tanıma kartı uygulanmadı (göç kuralı)', m.items[id].m);
+    ok(m.kartenV3[id + ':erk'] && m.kartenV3[id + ':erk'].last === T - SAAT, '(h) tüketilen kartlar kartenV3\'te');
+    eq(ac(m, T + 120000), 0, '(h) ikinci çalıştırma: değişiklik yok');
+  }
 } else console.log('log/zustand.json yok: gerçek durum bölümü atlandı');
 
 // ---------- G-Counter: iki cihaz aynı gün 20 + 30 cevap ----------

@@ -4633,14 +4633,28 @@
     }
   })();
   if (!S.retGoc) { if (!S.einst.retSecildi && (S.einst.ret == null || S.einst.ret === 0.9)) S.einst.ret = 0.85; S.retGoc = true; save(); }
-  // v5 göçü retGoc'tan SONRA (vadeler son hedef hatırlamayla); ghCek ilk çizimden sonra gelir, birleştirmede göç yeniden çalışır
+  // v5 göçü retGoc'tan SONRA (vadeler son hedef hatırlamayla). Spesifikasyon §8 sırası: ilk göçte, anahtar varsa önce GitHub'daki
+  // durum çekilip birleştirilir (en çok 5 sn), göç birleşmiş durumda çalışır: başka cihazın henüz çekilmemiş cevapları göçe girer,
+  // uzak zaten göçmüşse ikinci 'akt;goc4' satırı yazılmaz. Çekme zaman aşımına uğrarsa göç yerelde çalışır; geç gelen birleştirme
+  // kernAc'i yeniden çalıştırır ve v3Yetis göçün görmediği kartları (kartenV3'e göre) uygular.
+  let ghCekZaman = 0, acilisBitti = false;
+  const ilkGocBekle = !S.goc4 && !!ghToken() && (Object.keys(S.karten).length > 0 || Object.keys(S.items).length > 0);
+  if (ilkGocBekle) {
+    ghCekZaman = now();
+    { const d = $('#durum-satiri'); if (d) d.textContent = 'GitHub\'daki ilerleme alınıyor…'; }
+    const cek = ghCek(true).catch(() => false);
+    Promise.race([cek, new Promise(r => setTimeout(r, 5000))]).then(baslat, baslat);
+    cek.then(d => { if (d && acilisBitti && !$('#v-ana').hidden) renderAna(); });   // zaman aşımından sonra gelirse ekranı yenile
+  } else baslat();
+  function baslat() {
+  if (acilisBitti) return; acilisBitti = true;
+  { const d = $('#durum-satiri'); if (d && /alınıyor…$/.test(d.textContent)) d.textContent = ''; }
   kernAc(); save();
   seriBakim();
   if (session.donduruldu) session.willkommenAna = `❄️ Seri dondurucu kullanıldı: kaçırdığın ${session.donduruldu} gün serini bozmadı.`;
   const start = (location.hash || '').replace(/^#\/?/, '');
   zeigView(['zayif', 'liste', 'gecmis', 'ayar'].includes(start) ? start : 'ana');
   // başka cihazda çalışıldıysa: açılışta ve uygulamaya dönünce GitHub'daki ilerlemeyle birleştir
-  let ghCekZaman = 0;
   const ghCekVeCiz = () => {
     if (!ghToken() || now() - ghCekZaman < 60000) return;
     ghCekZaman = now();
@@ -4745,4 +4759,5 @@
   ordnerLaden();
   window.__tekrar = { Kern: window.Kern, CODE_SURUM, get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
     _testOrdner: h => { ordner = h; return dateiSchreiben(true); } };
+  }
 })();

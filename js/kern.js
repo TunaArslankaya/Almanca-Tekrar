@@ -467,6 +467,9 @@
         else if (q) { const c = q.c, ind = uretimHedef(id, it); m = Object.assign(hafiza(c, ind ? c.S * 0.5 : c.S), { pk: 0 }); if (ind) { m.D = Math.max(c.D, 5); r.mRekIndirim++; } r.mRek++; }
         else if (sb) { const c = sb.c; m = Object.assign(hafiza(c, Math.min(c.S, 2)), { pk: 0, dogrula: 1 }); r.mSelbst++; }
         if (m) { it.m = vade(m); delete it.yarim; } else { it.m = null; it.yarim = 1; }
+        // kartenV3 = göçün tükettiği kartlar: sonradan (birleştirmeyle gelen öğede) kurulan m'nin kartları da eklenir,
+        // v3Yetis onları ikinci kez uygulamasın (göç kuralları: üretim önce, "biliyorum" güvenilmez)
+        if (S.kartenV3) ks.forEach(k => { const u = id + ':' + k.t, v = S.kartenV3[u]; if (!v || (v.last || 0) < k.c.last) S.kartenV3[u] = JSON.parse(JSON.stringify(k.c)); });
       }
       if (it.m && it.m.S) r.m++; else r.yarim++;
       const ak = K[id + ':art'];
@@ -534,14 +537,17 @@
     S.xpToplam = Object.values(tg).reduce((a, x) => a + ((x && x.xp) || 0), 0) + (S.xpTaban || 0);
     return g ? tg[g] : tg;
   }
-  // eski istemcinin (v3) göçten sonra yazdığı kart cevaplarını hafızaya uygular (zaman sırasıyla, kartın notu + tür ofseti).
+  // eski istemcinin (v3) yazdığı ve göçün görmediği kart cevaplarını hafızaya uygular (zaman sırasıyla, kartın notu + tür ofseti).
+  // Süzgeç kart başına: kartenV3'te (göçün tükettiği kartlar) olmayan ya da ondan yeni cevap. goc4.zaman'a bakılmaz: göçten ÖNCE
+  // başka cihazda verilip bu cihazın göç anında henüz çekmediği cevaplar da uygulanır (hedefin last'ından yeniyse).
   // Gölge kart (g4 === last) iki kez sayılmaz; ama hedefi kartınkinden eskiyse (eski istemcinin yerel-kazanır birleştirmesi
   // bayat m / kok / pakete yazdı) hedef kartın değerlerinden onarılır. Döner: uygulanan + onarılan sayısı
   const HAF = ['S', 'D', 'last', 'due', 'reps', 'lapses', 'lastG'];
   function v3Yetis(S, t) {
     if (!S.goc4 || !S.karten) return 0;
-    const ret = (S.einst && S.einst.ret) || 0.85, z = S.goc4.zaman;
-    const l = Object.entries(S.karten).filter(([, c]) => c && c.S && c.last > z && !c.selbst).sort((a, b) => a[1].last - b[1].last);
+    const ret = (S.einst && S.einst.ret) || 0.85, V3 = S.kartenV3;
+    const gorulmedi = (u, c) => !V3 || !V3[u] || c.last > (V3[u].last || 0);
+    const l = Object.entries(S.karten).filter(([u, c]) => c && c.S && !c.selbst && gorulmedi(u, c)).sort((a, b) => a[1].last - b[1].last);
     let n = 0;
     l.forEach(([u, c]) => {
       const i = u.lastIndexOf(':'), id = u.slice(0, i), tur = u.slice(i + 1), g = c.lastG || 3, ofs = TUR_OFS[tur] || 0;
