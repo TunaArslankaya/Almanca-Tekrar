@@ -41,16 +41,21 @@ let seed = 12345; const rnd = () => { seed = (seed * 16807) % 2147483647; return
     const info = await p.evaluate(() => {
       const t = s => (document.querySelector(s) || {}).innerText || '';
       const a = window.__tekrar && window.__tekrar.aktuell;
-      return { typ: a && a.typ, art: a && a.art, uid: a && a.uid, hinweis: t('#hinweis'), plan: t('#plan'), hedef: t('#hedef'), kart: t('#kart').slice(0, 600) };
+      const gor = s => { const e = document.querySelector(s); return !!(e && !e.closest('[hidden]') && e.getClientRects().length); };
+      return { typ: a && a.typ, art: a && a.art, uid: a && a.uid, hinweis: t('#hinweis'), kart: gor('#v-calis') ? t('#kart').slice(0, 600) : '', ana: gor('#v-ana') ? t('#v-ana').slice(0, 400) : '', toast: gor('#toast') ? t('#toast') : '' };
     });
     kayit.push(Object.assign({ n, datei: f, etiket }, info, extra || {}));
     n++;
   }
-  // önce sekmeler
+  // önce sekmeler: Bugün · Kelimeler · İlerleme · Diğer; Zayıflar, Geçmiş, Ayarlar Diğer menüsünden
   await shot('acilis');
   const navSel = cihaz === 'mobil' ? '.alt-nav' : 'nav.tabs';
-  for (const v of ['zayif', 'liste', 'gecmis', 'ayar']) {
+  for (const v of ['liste', 'gecmis', 'diger']) {
     await p.click(`${navSel} [data-v="${v}"]`); await wait(250); await shot('sekme-' + v);
+  }
+  for (const v of ['zayif', 'kayit', 'ayar']) {
+    await p.click(`${navSel} [data-v="diger"]`); await wait(150);
+    await p.click(`#diger [data-git="${v}"]`); await wait(250); await shot('diger-' + v);
   }
   await p.click(`${navSel} [data-v="ana"]`); await wait(250);
   await p.click('[data-act-ana="basla"]'); await wait(250);
@@ -63,9 +68,9 @@ let seed = 12345; const rnd = () => { seed = (seed * 16807) % 2147483647; return
     await shot(s.tur || 'soru', { dogru, bicim: s.bicim, neden: s.neden, kaynak: s.kaynak, id: s.id });
     if (s.tur === 'leer' || s.tur === 'yok') break;
     try {
-      const r = await D.adim(p, { dogru: dogru ? 1 : 0, rnd, itiraz: !dogru && rnd() < 0.3, yakin: rnd() < 0.5 });
+      const r = await D.adim(p, { dogru: dogru ? 1 : 0, rnd, itiraz: !dogru && rnd() < 0.3, yakin: rnd() < 0.5, artYanlis: 1,
+        sonucCek: async s2 => { if (!dogru) { await wait(320); await shot('sonuc', { id: s2.id, bicim: s2.bicim }); } } });
       if (/^bilinmeyen/.test(r.ad)) { await p.keyboard.press('Enter'); }
-      if (r.dogru === false) await shot('sonuc-sonrasi');
     } catch (e) { kayit.push({ n, hata: String(e).slice(0, 200) }); }
     await wait(100);
   }

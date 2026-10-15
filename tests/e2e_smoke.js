@@ -137,8 +137,8 @@ async function senaryo(b, ad, o) {
   await senaryo(b, 'boş · mobil', { mobil: true, ertesiGun: true, tur1: 2 });
   if (Z) {
     const p = await senaryo(b, 'gerçek kopya · masaüstü', { mobil: false, zustand: Z, gercek: true, tur1: 2 });
-    // Ayarlar'da kod sürümü
-    await p.evaluate(() => { const x = document.querySelector('.alt-nav [data-v="ayar"]') || document.querySelector('[data-v="ayar"]'); if (x) x.click(); });
+    // Ayarlar'da kod sürümü (Diğer → Ayarlar)
+    await p.evaluate(() => { document.querySelector('nav.tabs [data-v="diger"]').click(); document.querySelector('#diger [data-v="ayar"]').click(); });
     await p.waitForTimeout(150);
     const surum = await p.evaluate(() => (document.querySelector('#a-surum') || {}).textContent || '');
     if (!/Kod sürümü 4/.test(surum)) hata('ayarlar', 'kod sürümü görünmüyor');

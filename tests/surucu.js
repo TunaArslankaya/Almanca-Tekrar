@@ -53,7 +53,7 @@ const durum = p => p.evaluate(() => {
     : a.typ === 'akt' ? (a.art === 'luecke' ? 'metin' : a.art) : a.yoklama ? 'yoklama' : a.bicim === 'kokSatz' ? 'kok' : a.bicim || a.typ;
   const r = { tur: ad, typ: a.typ, id: a.id, bicim: a.bicim, neden: s.neden || null, kaynak: s.kaynak || null, mc: !!a.mc, art: !!a.artFrage, input: !!a.input,
     done: !!a.done, islendi: !!a.islendi, offen: !!a.offen, wartet: !!a.wartet, ziel: a.ziel, leerTeklif: !!a.teklif, sebep: a.sebep,
-    ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, nopt: a.optionen ? a.optionen.length : 0, schritt: a.schritt, warte: !!a.warte, itirazVar: a.itirazVar && !a.itiraz };
+    yoklama: !!a.yoklama, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, tuzakArt: a.optionen ? a.optionen.findIndex(o => o.tuzak === 'artikel') : -1, nopt: a.optionen ? a.optionen.length : 0, schritt: a.schritt, warte: !!a.warte, itirazVar: a.itirazVar && !a.itiraz };
   if (a.typ === 'akt') { r.blanks = a.blanks ? a.blanks.map(b => b.form) : null; r.satz = a.satz ? a.satz.de : null; }
   if (a.typ === 'paket' && a.schritt === 'luecke') r.form = T.pById[a.pid].luecken[a.i].form;
   if (a.artFrage) r.artikel = T.byId[a.id].art;
@@ -74,7 +74,8 @@ async function sonra(p, once) {
   }
   return durum(p);
 }
-// tek adım. o: { dogru: 0..1 (doğru cevap olasılığı), rnd, itiraz: true (yanlışta itiraz düğmesi varsa bas) }
+// tek adım. o: { dogru: 0..1 (doğru cevap olasılığı), rnd, itiraz: true (yanlışta itiraz düğmesi varsa bas),
+//   artYanlis: 0..1 (yanlışta isimde yalnız artikeli yanlış ver: kelime ✓ · artikel ✗), sonucCek: async (durum) => {} (sonuç paneli açıkken, Devam'dan önce) }
 // Döner: { ad, id, dogru }
 async function adim(p, o) {
   o = o || {};
@@ -104,19 +105,22 @@ async function adim(p, o) {
   if (s.mc) {
     await p.waitForFunction(() => { const a = window.__tekrar.aktuell; return !a.mc || a.offen || a.done; }, null, { timeout: 5000 });
     await p.waitForTimeout(460);   // açıldıktan sonra < 0,4 sn basış sayılmaz
-    const yanlis = (s.ok + 1) % s.nopt;
+    const yanlis = !dogruMu && s.tuzakArt >= 0 && rnd() < (o.artYanlis || 0) ? s.tuzakArt : (s.ok + 1) % s.nopt === s.tuzakArt && s.nopt > 2 ? (s.ok + 2) % s.nopt : (s.ok + 1) % s.nopt;
     await p.keyboard.press(String((dogruMu ? s.ok : yanlis) + 1));
   } else if (s.art) {
     await p.waitForTimeout(480);
     const a = dogruMu ? s.artikel : ['der', 'die', 'das'].find(x => x !== s.artikel);
     await p.keyboard.press(String(['der', 'die', 'das'].indexOf(a) + 1));
   } else if (s.input) {
-    await p.fill('#cevap', dogruMu ? s.ziel : (o.yakin ? String(s.ziel).slice(0, -1) + 'q' : 'qwertz falsch'));
+    const artSwap = !dogruMu && s.typ === 'wort' && !s.yoklama && /^(der|die|das) /.test(String(s.ziel)) && rnd() < (o.artYanlis || 0);
+    const yanlisMetin = artSwap ? String(s.ziel).replace(/^(der|die|das)/, a => a === 'der' ? 'die' : 'der') : o.yakin ? String(s.ziel).slice(0, -1) + 'q' : 'qwertz falsch';
+    await p.fill('#cevap', dogruMu ? s.ziel : yanlisMetin);
     await p.keyboard.press('Enter');
     await p.waitForTimeout(60);
     const s2 = await durum(p);
     if (o.itiraz && s2.itirazVar) { await p.click('[data-act="itiraz"]'); await p.waitForTimeout(40); }
   } else return { ad: 'bilinmeyen:' + s.typ, s };
+  if (o.sonucCek) { const s3 = await durum(p); if (s3.done && !s3.islendi) await o.sonucCek(s3); }
   await sonra(p, s);
   await p.waitForTimeout(40);
   return { ad, s, dogru: dogruMu };
