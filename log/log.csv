@@ -1744,3 +1744,11 @@
 2026-10-15 15:24:41;art;n0602:art;die Kasse;Kasse;die;richtig;die Kasse;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:11.3 | sek:1
 2026-10-15 15:24:45;erk;x1483:erk;der Dozent;öğretim görevlisi (üniversite);der Dozent;richtig;der Dozent;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:5.6 | kapı:7g | sek:4
 2026-10-15 15:24:49;erk;n0169:erk;die Bibliothek;kütüphane;die Bibliothek;richtig;die Bibliothek;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:5.6 | kapı:7g | sek:3
+2026-10-15 15:24:53;bed;v177:bed;sich eignen für;sich eignen für;uygun olmak;richtig;(bir şeye) uygun olmak;basamak:B1 | bicim:anla | not:m3 | R:0.41 | S:0.1 | kurtarma | sek:4
+2026-10-15 15:24:54;art;n0587:art;die Kälte;Kälte;die;richtig;die Kälte;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:8.2 | sek:1
+2026-10-15 15:25:20;luecke;w0229:nsatz;heiß;In seiner Nähe ist es _____, gegen den Nordpol oder den Südpol hin wird es kälter.;wärme;falsch;heißer;basamak:B3 | bicim:metin | not:m1 | R:0.80 | S:1.0 | kaynak:k4
+2026-10-15 15:25:20;luecke;w0272:nsatz;kalt;Es wird also meistens nicht sehr _____ und nicht sehr warm, außer in vielen Gebieten südlich der Alpen.;kälte;falsch;kalt;basamak:B3 | bicim:metin | not:m1 | R:0.80 | S:1.0 | kaynak:k4
+2026-10-15 15:25:20;luecke;w0536:nsatz;warm;Es wird also meistens nicht sehr kalt und nicht sehr _____, außer in vielen Gebieten südlich der Alpen.;feucht;falsch;warm;basamak:B3 | bicim:metin | not:m1 | R:0.80 | S:1.0 | kaynak:k4
+2026-10-15 15:25:20;akt;luecke:k4;metinde boşluk;In seiner Nähe ist es heißer, gegen den Nordpol oder den Südpol hin wird es kälter. Europa liegt etwa in der Mitte. Deshalb haben hier die meisten Länder ein gemäßigtes Klima. Es wird also meistens nicht sehr kalt und nicht sehr warm, außer in vielen Gebieten südlich der Alpen.;wärme / kälte / feucht;falsch;heißer / kalt / warm;puan:0/3 | boşluk:3
+2026-10-15 15:25:26;art;n1240:art;das Training;Training;das;richtig;das Training;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:3.9 | sek:2
+2026-10-15 15:25:26;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:51 | dk:1 | yeni:0 | seviye+:3 | tekrar:12
