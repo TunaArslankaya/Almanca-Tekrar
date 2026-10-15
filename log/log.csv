@@ -1729,3 +1729,9 @@
 2026-10-15 15:18:44;art;n0449:art;das Gemüse;Gemüse;die;falsch;das Gemüse;basamak:A | bicim:artikel | not:a1 | R:0.83 | S:0.6 | artikel die → das | sek:2
 2026-10-15 15:18:49;erk;n0587:erk;die Kälte;Bei Kälte gibt es Hagel oder Schnee.;soğuk;richtig;soğuk;basamak:B1 | bicim:metinde | not:m3 | R:0.83 | S:12.5 | kapı:7g | sek:4
 2026-10-15 15:18:53;bed;v620:bed;verzichten auf;verzichten auf;vazgeçmek;richtig;(bir şeyden) vazgeçmek;basamak:B1 | bicim:anla | not:m3 | R:0.40 | S:0.1 | kurtarma | sek:4
+2026-10-15 15:20:05;wort;n0341:wort;der Fall;durum, vaka;;falsch;der Fall;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:68 | ipucu:0 | bilmiyorum
+2026-10-15 15:20:22;luecke;n0536:nsatz;der Himmel;Ein Gewitter ist etwas, das am _____ passiert.;der Luft;falsch;Himmel;basamak:B3 | bicim:metin | not:m1 | R:0.83 | S:0.7 | kaynak:k2
+2026-10-15 15:20:22;luecke;n0746:nsatz;die Luft;Wenn die _____ elektrisch aufgeladen ist, kommt es zu einer plötzlichen Entladung: Ein Blitz sucht sich den Weg zum Erdboden.;Wetter;falsch;Luft;basamak:B3 | bicim:metin | not:m1 | R:0.83 | S:0.7 | kaynak:k2
+2026-10-15 15:20:22;luecke;n0179:nsatz;der Blitz;Wenn die Luft elektrisch aufgeladen ist, kommt es zu einer plötzlichen Entladung: Ein _____ sucht sich den Weg zum Erdboden.;blitzt;fast;Blitz;basamak:B3 | bicim:metin | not:m3 | R:0.83 | S:7.2 | kısmi | kaynak:k2 | yazım, yazım: Blitz
+2026-10-15 15:20:22;akt;luecke:k2;metinde boşluk;Ein Gewitter ist etwas, das am Himmel passiert. Wenn die Luft elektrisch aufgeladen ist, kommt es zu einer plötzlichen Entladung: Ein Blitz sucht sich den Weg zum Erdboden.;der Luft / Wetter / blitzt;falsch;Himmel / Luft / Blitz;puan:1/3 | boşluk:3
+2026-10-15 15:20:29;art;n0629:art;das Klima;Klima;das;richtig;das Klima;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:4.0 | sek:2
