@@ -3292,6 +3292,8 @@
         <div><b>${yaziyor}</b><span>kelime yazıyor ve üstü</span></div>
         <div><b>%${b1}</b><span>B1 yolu</span></div>
       </div>
+      <h2>Son 14 gün</h2>
+      <table class="gun-tablo"><thead><tr><th>gün</th><th>cevap</th><th>doğru</th><th>yeni</th><th>dk</th><th>puan</th></tr></thead><tbody>${gunSatirlari(14)}</tbody></table>
       <h2>Seri takvimi · son 5 hafta</h2>
       <div class="isi"><div class="isi-gunler"><span>Pt</span><span>Sa</span><span>Ça</span><span>Pe</span><span>Cu</span><span>Ct</span><span>Pz</span></div><div class="isi-izgara">${hucre}</div></div>
       <div class="soluk isi-not">koyu yeşil: günlük hedef · açık yeşil: gün seriye sayıldı (${MIN_TAG}+ cevap) · mavi: dondurucu</div>
@@ -3709,6 +3711,45 @@
   const dkOnce = t => { const d = Math.round((now() - t) / 60000); return d < 1 ? 'az önce' : d < 60 ? `${d} dk önce` : d < 1440 ? `${Math.round(d / 60)} saat önce` : `${Math.round(d / 1440)} gün önce`; };
   // bu hafta seviye atlayan kelime (tur satırlarındaki seviye+)
   const haftaSeviye = () => { const sinir = zeitStr(now() - 7 * DAY); return S.log.filter(e => e.modus === 'tur' && e.zeit >= sinir).reduce((a, e) => a + (+(/seviye\+:(\d+)/.exec(e.notiz || '') || [])[1] || 0), 0); };
+  // ---------- günün özeti: "Bugün ne yaptın" (Bugün kartı) ve son 14 gün (İlerleme) ----------
+  const MODUS_AD = m => (MODI[m] && MODI[m].ad) || m;
+  const YAZ_MODUS = new Set(['wort', 'prod', 'abr', 'satz', 'nsatz', 'luecke', 'stamm', 'frm', 'paket']);
+  function gunOzeti(k) {
+    const d = S.tage[k] || GUN0(), rows = S.log.filter(e => e.zeit && e.zeit.startsWith(k));
+    const sayi = (re, e) => +((re.exec(e.notiz || '') || [0, 0])[1]);
+    const yeni = rows.filter(e => e.modus === 'yeni' && e.ergebnis === 'neu').map(e => e.item || e.id);
+    const yanlis = rows.filter(e => e.ergebnis === 'falsch' && YAZ_MODUS.has(e.modus) && !/\| (ikinci|parti)/.test(e.notiz || '')).map(e => ({ item: e.item || e.id, antwort: e.antwort, loesung: e.loesung }));
+    const secYanlis = rows.filter(e => e.ergebnis === 'falsch' && ['erk', 'bed', 'art'].includes(e.modus)).length;
+    const turlar = rows.filter(e => e.modus === 'tur');
+    const dk = turlar.reduce((s, e) => s + sayi(/dk:(\d+)/, e), 0), seviye = turlar.reduce((s, e) => s + sayi(/seviye\+:(\d+)/, e), 0);
+    const bolum = Object.entries(d.modi || {}).filter(([, x]) => x && x.n > 0).map(([m, x]) => `${MODUS_AD(m)} ${x.n}`);
+    const ek = [['lesen', 'okuma'], ['gram', 'gramer'], ['text', 'yazma'], ['sprechen', 'konuşma'], ['pruefung', 'prüfung'], ['fiilmetin', 'fiil metni']]
+      .map(([m, ad]) => { const n = rows.filter(e => e.modus === m && !(m === 'lesen' && e.ergebnis !== 'gelesen')).length; return n && !(d.modi && d.modi[m] && d.modi[m].n) ? `${ad} ${n}` : ''; }).filter(Boolean);
+    const n = d.n || 0;
+    return { n, dogru: n ? Math.round(((d.richtig || 0) + 0.5 * (d.fast || 0)) / n * 100) : 0, xp: d.xp || 0, yeni, yanlis, secYanlis, dk, seviye, bolum: bolum.concat(ek), var: !!(n || yeni.length || ek.length) };
+  }
+  function bugunKarti() {
+    const oz = gunOzeti(tag()); if (!oz.var) return '';
+    const sayi = (v, ad) => `<span><b>${v}</b>${ad}</span>`;
+    return `<div class="ana-kart bugun-kart"><h3>Bugün ne yaptın</h3>
+      <div class="bk-sayilar">${sayi(oz.n, 'cevap')}${oz.n ? sayi('%' + oz.dogru, 'doğru') : ''}${oz.xp ? sayi('+' + oz.xp, 'puan') : ''}${oz.dk ? sayi(oz.dk, 'dk') : ''}${oz.yeni.length ? sayi(oz.yeni.length, 'yeni kelime') : ''}${oz.seviye ? sayi(oz.seviye, 'seviye ↑') : ''}</div>
+      ${oz.bolum.length ? `<div class="soluk">${esc(oz.bolum.join(' · '))}</div>` : ''}
+      ${oz.yeni.length || oz.yanlis.length || oz.secYanlis ? `<details class="daha"><summary>ayrıntı</summary>
+        ${oz.yeni.length ? `<div class="bk-b">Yeni kelimeler</div><div class="bk-cipler">${oz.yeni.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div>` : ''}
+        ${oz.yanlis.length ? `<div class="bk-b">Yanlışlar (yazarak)</div><ul>${oz.yanlis.slice(0, 8).map(y => `<li><b>${esc(y.item)}</b>: <s>${esc(y.antwort || '—')}</s> → ${esc(y.loesung || '')}</li>`).join('')}${oz.yanlis.length > 8 ? `<li class="soluk">+${oz.yanlis.length - 8} daha · Diğer → Geçmiş</li>` : ''}</ul>` : ''}
+        ${oz.secYanlis ? `<div class="soluk">seçmelide ${oz.secYanlis} yanlış</div>` : ''}
+      </details>` : ''}</div>`;
+  }
+  // İlerleme: son 14 günün satırları (yalnız etkinlik olan günler)
+  function gunSatirlari(gun) {
+    const t = now(), GUN_AD = ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct'], out = [];
+    for (let i = 0; i < gun; i++) {
+      const k = tag(t - i * DAY), x = S.tage[k]; if (!x || !(x.n || x.neuV || x.neuN)) continue;
+      const oz = gunOzeti(k), dt = new Date(t - i * DAY);
+      out.push(`<tr${i === 0 ? ' class="bugun"' : ''}><td>${i === 0 ? 'bugün' : i === 1 ? 'dün' : `${GUN_AD[dt.getDay()]} ${dt.getDate()}.${dt.getMonth() + 1}`}</td><td>${oz.n}</td><td>${oz.n ? '%' + oz.dogru : '–'}</td><td>${oz.yeni.length || ((x.neuV || 0) + (x.neuN || 0)) || '–'}</td><td>${oz.dk || '–'}</td><td>${oz.xp || '–'}</td></tr>`);
+    }
+    return out.length ? out.join('') : '<tr><td colspan="6" class="soluk">henüz yok</td></tr>';
+  }
   function renderAna() {
     const el = $('#ana'); if (!el) return;
     const d = bugun(), b = turBoyu(), turHedef = turHedefi(), yapildi = turYapildi(), tamam = d.n >= ziel('akis');
@@ -3779,6 +3820,7 @@
           ${toparlanma}
         </div>
       </div>
+      ${bugunKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
       ${hs ? `<div class="hafta-seviye">Bu hafta <b>+${hs}</b> seviye</div>` : ''}

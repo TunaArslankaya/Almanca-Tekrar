@@ -61,7 +61,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   if (!/Başla|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" / "Bonus tur" değil: ${ana.birincil[0]}`);
   const borc = /\d+\s*(vadeli|tekrar|kart|borç|birikme|bekleyen)/i.exec(ana.metin);
   if (borc) hata('bugün', `vadeli / borç sayısı görünüyor: "${borc[0]}"`);
-  if (/\d\s?%/.test(ana.metin)) hata('bugün', 'yüzde "58%" biçiminde');
+  if (/\d ?%/.test(ana.metin)) hata('bugün', 'yüzde "58%" biçiminde');
   if (await yatay(p) > 1) hata('bugün', 'yatay kaydırma');
   (await sabitTasma(p, '#v-ana')).forEach(x => hata('bugün sabit öğe taşıyor', x));
   { const bb = await p.evaluate(() => { const e = document.querySelector('.basla-sabit'); if (!e) return null; const b = e.getBoundingClientRect(); return { r: b.right, w: innerWidth }; });
@@ -84,7 +84,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   // ---- İlerleme, Diğer, Ayarlar ----
   await p.click('.alt-nav [data-v="gecmis"]'); await p.waitForTimeout(200);
   const il = await p.$eval('#v-gecmis', e => e.innerText);
-  if (/\d\s?%/.test(il)) hata('ilerleme', 'yüzde "58%" biçiminde');
+  if (/\d ?%/.test(il)) hata('ilerleme', 'yüzde "58%" biçiminde');
   if (!/Artikel aynası/.test(il) || !/B1 yolu/.test(il)) hata('ilerleme', 'artikel aynası / B1 yolu yok');
   if ((await p.$eval('.isi', e => e.getBoundingClientRect().width)) > 461) hata('ilerleme', 'ısı haritası 460 px\'ten geniş');
   if (await yatay(p) > 1) hata('ilerleme', 'yatay kaydırma');
@@ -150,7 +150,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     if (!/^(%\d{1,3}|–)$/.test(ts.dogruluk || '')) hata('tur sonu', `doğruluk biçimi: "${ts.dogruluk}"`);
     ts.cipler.filter(x => !/^[vwp]/.test(x.id)).forEach(x => { if (!/^(der|die|das) /.test(x.t)) hata('tur sonu', `artikelsiz isim çipi: ${x.t}`); });
     if (!ts.notlar.includes('deneme tostu')) hata('tost', 'tur içindeki tost tur sonunda gösterilmedi');
-    if (/\d\s?%/.test(ts.metin)) hata('tur sonu', 'yüzde "58%" biçiminde');
+    if (/\d ?%/.test(ts.metin)) hata('tur sonu', 'yüzde "58%" biçiminde');
     if (await toastAcik(p)) hata('tost', 'tur sonunda #toast açık');
     (await kucukler(p, '#v-calis')).forEach(x => hata('tur sonu ≥48', x));
     console.log(`tur sonu: doğruluk ${ts.dogruluk} · ${ts.cipler.length} çip · ${kontrol} soru ölçüldü · ${devam} sonuç paneli`);
