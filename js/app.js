@@ -3478,8 +3478,14 @@
     const b = buTurBoyu();
     if (tu.n < b) return false;
     const ot = session.ot, bek = ot ? (ot.kuyruk || []).filter(k => k.neden === 'yanlis') : [];
-    // uzatmada bekleyen yanlış hemen değil, en erken 2 soru sonra (uzatmaya sığmıyorsa 1 soru sonra) gelir
-    if (bek.length && tu.n < b + TUR_UZAT) { const a = ot.adim || 0, ara = tu.n + 3 <= b + TUR_UZAT ? 2 : 1; bek.forEach((k, i) => { k.at = Math.min(k.at, a + ara + i); }); return false; }
+    // uzatmada bekleyen yanlışlar kalan yerlere sondan sığdırılır (tek yanlış: 2 soru sonra; iki yanlış: 14. ve 15.), her biri kendi sorusundan
+    // en az 1 soru sonra (yer + 2); hiçbiri sığmıyorsa tur biter (sonraki tura kalmaz, eski davranış)
+    if (bek.length && tu.n < b + TUR_UZAT) {
+      const a = ot.adim || 0, kalan = b + TUR_UZAT - tu.n, son = a + kalan - 1, sirali = bek.slice().sort((x, y) => x.at - y.at);
+      let sigan = 0;
+      sirali.forEach((k, i) => { const enErken = k.yer != null ? k.yer + 2 : a; k.at = Math.min(k.at, Math.max(a + Math.max(0, kalan - sirali.length) + i, enErken)); if (k.at <= son) sigan++; });
+      if (sigan) return false;
+    }
     return true;
   }
   function otRender() {
@@ -4570,7 +4576,7 @@
   (function bekleyenIsle() {
     let r = null; try { r = JSON.parse(localStorage.getItem(BEKLEYEN_KEY) || 'null'); } catch (e) { r = null; }
     bekleyenSil();
-    if (!r || !r.id || !r.sonuc || !(byId[r.id] || vById[r.id] || wById[r.id]) || !(now() - r.t < 3 * DAY)) return;
+    if (!r || !r.id || !r.sonuc || !(byId[r.id] || vById[r.id] || wById[r.id]) || !(now() - r.t < 3 * DAY) || r.t > now() + 5 * 60000) return;
     const m0 = session.modus;
     try {
       if (r.modusB && MODI[r.modusB]) session.modus = r.modusB;

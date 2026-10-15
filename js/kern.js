@@ -450,8 +450,8 @@
     o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
     if (yanlis && secim.tur === 'm') {
       const d = secim.deneme || 1;
-      if (d === 1) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), deneme: 2, b: Math.max(1, (secim.b || 1) - 1), bicim: secim.b > 1 ? null : 'sec' });
-      else if (d === 2) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 1, (o.boy || 12) - 1), deneme: 3, b: 1, bicim: 'sec' });
+      if (d === 1) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), yer: o.adim - 1, deneme: 2, b: Math.max(1, (secim.b || 1) - 1), bicim: secim.b > 1 ? null : 'sec' });
+      else if (d === 2) o.kuyruk.push({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 1, (o.boy || 12) - 1), yer: o.adim - 1, deneme: 3, b: 1, bicim: 'sec' });
     }
     return o;
   }
