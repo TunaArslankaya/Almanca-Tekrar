@@ -1682,3 +1682,13 @@
 2026-10-15 07:14:59;bed;v278:bed;sich fürchten vor;Mein kleiner Bruder fürchtet sich vor Hunden.;haber vermek, anlatmak;falsch;(bir şeyden) korkmak;sek:4 | ipucu:0
 2026-10-15 07:15:03;satz;v425:satz;rechnen mit;Wir _____ mit etwa fünfzig Gästen.;rechnen;richtig;rechnen;sek:4 | ipucu:0
 2026-10-15 07:15:06;bed;v184:bed;sich einigen auf;sich einigen auf;anlaşmak, uzlaşmak;richtig;(bir şeyde) anlaşmak, uzlaşmak;sek:2 | ipucu:0
+2026-10-15 07:16:02;leech;v063;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-15
+2026-10-15 07:16:02;satz;v063:satz;sich aufregen über;Bu kadar sinirlenme!;Reg dich nicht das viel auf;falsch;Reg dich nicht so auf!;farklı | sek:48 | ipucu:0
+2026-10-15 07:16:46;akt;luecke:k28;metinde boşluk;Deshalb misst man das Fieber auch dort: meist im Mund, im Po oder auch im Ohr oder unter den Achseln. Der Regler für die Temperatur unseres Körpers sitzt im Gehirn. Wenn das Fieber steigt, empfindet man oft ein Frieren, wenn es sinkt, schwitzt man.;Gehirn / Fieber / Gehirn / Temperatur;falsch;Fieber / Temperatur / Gehirn / Frieren;puan:1/4
+2026-10-15 07:17:14;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-10-15 07:17:15;erk;w0117:erk;eben;„In einem reizüberfluteten Land“, wie Lefèvre es sagt, können eben alle ein wenig Ruhe gebrauchen.;karşıda, öte tarafta;falsch;az önce;sek:11 | ipucu:0
+2026-10-15 07:17:20;erk;x1504:erk;die Behauptung;iddia;die Behauptung;richtig;die Behauptung;sek:4 | ipucu:0
+2026-10-15 07:17:23;art;n1422:art;das Ziel;Ziel;der;falsch;das Ziel;artikel: der → das | sek:2 | ipucu:0
+2026-10-15 07:17:29;wort;n0972:wort;die Regel;kural;die Regel;richtig;die Regel;sek:6 | ipucu:0
+2026-10-15 07:17:32;art;n0244:art;die Diskussion;Diskussion;das;falsch;die Diskussion;artikel: das → die | sek:2 | ipucu:0
+2026-10-15 07:17:38;nsatz;n1044:nsatz;der Schmerz;Nach dem Sport hatte ich starke _____ im Rücken.;Schmertz;falsch;Schmerzen;artikel / ek | sek:5 | ipucu:0
