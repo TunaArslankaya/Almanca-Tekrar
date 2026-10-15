@@ -283,6 +283,9 @@ NT.forEach(([ad, girdi, bekl]) => {
   // bugün tanıtılanlar kalandan düşer
   const Sy = yeniS({ n7: { yeni4: K.gun4(T), m: { S: 2.3, last: T, due: T + DAY } } });
   eq(K.kota({ S: Sy, kap: 36 }, T).kalan, 5, 'kota: bugün tanıtılan düşer');
+  // §5.2: yarım öğeler kotaya sayılmaz (ayrı sınır günde 3)
+  const Syr = yeniS({ n7: { yarim: 1, tanit: T, yarimGun: K.gun4(T), m: { S: 2.3, last: T, due: T + DAY } }, n8: { yarim: 1, tanit: T, yarimGun: K.gun4(T), m: { S: 2.3, last: T, due: T + DAY } } });
+  eq(K.kota({ S: Syr, kap: 36 }, T).kalan, 6, 'kota: bugün açılan yarım öğeler kotadan düşmez');
 }
 
 // ---------- §5.3 yeni sıra ve karışma kapısı ----------
@@ -292,6 +295,11 @@ NT.forEach(([ad, girdi, bekl]) => {
   const ys = K.yeniSira(S);
   eq(ys.slice(0, 3).join(','), 'n9,w1,n3', 'yeni sıra: yarım → okurken bakılan → ünite');
   eq(ys.slice(3).join(','), 'n2,n1,v3,n4,n5,v1', 'Goethe sırası: tier-3 önce, her 3 yeniden biri fiil');
+  // §5.2: yarım kotadan bağımsız; parti n yeni + yarimHak yarım; günde en çok 3 yarım
+  { const p = K.yeniParti(S, T, 2, { yarimHak: 1, yoklamaHak: 0 }); eq(p.ids.join(','), 'n9,w1,n3', 'parti: yarım kota yerini yemez (1 yarım + 2 yeni)'); }
+  { const p = K.yeniParti(S, T, 0, { yarimHak: 1 }); eq(p.ids.join(','), 'n9', 'parti: kota 0 iken yarım yine gelir'); }
+  { const p = K.yeniParti(S, T, 2, { yarimHak: 1, yarimGunluk: 1, yarimKotadan: true, yoklamaHak: 0 }); eq(p.ids.join(','), 'n9,w1', 'parti (kota kısık): yarım kotadan bir yer alır'); }
+  { const S3 = yeniS({ n9: { yarim: 1, m: null }, x1: { yarimGun: K.gun4(T) }, x2: { yarimGun: K.gun4(T) }, x3: { yarimGun: K.gun4(T) } }); eq(K.yeniParti(S3, T, 0, { yarimHak: 1 }).ids.length, 0, 'parti: günde en çok 3 yarım'); }
   K.init(Object.assign({}, ctx, { trKey: id => ({ a: 'gitmek', b: 'gitmek' })[id] || id, lemma: id => ({ c: 'liegen', d: 'legen', e: 'Haus', f: 'Maus', x1: 'Apfelbaum', y1: 'Zeitung', y2: 'Bahnhof' })[id] || id, konu: id => 'k1', ablaut: id => ({ g: 'ie-o-o', h: 'ie-o-o' })[id] || '' }));
   ok(!K.karismaOk('b', ['a']), 'karışma: aynı trKey');
   ok(!K.karismaOk('d', ['c']), 'karışma: lev ≤ 2');
@@ -456,6 +464,13 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   ok(S.items.n4.m.S <= 2 && S.items.n4.m.dogrula === 1, 'göç (c): selbst-son → S ≤ 2, dogrula', S.items.n4.m);
   ok(S.items.n4.art.S <= 2, 'göç: güvenilmez art → S ≤ 2');
   ok(S.items.w1.m === null && S.items.w1.yarim === 1, 'göç (d): S yok → yarım');
+  // göç bittikten sonra bilerek m'siz kurulan öğeler (A1 düğmesi, kartsız) yeniden açılışta yarım olmaz
+  S.items.n3 = { seit: T, bekannt: true, a1: true, quelle: 'a1' }; S.items.w2 = { seit: T, quelle: 'lesen' };
+  K.goc(S, T + DAY, 0.85);
+  ok(!S.items.n3.yarim && !S.items.n3.m, 'göç: A1 öğesi yarım olmaz');
+  ok(!S.items.w2.yarim, 'göç: göçten sonra kurulan kartsız öğeye dokunulmaz');
+  ok(!K.yeniSira(S).includes('n3'), 'yeni sıra: A1 öğesi yok');
+  { const S2 = JSON.parse(JSON.stringify(S)); delete S2.goc4; S2.items.v2 = { seit: T, a1: true, quelle: 'a1', yarim: 1 }; K.goc(S2, T, 0.85); ok(!S2.items.v2.yarim, 'göç: ilk göçte de A1 öğesi yarım olmaz (eski işaret silinir)'); }
   ok(S.items.v1.m && S.items.v1.m.pk === 0, 'göç: fiil tanımadan pk 0');
   ok(S.kok.fahren && S.kok.fahren.S === 4 && S.formGesehen.v1, 'göç: stamm → kök, formGesehen');
   ok(S.pakete.p01.m && S.pakete.p01.fertig === 1, 'göç: pak → pakete.m (öteki alanlar korunur)');

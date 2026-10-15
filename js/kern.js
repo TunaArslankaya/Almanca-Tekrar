@@ -225,8 +225,13 @@
     });
     return out;
   }
-  // bugün kotadan açılan yeni öğe: tanıtılan yeni ve yarım öğeler (yarım ayrıca günde en çok 3; yoklamayı geçenler sayılmaz)
-  const bugunYeni = (S, t) => Object.values(S.items || {}).filter(it => it.yeni4 === gun4(t) || it.yarimGun === gun4(t)).length;
+  // bugün kotadan açılan yeni öğe (§5.2): yalnız tanıtılan yeni öğeler (yoklamada kalanlar dahil). Yarım öğeler ve yoklamayı
+  // geçenler kotaya sayılmaz; yarımların ayrı sınırı günde en çok 3 (YARIM_GUN, yeniParti)
+  const bugunYeni = (S, t) => Object.values(S.items || {}).filter(it => it.yeni4 === gun4(t)).length;
+  const YARIM_GUN = 3;
+  const bugunYarim = (S, t) => Object.values(S.items || {}).filter(it => it.yarimGun === gun4(t)).length;
+  // A1 düğmesinin kurduğu öğe (bilerek m'siz: yalnız artikel hafızası). Düğmenin a1 işaretlediği eski öğe (quelle başka) yarımsa yarım kalır
+  const a1Mi = it => !!(it && it.quelle === 'a1');
   // 3+ gün aradan sonra bugün henüz cevap yoksa: dönüş turu (o turda yeni yok)
   function donusMu(S, t) {
     const g = gun4(t), tage = S.tage || {};
@@ -250,12 +255,13 @@
     const uh = durum.uniteKalan;
     if (uh && uh.gun > 0) qUnite = Math.max(q, Math.min(10, Math.ceil(uh.kalan / uh.gun)));
     if (durum.donus) { q = 0; qUnite = 0; sebep = 'dönüş'; }
-    const yapilan = bugunYeni(S, t);
+    // kota kısılmışken (sebep ≠ normal) o günün yarımı kotadan sayılır (sec → partiAc ile aynı kural)
+    const yapilan = bugunYeni(S, t) + (sebep !== 'normal' && sebep !== 'dönüş' ? Math.min(1, bugunYarim(S, t)) : 0);
     return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan };
   }
   // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
   function yeniSira(S) {
-    const yarim = Object.keys(S.items || {}).filter(id => S.items[id].yarim && !(S.items[id].m && S.items[id].m.S));
+    const yarim = Object.keys(S.items || {}).filter(id => S.items[id].yarim && !a1Mi(S.items[id]) && !(S.items[id].m && S.items[id].m.S));
     const onde = new Set();
     const ilk = [].concat(C.lesenWort() || [], C.uniteSira() || []).filter(id => !S.items[id]);
     ilk.forEach(id => onde.add(id));
@@ -292,21 +298,24 @@
     return ayniKonu < 2;
   }
   const yoklamaAday = (S, id) => !S.items[id] && (C.tierOf(id) === 1 || C.uluslararasi(id));
-  // yeni parti: kotadan n öğe; bugün tanıtılanlarla birlikte karışma kapısından geçer
+  // yeni parti: kotadan n yeni öğe + kotadan bağımsız en çok opts.yarimHak yarım öğe (günde en çok YARIM_GUN);
+  // bugün tanıtılanlarla birlikte karışma kapısından geçer
   function yeniParti(S, t, n, opts) {
     opts = opts || {};
     const bugun = Object.keys(S.items || {}).filter(id => S.items[id].tanit && gun4(S.items[id].tanit) === gun4(t));
     const sec = [], yoklama = [];
-    let yarimSay = Object.values(S.items || {}).filter(it => it.yarimGun === gun4(t)).length;
+    const yHak = Math.max(0, Math.min(opts.yarimHak == null ? YARIM_GUN : opts.yarimHak, (opts.yarimGunluk == null ? YARIM_GUN : opts.yarimGunluk) - bugunYarim(S, t)));
+    let yeniSay = 0, yarimSay = 0;
+    const kotadan = !!opts.yarimKotadan, dolu = () => yeniSay + (kotadan ? yarimSay : 0) >= n;
     for (const id of yeniSira(S)) {
-      if (sec.length >= n) break;
+      if (dolu() && (kotadan || yarimSay >= yHak)) break;
       if (opts.filtre && !opts.filtre(id)) continue;
       const yarim = !!(S.items[id] && S.items[id].yarim);
-      if (yarim && yarimSay >= 3) continue;
+      if (yarim ? (yarimSay >= yHak || (kotadan && dolu())) : dolu()) continue;
       if (!karismaOk(id, bugun.concat(sec))) continue;
       sec.push(id);
       if (yarim) yarimSay++;
-      else if (yoklama.length < (opts.yoklamaHak == null ? 2 : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id);
+      else { yeniSay++; if (yoklama.length < (opts.yoklamaHak == null ? 2 : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id); }
     }
     return { ids: sec, yoklama };
   }
@@ -334,9 +343,12 @@
     if (kq) return kuyrukSec(kq);
     const kt = kota(durum, t);
     const partiAc = () => {
-      const n = Math.min(kt.kalan, boy >= 25 ? 5 : 3);
-      if (n <= 0) return null;
-      const p = yeniParti(S, t, n, { filtre: o.filtre, yoklamaHak: o.klavyesiz ? 0 : Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
+      // §5.2: yarımlar kotaya sayılmaz; partide kotanın yanında en çok 1 (25'likte 2) yarım, günde en çok 3.
+      // Bilinçli sapma: kota kısılmışken (göç / genç / birikme) günde 1 yarım ve o yarım kotadan bir yer alır
+      // (yük kapısı §11: 7. gün vadeli ≤ 0,8 × başlangıç; ünite kelimesi yine her gün en az 1 gelir)
+      const kis = kt.sebep !== 'normal', n = Math.min(kt.kalan, boy >= 25 ? 5 : 3), yh = durum.donus ? 0 : (boy >= 25 ? 2 : 1);
+      if (n <= 0 && (yh <= 0 || kis)) return null;
+      const p = yeniParti(S, t, n, { yarimHak: yh, yarimGunluk: kis ? 1 : YARIM_GUN, yarimKotadan: kis, filtre: o.filtre, yoklamaHak: o.klavyesiz ? 0 : Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
       return p.ids.length ? { tur: 'parti', kaynak: 'parti', ids: p.ids, yoklama: p.yoklama } : null;
     };
     // 2) yeni parti: turda bir kez, 3 ≤ adım ≤ boy − 7
@@ -467,7 +479,12 @@
       if (!gecerli(id)) { r.olu++; return; }
       r.oge++;
       const ks = (kartlar[id] || []).filter(k => k.c && k.c.S);
-      if (!(it.m && it.m.S)) {
+      const a1 = a1Mi(it);
+      // A1 düğmesiyle (bilerek m'siz) kurulan öğe yarım olmaz; buggy sürümün yazdığı yarım işareti de silinir
+      if (a1 && it.yarim && !it.tanit && !(it.m && it.m.S)) delete it.yarim;
+      // m'siz öğe kendi kartlarından kurulur; kartı olmayan öğe yalnız ilk göçte yarım olur (sonra bilerek m'siz kurulanlar
+      // — A1, okurken eklenen, bugün tanıtılan — dokunulmaz)
+      if (!(it.m && it.m.S) && !a1 && (ks.length || !S.goc4)) {
         const guv = k => !selbstSon(id, k.c);
         const son = l => l.sort((a, b) => b.c.last - a.c.last)[0];
         const p = son(ks.filter(k => PROD.has(k.t) && guv(k)));
@@ -482,7 +499,7 @@
         // v3Yetis onları ikinci kez uygulamasın (göç kuralları: üretim önce, "biliyorum" güvenilmez)
         if (S.kartenV3) ks.forEach(k => { const u = id + ':' + k.t, v = S.kartenV3[u]; if (!v || (v.last || 0) < k.c.last) S.kartenV3[u] = JSON.parse(JSON.stringify(k.c)); });
       }
-      if (it.m && it.m.S) r.m++; else r.yarim++;
+      if (it.m && it.m.S) r.m++; else if (it.yarim) r.yarim++;
       const ak = K[id + ':art'];
       if (!it.art && C.kind(id) === 'n' && !C.plOnly(id) && ak && ak.S) {
         const s = selbstSon(id, ak);

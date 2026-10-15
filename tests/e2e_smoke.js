@@ -142,6 +142,21 @@ async function senaryo(b, ad, o) {
     await p.waitForTimeout(150);
     const surum = await p.evaluate(() => (document.querySelector('#a-surum') || {}).textContent || '');
     if (!/Kod sürümü 4/.test(surum)) hata('ayarlar', 'kod sürümü görünmüyor');
+    // metin etkinliğinden (luecke) sonra Okuma bölümü açılır (session.lesen ezilmez)
+    await p.evaluate(() => window.__tekrar.starte('akis')); await p.waitForTimeout(120);
+    let metinGeldi = false;
+    for (let i = 0; i < 80 && !metinGeldi; i++) {
+      metinGeldi = await p.evaluate(() => { const a = window.__tekrar.aktuell; return !!(a && a.typ === 'akt' && a.art === 'luecke'); });
+      if (metinGeldi) break;
+      const r = await D.adim(p, { dogru: 0.8, rnd });
+      if (r.ad === 'turSonu') { await p.evaluate(() => window.__tekrar.starte('akis')); await p.waitForTimeout(80); }
+      if (r.ad === 'leer' || r.ad === 'yok' || /^bilinmeyen/.test(r.ad)) break;
+    }
+    if (metinGeldi) {
+      const L = await p.evaluate(() => { try { window.__tekrar.starte('lesen'); return { ok: !!document.querySelector('#lesen-text .lw') && window.__tekrar.aktuell.typ === 'lesen' }; } catch (e) { return { hata: String(e) }; } });
+      if (!L.ok) hata('metin → okuma', L.hata || 'Okuma bölümü açılmadı');
+      console.log('metin etkinliği → Okuma:', L.ok ? 'açıldı' : 'HATA');
+    } else console.log('metin etkinliği → Okuma: metin kartı gelmedi (atlandı)');
     // her bölüm: starte + 3 adım hatasız
     const modi = await p.evaluate(() => Object.keys(window.__tekrar.S.einst.modi));
     for (const m of modi) {

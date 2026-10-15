@@ -1416,7 +1416,7 @@
     return pool.slice().sort((a, b) => puan(b) - puan(a))[0];
   }
   function lesenRender(anders) {
-    if (!session.lesen || anders) { session.lesen = lesenWaehlen(anders); session.lesenQ = session.lesen && session.lesen.quelle; session.lesenCevap = {}; }
+    if (!session.lesen || !session.lesen.text || anders) { session.lesen = lesenWaehlen(anders); session.lesenQ = session.lesen && session.lesen.quelle; session.lesenCevap = {}; }
     aktuell = { typ: 'lesen' };
     $('#durum-satiri').innerHTML = '';
     const L = session.lesen;
@@ -1855,7 +1855,7 @@
     if (q.art === 'luecke') {
       const T = q.saetze[0].q;
       (S.aktTexte = S.aktTexte || {})[T.id] = now();
-      session.lesen = { titel: T.titel, glossar: T.glossar || [] };
+      session.aktMetin = { titel: T.titel, glossar: T.glossar || [] };
     }
     if (q.art === 'diktat') (S.aktSaetze = S.aktSaetze || {})[q.satz.de] = now();
     return q;
@@ -2126,14 +2126,15 @@
     document.querySelectorAll('#lesen-text .lw.aktiv').forEach(x => x.classList.remove('aktiv'));
     el.classList.add('aktiv');
     box.hidden = false;
+    const LQ = (aktuell && aktuell.typ === 'akt' ? session.aktMetin : session.lesen) || {};
     if (!id) {
       const w = el.textContent.replace(/[.,!?;:“"”„()]/g, '').toLowerCase();
-      const g = ((session.lesen || {}).glossar || []).find(x => { const h = x.de.split(/[ ,(]/)[0].replace(/\|/g, '').toLowerCase(); return h.length > 3 && (w.startsWith(h.slice(0, Math.max(4, h.length - 2))) || h.startsWith(w)); });
+      const g = (LQ.glossar || []).find(x => { const h = x.de.split(/[ ,(]/)[0].replace(/\|/g, '').toLowerCase(); return h.length > 3 && (w.startsWith(h.slice(0, Math.max(4, h.length - 2))) || h.startsWith(w)); });
       box.innerHTML = g ? `<b>${esc(g.de)}</b>: ${esc(g.erkl)} <span class="soluk">(DW sözlüğü)</span>` : `<b>${esc(el.textContent.replace(/[.,!?;:“"”„]/g, ''))}</b>: listede yok`;
       return;
     }
     box.innerHTML = `${deItemHTML(id)} = <b>${esc(trOf(id))}</b>${S.items[id] ? '' : ` <button class="btn mini" data-lernen="${id}" type="button">Öğrenmeye ekle</button>`}`;
-    logEintrag({ modus: 'lesen-wort', id, item: label(id), frage: session.lesen.titel, antwort: '', ergebnis: S.items[id] ? 'bekannt' : 'neu', loesung: trOf(id), notiz: '' });
+    logEintrag({ modus: 'lesen-wort', id, item: label(id), frage: LQ.titel || '', antwort: '', ergebnis: S.items[id] ? 'bekannt' : 'neu', loesung: trOf(id), notiz: '' });
   }
   // Goethe Übungssatz: orijinal sorular, çözüm cevap kağıdından
   function goetheAufgabenHTML(L) {
