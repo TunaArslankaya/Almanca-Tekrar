@@ -1667,3 +1667,11 @@
 2026-10-15 07:11:11;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;sek:4 | ipucu:0
 2026-10-15 07:11:14;bed;v589:bed;sich verlassen auf;Du kannst dich nicht immer auf andere verlassen.;güvenmek;richtig;(birine / bir şeye) güvenmek;sek:3 | ipucu:0
 2026-10-15 07:11:51;akt;luecke:u1:t1;metinde boşluk;Das ist nur eine Behauptung! Ich habe mich sehr darüber aufgeregt, denn er übertreibt immer. Am Abend haben wir versucht, das Problem in Ruhe zu klären. Wir waren beide bereit zu einem Kompromiss. Am Ende haben wir uns auf einen Putzplan geeinigt.;Behauptung / aufgeregt / übertreibt / geeinigt;richtig;Behauptung / aufgeregt / übertreibt / geeinigt;puan:4/4
+2026-10-15 07:12:30;bed;v117:bed;berichten über;In Deutschland gibt es immer weniger Lokalzeitungen, sodass weniger über die politische Arbeit in den Kommunen berichtet wird.;haber vermek, anlatmak;fast;(bir şey hakkında) haber vermek, anlatmak;yavaş | sek:38 | ipucu:0
+2026-10-15 07:12:37;bed;v466:bed;schweigen;Sie sprach viel, aber ihr Mann schwieg den ganzen Abend lang.;susmak;richtig;susmak;yavaş | sek:6 | ipucu:0
+2026-10-15 07:12:45;frm;v620:frm;verzichten auf;verzichten auf — er / sie Perfekt;hat verzichtet;richtig;hat verzichtet;sek:7 | ipucu:0
+2026-10-15 07:12:50;erk;n1028:erk;der Schatten;der Schatten;gölge;richtig;gölge;yavaş | sek:5 | ipucu:0
+2026-10-15 07:13:04;wort;n0972:wort;die Regel;kural;die Geduld;falsch;die Regel;kelime yanlış | sek:8 | ipucu:0
+2026-10-15 07:13:08;abr;v142:abr;beweisen;kanıtlamak;beweisen;richtig;beweisen (Akk);sek:4 | ipucu:0
+2026-10-15 07:13:14;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;sek:4 | ipucu:0
+2026-10-15 07:14:07;akt;ordnen:w0119;cümle dizme;Ich stehe meist eher auf als mein Mann.;Ich stehe meist als eher mein Mann auf;falsch;Ich stehe meist eher auf als mein Mann.;
