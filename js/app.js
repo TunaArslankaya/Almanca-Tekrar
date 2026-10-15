@@ -1529,11 +1529,17 @@
   }
   try { if (window.speechSynthesis) speechSynthesis.addEventListener('voiceschanged', () => { _ses = null; }); } catch (e) { /* yok */ }
   const sesKes = () => { try { if (window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)) speechSynthesis.cancel(); } catch (e) { /* yok */ } };
+  let sesAktif = null;   // çalan / sıradaki okuma (kendiliğinden geçiş bitmesini bekler)
+  const sesCaliyor = () => { try { return !!(sesAktif && window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)); } catch (e) { return false; } };
   function sprich(text, rate) {
     try {
       const u = new SpeechSynthesisUtterance(text); u.lang = 'de-DE'; u.rate = rate || 0.9;
       const v = almancaSes(); if (v) u.voice = v;
-      sesKes(); speechSynthesis.speak(u);
+      u.onend = u.onerror = () => { if (sesAktif === u) sesAktif = null; };
+      const kesildi = speechSynthesis.speaking || speechSynthesis.pending;
+      sesKes(); sesAktif = u;
+      // Chrome: cancel()'ın hemen ardından speak() yeni sesi yutabiliyor → kesme olduysa kısa ara
+      if (kesildi) setTimeout(() => { if (sesAktif === u) speechSynthesis.speak(u); }, 60); else speechSynthesis.speak(u);
     } catch (e) { flash('Bu tarayıcıda ses yok.'); }
   }
   const uLabel = it => it.de;
@@ -2549,10 +2555,16 @@
     const urteil = not.ergebnis || (ok ? 'richtig' : 'falsch');
     dikkatNotieren(urteil !== 'falsch', not.m == null && not.a == null);
     fxCevap(urteil);
-    if (urteil === 'richtig') { panelGoster(sonucPanel(q, not, { kisa: true })); later(ilerle, OTO_MS); return; }
+    if (urteil === 'richtig') { panelGoster(sonucPanel(q, not, { kisa: true })); later(ilerleSesle, OTO_MS); return; }
     panelGoster(sonucPanel(q, not, { weissNicht, secilen: weissNicht ? null : opt.t }));
   }
   const OTO_MS = 1000;   // doğru cevaptan sonra kendiliğinden geçiş (0,8–1,2 sn)
+  // kendiliğinden geçiş: kelimenin sesi hâlâ okunuyorsa bitmesini bekler (en çok 1,5 sn), sonraki soru sesi kesmesin
+  function ilerleSesle() {
+    const q = aktuell, t0 = now();
+    const dene = () => { if (aktuell !== q) return; if (sesCaliyor() && now() - t0 < 1500) later(dene, 100); else ilerle(); };
+    dene();
+  }
 
   // artikel flaşı: ≤ 8 sn doğru → 3; daha yavaş → 3 (+0,7); yanlış → 1
   function artWahl(a) {
@@ -2668,7 +2680,7 @@
     panelGoster(sonucPanel(q, q.not, { yazili: true }));
     fxCevap(q.not.ergebnis);
     // 'aslında doğru' → richtig: panelin Devam düğmesi dolum animasyonuyla çizilir, gerçekten de geçsin
-    if (q.not.ergebnis === 'richtig') later(ilerle, OTO_MS);
+    if (q.not.ergebnis === 'richtig') later(ilerleSesle, OTO_MS);
   }
   // Devam / kendiliğinden geçiş: cevap işlenir (tek kez), sonraki soru
   function ilerle() {
@@ -4149,6 +4161,8 @@
     const um = e.target.closest('[data-um]'); if (um) { uMatch(um.dataset.um); return; }
     const uo = e.target.closest('[data-uo]'); if (uo) { uOrdnen(+uo.dataset.uo); return; }
     const sp = e.target.closest('[data-sprich]'); if (sp) { sprich(sp.dataset.sprich); return; }
+    // soru kelimesine dokunma: Almancası gösterilen soruda yeniden oku (Türkçesi gösterilen soruda cevabı ele vermez)
+    const sk = e.target.closest('#kart .soru'); if (sk && aktuell && aktuell.id && ['anla', 'metinde', 'artikel', 'kok', 'kokSatz'].includes(aktuell.bicim) && !e.target.closest('button, input, a')) { sprich(label(aktuell.id).replace('sich(D)', 'sich')); return; }
     const ua = e.target.closest('[data-uaufgabe]');
     if (ua) {
       const U = uAktuell(), st = uState(U), a = U.aufgaben.find(x => x.id === ua.dataset.uaufgabe), ta = document.querySelector(`textarea[data-aufgabe="${a.id}"]`), txt = ta.value.trim();

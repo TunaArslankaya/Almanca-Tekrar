@@ -135,5 +135,7 @@ async function adimlar(p, n, o) {
   return out;
 }
 const zustandOku = dosya => fs.readFileSync(dosya || path.resolve(__dirname, '..', 'log', 'zustand.json'), 'utf8');
+// göç senaryoları için dondurulmuş v3 kaydı (Tuna'nın cihazı 15.10'da v5'e geçti; gerçek log/zustand.json artık surum 4): tests/fixtures/zustand_v3.json
+const zustandV3 = () => { const f = path.resolve(__dirname, 'fixtures', 'zustand_v3.json'); return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : zustandOku(); };
 
-module.exports = { playwright, tarayici, sayfa, durum, adim, adimlar, ileri, URL, DAY, GORUNUM, zustandOku };
+module.exports = { playwright, tarayici, sayfa, durum, adim, adimlar, ileri, URL, DAY, GORUNUM, zustandOku, zustandV3 };

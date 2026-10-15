@@ -42,7 +42,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
 (async () => {
   const b = await D.tarayici();
   if (!b) { console.log('Playwright yok: atlandı'); return; }
-  const zustand = D.zustandOku();
+  const zustand = D.zustandV3();   // göç + güven kartı: dondurulmuş v3 kaydı
   const p = await D.sayfa(b, { mobil: true, zustand });
   await p.waitForTimeout(300);
 

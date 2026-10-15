@@ -121,7 +121,7 @@
    python3 tools/build.py && node tests/test_grammatik.js && node tools/stichprobe.js 1 && node tools/stichprobe_module.js refl
    ```
    Build hata verirse (yanlış artikel, bulunamayan isim) düzelt. Yeni kalıpların örnek cümlelerini gözle kontrol et.
-   `js/app.js` değiştiyse ve Playwright varsa: `node tests/e2e_smoke.js` (mobil + masaüstü, boş durum gün 1 + ertesi gün, gerçek durum kopyası) ve `node tests/sim_akis.js`; arayüz değiştiyse `node tests/e2e_ui.js` (390×844 DOM denetimi).
+   `js/app.js` değiştiyse ve Playwright varsa: `node tests/e2e_smoke.js` (mobil + masaüstü, boş durum gün 1 + ertesi gün, göç senaryosu `tests/fixtures/zustand_v3.json` dondurulmuş v3 kaydıyla; gerçek `log/zustand.json` 15.10'dan beri v4) ve `node tests/sim_akis.js`; arayüz değiştiyse `node tests/e2e_ui.js` (390×844 DOM denetimi).
 
 ## İçerik eklerken
 

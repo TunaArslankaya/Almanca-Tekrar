@@ -136,8 +136,7 @@ async function senaryo(b, ad, o) {
 (async () => {
   const b = await D.tarayici();
   if (!b) { console.log('Playwright yok, atlandı.'); process.exit(0); }
-  const ZP = path.resolve(__dirname, '..', 'log', 'zustand.json');
-  const Z = fs.existsSync(ZP) ? fs.readFileSync(ZP, 'utf8') : null;
+  const Z = D.zustandV3();   // gerçek kopya = dondurulmuş v3 kaydı (göç satırı, güven kartı)
   await senaryo(b, 'boş · masaüstü', { mobil: false, ertesiGun: true, tur1: 2 });
   await senaryo(b, 'boş · mobil', { mobil: true, ertesiGun: true, tur1: 2 });
   if (Z) {
