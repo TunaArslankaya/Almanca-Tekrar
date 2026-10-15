@@ -1649,3 +1649,11 @@
 2026-10-15 07:07:41;paket;p03:pak;Anmeldung beim Bürgeramt;paket tekrarı;;fast;;puan:76
 2026-10-15 07:07:42;tur;akis;Çalış;;;bitti;;cevap:26 | doğru:17 | küçük:2 | yanlış:7 | puan:206 | dk:3
 2026-10-15 07:07:50;erk;w0325:erk;mild;ılık;mild;richtig;mild;sek:3 | ipucu:1
+2026-10-15 07:07:55;erk;n1359:erk;die Wärme;die Wärme;sıcaklık;richtig;sıcaklık;sek:4 | ipucu:1
+2026-10-15 07:08:02;erk;n0844:erk;der Nebel;sis;der Nebel;richtig;der Nebel;yavaş | sek:7 | ipucu:1
+2026-10-15 07:08:08;bed;v184:bed;sich einigen auf;Das Regenwasser wird zu Grundwasser unter der Erde, und an einigen Orten bilden sich Quellen.;tanımak, bilmek;falsch;(bir şeyde) anlaşmak, uzlaşmak;sek:5 | ipucu:0
+2026-10-15 07:08:13;prod;w0172:prod;frech;arsız, şımarık;feuch;falsch;frech;farklı | sek:4 | ipucu:0
+2026-10-15 07:08:18;erk;n1028:erk;der Schatten;gölge;die Schatten;falsch;der Schatten;sek:5 | ipucu:1
+2026-10-15 07:08:21;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;sek:2 | ipucu:0
+2026-10-15 07:08:25;abr;v642:abr;sich wenden an;(birine) başvurmak;sich wenden an;richtig;sich wenden an (an + Akk);bilgi: an + Akk | sek:3 | ipucu:0
+2026-10-15 07:08:51;akt;diktat:n1286;dinle–yaz;Hier fehlt noch Ihre Unterschrift.;Ihr fehlt noch ihre unterschrift;fast;Hier fehlt noch Ihre Unterschrift.;bir kelime farklı
