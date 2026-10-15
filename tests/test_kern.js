@@ -102,6 +102,9 @@ eq(Math.round((ornek('yaz').due - T) / DAY), 38, '§4.1 yaz aralığı 38 g (pk 
   ok(buyuk(0).due - T <= 7 * DAY, 'pk0 → aralık ≤ 7 g', (buyuk(0).due - T) / DAY);
   ok(buyuk(1).due - T <= 14 * DAY && buyuk(1).due - T > 7 * DAY, 'pk1 → aralık ≤ 14 g', (buyuk(1).due - T) / DAY);
   ok(buyuk(2).due - T > 14 * DAY, 'pk2 → tavan yok', (buyuk(2).due - T) / DAY);
+  // kapı bu cevaptan sonraki pk ile: ilk üretim başarısı (pk 0 → 1) aralığı ≤ 14 g'e açar; kanıtsız doğru ≤ 7 g'de kalır
+  const ilk = K.guncelle({ S: 30, D: 3, last: T - 40 * DAY, reps: 5, lapses: 0, pk: 0 }, 3, T, 0.85, 0, { pkSay: true });
+  ok(ilk.pk === 1 && ilk.due - T > 7 * DAY && ilk.due - T <= 14 * DAY, 'pk0 + üretim başarısı → pk 1, aralık ≤ 14 g', (ilk.due - T) / DAY);
   let x = { S: 5, D: 5, last: T - 6 * DAY, reps: 2, lapses: 0, pk: 0 };
   x = K.guncelle(x, 3, T, 0.85, 0, { pkSay: true }); eq(x.pk, 1, 'pk +1 (sayılan biçim)');
   x = K.guncelle(x, 3, T + SAAT, 0.85, 0, { pkSay: true }); eq(x.pk, 1, 'pk aynı gün ikinci kez artmaz');

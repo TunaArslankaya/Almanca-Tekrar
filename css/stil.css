@@ -727,3 +727,16 @@ mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding
 .pr-notlar { white-space: pre-wrap; font: inherit; }
 .pr-gecmis { display: grid; gap: .3rem; }
 @media (max-width: 759px) { .pr-alt { position: sticky; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); background: var(--surface); padding-top: .5rem; } }
+
+/* v5: tanıtım kartı (artikel bandı: der ■ mavi, die ● kırmızı, das ▲ yeşil, çoğul mor), itiraz düğmesi */
+.art-band { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--f-disp); font-weight: 800; font-size: .95rem; letter-spacing: .04em;
+  padding: .2rem .7rem; border-radius: 999px; color: #fff; background: var(--der); margin-bottom: .2rem; }
+.art-band::before { content: '■'; font-size: .8em; }
+.art-band.art-die { background: var(--die); color: #fff; } .art-band.art-die::before { content: '●'; }
+.art-band.art-das { background: var(--das); color: #fff; } .art-band.art-das::before { content: '▲'; }
+.art-band.art-pl { background: var(--pl, #8a5cc8); color: #fff; } .art-band.art-pl::before { content: '◆'; }
+.art-band.art-der { color: #fff; }
+.tanit-alt { justify-content: space-between; }
+.tanit-alt .devam-btn { flex: 1 1 auto; justify-content: center; min-height: 52px; }
+.tanit-formen { font-size: .92rem; }
+.notlar .itiraz { color: var(--muted); }

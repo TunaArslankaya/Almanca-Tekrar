@@ -548,7 +548,9 @@
     const po = obj ? [obj.de] : [];
     const nur3 = NUR_3.includes(v.base);
     const plur = v.base === 'einigen';
-    const pool = nur3 ? ['er', 'sie', 'sie_pl'] : plur ? ['wir', 'ihr', 'sie_pl', 'Sie'] : Object.keys(PERS);
+    const pool0 = nur3 ? ['er', 'sie', 'sie_pl'] : plur ? ['wir', 'ihr', 'sie_pl', 'Sie'] : Object.keys(PERS);
+    // opts.ozne: izin verilen özneler (v5: dönüşlü zamir alıştırmasında ich / du; sich'ten farklı zamir)
+    const pool = opts && opts.ozne && pool0.some(x => opts.ozne.includes(x)) ? pool0.filter(x => opts.ozne.includes(x)) : pool0;
     const typs = ['praes', 'praes', 'perf', 'perf'];
     const impOk = IMP_OK.includes(v.base) && !nur3;
     if (impOk) typs.push('imp', 'imp');
@@ -665,8 +667,42 @@
   const FUNKTION = /^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines|kein\w*|mein\w*|dein\w*|sein\w*|ihr\w*|unser\w*|eur\w*|Ihr\w*|mich|dich|sich|uns|euch|mir|dir|ihm|ihn|ihnen|Ihnen|am|im|zum|zur|vom|beim|ans|ins)$/;
   const PRAEP = /^(an|auf|in|über|unter|vor|hinter|neben|zwischen|mit|nach|zu|von|bei|aus|seit|für|um|gegen|ohne|durch)$/;
 
+  // v5 §4.3 yazım hoşgörüsü (opts.lemma: tek kelime / kalıp cevabı): ae/oe/ue/ss yazımı tam doğru; umlaut farkı (Mutter/Mütter) 'umlaut';
+  // 'yazım' yalnız lemma ≥ 5 harf ve lev 1 ya da ≥ 10 harf ve lev ≤ 2, fark umlaut değil ve yazılan sözlükte başka bir kelime değilse
+  // (liegen/legen, Stadt/Staat ayrışır). Sözlük: opts.lex ya da lexSetzen() ile verilen küçük harfli küme (lemmalar + çoğullar + fiil biçimleri).
+  let LEX = null;
+  const lexSetzen = s => { LEX = s; };
+  const acik = s => s.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ß/g, 'ss');
+  const umlFold = s => s.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+  function yazimTok(x, t, lex) {
+    const a = x.toLowerCase(), b = t.toLowerCase();
+    if (a === b || umlFold(a) === umlFold(b)) return false;
+    if (lex && lex.has(a)) return false;
+    const d = lev(a, b);
+    return (b.length >= 5 && d === 1) || (b.length >= 10 && d <= 2);
+  }
+  function pruefenLemma(input, ziel, alts, opts) {
+    const cands = [ziel].concat(alts || []), u = norm(input), lex = opts.lex || LEX;
+    const sonuc = (urteil, tip, c, tags) => ({ urteil, tip, ziel: c, tags, diff: diff(toks(u), toks(norm(c))) });
+    for (const c of cands) { const n = norm(c); if (u === n || firstLow(u) === firstLow(n) || acik(u) === acik(n) || firstLow(acik(u)) === firstLow(acik(n))) return sonuc('richtig', 'dogru', c, []); }
+    for (const c of cands) { const n = norm(c); if (acik(u).toLowerCase() === acik(n).toLowerCase()) return sonuc('fast', 'yazim', c, ['groß/klein']); }
+    for (const c of cands) { const n = norm(c); if (umlFold(acik(u)) === umlFold(acik(n)) || umlFold(u) === umlFold(n)) return sonuc('fast', 'umlaut', c, ['umlaut']); }
+    for (const c of cands) {
+      const ut = toks(u), zt = toks(norm(c));
+      if (ut.length !== zt.length) continue;
+      const fark = zt.map((t, i) => [ut[i], t]).filter(([x, t]) => x.toLowerCase() !== t.toLowerCase());
+      if (fark.length === 1 && yazimTok(fark[0][0], fark[0][1], lex)) return sonuc('fast', 'yazim', c, ['yazım']);
+    }
+    const r = pruefen(input, ziel, alts);
+    r.urteil = 'falsch'; r.tip = 'yanlis';
+    r.tags = r.tags.filter(x => x !== 'yazım' && x !== 'umlaut/ß' && x !== 'groß/klein');
+    if (!r.tags.length) r.tags.push('farklı');
+    return r;
+  }
+
   // Kategorisiert Fehler für Log & Analyse
-  function pruefen(input, ziel, alts) {
+  function pruefen(input, ziel, alts, opts) {
+    if (opts && opts.lemma) return pruefenLemma(input, ziel, alts, opts);
     const cands = [ziel].concat(alts || []);
     const u = norm(input);
     for (const c of cands) {
@@ -717,7 +753,7 @@
 
   const api = {
     PERS, NAMEN, MODAL, IRR, praesens, praesensForms, praeteritumForms, regular, stemOf,
-    np, pluralForm, umlaut, withPrep, woWort, bauen, uebung, luecke, pruefen, norm, diff, toks,
+    np, pluralForm, umlaut, withPrep, woWort, bauen, uebung, luecke, pruefen, lexSetzen, norm, diff, toks,
     objMuster, KASUS_TR, POSS_TR, PREP_CASE, rahmenAufloesen, ndekAufgabe, reflAufgabe, imperativDu, NUR_3, REFL_AUS,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

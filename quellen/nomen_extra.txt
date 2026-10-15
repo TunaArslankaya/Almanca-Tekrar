@@ -100,3 +100,4 @@ die Forscherin, -nen | 3 | araştırmacı (kadın)
 die Beerdigung, -en | 3 | cenaze töreni
 der Moderator, -en | 3 | sunucu (TV / radyo)
 die Motivation | 3 | motivasyon
+der Staat, -en | 2 | devlet

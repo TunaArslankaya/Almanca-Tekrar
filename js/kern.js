@@ -59,18 +59,18 @@
     const f = FSRS.review(eski || {}, g, t, ret, { c: g >= 2 ? (c || 0) : 0, uzun: true });
     const n = Object.assign({}, h || {}, { S: f.S, D: f.D, last: t, reps: f.reps, lapses: f.lapses, lastG: g });
     const pk0 = (h && h.pk) || 0;
+    n.pk = pk0;
+    if (opts.pkSay && g >= 3 && n.pkGun !== gun4(t)) { n.pk = pk0 + 1; n.pkGun = gun4(t); }
     let due;
     if (g === 1) due = ertesiGun4(t);
     else {
       let gun = FSRS.intervalDays(n.S, ret);
-      // kapı bu cevaptan önceki pk ile (simülasyondaki kademe): erken üretim kanıtı olmadan uzun aralık yok
-      if (pk0 === 0) gun = Math.min(gun, 7); else if (pk0 === 1) gun = Math.min(gun, 14);
+      // kapı bu cevaptan sonraki pk ile: bu cevap üretim kanıtıysa (pk 0 → 1) aralık ≤ 14 g; kanıtsız ≤ 7 g
+      if (n.pk === 0) gun = Math.min(gun, 7); else if (n.pk === 1) gun = Math.min(gun, 14);
       due = t + gun * DAY;
     }
     if (opts.yeniGun) due = Math.min(due, ertesiGun4(t));
     n.due = Math.max(due, t);
-    n.pk = pk0;
-    if (opts.pkSay && g >= 3 && n.pkGun !== gun4(t)) { n.pk = pk0 + 1; n.pkGun = gun4(t); }
     return n;
   }
 
@@ -179,7 +179,7 @@
     if (b === 4 && !C.lueckeVar(id)) b = 3;
     if (bag.klavyesiz) b = 1;
     b = Math.max(1, b);
-    if (it.a1 && !bag.kurtarma) b = Math.max(2, b);   // A1: anlam sorulmaz (kurtarmada 'sec' serbest, artikeli sınar)
+    if (it.a1 && !bag.kurtarma && !bag.klavyesiz) b = Math.max(2, b);   // A1: anlam sorulmaz (kurtarmada ve klavyesiz turda 'sec' serbest, artikeli sınar)
     return { b, yenidenTanit };
   }
   // §3 biçim tablosu; son: son sorulan biçimler (aynı biçim en çok 2 kez üst üste) → { bicim, uretec } ya da null
@@ -225,7 +225,8 @@
     });
     return out;
   }
-  const bugunYeni = (S, t) => Object.values(S.items || {}).filter(it => it.yeni4 === gun4(t)).length;
+  // bugün kotadan açılan yeni öğe: tanıtılan yeni ve yarım öğeler (yarım ayrıca günde en çok 3; yoklamayı geçenler sayılmaz)
+  const bugunYeni = (S, t) => Object.values(S.items || {}).filter(it => it.yeni4 === gun4(t) || it.yarimGun === gun4(t)).length;
   // 3+ gün aradan sonra bugün henüz cevap yoksa: dönüş turu (o turda yeni yok)
   function donusMu(S, t) {
     const g = gun4(t), tage = S.tage || {};
@@ -243,7 +244,7 @@
     const taban = ((S.ayar4 || {}).yeniGunluk) || 6;
     let q = birikme > 2 * kap ? 2 : genc > 1.6 * kap ? 2 : genc > 1.1 * kap ? 4 : taban, sebep = q === taban ? 'normal' : birikme > 2 * kap ? 'birikme' : 'genç';
     if (durum.bonus && genc < 2 * kap) q += Math.min(4, 2 * durum.bonus);
-    if (S.goc4 && S.goc4.zaman && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
+    if (S.goc4 && S.goc4.zaman && !S.goc4.bos && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
     q = Math.max(2, q);
     let qUnite = q;
     const uh = durum.uniteKalan;
@@ -325,16 +326,17 @@
       return bc ? { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: bs.yenidenTanit, R: R(it.m, t) } : null;
     };
     // 1) oturum kuyruğu: yanlış (yeniden sorma), mini, ikinci; ilk gelen ilk çıkar
-    const kq = (o.kuyruk || []).find(k => k.at <= adim && (!o.filtre || o.filtre(k.id)));
-    if (kq) {
+    const kuyrukSec = kq => {
       const it = S.items[kq.id] || {}, bc = kq.bicim ? { bicim: kq.bicim, uretec: null } : bicimSec(it, kq.b || 1, { id: kq.id, t }, rnd, []);
       return { tur: 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq };
-    }
+    };
+    const kq = (o.kuyruk || []).filter(k => k.at <= adim && (!o.filtre || o.filtre(k.id))).sort((a, b) => a.at - b.at)[0];   // en erken sırası gelen
+    if (kq) return kuyrukSec(kq);
     const kt = kota(durum, t);
     const partiAc = () => {
       const n = Math.min(kt.kalan, boy >= 25 ? 5 : 3);
       if (n <= 0) return null;
-      const p = yeniParti(S, t, n, { filtre: o.filtre, yoklamaHak: Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
+      const p = yeniParti(S, t, n, { filtre: o.filtre, yoklamaHak: o.klavyesiz ? 0 : Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
       return p.ids.length ? { tur: 'parti', kaynak: 'parti', ids: p.ids, yoklama: p.yoklama } : null;
     };
     // 2) yeni parti: turda bir kez, 3 ≤ adım ≤ boy − 7
@@ -344,7 +346,7 @@
     // 3) metin etkinliği: turda bir, günde en çok 3; 8 ≤ adım ≤ boy − 3; boşluklar m.S ≥ 1,5 ve (vadeli ya da R < 0,9)
     if (!o.metin && !o.klavyesiz && adim >= 8 && adim <= boy - 3 && (gs.metin || 0) < 3) {
       const ad = Object.keys(S.items).filter(id => { const h = S.items[id].m; return h && h.S >= 1.5 && (h.due <= t || R(h, t) < 0.9) && !yakin(id) && C.kind(id) !== 'p' && (!o.filtre || o.filtre(id)); })
-        .sort((a, b) => R(S.items[b].m, t) - R(S.items[a].m, t));
+        .sort((a, b) => (S.items[b].m.due <= t) - (S.items[a].m.due <= t) || R(S.items[b].m, t) - R(S.items[a].m, t));   // vadeliler önce
       if (ad.length >= 2) return { tur: 'metin', kaynak: 'metin', adaylar: ad.slice(0, 8), diktat: !gs.diktat };
     }
     // 4) kurtarma: turda bir, adım ≥ 6; R < 0,6 ya da 3 gündür bekleyen vadeli öğelerden R'si en düşük, B1
@@ -370,7 +372,7 @@
         return { tur: 'art', kaynak: 'vadeli', id: a.id, b: 0, bicim: 'artikel', R: a.R };
       }
       if (v.tur === 'kok') {
-        if (kokSay >= 1 || (gs.kok || 0) >= 4) continue;
+        if (o.klavyesiz || kokSay >= 1 || (gs.kok || 0) >= 4) continue;
         const k = S.kok[v.base];
         return { tur: 'kok', kaynak: 'vadeli', id: v.id, base: v.base, b: 0, bicim: k.S < 7 ? 'kokSatz' : 'kok', R: v.R };
       }
@@ -385,12 +387,21 @@
       return { tur: 'm', kaynak: 'vadeli', id: ilkAday.id, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, R: ilkAday.R };
     }
     // 6b) yeni kök: günde en çok 2 (düzensiz fiil, formları görülmüş, m.S ≥ 2)
-    if (kokSay < 1 && (gs.kok || 0) < 4 && (gs.kokYeni || 0) < 2) {
-      const yk = Object.entries(S.kok || {}).find(([, k]) => !k.S && k.ornek && S.items[k.ornek] && S.items[k.ornek].m && S.items[k.ornek].m.S >= 2 && !yakin(k.ornek) && (!o.filtre || o.filtre(k.ornek)));
+    if (!o.klavyesiz && kokSay < 1 && (gs.kok || 0) < 4 && (gs.kokYeni || 0) < 2) {
+      const tanir = it => !!it && !(it.tanit && gun4(it.tanit) === gun4(t)) && (!!it.a1 || !!(it.m && it.m.S >= 2));
+      const yk = Object.entries(S.kok || {}).find(([, k]) => !k.S && k.ornek && tanir(S.items[k.ornek]) && !yakin(k.ornek) && (!o.filtre || o.filtre(k.ornek)));
       if (yk) return { tur: 'kok', kaynak: 'yeniKok', id: yk[1].ornek, base: yk[0], b: 0, bicim: 'kokSatz', R: 0 };
     }
-    // 7) vadeli yoksa: kota varsa parti; yoksa tur biter (+3 yeni teklifi günde bir)
-    if (!o.parti) { const p = partiAc(); if (p) return p; }
+    // 7) vadeli yoksa: kota varsa parti (kota kalmışsa turun ikinci partisi de olabilir); kuyrukta bekleyen soru varsa
+    //    sırasını beklemeden (son 2 sorudaki öğe hariç); yoksa tur biter (+3 yeni teklifi günde bir)
+    //    (önceki partinin mini / ikinci soruları bitmeden yeni parti açılmaz: ikinci hatırlama tanıtımdan ≤ 6 soru sonra kalsın)
+    //    Malzeme yokken (yalnız bekleyen kuyruk) son sorulan öğe dışındaki en erken kuyruk sorusu sırasını beklemeden gelir.
+    const son1 = gecmis.length ? gecmis[gecmis.length - 1].id : null;
+    const bekleyen = (o.kuyruk || []).filter(k => !o.filtre || o.filtre(k.id));
+    if (!bekleyen.some(k => k.neden === 'ikinci' || k.neden === 'mini')) { const p = partiAc(); if (p) return p; }
+    const bek = bekleyen.filter(k => k.id !== son1).sort((a, b) => a.at - b.at)[0];
+    if (bek) return kuyrukSec(bek);
+    { const p = partiAc(); if (p) return p; }
     return { tur: 'bitti', kaynak: 'bitti', teklif: gs.ekYeniTeklif ? null : '+3' };
   }
   // cevaptan sonra oturumu ilerlet: adım, geçmiş, art arda yanlış, yeniden sorma kuyruğu (§4.4)

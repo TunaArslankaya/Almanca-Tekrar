@@ -90,6 +90,48 @@ eq(G.imperativDu(IV('kümmern', 'kümmert')), 'kümmere', 'kümmere dich');
 eq(G.imperativDu(IV('ziehen', 'zieht', { pre: 'an' })), 'zieh', 'zieh dich an');
 eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
 
+// v5 §4.3 yazım hoşgörüsü (G.pruefen(…, {lemma:true})): sözlük gerçek veriden (lemmalar + çoğullar + fiil biçimleri)
+{
+  const fs = require('fs');
+  global.window = global.window || {};
+  ['verben', 'nomen', 'woerter'].forEach(f => eval(fs.readFileSync(__dirname + '/../daten/' + f + '.js', 'utf8')));
+  const LEX = new Set();
+  const ekle = x => { if (x) String(x).split(/[ /]+/).forEach(w => w.length > 1 && LEX.add(w.toLowerCase())); };
+  window.NOMEN.liste.forEach(n => { ekle(n.lemma); ekle(n.plf); });
+  window.VERBEN.forEach(v => { ekle(v.inf); ekle(v.p2); ekle((v.pt3 || '').split('/')[0]); try { G.praesensForms(v).forEach(ekle); } catch (e) { /* yok */ } });
+  (window.WOERTER || []).forEach(w => ekle(w.de));
+  G.lexSetzen(LEX);
+  const L = (inp, ziel) => G.pruefen(inp, ziel, [], { lemma: true });
+  // anlam değiştiren çiftler yazım hatası SAYILMAZ (sözlükte başka kelime ya da umlaut farkı)
+  [['liegen', 'legen'], ['legen', 'liegen'], ['setzen', 'sitzen'], ['sitzen', 'setzen'], ['bitten', 'bieten'], ['bieten', 'bitten'],
+    ['Stadt', 'Staat'], ['Staat', 'Stadt'], ['schon', 'schön'], ['schön', 'schon'], ['zahlen', 'zählen'], ['zählen', 'zahlen'], ['drucken', 'drücken'], ['drücken', 'drucken']]
+    .forEach(([a, b]) => { const r = L(a, b); eq(r.tip !== 'yazim' && r.tip !== 'dogru', true, `${a} ≠ ${b} (yazım sayılmaz: ${r.tip})`); });
+  eq(L('liegen', 'legen').tip, 'yanlis', 'liegen/legen yanlış');
+  eq(L('Staat', 'Stadt').tip, 'yanlis', 'Staat/Stadt yanlış');
+  eq(L('schön', 'schon').tip, 'umlaut', 'schon/schön umlaut');
+  // umlaut: Mutter/Mütter → fast (m2)
+  const mu = L('Mutter', 'Mütter'); eq(mu.tip + ' ' + mu.urteil, 'umlaut fast', 'Mutter/Mütter umlaut fast');
+  eq(L('Mütter', 'Mutter').tip, 'umlaut', 'Mütter/Mutter umlaut');
+  // ae/oe/ue/ss tam doğru
+  eq(L('Strasse', 'Straße').urteil, 'richtig', 'ss = ß');
+  eq(L('Gemuese', 'Gemüse').urteil, 'richtig', 'ue = ü');
+  eq(L('hoeren', 'hören').urteil, 'richtig', 'oe = ö');
+  eq(L('Aerztin', 'Ärztin').urteil, 'richtig', 'Ae = Ä');
+  eq(L('Fuehrerschein', 'Führerschein').urteil, 'richtig', 'ue bileşik');
+  // uzunluk kuralı: ≥ 5 harf + lev 1, ≥ 10 harf + lev ≤ 2 → yazım; kısa kelimede yanlış
+  eq(L('Banhof', 'Bahnhof').tip, 'yazim', 'Bahnhof lev 1 yazım');
+  eq(L('Tiscch', 'Tisch').tip, 'yazim', 'Tisch (5) lev 1 yazım');
+  eq(L('Krankenhuas', 'Krankenhaus').tip, 'yazim', 'Krankenhaus (11) lev 2 yazım');
+  eq(L('Krnkenhuas', 'Krankenhaus').tip, 'yanlis', 'lev 3 yanlış');
+  eq(L('Hous', 'Haus').tip, 'yanlis', 'Haus (4) lev 1 yanlış');
+  eq(L('Fahrkate', 'Fahrkarte').tip, 'yazim', 'Fahrkarte lev 1 yazım');
+  eq(L('Fahrkrate', 'Fahrkarte').tip, 'yanlis', 'Fahrkarte (9) lev 2 yanlış');
+  eq(L('Bahnhof', 'Bahnhof').urteil, 'richtig', 'tam doğru');
+  eq(L('bahnhof', 'Bahnhof').urteil, 'richtig', 'baş harf küçük');
+  eq(L('warten auf', 'warten auf').urteil, 'richtig', 'kalıp');
+  eq(L('wartn auf', 'warten auf').tip, 'yazim', 'kalıpta tek yazım');
+}
+
 // FSRS
 let c = FSRS.review({}, 3, 0);
 eq(Math.round(c.S * 100) / 100, 2.31, 'S0 good');

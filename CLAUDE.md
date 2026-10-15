@@ -14,7 +14,7 @@
 5. Ana menü "Çalış": karışık sorular (cümle, kelime, yardımsız anlam).
 6. Anlam soruları yardımsız: sadece fiil + edat.
 7. Cümlede fiil önce verilir, ipuçları çalıştıkça azalır.
-8. Not verince (1 yanlış / 2 küçük hata / 3 doğru) direkt sonraki soru, ekstra tuş yok.
+8. Notu sistem verir (öz-değerlendirme yok); doğruda kendiliğinden geçer, yanlışta Devam. Soru başına tek itiraz: "yazım hatasıydı" / "aslında doğru" (ilk karar log'da `öneri:`).
 9. Bilmediği kelimeler ayrı başlıkta (Zayıflar), doğru cümlelerde boşluk doldurarak tekrar.
 10. Kelimeler Goethe-Zertifikat B1 Wortliste'den.
 11. Cümle bol olsun, sürekli yenisi eklensin.
@@ -30,9 +30,9 @@
   Kabuk (`js/app.js` "Uygulama kabuğu"): Bugün ekranı (`renderAna`), tur (`session.tur`, `turBaslat`, `turSonuRender`, varsayılan 12 cevap, `S.einst.tur`),
   seri (`seriSay`, `seriBakim`: dondurucu `S.seri.frz` her 7 günde +1, en çok 2; dün kaçtıysa bugün 2 turla onarım), puan (`xpEkle`, `S.xpToplam`, `tage[gün].xp`;
   emeğe göre: tanıma 5, yazma 10, cümle/çekim 15, liste kalemi 2, okuma 25, yazma 50; ara verip dönünce ilk tur ×2), efektler (`ton`, `titret`, `konfeti`, kombo),
-  günlük hedef uyarlanır (`gunHedef`: son 7 gün medyanı × 1,1 → 3–4 tur; Ayarlar'da sayı girilirse `hedefSabit`), günü kurtarma = `MIN_TAG` (10) cevap.
-  Görünüm adresi `#/liste` (öğe kimliğiyle çakışmasın). Testte başlatma: `window.__tekrar.starte(mod, boyu)`.
-  Kayıt / inceleme: `node tools/film.js <klasör> mobil|masaustu <adım> <doğruluk> <gün>` her adımın ekran görüntüsünü ve durumunu kaydeder (kullanıcı simülasyonu için).
+  günlük hedef = `S.ayar4.turHedef` (varsayılan 3) × tur boyu (`gunHedef`; Ayarlar'da 2–5 tur), günü kurtarma = `MIN_TAG` (10) cevap.
+  Görünüm adresi `#/liste` (öğe kimliğiyle çakışmasın). Testte başlatma: `window.__tekrar.starte(mod, boyu)`; `__tekrar.Kern`, `__tekrar.saat(ms)` (zaman kaydırma), `__tekrar.ot` (oturum).
+  Kayıt / inceleme: `node tools/film.js <klasör> mobil|masaustu <adım> <doğruluk> <gün>` her adımın ekran görüntüsünü ve durumunu kaydeder (adımlar `tests/surucu.js` ortak sürücüsüyle).
 - Elle düzenlenen kaynaklar: `quellen/verben.txt` (**yeni fiil hep sona**: kimlik satır sırasından; Goethe'de yoksa 5. alanda çekim), `quellen/nomen.txt`, `quellen/nomen_extra.txt` (yeni isim sona), `quellen/rahmen.txt`,
   `quellen/woerter.txt` (sıfat/zarf/bağlaç…, **yalnız sona ekle**: kimlik satır sırasından), `quellen/pakete.txt` (konulu paketler, yeni paket sona),
   `quellen/wort_saetze.txt` (isim / diğer kelime çeviri cümleleri: `öğe | kelime | Almanca | Türkçe`),
@@ -44,11 +44,15 @@
 - Elle: `daten/feedback.js` (Claude'un düzeltmeleri, Geçmiş sekmesinde görünür), `daten/kancalar.js` (takılan kelimelere hafıza kancası).
 - Gece işi (`.github/workflows/gece.yml`, GitHub Actions, Claude Code aboneliğiyle: secret `CLAUDE_CODE_OAUTH_TOKEN`): her gece 04:17 Berlin `tools/istem_gece.md` ile "sonuçlarıma bak" sürecini kendisi yapar, DW/Klexikon metinlerini çeker, build eder, commit'ler. Uygulamadaki "Claude'a gönder" `gorev=geribildirim` ile tetikler (`tools/istem_geribildirim.md`). Düzeltmeler `daten/feedback.js` → `node tools/feedback_json.js` → `log/feedback.json` (uygulama açılışta çeker, Geçmiş'te gösterir). Gece işi `js/`, `css/`, `index.html`, `tools/` dosyalarına dokunmaz.
 - `log/log.csv` (uygulama yazar, `;` ayırıcı, UTF-8 BOM): `zeit;modus;id;item;frage;antwort;ergebnis;loesung;notiz`
-  - Yazarak: `abr` (TR→DE fiil), `frm` (çekim), `satz` (cümle kur), `luecke` (Goethe boşluk), `wort` (isim TR→DE, artikelli), `prod` (diğer kelime TR→DE), `ndek` (n-Deklination), `refl` (dönüşlü zamir), `yeni` (derin tanıtım)
-  - Seçmeli (Hızlı tur): `erk` (isim/diğer DE→TR), `bed` (fiil DE→TR; sadece fiil + edat gösterilir), `art` (der/die/das), `pretest` (yeni kelime ön testi: ergebnis `bekannt` = biliyordu, `neu` = tanıtıldı)
-  - Fiil çekimi: `stamm` (bütün fiiller; cevap "er-Präsens, Präteritum, Perfekt": fährt, fuhr, ist gefahren; modal fiillerde Perfekt yok: kann, konnte)
-  - Cümle aşamaları (`satz`, `nsatz`): ipucu seviyesi 0 → ipuçlu boşluk, 1 → boşluk, 2+ → tam cümle çevirisi
-    Cümle havuzu (`satzPool` / `satzWahl`): kendi çeviri cümleleri + Goethe örnekleri + okuma metinlerinden gerçek cümleler; son görülenler (`S.kontext`) tekrar seçilmez, en eskisi döner. Az cümlesi olan öğeye `saetze.txt` / `wort_saetze.txt`'e cümle ekle.
+  - v5 (öğe başına tek hafıza; `basamak:` içeren satır v5 anlamındadır). Biçim → modus / id (`öğe:tür`):
+    `sec` / `anla` / `metinde` (B1 seçmeli) → `erk` (isim / diğer) · `bed` (fiil); `yaz0` / `yaz` / `yoklama` (B2 yazma) → `wort` (isim, artikelli) · `abr` (fiil + edat + hâl) · `prod` (diğer);
+    `bos0` / `bos` / `cumle` (B3 cümlede boşluk, B4 tam cümle) → `nsatz` · `satz` (n-Dekl. `ndek`, dönüşlü zamir `refl`, Goethe boşluğu modus `luecke` id `:satz`);
+    `metin` (tur / paket metninde boşluk) → modus `luecke`, id `:nsatz` / `:satz` (`kaynak:<metin>`); `artikel` (der/die/das flaşı) → `art`; kök → `stamm` (id `fiil:stamm`, notiz `kök:fahren`; yeni kökte cümlede Partizip, sonra er-Präsens + Perfekt, Präteritum yalnız sık fiillerde).
+  - Zorunlu notiz başı (bu sırayla): `basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.84 | S:19.7` (m anlam, a artikel, k kök; R sorudan önce, S sonra; `not:-` = hafızaya yazılmadı).
+    İsteğe bağlı: `tekrar:1` (yanlıştan sonra aynı turda yeniden) / `ikinci` (yeni kelimenin ikinci hatırlaması) / `parti` (tanıtımdan sonraki mini soru), `hafıza:yazılmadı` (günde tek kalıcı yazım:
+    aynı gün ikinci cevap yalnız log'a), `yoklama`, `kurtarma`, `ısınma`, `kısmi` (yazım / yavaş: not 3 ama büyüme az), `kapı:7g` / `kapı:14g` (erken üretim kapısı), `kaynak:`; ardından hata etiketleri, `sek:`, `ipucu:` (gerçek seviye), `öneri:` (itirazda sistemin ilk kararı), `sayılmadı`, `yavaş`, `bilmiyorum`.
+  - ergebnis sistemin son kararı: `richtig` / `fast` / `falsch`. Yalnız artikel hatası (kelime doğru) her zaman `fast` + `artikel der → die` ya da `artikel eksik`. Yazım hatası `fast` + `yazım`, umlaut `fast` + `umlaut`, fiilde hâl `fast` + `hâl`, edat / sich `falsch` + `edat` / `dönüşlü`.
+  - Yeni kelime: `yeni` (ergebnis `neu` = tanıtım kartı, notiz `bicim:tanit | parti`; `bekannt` = yoklamada bildi). `kontrol` ve `pretest` satırları artık üretilmez (eski satırlar geçmişte kalır).
   - Serbest yazma: `text` (id `a07` = `quellen/aufgaben.txt` görevi; antwort = metin, paragraflar ` ¶ `; notiz: kelime sayısı, zorunlu kelimeler)
   - Kalıplar: `quellen/kaliplar.txt` (fiil | Almanca | Türkçe; "Kalıplar" bölümü, "yazmaya ekle" ile yazma ekranına), `quellen/redemittel.txt` (yazma türü / konu kalıpları)
   - Okuma: `lesen` (Klexikon / DW metni okundu: ergebnis `gelesen`; Goethe Übungssatz görevi `quellen/goethe_lesen.json`: id `ge2:7` = ge2'nin 7. sorusu, antwort seçtiği, loesung doğrusu, görev sonu id `ge2` notiz `puan:2/3`. Metinler: `tools/klexikon.py`, `tools/dw_topthema.py` — okuma metnini ve sorularını Claude yazmaz), `lesen-wort` (metinde anlamına baktığı kelime: bilmediği kelimeler!)
@@ -57,47 +61,27 @@
   Yeni ünite: Tuna listeyi verince `quellen/uniteN.txt` (biçim dosyanın başında; `@bis YYYY-MM-DD` = o gün bitince kendiliğinden kapanır), 6–8 boşluklu metin, 2 yazma görevi; `tools/build.py`'de `unite_lesen(N)` ekle.
   Metindeki boşluk çekimli olabilir (Knödeln, creme, gewundert): kelimeye kendiliğinden bağlanır (`uKand`); görmediği kelime boşluk olmaz. Goethe listesinde olmayan isimler `nomen_extra.txt`'e, sıfat/zarf/kalıp `woerter.txt` sonuna (her ünite kelimesinin ana listede karşılığı olsun).
   Aktif ünitenin kelimeleri Çalış'ta yeni öğe olarak önce gelir, metinleri boşluklu metin havuzuna girer. Ünite bitince `@geschlossen` ekle: açılışta ünitede çalışılmış (basamağa girmiş) kelimeler tekrar sistemine alınır, çalışılmayanlar alınmaz, bölüm gizlenir. Ünite 1 kapandı (15 kelime aktarıldı). Ünite 2 (fit und gesund bleiben, 112 kelime, 8 metin) açık: `@bis 2026-10-26`.
-  - Paket: `paket` (id `p01:3` = 1. paketin 4. boşluğu; paket sonu `p01:pak`, notiz `puan:%`, `önce okudu`)
+  - Paket: `paket` (id `p01:3` = 1. paketin 4. boşluğu, notiz başında hafıza alanları; paket sonu `p01:pak`, notiz `puan:%`, `önce okudu`; paket hafızası `S.pakete[pid].m`)
   - Gramer: `gram` (id `g:<konu>:<sıra>` alıştırma, item `konu/teil`, notiz `tür:luecke | z:2 | <hata etiketi> | ghost:N | ipucu:1 | öneri:X | sek:N`; `g:<konu>` tanıtım `neu` / okudu `gelesen` / set sonu `giriş`|`tekrar`|`kontrast` → ergebnis set notu, notiz `puan:x/y | teil:…`). İçerik `quellen/grammatik/<konu>.txt` (biçim ve tekrar kuralları: `quellen/grammatik/FORMAT.md`; **yeni alıştırma hep sona**: kimlik satır sırasından), build → `daten/grammatik.js`, motor `js/gramer.js` (konu başına tek FSRS kartı `S.gram.konu[id].karte`, teil istatistiği, hayalet `S.gram.ghost`). Takılan teil: `leech` satırı id `g:<konu>:<teil>` → o teil'e 3–5 yeni alıştırma yaz.
   - Prüfung: `pruefung` (madde id `pr:<set>:lesen:<teil>:<nr>` ergebnis richtig/falsch notiz `mod:tam|mini`; modül özeti `pr:<set>:lesen` ergebnis `bestanden`/`nicht-bestanden` notiz `puan:73 | roh:22/30 | t1:5/6 … | dk:58/65`; Sprechen `pr:<set>:sprechen:<teil>` ergebnis `selbst` notiz `liste:5/7 | kart:sp1-03`). Schreiben sınavı `text` satırı id `pr:<set>:schreiben:<teil>` (item görev kimliği, notiz `pruefung | kelime:83 | dk:19/20 | maddeler:3/3`) → "sonuçlarıma bak"ta B1 ölçütüyle (Erfüllung, Kohärenz, Wortschatz, Strukturen) puanla. Motor `js/pruefung.js`; Lesen seti `quellen/goethe_lesen.json` (okuma havuzunda değil). Durum `S.pruefung` (sonuçlar, sınav tarihi).
   - Konuşma: `sprechen` (id `shadow:<öğe>` / `teil2:<konu>` / `teil1:<görev>` / `teil3:<konu>`, ergebnis `gemacht`, antwort `kayıt:Nsn`; kayıt tarayıcıda kalır). Redemittel: `quellen/redemittel.txt` türleri `sprechen1/2/3`.
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
-  - Tur sonu: `tur` (id = bölüm, ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4`): oturum uzunluğu ve sıklığı buradan okunur.
-  - ergebnis: `richtig`, `fast`, `falsch`, `neu`, `bekannt`
-  - notiz: hata etiketleri, `öneri:X` (sistem önerisi kendi notundan farklıysa), `sek:N`, `ipucu:N`, `sayılmadı` (çok hızlı / boş: hedefe sayılmadı), `çok hızlı`, `yavaş`, `bilmiyorum`
-- `log/zustand.json`: ilerleme yedeği (FSRS kartları). Ana bölüm **`akis` (Çalış)**: tek akış, günlük hedef 80; tanıma + yazma + cümle + yeni öğe (önce aktif ünite, sonra her 4 yeniden biri fiil `einf`, diğerleri ön test) karışık,
-  tür dengesi hızlı (erk/bed/art) 4 : yazma 3 : cümle 3, aynı tür en fazla 2 kez üst üste; turun ilk 3 sorusu ve art arda 2 yanlıştan sonra hatırlanması en olası kolay kart.
-  Birikme yayma (`stauVerteilen`, günde bir, `S.verteiltTag`): vadesi dünden önce geçmiş kartlar günde `stauKap()` (0,8 × günlük hedef, en az 30) ile ileri günlere yayılır
-  (o günün zaten vadeli kartları sayılır; önce gerçek tekrarlar en eski vadeden, en sona hiç sorulmamış ek birimler; öğrenme adımındaki kart yerinde kalır),
-  asıl vade kartta `urspr` (cevaplanınca / kardeş kredisinde silinir, kardeş kredisi asıl vadeye bakar); günün kuyruğu bitince ertelenenler asıl vade
-  sırasıyla öne çekilir (`vorziehen`). Birikme (`rueckstand`: en az bir kez sorulmuş vadeli + yayılmış kartlar) iki günlük kapasiteyi
-  (`stauGrenze` = 2 × günlük hedef, en az 60) aşınca yeni kelime yok (ünite dahil); birikmede tam cümle / çekim kartları bekler, kısa kartlar önce (R'si yüksek olan önce).
-  Yeni kelime sınırı varsayılan 8 kelime + 2 fiil (`neuGrenze`); hedef hatırlama varsayılan %85 (`S.einst.ret`, Ayarlar: Rahat .80 / Dengeli .85 / Sıkı .90).
-  Simülasyon: `node tests/sim_stau.js` (gerçek `log/zustand.json` ile: yayma, ünite kelimesi, öne çekme, ertesi gün).
-  Her 7 gerçek soruda bir (listelerden bağımsız, `session.gercekSoru`) ara etkinlik (log modus `akt`): `luecke` (gerçek metin pasajı, yalnız görülmüş kelimeler boşluk; id `luecke:<metin>`, notiz `puan:x/y`), `match` (eşleştirme, notiz `hata:n`),
-  `diktat` (dinle–yaz; id `diktat:<öğe>`, antwort yazdığı, loesung cümle), `ordnen` (cümle dizme), günde en çok bir paket tekrarı. Fiil metni ve yazma artık tur içinde teklif edilmez: Bugün ekranında "günün işleri" kartı.
-  Ön kontrol / hızlı tekrar (`kontrol`, Çalış): vadesi gelen kelime tekrarları önce 10'luk listede, tek tek kart olarak (az önceki kelimenin cevabı altta, "yanılmışım" ile düzeltilir;
-  liste kalemlerinin ikisi bir cevap sayılır; "biliyorum"ların dörtte biri gerçek soruyla doğrulanır, notiz `doğrulama`) (en eski vade önce; yazma / cümle sorusu varsa Türkçesi gösterilir → Almancası, yoksa Almancası → anlamı + artikeli),
-  her satırda biliyorum / emin değilim / bilmiyorum, seçince cevap açılır. `biliyor`: o kelimenin vadesi gelen kartları kendi notuyla doğru sayılır (kartta `selbst`), hedefe sayılır;
-  `emin-degil`: kartlar hemen normal sorulur (sayım asıl soruda); `bilmiyor`: tanıma kartı unutuldu (oturumda ~12 soru sonra cümle içinde yeniden), vadesi gelmiş öteki kartlar 3 saat sonra,
-  bir hafta anlam sorusu cümle içinde (`satzBis`), cümle kartı açılır, 3 örnek cümle gösterilir. Bekleyen "emin değilim" kartları bitince sıradaki liste.
-  Listeye girmeyen (normal sorulan): bugün tanıtılan kelime, son 3 saatte sorulan kart, çekim / dönüşlü / n-Deklination. Tekrar yokken 20–30 cevapta bir rastgele 8 öğrenilmiş kelime ("gerçekten biliyor musun?").
-  Log: modus `kontrol`, id = öğe, frage `sıradaki tekrar` / `rastgele`, ergebnis `biliyor` / `emin-degil` / `bilmiyor`, loesung anlamı, notiz `kart:n`; özet satırı modus `akt`, id `kontrol`.
-  Odak bölümleri (`MODI`): blitz (Hızlı tur), paket, normal (Karışık), verben, woerter, ndek, refl, thema, stark, lesen, fiilmetin, kalip, yazma, zayif, unite, artoyun, sprechen, gram;
-  her birinin hedefi/yeni sınırı ayrı, günlük sayaçlar `tage[gün].modi[bölüm]` (`bekannt`, `ungezaehlt` dahil). Hızlı tur'da fiil yok.
-- Birimler (`öğe:tür`): isim `erk`, `art`, `wort`, `nsatz` (kelime cümlesi, log modus `nsatz`), `ndek` · fiil `bed`, `abr`, `frm`, `satz`, `refl` · diğer `erk`, `prod` · paket `pak`.
-  Yeni kart öğrenme adımları (yalnız bugün tanıtılan öğede ya da ilk cevap tam doğru değilse): ilk gün 3 hatırlama (tanıtım → birkaç soru → ~10 dk), ertesi gün kesin tekrar;
-  eski öğenin yeni açılan kartı ilk seferde doğruysa doğrudan takvime (kardeş kartı S ≥ 7 ise ~8 gün sonra); günlük yeni sınırları ayrı: `einst.neuWoerter` (25 kelime) ve `einst.neuVerben` (5 fiil); her ~6 soruda bugün öğrenilen bir öğe TR→DE yazdırılır.
-  Seçmeli `erk` yarı yarıya ters yön (TR → DE, artikelli 6 şık, biri doğru ismin yanlış artikeli). `nsatz` yazma kartı oturunca açılır.
-  Fiil tanıtımında (kalıp kutusu) ve fiil sorularının açıklamasında `quellen/kaliplar.txt` kalıpları gösterilir (`kalipZeile`, `kalipKutu`).
-  Aynı öğe (bütün birimleri: artikel, anlam, yazma) en az 12 soru arayla ve günde en çok 4 (bugün öğrenilen) / 1 (eski; bugün yanlış yapıldıysa 2) kez sorulur (`IZ_ABSTAND`, `izOk`, `izCap`, `S.iz`).
-  Her 5 soruda bir "metinde" kartı: vadesi gelen `erk`/`bed` kartı okuma metinlerinden (DW / Klexikon / Goethe) gerçek bir cümlede, kelime vurgulu, anlamı seçmeli (log modus `erk`/`bed`, frage = cümle).
-  1 günden fazla gecikmiş kartlar her iki soruda bir öne alınır; birikmede her 3. seçim en eski vade. Çekim (`stamm`) en az 8 soru arayla, günde en çok 4; yalnız düzensiz fiil ve formları görüldüyse.
-  Genç kartlar (reps ≤ 5): küçük hata ya da unutulmuşsa ilk tekrarlar en çok 2 gün, sonra 4 gün ara.
-  Kardeş kredisi (`kardesKredi`): yazarak doğru (wort → anlam + artikel, prod/nsatz → anlam, abr/satz → fiil anlamı; ters seçmeli → artikel) aynı öğenin kolay kartını sanal doğruyla ileri atar (son cevabı yanlış olan kart hariç).
-  Öğe serisi: bütün kartlarında art arda 4+ doğru → kardeş kartlar 12–21 gün ileri (`seriSeyrek`). A1 (tier 1) kelimelerin anlam kartı (`erk`/`bed`) sorulmaz, artikeli sorulur.
-  Yanlıştan sonra oturumda tek tekrar (başka cümle), ikinci yanlışta ertesi gün. Fiilin cümle / çekim / dönüşlü birimleri ilk başarılı anlamdan sonra 1 / 2 / 3 gün sonra açılır.
-  Hızlı tur'da öğrenilen kelimenin yazma birimi tanıma/artikel kartı S ≥ 3 gün olunca açılır (fiilde hemen).
+  - Tur sonu: `tur` (id = bölüm, ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4 | yeni:2 | seviye+:3 | tekrar:9`): oturum uzunluğu ve sıklığı buradan okunur.
+  - Metin etkinliği özeti: `akt` (id `luecke:<metin>` notiz `puan:x/y | boşluk:n`; `diktat:<öğe>`); göç satırı `akt;goc4`.
+- `log/zustand.json`: ilerleme yedeği. v5 hafızası: `items[id].m` (anlam; `pk` = farklı günlerde ipucusuz üretim başarısı, `b` son basamak), isimde `items[id].art`, düzensiz fiilde `S.kok[base]`,
+  paket `S.pakete[pid].m`; eski `karten` dondurulmuş + 30 gün gölge yazım (`Kern.golge`: hafıza güncellemesi sorulan biçimin eski kartına da, `g4 === last`).
+  Ana bölüm **`akis` (Çalış)**: 12 cevaplık tur, seçim `Kern.sec` (`sec()` sarmalayıcısı): 1) oturum kuyruğu (yanlış → 3–5 soru sonra bir alt basamaktan başka cümleyle, 3. deneme tur sonunda seçmeli;
+  yeni kelimenin mini sorusu ve ≥ 4 soru sonra ikinci hatırlaması `yaz0`, yazılmaz) 2) yeni parti (turda bir, adım 3 – boy−7; tanıtım kartları art arda, `frageTanit`; tier-1 / uluslararası adaylara yoklama `frageYoklama`)
+  3) metin etkinliği (turda bir, adım ≥ 8; gerçek paragrafta 2–4 boşluk, her boşluk bir cevap; günde bir dikte) 4) kurtarma (adım ≥ 6, R'si en düşük) 5) ısınma (ilk 3) / momentum: R'si en yüksek, bir basamak aşağı
+  6) vadeliler R azalan (aynı öğe ≥ 8 soru arayla; artikel flaşı turda ≤ 3; kök turda 1, günde 4, yeni kök günde 2) 7) vadeli yoksa parti, yoksa "şimdilik bu kadar" + günde bir "+3 yeni".
+  Merdiven (`Kern.basamak`): S < 2 seç, < 7 yaz, < 21 cümlede boşluk, üstü tam cümle; erken üretim kapısı pk 0 → ≤ B2 ve aralık ≤ 7 g, pk 1 → ≤ B3 ve ≤ 14 g; tier-3 isim / diğer (ünite dışı) ≤ B3; A1 anlam sorulmaz.
+  Not (`Kern.notVer`): doğru 3 (biçim ofseti: seçmeli büyüme az), yazım / mastar eki / yavaş 3 (+0,7), umlaut / hâl / çekim 2, edat / sich / yanlış 1; isimde anlam ve artikel ayrı (kelime ✓ artikel ✗ = m3 a1).
+  Yazım hoşgörüsü (`G.pruefen(…, {lemma:true})`): ae/oe/ue/ss tam doğru; lemma ≥ 5 harf + lev 1, ≥ 10 harf + lev ≤ 2 ve yazılan sözlükte başka kelime değilse (liegen/legen, Stadt/Staat ayrışır).
+  Günde tek kalıcı yazım (öğrenme günü 04:00'te başlar). Yeni kota (`Kern.kota`): günde 6 (Ayarlar 4/6/8); birikme ya da çok genç kelime varken 2–4, göçten sonraki ilk 3 gün 2, hedeften sonraki bonus turda +2;
+  yarım öğeler (tanıtıldı, sınanmadı; listeden / okumadan / paketten "öğrenmeye ekle") yeni sıranın başında, günde en çok 3.
+  Yan bölümler (paket boşluğu, fiil metni kökü, Artikel 60 sn) hafızaya yalnız vadeliyse ya da R < 0,9 ise ve günün ilk cevabıysa yazar.
+  Odak bölümleri (`MODI`, `FILTER` öğe yüklemleri) aynı `Kern.sec`'i filtreyle kullanır; Hızlı tur / `?tur=kisa` klavyesiz (yalnız seçmeli, metin yok). Günlük sayaçlar `tageC[gün][cihaz]` → `tage[gün].modi[bölüm]`.
+  Simülasyon: `node tests/sim_akis.js` (gerçek kopya, 14 gün, K=36; `tests/sim_stau.js` sarmalayıcı). Çekirdek testleri: `node tests/test_kern.js`, `node tests/test_goc.js`.
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde
@@ -110,22 +94,22 @@
 3. Tekrarlayan hata etiketlerini say (dönüşlü zamir, edat, artikel/çekim, yardımcı fiil, kelime sırası …).
    Gerekirse o hatayı hedefleyen çeviri cümlesi ekle (`quellen/saetze.txt`, doğal Türkçe + doğru Almanca); kalıp üretici
    (`quellen/rahmen.txt`) yalnız çeviri cümlesi ve Goethe boşluğu olmayan fiillerde kullanılır. Yeni kelimeler B1 (seviye 3) önce gelir.
-4. Kendine verdiği notu kontrol et (`öneri:` olan satırlar): fazla cömert ya da sert olduğu yerleri söyle.
+4. Notu sistem verir; `öneri:` olan satırlar Tuna'nın itiraz ettiği yerler (sistemin ilk kararı `öneri:`'de): itiraz haklı mı, fazla cömert mi söyle.
    Baştan savma işaretleri: `sayılmadı`, `dikkat` satırları, çok kısa `sek:`; varsa kısaca ve suçlamadan söyle.
-   `pretest` ile "biliyor" denip sonra yazmada (`wort`/`prod`/`abr`) hep yanlış olan kelimeleri belirt (yanlışlıkla bilinen sayılmış).
+   `yeni;bekannt` (yoklamada bildi) olup sonra yazmada (`wort`/`prod`/`abr`) yanlış olan kelimeleri belirt (yanlışlıkla bilinen sayılmış).
 5. `leech` satırlarındaki her kelimeye `daten/kancalar.js`'e kısa Türkçe hafıza kancası yaz (anahtar: öğe kimliği, log'daki `id`):
    Almanca kelimenin sesine benzeyen Türkçe kelime + anlamla birleşen bir sahne; isimde artikel için kural ya da renk ipucu
    (der mavi, die kırmızı, das yeşil). Tek satır, emin olmadığın Almanca bilgi ekleme.
 5b. `text` satırlarındaki her metni cümle cümle düzelt (kendi cümlesi → doğrusu → kısa açıklama), sonunda B1 Schreiben
    ölçütüne göre kısa değerlendirme (görev maddeleri, bağlaçlar, hitap/kapanış) ve düzeltilmiş tam metin. `daten/feedback.js`'e de ekle.
-5c. Son günlerde öğrendiği kelime ve fiillerden (log'daki `pretest`/`yeni`/`erk` satırları) 10–20 yeni çeviri cümlesi yaz,
+5c. Son günlerde öğrendiği kelime ve fiillerden (log'daki `yeni` / `erk` / `bed` satırları) 10–20 yeni çeviri cümlesi yaz,
    `quellen/saetze.txt`'e (fiil) ya da `quellen/wort_saetze.txt`'e (isim / kelime) ekle: her cümlede bir fiil + en az bir yeni isim ya da kelime; fiil kimliği cümlenin ana fiili.
    Dönüşlü fiil cümleleri `quellen/saetze_refl.txt`'e.
    Her yeni cümle için `quellen/glossen.txt`'e de satır ekle: `Almanca cümle | die Regierung = hükümet; …` (hedef kelime ve A1 kelimeleri hariç;
    tam cümle sorusunda öğrencinin bilmediği kelimeler bu sözlükten gösterilir).
 5d. `lesen-wort` satırlarındaki kelimeler öğrencinin okurken bilmediği kelimeler: yeni cümle ve paketlerde öncelik ver.
-    `kontrol` satırlarında `bilmiyor` olan kelimeler de öyle: her birine 2–3 yeni çeviri cümlesi yaz (Tuna "bilmiyorum"da daha çok cümle istiyor).
-    `biliyor` denip sonra yazmada / cümlede yanlış yapılan kelimeleri söyle (kendi notu cömert olabilir).
+    `bilmiyorum` etiketli `falsch` satırlarındaki ve `kurtarma` satırlarında yanlış olan kelimeler de öyle: her birine 2–3 yeni çeviri cümlesi yaz (Tuna "bilmiyorum"da daha çok cümle istiyor).
+    Yoklamada bilip (`yeni;bekannt`) sonra yazmada / cümlede yanlış yapılan kelimeleri söyle.
    Yeni okuma metni için `quellen/pakete.txt`'e paket + `quellen/lesen.txt`'e 4 richtig/falsch ifadesi ekle.
 6. Paketler bittiyse ya da "yeni paket yaz" denirse `quellen/pakete.txt`'nin sonuna yeni paket ekle: bir sahne (konu değil:
    "postanede", "ev arkadaşıyla" gibi), 10 kelime (Goethe B1 listesinden; zayıf / takılan kelimelere öncelik), ~90–110 kelimelik
@@ -136,7 +120,7 @@
    python3 tools/build.py && node tests/test_grammatik.js && node tools/stichprobe.js 1 && node tools/stichprobe_module.js refl
    ```
    Build hata verirse (yanlış artikel, bulunamayan isim) düzelt. Yeni kalıpların örnek cümlelerini gözle kontrol et.
-   `js/app.js` değiştiyse ve Playwright varsa: `node tests/e2e_smoke.js` (tarayıcıda bir günlük akış + ertesi gün).
+   `js/app.js` değiştiyse ve Playwright varsa: `node tests/e2e_smoke.js` (mobil + masaüstü, boş durum gün 1 + ertesi gün, gerçek durum kopyası) ve `node tests/sim_akis.js`.
 
 ## İçerik eklerken
 

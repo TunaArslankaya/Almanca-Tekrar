@@ -104,7 +104,21 @@ Hedef "yapılmış gibi" görünen ama öğrenme olmayan cevapları ayırmak ve 
 - **Plan şeridi ve gün eşiği:** Hızlı tur → Paket → Karışık sırası ve hedefleri hep görünür; 10 sayılan cevap = gün seriye sayılır.
   Küçük bir eşik, "bugün hiç yapmayayım" yerine "10 soru yapayım"ı kolaylaştırır.
 
-## Birikme yayma (Ekim 2026)
+## v5 (Ekim 2026): tek hafıza, soru merdiveni, sistem notu
+
+Kart başına ayrı takvim (erk / art / wort / nsatz …) aynı kelimeyi günde birkaç kez sordu, "biliyorum" listesi öz-değerlendirmeyi
+cömertleştirdi (anlaşmazlıkların %96'sında kendine daha cömert), birikme yaymayla gizlendi. v5'te (`js/kern.js`):
+
+- **Tek hafıza**: öğe başına `m` (anlam), isimde ayrıca `art`, düzensiz fiilde kök `S.kok`. Günde tek kalıcı güncelleme (sonraki cevaplar yalnız log).
+- **Merdiven**: hafıza güçlendikçe soru zorlaşır (seç → yaz → cümlede boşluk → tam cümle). Kolay biçimde doğru büyümeyi az artırır (biçim ofseti c).
+  Erken üretim kapısı: üretim kanıtı olmadan aralık ≤ 7 gün, bir kanıtla ≤ 14 gün. Kapı bu cevaptan sonraki pk ile uygulanır: ilk üretim başarısı
+  öğeyi 7 günlük döngüye değil 14 güne taşır (simülasyonda önceki pk ile göç kümesi ikinci haftada dalga olarak dönüyordu).
+- **Notu sistem verir**: yazım hoşgörüsü sözlük denetimli (anlam değiştiren çiftler yazım sayılmaz), isimde kelime ve artikel ayrı notlanır; tek itiraz düğmesi.
+- **Yayma yok**: vadeliler R azalan sırayla erir, turda bir kurtarma slotu en düşük R'yi yakalar; yeni kelime kotası birikmeye bağlı (yarım öğeler de kotadan).
+- **Tur**: ısınma (ilk 3, kolay) → yeni parti (tanıtım + mini soru + ikinci hatırlama) → tekrarlar → gerçek metinde 2–4 boşluk.
+- Geri dönüş güvenliği: `karten` korunur, 30 gün gölge yazım; eski istemcinin cevapları `Kern.v3Yetis` ile hafızaya.
+
+## Birikme yayma (Ekim 2026; v5'te kalktı)
 
 Ara verilince vadesi geçen kartlar tek güne yığılıyordu (13 Ekim: 535 kartın 359'u vadeli); 150'yi aşınca yeni öğe gelmediğinden
 aktif ünitenin kelimelerine hiç sıra gelmiyor, yığın da caydırıyordu (günlük cevap 220 → 87 → 25 → 0). Çözüm Anki'nin "load balancer" fikri:
