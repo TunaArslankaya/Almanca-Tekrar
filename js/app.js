@@ -1528,11 +1528,12 @@
     return _ses;
   }
   try { if (window.speechSynthesis) speechSynthesis.addEventListener('voiceschanged', () => { _ses = null; }); } catch (e) { /* yok */ }
+  const sesKes = () => { try { if (window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)) speechSynthesis.cancel(); } catch (e) { /* yok */ } };
   function sprich(text, rate) {
     try {
       const u = new SpeechSynthesisUtterance(text); u.lang = 'de-DE'; u.rate = rate || 0.9;
       const v = almancaSes(); if (v) u.voice = v;
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
+      sesKes(); speechSynthesis.speak(u);
     } catch (e) { flash('Bu tarayıcıda ses yok.'); }
   }
   const uLabel = it => it.de;
@@ -2427,6 +2428,7 @@
   // sonuç paneli cevap alanının yerine açılır (#sonuc). Bilmiyorum / Göster hep alt satırın solunda.
   const UMLAUT_IC = `<div class="klavye ic" aria-label="Özel harfler">${['ä', 'ö', 'ü', 'ß'].map(c => `<button type="button" data-c="${c}" tabindex="-1">${c}</button>`).join('')}</div>`;
   function render(q) {
+    sesKes();   // önceki sorunun sesi yeni soruya taşmasın
     kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis', 'cevaplandi', 'duzen');
     otRender();
     if (q.typ === 'akt') { aktRender(q); return; }
@@ -2459,6 +2461,8 @@
     kart.classList.add('duzen');
     kart.innerHTML = `<div class="q-ust">${q.html}${seviyeNokta(q.id)}</div><div class="q-alt" id="q-alt">${alt}</div><div id="sonuc" class="sonuc-yer"></div>`;
     tastatur();
+    // Almancası ekranda olan soruda (anlamı ne? / metinde) kelime soruyla birlikte okunur; cevaptan sonra tekrar okunmaz
+    if ((q.bicim === 'anla' || q.bicim === 'metinde') && !q.sesCaldi && session.etkilesim && sesAcik() && S.einst.otoSes !== false && q.id && SES_TYP.has(q.typ) && kind(q.id) !== 'p') { q.sesCaldi = true; later(() => { if (aktuell === q) sprich(label(q.id).replace('sich(D)', 'sich')); }, 120); }
     if (q.mc) later(() => mcAufdecken(q), DENKZEIT);
     if (q.artFrage) q.freiAb = now() + 400;
     const inp = $('#cevap');
@@ -3609,7 +3613,7 @@
     komboSay(urteil);
     ton(urteil === 'richtig' ? 'dogru' : urteil === 'fast' ? 'fast' : 'yanlis');
     const q = aktuell;
-    if (sesAcik() && S.einst.otoSes !== false && q && q.id && SES_TYP.has(q.typ) && kind(q.id) !== 'p') setTimeout(() => { if (aktuell === q) sprich(label(q.id).replace('sich(D)', 'sich')); }, 380);
+    if (sesAcik() && S.einst.otoSes !== false && q && q.id && !q.sesCaldi && SES_TYP.has(q.typ) && kind(q.id) !== 'p') setTimeout(() => { if (aktuell === q) sprich(label(q.id).replace('sich(D)', 'sich')); }, 150);
     titret(urteil === 'falsch' ? [12, 50, 12] : 10);
     kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis'); void kart.offsetWidth;
     kart.classList.add(urteil === 'richtig' ? 'fx-dogru' : urteil === 'fast' ? 'fx-fast' : 'fx-yanlis', 'cevaplandi');
@@ -3774,6 +3778,7 @@
   }
   // Çalış'a geç: tur başlar (bitmiş ya da yoksa yenisi)
   function calisBasla(m, boyu) {
+    try { if (window.speechSynthesis && !session.sesIsindi) { session.sesIsindi = true; const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'de-DE'; speechSynthesis.speak(u); } } catch (e) { /* yok */ }
     // soru turu sürerken yan bölüme (fiil metni, gramer, okuma …) geçilirse tur ve oturum kuyruğu saklanır; dönünce sürer
     const tu0 = session.tur;
     if (m && !SORU_MODI.has(m) && tu0 && !tu0.bitti && tu0.n > 0 && SORU_MODI.has(tu0.mod || session.modus)) session.parkTur = { tur: tu0, ot: session.ot, mod: tu0.mod || session.modus };

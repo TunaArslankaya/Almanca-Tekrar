@@ -935,10 +935,16 @@ body.calis-modu .bar:hover .tabs { opacity: 1; }
 @media (max-width: 759px) { .hero .btn.ana.basla-sabit { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); box-shadow: 0 6px 22px rgba(0,0,0,.25); } }
 /* odak ekranı yüksekliği: main → #v-calis → kart zinciri görünür yüksekliği doldurur (cevap alanı altta) */
 .klavye.ic { order: 0; position: static; top: auto; justify-content: stretch; }
-body.calis-modu main { min-height: calc(var(--vvh) - 57px); display: flex; flex-direction: column; }
-body.calis-modu #v-calis { flex: 1 1 auto; width: 100%; }
-#v-calis .kart.duzen { flex: 1 1 auto; min-height: 0; }
-@media (max-width: 759px) { body.calis-modu main { min-height: var(--vvh); } }
+/* yalnız telefonda (≤ 759px): kart görünür yüksekliği doldurur, cevap alanı altta (başparmak). Masaüstünde kart içeriği kadar. */
+@media (max-width: 759px) {
+  body.calis-modu main { min-height: var(--vvh); display: flex; flex-direction: column; }
+  body.calis-modu #v-calis { flex: 1 1 auto; width: 100%; }
+  #v-calis .kart.duzen { flex: 1 1 auto; min-height: 0; }
+}
+@media (min-width: 760px) {
+  #v-calis .kart.duzen { min-height: 22rem; }
+  #v-calis .kart.duzen > .q-alt, #v-calis .kart.duzen > .sonuc-yer { margin-top: .4rem; }
+}
 /* sabit alt: uzun kartta Devam / cevap alanı görünür alanın altında kalır */
 #v-calis .kart.duzen > .q-alt { position: sticky; bottom: 0; background: var(--surface); padding-top: .4rem; padding-bottom: env(safe-area-inset-bottom, 0px); z-index: 2; }
 .sonuc .notlar { position: sticky; bottom: 0; padding: .4rem 0 .2rem; background: inherit; z-index: 2; }
