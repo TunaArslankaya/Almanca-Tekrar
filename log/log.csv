@@ -1622,3 +1622,10 @@
 2026-10-15 07:04:33;bed;v127:bed;besichtigen;besichtigen;gezmek;richtig;(görülecek yeri) gezmek;sek:4 | ipucu:1
 2026-10-15 07:04:42;erk;n0474:erk;das Gewitter;fırtına (gök gürültülü);der Donner;falsch;das Gewitter;sek:7 | ipucu:1
 2026-10-15 07:04:46;erk;n1392:erk;die Wolke;bulut;die Wolke;richtig;die Wolke;sek:4 | ipucu:1
+2026-10-15 07:04:53;refl;v592:refl;sich verletzen;Ich habe mich an der Hand _____.;verletzt;richtig;verletzt;sek:5 | ipucu:0
+2026-10-15 07:04:57;wort;n0524:wort;die Heimat;memleket, vatan;die Heimat;richtig;die Heimat;sek:4 | ipucu:2
+2026-10-15 07:05:02;bed;v305:bed;hageln;hageln;dolu yağmak;richtig;dolu yağmak;sek:4 | ipucu:0
+2026-10-15 07:05:09;wort;x1479:wort;die Aussage;ifade, beyan;die Aussage;richtig;die Aussage;sek:6 | ipucu:2
+2026-10-15 07:05:23;akt;match;eşleştir;der Antrag, der Wohnsitz, das Amt, sich verlassen auf, sich verlaufen, beweisen;;richtig;;hata:0
+2026-10-15 07:05:34;leech;w0172;frech;arsız, şımarık;;takiliyor;;günler:2026-10-02,2026-10-09,2026-10-15
+2026-10-15 07:05:34;prod;w0172:prod;frech;arsız, şımarık;furch;falsch;frech;farklı | sek:7 | ipucu:0
