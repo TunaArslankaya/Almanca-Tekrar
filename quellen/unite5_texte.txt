@@ -1,0 +1,32 @@
+# Ünite (Kapitel 11) boşluklu metinler (Claude yazdı). [...] = boşluk (doğru form). "## " başlık, sonraki satır Türkçe özet.
+## Stadtmensch oder Landmensch?
+Şehir insanı mı, kır insanı mı?
+Ich bin ein echter [Stadtmensch]. Ich wohne in einem lebendigen [Viertel] mitten in der [Innenstadt]. Am Wochenende mache ich gern einen [Stadtbummel] und schaue mir die [Schaufenster] an. Das [Freizeitangebot] ist riesig: Kinos, Konzerte, Cafés. Natürlich gibt es auch Nachteile: Der [Lärm] und der [Schmutz] stören mich manchmal, und das [Tempo] ist hoch. Meine Schwester ist dagegen ein [Landmensch]. Sie lebt in einem kleinen Dorf, das dreißig Kilometer von der Stadt [entfernt] ist. Dort sprechen die Leute einen starken [Dialekt]. Am Anfang war ihr das Dorf [fremd], aber heute würde sie sich in der Stadt nicht mehr [wohlfühlen].
+
+## Schichtdienst für die Stadt
+Şehir için vardiyalı çalışanlar
+Ahmet arbeitet bei der [Stadtreinigung]. Wenn er [Frühschicht] hat, beginnt sein [Dienst] schon um fünf Uhr. Mit den [Reinigungsfahrzeugen] fährt er durch die Straßen, bevor die ersten [Fußgänger] kommen. Seine Frau Elena ist Erzieherin in einer [städtischen] [Kita]. Für viele Eltern ist die [Kinderbetreuung] dort sehr wichtig, denn ohne sie könnten sie nicht arbeiten. Elenas Bruder ist Pfleger und hat oft [Nachtdienst]. Bei der [Übergabe] am Morgen erzählt er den Kollegen, was in der Nacht passiert ist. Alle drei sagen: „Die [Schichten] sind anstrengend, aber unsere Arbeit ist wichtig für die Stadt.“
+
+## Die lebenswertesten Städte
+Yaşanabilir şehirler sıralamasında Zürih
+Jedes Jahr gibt es ein neues [Ranking] der lebenswertesten Städte, und Zürich steht oft weit oben. Ein [Hauptgrund] ist die hohe [Lebensqualität]: Die Stadt ist sauber und sicher, und viele Menschen haben eine gute [Work-Life-Balance]. Viele fahren mit dem [Velo] zur Arbeit, und den [Fahrschein] für Bus und Tram kauft man einfach mit dem Handy. Im Sommer schwimmen die Leute im Fluss, der mitten durch die Stadt [fließt], oder sie liegen am [Ufer] in der Sonne. Aber es gibt auch Probleme: Die Mieten sind in den letzten Jahren stark [gestiegen]. Für Familien mit wenig Geld ist Zürich deshalb nicht mehr so [attraktiv].
+
+## Ein Wochenende in Tübingen
+Tübingen gezisi
+Letzten Sommer war ich in Tübingen. Die kleine Stadt liegt in einem [Tal] am Neckar, und rundherum sieht man grüne [Hügel]. In der Altstadt gibt es enge [Gassen] und alte Häuser mit bunten [Fassaden]. Der Marktplatz mit dem Rathaus ist der [Mittelpunkt] der Altstadt. Vom Schloss hat man einen wunderbaren [Ausblick] über die Dächer. Ein bekanntes [Wahrzeichen] sind die langen Holzboote auf dem Neckar, die Stocherkähne. Wir haben mit so einem Boot eine kleine [Rundfahrt] gemacht. Der [Tourismus] ist wichtig für die Stadt, aber Tübingen ist vor allem eine Studentenstadt.
+
+## Wer plant die Stadt?
+Belediye meclisinde şehir planlaması
+Unsere Stadt will die alte Schule umbauen. Der [Stadtrat] hat letzte Woche [festgelegt], dass es nach dem [Umbau] eine neue [Sporthalle] und eine Kita geben soll. Doch das [Budget] ist knapp. Eine [Initiative] von Bürgern findet, dass man die Wünsche der Jugendlichen nicht außer [Acht] lassen darf. Sie sagen: „Bei der [Stadtplanung] müssen die Menschen im [Vordergrund] stehen, nicht das Geld.“ Die Pläne [betreffen] auch eine Unterkunft für [Flüchtlinge] und [Obdachlose]. Der Bürgermeister hat versprochen, alle Meinungen zu [berücksichtigen]. Ob die Schule wirklich umgebaut wird, [hängt] am Ende vom Geld ab.
+
+## Die Diskussion im Kurs
+Kursta tartışma: söz kesmek, arabuluculuk
+Gestern hatten wir im Kurs eine [Diskussion]: Lebt man in der Stadt besser als auf dem Land? Tom meinte: „[Erstens] ist die Stadt zu laut, [zweitens] ist die Miete viel zu teuer.“ Sara hat ihn sofort [unterbrochen]. Tom war sauer: „Lass mich bitte [ausreden]!“ Dann hat unsere Lehrerin [vermittelt]. Sie sagte: „Ich kann euch beiden ein bisschen [recht] geben. [Anscheinend] gibt es keine einfache Antwort. Sara, kannst du noch kurz auf Toms Argument [eingehen]?“ Am Ende war das Ergebnis nicht [eindeutig], aber das war nicht schlimm. Wir wollen die Diskussion nächste Woche [fortsetzen].
+
+## Eine E-Mail an die Stadt
+Belediyeye resmî şikâyet e-postası
+[Betreff]: Müll in der Lindenstraße – Sehr geehrte Damen und Herren, hiermit möchte ich Ihnen [mitteilen], dass es in unserer Straße ein Problem gibt. Seit drei Wochen steht vor unserem Haus [irgendein] altes Auto, und [irgendwelche] Leute werfen ihren Müll daneben. Ich habe [irgendwo] gelesen, dass die Stadt so etwas abholt. Leider gibt es in der Straße [nirgendwo] einen Mülleimer. Könnten Sie bitte [irgendwann] in den nächsten Tagen jemanden schicken? Meine Telefonnummer und alle weiteren [Angaben] finden Sie unten. Ich freue mich auf Ihre Antwort. Mit freundlichen Grüßen, Tuna
+
+## Hilfe beim Umzug
+Arkadaşa samimi e-posta: taşınmaya yardım
+Hallo Lena, endlich habe ich eine Wohnung gefunden! Sie liegt am [Rand] der Stadt, nur fünf Minuten vom [Ufer] der Weser [entfernt]. Früher habe ich in einem [Hochhaus] gewohnt, jetzt wohne ich in einem kleinen Haus. Die Wohnung ist schön, nur die Straße ist ein bisschen [unruhig]. Am Samstag ziehe ich um. Hast du ein Auto? Ich habe leider [keins]. Ich brauche auch noch Umzugskartons. Hast du noch [welche]? Danach lade ich dich zum Essen ein. Und am Sonntag machen wir einen [Stadtbummel] durch mein neues [Viertel], okay? Liebe Grüße, Tuna

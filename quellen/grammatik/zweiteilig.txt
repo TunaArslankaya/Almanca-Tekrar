@@ -1,0 +1,87 @@
+# Gramer konusu: iki parçalı bağlaçlar (zwar … aber, entweder … oder, weder … noch, nicht nur … sondern auch, sowohl … als auch). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id zweiteilig
+@titel Zweiteilige Konnektoren
+@tr İki parçalı bağlaçlar: zwar … aber, entweder … oder, weder … noch, nicht nur … sondern auch, sowohl … als auch
+@stufe B1
+@kapitel B1 ?
+@goethe 2 | Schreiben 2-3 · Sprechen 3 (tartışma) · Lesen
+@voraus konnektoren-deshalb-trotzdem
+@kontrast negation
+@etiket bağlaç
+@kurz zwar … aber = gerçi … ama · entweder … oder = ya … ya da · weder … noch = ne … ne de (kein / nicht yok!) · nicht nur … sondern auch = sadece … değil, … de · sowohl … als auch = hem … hem de.
+
+@erklaerung
+Bu bağlaçlar iki parçadan oluşur ve hep aynı eşle kullanılır. B1 yazma ve konuşmada görüş ve karşılaştırma için çok işe yarar.
+
+1. zwar … aber (gerçi … ama): bir şeyi kabul edip karşı noktayı söylersin. zwar genelde fiilden sonra gelir: Das Zimmer ist zwar klein, aber es ist hell. zwar 1. yerdeyse fiil hemen arkada: Zwar ist das Zimmer klein, aber … aber sıra saymaz: aber + özne + fiil.
+2. entweder … oder (ya … ya da): iki seçenekten biri. Cümle başında entweder iki türlü olur: Entweder du kommst mit oder du bleibst hier. / Entweder kommst du mit oder … oder sıra saymaz.
+3. weder … noch (ne … ne de): iki şeyi birden olumsuzlar. Türkçedeki gibi fiil olumludur ("Ne vaktim ne de param var"), bu yüzden kein / nicht EKLENMEZ: Ich habe weder Zeit noch Geld. "weder keine Zeit" yanlıştır.
+4. nicht nur … sondern auch (sadece … değil, … de): ikinci bilgi birinciye eklenir. sondern yerine aber kullanılmaz; sondern'den önce virgül.
+5. sowohl … als auch (hem … hem de): iki özne birleşirse fiil çoğul olur: Sowohl mein Bruder als auch meine Schwester studieren.
+
+Virgül: aber ve sondern'den önce virgül konur; oder, noch, als auch ile yalnız iki kelime / grup bağlanıyorsa virgül yok. entweder … oder iki tam cümleyi bağlarsa oder'den önce virgül isteğe bağlıdır.
+@ende
+
+@tabelle Eşler ve anlamlar
+bağlaç | anlam | örnek
+zwar … aber | gerçi … ama | Das Hotel ist zwar teuer, aber sehr schön.
+entweder … oder | ya … ya da | Wir fahren entweder mit dem Zug oder mit dem Bus.
+weder … noch | ne … ne de | Ich habe weder Zeit noch Lust.
+nicht nur … sondern auch | sadece … değil, … de | Sie spricht nicht nur Deutsch, sondern auch Spanisch.
+sowohl … als auch | hem … hem de | Ich trinke sowohl Kaffee als auch Tee.
+@ende
+
+@tabelle Cümle başında kelime sırası
+bağlaç başta | sıra | örnek
+Zwar … | zwar 1. yer → fiil hemen arkada | Zwar ist der Job gut, aber die Arbeitszeiten sind lang.
+Entweder … | iki türlü doğru | Entweder du kommst pünktlich oder … / Entweder kommst du pünktlich oder …
+aber / oder / sondern | sıra saymaz (0. yer) | …, aber es ist sehr schön.
+@ende
+
+@beispiel Die Wohnung ist zwar klein, aber sie liegt sehr zentral. | Ev gerçi küçük ama çok merkezi bir yerde.
+@beispiel Ich habe weder einen Führerschein noch ein Auto. | Ne ehliyetim ne de arabam var.
+@beispiel In Bremen kann man nicht nur studieren, sondern auch gut leben. | Bremen'de sadece üniversite okunmaz, iyi de yaşanır.
+@beispiel Sowohl der Lehrer als auch die Schüler waren zufrieden. | Hem öğretmen hem de öğrenciler memnundu.
+
+@teil zwar | zwar … aber: kabul + karşıtlık | bağlaç
+luecke | 1 | Die Wohnung ist zwar klein, ___ sie liegt sehr zentral. | aber | aber / sondern / oder | Ev gerçi küçük ama çok merkezi bir yerde. | zwar'ın eşi aber: bir şeyi kabul edip karşı noktayı söylersin. | die Wohnung; klein; zentral
+wahl | 2 | Welcher Satz ist richtig? | Zwar ist der Kurs teuer, aber die Lehrerin ist sehr gut. | Zwar ist der Kurs teuer, aber die Lehrerin ist sehr gut. / Zwar der Kurs ist teuer, aber die Lehrerin ist sehr gut. / Zwar ist der Kurs teuer, aber ist die Lehrerin sehr gut. | Kurs gerçi pahalı ama öğretmen çok iyi. | zwar 1. yerde ise fiil (ist) hemen arkasında; aber sıra saymaz: aber + özne (die Lehrerin) + fiil (ist). | der Kurs; teuer; die Lehrerin, -nen
+ordnen | 2 | das Essen / war / zwar / teuer / aber / es / war / sehr lecker | Das Essen war zwar teuer, aber es war sehr lecker. / Zwar war das Essen teuer, aber es war sehr lecker. | | Yemek gerçi pahalıydı ama çok lezzetliydi. | zwar fiilden sonra (war zwar) ya da 1. yerde (Zwar war …); aber'den sonra normal sıra: es war. | das Essen; teuer; lecker
+umform | 3 | Ich habe wenig Zeit. Aber ich helfe dir gern. → zwar … aber | Ich habe zwar wenig Zeit, aber ich helfe dir gern. / Zwar habe ich wenig Zeit, aber ich helfe dir gern. | | Gerçi az vaktim var ama sana seve seve yardım ederim. | zwar ilk cümlede fiilden sonra (habe zwar) ya da 1. yerde (Zwar habe ich); aber + özne + fiil. | die Zeit; helfen
+fehler | 2 | Der Kurs ist zwar anstrengend, aber macht er viel Spaß. | Der Kurs ist zwar anstrengend, aber er macht viel Spaß. | macht er | Kurs gerçi yorucu ama çok eğlenceli. | aber sıra saymaz (0. yer): arkasından özne (er), sonra fiil (macht). | der Kurs; anstrengend; der Spaß
+
+@teil entweder | entweder … oder: ya … ya da | bağlaç
+luecke | 1 | Wir fahren entweder mit dem Zug ___ mit dem Bus. | oder | oder / noch / als auch | Ya trenle ya da otobüsle gideceğiz. | entweder'in eşi oder: iki seçenekten biri. | der Zug; der Bus
+luecke | 2 | ___ du kommst pünktlich, ___ wir fangen ohne dich an. | Entweder ; oder | | Ya zamanında gelirsin ya da sensiz başlarız. | İki seçenekten biri → entweder … oder. Burada entweder sıra saymıyor (du kommst); "Entweder kommst du pünktlich" de doğru. | pünktlich; anfangen mit
+ordnen | 1 | wir gehen heute Abend / entweder / ins Kino / oder / ins Theater | Wir gehen heute Abend entweder ins Kino oder ins Theater. / Wir gehen heute Abend entweder ins Theater oder ins Kino. | | Bu akşam ya sinemaya ya da tiyatroya gidiyoruz. | entweder birinci seçeneğin, oder ikinci seçeneğin önüne gelir. | das Kino; das Theater
+umform | 3 | Du schreibst eine E-Mail. Oder du rufst im Büro an. → entweder … oder | Entweder schreibst du eine E-Mail oder du rufst im Büro an. / Entweder du schreibst eine E-Mail oder du rufst im Büro an. / Entweder schreibst du eine E-Mail, oder du rufst im Büro an. / Entweder du schreibst eine E-Mail, oder du rufst im Büro an. | | Ya bir e-posta yazarsın ya da büroyu ararsın. | Cümle başında entweder iki türlü olur: Entweder schreibst du … / Entweder du schreibst … oder sıra saymaz: oder du rufst … an. | die E-Mail, -s; schreiben; das Büro; anrufen
+fehler | 2 | Entweder wir nehmen ein Taxi oder wir gehen zu Fuß. | Entweder wir nehmen ein Taxi oder wir gehen zu Fuß. | - | Ya taksiye bineriz ya da yürürüz. | Hata yok: entweder sıra saymayabilir (Entweder wir nehmen …); "Entweder nehmen wir …" de doğru. | das Taxi, -s; der Fuß
+
+@teil weder | weder … noch: ne … ne de (kein / nicht yok) | bağlaç
+wahl | 1 | Ich habe ___ Zeit noch Lust. | weder | weder / entweder / nicht nur | Ne vaktim ne de hevesim var. | noch'un eşi weder: "ne … ne de". | die Zeit; die Lust
+luecke | 2 | Er spricht weder Englisch ___ Französisch. | noch | noch / oder / nicht | O ne İngilizce ne de Fransızca konuşuyor. | weder'in eşi noch. oder yalnız entweder ile. | 
+fehler | 2 | Ich habe weder keinen Führerschein noch ein Auto. | Ich habe weder einen Führerschein noch ein Auto. | keinen | Ne ehliyetim ne de arabam var. | weder … noch zaten olumsuzdur: kein / nicht eklenmez. Türkçedeki gibi fiil olumlu kalır ("… var"). | der Führerschein; das Auto
+umform | 2 | Ich trinke keinen Kaffee. Ich trinke auch keinen Tee. → weder … noch | Ich trinke weder Kaffee noch Tee. / Ich trinke weder Tee noch Kaffee. | | Ne kahve ne de çay içiyorum. | keinen … auch keinen → weder … noch; kein düşer, isimler artikelsiz kalır. | der Kaffee; der Tee; trinken
+ordnen | 2 | das Hotel / war / weder / sauber / noch / ruhig | Das Hotel war weder sauber noch ruhig. / Das Hotel war weder ruhig noch sauber. | | Otel ne temizdi ne de sessizdi. | weder ve noch olumsuzlanan iki sıfatın önüne gelir; ayrıca nicht yok. | das Hotel; sauber; ruhig
+luecke | 2 | Mein Mitbewohner hat ___ aufgeräumt ___ eingekauft. | weder ; noch | | Ev arkadaşım ne ortalığı topladı ne de alışveriş yaptı. | weder … noch fiillerle de olur: hat weder aufgeräumt noch eingekauft. Fiil olumlu, nicht yok. | aufräumen; einkaufen
+
+@teil nichtnur | nicht nur … sondern auch: sadece … değil, … de | bağlaç
+luecke | 1 | Sie spricht nicht nur Deutsch, ___ auch Spanisch. | sondern | sondern / aber / oder | Sadece Almanca değil, İspanyolca da konuşuyor. | nicht nur'un eşi hep sondern auch. | 
+luecke | 2 | Der Ausflug war ___ interessant, ___ auch günstig. | nicht nur ; sondern | | Gezi sadece ilginç değildi, uygun fiyatlıydı da. | Birinci özellik nicht nur ile, eklenen ikincisi sondern auch ile. | der Ausflug; interessant; günstig
+umform | 3 | Ich lerne im Kurs. Ich lerne auch zu Hause mit einer App. → nicht nur … sondern auch | Ich lerne nicht nur im Kurs, sondern auch zu Hause mit einer App. | | Sadece kursta değil, evde bir uygulamayla da öğreniyorum. | Aynı fiil iki kez yazılmaz: nicht nur + birinci bilgi, sondern auch + ikinci bilgi. sondern'den önce virgül. | lernen; der Kurs
+fehler | 2 | Wir haben nicht nur gekocht, aber auch aufgeräumt. | Wir haben nicht nur gekocht, sondern auch aufgeräumt. | aber | Sadece yemek yapmadık, ortalığı da topladık. | nicht nur ile hep sondern auch kullanılır, aber değil. | kochen; aufräumen
+ordnen | 3 | in Bremen / kann man / nicht nur / einkaufen / sondern auch / gut Rad fahren | In Bremen kann man nicht nur einkaufen, sondern auch gut Rad fahren. / In Bremen kann man nicht nur gut Rad fahren, sondern auch einkaufen. | | Bremen'de sadece alışveriş yapılmaz, rahatça bisiklete de binilir. | Modal fiil (kann) 2. yerde; nicht nur … sondern auch iki mastarı bağlar. | einkaufen
+
+@teil sowohl | sowohl … als auch: hem … hem de | bağlaç
+wahl | 1 | Sowohl mein Bruder ___ meine Schwester studieren in Bremen. | als auch | als auch / oder / noch | Hem erkek kardeşim hem de kız kardeşim Bremen'de okuyor. | sowohl'un eşi als auch. İki özne birleştiği için fiil çoğul: studieren. | der Bruder; die Schwester; studieren
+luecke | 2 | Das Restaurant ist ___ bei Studenten ___ bei Familien beliebt. | sowohl ; als auch | | Restoran hem öğrenciler hem de aileler arasında sevilir. | "hem … hem de" → sowohl … als auch. | das Restaurant; beliebt; die Familie
+wahl | 3 | Sowohl der Lehrer als auch die Schüler ___ zufrieden. | waren | waren / war / ist | Hem öğretmen hem de öğrenciler memnundu. | sowohl … als auch iki özneyi birleştirir → fiil çoğul: waren. | der Lehrer; der Schüler; zufrieden
+umform | 3 | Im Sommer kann man hier wandern. Im Winter kann man hier auch wandern. → sowohl … als auch | Man kann hier sowohl im Sommer als auch im Winter wandern. / Hier kann man sowohl im Sommer als auch im Winter wandern. / Sowohl im Sommer als auch im Winter kann man hier wandern. | | Burada hem yazın hem kışın yürüyüş yapılabilir. | İki zaman bilgisi sowohl … als auch ile tek gruba girer; grup 1. yerdeyse fiil (kann) hemen arkada. | wandern
+
+@teil kontrast | Hangi çift? Anlama göre seç | bağlaç
+wahl | 2 | Nach der Schule muss man sich entscheiden: Man kann ___ studieren ___ eine Ausbildung machen. | entweder … oder | entweder … oder / sowohl … als auch / weder … noch | Okuldan sonra karar vermek gerekiyor: ya üniversiteye gidilir ya da meslek eğitimi yapılır. | "karar vermek gerekiyor" → iki seçenekten biri: entweder … oder. | entscheiden; studieren; die Ausbildung
+wahl | 2 | Mein Nachbar ist sehr nett: Er hilft mir ___ beim Umzug, ___ er gießt auch meine Blumen. | nicht nur … sondern | nicht nur … sondern / zwar … aber / weder … noch | Komşum çok nazik: bana sadece taşınmada yardım etmiyor, çiçeklerimi de suluyor. | İki iyi şey art arda ve ikincisi ekleniyor (auch) → nicht nur … sondern. zwar … aber karşıtlık bildirirdi. | der Nachbar; der Umzug; gießen; die Blume
+luecke | 3 | Das Handy ist ___ ziemlich alt, ___ es funktioniert noch gut. | zwar ; aber | | Telefon gerçi oldukça eski ama hâlâ iyi çalışıyor. | Olumsuz bir şeyi kabul edip olumlu bir karşı nokta → zwar … aber. aber'den sonra özne + fiil. | das Handy; ziemlich; alt; funktionieren
+ordnen | 2 | ich / habe / weder / meine Hausaufgaben / gemacht / noch / den Text / gelesen | Ich habe weder meine Hausaufgaben gemacht noch den Text gelesen. / Ich habe weder den Text gelesen noch meine Hausaufgaben gemacht. | | Ne ödevlerimi yaptım ne de metni okudum. | weder … noch iki Perfekt grubunu bağlar; yardımcı fiil (habe) bir kez yazılır, nicht yok. | die Hausaufgabe; der Text

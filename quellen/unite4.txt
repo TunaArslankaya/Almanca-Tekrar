@@ -1,0 +1,141 @@
+# Ünite (Kapitel 10): kurstaki kitabın konusu (Miteinander). Kelime seçimi web özetinden (Netzwerk neu B1 Glossar sayfaları 35–39 + Glossar dökümleri); örnek cümleler Claude'un (kitaptan kopya yok).
+# tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
+# tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat
+# @bis YYYY-MM-DD: o gün bitince ünite kendiliğinden kapanır (@geschlossen gibi: çalışılan kelimeler tekrar sistemine geçer)
+# kaynak: web-ozet (kitabın Kapitelwortschatz'ı görülmedi; Tuna kitaptaki listeyle karşılaştırıp eksik / fazla olanı söylesin)
+# Dilbilgisi: Passiv Präsens / Präteritum / Perfekt, Passiv mit Modalverben, Präposition + einander. Örnek cümlelerin çoğu bilerek Passiv.
+@kapitel 10
+@titel Miteinander
+@inaktiv
+@gruppe Werte und Zusammenleben
+n | der Respekt | (Sg.) · Respekt haben vor + D | saygı | In unserem Kurs werden alle Menschen mit Respekt behandelt, egal woher sie kommen. | Respekt | Kursumuzda nereden gelirse gelsin bütün insanlara saygıyla davranılır.
+n | die Toleranz | (Sg.) | hoşgörü | In einer Demokratie ist Toleranz gegenüber anderen Meinungen sehr wichtig. | Toleranz | Bir demokraside başka görüşlere karşı hoşgörü çok önemlidir.
+n | die Fairness | (Sg.) | hakkaniyet, fair play | Beim Fußball ist Fairness für mich wichtiger als der Sieg. | Fairness | Futbolda hakkaniyet benim için kazanmaktan daha önemli.
+n | die Ehrlichkeit | (Sg.) | dürüstlük | In einer Freundschaft ist Ehrlichkeit für mich wichtiger als Höflichkeit. | Ehrlichkeit | Bir arkadaşlıkta dürüstlük benim için nezaketten daha önemli.
+n | die Gerechtigkeit | (Sg.) | adalet | Viele junge Leute demonstrieren für mehr Gerechtigkeit in der Welt. | Gerechtigkeit | Birçok genç dünyada daha fazla adalet için gösteri yapıyor.
+n | die Gleichberechtigung | (Sg.) | eşit haklılık (kadın–erkek eşitliği) | Die Gleichberechtigung von Frauen und Männern steht im Grundgesetz. | Gleichberechtigung | Kadın ve erkeğin eşit hakları Anayasa'da yazılıdır.
+n | die Hilfsbereitschaft | (Sg.) | yardımseverlik | An meiner Nachbarin schätze ich besonders ihre große Hilfsbereitschaft. | Hilfsbereitschaft | Komşumda en çok büyük yardımseverliğini takdir ediyorum.
+n | die Zivilcourage | (Sg.) | sivil cesaret (haksızlığa karşı çıkma cesareti) | Sie hat Zivilcourage gezeigt und dem Mann in der Straßenbahn geholfen. | Zivilcourage | Cesaret gösterip tramvaydaki adama yardım etti.
+n | die Solidarität | (Sg.) | dayanışma | Nach dem Hochwasser war die Solidarität unter den Nachbarn sehr groß. | Solidarität | Selden sonra komşular arasındaki dayanışma çok büyüktü.
+n | die Würde | (Sg.) | onur, (insan) haysiyeti | Artikel 1 des Grundgesetzes beginnt mit dem Satz: „Die Würde des Menschen ist unantastbar.“ | Würde | Anayasa'nın 1. maddesi şu cümleyle başlar: "İnsan onuru dokunulmazdır."
+n | der Wert | die Werte | değer | Welche Werte sind dir in deinem Leben am wichtigsten? | Werte | Hayatında hangi değerler senin için en önemli?
+n | die Erziehung | (Sg.) | (çocuk) yetiştirme, terbiye | Bei der Erziehung ihrer Kinder legen viele Eltern Wert auf Ehrlichkeit. | Erziehung | Birçok ebeveyn çocuklarını yetiştirirken dürüstlüğe önem verir.
+n | die Bildung | (Sg.) | eğitim, öğrenim | Eine gute Bildung ist der Schlüssel zu einem besseren Job. | Bildung | İyi bir eğitim daha iyi bir işin anahtarıdır.
+n | das Vorurteil | die Vorurteile | önyargı | Viele Vorurteile verschwinden, wenn man die Menschen persönlich kennenlernt. | Vorurteile | İnsanları şahsen tanıyınca birçok önyargı kaybolur.
+n | die Minderheit | die Minderheiten | azınlık | In einer Demokratie müssen auch die Rechte von Minderheiten geschützt werden. | Minderheiten | Bir demokraside azınlıkların hakları da korunmalıdır.
+n | das Zusammenleben | (Sg.) | birlikte yaşam | Für ein gutes Zusammenleben im Haus gibt es eine Hausordnung. | Zusammenleben | Binada iyi bir birlikte yaşam için bir bina yönetmeliği var.
+n | der Umgang | (Sg.) · mit + D | (biriyle) ilişki, davranış; (bir şeyle) başa çıkma | Der Umgang mit Kritik fällt vielen Menschen ziemlich schwer. | Umgang | Eleştiriyle başa çıkmak birçok insana oldukça zor gelir.
+n | die Gemeinschaft | die Gemeinschaften | topluluk | In unserem Dorf ist die Gemeinschaft sehr wichtig, jeder kennt jeden. | Gemeinschaft | Köyümüzde topluluk çok önemli, herkes herkesi tanır.
+n | das Bedürfnis | die Bedürfnisse | ihtiyaç | Bei der Planung werden die Bedürfnisse von älteren Menschen berücksichtigt. | Bedürfnisse | Planlamada yaşlı insanların ihtiyaçları dikkate alınıyor.
+n | die Not | die Nöte | sıkıntı, darlık; acil durum | Die Tafel hilft Menschen, die in Not sind und wenig Geld haben. | Not | Tafel, sıkıntıda olan ve az parası olan insanlara yardım ediyor.
+n | die Mühe | die Mühen | zahmet, çaba | Vielen Dank für Ihre Mühe, ohne Sie hätten wir das nicht geschafft. | Mühe | Zahmetiniz için çok teşekkürler, siz olmasaydınız bunu başaramazdık.
+x | sich Mühe geben | gibt sich Mühe, gab sich Mühe, hat sich Mühe gegeben | çaba göstermek, uğraşmak | Ich gebe mir große Mühe, jeden Tag ein bisschen Deutsch zu lernen. | gebe | Her gün biraz Almanca öğrenmek için çok çaba gösteriyorum.
+n | der Humor | (Sg.) | mizah (anlayışı) | Mein Lehrer hat viel Humor, deshalb lachen wir oft im Unterricht. | Humor | Öğretmenimin mizah anlayışı çok iyi, bu yüzden derste sık sık güleriz.
+@gruppe Ehrenamt und Hilfe
+n | das Ehrenamt | die Ehrenämter | gönüllü (karşılıksız) görev | Neben ihrem Studium hat Lena ein Ehrenamt bei der Feuerwehr. | Ehrenamt | Lena'nın üniversitenin yanında itfaiyede gönüllü bir görevi var.
+a | ehrenamtlich | | gönüllü (karşılıksız) | Mein Nachbar arbeitet seit zehn Jahren ehrenamtlich im Sportverein. | ehrenamtlich | Komşum on yıldır spor kulübünde gönüllü çalışıyor.
+n | der Freiwillige | die Freiwilligen · ein Freiwilliger · w: die Freiwillige (sıfat gibi çekilir) | gönüllü (kişi) | Für das Stadtfest werden noch zwanzig Freiwillige gesucht. | Freiwillige | Şehir şenliği için hâlâ yirmi gönüllü aranıyor.
+n | die Tafel | die Tafeln | Tafel (ihtiyaç sahiplerine gıda dağıtan dernek); (okul) tahta | Bei der Tafel bekommen bedürftige Menschen günstig Lebensmittel. | Tafel | Tafel'de muhtaç insanlar ucuza gıda alıyor.
+a | bedürftig | | muhtaç, yoksul | Jeden Samstag werden die Lebensmittel an bedürftige Familien verteilt. | bedürftige | Her cumartesi gıdalar muhtaç ailelere dağıtılıyor.
+v | verteilen | verteilt, verteilte, hat verteilt | dağıtmak | Gestern wurden bei der Tafel über hundert Tüten mit Lebensmitteln verteilt. | verteilt | Dün Tafel'de gıda dolu yüzden fazla poşet dağıtıldı.
+v | spenden | spendet, spendete, hat gespendet | bağışlamak | Viele Supermärkte spenden Lebensmittel, die sie nicht mehr verkaufen können. | spenden | Birçok süpermarket artık satamayacağı gıdaları bağışlıyor.
+a | übrig | übrig sein · übrig bleiben | artan, kalan | Die Lebensmittel, die im Supermarkt übrig sind, bekommt die Tafel. | übrig | Süpermarkette artan gıdaları Tafel alıyor.
+n | die Feuerwehr | die Feuerwehren | itfaiye | In vielen Dörfern gibt es nur eine freiwillige Feuerwehr. | Feuerwehr | Birçok köyde sadece gönüllü itfaiye var.
+n | der Feuerwehrmann | die Feuerwehrleute / die Feuerwehrmänner | itfaiyeci | Der Feuerwehrmann hat die kleine Katze vom Baum gerettet. | Feuerwehrmann | İtfaiyeci küçük kediyi ağaçtan kurtardı.
+v | alarmieren | alarmiert, alarmierte, hat alarmiert | (itfaiye, polis) çağırmak, haber vermek | Die Nachbarn haben sofort die Feuerwehr alarmiert, als sie den Rauch sahen. | alarmiert | Komşular dumanı görünce hemen itfaiyeye haber verdi.
+v | löschen | löscht, löschte, hat gelöscht | (ateşi) söndürmek; silmek | Das Feuer wurde nach zwei Stunden endlich gelöscht. | gelöscht | Yangın iki saat sonra nihayet söndürüldü.
+v | ausbilden | trennbar: bildet aus, bildete aus, hat ausgebildet | yetiştirmek, (meslek) eğitimi vermek | Die freiwilligen Helfer werden von Profis gut ausgebildet. | ausgebildet | Gönüllü yardımcılar profesyoneller tarafından iyi yetiştiriliyor.
+n | die Erste Hilfe | (Sg.) | ilk yardım | Erste Hilfe kann jeder lernen, zum Beispiel in einem Kurs. | Erste Hilfe | İlk yardımı herkes öğrenebilir, örneğin bir kursta.
+n | das Hochwasser | die Hochwasser | sel, taşkın | Nach dem Hochwasser haben viele Freiwillige beim Aufräumen geholfen. | Hochwasser | Selden sonra birçok gönüllü temizlikte yardım etti.
+v | bewältigen | bewältigt, bewältigte, hat bewältigt | üstesinden gelmek | Die Arbeit nach dem Hochwasser konnte nur gemeinsam bewältigt werden. | bewältigt | Selden sonraki işin üstesinden ancak birlikte gelinebildi.
+n | der Verein | die Vereine | dernek, kulüp | In Deutschland gibt es Vereine für fast jedes Hobby. | Vereine | Almanya'da neredeyse her hobi için dernek var.
+n | das Vereinsmitglied | die Vereinsmitglieder | dernek üyesi | Alle Vereinsmitglieder werden zur Jahresversammlung im März eingeladen. | Vereinsmitglieder | Bütün dernek üyeleri martta yıllık toplantıya davet ediliyor.
+n | die Aufnahme | die Aufnahmen | (üyeliğe) kabul; (ses / görüntü) kaydı | Die Aufnahme in unseren Verein ist kostenlos, du musst nur ein Formular ausfüllen. | Aufnahme | Derneğimize kabul ücretsiz, sadece bir form doldurman gerekiyor.
+n | die Organisation | die Organisationen | kuruluş, örgüt | Diese Organisation hilft geflüchteten Menschen bei der Wohnungssuche. | Organisation | Bu kuruluş, ülkesinden kaçmak zorunda kalan insanlara ev aramada yardım ediyor.
+n | die Patenschaft | die Patenschaften | (gönüllü) destekçilik, birine "ağabeylik / ablalık" | Durch die Patenschaft hat Amir schnell Deutsch gelernt und Freunde gefunden. | Patenschaft | Bu destekçilik sayesinde Amir hızla Almanca öğrendi ve arkadaş edindi.
+n | der Pate | die Paten · n-Dekl. · w: die Patin | (gönüllü) destekçi; vaftiz babası | Mein Pate begleitet mich zu Terminen beim Amt und erklärt mir die Briefe. | Pate | Destekçim beni resmi dairedeki randevulara götürüyor ve mektupları bana açıklıyor.
+v | begleiten | begleitet, begleitete, hat begleitet | eşlik etmek, (birine) refakat etmek | Kannst du mich morgen zur Ausländerbehörde begleiten? Ich bin so nervös. | begleiten | Yarın benimle yabancılar dairesine gelebilir misin? Çok gerginim.
+v | betreuen | betreut, betreute, hat betreut | (birine) bakmak, ilgilenmek | In den Ferien werden die Kinder von Studierenden betreut. | betreut | Tatilde çocuklarla üniversite öğrencileri ilgileniyor.
+n | die Nachhilfe | (Sg.) | takviye ders, özel ders | Jeden Dienstag gebe ich einem Schüler kostenlos Nachhilfe in Mathe. | Nachhilfe | Her salı bir öğrenciye ücretsiz matematik takviye dersi veriyorum.
+n | das Vorhaben | die Vorhaben | plan, niyet, tasarı | Unser Vorhaben ist ein Sommerfest für alle Nachbarn im Viertel. | Vorhaben | Planımız mahalledeki bütün komşular için bir yaz şenliği.
+v | durchführen | trennbar: führt durch, führte durch, hat durchgeführt | gerçekleştirmek, yürütmek | Das Projekt wird von Schülern und Rentnern gemeinsam durchgeführt. | durchgeführt | Proje öğrenciler ve emekliler tarafından birlikte yürütülüyor.
+v | finanzieren | finanziert, finanzierte, hat finanziert | finanse etmek | Das Projekt wurde zum größten Teil durch Spenden finanziert. | finanziert | Proje büyük ölçüde bağışlarla finanse edildi.
+a | zuverlässig | | güvenilir | Wir suchen zuverlässige Helfer, die jede Woche zwei Stunden Zeit haben. | zuverlässige | Her hafta iki saat vakti olan güvenilir yardımcılar arıyoruz.
+a | verantwortlich | für + A | sorumlu | Wer ist im Verein eigentlich für die Finanzen verantwortlich? | verantwortlich | Dernekte maliyeden aslında kim sorumlu?
+@gruppe Behördengänge und Integration
+n | die Behörde | die Behörden | resmi daire, kurum | Viele Briefe von Behörden sind auch für Deutsche schwer zu verstehen. | Behörden | Resmi dairelerden gelen birçok mektubu Almanlar da zor anlıyor.
+n | der Behördengang | die Behördengänge | resmi daireye gidiş (iş takibi) | Bei Behördengängen hilft mir meine Patin aus dem Verein. | Behördengängen | Resmi daire işlerinde dernekten destekçim bana yardım ediyor.
+n | das Einwohnermeldeamt | die Einwohnermeldeämter | adres kayıt dairesi (nüfus müdürlüğü gibi) | Nach dem Umzug muss man sich beim Einwohnermeldeamt anmelden. | Einwohnermeldeamt | Taşındıktan sonra adres kayıt dairesine kayıt yaptırmak gerekir.
+v | sich abmelden | trennbar: meldet ab, meldete ab, hat abgemeldet | kaydını sildirmek | Wenn man Deutschland für immer verlässt, muss man sich abmelden. | abmelden | Almanya'dan temelli ayrılınca kaydını sildirmen gerekir.
+v | verlassen | verlässt, verließ, hat verlassen | terk etmek, -den ayrılmak | Wegen des Krieges mussten viele Menschen ihre Heimat verlassen. | verlassen | Savaş yüzünden birçok insan memleketini terk etmek zorunda kaldı.
+n | die Anfrage | die Anfragen | (resmî) soru, talep, başvuru | Ihre Anfrage wird so schnell wie möglich bearbeitet. | Anfrage | Talebiniz mümkün olan en kısa sürede işleme alınacak.
+v | genehmigen | genehmigt, genehmigte, hat genehmigt | onaylamak, izin vermek | Mein Antrag auf einen Integrationskurs wurde endlich genehmigt. | genehmigt | Uyum kursu başvurum sonunda onaylandı.
+v | regeln | regelt, regelte, hat geregelt | düzenlemek, halletmek | Vor dem Studium müssen viele Dinge geregelt werden: Visum, Wohnung, Versicherung. | geregelt | Üniversiteden önce birçok şeyin halledilmesi gerekiyor: vize, ev, sigorta.
+n | die Vorschrift | die Vorschriften | kural, yönetmelik | Auf dem Amt muss man sich an viele Vorschriften halten. | Vorschriften | Resmi dairede birçok kurala uymak gerekir.
+n | der Anspruch | die Ansprüche · Anspruch haben auf + A | hak (bir şeyi talep etme hakkı) | Studierende haben unter bestimmten Bedingungen Anspruch auf BAföG. | Anspruch | Üniversite öğrencilerinin belirli koşullarda BAföG hakkı vardır.
+v | herausfinden | trennbar: findet heraus, fand heraus, hat herausgefunden | bulup çıkarmak, öğrenmek | Ich muss noch herausfinden, welche Unterlagen ich für das Amt brauche. | herausfinden | Resmi daire için hangi belgelere ihtiyacım olduğunu daha öğrenmem lazım.
+n | der Dolmetscher | die Dolmetscher · w: die Dolmetscherin | (sözlü) tercüman | Beim ersten Termin auf dem Amt hat mir ein Dolmetscher geholfen. | Dolmetscher | Resmi dairedeki ilk randevuda bana bir tercüman yardım etti.
+v | dolmetschen | dolmetscht, dolmetschte, hat gedolmetscht | sözlü tercüme yapmak | Als Kind musste ich beim Arzt oft für meine Eltern dolmetschen. | dolmetschen | Çocukken doktorda sık sık annemle babam için tercümanlık yapmak zorunda kalırdım.
+n | die Integration | (Sg.) | uyum, entegrasyon | Die Sprache ist für die Integration in einem neuen Land sehr wichtig. | Integration | Yeni bir ülkeye uyum için dil çok önemlidir.
+a | interkulturell | | kültürlerarası | Im interkulturellen Café treffen sich Menschen aus vielen Ländern. | interkulturellen | Kültürlerarası kafede birçok ülkeden insanlar buluşuyor.
+n | der Migrant | die Migranten · n-Dekl. · w: die Migrantin | göçmen | In Bremen helfen viele Vereine Migranten bei der Jobsuche. | Migranten | Bremen'de birçok dernek göçmenlere iş aramada yardım ediyor.
+n | die Flucht | (Sg.) | kaçış; (savaştan) kaçıp göç etme | Nach seiner Flucht aus Syrien lebt er jetzt in Bremen. | Flucht | Suriye'den kaçtıktan sonra şimdi Bremen'de yaşıyor.
+@gruppe Politik und Demokratie
+n | die Demokratie | die Demokratien | demokrasi | In einer Demokratie wird das Parlament vom Volk gewählt. | Demokratie | Bir demokraside meclis halk tarafından seçilir.
+n | die Meinungsfreiheit | (Sg.) | ifade özgürlüğü | Dank der Meinungsfreiheit darf man die Regierung offen kritisieren. | Meinungsfreiheit | İfade özgürlüğü sayesinde hükümet açıkça eleştirilebilir.
+n | das Recht | die Rechte | hak; hukuk | Jedes Kind hat das Recht, zur Schule zu gehen. | Recht | Her çocuğun okula gitme hakkı vardır.
+n | die Menschenrechte | (Pl.) | insan hakları | Die Menschenrechte gelten für alle Menschen auf der ganzen Welt. | Menschenrechte | İnsan hakları bütün dünyadaki herkes için geçerlidir.
+n | die Regierung | die Regierungen | hükümet | Die neue Regierung will mehr Geld für Schulen ausgeben. | Regierung | Yeni hükümet okullar için daha fazla para harcamak istiyor.
+n | der Bundestag | (Sg.) | Federal Meclis (Almanya'nın parlamentosu) | Der Bundestag wird alle vier Jahre neu gewählt. | Bundestag | Federal Meclis her dört yılda bir yeniden seçilir.
+n | der Bundeskanzler | die Bundeskanzler · w: die Bundeskanzlerin | federal şansölye (hükümet başkanı) | Der Bundeskanzler wird nicht direkt vom Volk gewählt, sondern vom Bundestag. | Bundeskanzler | Şansölye doğrudan halk tarafından değil, Federal Meclis tarafından seçilir.
+n | der Minister | die Minister · w: die Ministerin | bakan | Der Minister hat heute im Fernsehen neue Regeln für Schulen vorgestellt. | Minister | Bakan bugün televizyonda okullar için yeni kuralları tanıttı.
+n | der Bürgermeister | die Bürgermeister · w: die Bürgermeisterin | belediye başkanı | Unser Bürgermeister hat das neue Jugendzentrum feierlich eröffnet. | Bürgermeister | Belediye başkanımız yeni gençlik merkezini törenle açtı.
+n | der Kandidat | die Kandidaten · n-Dekl. · w: die Kandidatin | aday | Vor der Wahl stellen sich die Kandidaten auf dem Marktplatz vor. | Kandidaten | Seçimden önce adaylar pazar meydanında kendilerini tanıtıyor.
+v | abstimmen über | über + A · trennbar: stimmt ab, stimmte ab, hat abgestimmt | (bir konuyu) oylamak | Heute wird im Parlament über das neue Gesetz abgestimmt. | abgestimmt | Bugün mecliste yeni yasa oylanıyor.
+n | die Bürgerversammlung | die Bürgerversammlungen | halk toplantısı | Auf der Bürgerversammlung wurde lange über den neuen Spielplatz diskutiert. | Bürgerversammlung | Halk toplantısında yeni oyun parkı uzun uzun tartışıldı.
+x | eine Entscheidung treffen | trifft, traf, hat getroffen | karar vermek | Bei der Wahl muss jeder seine eigene Entscheidung treffen. | Entscheidung | Seçimde herkes kendi kararını vermelidir.
+a | bundesweit | | ülke çapında (Almanya'da) | Am Samstag finden bundesweit Demonstrationen für mehr Klimaschutz statt. | bundesweit | Cumartesi günü ülke çapında daha fazla iklim koruması için gösteriler var.
+v | verbreiten | verbreitet, verbreitete, hat verbreitet | yaymak | Im Internet werden leider viele falsche Nachrichten verbreitet. | verbreitet | İnternette maalesef birçok yanlış haber yayılıyor.
+v | befürchten | befürchtet, befürchtete, hat befürchtet | (kötü bir şeyden) endişe etmek, korkmak | Viele Menschen befürchten, dass die Preise weiter steigen. | befürchten | Birçok insan fiyatların artmaya devam etmesinden endişe ediyor.
+v | erfüllen | erfüllt, erfüllte, hat erfüllt | yerine getirmek | Für die Einbürgerung müssen bestimmte Bedingungen erfüllt werden. | erfüllt | Vatandaşlık için belirli koşulların yerine getirilmesi gerekir.
+a | endgültig | | kesin, nihai | Das endgültige Ergebnis der Wahl gibt es erst am Montag. | endgültige | Seçimin kesin sonucu ancak pazartesi belli olacak.
+@gruppe die Europäische Union
+n | die Europäische Union | (Sg.) · die EU | Avrupa Birliği | Die Europäische Union wurde 1993 gegründet und hat heute 27 Mitglieder. | Europäische Union | Avrupa Birliği 1993'te kuruldu ve bugün 27 üyesi var.
+n | der Mitgliedsstaat | die Mitgliedsstaaten | üye devlet | In vielen Mitgliedsstaaten der EU bezahlt man mit dem Euro. | Mitgliedsstaaten | AB'nin birçok üye devletinde euroyla ödeme yapılır.
+n | die Währung | die Währungen | para birimi | Vor dem Euro war die D-Mark die Währung in Deutschland. | Währung | Euro'dan önce Almanya'nın para birimi Mark'tı.
+n | die Grenzkontrolle | die Grenzkontrollen | sınır kontrolü | Früher gab es an jeder Grenze in Europa Grenzkontrollen. | Grenzkontrollen | Eskiden Avrupa'da her sınırda sınır kontrolü vardı.
+n | der Vertrag | die Verträge | antlaşma; sözleşme | Der Vertrag von Maastricht wurde im Jahr 1992 unterzeichnet. | Vertrag | Maastricht Antlaşması 1992 yılında imzalandı.
+v | unterzeichnen | unterzeichnet, unterzeichnete, hat unterzeichnet | (resmî belge) imzalamak | Der Mietvertrag muss von beiden Mietern unterzeichnet werden. | unterzeichnet | Kira sözleşmesi iki kiracı tarafından da imzalanmalı.
+x | einen Vertrag schließen | schließt, schloss, hat geschlossen | antlaşma / sözleşme yapmak | Nach langen Gesprächen schlossen die beiden Länder einen Vertrag über Zusammenarbeit. | schlossen | Uzun görüşmelerden sonra iki ülke bir işbirliği antlaşması yaptı.
+n | der Krieg | die Kriege | savaş | Meine Großeltern haben den Krieg als kleine Kinder erlebt. | Krieg | Büyükannemle büyükbabam savaşı küçük çocukken yaşadı.
+n | der Weltkrieg | die Weltkriege | dünya savaşı | Der Zweite Weltkrieg endete in Europa im Mai 1945. | Weltkrieg | İkinci Dünya Savaşı Avrupa'da Mayıs 1945'te sona erdi.
+n | der Frieden | (Sg.) | barış | Nach dem Zweiten Weltkrieg wünschten sich die Menschen in Europa vor allem Frieden. | Frieden | İkinci Dünya Savaşı'ndan sonra Avrupa'daki insanlar her şeyden önce barış istiyordu.
+v | sichern | sichert, sicherte, hat gesichert | güvenceye almak, korumak; (dosya) kaydetmek | Die Zusammenarbeit in der EU soll den Frieden in Europa sichern. | sichern | AB'deki işbirliği Avrupa'da barışı güvenceye almalı.
+v | beitreten | + D · trennbar: tritt bei, trat bei, ist beigetreten | (bir kuruma) katılmak, üye olmak | Viele Länder möchten der EU beitreten, aber das dauert lange. | beitreten | Birçok ülke AB'ye katılmak istiyor ama bu uzun sürüyor.
+n | der Ausstieg | die Ausstiege | çıkış, ayrılma | Der Ausstieg Großbritanniens aus der EU wird auch Brexit genannt. | Ausstieg | Büyük Britanya'nın AB'den çıkışına Brexit de denir.
+n | die Dienstleistung | die Dienstleistungen | hizmet | In der EU können Waren und Dienstleistungen frei gehandelt werden. | Dienstleistungen | AB'de mallar ve hizmetler serbestçe alınıp satılabilir.
+a | wirtschaftlich | | ekonomik (açıdan) | Die EU ist für Deutschland politisch und wirtschaftlich sehr wichtig. | wirtschaftlich | AB Almanya için siyasi ve ekonomik açıdan çok önemli.
+n | der Sitz | die Sitze | (bir kurumun) merkezi; oturak, koltuk | Der Sitz des Europäischen Parlaments ist in Straßburg. | Sitz | Avrupa Parlamentosu'nun merkezi Strazburg'dadır.
+v | führen zu | zu + D · führt, führte, hat geführt | -e yol açmak | Zu viele Vorschriften führen oft zu Problemen für kleine Firmen. | führen | Çok fazla kural küçük firmalar için sık sık sorunlara yol açar.
+v | zulassen | trennbar: lässt zu, ließ zu, hat zugelassen | izin vermek; (resmî olarak) onaylamak | Neue Medikamente werden in der EU erst nach vielen Tests zugelassen. | zugelassen | Yeni ilaçlar AB'de ancak birçok testten sonra onaylanır.
+a | erstaunlich | | şaşırtıcı | Es ist erstaunlich, wie viele Sprachen in der EU gesprochen werden. | erstaunlich | AB'de ne kadar çok dil konuşulduğu şaşırtıcı.
+n | der Vortrag | die Vorträge | sunum, konferans (konuşma) | Im Kurs halte ich nächste Woche einen Vortrag über die EU. | Vortrag | Gelecek hafta kursta AB hakkında bir sunum yapacağım.
+x | den Faden verlieren | verliert, verlor, hat verloren | (konuşurken) konuyu kaybetmek, ipin ucunu kaçırmak | Bei meinem Vortrag war ich so nervös, dass ich den Faden verloren habe. | Faden | Sunumumda o kadar gergindim ki konunun ipini kaçırdım.
+@gruppe Essen regional
+n | die Brezel | die Brezeln | brezel (düğüm biçimli tuzlu ekmek) | Zum Frühstück esse ich gern eine frische Brezel mit Butter. | Brezel | Kahvaltıda tereyağlı taze bir brezel yemeyi severim.
+n | die Semmel | die Semmeln | küçük ekmek (Güney Almanya / Avusturya; kuzeyde: das Brötchen) | In Bayern sagt man Semmel, aber in Bremen sagt man Brötchen. | Semmel | Bavyera'da Semmel denir ama Bremen'de Brötchen denir.
+n | der Quark | (Sg.) | quark (yumuşak taze peynir, lor gibi) | Für den Käsekuchen brauche ich ein Pfund Quark und drei Eier. | Quark | Peynirli kek için yarım kilo quark ve üç yumurtaya ihtiyacım var.
+n | die Schlagsahne | (Sg.) | krem şanti | Zum Apfelkuchen gibt es bei uns immer frische Schlagsahne. | Schlagsahne | Bizde elmalı pastanın yanında hep taze krem şanti olur.
+n | die Konfitüre | die Konfitüren | reçel (meyve parçalı) | Im Hotel gab es zum Frühstück drei Sorten Konfitüre. | Konfitüre | Otelde kahvaltıda üç çeşit reçel vardı.
+n | das Hackfleisch | (Sg.) | kıyma | Für die Soße wird das Hackfleisch mit Zwiebeln gebraten. | Hackfleisch | Sos için kıyma soğanla kavrulur.
+n | die Pflaume | die Pflaumen | erik (Güney Almanya: die Zwetschge) | Im Herbst backt meine Oma Kuchen mit frischen Pflaumen. | Pflaumen | Sonbaharda büyükannem taze erikli pasta yapar.
+n | die Aprikose | die Aprikosen | kayısı (Avusturya: die Marille) | In Österreich sagt man Marille, aber in Deutschland sagt man Aprikose. | Aprikose | Avusturya'da Marille denir ama Almanya'da Aprikose denir.
+n | das Gewürz | die Gewürze | baharat | In der türkischen Küche werden viele verschiedene Gewürze benutzt. | Gewürze | Türk mutfağında birçok farklı baharat kullanılır.
+v | würzen | würzt, würzte, hat gewürzt | baharatlamak, tatlandırmak | Die Suppe muss noch mit Salz und Pfeffer gewürzt werden. | gewürzt | Çorbaya daha tuz ve karabiber konması gerekiyor.
+n | die Auswahl | (Sg.) · eine Auswahl an + D | seçenek, çeşit | In der Bäckerei gibt es eine große Auswahl an Brot und Kuchen. | Auswahl | Fırında çok çeşit ekmek ve pasta var.
+@gruppe Präposition + einander
+k | miteinander | | birbiriyle | Im Kurs sprechen wir nur Deutsch miteinander, auch in der Pause. | miteinander | Kursta teneffüste bile birbirimizle sadece Almanca konuşuyoruz.
+k | nebeneinander | | yan yana | Im Bus saßen zwei Frauen nebeneinander und unterhielten sich laut. | nebeneinander | Otobüste iki kadın yan yana oturmuş yüksek sesle sohbet ediyordu.
+k | aneinander | | birbirine (aneinander denken: birbirini düşünmek) | Nach dem Umzug haben wir noch oft aneinander gedacht. | aneinander | Taşındıktan sonra hâlâ sık sık birbirimizi düşündük.
+k | füreinander | | birbiri için | In einer guten Nachbarschaft sind die Menschen füreinander da. | füreinander | İyi bir komşulukta insanlar birbirine destek olur.
+k | voneinander | | birbirinden | In unserer Lerngruppe lernen wir jeden Tag viel voneinander. | voneinander | Çalışma grubumuzda her gün birbirimizden çok şey öğreniyoruz.

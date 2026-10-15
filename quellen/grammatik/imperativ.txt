@@ -1,0 +1,82 @@
+# Gramer konusu: Emir kipi (Imperativ). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id imperativ
+@titel Imperativ
+@tr Emir kipi: Komm! · Kommt! · Kommen Sie! (rica, öneri, talimat)
+@stufe A1–A2 · B1 tekrar
+@kapitel A1–A2 · tekrar
+@goethe 2 | Schreiben 1 · Sprechen 3 · Hören / Lesen (talimatlar)
+@voraus v2-satzbau
+@kontrast konjunktiv2
+@etiket artikel/çekim
+@kurz du: kök, ek yok, du yok (Komm! Nimm! Fahr!) · ihr: ihr-biçimi, ihr yok (Kommt!) · Sie: mastar + Sie (Kommen Sie!) · sein: Sei! Seid! Seien Sie! Ayrılabilen ön ek sona: Ruf mich an!
+
+@erklaerung
+Emir kipinin üç biçimi var; kime konuştuğuna göre seçilir.
+
+1. du: du-biçiminden -st ve du atılır: du kommst → Komm! du machst → Mach! Kök -t / -d ile bitiyorsa -e eklenir: Warte! Arbeite!
+2. e → i / ie değişen fiiller du-emrinde de değişir: nehmen → Nimm!, geben → Gib!, lesen → Lies!, helfen → Hilf!, essen → Iss!, sprechen → Sprich! Ama a → ä değişimi emirde YOK: du fährst → Fahr!, du schläfst → Schlaf!
+3. ihr: ihr-biçiminin aynısı, ihr atılır: ihr kommt → Kommt!
+4. Sie: mastar + Sie: Kommen Sie! Nehmen Sie Platz!
+5. sein düzensiz: Sei pünktlich! · Seid leise! · Seien Sie vorsichtig!
+6. Ayrılabilen fiilde ön ek en sona: Mach das Fenster zu! Ruf mich an! Dönüşlü zamir kalır: Beeil dich! Setzen Sie sich!
+7. Yumuşatmak için bitte, doch, mal: Komm doch mal vorbei! Çok kibar bir rica için Konjunktiv II daha iyi: Könnten Sie …?
+
+Türkçede "Gel! / Gelin!" ayrımı Almancada üçe ayrılır: arkadaşa du (Komm!), birden çok arkadaşa ihr (Kommt!), resmî Sie (Kommen Sie!). Tipik hatalar: "Nehm!", "Fähr!", "Du komm!", "Gibst mir!", "Sei Sie ruhig!".
+Sınavda: Schreiben Teil 1'de arkadaşa e-postanın sonunda "Schreib mir bald!", "Ruf mich an!"; Hören ve Lesen'de talimat ve tabelalar emir kipindedir.
+@ende
+
+@tabelle Üç biçim
+mastar | du | ihr | Sie
+kommen | Komm! | Kommt! | Kommen Sie!
+warten | Warte! | Wartet! | Warten Sie!
+nehmen | Nimm! | Nehmt! | Nehmen Sie!
+lesen | Lies! | Lest! | Lesen Sie!
+fahren | Fahr! | Fahrt! | Fahren Sie!
+anrufen | Ruf an! | Ruft an! | Rufen Sie an!
+sich beeilen | Beeil dich! | Beeilt euch! | Beeilen Sie sich!
+sein | Sei! | Seid! | Seien Sie!
+@ende
+
+@beispiel Schreib mir bald zurück! | Bana yakında cevap yaz!
+@beispiel Kinder, räumt bitte eure Zimmer auf! | Çocuklar, lütfen odalarınızı toplayın!
+@beispiel Nehmen Sie bitte Platz! | Lütfen oturun!
+
+@teil du | du-emri: ek yok, du yok | artikel/çekim
+wahl | 1 | ___ bitte das Fenster zu, es ist kalt! | Mach | Mach / Machst / Macht du | Pencereyi kapat lütfen, hava soğuk! | du-emri: kök (mach), -st ve du düşer; zu en sonda. | das Fenster; zumachen
+luecke | 1 | ___ mir bitte das Salz! (geben · du) | Gib | | Tuzu bana ver lütfen! | geben → du gibst → Gib! (e → i değişimi emirde de var). | geben; das Salz
+luecke | 2 | ___ den Text bis morgen! (lesen · du) | Lies | | Metni yarına kadar oku! | lesen → du liest → Lies! (e → ie). | lesen; der Text
+wahl | 2 | ___ nicht so schnell, ich habe Angst! | Fahr | Fahr / Fähr / Fährst | Bu kadar hızlı sürme, korkuyorum! | a → ä değişimi emirde yok: du fährst ama Fahr! | fahren; die Angst
+fehler | 2 | Nehm doch noch ein Stück Kuchen! | Nimm doch noch ein Stück Kuchen! | Nehm | Bir dilim kek daha alsana! | nehmen → du nimmst → Nimm! (e → i ve mm). | nehmen; der Kuchen
+luecke | 2 | ___ mal kurz! Ich bin gleich fertig. (warten · du) | Warte / Wart | | Bir dakika bekle! Hemen hazırım. | Kök -t ile bitince -e eklenir: Warte! (konuşmada Wart! de duyulur). | warten auf; fertig
+luecke | 2 | ___ deiner Schwester bei den Hausaufgaben! (helfen · du) | Hilf | | Kız kardeşine ödevlerinde yardım et! | helfen → du hilfst → Hilf! | helfen bei; die Hausaufgabe
+fehler | 2 | Du gib mir bitte deine Telefonnummer! | Gib mir bitte deine Telefonnummer! | Du gib | Bana telefon numaranı ver lütfen! | Emir kipinde du söylenmez: Gib …! | geben; die Telefonnummer, -n
+
+@teil ihr | ihr-emri: ihr-biçimi, ihr yok | artikel/çekim
+luecke | 1 | Kinder, ___ bitte eure Zimmer auf! (aufräumen · ihr) | räumt | | Çocuklar, lütfen odalarınızı toplayın! | ihr-emri = ihr-biçimi (räumt), ihr düşer; auf en sonda. | aufräumen; das Zimmer
+wahl | 1 | Ihr seid zu laut. ___ bitte leise! | Seid | Seid / Sei / Seien | Çok gürültü yapıyorsunuz. Lütfen sessiz olun! | sein'in ihr-emri: Seid! (Sei = du, Seien Sie = Sie). | leise; laut
+umform | 2 | Ihr kommt morgen pünktlich. → Imperativ (ihr) | Kommt morgen pünktlich! | | Yarın zamanında gelin! | ihr-biçimi aynen kalır, ihr düşer: Kommt! | kommen; pünktlich
+luecke | 2 | Kinder, ___ nicht so viel Süßes! (essen · ihr) | esst | | Çocuklar, o kadar çok tatlı yemeyin! | ihr esst → Esst! (ihr-biçiminde e → i değişimi yok). | essen; süß
+
+@teil sie | Sie-emri: mastar + Sie | artikel/çekim
+wahl | 1 | Herr Yılmaz, ___ Sie bitte Platz! | nehmen | nehmen / nimm / nehmt | Bay Yılmaz, lütfen oturun! | Sie-emri: mastar + Sie: Nehmen Sie Platz! | nehmen; der Platz
+umform | 2 | Sie füllen das Formular aus. → Imperativ (Sie) | Füllen Sie das Formular aus! / Füllen Sie bitte das Formular aus! / Füllen Sie das Formular bitte aus! / Bitte füllen Sie das Formular aus! | | Formu doldurun! | Fiil başa, Sie arkasına; ayrılabilen ön ek (aus) en sona. | ausfüllen; das Formular
+fehler | 2 | Seien Sie bitte vorsichtig! | Seien Sie bitte vorsichtig! | - | Lütfen dikkatli olun! | Hata yok: sein'in Sie-emri: Seien Sie! | vorsichtig
+ordnen | 2 | rufen / Sie / mich / bitte / morgen / an | Rufen Sie mich bitte morgen an! / Rufen Sie mich morgen bitte an! / Bitte rufen Sie mich morgen an! | | Lütfen beni yarın arayın! | Fiil (rufen) + Sie başta, ön ek (an) en sonda. | anrufen
+fehler | 3 | Sei Sie bitte ruhig! | Seien Sie bitte ruhig! | Sei Sie | Lütfen sakin olun! | Sie-emrinde sein → Seien Sie. Sei yalnız du için. | ruhig
+
+@teil trennbar | Ön ek sona, dönüşlü zamir kalır | kelime sırası
+luecke | 1 | ___ bitte auf, es ist schon sieben Uhr! (aufstehen · du) | Steh | Steh / Aufsteh / Stehst | Kalk lütfen, saat yedi oldu bile! | Ayrılabilen fiilin du-emri: kök başta (Steh), ön ek (auf) en sonda: Steh auf! | aufstehen
+luecke | 2 | ___ dich bitte! Der Zug fährt gleich ab. (sich beeilen · du) | Beeil / Beeile | | Acele et lütfen! Tren birazdan kalkıyor. | Dönüşlü zamir emirde de kalır: Beeil dich! | sich beeilen; der Zug
+ordnen | 2 | setzen / Sie / sich / bitte | Setzen Sie sich bitte! / Bitte setzen Sie sich! | | Lütfen oturun! | Sie-emri: fiil + Sie + dönüşlü zamir (sich). | sich setzen
+luecke | 3 | ___ das Licht ___, wenn du gehst! (ausmachen · du) | Mach ; aus | | Giderken ışığı kapat! | Ayrılabilen fiilde ön ek (aus) en sona: Mach … aus! | das Licht; ausmachen
+umform | 3 | Du rufst mich an, wenn du in Bremen bist. → Imperativ (du) | Ruf mich an, wenn du in Bremen bist! / Rufe mich an, wenn du in Bremen bist! | | Bremen'e varınca beni ara! | du ve -st düşer: Ruf …! ön ek (an) ana cümlenin sonunda kalır. | anrufen
+ordnen | 3 | zieh / dir / eine warme Jacke / an | Zieh dir eine warme Jacke an! | | Kalın bir ceket giy! | Dönüşlü zamir Dativ (dir), çünkü Akkusativ nesne (eine Jacke) var; an en sonda. | sich anziehen; die Jacke; warm
+
+@teil hoeflich | Yumuşatma: bitte, doch, mal · Konjunktiv II | artikel/çekim
+wahl | 2 | Welcher Satz ist am freundlichsten? | Komm doch mal vorbei! | Komm doch mal vorbei! / Komm vorbei! / Du kommst vorbei. | Bir ara bize uğrasana! | doch mal emri yumuşatır, davet gibi duyulur. | vorbei
+umform | 3 | Mach das Fenster auf! → Konjunktiv II | Könntest du das Fenster aufmachen? / Würdest du das Fenster aufmachen? / Könntest du bitte das Fenster aufmachen? / Würdest du bitte das Fenster aufmachen? | | Pencereyi açar mısın? | Emri kibar ricaya çevir: Könntest / Würdest du + mastar (aufmachen) en sonda. | das Fenster
+luecke | 2 | ___ mir bald zurück! (schreiben · du) | Schreib / Schreibe | | Bana yakında cevap yaz! | du-emri: Schreib! E-postanın sonundaki tipik kapanış. | schreiben
+ordnen | 2 | nimm / doch / einfach / den Bus | Nimm doch einfach den Bus! | | Otobüse binsene! | Öneri: emir + doch einfach; nehmen → Nimm! | nehmen; der Bus
+

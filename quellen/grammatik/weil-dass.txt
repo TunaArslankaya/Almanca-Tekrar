@@ -2,15 +2,15 @@
 # Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
 # Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
 @id weil-dass
-@titel Nebensätze mit weil und dass
-@tr Yan cümle: weil (çünkü) ve dass (-dığını / ki)
+@titel Nebensätze mit weil, da und dass
+@tr Yan cümle: weil / da (çünkü, -dığı için) ve dass (-dığını / ki)
 @stufe A2–B1
 @kapitel A2 giriş · B1 K1–4 tekrar ?
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2
 @voraus v2-satzbau
 @kontrast konnektoren-deshalb-trotzdem
 @etiket kelime sırası
-@kurz weil / dass → çekimli fiil en sona. Yan cümle öndeyse ana cümle fiille başlar: fiil, fiil.
+@kurz weil / da / dass → çekimli fiil en sona. Yan cümle öndeyse ana cümle fiille başlar: fiil, fiil.
 
 @erklaerung
 weil (çünkü) ve dass (-dığını, -diğini, ki) bir yan cümle (der Nebensatz) başlatır. Yan cümlede çekimli fiil EN SONA gider. Türkçede de fiil sondadır: "hasta olduğum için" → "weil ich krank bin". Yani yan cümlenin kendisi Türkçeye benzer; asıl tuzak ana cümle ile birleştiği yerde.
@@ -23,13 +23,15 @@ weil (çünkü) ve dass (-dığını, -diğini, ki) bir yan cümle (der Nebensat
 6. denn de "çünkü" demektir ama ana cümle bağlar, sıra değişmez: …, denn ich bin krank. deshalb ("bu yüzden") ardından hemen fiil gelir: …, deshalb bleibe ich zu Hause.
 7. Sokakta "weil ich bin krank" çok duyulur; konuşma dilidir, yazılı sınavda hata sayılır.
 8. dass (iki s) bağlaçtır. das ise artikel ya da ilgi zamiridir: das Geschenk, das ich gekauft habe.
+9. da (bağlaç) de "-dığı için" demektir, weil gibi fiili sona atar. Sebep zaten biliniyorsa ve yan cümle başta ise yazıda sık: Da ich kein Auto habe, fahre ich mit dem Fahrrad. "Warum?" sorusuna tek başına cevap olmaz: "Warum?" – "Weil …" (Da … değil).
 
-Sınavda: Schreiben'de görüş bildirirken "Ich finde, dass …", "Ich glaube, dass …", "Ich bin sicher, dass …"; sebep verirken "…, weil …". Her yazma görevinde en az bir kez kullanılır.
+Sınavda: Schreiben'de görüş bildirirken "Ich finde, dass …", "Ich glaube, dass …", "Es ist wichtig, dass …"; sebep verirken "…, weil …" ya da "Da …, …". Her yazma görevinde en az bir kez kullanılır.
 @ende
 
 @tabelle Bağlaçtan sonra fiil nerede?
 bağlaç | tür | çekimli fiil | örnek
 weil | yan cümle | en sonda | …, weil ich keine Zeit habe.
+da | yan cümle (çoğu zaman başta) | en sonda | Da ich keine Zeit habe, …
 dass | yan cümle | en sonda | …, dass du Zeit hast.
 denn | ana cümle bağlacı | 2. yerde, sıra değişmez | …, denn ich habe keine Zeit.
 deshalb | zarf (ana cümlede 1. yer) | hemen arkasında | …, deshalb habe ich keine Zeit.
@@ -56,7 +58,7 @@ ordnen | 2 | ich finde / dass / du / sehr gut / Deutsch / sprichst | Ich finde, 
 @teil modal | Modal fiil: mastar + modal en sonda | kelime sırası
 luecke | 2 | Ich kann heute nicht kommen, weil ich ___. (arbeiten · müssen) | arbeiten muss | | Bugün gelemem, çünkü çalışmam gerekiyor. | Yan cümlede çekimli modal fiil en sona: önce mastar (arbeiten), sonra modal (muss). | arbeiten; müssen
 fehler | 2 | Ich lerne jeden Abend, weil ich will die Prüfung bestehen. | Ich lerne jeden Abend, weil ich die Prüfung bestehen will. | will | Her akşam çalışıyorum, çünkü sınavı geçmek istiyorum. | weil'den sonra çekimli modal fiil (will) yerinden kalkıp en sona gider: … die Prüfung bestehen will. | bestehen; die Prüfung
-umform | 3 | Ich soll mich mehr bewegen. Das hat die Ärztin gesagt. → dass | Die Ärztin hat gesagt, dass ich mich mehr bewegen soll. | | Doktor daha çok hareket etmem gerektiğini söyledi. | Ana cümle: Die Ärztin hat gesagt. Yan cümle: dass + ich + mich + … + bewegen soll (mastar, sonra çekimli modal). | sich bewegen; die Ärztin; sagen
+umform | 3 | Ich soll mich mehr bewegen. Das hat die Ärztin gesagt. → dass | Die Ärztin hat gesagt, dass ich mich mehr bewegen soll. / Dass ich mich mehr bewegen soll, hat die Ärztin gesagt. | | Doktor daha çok hareket etmem gerektiğini söyledi. | Ana cümle: Die Ärztin hat gesagt. Yan cümle: dass + ich + mich + … + bewegen soll (mastar, sonra çekimli modal). | sich bewegen; die Ärztin; sagen
 
 @teil perfekt | Perfekt: Partizip + haben / sein en sonda | yardımcı fiil
 luecke | 2 | Ich bin heute müde, weil ich gestern bis Mitternacht ___. (arbeiten · Perfekt) | gearbeitet habe | | Bugün yorgunum, çünkü dün gece yarısına kadar çalıştım. | Perfekt yan cümlede: önce Partizip (gearbeitet), en sonda çekimli yardımcı fiil (habe). | müde; arbeiten
@@ -71,7 +73,7 @@ fehler | 2 | Ich bin sicher, dass der Kurs um neun Uhr fängt an. | Ich bin sich
 @teil reflexiv | Dönüşlü zamir öznenin hemen arkasında | dönüşlü zamir
 luecke | 2 | Ich gehe heute nicht zum Sport, weil ich ___ nicht wohlfühle. | mich | | Bugün spora gitmiyorum, çünkü kendimi iyi hissetmiyorum. | Dönüşlü zamir (mich) yan cümlede öznenin (ich) hemen arkasına gelir; fiil (wohlfühle) en sonda. | wohl; der Sport
 ordnen | 3 | ich finde es gut / dass / du / dich / so sehr / anstrengst | Ich finde es gut, dass du dich so sehr anstrengst. | | Bu kadar çok çaba göstermeni iyi buluyorum. | dass + özne (du) + dönüşlü zamir (dich) + … + çekimli fiil (anstrengst) en sonda. | sich anstrengen
-fehler | 2 | Ich freue mich, dass du mich besuchst. | Ich freue mich, dass du mich besuchst. | - | Beni ziyaret etmene seviniyorum. | Hata yok: ana cümlede fiil 2. yerde (freue mich), yan cümlede çekimli fiil (besuchst) en sonda. | sich freuen über; besuchen
+fehler | 2 | Ich freue mich, dass du mich besuchst. | Ich freue mich, dass du mich besuchst. | - | Beni ziyarete gelmene seviniyorum. | Hata yok: ana cümlede fiil 2. yerde (freue mich), yan cümlede çekimli fiil (besuchst) en sonda. | sich freuen über; besuchen
 
 @teil vorn | Yan cümle başta → ana cümle fiille başlar | kelime sırası
 wahl | 2 | Welcher Satz ist richtig? | Weil es stark regnet, bleiben wir zu Hause. | Weil es stark regnet, bleiben wir zu Hause. / Weil es stark regnet, wir bleiben zu Hause. / Weil es regnet stark, bleiben wir zu Hause. | Çok yağmur yağdığı için evde kalıyoruz. | Yan cümle cümlenin 1. öğesidir; ana cümlenin çekimli fiili hemen arkasından gelir: …, bleiben wir … (fiil, virgül, fiil). | regnen; stark
@@ -81,3 +83,21 @@ fehler | 2 | Weil der Bus Verspätung hatte, ich bin zu spät gekommen. | Weil d
 @teil kontrast | weil · denn · deshalb · dass / das | kelime sırası
 wahl | 3 | Ich trinke viel Wasser, ___ der Körper braucht viel Flüssigkeit. | denn | weil / denn / deshalb | Çok su içiyorum, çünkü vücudun çok sıvıya ihtiyacı var. | Arkadaki cümlede fiil (braucht) 2. yerde → denn (ana cümle bağlar, sıra değişmez). weil olsaydı: …, weil der Körper viel Flüssigkeit braucht. | die Flüssigkeit; der Körper; brauchen; das Wasser
 luecke | 1 | Ich hoffe, ___ dir das Geschenk gefällt. | dass | dass / das / was | Umarım hediye hoşuna gider. | dass (iki s) bağlaçtır, virgülden sonra yan cümle açar ve fiili (gefällt) sona atar. das ise artikeldir: das Geschenk. | das Geschenk; gefallen
+
+@teil da | da: bilinen sebep, çoğu zaman başta | bağlaç
+wahl | 1 | ___ ich kein Auto habe, fahre ich mit dem Fahrrad zur Uni. | Da | Da / Denn / Deshalb | Arabam olmadığı için üniversiteye bisikletle gidiyorum. | Arkada fiil sonda (habe), sonra ana cümle fiille başlıyor (fahre ich) → yan cümle bağlacı Da (= weil). denn ve deshalb yan cümle açmaz. | das Auto; das Fahrrad
+luecke | 2 | Da die Bibliothek heute geschlossen ___, lernen wir zu Hause. (sein) | ist | | Kütüphane bugün kapalı olduğu için evde çalışıyoruz. | da = weil: yan cümlede çekimli fiil en sonda (geschlossen ist); ana cümle fiille başlar (lernen wir). | die Bibliothek
+ordnen | 2 | da / es / heute / so heiß / ist / bleiben / wir / im Schatten | Da es heute so heiß ist, bleiben wir im Schatten. / Wir bleiben im Schatten, da es heute so heiß ist. / Heute bleiben wir im Schatten, da es so heiß ist. / Wir bleiben heute im Schatten, da es so heiß ist. | | Bugün çok sıcak olduğu için gölgede kalıyoruz. | da-yan cümlesinde fiil sonda (ist). Yan cümle başta ise ana cümle fiille başlar: bleiben wir. | heiß; der Schatten
+umform | 3 | Ich habe morgen eine Prüfung. Deshalb kann ich heute nicht ausgehen. → Da … | Da ich morgen eine Prüfung habe, kann ich heute nicht ausgehen. | | Yarın sınavım olduğu için bugün dışarı çıkamam. | Sebep da-yan cümlesi olur ve başa geçer (… habe); deshalb düşer. Ana cümle çekimli fiille başlar: kann ich … ausgehen. | die Prüfung; ausgehen
+fehler | 3 | Da ich wenig Zeit habe, ich esse oft in der Mensa. | Da ich wenig Zeit habe, esse ich oft in der Mensa. | ich esse | Az vaktim olduğu için sık sık yemekhanede yiyorum. | Yan cümle (Da …) cümlenin 1. öğesidir; ana cümle özneyle değil, fiille başlar: esse ich. | die Mensa; die Zeit
+
+@teil dass-ausdruck | dass: görüş ve duygu kalıplarından sonra | kelime sırası
+luecke | 2 | Es ist wichtig, dass man genug Wasser ___. (trinken) | trinkt | | Yeterince su içmek önemli. | Es ist wichtig, dass … → çekimli fiil sonda: trinkt. Sınavda görüş bildirirken çok işe yarar. | wichtig; das Wasser; trinken
+luecke | 2 | Meine Eltern finden es schade, dass ich nicht nach Hause ___. (kommen · können) | kommen kann | | Annemle babam eve gelemediğim için üzülüyor. | Modal fiil: önce mastar (kommen), en sonda çekimli modal (kann). nicht fiil grubunun önünde kalır. | schade; kommen; können
+wahl | 2 | Ich glaube, ___. | dass der Film um acht Uhr anfängt | dass der Film um acht Uhr anfängt / dass der Film fängt um acht Uhr an / dass der Film um acht Uhr fängt an | Sanırım film saat sekizde başlıyor. | dass-yan cümlesinde ayrılabilen fiil ayrılmaz ve en sona gider: anfängt. | glauben; der Film; anfangen mit
+ordnen | 3 | es tut mir leid / dass / ich / dich / nicht / angerufen / habe | Es tut mir leid, dass ich dich nicht angerufen habe. | | Seni aramadığım için üzgünüm. | dass + özne (ich) + zamir nesne (dich) + nicht + Partizip (angerufen) + çekimli yardımcı fiil (habe) en sonda. | anrufen
+umform | 3 | Du hast die Prüfung bestanden. Das freut mich sehr. → dass | Es freut mich sehr, dass du die Prüfung bestanden hast. / Ich freue mich sehr, dass du die Prüfung bestanden hast. / Dass du die Prüfung bestanden hast, freut mich sehr. | | Sınavı geçmene çok sevindim. | "Das" yerine dass-yan cümlesi gelir; Perfekt'te yardımcı fiil sonda: bestanden hast. | bestehen; die Prüfung
+
+@teil dass-das | dass (bağlaç) · das (artikel / ilgi zamiri) | bağlaç
+luecke | 1 | Das Buch, ___ du mir geschenkt hast, ist sehr spannend. | das | dass / das | Bana hediye ettiğin kitap çok heyecanlı. | Buradaki das, das Buch'u gösterir (hangi kitap?): ilgi zamiri, tek s. dass ise "-dığını" demektir ve bir isme bağlanmaz. | das Buch; schenken; spannend
+fehler | 2 | Ich hoffe, das du morgen Zeit hast. | Ich hoffe, dass du morgen Zeit hast. | das | Umarım yarın vaktin vardır. | hoffen + yan cümle: bağlaç iki s ile yazılır (dass). das yalnız artikel ya da ilgi zamiri. | hoffen auf; die Zeit

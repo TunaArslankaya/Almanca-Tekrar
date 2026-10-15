@@ -1,0 +1,77 @@
+# Gramer konusu: obwohl / trotzdem, wenn / falls (koşul). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id obwohl-wenn
+@titel Nebensätze mit obwohl, wenn und falls
+@tr Yan cümle: obwohl (-e rağmen), wenn / falls (-se, -ırsa)
+@stufe A2–B1
+@kapitel A2 (wenn) · B1 tekrar ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus weil-dass
+@kontrast konnektoren-deshalb-trotzdem
+@etiket bağlaç
+@kurz obwohl (-e rağmen), wenn / falls (-se): yan cümle, çekimli fiil sonda. trotzdem (yine de) ana cümlede, hemen ardından fiil.
+
+@erklaerung
+obwohl "-dığı hâlde, -e rağmen" demektir: beklenenin tersi olur. "Hasta olmasına rağmen işe gitti." → Obwohl er krank war, ist er zur Arbeit gegangen. wenn burada bir koşuldur: "-se, -ırsa". falls da "-se" demektir, "olur da …" anlamında; olasılık daha belirsizdir. Yazıda ikisi de doğru.
+
+1. obwohl, wenn ve falls yan cümle (der Nebensatz) açar: çekimli fiil en sona. Türkçe ekler de (-e rağmen, -se) fiile gelir, sıra benzer.
+2. Yan cümle başta → ana cümle fiille başlar: Wenn ich Zeit habe, komme ich mit. İsterseniz "dann" eklenir: Wenn …, dann komme ich mit.
+3. trotzdem (yine de) bağlaç değil, zarftır: ana cümlede 1. yerde durur, ardından hemen fiil gelir: Er war krank. Trotzdem ist er zur Arbeit gegangen.
+4. obwohl ≠ weil: weil sebep verir (soğuk → ceket giyiyorum), obwohl beklenmeyen sonucu (soğuk → ceket giymiyorum).
+5. Gelecekteki koşul için Präsens yeter: Wenn es morgen regnet, bleiben wir zu Hause. (Türkçede de "yağarsa".)
+6. Gerçek dışı koşul ("-seydi", "keşke") Konjunktiv II ister: Wenn ich Zeit hätte, … Bu ayrı bir konu.
+
+Tipik hatalar: "Obwohl ich müde bin, ich gehe …" (fiil, virgül, fiil kuralı unutuluyor) ve "trotzdem ich gehe …" (trotzdem'den sonra fiil gelir).
+
+Sınavda: Schreiben'de karşı görüş "Obwohl Sport gesund ist, …", öneri "Wenn du willst, können wir …", resmî e-postanın sonunda "Falls Sie noch Fragen haben, …".
+@ende
+
+@tabelle Hangi kelime, fiil nerede?
+kelime | anlam | tür | çekimli fiil | örnek
+obwohl | -e rağmen | yan cümle bağlacı | en sonda | …, obwohl es regnet.
+trotzdem | yine de | zarf (1. yer) | hemen arkasında | Es regnet. Trotzdem gehen wir spazieren.
+wenn | -se (koşul) | yan cümle bağlacı | en sonda | Wenn es regnet, bleiben wir zu Hause.
+falls | -se, olur da | yan cümle bağlacı | en sonda | Falls es regnet, nehmen wir den Bus.
+weil | çünkü (sebep) | yan cümle bağlacı | en sonda | …, weil es regnet.
+@ende
+
+@beispiel Obwohl ich müde war, habe ich noch eine Stunde gelernt. | Yorgun olmama rağmen bir saat daha çalıştım.
+@beispiel Wenn du Zeit hast, können wir zusammen kochen. | Vaktin varsa birlikte yemek yapabiliriz.
+@beispiel Falls Sie noch Fragen haben, rufen Sie mich bitte an. | Başka sorunuz olursa lütfen beni arayın.
+
+@teil obwohl | obwohl: beklenenin tersi | bağlaç
+wahl | 1 | Er geht joggen, ___ es stark regnet. | obwohl | obwohl / weil / trotzdem | Çok yağmur yağmasına rağmen koşuya gidiyor. | Şiddetli yağmurda koşu beklenmez → beklenenin tersi: obwohl. weil, yağmuru koşunun sebebi yapardı; trotzdem yan cümle açamaz. | regnen; stark
+luecke | 2 | Obwohl sie wenig Zeit ___, hilft sie mir immer. (haben) | hat | | Az vakti olmasına rağmen bana hep yardım eder. | obwohl-yan cümlesinde çekimli fiil sonda: hat. Ana cümle fiille başlar: hilft sie. | helfen; die Zeit
+luecke | 2 | Ich bin heute zum Kurs gegangen, obwohl ich krank ___. (sein · Präteritum) | war | | Hasta olmama rağmen bugün kursa gittim. | Geçmişte sein çoğunlukla Präteritum: war. Yan cümlede en sonda. | krank; der Kurs
+ordnen | 2 | obwohl / er / seit fünf Jahren / in Bremen / wohnt / spricht / er / wenig Deutsch | Obwohl er seit fünf Jahren in Bremen wohnt, spricht er wenig Deutsch. / Er spricht wenig Deutsch, obwohl er seit fünf Jahren in Bremen wohnt. | | Beş yıldır Bremen'de yaşamasına rağmen az Almanca konuşuyor. | obwohl-yan cümlesinde fiil sonda (wohnt); yan cümle başta ise ana cümle fiille başlar: spricht er. | wohnen; sprechen mit
+fehler | 2 | Obwohl der Film langweilig war, wir sind bis zum Ende geblieben. | Obwohl der Film langweilig war, sind wir bis zum Ende geblieben. | wir sind | Film sıkıcı olmasına rağmen sonuna kadar kaldık. | Yan cümle cümlenin 1. öğesi → ana cümle fiille başlar: sind wir. | langweilig; der Film; bleiben
+umform | 3 | Das Wetter war schlecht. Trotzdem haben wir einen Ausflug gemacht. → obwohl | Wir haben einen Ausflug gemacht, obwohl das Wetter schlecht war. / Obwohl das Wetter schlecht war, haben wir einen Ausflug gemacht. | | Hava kötü olmasına rağmen geziye çıktık. | Beklenmeyen durumun nedeni (kötü hava) obwohl-yan cümlesi olur, fiil sonda (war); trotzdem düşer. | das Wetter; der Ausflug; schlecht
+
+@teil trotzdem | trotzdem: ana cümlede, ardından fiil | kelime sırası
+wahl | 1 | Ich war sehr müde. ___ habe ich die Hausaufgaben gemacht. | Trotzdem | Trotzdem / Obwohl / Weil | Çok yorgundum. Yine de ödevleri yaptım. | Arkada fiil hemen geliyor (habe ich) → zarf: Trotzdem. obwohl ve weil'den sonra fiil sona giderdi. | müde; die Hausaufgabe
+luecke | 2 | Der Arzt hat ihm Ruhe empfohlen, trotzdem ___ er jeden Tag ins Fitnessstudio. (gehen) | geht | | Doktor ona dinlenmeyi önerdi, yine de her gün spor salonuna gidiyor. | trotzdem 1. yerde → çekimli fiil hemen arkasında: trotzdem geht er. | der Arzt; empfehlen; die Ruhe
+ordnen | 2 | ich / hatte / keine Zeit / trotzdem / habe / ich / dir / geholfen | Ich hatte keine Zeit, trotzdem habe ich dir geholfen. / Ich hatte keine Zeit, ich habe dir trotzdem geholfen. | | Vaktim yoktu, yine de sana yardım ettim. | trotzdem'den sonra önce çekimli fiil (habe), sonra özne (ich); Partizip (geholfen) en sonda. | helfen; die Zeit
+fehler | 2 | Es ist schon spät, trotzdem ich bin noch wach. | Es ist schon spät, trotzdem bin ich noch wach. | ich bin | Saat geç oldu, yine de hâlâ uyanığım. | trotzdem cümlenin 1. öğesi sayılır → fiil hemen arkasına: trotzdem bin ich. | spät; wach
+umform | 3 | Obwohl ich keine Lust habe, räume ich mein Zimmer auf. → trotzdem | Ich habe keine Lust. Trotzdem räume ich mein Zimmer auf. / Ich habe keine Lust, trotzdem räume ich mein Zimmer auf. / Ich habe keine Lust. Ich räume trotzdem mein Zimmer auf. / Ich habe keine Lust, aber ich räume trotzdem mein Zimmer auf. | | Canım istemiyor, yine de odamı topluyorum. | obwohl düşer, o cümle ana cümle olur (habe 2. yerde). trotzdem sonuç cümlesinin başına, ardından fiil: räume ich … auf. | die Lust; aufräumen; das Zimmer
+
+@teil wenn | wenn: koşul (-se, -ırsa) | bağlaç
+luecke | 1 | ___ du morgen Zeit hast, können wir ins Kino gehen. | Wenn | Wenn / Wann / Als | Yarın vaktin olursa sinemaya gidebiliriz. | Koşul (-se) → Wenn. wann yalnız soru kelimesi (ne zaman?), als yalnız geçmişte bir kez olan olay için. | die Zeit; das Kino
+luecke | 2 | Wenn es morgen ___, bleiben wir zu Hause. (regnen) | regnet | | Yarın yağmur yağarsa evde kalırız. | Gelecekteki koşul için Präsens yeter; çekimli fiil sonda: regnet. | regnen
+luecke | 2 | Wenn du abnehmen ___, musst du dich mehr bewegen. (wollen) | willst | | Kilo vermek istiyorsan daha çok hareket etmelisin. | Modal fiil yan cümlede en sonda: abnehmen willst. Ana cümle fiille başlar: musst du. | abnehmen; wollen; sich bewegen
+ordnen | 2 | wenn / ich / die Prüfung / bestehe / mache / ich / eine Party | Wenn ich die Prüfung bestehe, mache ich eine Party. / Ich mache eine Party, wenn ich die Prüfung bestehe. | | Sınavı geçersem parti vereceğim. | wenn-yan cümlesinde fiil sonda (bestehe); yan cümle başta ise ana cümle fiille başlar: mache ich. | bestehen; die Prüfung; die Party
+fehler | 3 | Wenn du hast Fragen, kannst du mich jederzeit anrufen. | Wenn du Fragen hast, kannst du mich jederzeit anrufen. | hast | Soruların olursa beni istediğin zaman arayabilirsin. | wenn yan cümle açar → çekimli fiil sonda: Fragen hast. | die Frage; jederzeit; anrufen
+umform | 3 | Du fühlst dich nicht wohl. Dann geh zum Arzt. → Wenn … | Wenn du dich nicht wohlfühlst, geh zum Arzt. / Wenn du dich nicht wohlfühlst, dann geh zum Arzt. / Wenn du dich nicht wohl fühlst, geh zum Arzt. | | Kendini iyi hissetmiyorsan doktora git. | Koşul wenn-yan cümlesi olur: dönüşlü zamir öznenin hemen arkasında (du dich), fiil bitişik ve sonda (wohlfühlst). Ana cümle emir: geh … | wohl; der Arzt
+
+@teil falls | falls: olur da (-se) | bağlaç
+wahl | 1 | ___ der Zug Verspätung hat, rufe ich dich an. | Falls | Falls / Obwohl / Wann | Tren rötar yaparsa seni ararım. | Henüz belli değil, olabilir → koşul: Falls (= Wenn). wann yalnız soru kelimesi (ne zaman?). | der Zug; die Verspätung; anrufen
+luecke | 2 | Falls Sie noch Fragen ___, schreiben Sie mir bitte eine E-Mail. (haben) | haben | | Başka sorunuz olursa lütfen bana e-posta yazın. | falls = wenn (koşul); çekimli fiil sonda: Fragen haben. Resmî e-postanın kapanışında çok kullanılır. | die Frage; schreiben
+ordnen | 3 | falls / du / heute Abend / nicht kommen / kannst / sag / mir / bitte / Bescheid | Falls du heute Abend nicht kommen kannst, sag mir bitte Bescheid. / Sag mir bitte Bescheid, falls du heute Abend nicht kommen kannst. / Bitte sag mir Bescheid, falls du heute Abend nicht kommen kannst. | | Bu akşam gelemeyeceksen lütfen bana haber ver. | falls-yan cümlesinde önce mastar (kommen), en sonda çekimli modal (kannst). Ana cümle emir: sag mir … | können; kommen
+umform | 3 | Vielleicht regnet es morgen. Dann fällt das Fußballspiel aus. → Falls … | Falls es morgen regnet, fällt das Fußballspiel aus. / Falls es morgen regnet, dann fällt das Fußballspiel aus. | | Yarın yağmur yağarsa futbol maçı iptal olur. | Koşul falls-yan cümlesi (fiil sonda: regnet). Ana cümle fiille başlar; orada ayrılabilen fiil ayrılır: fällt … aus. | regnen; ausfallen
+
+@teil kontrast | obwohl · weil · wenn · trotzdem | bağlaç
+wahl | 1 | Ich trage eine Jacke, ___ es kalt ist. | weil | weil / obwohl / trotzdem | Hava soğuk olduğu için ceket giyiyorum. | Soğukta ceket giymek normal sonuç; soğuk sebep → weil. obwohl beklenmeyen sonuç için olurdu. | die Jacke; kalt
+wahl | 1 | Ich trage keine Jacke, ___ es kalt ist. | obwohl | obwohl / weil / wenn | Hava soğuk olmasına rağmen ceket giymiyorum. | Soğukta ceket giymemek beklenmez → obwohl. | die Jacke; kalt
+wahl | 3 | Welcher Satz ist richtig? | Obwohl ich wenig geschlafen habe, bin ich fit. | Obwohl ich wenig geschlafen habe, bin ich fit. / Trotzdem ich wenig geschlafen habe, bin ich fit. / Obwohl ich habe wenig geschlafen, bin ich fit. | Az uyumama rağmen zindeyim. | trotzdem yan cümle açamaz; obwohl açar ve yardımcı fiili sona atar: geschlafen habe. | schlafen
+fehler | 2 | Wenn ich Zeit habe, helfe ich dir beim Umzug. | Wenn ich Zeit habe, helfe ich dir beim Umzug. | - | Vaktim olursa taşınmada sana yardım ederim. | Hata yok: wenn-yan cümlesinde fiil sonda (habe), ana cümle fiille başlıyor (helfe ich). | der Umzug; helfen
+luecke | 2 | Ich bin heute müde. ___ gehe ich zum Training. | Trotzdem / Dennoch | | Bugün yorgunum. Yine de antrenmana gidiyorum. | Arkada fiil hemen geliyor (gehe ich) → yan cümle bağlacı değil, zarf: Trotzdem. | das Training; müde

@@ -1,0 +1,93 @@
+# Gramer konusu: Präteritum (yazı dilinin geçmiş zamanı). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id praeteritum
+@titel Präteritum
+@tr Präteritum: yazı dilinin geçmiş zamanı (war, hatte, konnte, ging)
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 2 | Lesen 1-2-3 · Hören · Schreiben 1-3 (war, hatte, konnte)
+@voraus perfekt
+@kontrast plusquamperfekt, konjunktiv2
+@etiket artikel/çekim
+@kurz sein / haben / modal fiiller konuşmada da Präteritum: war, hatte, konnte. Düzenli fiil: kök + -te (machte). Düzensiz: kök değişir (ging). ich = er, ek yok.
+
+@erklaerung
+Almancada geçmiş için iki zaman var: Perfekt (konuşma, arkadaşa e-posta) ve Präteritum (yazı dili: haber, hikâye, masal, rapor). Türkçedeki "-di" ikisine de karşılık gelir; anlam aynı, fark üslupta.
+
+1. sein, haben ve modal fiiller konuşmada da Präteritum ile söylenir: Ich war krank. Ich hatte keine Zeit. Ich musste arbeiten.
+2. Düzenli fiil: kök + -te + kişi eki: machen → ich machte, du machtest, wir machten. Kök -t / -d ile bitiyorsa araya -e- girer: arbeitete, redete.
+3. Düzensiz fiilde kök değişir ve -te gelmez: gehen → ging, kommen → kam, fahren → fuhr, finden → fand. Bunlar ezberlenir (çekim kartları: fährt, fuhr, ist gefahren).
+4. ich ve er / sie / es biçimi aynıdır, ek almaz: ich war = er war, ich ging = sie ging.
+5. Modal fiillerde Umlaut düşer: können → konnte, müssen → musste, dürfen → durfte, mögen → mochte.
+6. Karışık fiiller hem kök değiştirir hem -te alır: denken → dachte, bringen → brachte, wissen → wusste, kennen → kannte.
+7. Ayrılabilen fiil ana cümlede ayrılır: Der Zug fuhr um acht ab. Yan cümlede bitişik ve sonda: …, als der Zug abfuhr.
+
+Tipik hatalar: "Ich habe krank gewesen" (doğrusu: Ich war krank), konnte (yapabildim) / könnte (yapabilirdim) / kannte (tanıyordum) karışıklığı, "er gingt" gibi fazladan ek.
+Sınavda: Lesen metinleri Präteritum dolu; Schreiben'de "Leider hatte ich keine Zeit", "Ich konnte nicht kommen" gibi kalıplar yeter.
+@ende
+
+@tabelle Kişi ekleri
+kişi | düzenli (machen) | düzensiz (gehen) | sein | haben | können
+ich | machte | ging | war | hatte | konnte
+du | machtest | gingst | warst | hattest | konntest
+er / sie / es | machte | ging | war | hatte | konnte
+wir | machten | gingen | waren | hatten | konnten
+ihr | machtet | gingt | wart | hattet | konntet
+sie / Sie | machten | gingen | waren | hatten | konnten
+@ende
+
+@tabelle Sık düzensiz ve karışık fiiller
+mastar | Präteritum | mastar | Präteritum
+gehen | ging | kommen | kam
+fahren | fuhr | sehen | sah
+geben | gab | nehmen | nahm
+finden | fand | bleiben | blieb
+schreiben | schrieb | sprechen | sprach
+stehen | stand | treffen | traf
+werden | wurde | wissen | wusste
+denken | dachte | bringen | brachte
+@ende
+
+@beispiel Als Kind wohnte ich in Izmir. | Çocukken İzmir'de oturuyordum.
+@beispiel Gestern war ich krank und konnte nicht zum Kurs kommen. | Dün hastaydım ve kursa gelemedim.
+@beispiel Der Zug fuhr pünktlich ab, aber er kam mit Verspätung in Bremen an. | Tren zamanında kalktı ama Bremen'e rötarla vardı.
+
+@teil sein-haben | sein ve haben: war, hatte | artikel/çekim
+luecke | 1 | Wo ___ du gestern Abend? Ich habe dich dreimal angerufen. (sein) | warst | | Dün akşam neredeydin? Seni üç kez aradım. | sein → Präteritum war; du-biçimi -st alır: du warst. | anrufen
+luecke | 2 | Wir ___ keine Zeit, deshalb ___ wir nicht auf der Party. (haben ; sein) | hatten ; waren | | Vaktimiz yoktu, bu yüzden partide değildik. | wir-biçimi -en ile biter: wir hatten, wir waren. | die Zeit; die Party
+fehler | 2 | Gestern habe ich sehr müde gewesen. | Gestern war ich sehr müde. / Gestern bin ich sehr müde gewesen. | habe ich sehr müde gewesen | Dün çok yorgundum. | sein geçmişte neredeyse hep Präteritum ile söylenir: war. Perfekt'i sein ile kurulur (bin … gewesen), haben ile asla. | müde
+umform | 2 | Ich habe am Wochenende Besuch gehabt. → Präteritum | Ich hatte am Wochenende Besuch. / Am Wochenende hatte ich Besuch. | | Hafta sonu misafirim vardı. | haben konuşmada da Präteritum ile söylenir: hatte. Partizip (gehabt) düşer. | der Besuch; das Wochenende, -n
+
+@teil modal | Modal fiiller: Umlaut düşer | artikel/çekim
+luecke | 1 | Ich ___ gestern nicht kommen, weil ich arbeiten ___. (können ; müssen) | konnte ; musste | | Dün gelemedim, çünkü çalışmam gerekiyordu. | Modal fiil Präteritum'da Umlaut'u kaybeder: können → konnte, müssen → musste. Yan cümlede çekimli fiil sonda. | können; müssen
+ordnen | 2 | wir / mussten / gestern / unsere Hausaufgaben / machen | Gestern mussten wir unsere Hausaufgaben machen. / Wir mussten gestern unsere Hausaufgaben machen. / Wir mussten unsere Hausaufgaben gestern machen. / Unsere Hausaufgaben mussten wir gestern machen. | | Dün ödevlerimizi yapmak zorundaydık. | Çekimli modal fiil (mussten) 2. yerde, mastar (machen) en sonda. | müssen
+umform | 3 | Ich muss den Termin absagen, denn ich kann nicht kommen. → Präteritum | Ich musste den Termin absagen, denn ich konnte nicht kommen. | | Randevuyu iptal etmek zorunda kaldım, çünkü gelemedim. | muss → musste, kann → konnte; mastarlar (absagen, kommen) yerinde kalır. | der Termin; absagen
+
+@teil regel | Düzenli fiiller: -te | artikel/çekim
+luecke | 1 | Gestern Abend ___ ich zwei Stunden für den Test. (lernen) | lernte | | Dün akşam test için iki saat çalıştım. | Düzenli fiil: kök + -te: lern-te. ich ve er aynı biçimdedir. | lernen
+luecke | 2 | Wir ___ zusammen und ___ über die Prüfung. (kochen ; reden) | kochten ; redeten | | Birlikte yemek yaptık ve sınav hakkında konuştuk. | koch-ten; kök -d ile bitince araya -e- girer: red-e-ten. | kochen; reden über; die Prüfung
+luecke | 2 | Meine Kollegin ___ gestern bis 20 Uhr im Büro. (arbeiten) | arbeitete | | İş arkadaşım dün saat 20'ye kadar ofiste çalıştı. | Kök -t ile bitiyorsa araya -e- girer: arbeit-e-te. | arbeiten; das Büro
+wahl | 2 | Ihr ___ letztes Jahr in Hamburg, oder? | wohntet | wohntet / wohnten / wohnt | Geçen yıl Hamburg'da oturuyordunuz, değil mi? | ihr-biçimi -tet ile biter: ihr wohntet. wohnt şimdiki zaman, wohnten wir / sie biçimi. | wohnen
+fehler | 1 | Früher spielte mein Bruder jeden Tag Fußball. | Früher spielte mein Bruder jeden Tag Fußball. | - | Eskiden kardeşim her gün futbol oynardı. | Hata yok: düzenli fiil spielen → spielte (er-biçimi = ich-biçimi, ek yok). | spielen; früher
+
+@teil unregel | Düzensiz fiiller: kök değişir | artikel/çekim
+wahl | 1 | Letzten Samstag ___ wir mit dem Zug nach Hamburg. | fuhren | fuhren / fahrten / fahren | Geçen cumartesi trenle Hamburg'a gittik. | Letzten Samstag = geçmiş; fahren düzensiz: Präteritum fuhr, wir fuhren. "fahrten" diye bir biçim yok; fahren şimdiki zaman. | fahren; der Zug
+luecke | 2 | Ich ___ meinen Schlüssel nicht und ___ eine Stunde vor der Tür. (finden ; stehen) | fand ; stand | | Anahtarımı bulamadım ve bir saat kapının önünde durdum. | finden → fand, stehen → stand: kök değişir, ich-biçiminde ek yok. | finden; stehen; der Schlüssel; die Tür
+luecke | 2 | Gestern ___ ich Anna in der Stadt und wir ___ zusammen einen Kaffee. (treffen ; trinken) | traf ; tranken | | Dün şehirde Anna'ya rastladım ve birlikte kahve içtik. | treffen → traf, trinken → trank; wir-biçimi -en alır: tranken. | treffen; trinken; der Kaffee
+umform | 2 | Er geht nach Hause und schreibt eine E-Mail. → Präteritum | Er ging nach Hause und schrieb eine E-Mail. | | Eve gitti ve bir e-posta yazdı. | gehen → ging, schreiben → schrieb; er-biçiminde ek yok. | gehen; schreiben
+ordnen | 2 | der Lehrer / gab / uns / viele Hausaufgaben | Der Lehrer gab uns viele Hausaufgaben. / Uns gab der Lehrer viele Hausaufgaben. / Viele Hausaufgaben gab uns der Lehrer. | | Öğretmen bize çok ödev verdi. | geben → gab; çekimli fiil 2. yerde. | geben; der Lehrer
+ordnen | 2 | gestern / vergaß / ich / mein Handy / im Bus | Gestern vergaß ich mein Handy im Bus. / Ich vergaß gestern mein Handy im Bus. / Ich vergaß mein Handy gestern im Bus. / Mein Handy vergaß ich gestern im Bus. / Im Bus vergaß ich gestern mein Handy. | | Dün telefonumu otobüste unuttum. | vergessen → vergaß (düzensiz, ß ile). Fiil 2. yerde; gestern başa gelirse özne fiilin arkasına geçer. | vergessen; das Handy; der Bus
+
+@teil satz | Ayrılabilen fiil ve cümle yapısı | kelime sırası
+luecke | 2 | Der Bus ___ pünktlich um 7 Uhr ___. (abfahren) | fuhr ; ab | | Otobüs tam saat 7'de kalktı. | Ayrılabilen fiil ana cümlede ayrılır: fuhr … ab. | abfahren; der Bus; pünktlich
+ordnen | 3 | als / ich / in Bremen / ankam / regnete / es / stark | Als ich in Bremen ankam, regnete es stark. / Es regnete stark, als ich in Bremen ankam. | | Bremen'e vardığımda çok yağmur yağıyordu. | Yan cümlede ayrılabilen fiil bitişik ve sonda (ankam); yan cümle öndeyse ana cümle fiille başlar (regnete es). | ankommen; regnen; stark
+umform | 3 | Wir haben uns im Park getroffen und sind spazieren gegangen. → Präteritum | Wir trafen uns im Park und gingen spazieren. | | Parkta buluştuk ve yürüyüşe çıktık. | treffen → trafen, gehen → gingen; dönüşlü zamir (uns) kalır, yardımcı fiil ve Partizip düşer. | sich treffen mit; der Park
+fehler | 3 | Der Film fing um acht Uhr an und dauerte zwei Stunden. | Der Film fing um acht Uhr an und dauerte zwei Stunden. | - | Film saat sekizde başladı ve iki saat sürdü. | Hata yok: anfangen düzensiz ve ayrılabilen (fing … an), dauern düzenli (dauerte). | dauern; der Film
+
+@teil kontrast | konnte / könnte / kannte · hatte / hätte · mochte / möchte | artikel/çekim
+wahl | 1 | Letzte Woche ___ ich eine starke Erkältung. | hatte | hatte / habe / hätte | Geçen hafta kötü bir soğuk algınlığım vardı. | Letzte Woche = geçmiş → haben'in Präteritum'u hatte. hätte Konjunktiv II'dir (olsaydı). | die Erkältung; stark
+wahl | 1 | Als Kind ___ ich kein Gemüse. | mochte | mochte / möchte / mag | Çocukken sebze sevmezdim. | Als Kind = geçmiş → mögen → mochte. möchte "isterim" demektir (şimdiki zaman, kibar). | mögen; das Gemüse
+fehler | 3 | Früher könnte ich nicht schwimmen, jetzt kann ich es. | Früher konnte ich nicht schwimmen, jetzt kann ich es. | könnte | Eskiden yüzemezdim, şimdi yüzebiliyorum. | Geçmişteki yetenek: konnte (Umlaut yok). könnte Konjunktiv II'dir: "yapabilirdim". | schwimmen; früher
+wahl | 2 | Welcher Satz ist richtig? | Ich kannte ihn schon lange. | Ich kannte ihn schon lange. / Ich konnte ihn schon lange. / Ich kenntete ihn schon lange. | Onu uzun zamandır tanıyordum. | kennen (tanımak) → kannte. konnte können'den gelir (-ebilmek); "kenntete" diye bir biçim yok. | kennen
+

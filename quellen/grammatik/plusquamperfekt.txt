@@ -1,0 +1,83 @@
+# Gramer konusu: Plusquamperfekt (-mişti). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id plusquamperfekt
+@titel Plusquamperfekt
+@tr Plusquamperfekt: geçmişten daha önce (-mişti): hatte gemacht, war gegangen
+@stufe B1
+@kapitel B1 K7 ?
+@goethe 1 | Lesen 1-2 · Schreiben 1 (nachdem)
+@voraus perfekt, praeteritum
+@kontrast temporal, praeteritum
+@etiket zaman
+@kurz Geçmişteki bir olaydan DAHA ÖNCE olan: hatte / war + Partizip II. nachdem + Plusquamperfekt, ana cümle Präteritum (ya da Perfekt).
+
+@erklaerung
+Plusquamperfekt Türkçedeki "-mişti" zamanıdır: Als ich ankam, war der Zug schon abgefahren. (Vardığımda tren çoktan kalkmıştı.) İki geçmiş olaydan hangisinin ÖNCE olduğunu gösterir.
+
+1. Yapı: haben / sein'in Präteritum'u (hatte, war) + Partizip II (en sonda). Perfekt'i bilen hazırdır: habe gemacht → hatte gemacht, bin gegangen → war gegangen.
+2. haben mı sein mi: Perfekt'tekiyle aynı. Yer değiştirme (gehen, fahren, ankommen) ve durum değişimi (aufstehen, einschlafen) + sein; bleiben, passieren de sein; dönüşlü fiiller ve gerisi haben.
+3. Yan cümlede çekimli yardımcı fiil en sona: …, weil ich nicht gelernt hatte.
+4. nachdem (-dikten sonra) zaman uyumu ister: nachdem-cümlesi bir zaman "geride" olur. Ana cümle Präteritum / Perfekt → nachdem + Plusquamperfekt: Nachdem ich gegessen hatte, ging ich spazieren. (Ana cümle Präsens ise nachdem + Perfekt.)
+5. bevor ile Plusquamperfekt gerekmez: Bevor ich nach Deutschland kam, lernte ich Deutsch.
+
+Tipik hatalar: hareket fiillerinde hatte kullanmak (✗ hatte angekommen), nachdem-cümlesinde Präteritum kullanmak (✗ Nachdem ich aß, …), yan cümlede yardımcı fiili öne almak (✗ weil ich hatte vergessen).
+Sınavda: Lesen'deki hikâye ve haberlerde sık; Schreiben'de "Nachdem ich … hatte, …" bir olayı anlatırken iyi puan getirir.
+@ende
+
+@tabelle Yapı
+Perfekt | Plusquamperfekt | Türkçe
+ich habe gegessen | ich hatte gegessen | yemiştim
+du hast gearbeitet | du hattest gearbeitet | çalışmıştın
+er ist gefahren | er war gefahren | gitmişti
+wir sind angekommen | wir waren angekommen | varmıştık
+ihr habt euch getroffen | ihr hattet euch getroffen | buluşmuştunuz
+sie sind geblieben | sie waren geblieben | kalmışlardı
+@ende
+
+@tabelle nachdem ile zaman uyumu
+nachdem-cümlesi (önce olan) | ana cümle (sonra olan) | örnek
+Plusquamperfekt | Präteritum / Perfekt | Nachdem ich gegessen hatte, ging ich spazieren.
+Perfekt | Präsens / Futur | Nachdem ich gegessen habe, gehe ich spazieren.
+@ende
+
+@beispiel Als ich am Bahnhof ankam, war der Zug schon abgefahren. | İstasyona vardığımda tren çoktan kalkmıştı.
+@beispiel Nachdem wir zu Abend gegessen hatten, sahen wir einen Film. | Akşam yemeğini yedikten sonra bir film izledik.
+@beispiel Ich war nervös, weil ich nicht gelernt hatte. | Gergindim, çünkü çalışmamıştım.
+
+@teil bildung | Yapı: hatte / war + Partizip II | yardımcı fiil
+luecke | 1 | Als ich am Bahnhof ankam, ___ der Zug schon ___. (abfahren) | war ; abgefahren | | İstasyona vardığımda tren çoktan kalkmıştı. | Önce tren kalktı, sonra ben vardım: önceki olay Plusquamperfekt. abfahren sein ile: war … abgefahren. | abfahren; ankommen; der Zug
+wahl | 1 | Ich hatte keinen Hunger, denn ich ___ schon zu Hause gegessen. | hatte | hatte / war / habe | Aç değildim, çünkü evde zaten yemek yemiştim. | essen haben ile: hatte gegessen. Yemek yemek daha önce oldu, o yüzden Plusquamperfekt. | essen; der Hunger
+luecke | 2 | Wir ___ uns lange nicht ___, deshalb haben wir viel erzählt. (sehen) | hatten ; gesehen | | Uzun zamandır görüşmemiştik, bu yüzden çok sohbet ettik. | sehen haben alır: hatten … gesehen; Partizip en sonda. | sehen; erzählen von
+umform | 1 | Ich habe die Prüfung bestanden. → Plusquamperfekt | Ich hatte die Prüfung bestanden. | | Sınavı geçmiştim. | Perfekt'teki yardımcı fiilin Präteritum'u: habe → hatte; Partizip (bestanden) aynı kalır. | bestehen; die Prüfung
+umform | 2 | Sie ist nach Berlin umgezogen. → Plusquamperfekt | Sie war nach Berlin umgezogen. | | Berlin'e taşınmıştı. | sein'li Perfekt → war + Partizip: ist umgezogen → war umgezogen. | umziehen
+ordnen | 1 | ich / hatte / den Brief / schon / abgeschickt | Ich hatte den Brief schon abgeschickt. / Den Brief hatte ich schon abgeschickt. / Ich hatte schon den Brief abgeschickt. | | Mektubu çoktan göndermiştim. | hatte 2. yerde, Partizip (abgeschickt) en sonda. | der Brief
+
+@teil sein-haben | haben mı sein mi? | yardımcı fiil
+wahl | 1 | Als wir ankamen, ___ die Party schon zu Ende gegangen. | war | war / hatte / ist | Biz vardığımızda parti çoktan bitmişti. | zu Ende gehen: gehen sein alır → war … gegangen. ist Perfekt olurdu, ama anlatı geçmişte. | die Party; ankommen
+luecke | 2 | Ich ___ früh aufgestanden und ___ den ganzen Tag gearbeitet. (sein ; haben) | war ; hatte | | Erken kalkmıştım ve bütün gün çalışmıştım. | aufstehen durum değişimi → sein (war aufgestanden); arbeiten → haben (hatte gearbeitet). | aufstehen; arbeiten
+fehler | 2 | Nachdem er in Bremen angekommen hatte, rief er seine Eltern an. | Nachdem er in Bremen angekommen war, rief er seine Eltern an. | angekommen hatte | Bremen'e vardıktan sonra ailesini aradı. | ankommen yer değiştirme fiilidir → sein: angekommen war. | ankommen; anrufen; die Eltern
+fehler | 2 | Wir waren schon eingeschlafen, als das Telefon klingelte. | Wir waren schon eingeschlafen, als das Telefon klingelte. | - | Telefon çaldığında çoktan uyuyakalmıştık. | Hata yok: einschlafen (durum değişimi) sein alır: waren … eingeschlafen. | klingeln; das Telefon
+wahl | 3 | Als ich ankam, ___ der Film schon angefangen. | hatte | hatte / war / hat | Vardığımda film çoktan başlamıştı. | anfangen haben alır (der Film hat angefangen) → hatte angefangen. Hareket sanıp war seçmek sık bir hata. | anfangen mit; der Film
+
+@teil nachdem | nachdem + Plusquamperfekt | zaman
+wahl | 2 | Nachdem ich die Hausaufgaben ___, ging ich ins Kino. | gemacht hatte | gemacht hatte / gemacht habe / machte | Ödevlerimi yaptıktan sonra sinemaya gittim. | Ana cümle Präteritum (ging) → nachdem-cümlesi Plusquamperfekt: gemacht hatte. | die Hausaufgabe; das Kino
+luecke | 2 | Nachdem der Film ___ ___, gingen wir noch in ein Café. (enden) | geendet ; hatte | | Film bittikten sonra bir de kafeye gittik. | enden haben alır; yan cümlede yardımcı fiil en sonda: geendet hatte. | der Film; das Café
+ordnen | 2 | nachdem / ich / gefrühstückt / hatte / fuhr / ich / zur Uni | Nachdem ich gefrühstückt hatte, fuhr ich zur Uni. / Ich fuhr zur Uni, nachdem ich gefrühstückt hatte. | | Kahvaltı yaptıktan sonra üniversiteye gittim. | nachdem-cümlesinde hatte en sonda; yan cümle öndeyse ana cümle fiille başlar (fuhr ich). | frühstücken; die Uni, -s
+umform | 3 | Ich las die E-Mail. Dann rief ich sofort bei der Firma an. → nachdem | Nachdem ich die E-Mail gelesen hatte, rief ich sofort bei der Firma an. / Ich rief sofort bei der Firma an, nachdem ich die E-Mail gelesen hatte. | | E-postayı okuduktan sonra hemen firmayı aradım. | Önce olan olay (lesen) nachdem + Plusquamperfekt olur: gelesen hatte. | lesen; anrufen; die Firma
+umform | 3 | Wir aßen zu Abend. Danach sahen wir einen Film. → Nachdem … | Nachdem wir zu Abend gegessen hatten, sahen wir einen Film. | | Akşam yemeğini yedikten sonra bir film izledik. | Nachdem ile başla: yan cümle (gegessen hatten), virgül, ana cümle fiille (sahen wir). | essen; sehen; der Film
+luecke | 3 | Nachdem sie sich von der Krankheit ___ ___, ging sie wieder arbeiten. (sich erholen) | erholt ; hatte | | Hastalıktan iyileştikten sonra yeniden işe gitmeye başladı. | Dönüşlü fiiller haben alır: sich erholt hatte; yardımcı fiil en sonda. | sich erholen von; die Krankheit
+ordnen | 3 | nachdem / der Zug / angekommen / war / stiegen / die Leute / aus | Nachdem der Zug angekommen war, stiegen die Leute aus. / Die Leute stiegen aus, nachdem der Zug angekommen war. | | Tren vardıktan sonra insanlar indi. | ankommen sein ile (angekommen war); aussteigen ana cümlede ayrılır: stiegen … aus. | ankommen; der Zug
+
+@teil nebensatz | Yan cümlede: Partizip + hatte / war en sonda | kelime sırası
+ordnen | 2 | ich / war / nervös / weil / ich / nicht / gelernt / hatte | Ich war nervös, weil ich nicht gelernt hatte. / Weil ich nicht gelernt hatte, war ich nervös. | | Gergindim, çünkü çalışmamıştım. | weil-cümlesinde çekimli yardımcı fiil (hatte) en sonda, Partizip (gelernt) hemen önünde. | nervös; lernen
+fehler | 2 | Ich konnte nicht bezahlen, weil ich mein Portemonnaie zu Hause hatte vergessen. | Ich konnte nicht bezahlen, weil ich mein Portemonnaie zu Hause vergessen hatte. | hatte vergessen | Ödeyemedim, çünkü cüzdanımı evde unutmuştum. | Yan cümlede sıra: Partizip (vergessen), sonra çekimli yardımcı fiil (hatte) en sonda. | bezahlen; vergessen; das Portemonnaie, -s
+luecke | 2 | Ich wusste nicht, dass du schon ___ ___. (umziehen) | umgezogen ; warst | | Çoktan taşındığını bilmiyordum. | umziehen sein alır; du-biçimi warst; yan cümlede en sonda: umgezogen warst. | umziehen
+luecke | 2 | Meine Freundin war sauer, weil ich ihren Geburtstag ___ ___. (vergessen) | vergessen ; hatte | | Kız arkadaşım kızgındı, çünkü doğum gününü unutmuştum. | Yan cümlede çekimli yardımcı fiil en sonda: vergessen hatte. | vergessen; der Geburtstag; sauer
+
+@teil kontrast | Hangisi önce oldu? Präteritum / Perfekt / Plusquamperfekt | zaman
+wahl | 2 | Als ich nach Hause kam, hatte meine Schwester schon gekocht. Was passierte zuerst? | Meine Schwester kochte. | Meine Schwester kochte. / Ich kam nach Hause. / Beides passierte gleichzeitig. | Eve geldiğimde kız kardeşim yemeği çoktan pişirmişti. Önce ne oldu? | Plusquamperfekt (hatte gekocht) önce olan olayı gösterir; ikinci olay Präteritum (kam). | kochen; die Schwester
+luecke | 1 | Gestern ___ ich lange, weil ich am Abend vorher spät ins Bett gegangen war. (schlafen · Präteritum) | schlief | | Dün uzun uyudum, çünkü önceki akşam geç yatmıştım. | Ana olay Präteritum (schlief); ondan önceki olay Plusquamperfekt (gegangen war). | schlafen
+fehler | 3 | Bevor ich nach Deutschland kam, lernte ich zwei Jahre Deutsch. | Bevor ich nach Deutschland kam, lernte ich zwei Jahre Deutsch. | - | Almanya'ya gelmeden önce iki yıl Almanca öğrendim. | Hata yok: bevor ile Plusquamperfekt şart değil; iki cümle de Präteritum olabilir. | lernen; kommen
+umform | 3 | Er hatte keinen Regenschirm mitgenommen. → Perfekt | Er hat keinen Regenschirm mitgenommen. | | Yanına şemsiye almadı. | Plusquamperfekt → Perfekt: hatte → hat; Partizip aynı kalır. | der Schirm
+

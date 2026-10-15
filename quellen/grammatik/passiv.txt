@@ -1,0 +1,90 @@
+# Gramer konusu: Passiv (edilgen). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id passiv
+@titel Passiv: Präsens, Präteritum, Perfekt, mit Modalverb
+@tr Edilgen (Passiv): -ıl / -ın: wird gebaut, wurde gebaut, ist gebaut worden, muss gebaut werden
+@stufe B1
+@kapitel B1 K10
+@goethe 2 | Lesen 2-3-5 · Hören 1-4 · Schreiben 3
+@voraus perfekt, praeteritum
+@kontrast futur, konjunktiv2
+@etiket artikel/çekim
+@kurz werden + Partizip II (sonda). Präsens wird gebaut · Präteritum wurde gebaut · Perfekt ist gebaut worden (worden, ge- yok; hep sein) · Modal: muss gebaut werden. Yapan kişi: von + Dativ.
+
+@erklaerung
+Passiv Türkçedeki edilgen çatıdır (-ıl / -ın): "Ev yenileniyor" → Das Haus wird renoviert. İşi kimin yaptığı değil, işin kendisi önemlidir.
+
+1. Yapı: werden (2. yerde, çekimli) + Partizip II (en sonda).
+2. Zamanlar: Präsens wird gebaut; Präteritum wurde gebaut; Perfekt ist gebaut worden; modal fiille muss gebaut werden.
+3. Perfekt'te yardımcı fiil hep sein, ve "geworden" değil "worden": Das Paket ist geliefert worden.
+4. Aktif cümlenin Akkusativ nesnesi Passiv'de özne (Nominativ) olur, man düşer: Man repariert den Wagen. → Der Wagen wird repariert. Özne çoğulsa werden de çoğul: Die Fenster werden geputzt.
+5. İşi yapan söylenecekse: kişi → von + Dativ (von der Ärztin), sebep / araç → çoğu zaman durch + Akkusativ (durch den Lärm).
+6. Yan cümlede çekimli fiil en sonda: …, weil die Heizung repariert wird. · …, dass der Termin verschoben worden ist.
+7. Öznesiz Passiv kural ve yasaklarda: Hier wird nicht geraucht.
+
+Tipik hatalar: Perfekt'te hat kullanmak (✗ hat geliefert worden), worden yerine geworden yazmak, çoğul öznede wird bırakmak (✗ Die Briefe wird geschickt), Passiv'i werden'in Futur ve "olmak" anlamıyla karıştırmak.
+Sınavda: Lesen'deki haberler, kurallar ve ilanlar ("Die Wohnung kann ab Mai besichtigt werden"), Hören'deki anonslar Passiv doludur.
+@ende
+
+@tabelle Zamanlar
+zaman | yapı | örnek
+Präsens | wird + Partizip | Das Haus wird renoviert.
+Präteritum | wurde + Partizip | Das Haus wurde renoviert.
+Perfekt | ist + Partizip + worden | Das Haus ist renoviert worden.
+Modalverb | muss / kann / darf … + Partizip + werden | Das Haus muss renoviert werden.
+yan cümle | … + Partizip + wird / worden ist | …, weil das Haus renoviert wird.
+@ende
+
+@tabelle Aktiv → Passiv
+Aktiv | Passiv | ne değişti?
+Man repariert den Wagen. | Der Wagen wird repariert. | den Wagen (Akk) → der Wagen (Nom), man düşer
+Die Ärztin untersucht den Patienten. | Der Patient wird von der Ärztin untersucht. | yapan kişi → von + Dativ
+Man hat die Straße gesperrt. | Die Straße ist gesperrt worden. | Perfekt: ist … worden
+Man muss den Antrag abgeben. | Der Antrag muss abgegeben werden. | modal + Partizip + werden
+@ende
+
+@beispiel In Deutschland wird viel Kaffee getrunken. | Almanya'da çok kahve içiliyor.
+@beispiel Das Bremer Rathaus wurde vor mehr als 600 Jahren gebaut. | Bremen Belediye Sarayı 600 yılı aşkın bir süre önce yapıldı.
+@beispiel Der Antrag muss bis Freitag abgegeben werden. | Başvuru cuma gününe kadar teslim edilmeli.
+
+@teil praesens | Passiv Präsens: wird / werden + Partizip | artikel/çekim
+wahl | 1 | In dieser Bäckerei ___ das Brot jeden Morgen frisch gebacken. | wird | wird / werden / hat | Bu fırında ekmek her sabah taze pişiriliyor. | Passiv Präsens: wird + Partizip II; özne tekil (das Brot) → wird, werden çoğul içindir. hat ile Passiv kurulmaz; ekmeği kimin pişirdiği önemli değil. | die Bäckerei; das Brot; backen; frisch
+luecke | 1 | Die Fenster ___ einmal im Monat geputzt. (werden) | werden | | Pencereler ayda bir siliniyor. | Özne çoğul (die Fenster) → werden. | das Fenster; putzen
+luecke | 2 | Hier ___ ein neues Krankenhaus ___. (bauen · Passiv Präsens) | wird ; gebaut | | Burada yeni bir hastane yapılıyor. | wird 2. yerde, Partizip (gebaut) en sonda. | das Krankenhaus; bauen
+umform | 2 | Man repariert mein Fahrrad. → Passiv | Mein Fahrrad wird repariert. | | Bisikletim tamir ediliyor. | Akkusativ nesne (mein Fahrrad) özne olur; man düşer. | das Fahrrad; reparieren
+ordnen | 2 | in Deutschland / wird / viel Kaffee / getrunken | In Deutschland wird viel Kaffee getrunken. / Viel Kaffee wird in Deutschland getrunken. | | Almanya'da çok kahve içiliyor. | wird 2. yerde, Partizip (getrunken) en sonda. | der Kaffee; trinken
+luecke | 3 | Ich weiß nicht, wann die Ergebnisse ___ ___. (veröffentlichen · Passiv Präsens) | veröffentlicht ; werden | | Sonuçların ne zaman açıklanacağını bilmiyorum. | Dolaylı soru = yan cümle: Partizip, sonra çekimli werden en sonda; özne çoğul (die Ergebnisse). | veröffentlichen; das Ergebnis
+luecke | 2 | Hier ___ nicht geraucht! (werden · Passiv) | wird | | Burada sigara içilmez! | Öznesiz Passiv (kural / yasak): her zaman wird. | rauchen
+
+@teil praeteritum | Passiv Präteritum: wurde / wurden + Partizip | zaman
+wahl | 1 | Das Bremer Rathaus ___ vor mehr als 600 Jahren gebaut. | wurde | wurde / wird / würde | Bremen Belediye Sarayı 600 yılı aşkın bir süre önce yapıldı. | Geçmiş (vor 600 Jahren) → Passiv Präteritum: wurde + Partizip. würde Konjunktiv II'dir. | das Rathaus; bauen
+luecke | 2 | Gestern ___ zwei Personen bei einem Unfall verletzt. (werden · Präteritum) | wurden | | Dün bir kazada iki kişi yaralandı. | Özne çoğul (zwei Personen) → wurden. | verletzen; der Unfall; die Person
+umform | 3 | Man eröffnete das Museum im Jahr 1990. → Passiv | Das Museum wurde im Jahr 1990 eröffnet. / Im Jahr 1990 wurde das Museum eröffnet. | | Müze 1990 yılında açıldı. | Aktif Präteritum (eröffnete) → wurde + Partizip (eröffnet). Bir kurumun ilk açılışı eröffnen, kapıyı açmak öffnen. | eröffnen; das Museum
+fehler | 2 | Die Briefe wurde gestern abgeschickt. | Die Briefe wurden gestern abgeschickt. | wurde | Mektuplar dün gönderildi. | Özne çoğul (die Briefe) → wurden. | der Brief
+
+@teil perfekt | Passiv Perfekt: ist + Partizip + worden | yardımcı fiil
+wahl | 2 | Mein Handy ist gestern ___. | gestohlen worden | gestohlen worden / gestohlen geworden / gestohlen wurden | Telefonum dün çalındı. | Passiv Perfekt: ist + Partizip + worden (ge- yok!). geworden, "olmak" anlamındaki werden'in Partizip'idir. | das Handy; stehlen
+luecke | 2 | Die Rechnung ist schon ___ ___. (bezahlen · Passiv Perfekt) | bezahlt ; worden | | Fatura çoktan ödendi. | ist + Partizip (bezahlt) + worden. | die Rechnung; bezahlen
+fehler | 2 | Das Paket hat gestern geliefert worden. | Das Paket ist gestern geliefert worden. | hat | Paket dün teslim edildi. | Passiv Perfekt'te yardımcı fiil hep sein: ist … worden. | das Paket; liefern
+umform | 3 | Man hat die Straße gesperrt. → Passiv | Die Straße ist gesperrt worden. / Die Straße wurde gesperrt. | | Yol kapatıldı. | Aktif Perfekt → Passiv Perfekt: ist + gesperrt + worden (Präteritum: wurde gesperrt da doğru). | die Straße
+ordnen | 3 | ich glaube / dass / der Termin / verschoben / worden / ist | Ich glaube, dass der Termin verschoben worden ist. | | Sanırım randevu ertelendi. | Yan cümlede sıra: Partizip (verschoben) – worden – ist (en sonda). | der Termin; verschieben
+fehler | 2 | Der Termin ist abgesagt geworden. | Der Termin ist abgesagt worden. | geworden | Randevu iptal edildi. | Passiv Perfekt'te worden yazılır; geworden yalnız "olmak" anlamında (Er ist Arzt geworden). | der Termin; absagen
+
+@teil modal | Modal fiil + Partizip + werden | kelime sırası
+luecke | 1 | Der Müll muss getrennt ___. (werden) | werden | | Çöp ayrıştırılmalı. | Modal + Passiv: muss … Partizip (getrennt) + werden (mastar) en sonda. | der Müll
+luecke | 2 | Im Unterricht darf das Handy nicht ___ ___. (benutzen · Passiv) | benutzt ; werden | | Derste telefon kullanılamaz. | darf … benutzt werden: Partizip, sonra mastar werden. | der Unterricht; das Handy; benutzen
+umform | 3 | Man muss den Antrag bis Freitag abgeben. → Passiv | Der Antrag muss bis Freitag abgegeben werden. / Bis Freitag muss der Antrag abgegeben werden. | | Başvuru cuma gününe kadar teslim edilmeli. | den Antrag → der Antrag (özne); en sonda Partizip + werden. | der Antrag; abgeben
+ordnen | 1 | das Formular / muss / ausgefüllt / werden | Das Formular muss ausgefüllt werden. | | Formun doldurulması gerekiyor. | muss 2. yerde; en sonda Partizip (ausgefüllt) + werden. | das Formular; ausfüllen
+fehler | 3 | Die Wohnung kann ab Montag besichtigt werden. | Die Wohnung kann ab Montag besichtigt werden. | - | Daire pazartesiden itibaren gezilebilir. | Hata yok: Modal (kann) + Partizip (besichtigt) + werden. | die Wohnung; besichtigen
+
+@teil von | Yapan kişi: von + Dativ | hâl
+wahl | 2 | Die Prüfung wird ___ zwei Lehrerinnen korrigiert. | von | von / durch / mit | Sınav iki öğretmen tarafından değerlendiriliyor. | İşi yapan kişi → von + Dativ. durch daha çok sebep / araç için (durch den Sturm), mit ise "ile, birlikte". | die Prüfung; korrigieren
+luecke | 2 | Das Buch wurde von ___ bekannten Autor geschrieben. (ein) | einem | | Kitap tanınmış bir yazar tarafından yazıldı. | von + Dativ: einem (der Autor, eril). | der Autor; bekannt; schreiben
+umform | 3 | Die Ärztin untersucht den Patienten. → Passiv | Der Patient wird von der Ärztin untersucht. | | Hasta doktor tarafından muayene ediliyor. | den Patienten (Akk) → der Patient (Nom); die Ärztin → von der Ärztin (Dativ). | der Patient; die Ärztin; untersuchen
+
+@teil kontrast | Kim yapıyor? Aktiv / Passiv · werden'in işleri | zaman
+wahl | 1 | „Die Wohnung wird renoviert.“ Wer renoviert? | Das sagt der Satz nicht. | Das sagt der Satz nicht. / Die Wohnung. / Der Vermieter. | Daire yenileniyor. Kim yeniliyor? | Passiv'de işi yapan söylenmezse bilinmez. Özne (die Wohnung) işi yapmaz, işten etkilenir. | die Wohnung
+wahl | 2 | Welcher Satz ist Passiv? | Der Brief wird morgen geschickt. | Der Brief wird morgen geschickt. / Er wird morgen Lehrer. / Er wird den Brief morgen schicken. | Mektup yarın gönderilecek. | Passiv = werden + Partizip II (geschickt). werden + isim = olmak; werden + mastar (schicken) = Futur. | der Brief; schicken
+ordnen | 2 | es / ist / kalt / weil / die Heizung / repariert / wird | Es ist kalt, weil die Heizung repariert wird. / Weil die Heizung repariert wird, ist es kalt. | | Kalorifer tamir edildiği için içerisi soğuk. | Yan cümlede çekimli wird en sonda; yan cümle öndeyse ana cümle fiille başlar (ist es). | die Heizung; reparieren
+

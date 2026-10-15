@@ -1,0 +1,28 @@
+# Ünite (Kapitel 12) boşluklu metinler (Claude yazdı). [...] = boşluk (doğru form). "## " başlık, sonraki satır Türkçe özet.
+## Ein Konto in Bremen
+Bremen'de banka hesabı açmak
+Als ich nach Bremen kam, brauchte ich zuerst ein [Konto]. Für die [Kontoeröffnung] musste ich einen [Antrag] ausfüllen und meinen Pass zeigen. Die Bankberaterin erklärte mir: „Für Studierende gibt es keine [Kontoführungsgebühr]. Nur für Überweisungen ins Ausland verlangen wir eine kleine [Gebühr].“ Danach bekam ich eine Karte, mit der ich am [Geldautomaten] Geld [abheben] kann. Auf das neue Konto habe ich gleich 500 Euro [eingezahlt]. Jeden Monat bekomme ich einen [Kontoauszug] per E-Mail. Dort sehe ich alle [Einnahmen] und [Ausgaben]. Inzwischen erledige ich fast alle [Bankgeschäfte] online und gehe nur noch selten zur Bank.
+
+## Online-Banking
+İnternet bankacılığı: havale, düzenli ödeme, dolandırıcılara dikkat
+Seit einem Jahr nutze ich [Online-Banking]. Zuerst muss ich mich mit meinem [Benutzernamen] und einem Passwort [einloggen]. Dann kann ich Geld [überweisen]. Dafür muss ich nur die IBAN des Empfängers und den [Betrag] [eintragen]. Eine [Überweisung] dauert meistens nur einen Tag. Meine Miete bezahle ich per [Dauerauftrag], so kann ich keine Zahlung [versäumen]. Wenn mir jemand Geld schickt, wird es meinem Konto schnell [gutgeschrieben]. Aber Vorsicht: Im Internet versuchen Kriminelle oft, Kunden mit falschen E-Mails zu [betrügen]. Deshalb sollte man jede E-Mail von der „Bank“ genau [nachprüfen], bevor man auf einen Link klickt.
+
+## Ein Auto auf Kredit
+Kredi, taksit, faiz: borca nasıl girilir?
+Mein Freund Ali wollte unbedingt ein neues Auto. Weil er nicht genug Geld gespart hatte, hat er einen [Kredit] aufgenommen. Jetzt zahlt er jeden Monat eine [Rate] von 300 Euro, und dazu kommen noch hohe [Zinsen]. Außerdem hat er sein Konto oft [überzogen]. So ist er langsam in [Schulden] [geraten]. Er hat ein schlechtes [Gewissen], weil er auch seinen Eltern noch Geld zurückzahlen muss. Ich habe ihm geraten: „Schreib alle [Ausgaben] auf und [bedenke] vorher immer die Kosten!“ Er hat mir ein [Versprechen] gegeben: Ab jetzt will er jeden Monat etwas [sparen]. Je früher er anfängt, [desto] schneller ist er seine Schulden los.
+
+## Der wahre Preis
+Küreselleşme: ucuz telefonun gerçek bedeli
+Mein Handy war billig, aber wer bezahlt den wahren Preis? Durch die [Globalisierung] werden viele Produkte in Asien hergestellt. Die [Verbraucher] in Europa [profitieren] von den niedrigen Preisen. Doch der Lohn der Arbeiter in den Fabriken ist oft sehr [gering]. Die [Wirtschaft] ist heute [global]: Der Preis für Metalle hängt vom [Weltmarkt] ab. In alten Handys stecken [wertvolle] Metalle wie Gold und Kupfer, trotzdem werfen viele Menschen sie einfach weg. Auch der Handel im Internet hat stark [zugenommen], und viele kleine Läden [überleben] die Konkurrenz nicht. Ich finde es [problematisch], dass unser [Wohlstand] teilweise auf der Armut anderer Menschen [basiert].
+
+## Zwei Euro für die Zeitung
+Gazete kutusu: bir vicdan meselesi
+Am Bahnhof steht ein Kasten mit Zeitungen. Man soll zwei Euro [einwerfen], aber niemand kann [nachprüfen], ob man wirklich bezahlt. Gestern hat ein Mann vor mir einfach eine Zeitung genommen und nichts bezahlt. Für mich war das eine echte [Gewissensfrage]: Soll ich etwas sagen? Meiner [Ansicht] nach sollte man immer ehrlich sein, auch wenn es nur um [Kleingeld] geht. Ich wollte ihm aber keine [Vorwürfe] machen, deshalb habe ich ihn freundlich angesprochen. Er war ganz überrascht: Er hatte wirklich nicht [gemerkt], dass er noch nicht bezahlt hatte. Sofort hat er zwei [Münzen] in den Kasten geworfen und sich bei mir bedankt.
+
+## Die Fuggerei
+Augsburg'daki Fuggerei: dünyanın en eski sosyal konut sitesi
+In Augsburg gibt es eine besondere [Siedlung]: die Fuggerei. Jakob Fugger hat sie im Jahr 1521 gegründet. Er kam aus einer reichen Kaufmannsfamilie und wollte sein Geld auch für [wohltätige] Zwecke nutzen. Bis heute wird die Fuggerei von einer [Stiftung] finanziert. Hier wohnen Menschen, die wenig Geld haben. Die [Jahresmiete] beträgt nur 88 Cent. Dafür sollen die Bewohner jeden Tag für die Familie Fugger [beten]. Die Häuser sind alt, aber in einem guten [Zustand]. Abends werden die Tore geschlossen, und wer zu spät kommt, muss dem [Nachtwächter] etwas bezahlen. In vielen deutschen Städten sind [Immobilien] heute dagegen so teuer, dass Familien sie sich kaum [leisten] können.
+
+## Am Ende des Monats
+Ay sonunda para: artan kiralar, bütçe, sevindirici şeyler
+In den letzten Jahren ist das Leben in Deutschland viel teurer geworden. Wegen der [steigenden] Mieten und der hohen [Nebenkosten] bleibt vielen Studenten am Ende des Monats kaum Geld. Meine [Einnahmen] sind leider [gering]: Ich verdiene [monatlich] nur 600 Euro. Deshalb schreibe ich alle Ausgaben in eine App. Je genauer ich plane, [desto] weniger Stress habe ich. Ein neues Fahrrad ist im Moment leider nicht [drin]. Trotzdem bin ich nicht [unzufrieden]. Es ist [erfreulich], dass die Stadt die Kosten für meinen Deutschkurs [teilweise] bezahlt. Und die [wachsende] Zahl von Second-Hand-Läden hilft mir auch beim Sparen.

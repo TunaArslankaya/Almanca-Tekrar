@@ -1,0 +1,100 @@
+# Gramer konusu: zaman yan cümleleri (als, wenn, bevor, nachdem, während, seit(dem), bis). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id temporal
+@titel Temporale Nebensätze: als, wenn, bevor, nachdem, während, seit, bis
+@tr Zaman yan cümleleri: -dığında, -meden önce, -dikten sonra, -irken, -eli beri, -e kadar
+@stufe A2–B1
+@kapitel B1 K7 · als / wenn A2
+@goethe 2 | Schreiben 1 · Sprechen 1 · Lesen / Hören
+@voraus weil-dass, perfekt
+@kontrast obwohl-wenn
+@etiket bağlaç
+@kurz als = geçmişte bir kez; wenn = her seferinde / şimdi / gelecek. nachdem: önceki iş bir zaman geriye (Perfekt / Plusquamperfekt). Hepsinde çekimli fiil sonda.
+
+@erklaerung
+Türkçe zamanı fiil ekiyle söyler (-dığında, -meden önce, -dikten sonra, -irken, -eli beri, -inceye kadar). Almanca bunu bağlaçla yapar; hepsi yan cümle (der Nebensatz) açar, çekimli fiil en sona gider.
+
+1. als: geçmişte BİR KEZ olan olay ya da bir dönem: Als ich in Bremen angekommen bin, hat es geregnet. Als ich Kind war, …
+2. wenn: her seferinde ("-dığı zamanlar", geçmişte de: immer wenn …) ya da şimdi / gelecek: Wenn ich nach Hause komme, koche ich. wann ise yalnız soru kelimesidir: Wann kommst du?
+3. bevor (-meden önce): Türkçedeki "-meden" olumsuz görünür ama Almancada nicht YOK: Bevor ich frühstücke, dusche ich.
+4. nachdem (-dikten sonra): yan cümledeki iş önce olur, bu yüzden bir zaman geriye gider. Ana cümle Präsens → nachdem + Perfekt. Ana cümle geçmişte → nachdem + Plusquamperfekt (hatte / war + Partizip): Nachdem wir gegessen hatten, gingen wir spazieren.
+5. während (-irken): iki iş aynı anda. seit / seitdem (-eli beri): hâlâ süren durum → Präsens, Türkçedeki gibi: Seit ich hier wohne, fahre ich Fahrrad. bis (-e kadar): Ich warte, bis du kommst.
+6. Edat mı bağlaç mı? İsimle edat, özne + fiille bağlaç: vor dem Essen / bevor wir essen · nach dem Kurs / nachdem der Kurs zu Ende war · während des Essens / während wir essen.
+
+Yan cümle başta → ana cümle fiille başlar (fiil, virgül, fiil). En sık hata: geçmişte tek olay için wenn ("Wenn ich nach Deutschland gekommen bin" ✗ → Als …).
+@ende
+
+@tabelle Bağlaçlar
+bağlaç | Türkçe | zaman ilişkisi | örnek
+als | -dığında (geçmişte bir kez) | aynı anda, geçmiş | Als ich 18 war, bin ich nach Bremen gezogen.
+wenn | -dığında, -ince (her seferinde / gelecek) | aynı anda | Wenn ich müde bin, trinke ich Kaffee.
+bevor | -meden önce | yan cümledeki iş sonra | Bevor ich gehe, rufe ich dich an.
+nachdem | -dikten sonra | yan cümledeki iş önce | Nachdem ich gegessen habe, lerne ich.
+während | -irken | aynı anda | Während ich koche, höre ich Musik.
+seit / seitdem | -eli beri | başladı, hâlâ sürüyor | Seit ich hier wohne, bin ich glücklich.
+bis | -e kadar | yan cümle bitiş noktası | Ich warte, bis du kommst.
+@ende
+
+@tabelle nachdem ile zaman uyumu
+ana cümle | nachdem-yan cümlesi | örnek
+Präsens | Perfekt | Nachdem ich gefrühstückt habe, gehe ich zur Arbeit.
+Präteritum | Plusquamperfekt | Nachdem ich gefrühstückt hatte, ging ich zur Arbeit.
+@ende
+
+@tabelle Edat (+ isim) · bağlaç (+ yan cümle)
+edat | bağlaç
+vor + Dativ: vor dem Essen | bevor: bevor wir essen
+nach + Dativ: nach dem Kurs | nachdem: nachdem der Kurs zu Ende war
+während + Genitiv: während des Essens | während: während wir essen
+seit + Dativ: seit einem Jahr | seit / seitdem: seit ich hier wohne
+bis + Akkusativ: bis nächsten Montag · bis zu + Dativ: bis zum Abend | bis: bis der Bus kommt
+@ende
+
+@beispiel Als ich nach Deutschland gekommen bin, konnte ich kaum Deutsch. | Almanya'ya geldiğimde neredeyse hiç Almanca bilmiyordum.
+@beispiel Nachdem wir gegessen hatten, gingen wir spazieren. | Yemek yedikten sonra yürüyüşe çıktık.
+@beispiel Bevor du losfährst, ruf mich bitte an. | Yola çıkmadan önce lütfen beni ara.
+@beispiel Seit ich in Bremen wohne, fahre ich jeden Tag Fahrrad. | Bremen'de oturduğumdan beri her gün bisiklete biniyorum.
+
+@teil als-wenn | als (geçmişte bir kez) · wenn (her seferinde) | bağlaç
+wahl | 1 | ___ ich zehn Jahre alt war, sind wir nach Istanbul gezogen. | Als | Als / Wenn / Wann | On yaşındayken İstanbul'a taşındık. | Geçmişte bir kez (o yaş, bir taşınma) → Als. wenn tekrar eden ya da gelecekteki durum için, wann yalnız soru. | ziehen; alt
+wahl | 1 | ___ ich Kopfschmerzen habe, trinke ich viel Wasser. | Wenn | Wenn / Als / Wann | Başım ağrıdığında çok su içerim. | Her seferinde (tekrar eden durum, Präsens) → Wenn. | das Wasser; trinken
+luecke | 2 | ___ ich meinen Pass verloren habe, war ich sehr nervös. (zaman bağlacı) | Als | | Pasaportumu kaybettiğimde çok gergindim. | Geçmişte tek bir olay → Als. Geçmişte wenn yalnız tekrar eden olaylar için (immer wenn …). | der Pass; verlieren; nervös
+luecke | 2 | Immer ___ wir Oma besucht haben, hat sie Kuchen gebacken. | wenn | | Büyükannemizi her ziyaret ettiğimizde bize kek yapardı. | Geçmişte ama tekrar eden olay (immer, jedes Mal) → wenn. | besuchen; der Kuchen; backen
+fehler | 2 | Wenn ich gestern nach Hause gekommen bin, war niemand da. | Als ich gestern nach Hause gekommen bin, war niemand da. / Als ich gestern nach Hause kam, war niemand da. | Wenn | Dün eve geldiğimde kimse yoktu. | gestern = geçmişte bir kez → Als. Türkçede ikisi de "-dığında"; bu yüzden en sık hata. | niemand
+umform | 3 | Ich war Student. Ich habe in einem Café gearbeitet. → Als … | Als ich Student war, habe ich in einem Café gearbeitet. / Als ich Student war, arbeitete ich in einem Café. | | Üniversite öğrencisiyken bir kafede çalıştım. | Geçmişteki bir dönem → als; fiil sonda (war). Ana cümle fiille başlar: habe ich … gearbeitet. | der Student; das Café; arbeiten
+ordnen | 2 | als / wir / am Bahnhof / ankamen / war / der Zug / schon weg | Als wir am Bahnhof ankamen, war der Zug schon weg. / Der Zug war schon weg, als wir am Bahnhof ankamen. | | İstasyona vardığımızda tren çoktan gitmişti. | Geçmişte bir kez → als; ayrılabilen fiil yan cümlede bitişik ve sonda: ankamen. | der Bahnhof; ankommen; der Zug
+
+@teil bevor | bevor: -meden önce (nicht yok) | bağlaç
+luecke | 2 | Bevor ich zur Uni ___, frühstücke ich. (gehen) | gehe | | Üniversiteye gitmeden önce kahvaltı yaparım. | bevor yan cümle açar → çekimli fiil sonda: gehe. Ana cümle fiille başlar: frühstücke ich. | frühstücken; gehen
+fehler | 2 | Bevor ich nicht schlafen gehe, lese ich ein bisschen. | Bevor ich schlafen gehe, lese ich ein bisschen. | nicht | Yatmadan önce biraz okurum. | Türkçedeki "-madan" olumsuz görünür ama anlamı olumsuz değil: bevor'dan sonra nicht yazılmaz. | schlafen; lesen
+ordnen | 2 | bevor / du / losfährst / ruf / mich / bitte / an | Bevor du losfährst, ruf mich bitte an. / Ruf mich bitte an, bevor du losfährst. / Bitte ruf mich an, bevor du losfährst. | | Yola çıkmadan önce lütfen beni ara. | bevor-yan cümlesinde ayrılabilen fiil bitişik ve sonda (losfährst); emir cümlesinde ayrılır: ruf … an. | losfahren; anrufen
+umform | 3 | Ich putze mir die Zähne. Danach gehe ich ins Bett. → bevor | Bevor ich ins Bett gehe, putze ich mir die Zähne. / Ich putze mir die Zähne, bevor ich ins Bett gehe. | | Yatmadan önce dişlerimi fırçalarım. | Sonra olan iş (ins Bett gehen) bevor-yan cümlesine girer, fiil sonda: gehe. danach düşer. | putzen; der Zahn; das Bett
+
+@teil nachdem | nachdem: Perfekt / Plusquamperfekt | zaman
+luecke | 2 | Nachdem ich die Hausaufgaben gemacht ___, ging ich ins Kino. (haben) | hatte | | Ödevlerimi yaptıktan sonra sinemaya gittim. | Ana cümle geçmişte (ging) → önce olan iş Plusquamperfekt: gemacht hatte. | die Hausaufgabe; das Kino
+luecke | 2 | Nachdem ich ___ ___, gehe ich zur Arbeit. (frühstücken · Perfekt) | gefrühstückt ; habe | | Kahvaltı yaptıktan sonra işe giderim. | Ana cümle Präsens (gehe) → nachdem + Perfekt: gefrühstückt habe. Yardımcı fiil en sonda. | frühstücken; die Arbeit
+luecke | 3 | Nachdem wir in Bremen ___ ___, suchten wir zuerst ein Zimmer. (ankommen · Plusquamperfekt) | angekommen ; waren | | Bremen'e vardıktan sonra önce bir oda aradık. | ankommen sein alır; Plusquamperfekt = war + Partizip. Yan cümlede: angekommen waren. | ankommen; das Zimmer; suchen
+wahl | 2 | Nachdem er das Medikament ___, ging es ihm besser. | eingenommen hatte | eingenommen hatte / eingenommen hat / nahm ein | İlacı aldıktan sonra kendini daha iyi hissetti. | Ana cümle Präteritum (ging) → nachdem + Plusquamperfekt: eingenommen hatte. | einnehmen; das Medikament
+umform | 3 | Sie machte das Abitur. Dann studierte sie in Hamburg Medizin. → Nachdem … | Nachdem sie das Abitur gemacht hatte, studierte sie in Hamburg Medizin. / Nachdem sie das Abitur gemacht hatte, studierte sie Medizin in Hamburg. | | Liseyi bitirdikten sonra Hamburg'da tıp okudu. | Önce olan iş (das Abitur) nachdem-yan cümlesine, Plusquamperfekt'e: gemacht hatte. Ana cümle fiille başlar: studierte sie. | das Abitur; die Medizin; studieren
+fehler | 3 | Nachdem ich die Wohnung putzte, ruhte ich mich aus. | Nachdem ich die Wohnung geputzt hatte, ruhte ich mich aus. | putzte | Evi temizledikten sonra dinlendim. | nachdem'li iş ana cümleden önce olur: Präteritum değil, Plusquamperfekt (geputzt hatte). | die Wohnung; putzen; sich ausruhen
+
+@teil waehrend | während: -irken (aynı anda) | bağlaç
+luecke | 2 | Während ich ___, höre ich gern Musik. (kochen) | koche | | Yemek yaparken müzik dinlemeyi severim. | während = -irken; yan cümlede çekimli fiil sonda: koche. Ana cümle fiille başlar: höre ich. | kochen; die Musik
+ordnen | 2 | während / mein Mitbewohner / schläft / lerne / ich / in der Küche | Während mein Mitbewohner schläft, lerne ich in der Küche. / Ich lerne in der Küche, während mein Mitbewohner schläft. | | Ev arkadaşım uyurken ben mutfakta çalışıyorum. | während-yan cümlesinde fiil sonda (schläft); yan cümle başta ise ana cümle fiille başlar: lerne ich. | schlafen; die Küche
+wahl | 2 | Welcher Satz ist richtig? | Während der Lehrer spricht, darf man nicht telefonieren. | Während der Lehrer spricht, darf man nicht telefonieren. / Während der Lehrer spricht, man darf nicht telefonieren. / Während spricht der Lehrer, darf man nicht telefonieren. | Öğretmen konuşurken telefonla konuşulmaz. | Yan cümlede fiil sonda (spricht), ana cümle fiille başlar (darf man). | telefonieren mit; der Lehrer
+
+@teil seit-bis | seit(dem): -eli beri · bis: -e kadar | zaman
+luecke | 2 | Seit ich in Bremen ___, fahre ich jeden Tag Fahrrad. (wohnen) | wohne | | Bremen'de oturduğumdan beri her gün bisiklete biniyorum. | Hâlâ süren durum → Präsens (wohne), Türkçedeki "oturduğumdan beri" gibi; fiil sonda. | wohnen; das Fahrrad
+wahl | 1 | Seitdem ich regelmäßig Sport ___, schlafe ich besser. | mache | mache / gemacht habe / machte | Düzenli spor yaptığımdan beri daha iyi uyuyorum. | Spor hâlâ sürüyor → seitdem + Präsens: mache. Bitmiş bir olaysa Perfekt: seitdem ich umgezogen bin. | regelmäßig; der Sport; schlafen
+luecke | 2 | Wir warten hier, bis der Regen ___. (aufhören) | aufhört | | Yağmur dinene kadar burada bekliyoruz. | bis yan cümle açar; ayrılabilen fiil bitişik ve sonda: aufhört. | warten auf; der Regen; aufhören mit
+fehler | 2 | Ich lerne jeden Tag, bis ich die Prüfung bestanden habe. | Ich lerne jeden Tag, bis ich die Prüfung bestanden habe. | - | Sınavı geçene kadar her gün çalışıyorum. | Hata yok: bis yan cümle açar, yardımcı fiil (habe) en sonda. Bitmiş olacak iş için Perfekt doğal. | bestehen; die Prüfung
+ordnen | 3 | seit / er / umgezogen ist / hat / er / keine Zeit mehr | Seit er umgezogen ist, hat er keine Zeit mehr. / Er hat keine Zeit mehr, seit er umgezogen ist. | | Taşındığından beri artık hiç vakti yok. | Taşınma bitmiş bir olay → Perfekt (umgezogen ist); sonucu hâlâ sürüyor → ana cümle Präsens (hat). | umziehen; die Zeit
+umform | 3 | Wir haben uns kennengelernt. Seitdem sind wir Freunde. → seit | Seit wir uns kennengelernt haben, sind wir Freunde. / Wir sind Freunde, seit wir uns kennengelernt haben. / Seitdem wir uns kennengelernt haben, sind wir Freunde. / Wir sind Freunde, seitdem wir uns kennengelernt haben. | | Tanıştığımızdan beri arkadaşız. | Bitmiş başlangıç (kennengelernt haben) seit-yan cümlesine, yardımcı fiil sonda; sonuç hâlâ sürüyor → sind (Präsens). | kennenlernen; der Freund
+
+@teil praep-konj | Edat mı bağlaç mı? vor / bevor · nach / nachdem · während | bağlaç
+wahl | 1 | ___ dem Essen wasche ich mir die Hände. | Vor | Vor / Bevor / Seit | Yemekten önce ellerimi yıkarım. | Arkasında isim var (dem Essen), fiil yok → edat vor + Dativ. bevor yan cümle ister: bevor ich esse. | das Essen; waschen; die Hand
+wahl | 1 | ___ dem Deutschkurs habe ich ein Praktikum gemacht. | Nach | Nach / Nachdem / Bevor | Almanca kursundan sonra staj yaptım. | Arkada yalnız isim var (dem Deutschkurs) → edat nach + Dativ. nachdem ve bevor yalnız yan cümle açar. | das Praktikum
+luecke | 1 | ___ des Unterrichts darf man das Handy nicht benutzen. | Während | Während / Bevor / Nachdem | Ders sırasında cep telefonu kullanılmaz. | Arkada Genitiv isim var (des Unterrichts) → edat während. bevor ve nachdem yalnız yan cümle açar. | der Unterricht; das Handy; benutzen
+fehler | 3 | Nach ich gegessen habe, gehe ich spazieren. | Nachdem ich gegessen habe, gehe ich spazieren. | Nach | Yemek yedikten sonra yürüyüşe çıkarım. | Arkada özne + fiil var → bağlaç nachdem gerekir. nach yalnız isimle: nach dem Essen. | essen; spazieren gehen
+umform | 3 | Nach dem Frühstück gehe ich zur Arbeit. → nachdem | Nachdem ich gefrühstückt habe, gehe ich zur Arbeit. / Ich gehe zur Arbeit, nachdem ich gefrühstückt habe. | | Kahvaltıdan sonra işe giderim. | Edat (nach dem Frühstück) yan cümle olunca özne ve fiil gerekir. Ana cümle Präsens → nachdem + Perfekt: gefrühstückt habe. | das Frühstück; frühstücken; die Arbeit

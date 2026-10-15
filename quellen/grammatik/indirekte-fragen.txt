@@ -1,0 +1,83 @@
+# Gramer konusu: dolaylı soru (W-Wort, ob). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id indirekte-fragen
+@titel Indirekte Fragen mit W-Wort und ob
+@tr Dolaylı soru: ne / nerede / ne zaman … -dığını; -ıp -madığını (ob)
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 3 | Schreiben 2-3 · Sprechen 1-3
+@voraus weil-dass
+@kontrast weil-dass
+@etiket kelime sırası
+@kurz Soru kelimesi (wo, wann, wie …) ya da ob yan cümle açar → çekimli fiil sonda. Evet/hayır sorusu → ob (dass ya da wenn değil).
+
+@erklaerung
+Kibar sorular ve "… bilmiyorum" cümleleri dolaylı sorudur (die indirekte Frage). Türkçede bunu "-dığını" ve "-ıp -madığını" ekleri yapar.
+
+1. W-soru (wer, was, wo, wann, wie, warum, wie viel, welch- …): soru kelimesi yan cümlenin başında kalır, çekimli fiil sona gider: Wo wohnt er? → Ich weiß nicht, wo er wohnt.
+2. Evet/hayır sorusu → ob ("-ıp -madığını"): Kommt er? → Weißt du, ob er kommt? Burada dass olmaz. wenn de olmaz: Türkçedeki "gelirse" düşüncesinden gelen hata.
+3. Soru sırası kalkar: ✗ Weißt du, wo ist der Bahnhof? → ✓ Weißt du, wo der Bahnhof ist?
+4. Ana cümle soruysa sonda soru işareti (Können Sie mir sagen, wann der Kurs beginnt?), değilse nokta (Ich weiß nicht, wann der Kurs beginnt.).
+5. Kibar giriş kalıpları: Können / Könnten Sie mir sagen, …? · Wissen Sie, …? · Ich möchte wissen, … · Ich würde gern wissen, … · Ich frage mich, …
+6. Ayrılabilen fiil bitişir; modal ve Perfekt'te çekimli fiil en sonda: ob ich mich anmelden muss · was du gemacht hast.
+
+dass ile ob farkı: dass bilinen bir bilgiyi aktarır (Ich weiß, dass er kommt), ob cevabı belli olmayan soruyu (Ich weiß nicht, ob er kommt).
+
+Sınavda: Schreiben Teil 3 (resmî e-posta) ve Sprechen'de bilgi isterken: "Könnten Sie mir bitte sagen, ob …?"
+@ende
+
+@tabelle Doğrudan soru → dolaylı soru
+doğrudan soru | dolaylı soru
+Wann beginnt der Kurs? | Können Sie mir sagen, wann der Kurs beginnt?
+Wo ist die Toilette? | Wissen Sie, wo die Toilette ist?
+Wie viel kostet das Ticket? | Ich möchte wissen, wie viel das Ticket kostet.
+Hast du Zeit? | Ich frage dich, ob du Zeit hast.
+Muss ich mich anmelden? | Wissen Sie, ob ich mich anmelden muss?
+@ende
+
+@tabelle dass · ob · W-Wort
+bağlaç | ne zaman | örnek
+dass | bilinen bilgi, görüş | Ich weiß, dass er kommt.
+ob | evet/hayır sorusu (cevap belli değil) | Ich weiß nicht, ob er kommt.
+W-Wort | W-soru | Ich weiß nicht, wann er kommt.
+@ende
+
+@beispiel Können Sie mir sagen, wo die Bibliothek ist? | Kütüphanenin nerede olduğunu söyleyebilir misiniz?
+@beispiel Ich weiß nicht, ob ich am Samstag Zeit habe. | Cumartesi vaktim olup olmadığını bilmiyorum.
+@beispiel Weißt du, wann der letzte Bus fährt? | Son otobüsün ne zaman kalktığını biliyor musun?
+
+@teil w-frage | W-soru: soru kelimesi başta, fiil sonda | kelime sırası
+wahl | 1 | Weißt du, wo ___? | der Bahnhof ist | der Bahnhof ist / ist der Bahnhof | İstasyonun nerede olduğunu biliyor musun? | wo burada yan cümle açar → çekimli fiil sonda: wo der Bahnhof ist. | der Bahnhof
+luecke | 2 | Kannst du mir sagen, wie spät es ___? (sein) | ist | | Saatin kaç olduğunu söyleyebilir misin? | Dolaylı soruda çekimli fiil sonda: wie spät es ist. | spät
+luecke | 2 | Ich weiß nicht, wann der nächste Bus ___. (fahren) | fährt | | Bir sonraki otobüsün ne zaman kalktığını bilmiyorum. | wann + özne + … + çekimli fiil sonda: fährt. Ana cümle soru değil → sonda nokta. | der Bus; fahren
+ordnen | 2 | können Sie / mir / sagen / wie viel / das Ticket / kostet | Können Sie mir sagen, wie viel das Ticket kostet? | | Biletin ne kadar olduğunu söyleyebilir misiniz? | Soru kelimesi (wie viel) yan cümlenin başında, çekimli fiil (kostet) sonda. | kosten; das Ticket
+fehler | 2 | Weißt du, warum ist Anna heute nicht gekommen? | Weißt du, warum Anna heute nicht gekommen ist? | ist Anna | Anna'nın bugün neden gelmediğini biliyor musun? | Dolaylı soruda soru sırası kalkar: warum + özne + … + yardımcı fiil sonda (gekommen ist). | kommen
+luecke | 2 | Ich möchte wissen, was du am Wochenende ___ ___. (machen · Perfekt) | gemacht ; hast | | Hafta sonu ne yaptığını bilmek istiyorum. | Perfekt'te önce Partizip (gemacht), en sonda çekimli yardımcı fiil (hast). | machen
+umform | 3 | Wo kann man hier Fahrräder ausleihen? → indirekt | Können Sie mir sagen, wo man hier Fahrräder ausleihen kann? / Könnten Sie mir sagen, wo man hier Fahrräder ausleihen kann? / Wissen Sie, wo man hier Fahrräder ausleihen kann? / Ich möchte wissen, wo man hier Fahrräder ausleihen kann. | | Burada nereden bisiklet kiralanabileceğini söyleyebilir misiniz? | Soru kelimesi (wo) başta kalır; modal fiil (kann) en sona: ausleihen kann. | das Fahrrad
+umform | 3 | Welche Bücher brauchen wir für den Kurs? → indirekt | Können Sie mir sagen, welche Bücher wir für den Kurs brauchen? / Könnten Sie mir sagen, welche Bücher wir für den Kurs brauchen? / Wissen Sie, welche Bücher wir für den Kurs brauchen? | | Kurs için hangi kitaplara ihtiyacımız olduğunu söyleyebilir misiniz? | welch- isimle birlikte başta kalır (welche Bücher); çekimli fiil sonda: brauchen. | das Buch; brauchen; der Kurs
+
+@teil ob | Evet/hayır sorusu → ob | bağlaç
+wahl | 1 | Ich weiß nicht, ___ er morgen kommt. | ob | ob / dass / wenn | Yarın gelip gelmeyeceğini bilmiyorum. | Cevap belli değil (gelecek mi, gelmeyecek mi?) → ob. dass bilinen bilgi için: Ich weiß, dass er kommt. | kommen; morgen
+luecke | 2 | Weißt du, ___ die Apotheke am Sonntag geöffnet ist? (doğrudan soru: Ist sie am Sonntag geöffnet?) | ob | | Eczanenin pazar günü açık olup olmadığını biliyor musun? | Doğrudan soru evet/hayır sorusu (Ist die Apotheke …?) → ob. | die Apotheke
+luecke | 2 | Kannst du mal nachsehen, ob noch Milch im Kühlschrank ___? (sein) | ist | | Buzdolabında hâlâ süt olup olmadığına bakar mısın? | ob-yan cümlesinde çekimli fiil sonda: ist. | die Milch; der Kühlschrank
+ordnen | 2 | ich / frage mich / ob / ich / die Prüfung / bestanden habe | Ich frage mich, ob ich die Prüfung bestanden habe. | | Sınavı geçip geçmediğimi merak ediyorum. | ob + özne + nesne + Partizip + yardımcı fiil en sonda. | bestehen; die Prüfung
+ordnen | 2 | weißt du / ob / man / hier / rauchen / darf | Weißt du, ob man hier rauchen darf? | | Burada sigara içmenin serbest olup olmadığını biliyor musun? | Evet/hayır sorusu (Darf man hier rauchen?) → ob; önce mastar (rauchen), en sonda modal (darf). | rauchen; dürfen
+umform | 3 | Gibt es hier einen Parkplatz? → indirekt | Können Sie mir sagen, ob es hier einen Parkplatz gibt? / Könnten Sie mir sagen, ob es hier einen Parkplatz gibt? / Wissen Sie, ob es hier einen Parkplatz gibt? | | Burada otopark olup olmadığını söyleyebilir misiniz? | Evet/hayır sorusu → ob; çekimli fiil (gibt) sona. |
+fehler | 2 | Ich möchte wissen, dass der Kurs auch online stattfindet. | Ich möchte wissen, ob der Kurs auch online stattfindet. | dass | Kursun çevrim içi de yapılıp yapılmadığını öğrenmek istiyorum. | "wissen möchten" = cevabı henüz bilmiyorum → ob. dass yalnız bilinen bilgiyi aktarır. | stattfinden; der Kurs
+fehler | 2 | Weißt du, ob der Supermarkt heute bis 22 Uhr offen ist? | Weißt du, ob der Supermarkt heute bis 22 Uhr offen ist? | - | Süpermarketin bugün saat 22'ye kadar açık olup olmadığını biliyor musun? | Hata yok: evet/hayır sorusu → ob; çekimli fiil (ist) sonda. | der Supermarkt; offen
+
+@teil hoeflich | Kibar kalıplar; modal, Perfekt, ayrılabilen fiil | kelime sırası
+luecke | 2 | Könnten Sie mir bitte sagen, wann der Kurs ___? (anfangen) | anfängt | | Kursun ne zaman başladığını söyleyebilir misiniz? | Ayrılabilen fiil dolaylı soruda bitişik ve sonda: anfängt. | anfangen mit; der Kurs
+luecke | 3 | Wissen Sie, ob ich mich für den Kurs ___ ___? (anmelden · müssen) | anmelden ; muss | | Kursa kaydolmam gerekip gerekmediğini biliyor musunuz? | Önce mastar (anmelden), en sonda çekimli modal (muss); dönüşlü zamir öznenin arkasında (ich mich). | sich anmelden für; müssen
+ordnen | 3 | ich / würde / gern / wissen / wie lange / die Bibliothek / geöffnet ist | Ich würde gern wissen, wie lange die Bibliothek geöffnet ist. | | Kütüphanenin ne zamana kadar açık olduğunu öğrenmek isterim. | Kibar kalıp (Ich würde gern wissen) + soru kelimesi (wie lange) + özne + çekimli fiil sonda. | die Bibliothek
+wahl | 2 | Welcher Satz ist richtig? | Können Sie mir sagen, wo ich mich anmelden kann? | Können Sie mir sagen, wo ich mich anmelden kann? / Können Sie mir sagen, wo kann ich mich anmelden? / Können Sie mir sagen, wo ich kann mich anmelden? | Nerede kaydolabileceğimi söyleyebilir misiniz? | Dolaylı soru yan cümledir: özne + dönüşlü zamir + mastar + çekimli modal en sonda. | sich anmelden; können
+umform | 3 | Wann haben Sie Sprechstunde? → indirekt | Können Sie mir sagen, wann Sie Sprechstunde haben? / Könnten Sie mir sagen, wann Sie Sprechstunde haben? | | Görüşme saatinizin ne zaman olduğunu söyleyebilir misiniz? | Soru kelimesi (wann) başta, sonra özne (Sie), çekimli fiil (haben) en sonda. | die Sprechstunde
+
+@teil kontrast | ob · dass · wenn · W-Wort | bağlaç
+wahl | 1 | Ich bin sicher, ___ er die Wahrheit sagt. | dass | dass / ob / wenn | Doğruyu söylediğinden eminim. | Emin olunan bir bilgi → dass. ob şüphe ya da soru için: Ich weiß nicht, ob … | sicher; die Wahrheit
+wahl | 1 | Ich frage mich, ___ er die Wahrheit sagt. | ob | ob / dass / wenn | Doğruyu söyleyip söylemediğini merak ediyorum. | sich fragen = cevabı bilmiyorum → ob (-ıp -madığını). | die Wahrheit
+luecke | 2 | Ruf mich an, ___ du in Bremen angekommen bist. | wenn | wenn / ob / dass | Bremen'e varınca beni ara. | Bir zaman / koşul (-ince) → wenn. ob yalnız "-ıp -madığını" sorusu için. | anrufen; ankommen
+luecke | 1 | Er hat mich gefragt, ___ ich mit ihm ins Kino gehe. | ob | ob / wenn / dass | Onunla sinemaya gidip gitmeyeceğimi sordu. | fragen + evet/hayır sorusu → ob. wenn, Türkçedeki "gidersem" düşüncesinden gelen hata. | fragen; das Kino
+fehler | 2 | Ich weiß nicht, wenn der Arzt heute Zeit hat. | Ich weiß nicht, ob der Arzt heute Zeit hat. / Ich weiß nicht, wann der Arzt heute Zeit hat. | wenn | Doktorun bugün vakti olup olmadığını bilmiyorum. | Cevabı bilinmeyen evet/hayır sorusu → ob; wenn "-se / -ince" demektir. "Ne zaman" sorusuysa: wann. | der Arzt; die Zeit
+luecke | 3 | Ich weiß nicht, ___ ich das Formular abgeben soll: bei Ihnen oder im Sekretariat? | wo | | Formu nereye teslim etmem gerektiğini bilmiyorum: size mi, sekreterliğe mi? | Seçenekler bir yer bildiriyor → soru kelimesi wo. ob yalnız evet/hayır sorusunda. | das Formular; abgeben

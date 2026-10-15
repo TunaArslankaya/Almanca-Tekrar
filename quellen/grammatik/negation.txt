@@ -1,0 +1,92 @@
+# Gramer konusu: olumsuzluk (nicht / kein, nicht'in yeri, nicht / kein … sondern, nicht mehr / noch nicht). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: umform hedefi "verneinen" FORMAT.md tablosunda yok → uygulamada yönerge "olumsuz yap" olmalı.
+@id negation
+@titel Negation: nicht, kein, nicht … sondern
+@tr Olumsuzluk: nicht mi kein mi, nicht'in yeri, nicht / kein … sondern
+@stufe A2–B1
+@kapitel B1 K9
+@goethe 2 | Schreiben 1-2-3 · Sprechen 1-3 · Lesen (richtig / falsch)
+@voraus satzklammer-tekamolo
+@kontrast zweiteilig
+@etiket kelime sırası
+@kurz Belirsiz artikelli (ein) ya da artikelsiz isim → kein. Geri kalan her şey → nicht. Bütün cümle olumsuzsa nicht sona doğru, ama mastar / Partizip / ön ek / sıfat / yön bilgisinden ÖNCE.
+
+@erklaerung
+Türkçede olumsuzluk fiile eklenir (-me / -ma) ve yeri hep aynıdır. Almancada iki sözcük var ve yerleri değişir.
+
+1. kein: ein'li ya da artikelsiz ismi olumsuzlar ve ein gibi çekimlenir: Ich habe ein Auto → kein Auto · Ich habe Zeit → keine Zeit · Ich habe keinen Hunger. Meslekler ve sayılamayanlar da: Ich bin keine Lehrerin. Ich trinke keinen Kaffee. Tipik hata: "Ich habe nicht Zeit."
+2. nicht: fiili, sıfatı, belirli artikelli (den Mann) ya da iyelikli (mein Handy) ismi, özel isimleri olumsuzlar: Ich kenne den Mann nicht. Das ist nicht mein Handy.
+3. nicht'in yeri (cümle olumsuzu): olabildiğince sona. Nesneden ve zaman bilgisinden SONRA, ama şunlardan ÖNCE gelir: ikinci fiil parçası (nicht kommen, nicht gemacht, fängt nicht an), sıfat / isim yüklem (ist nicht krank), yön ve yer bilgisi (nicht nach Hause), edatlı nesne (nicht auf den Bus). Tipik hata: Türkçe sırayla "Ich nicht verstehe".
+4. Parça olumsuzu: yalnız bir öğeyi olumsuzlarsan nicht hemen onun önüne gelir ve çoğu zaman doğrusu sondern ile verilir: Ich komme nicht heute, sondern morgen. Das ist kein Tee, sondern Kaffee. Düzeltme yoksa (sadece karşıtlık) aber: Ich habe nicht viel Geld, aber ich bin glücklich.
+5. Zaman: noch nicht (henüz … değil) ↔ schon; nicht mehr (artık … değil) ↔ noch. İsimle: noch kein Job · kein Geld mehr.
+
+Sınavda: Lesen'de "nicht / kein" ifadenin anlamını tersine çevirir; richtig / falsch sorularında dikkat.
+@ende
+
+@tabelle nicht mi kein mi?
+isim / öğe | olumsuzu | örnek
+ein + isim | kein | Ich habe ein Auto. → Ich habe kein Auto.
+artikelsiz isim | kein | Ich habe Zeit. → Ich habe keine Zeit.
+der / die / das + isim | nicht | Ich kenne den Mann nicht.
+mein / dein … + isim | nicht | Das ist nicht mein Handy.
+fiil, sıfat, zarf | nicht | Ich komme nicht. · Er ist nicht krank.
+@ende
+
+@tabelle nicht'in yeri (cümle olumsuzu)
+durum | nicht nerede | örnek
+nesne, zaman | arkalarında | Ich habe die Hausaufgaben gestern nicht gemacht.
+ikinci fiil parçası | önünde | Ich kann heute nicht kommen. · Der Kurs fängt nicht an.
+sıfat / yüklem | önünde | Das Wetter ist nicht schön.
+yön / yer | önünde | Ich fahre am Wochenende nicht nach Hause.
+edatlı nesne | önünde | Er wartet nicht auf den Bus.
+@ende
+
+@tabelle Zamanla
+olumlu | olumsuz | örnek
+schon | noch nicht / noch kein | Ich habe noch keinen Job.
+noch | nicht mehr / kein … mehr | Ich wohne nicht mehr bei meinen Eltern.
+@ende
+
+@beispiel Ich habe heute keine Zeit. | Bugün vaktim yok.
+@beispiel Ich verstehe die Frage nicht. | Soruyu anlamıyorum.
+@beispiel Ich wohne nicht in Hamburg, sondern in Bremen. | Hamburg'da değil, Bremen'de oturuyorum.
+@beispiel Früher habe ich geraucht, aber jetzt rauche ich nicht mehr. | Eskiden sigara içerdim ama artık içmiyorum.
+
+@teil kein-nicht | kein mi nicht mi? | artikel/çekim
+wahl | 1 | Ich habe heute ___ Zeit. | keine | keine / nicht / kein | Bugün vaktim yok. | Artikelsiz isim (Zeit) olumsuzlanırken kein kullanılır; die Zeit dişil → keine. | die Zeit
+luecke | 1 | Ich kenne den Mann ___. | nicht | nicht / keinen / kein | Adamı tanımıyorum. | Belirli artikelli isim (den Mann) kein almaz → nicht, cümlenin sonunda. | kennen; der Mann
+luecke | 2 | Wir haben ___ Auto, wir fahren immer mit dem Rad. | kein | | Arabamız yok, hep bisikletle gidiyoruz. | ein Auto → kein Auto (das Auto, Akkusativ nötr: kein). | das Auto; das Rad
+luecke | 2 | Das ist ___ gute Idee. | keine | | Bu iyi bir fikir değil. | eine gute Idee → keine gute Idee: kein, ein gibi çekimlenir. | die Idee
+fehler | 2 | Ich habe nicht Hunger, danke. | Ich habe keinen Hunger, danke. | nicht | Aç değilim, teşekkürler. | Hunger artikelsiz bir isim → keinen Hunger (der Hunger, Akkusativ). Türkçe "aç değilim" sıfat gibi düşündürür ama Almancada isimdir. | der Hunger
+wahl | 2 | Das ist ___ Handy, das ist Laras Handy. | nicht mein | nicht mein / kein mein / mein nicht | Bu benim telefonum değil, Lara'nın telefonu. | İyelikli isimde (mein Handy) kein kullanılmaz → nicht mein Handy. | das Handy
+ordnen | 1 | ich / brauche / heute / kein Auto | Ich brauche heute kein Auto. / Heute brauche ich kein Auto. | | Bugün arabaya ihtiyacım yok. | ein Auto'nun olumsuzu kein Auto; fiil (brauche) 2. yerde. | brauchen; das Auto
+
+@teil stellung | Cümle olumsuzu: nicht sona doğru | kelime sırası
+wahl | 1 | Welcher Satz ist richtig? | Ich verstehe die Frage nicht. | Ich verstehe die Frage nicht. / Ich nicht verstehe die Frage. / Ich verstehe nicht die Frage. | Soruyu anlamıyorum. | Cümle olumsuzunda nicht nesneden (die Frage) sonra, sona gelir. Türkçedeki gibi fiilin önüne konmaz. | verstehen; die Frage
+luecke | 2 | Ich kann ___ abholen. (dich · heute · nicht) | dich heute nicht | | Bugün seni alamam. | Önce zamir (dich), sonra zaman (heute), nicht en son, mastarın (abholen) hemen önünde. | abholen
+ordnen | 2 | ich / habe / die Hausaufgaben / gestern / nicht / gemacht | Ich habe die Hausaufgaben gestern nicht gemacht. / Ich habe gestern die Hausaufgaben nicht gemacht. / Gestern habe ich die Hausaufgaben nicht gemacht. / Die Hausaufgaben habe ich gestern nicht gemacht. | | Dün ödevleri yapmadım. | nicht nesneden ve zamandan sonra, Partizip'in (gemacht) hemen önünde. | die Hausaufgabe; machen
+fehler | 2 | Ich nicht komme heute zur Party. | Ich komme heute nicht zur Party. / Heute komme ich nicht zur Party. | nicht komme | Bugün partiye gelmiyorum. | Çekimli fiil (komme) hep 2. yerde; nicht zamandan (heute) sonra, yön bilgisinden (zur Party) önce. | die Party; kommen
+luecke | 3 | Ich fahre ___. (am Wochenende · nach Hause · nicht) | am Wochenende nicht nach Hause | | Hafta sonu eve gitmiyorum. | nicht zaman bilgisinden (am Wochenende) sonra, yön bilgisinden (nach Hause) önce gelir. | das Wochenende, -n; fahren
+wahl | 2 | Welcher Satz ist richtig? | Er wartet nicht auf den Bus. | Er wartet nicht auf den Bus. / Er wartet auf den Bus nicht. / Er nicht wartet auf den Bus. | Otobüsü beklemiyor. | Edatlı nesne (auf den Bus) fiile sıkı bağlıdır: nicht onun önüne gelir. | warten auf; der Bus
+fehler | 1 | Meine Schwester isst kein Fleisch. | Meine Schwester isst kein Fleisch. | - | Kız kardeşim et yemiyor. | Hata yok: artikelsiz isim (Fleisch) → kein. | die Schwester; essen; das Fleisch
+luecke | 2 | Das Wetter ist heute ___. (schön · olumsuz) | nicht schön | | Bugün hava güzel değil. | Sıfat (schön) olumsuzlanırken nicht sıfatın hemen önüne gelir. | das Wetter; schön
+
+@teil sondern | Bir parçayı olumsuzla: nicht / kein … sondern | bağlaç
+luecke | 1 | Ich komme nicht heute, ___ morgen. | sondern | sondern / aber / oder | Bugün değil, yarın geliyorum. | Olumsuzdan sonra doğrusunu veriyorsan ("… değil, …") → sondern. | morgen
+wahl | 2 | Ich habe nicht viel Geld, ___ ich bin glücklich. | aber | aber / sondern | Çok param yok ama mutluyum. | sondern yalnız düzeltmede kullanılır ("değil, -dir"). Burada düzeltme yok, karşıtlık var → aber. | das Geld; glücklich
+umform | 3 | Das ist kein Tee. Das ist Kaffee. → kein … sondern | Das ist kein Tee, sondern Kaffee. | | Bu çay değil, kahve. | İkinci cümle birincinin düzeltmesi → kein …, sondern …; tekrar eden "das ist" düşer. | der Tee; der Kaffee
+umform | 3 | Der Kurs beginnt nicht um neun. Er beginnt um zehn. → nicht … sondern | Der Kurs beginnt nicht um neun, sondern um zehn. | | Kurs dokuzda değil, onda başlıyor. | Parça olumsuzu: nicht olumsuzlanan parçanın (um neun) hemen önünde; sondern'den sonra doğrusu. | der Kurs
+ordnen | 3 | ich / wohne / nicht / in Hamburg / sondern / in Bremen | Ich wohne nicht in Hamburg, sondern in Bremen. | | Hamburg'da değil, Bremen'de oturuyorum. | nicht olumsuzlanan yer bilgisinin (in Hamburg) önünde; doğrusu sondern ile. | wohnen
+fehler | 2 | Wir fahren nicht mit dem Zug, aber mit dem Auto. | Wir fahren nicht mit dem Zug, sondern mit dem Auto. | aber | Trenle değil, arabayla gidiyoruz. | Olumsuzlanan parçanın doğrusunu verirken sondern kullanılır. | der Zug; das Auto
+luecke | 2 | Lara ist ___ Lehrerin, sondern Ärztin. | keine | | Lara öğretmen değil, doktor. | Meslek isimleri artikelsiz kullanılır → kein; Lehrerin dişil → keine. | die Lehrerin, -nen; die Ärztin
+
+@teil mehr | noch nicht · nicht mehr · noch kein · kein … mehr | zaman
+wahl | 1 | Früher habe ich geraucht, aber jetzt rauche ich ___. | nicht mehr | nicht mehr / noch nicht / kein mehr | Eskiden sigara içerdim ama artık içmiyorum. | Bir şey bitti → nicht mehr (artık … değil). noch nicht = henüz … değil. | rauchen; früher
+luecke | 2 | Ich habe ___ Geld ___. Ich muss sparen. (artık yok) | kein ; mehr | | Artık hiç param yok. Tasarruf etmem lazım. | İsimde "artık yok": kein + isim + mehr. | das Geld; sparen
+luecke | 1 | Der Film hat ___ angefangen, wir haben noch Zeit. | noch nicht | noch nicht / nicht mehr / schon | Film henüz başlamadı, daha vaktimiz var. | Henüz olmadı → noch nicht; Partizip'ten (angefangen) önce. | der Film; anfangen mit
+fehler | 3 | Mein Freund hat noch nicht Arbeit gefunden. | Mein Freund hat noch keine Arbeit gefunden. | nicht Arbeit | Arkadaşım henüz iş bulamadı. | Artikelsiz isim (Arbeit) olumsuzlanırken kein: noch keine Arbeit. | die Arbeit; finden
+umform | 3 | Ich wohne noch bei meinen Eltern. → verneinen | Ich wohne nicht mehr bei meinen Eltern. | | Artık ailemin yanında oturmuyorum. | noch'un olumsuzu nicht mehr; yer bilgisinden (bei meinen Eltern) önce. | wohnen; die Eltern
+umform | 3 | Ich habe schon einen Job. → verneinen | Ich habe noch keinen Job. | | Henüz bir işim yok. | schon'un olumsuzu noch nicht; ein + isim olduğu için noch kein: noch keinen Job. |
+ordnen | 2 | wir / haben / leider / keine Karten / mehr | Wir haben leider keine Karten mehr. / Leider haben wir keine Karten mehr. | | Maalesef artık biletimiz kalmadı. | kein + isim + mehr = artık … yok. | leider; die Karte

@@ -1,0 +1,99 @@
+# Gramer konusu: n-Deklination (der Kollege → den / dem / des Kollegen; Herr → Herrn; Name → Namens). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: Uygulamada ayrıca "ndek" alıştırma modülü var (log modus ndek, WEAK_LIST build.py'de). Bu dosya Gramer bölümünün
+#   açıklama + karışık alıştırma kısmıdır; kimlik "n-deklination" (log: g:n-deklination:N), modül kimliğiyle çakışmaz.
+# Not: umform hedefi "Der Chef …" gibi büyük harf + "…" = FORMAT.md'deki "… ile başlayarak yeniden yaz" (burada: özne ile nesneyi yer değiştir).
+@id n-deklination
+@titel n-Deklination
+@tr n-Deklination: der Kollege → den / dem / des Kollegen, der Herr → den Herrn
+@stufe A2–B1
+@kapitel B1 ?
+@goethe 1 | Schreiben 2 (Brief: Herrn …) · Lesen · Sprechen
+@voraus adjektiv
+@kontrast genitiv
+@etiket artikel/çekim
+@kurz Bazı eril isimler (çoğu -e, -ent, -ant, -ist ile biten insan / hayvan) Nominativ dışında hep -(e)n alır: der Kollege → den / dem / des Kollegen. der Herr → den / dem Herrn, der Name → des Namens.
+
+@erklaerung
+Bazı eril isimler Nominativ tekil DIŞINDA her yerde -n ya da -en alır. Buna n-Deklination denir. Türkçede böyle bir şey yok; o yüzden "Ich kenne den Kollege" gibi ek unutulur.
+
+Hangi isimler? Neredeyse hepsi insan ya da hayvan bildiren eril isimler:
+1. -e ile bitenler: der Kollege, der Kunde, der Junge, der Neffe, der Experte, der Löwe.
+2. Yabancı kökenli -ent, -ant, -ist, -at, -oge ile bitenler: der Student, der Patient, der Präsident, der Praktikant, der Polizist, der Tourist, der Kandidat, der Biologe.
+3. Birkaç kısa isim: der Mensch, der Nachbar, der Herr (→ Herrn, çoğul die Herren), der Bär.
+4. Özel: der Name, der Gedanke, der Buchstabe Genitiv'de -ns alır: des Namens.
+
+Dikkat:
+1. Nominativ'de ek YOK: Mein Nachbar ist nett. Sehr geehrter Herr Becker (hitap = Nominativ).
+2. Genitiv'de -s eklenmez: des Kollegen (des Kollegens değil).
+3. Her eril isim böyle değil: der Lehrer, der Arzt, der Freund, der Käse normal çekilir (dem Arzt, den Lehrer).
+4. Dişil biçim normaldir: die Kollegin, die Studentin.
+
+Sınavda: resmî mektupta Herrn yazılır (an Herrn Becker, mit Herrn Becker), Lesen'de Kunden, Patienten, Studenten çok geçer.
+@ende
+
+@tabelle Çekim
+hâl | der Kollege | der Student | der Herr | der Name
+Nominativ | der Kollege | der Student | der Herr | der Name
+Akkusativ | den Kollegen | den Studenten | den Herrn | den Namen
+Dativ | dem Kollegen | dem Studenten | dem Herrn | dem Namen
+Genitiv | des Kollegen | des Studenten | des Herrn | des Namens
+Plural | die Kollegen | die Studenten | die Herren | die Namen
+@ende
+
+@tabelle Tanıma: n-Deklination mı?
+son | örnek | n-Deklination?
+-e (insan / hayvan, eril) | der Kollege, der Kunde, der Junge | evet
+-ent, -ant, -ist, -at | der Student, der Praktikant, der Polizist | evet
+kısa istisnalar | der Mensch, der Nachbar, der Herr | evet
+-er, -or, çoğu tek heceli | der Lehrer, der Doktor, der Arzt, der Freund | hayır
+-e ama şey | der Käse | hayır
+@ende
+
+@beispiel Kennst du den neuen Kollegen? | Yeni iş arkadaşını tanıyor musun?
+@beispiel Die Ärztin spricht mit dem Patienten. | Doktor hastayla konuşuyor.
+@beispiel Ich habe Herrn Becker eine E-Mail geschrieben. | Bay Becker'e bir e-posta yazdım.
+
+@teil erkennen | Hangi isimler n-Deklination? | artikel/çekim
+wahl | 1 | Welches Nomen gehört zur n-Deklination? | der Kollege | der Kollege / der Lehrer / der Freund | Hangi isim n-Deklination'a girer? | -e ile biten eril insan ismi → n-Deklination: den Kollegen. der Lehrer ve der Freund normal çekilir. | der Kollege; der Lehrer
+wahl | 1 | Welches Nomen gehört zur n-Deklination? | der Polizist | der Polizist / der Arzt / der Kellner | Hangi isim n-Deklination'a girer? | -ist ile biten eril insan ismi → n-Deklination: den Polizisten. | der Polizist; der Arzt
+wahl | 2 | Welches Nomen gehört NICHT zur n-Deklination? | der Käse | der Käse / der Junge / der Kunde | Hangi isim n-Deklination'a GİRMEZ? | der Käse -e ile bitiyor ama bir şey, insan / hayvan değil → normal: den Käse. | der Käse; der Kunde
+
+@teil akk | Akkusativ: den Kollegen | artikel/çekim
+wahl | 1 | Kennst du den neuen ___? | Kollegen | Kollegen / Kollege / Kollegens | Yeni iş arkadaşını tanıyor musun? | kennen + Akkusativ; n-Deklination → den Kollegen. -s hiçbir zaman eklenmez. | der Kollege; kennen
+luecke | 2 | Die Ärztin untersucht den ___. (der Patient) | Patienten | | Doktor hastayı muayene ediyor. | Akkusativ + n-Deklination: den Patienten. | der Patient; untersuchen
+luecke | 2 | Die Lehrerin lobt den ___. (der Junge) | Jungen | | Öğretmen erkek çocuğu övüyor. | -e ile biten eril insan ismi, Akkusativ → den Jungen. | der Junge; loben
+luecke | 2 | Ich habe einen ___ nach dem Weg gefragt. (der Polizist) | Polizisten | | Bir polise yolu sordum. | fragen + Akkusativ; -ist → -en: einen Polizisten. | der Polizist; fragen nach
+umform | 3 | Der Kollege fragt den Chef. → Der Chef … | Der Chef fragt den Kollegen. | | Şef iş arkadaşına soruyor. | der Kollege artık nesne (Akkusativ) → den Kollegen; der Chef normal çekilir. | der Kollege; der Chef
+umform | 2 | Der Kunde ruft den Verkäufer an. → Der Verkäufer … | Der Verkäufer ruft den Kunden an. | | Satıcı müşteriyi arıyor. | der Kunde artık nesne → den Kunden. der Verkäufer (-er) n-Deklination değil. | der Kunde; der Verkäufer; anrufen
+fehler | 2 | Ich habe gestern einen netten Mensch kennengelernt. | Ich habe gestern einen netten Menschen kennengelernt. | netten Mensch | Dün sevimli bir insanla tanıştım. | der Mensch n-Deklination: Akkusativ einen netten Menschen. | der Mensch; kennenlernen
+fehler | 2 | Wir haben den Präsident im Fernsehen gesehen. | Wir haben den Präsidenten im Fernsehen gesehen. | den Präsident | Cumhurbaşkanını televizyonda gördük. | -ent ile biten eril isim → den Präsidenten. | das Fernsehen
+ordnen | 3 | ein / Tourist / hat / einen / Polizisten / nach dem Weg / gefragt | Ein Tourist hat einen Polizisten nach dem Weg gefragt. | | Bir turist bir polise yolu sordu. | Özne Nominativ'de ek almaz (ein Tourist); nesne Akkusativ'de -en alır (einen Polizisten). | der Tourist; der Polizist; fragen nach
+
+@teil dat | Dativ: dem Kollegen | artikel/çekim
+luecke | 1 | Ich habe gestern mit unserem ___ gesprochen. (der Nachbar) | Nachbarn | | Dün komşumuzla konuştum. | mit + Dativ; der Nachbar n-Deklination → unserem Nachbarn. | der Nachbar; sprechen mit
+luecke | 2 | Die Verkäuferin hilft dem ___. (der Kunde) | Kunden | | Satıcı müşteriye yardım ediyor. | helfen + Dativ; der Kunde → dem Kunden. | der Kunde; helfen
+luecke | 2 | Die Professorin spricht gerade mit einem ___. (der Student) | Studenten | | Profesör şu anda bir öğrenciyle konuşuyor. | mit + Dativ; -ent → einem Studenten. | der Student; sprechen mit
+umform | 3 | Der Junge hilft dem Mann. → Der Mann … | Der Mann hilft dem Jungen. | | Adam oğlana yardım ediyor. | helfen + Dativ: dem Jungen (n-Deklination). der Mann normal çekilir: dem Mann. | der Junge; helfen
+umform | 3 | Der Patient dankt der Ärztin. → Die Ärztin … | Die Ärztin dankt dem Patienten. | | Doktor hastaya teşekkür ediyor. | danken + Dativ; der Patient → dem Patienten. | der Patient; danken
+ordnen | 2 | ich habe / dem / Praktikanten / alles / erklärt | Ich habe dem Praktikanten alles erklärt. | | Stajyere her şeyi anlattım. | erklären: kime (Dativ) + neyi (Akkusativ); der Praktikant → dem Praktikanten. | der Praktikant; erklären
+
+@teil herr | der Herr → Herrn, der Name → des Namens | artikel/çekim
+luecke | 1 | Guten Tag, ___ Schneider! Wie geht es Ihnen? (Herr) | Herr | | İyi günler Bay Schneider! Nasılsınız? | Hitap Nominativ'dir → ek yok: Herr Schneider. | der Herr
+wahl | 1 | Ich schreibe ___ Becker eine E-Mail. | Herrn | Herrn / Herr / Herren | Bay Becker'e bir e-posta yazıyorum. | schreiben + Dativ (kime?) → Herrn Becker. die Herren çoğuldur. | der Herr; schreiben
+luecke | 2 | Haben Sie schon mit ___ Wagner gesprochen? (Herr) | Herrn | | Bay Wagner'le konuştunuz mu? | mit + Dativ → Herrn Wagner. | der Herr; sprechen mit
+luecke | 3 | Ich habe Ihren ___ nicht verstanden. Können Sie ihn buchstabieren? (der Name) | Namen | | Adınızı anlamadım. Harf harf söyleyebilir misiniz? | Akkusativ → den / Ihren Namen. | der Name; buchstabieren
+luecke | 3 | Die Bedeutung des ___ ist sehr schön. (der Name) | Namens | | İsmin anlamı çok güzel. | der Name Genitiv'de -ns alır: des Namens. | der Name; die Bedeutung
+
+@teil gen | Genitiv: des Kollegen (-s yok) | artikel/çekim
+luecke | 3 | Kennen Sie die Telefonnummer des ___? (der Kunde) | Kunden | | Müşterinin telefon numarasını biliyor musunuz? | Genitiv + n-Deklination: des Kunden (-s eklenmez). | der Kunde
+ordnen | 3 | kennst du / den Namen / des / neuen / Kollegen | Kennst du den Namen des neuen Kollegen? | | Yeni iş arkadaşının adını biliyor musun? | den Namen (Akkusativ, -n), des neuen Kollegen (Genitiv: sıfat -en, isim -n). | der Name; der Kollege
+
+@teil kontrast | n-Deklination mı, normal mi? | artikel/çekim
+wahl | 1 | Hast du den ___ schon gefragt? | Lehrer | Lehrer / Lehrern / Lehreren | Öğretmene sordun mu? | der Lehrer n-Deklination değil: den Lehrer. -n yalnız Dativ çoğulda: den Lehrern. | der Lehrer; fragen
+fehler | 2 | Ich habe gestern mit dem Arzten telefoniert. | Ich habe gestern mit dem Arzt telefoniert. | Arzten | Dün doktorla telefonda konuştum. | der Arzt normal çekilir: dem Arzt. n-Deklination yalnız belli isimlerde. | der Arzt; telefonieren mit
+fehler | 1 | Mein Nachbar ist ein sehr freundlicher Mann. | Mein Nachbar ist ein sehr freundlicher Mann. | - | Komşum çok güler yüzlü bir adam. | Hata yok: der Nachbar burada özne (Nominativ) → ek yok. | der Nachbar; freundlich
+fehler | 2 | Ich habe dem Lehrer eine Frage gestellt. | Ich habe dem Lehrer eine Frage gestellt. | - | Öğretmene bir soru sordum. | Hata yok: der Lehrer normal çekilir, Dativ dem Lehrer. | der Lehrer; die Frage
+ordnen | 2 | der Arzt / hat / mit / dem / Patienten / gesprochen | Der Arzt hat mit dem Patienten gesprochen. | | Doktor hastayla konuştu. | der Arzt normal (özne), der Patient n-Deklination: mit dem Patienten. | der Arzt; der Patient
+wahl | 3 | Welcher Satz ist richtig? | Die Kollegin hat dem neuen Kollegen geholfen. | Die Kollegin hat dem neuen Kollegen geholfen. / Die Kollegin hat dem neuen Kollege geholfen. / Die Kollegin hat den neuen Kollegen geholfen. | Kadın iş arkadaşı yeni iş arkadaşına yardım etti. | helfen + Dativ → dem; der Kollege n-Deklination → dem neuen Kollegen. Dişil die Kollegin normal çekilir. | der Kollege; helfen

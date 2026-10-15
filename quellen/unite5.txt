@@ -1,0 +1,129 @@
+# Ünite (Kapitel 11): kurstaki kitabın konusu (Stadt, Land, Fluss). Kelime seçimi web özetinden (Netzwerk neu B1 Glossar sayfaları 39–42 + Glossar dökümleri); örnek cümleler Claude'un (kitaptan kopya yok).
+# tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
+# tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat/zamir
+# @bis YYYY-MM-DD: o gün bitince ünite kendiliğinden kapanır (@geschlossen gibi: çalışılan kelimeler tekrar sistemine geçer)
+# kaynak: web-ozet (kitabın Kapitelwortschatz'ı görülmedi; Tuna kitaptaki listeyle karşılaştırıp eksik / fazla olanı söylesin)
+# Dilbilgisi: Indefinitpronomen (irgendein, irgendwelche, einer / keiner / meiner, welche, irgendwo, nirgendwo); Redemittel: in einer Diskussion vermitteln, Argumente ordnen (erstens, zweitens).
+# Kitapta görülmeyip konu için eklenenler (R): ländlich, die Stadtreinigung, lebenswert, die Lebensqualität, die Stadtplanung, formell.
+@kapitel 11
+@titel Stadt, Land, Fluss
+@inaktiv
+@gruppe Stadtmensch oder Landmensch
+n | der Stadtmensch | die Stadtmenschen · n-Deklination (den / dem Stadtmenschen) | şehir insanı, şehirli | Ich bin ein echter Stadtmensch und brauche Cafés und Kinos um mich herum. | Stadtmensch | Ben gerçek bir şehir insanıyım, etrafımda kafeler ve sinemalar olmalı.
+n | der Landmensch | die Landmenschen · n-Deklination (den / dem Landmenschen) | kır insanı, kırda yaşamayı seven | Meine Schwester ist eher ein Landmensch, sie liebt Ruhe und Natur. | Landmensch | Kız kardeşim daha çok kır insanı, sessizliği ve doğayı seviyor.
+a | ländlich | | kırsal | In ländlichen Regionen fährt der Bus oft nur zweimal am Tag. | ländlichen | Kırsal bölgelerde otobüs çoğu zaman günde sadece iki kez geçer.
+n | das Tempo | die Tempos | hız, tempo | In der Großstadt ist mir das Tempo manchmal einfach zu hoch. | Tempo | Büyük şehirde tempo bazen bana fazla yüksek geliyor.
+n | das Freizeitangebot | die Freizeitangebote | boş zaman olanakları | Bremen hat ein großes Freizeitangebot, besonders für junge Leute. | Freizeitangebot | Bremen'in özellikle gençler için geniş bir boş zaman olanağı var.
+n | der Stadtbummel | die Stadtbummel | şehirde gezinti, çarşı turu | Am Samstag machen wir einen Stadtbummel und schauen in die Geschäfte. | Stadtbummel | Cumartesi şehirde gezintiye çıkıp dükkânlara bakıyoruz.
+n | das Schaufenster | die Schaufenster | vitrin | Vor Weihnachten sind die Schaufenster in der Innenstadt schön dekoriert. | Schaufenster | Noelden önce şehir merkezindeki vitrinler güzelce süslenir.
+n | die Innenstadt | die Innenstädte | şehir merkezi | In der Innenstadt findet man kaum einen freien Parkplatz. | Innenstadt | Şehir merkezinde boş park yeri neredeyse bulunmaz.
+n | der Fußgänger | die Fußgänger · die Fußgängerin, die Fußgängerinnen | yaya | Diese Straße ist nur für Fußgänger, Autos dürfen hier nicht fahren. | Fußgänger | Bu sokak sadece yayalar için, arabalar buraya giremez.
+n | der Dialekt | die Dialekte | lehçe, ağız, şive | Auf dem Land sprechen die Leute oft einen starken Dialekt. | Dialekt | Kırsalda insanlar çoğu zaman ağır bir şiveyle konuşur.
+a | fremd | | yabancı | Am Anfang war mir Bremen fremd, jetzt fühle ich mich hier zu Hause. | fremd | Başta Bremen bana yabancıydı, şimdi burada kendimi evimde hissediyorum.
+v | sich wohlfühlen | trennbar: fühlt sich wohl, fühlte sich wohl, hat sich wohlgefühlt | kendini iyi / rahat hissetmek | In einer ruhigen Kleinstadt würde ich mich bestimmt wohlfühlen. | wohlfühlen | Sakin bir küçük şehirde kendimi kesin rahat hissederdim.
+@gruppe Leben in der Stadt
+n | der Lärm | (Sg.) | gürültü | Der Lärm von der Baustelle beginnt jeden Morgen um sieben Uhr. | Lärm | İnşaatın gürültüsü her sabah saat yedide başlıyor.
+n | der Schmutz | (Sg.) | kir, pislik | Nach dem Stadtfest lag überall Schmutz auf den Straßen. | Schmutz | Şehir şenliğinden sonra sokakların her yerinde pislik vardı.
+n | der Dreck | (Sg.) | pislik, çamur (günlük dil) | Zieh bitte die Schuhe aus, sonst bringst du den ganzen Dreck rein. | Dreck | Lütfen ayakkabılarını çıkar, yoksa bütün çamuru içeri taşırsın.
+a | unruhig | | huzursuz; gürültülü, hareketli | Die Wohnung ist schön, aber die Gegend ist mir zu unruhig. | unruhig | Daire güzel ama çevre bana fazla gürültülü.
+v | abbiegen | trennbar: biegt ab, bog ab, ist abgebogen | (bir yöne) dönmek, sapmak | An der nächsten Ampel müssen Sie links abbiegen. | abbiegen | Bir sonraki trafik ışığında sola dönmeniz gerekiyor.
+n | der Rand | die Ränder | kenar | Wir wohnen am Rand der Stadt, dort ist es ruhiger. | Rand | Şehrin kenarında oturuyoruz, orası daha sakin.
+n | das Viertel | die Viertel | semt, mahalle; çeyrek | In unserem Viertel gibt es einen kleinen Markt und viele Cafés. | Viertel | Mahallemizde küçük bir pazar ve birçok kafe var.
+n | das Hochhaus | die Hochhäuser | yüksek bina, apartman kulesi | Ich möchte nicht in einem Hochhaus wohnen, ich mag lieber kleine Häuser. | Hochhaus | Yüksek bir binada oturmak istemem, küçük evleri daha çok severim.
+n | das Bürogebäude | die Bürogebäude | ofis binası | Abends sind die Bürogebäude leer und das Viertel ist ganz still. | Bürogebäude | Akşamları ofis binaları boş ve semt tamamen sessiz.
+n | die Gasse | die Gassen | dar sokak | In der Altstadt gibt es viele enge Gassen mit kleinen Läden. | Gassen | Eski şehirde küçük dükkânları olan birçok dar sokak var.
+a | städtisch | | şehre ait; belediyeye ait | Die Kinder gehen in einen städtischen Kindergarten in unserer Nähe. | städtischen | Çocuklar yakınımızdaki bir belediye anaokuluna gidiyor.
+a | entfernt | von + D | uzak(ta) | Das Dorf ist nur zwanzig Kilometer von der Stadt entfernt. | entfernt | Köy şehirden sadece yirmi kilometre uzakta.
+@gruppe Arbeit für die Stadt
+n | die Stadtreinigung | (Sg.) | (belediye) temizlik işleri | Die Stadtreinigung holt jede Woche den Müll ab und putzt die Straßen. | Stadtreinigung | Belediye temizlik ekibi her hafta çöpü alıyor ve sokakları temizliyor.
+n | das Reinigungsfahrzeug | die Reinigungsfahrzeuge | (sokak) temizlik aracı | Morgens um fünf fahren schon die ersten Reinigungsfahrzeuge durch die Innenstadt. | Reinigungsfahrzeuge | Sabah beşte ilk temizlik araçları şehir merkezinden geçmeye başlıyor bile.
+n | die Schicht | die Schichten | vardiya | Mein Vater arbeitet in drei Schichten, auch nachts und am Wochenende. | Schichten | Babam üç vardiyalı çalışıyor, geceleri ve hafta sonları da.
+n | die Frühschicht | die Frühschichten | sabah vardiyası | Wenn ich Frühschicht habe, muss ich schon um vier Uhr aufstehen. | Frühschicht | Sabah vardiyam olunca saat dörtte kalkmam gerekiyor.
+n | der Dienst | die Dienste | hizmet; görev, mesai, nöbet | Die Krankenschwester hat heute bis zweiundzwanzig Uhr Dienst. | Dienst | Hemşirenin bugün saat yirmi ikiye kadar mesaisi var.
+n | der Nachtdienst | die Nachtdienste | gece nöbeti, gece mesaisi | Nach dem Nachtdienst schläft sie meistens bis zum Mittag. | Nachtdienst | Gece nöbetinden sonra çoğu zaman öğlene kadar uyuyor.
+n | die Übergabe | die Übergaben | devir teslim | Bei der Übergabe erzählt die Nachtschicht, was in der Nacht passiert ist. | Übergabe | Devir teslimde gece vardiyası gece ne olduğunu anlatır.
+n | die Kita | die Kitas · (= die Kindertagesstätte) | kreş | Unsere Tochter geht seit einem Jahr in die Kita. | Kita | Kızımız bir yıldır kreşe gidiyor.
+n | die Kinderbetreuung | (Sg.) | çocuk bakımı | Ohne gute Kinderbetreuung können viele Eltern nicht arbeiten gehen. | Kinderbetreuung | İyi bir çocuk bakımı olmadan birçok ebeveyn çalışmaya gidemez.
+n | die Elternzeit | (Sg.) | ebeveyn izni | Mein Kollege nimmt nach der Geburt seines Sohnes sechs Monate Elternzeit. | Elternzeit | İş arkadaşım oğlu doğduktan sonra altı ay ebeveyn izni alıyor.
+n | der Sozialarbeiter | die Sozialarbeiter · die Sozialarbeiterin, die Sozialarbeiterinnen | sosyal hizmet uzmanı | Ein Sozialarbeiter hilft den Jugendlichen bei der Suche nach einer Ausbildung. | Sozialarbeiter | Bir sosyal hizmet uzmanı gençlere meslek eğitimi yeri ararken yardım ediyor.
+n | die Fachleute | (Pl.) · Sg.: der Fachmann / die Fachfrau | uzmanlar | Fachleute sagen, dass in Zukunft viel mehr Erzieher gebraucht werden. | Fachleute | Uzmanlar gelecekte çok daha fazla eğitmene ihtiyaç duyulacağını söylüyor.
+n | die Arbeitslosigkeit | (Sg.) | işsizlik | In manchen Regionen ist die Arbeitslosigkeit leider noch sehr hoch. | Arbeitslosigkeit | Bazı bölgelerde işsizlik ne yazık ki hâlâ çok yüksek.
+n | die Autowerkstatt | die Autowerkstätten | oto tamirhanesi | Mein Auto ist kaputt, es steht seit Montag in der Autowerkstatt. | Autowerkstatt | Arabam bozuk, pazartesiden beri tamirhanede duruyor.
+@gruppe lebenswerte Städte
+a | lebenswert | | yaşanmaya değer, yaşanabilir | Für mich ist eine Stadt lebenswert, wenn es viele Parks gibt. | lebenswert | Benim için bir şehir, çok parkı varsa yaşanabilirdir.
+n | die Lebensqualität | (Sg.) | yaşam kalitesi | Viele Familien ziehen aufs Land, weil die Lebensqualität dort höher ist. | Lebensqualität | Birçok aile kırsala taşınıyor, çünkü orada yaşam kalitesi daha yüksek.
+n | das Ranking | die Rankings | sıralama, liste | In diesem Ranking steht Zürich auf dem ersten Platz. | Ranking | Bu sıralamada Zürih birinci sırada.
+n | der Hauptgrund | die Hauptgründe | ana neden | Der Hauptgrund für meinen Umzug war die neue Arbeitsstelle. | Hauptgrund | Taşınmamın ana nedeni yeni iş yerimdi.
+n | die Work-Life-Balance | (Sg.) | iş-yaşam dengesi | Mit der Viertagewoche hat sie endlich eine gute Work-Life-Balance. | Work-Life-Balance | Dört günlük çalışma haftasıyla nihayet iyi bir iş-yaşam dengesi var.
+n | das Wahrzeichen | die Wahrzeichen | (şehrin) simgesi | Die Stadtmusikanten sind ein bekanntes Wahrzeichen von Bremen. | Wahrzeichen | Bremen mızıkacıları Bremen'in tanınmış bir simgesi.
+n | das Denkmal | die Denkmäler | anıt | Vor dem Rathaus steht ein altes Denkmal aus Stein. | Denkmal | Belediye binasının önünde taştan eski bir anıt duruyor.
+n | der Mittelpunkt | die Mittelpunkte | merkez, odak noktası | Der Marktplatz ist seit Jahrhunderten der Mittelpunkt der Altstadt. | Mittelpunkt | Pazar meydanı yüzyıllardır eski şehrin merkezi.
+n | die Fassade | die Fassaden | (bina) cephe | Die alten Häuser am Marktplatz haben bunte Fassaden. | Fassaden | Pazar meydanındaki eski evlerin renkli cepheleri var.
+n | die Rundfahrt | die Rundfahrten | (araçla / tekneyle) tur | Mit dem Bus kann man eine Rundfahrt durch die ganze Stadt machen. | Rundfahrt | Otobüsle bütün şehri dolaşan bir tur yapılabilir.
+n | das Ufer | die Ufer | kıyı | Im Sommer sitzen viele Leute am Ufer der Weser und grillen. | Ufer | Yazın birçok insan Weser kıyısında oturup mangal yapar.
+n | der Hügel | die Hügel | tepe | Hinter unserem Dorf liegt ein kleiner Hügel mit einem Wald. | Hügel | Köyümüzün arkasında ormanlık küçük bir tepe var.
+n | das Tal | die Täler | vadi | Das kleine Dorf liegt in einem Tal zwischen zwei Bergen. | Tal | Küçük köy iki dağ arasındaki bir vadide.
+n | der Ausblick | die Ausblicke | manzara | Vom Turm hat man einen wunderbaren Ausblick über die ganze Stadt. | Ausblick | Kuleden bütün şehre harika bir manzara var.
+v | fließen | fließt, floss, ist geflossen | akmak | Die Weser fließt mitten durch Bremen bis zur Nordsee. | fließt | Weser, Bremen'in ortasından geçip Kuzey Denizi'ne akar.
+n | der Tourismus | (Sg.) | turizm | Für viele kleine Städte ist der Tourismus sehr wichtig. | Tourismus | Birçok küçük şehir için turizm çok önemli.
+a | attraktiv | | çekici, cazip | Mit dem neuen Park ist unser Viertel viel attraktiver geworden. | attraktiver | Yeni parkla birlikte semtimiz çok daha cazip oldu.
+n | das Velo | die Velos · (İsviçre; Almanya'da: das Fahrrad) | bisiklet (İsviçre) | In Zürich fahren viele Menschen mit dem Velo zur Arbeit. | Velo | Zürih'te birçok insan işe bisikletle gider.
+n | der Fahrschein | die Fahrscheine | bilet (toplu taşıma) | Bitte kaufen Sie Ihren Fahrschein vor der Fahrt am Automaten. | Fahrschein | Lütfen biletinizi yolculuktan önce otomattan alın.
+v | steigen | steigt, stieg, ist gestiegen | çıkmak, tırmanmak; artmak | In Zürich sind die Mieten in den letzten Jahren stark gestiegen. | gestiegen | Zürih'te kiralar son yıllarda çok arttı.
+@gruppe Stadtplanung
+n | die Stadtplanung | (Sg.) | şehir planlaması | Bei der Stadtplanung sollen auch die Bürger mitentscheiden dürfen. | Stadtplanung | Şehir planlamasında vatandaşlar da karara katılabilmeli.
+n | der Stadtrat | die Stadträte · die Stadträtin, die Stadträtinnen | belediye meclisi; meclis üyesi | Der Stadtrat entscheidet nächste Woche über den neuen Park. | Stadtrat | Belediye meclisi gelecek hafta yeni park hakkında karar veriyor.
+n | die Initiative | die Initiativen | girişim | Eine Initiative von Bürgern sammelt Unterschriften für mehr Radwege. | Initiative | Bir vatandaş girişimi daha fazla bisiklet yolu için imza topluyor.
+n | das Budget | die Budgets | bütçe | Die Stadt hat leider nur ein kleines Budget für neue Spielplätze. | Budget | Belediyenin yeni oyun parkları için ne yazık ki küçük bir bütçesi var.
+n | die Renovierung | die Renovierungen | yenileme, tadilat | Wegen der Renovierung ist das Schwimmbad bis März geschlossen. | Renovierung | Tadilat nedeniyle yüzme havuzu marta kadar kapalı.
+n | der Umbau | die Umbauten | yeniden yapım, tadilat | Nach dem Umbau hat der Bahnhof endlich einen Aufzug. | Umbau | Yeniden yapımdan sonra garın nihayet bir asansörü var.
+n | die Sporthalle | die Sporthallen | spor salonu | Die Schule bekommt eine neue Sporthalle mit einer Kletterwand. | Sporthalle | Okul tırmanma duvarlı yeni bir spor salonu alıyor.
+n | der Zugang | die Zugänge · Zugang zu + D | erişim; giriş | Alle Kinder sollten Zugang zu guter Bildung haben. | Zugang | Bütün çocukların iyi eğitime erişimi olmalı.
+n | der Flüchtling | die Flüchtlinge | mülteci | Die Stadt hat neue Wohnungen für Flüchtlinge und Familien gebaut. | Flüchtlinge | Belediye mülteciler ve aileler için yeni konutlar yaptı.
+n | der Obdachlose | die Obdachlosen · ein Obdachloser, die Obdachlose (sıfat gibi çekilir) | evsiz | Im Winter brauchen Obdachlose einen warmen Platz zum Schlafen. | Obdachlose | Kışın evsizlerin uyumak için sıcak bir yere ihtiyacı var.
+n | das Gesetz | die Gesetze | yasa, kanun | Ein neues Gesetz soll die Mieten in den Großstädten begrenzen. | Gesetz | Yeni bir yasa büyük şehirlerdeki kiraları sınırlamalı.
+a | gesetzlich | | yasal | In Deutschland gibt es seit 2015 einen gesetzlichen Mindestlohn. | gesetzlichen | Almanya'da 2015'ten beri yasal asgari ücret var.
+a | gesellschaftlich | | toplumsal | Wohnungsnot ist in vielen Städten ein großes gesellschaftliches Problem. | gesellschaftliches | Konut sıkıntısı birçok şehirde büyük bir toplumsal sorun.
+v | festlegen | trennbar: legt fest, legte fest, hat festgelegt | belirlemek | Der Stadtrat hat festgelegt, wo der neue Radweg gebaut wird. | festgelegt | Belediye meclisi yeni bisiklet yolunun nereye yapılacağını belirledi.
+v | berücksichtigen | berücksichtigt, berücksichtigte, hat berücksichtigt | dikkate almak, göz önünde bulundurmak | Bei der Planung muss man auch die Wünsche der Bürger berücksichtigen. | berücksichtigen | Planlamada vatandaşların isteklerini de dikkate almak gerekir.
+v | betreffen | betrifft, betraf, hat betroffen | ilgilendirmek, etkilemek | Die neuen Regeln betreffen vor allem Autofahrer in der Innenstadt. | betreffen | Yeni kurallar özellikle şehir merkezindeki sürücüleri ilgilendiriyor.
+v | abhängen von | von + D · trennbar: hängt ab, hing ab, hat abgehangen | -e bağlı olmak | Ob wir umziehen, hängt vor allem von den Mietpreisen ab. | hängt | Taşınıp taşınmayacağımız en çok kira fiyatlarına bağlı.
+v | hindern an | an + D · hindert, hinderte, hat gehindert | (birini bir şeyden) alıkoymak, engellemek | Der starke Regen hat uns nicht am Radfahren gehindert. | gehindert | Şiddetli yağmur bizi bisiklet sürmekten alıkoymadı.
+x | außer Acht lassen | lässt, ließ, hat gelassen | göz ardı etmek, hesaba katmamak | Bei dieser Entscheidung darf man die Kosten nicht außer Acht lassen. | Acht | Bu kararda masrafları göz ardı etmemek gerekir.
+x | im Vordergrund stehen | | ön planda olmak | Bei der Planung soll der Mensch im Vordergrund stehen, nicht das Auto. | Vordergrund | Planlamada araba değil, insan ön planda olmalı.
+x | vorgeschrieben sein | | (kuralla / yasayla) zorunlu olmak | Im Auto ist ein Kindersitz für kleine Kinder gesetzlich vorgeschrieben. | vorgeschrieben | Arabada küçük çocuklar için çocuk koltuğu yasal olarak zorunlu.
+@gruppe in einer Diskussion
+n | die Diskussion | die Diskussionen | tartışma | Nach dem Vortrag gab es eine lange Diskussion über den Verkehr. | Diskussion | Sunumdan sonra trafik hakkında uzun bir tartışma oldu.
+v | vermitteln | vermittelt, vermittelte, hat vermittelt | arabuluculuk yapmak; aktarmak | Als meine Freunde gestritten haben, habe ich zwischen ihnen vermittelt. | vermittelt | Arkadaşlarım tartıştığında aralarında arabuluculuk yaptım.
+v | unterbrechen | unterbricht, unterbrach, hat unterbrochen | (sözünü) kesmek | Entschuldigung, dass ich Sie unterbreche, aber ich habe eine Frage. | unterbreche | Sözünüzü kestiğim için özür dilerim ama bir sorum var.
+v | ausreden | trennbar: redet aus, redete aus, hat ausgeredet · jemanden ausreden lassen | sözünü bitirmek | Bitte lass mich ausreden, ich bin noch nicht fertig. | ausreden | Lütfen sözümü bitirmeme izin ver, daha bitirmedim.
+v | eingehen auf | auf + A · trennbar: geht ein, ging ein, ist eingegangen | (bir konuya / öneriye) değinmek, ele almak | Ich möchte jetzt noch kurz auf Ihre Frage zum Verkehr eingehen. | eingehen | Şimdi kısaca trafikle ilgili sorunuza da değinmek istiyorum.
+v | fortsetzen | trennbar: setzt fort, setzte fort, hat fortgesetzt | sürdürmek, devam ettirmek | Nach der Pause möchten wir die Diskussion gern fortsetzen. | fortsetzen | Aradan sonra tartışmaya devam etmek istiyoruz.
+x | jemandem recht geben | gibt recht, gab recht, hat recht gegeben | birini haklı bulmak | Da muss ich dir recht geben, die Mieten sind wirklich zu hoch. | recht | Bu konuda sana hak vermem lazım, kiralar gerçekten çok yüksek.
+v | angehen | trennbar: geht an · A | ilgilendirmek (Das geht dich nichts an. = Seni ilgilendirmez.) | Was mich angeht, ich wohne lieber auf dem Land. | angeht | Bana gelince, ben kırda yaşamayı tercih ederim.
+a | eindeutig | | açık, net, kesin | Das Ergebnis der Umfrage ist eindeutig: Die meisten wollen weniger Autos. | eindeutig | Anketin sonucu net: Çoğu insan daha az araba istiyor.
+a | anscheinend | | görünüşe göre | Anscheinend wohnen immer mehr junge Leute lieber in der Stadt. | Anscheinend | Görünüşe göre giderek daha çok genç şehirde yaşamayı tercih ediyor.
+k | erstens … zweitens … drittens | | birincisi … ikincisi … üçüncüsü | Erstens ist die Miete auf dem Land billiger, zweitens ist die Luft besser. | zweitens | Birincisi kırda kira daha ucuz, ikincisi hava daha temiz.
+@gruppe E-Mails schreiben
+n | der Betreff | die Betreffe | (e-posta) konu | Vergiss nicht, in der E-Mail einen kurzen Betreff zu schreiben. | Betreff | E-postaya kısa bir konu yazmayı unutma.
+n | der Empfänger | die Empfänger | alıcı | Der Empfänger hat meine E-Mail leider nie bekommen. | Empfänger | Alıcı e-postamı ne yazık ki hiç almadı.
+n | die Angabe | die Angaben | bilgi, beyan | Bitte überprüfen Sie alle Angaben im Formular noch einmal genau. | Angaben | Lütfen formdaki bütün bilgileri bir kez daha dikkatle kontrol edin.
+v | mitteilen | D + A · trennbar: teilt mit, teilte mit, hat mitgeteilt | bildirmek | Leider muss ich Ihnen mitteilen, dass ich nicht kommen kann. | mitteilen | Maalesef gelemeyeceğimi size bildirmek zorundayım.
+a | formell | | resmî | Eine E-Mail an die Stadtverwaltung schreibt man formell, also mit „Sie“. | formell | Belediyeye e-posta resmî yazılır, yani "Sie" ile.
+a | informell | | resmî olmayan, samimi | An meine Freunde schreibe ich informelle E-Mails mit „Hallo“ oder „Liebe“. | informelle | Arkadaşlarıma "Hallo" ya da "Liebe" ile samimi e-postalar yazarım.
+a | entsprechend | | uygun, ilgili | Bitte füllen Sie das entsprechende Formular aus und schicken Sie es zurück. | entsprechende | Lütfen ilgili formu doldurup geri gönderin.
+@gruppe Indefinitpronomen
+k | irgendein / irgendeine | irgendeinen, irgendeinem … (ein gibi çekilir) | herhangi bir | Hast du irgendeine Idee, wo man hier gut essen kann? | irgendeine | Burada nerede iyi yemek yenir, herhangi bir fikrin var mı?
+k | irgendwelche | (çoğul) | herhangi (çoğul), birtakım | Gibt es noch irgendwelche Fragen zur neuen Wohnung? | irgendwelche | Yeni daireyle ilgili başka soru var mı?
+k | irgendwo | | bir yerde, bir yere | Ich habe meinen Schlüssel irgendwo in der Wohnung verloren. | irgendwo | Anahtarımı evde bir yerde kaybettim.
+k | nirgendwo | (= nirgends) | hiçbir yerde | In dieser Gegend findet man nirgendwo einen Supermarkt. | nirgendwo | Bu civarda hiçbir yerde süpermarket bulunmuyor.
+k | irgendwann | | bir ara, bir gün | Irgendwann möchte ich in einem kleinen Haus auf dem Land wohnen. | Irgendwann | Bir gün kırda küçük bir evde yaşamak istiyorum.
+k | irgendwer / irgendwas | | biri / bir şey | Hat irgendwer im Kurs ein Fahrrad, das er verkaufen will? | irgendwer | Kursta satmak istediği bisikleti olan biri var mı?
+k | einer / keiner / meiner | eine, eins · keine, keins · meine, meins (isim yerine) | biri / hiçbiri / benimki | Ich brauche einen Stift. Hast du einen? – Nein, ich habe keinen. | keinen | Bir kaleme ihtiyacım var. Sende var mı? – Hayır, bende yok.
+k | welche | (isim yerine, çoğul / sayılamayan) | biraz, birkaç (tane) | Ich habe keine Eier mehr. Hast du noch welche? | welche | Hiç yumurtam kalmadı. Sende biraz var mı?
+@gruppe andere wichtige Wörter
+a | ausschließlich | | yalnızca, sadece | Diese Spur ist ausschließlich für Busse und Taxis. | ausschließlich | Bu şerit yalnızca otobüs ve taksiler için.
+a | allgemein | im Allgemeinen | genel; genelde | Im Allgemeinen ist das Leben auf dem Land billiger als in der Stadt. | Allgemeinen | Genelde kırda yaşam şehirdekinden daha ucuz.
+a | verwandt | mit + D | akraba | Bist du mit Lisa verwandt? Ihr seht euch so ähnlich. | verwandt | Lisa'yla akraba mısın? Birbirinize çok benziyorsunuz.
+v | flüchten | flüchtet, flüchtete, ist geflüchtet | kaçmak, sığınmak | Ihre Familie ist vor dem Krieg nach Deutschland geflüchtet. | geflüchtet | Ailesi savaştan Almanya'ya kaçtı.
+v | hineingehen | trennbar: geht hinein, ging hinein, ist hineingegangen | içeri girmek | Das Museum war so voll, dass wir nicht hineingehen konnten. | hineingehen | Müze o kadar kalabalıktı ki içeri giremedik.

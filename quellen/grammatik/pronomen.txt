@@ -1,0 +1,97 @@
+# Gramer konusu: belgisiz zamirler (man, jemand, niemand, etwas / nichts, einer / keiner, welche) ve işaret zamirleri (dieser, derselbe). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: FORMAT.md umform tablosunda olmayan hedefler (uygulamadaki yönerge önerisi):
+#   "man" → "man ile yaz" · "niemand" → "niemand ile yaz" · "dieser" → "dieser / diese / dieses ile yaz"
+@id pronomen
+@titel Indefinit- und Demonstrativpronomen
+@tr Belgisiz ve işaret zamirleri: man, jemand / niemand, einer / keiner, welche, dieser, derselbe
+@stufe A2–B1
+@kapitel B1 ?
+@goethe 1 | Lesen · Sprechen 1-2 · Schreiben
+@voraus adjektiv
+@kontrast negation
+@etiket artikel/çekim
+@kurz man + fiil 3. tekil (man muss). İsmi tekrar etmemek için: einen / eine / eins, keinen / keine / keins, çoğul ve sayılamayanda welche / keine. dieser ve derselbe der gibi çekilir (diesen, denselben).
+
+@erklaerung
+1. man = "insan, kişi" ya da Türkçedeki edilgen "-ılır": Hier raucht man nicht (Burada sigara içilmez). Fiil hep 3. tekil: man muss, man kann, man sagt. "Mann" (adam) ile karıştırma. Akkusativ einen, Dativ einem: Das macht einen müde.
+2. jemand (birisi) ↔ niemand (hiç kimse); etwas (bir şey) ↔ nichts (hiçbir şey). niemand ve nichts zaten olumsuzdur: Türkçedeki gibi ikinci bir olumsuzluk (nicht) eklenmez. "Niemand hat nicht angerufen" yanlış.
+3. İsmi tekrar etmemek için einer / keiner. Türkçede "bir tane" deriz, Almancada cinsiyet ve hâl taşınır: Hast du einen Kuli? – Ja, ich habe einen. Brauchst du ein Handtuch? – Ich habe schon eins. Olumsuz: keinen, keine, keins. Aynı mantık iyelikte: Das ist nicht mein Schlüssel, meiner ist größer.
+4. Çoğul ve sayılamayan isimlerde "bir tane" olmaz → welche (birkaç, biraz): Wir brauchen Eier. – Im Kühlschrank sind noch welche. Olumsuzu keine.
+5. dieser (bu) der gibi çekilir: dieser Bus, diesen Bus, mit diesem Bus, diese Woche, dieses Kleid.
+6. derselbe (aynı) iki parçalı çekilir ve bitişik yazılır: derselbe Lehrer, denselben Lehrer, in derselben Straße, dasselbe Problem. Karşılaştırmada wie: dasselbe wie ich.
+
+Tipik hata: Türkçede "bir" sayı ile belirsiz artikel aynı olduğu için cevapta "Hast du ein?" demek. Doğrusu: eins / einen / eine.
+@ende
+
+@tabelle einer / keiner (ismin yerine)
+hâl | eril (der Kuli) | dişil (die Tasche) | nötr (das Handy) | çoğul (die Eier)
+Nominativ | einer / keiner | eine / keine | eins / keins | welche / keine
+Akkusativ | einen / keinen | eine / keine | eins / keins | welche / keine
+Dativ | einem / keinem | einer / keiner | einem / keinem | – / keinen
+@ende
+
+@tabelle dieser ve derselbe
+hâl | eril | dişil | nötr | çoğul
+Nominativ | dieser · derselbe | diese · dieselbe | dieses · dasselbe | diese · dieselben
+Akkusativ | diesen · denselben | diese · dieselbe | dieses · dasselbe | diese · dieselben
+Dativ | diesem · demselben | dieser · derselben | diesem · demselben | diesen · denselben
+@ende
+
+@tabelle Diğer belgisiz zamirler
+olumlu | olumsuz | örnek
+jemand (birisi) | niemand (hiç kimse) | Ist jemand da? – Nein, niemand.
+etwas (bir şey) | nichts (hiçbir şey) | Ich habe heute noch nichts gegessen.
+man (insan, -ılır) | – | In Deutschland trennt man den Müll.
+@ende
+
+@beispiel In Deutschland muss man den Müll trennen. | Almanya'da çöpler ayrıştırılmalı.
+@beispiel Hast du einen Kuli für mich? – Ja, ich habe einen. | Bana bir tükenmez kalem verebilir misin? – Evet, bende bir tane var.
+@beispiel Wir brauchen Eier. – Im Kühlschrank sind noch welche. | Yumurta lazım. – Buzdolabında hâlâ birkaç tane var.
+@beispiel Du hast dasselbe Problem wie ich. | Senin de benimle aynı sorunun var.
+
+@teil man | man + fiil 3. tekil | artikel/çekim
+wahl | 1 | In Deutschland ___ man den Müll trennen. | muss | muss / müssen / musst | Almanya'da çöpler ayrıştırılmalı. | man 3. tekil şahıs gibi çekilir: man muss (er muss gibi). | der Müll; müssen
+luecke | 1 | Wie ___ man das auf Deutsch? (sagen) | sagt | | Bu Almancada nasıl söylenir? | man + 3. tekil: man sagt. | sagen
+luecke | 1 | Hier darf ___ nicht rauchen. | man | man / Mann | Burada sigara içilmez. | man (küçük harf, tek n) = insan, genel özne; der Mann = adam. | rauchen; dürfen
+umform | 2 | In Bremen fahren die Leute viel Fahrrad. → man | In Bremen fährt man viel Fahrrad. / Man fährt in Bremen viel Fahrrad. | | Bremen'de çok bisiklete binilir. | die Leute (çoğul) → man (3. tekil): fahren → fährt. | das Fahrrad; fahren
+umform | 3 | Hier sprechen alle Leute Englisch. → man | Hier spricht man Englisch. / Man spricht hier Englisch. | | Burada İngilizce konuşulur. | man + 3. tekil: sprechen → spricht. alle Leute düşer, man zaten "herkes / insanlar" demek. | 
+fehler | 2 | In Deutschland müssen man pünktlich sein. | In Deutschland muss man pünktlich sein. | müssen man | Almanya'da dakik olmak gerekir. | man çoğul değil, 3. tekil: man muss. | pünktlich; müssen
+
+@teil jemand | jemand / niemand, etwas / nichts | artikel/çekim
+luecke | 2 | Ist ___ zu Hause? Ich habe geklingelt, aber ___ hat die Tür geöffnet. | jemand ; niemand / jemand ; keiner | | Evde kimse var mı? Zili çaldım ama kimse kapıyı açmadı. | jemand = birisi (soru); niemand = hiç kimse (olumsuz, nicht gerekmez). | klingeln; öffnen; die Tür
+wahl | 1 | Ich habe ___ gesehen. Der Park war ganz leer. | niemand | niemand / jemand / man | Kimseyi görmedim. Park bomboştu. | Park boştu → hiç kimse: niemand. Kendisi olumsuz, nicht eklenmez. | leer; der Park
+luecke | 2 | Kann mir ___ helfen? Ich verstehe die Aufgabe nicht. | jemand / einer | | Biri bana yardım edebilir mi? Ödevi anlamıyorum. | Belirsiz bir kişi → jemand (konuşmada einer da olur). | helfen; die Aufgabe
+umform | 3 | Ich kenne keinen Menschen in Bremen. → niemand | Ich kenne niemanden in Bremen. / Ich kenne niemand in Bremen. / In Bremen kenne ich niemanden. / In Bremen kenne ich niemand. | | Bremen'de kimseyi tanımıyorum. | kein Mensch = niemand. Akkusativ'de niemanden ya da çekimsiz niemand ikisi de doğru. | kennen; der Mensch
+fehler | 2 | Niemand hat mich nicht angerufen. | Niemand hat mich angerufen. | nicht | Kimse beni aramadı. | niemand zaten olumsuz; Türkçedeki gibi ikinci olumsuzluk (nicht) eklenmez. | anrufen
+luecke | 2 | Hast du heute schon ___ gegessen? – Nein, ich habe noch ___ gegessen. | etwas ; nichts | | Bugün bir şey yedin mi? – Hayır, henüz hiçbir şey yemedim. | etwas = bir şey; nichts = hiçbir şey (kendisi olumsuz). | essen; etwas; nichts
+ordnen | 2 | niemand / hat / mir / bei / der Hausaufgabe / geholfen | Niemand hat mir bei der Hausaufgabe geholfen. / Bei der Hausaufgabe hat mir niemand geholfen. / Mir hat niemand bei der Hausaufgabe geholfen. / Mir hat bei der Hausaufgabe niemand geholfen. | | Ödevde bana kimse yardım etmedi. | niemand özne (Nominativ); cümle olumsuz, nicht yok. | helfen; die Hausaufgabe
+
+@teil einer | einer / eins / keiner, meiner (ismin yerine) | artikel/çekim
+wahl | 2 | Hast du einen Kuli für mich? – Ja, ich habe ___. | einen | einen / eins / eine | Bana bir tükenmez kalem verebilir misin? – Evet, bende bir tane var. | der Kuli → Akkusativ eril: einen. İsim düşer, artikel kalır. | der Kuli; haben
+wahl | 2 | Brauchst du ein Handtuch? – Nein danke, ich habe schon ___. | eins | eins / einen / ein | Havluya ihtiyacın var mı? – Hayır teşekkürler, bende zaten bir tane var. | das Handtuch nötr; ismin yerine eins (ein değil). | brauchen
+luecke | 2 | Ich suche eine Apotheke. Gibt es hier ___? – Nein, hier gibt es leider ___. | eine ; keine | | Bir eczane arıyorum. Burada var mı? – Hayır, burada maalesef yok. | die Apotheke dişil → eine / keine. | die Apotheke; suchen
+luecke | 3 | Mein Handy ist kaputt. Kannst du mir ___ leihen? (dein) | deins / deines | | Telefonum bozuk. Bana seninkini ödünç verebilir misin? | das Handy nötr, Akkusativ → deins (ya da deines). | das Handy; leihen; kaputt
+luecke | 3 | Das ist nicht mein Schlüssel. ___ ist größer. (mein) | Meiner | | Bu benim anahtarım değil. Benimki daha büyük. | der Schlüssel eril, Nominativ → meiner. | der Schlüssel
+fehler | 2 | Ich brauche ein Fahrrad. Hast du ein? | Ich brauche ein Fahrrad. Hast du eins? | du ein | Bir bisiklete ihtiyacım var. Sende var mı? | İsim düşünce nötrde ein değil eins: Hast du eins? | das Fahrrad; brauchen
+ordnen | 3 | einer / meiner / Freunde / wohnt / in Bremen | Einer meiner Freunde wohnt in Bremen. / In Bremen wohnt einer meiner Freunde. | | Arkadaşlarımdan biri Bremen'de oturuyor. | einer = biri (eril); meiner Freunde = Genitiv çoğul. Fiil tekil: wohnt. | der Freund; wohnen
+
+@teil welche | welche / keine (çoğul, sayılamayan) | artikel/çekim
+wahl | 2 | Wir brauchen Eier. – Kein Problem, im Kühlschrank sind noch ___. | welche | welche / einer / eins | Yumurta lazım. – Sorun değil, buzdolabında hâlâ birkaç tane var. | Çoğulun "bir tanesi" olmaz → welche (birkaç). | das Ei; der Kühlschrank
+luecke | 2 | Hast du noch Briefmarken? – Nein, leider habe ich ___ mehr. | keine | | Hâlâ pulun var mı? – Hayır, maalesef artık yok. | Çoğul isim olumsuz → keine (… mehr = artık). | die Briefmarke
+fehler | 1 | Ich brauche Tomaten. Hast du welche? | Ich brauche Tomaten. Hast du welche? | - | Domates lazım. Sende var mı? | Hata yok: çoğul (die Tomaten) yerine welche. | die Tomate; brauchen
+ordnen | 2 | im Kühlschrank / sind / noch / welche | Im Kühlschrank sind noch welche. | | Buzdolabında hâlâ birkaç tane var. | welche = birkaç tane (çoğul); fiil çoğul: sind. | der Kühlschrank
+
+@teil dieser | dieser / diese / dieses | artikel/çekim
+wahl | 1 | Wie findest du ___ Kleid? | dieses | dieses / dieser / diesen | Bu elbiseyi nasıl buluyorsun? | das Kleid nötr, Akkusativ → dieses (das gibi). | das Kleid; finden
+luecke | 2 | Mit ___ Bus fahre ich jeden Tag zur Uni. (dieser) | diesem | | Her gün bu otobüsle üniversiteye gidiyorum. | mit + Dativ, der Bus → diesem (dem gibi). | der Bus; fahren
+luecke | 2 | ___ Woche habe ich viele Prüfungen. (dieser) | Diese | | Bu hafta çok sınavım var. | die Woche dişil → diese. | die Woche; die Prüfung
+umform | 2 | Ich nehme den Pullover hier. → dieser | Ich nehme diesen Pullover. / Ich nehme diesen Pullover hier. | | Bu kazağı alıyorum. | den Pullover → diesen Pullover (Akkusativ eril, den gibi -en). | der Pullover; nehmen
+ordnen | 2 | diese / Schuhe / sind / bequemer / als / meine alten | Diese Schuhe sind bequemer als meine alten. | | Bu ayakkabılar eskilerimden daha rahat. | Çoğul Nominativ → diese; Komparativ + als. | der Schuh; bequem
+
+@teil derselbe | derselbe / dieselbe / dasselbe | artikel/çekim
+luecke | 3 | Tuna und ich wohnen in ___ Straße. (derselbe) | derselben | | Tuna ve ben aynı sokakta oturuyoruz. | in + Dativ, die Straße → der + selben: derselben (iki parça da çekilir). | die Straße; wohnen
+wahl | 2 | Wir haben ___ Lehrer wie letztes Jahr. | denselben | denselben / derselben / dasselbe | Geçen yılki öğretmenimiz yine bizde. | der Lehrer, Akkusativ → den + selben: denselben. | der Lehrer
+fehler | 3 | Anna und ich tragen das selbe Kleid. | Anna und ich tragen dasselbe Kleid. | das selbe | Anna ile ben aynı elbiseyi giyiyoruz. | derselbe / dieselbe / dasselbe bitişik yazılır. | das Kleid; tragen
+luecke | 2 | Du hast ___ Problem wie ich. (derselbe) | dasselbe | | Senin de benimle aynı sorunun var. | das Problem nötr, Akkusativ → dasselbe; karşılaştırmada wie. | das Problem

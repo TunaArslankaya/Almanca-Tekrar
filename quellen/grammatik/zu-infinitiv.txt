@@ -1,0 +1,92 @@
+# Gramer konusu: Infinitiv mit zu (fiil, isim ve sıfattan sonra). Biçim: FORMAT.md (aynı klasör).
+# Amaç bildiren um … zu ayrı konu: damit-um-zu.txt.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id zu-infinitiv
+@titel Infinitiv mit zu
+@tr zu + mastar: -meyi / -meye / -mek (versuchen, Lust haben, es ist wichtig …)
+@stufe A2–B1
+@kapitel B1 K1–5 ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus v2-satzbau, trennbar
+@kontrast damit-um-zu, lassen-brauchen
+@etiket kelime sırası
+@kurz Bazı fiil, isim ve sıfatlardan sonra zu + mastar en sonda: Ich versuche, Deutsch zu sprechen. Ayrılabilen fiilde zu ortada: anzurufen. Modal fiil, werden, lassen, gehen'den sonra zu YOK.
+
+@erklaerung
+zu + mastar Türkçedeki "-meyi / -meye / -mek" yapısıdır: Ich versuche, jeden Tag Deutsch zu sprechen. (Her gün Almanca konuşmaya çalışıyorum.) zu + mastar en sona gider, önüne genellikle virgül konur.
+
+Ne zaman?
+1. Bazı fiillerden sonra: anfangen, aufhören, versuchen, vergessen, vorhaben, beschließen, hoffen, empfehlen, bitten, erlauben, vorschlagen.
+2. Bazı isim kalıplarından sonra: Lust haben (die Lust), Zeit haben (die Zeit), Angst haben (die Angst), die Möglichkeit haben, Spaß machen (der Spaß).
+3. Es ist + sıfat: Es ist wichtig / schwer / leicht / schön, … zu …
+
+Biçim:
+- Ayrılabilen fiilde zu ön ekle kök arasına girer, bitişik yazılır: anrufen → anzurufen, aufstehen → aufzustehen.
+- Dönüşlü zamir kişiye uyar: Ich versuche, mich zu konzentrieren.
+- zu + mastarın öznesi yoktur; özne ana cümleninkiyle aynıdır. Özne farklıysa dass: Ich hoffe, dich bald zu sehen. · Ich hoffe, dass du bald kommst.
+
+zu kullanılmayan yerler: modal fiiller (Ich kann schwimmen), werden (Futur), lassen, ayrıca gehen, bleiben, lernen + mastar (Ich gehe einkaufen).
+
+Tipik hatalar (Türkçeden): "-mek için" düşüncesiyle für + mastar (✗ Lust für ins Kino gehen), ayrılabilen fiilde zu'yu öne koymak (✗ zu anrufen), modal fiilden sonra zu (✗ Ich muss zu arbeiten).
+Sınavda: Schreiben'de "Ich habe vor, …", "Es ist wichtig, …", "Ich hoffe, … zu …" çok işe yarar.
+@ende
+
+@tabelle Ne zaman zu + mastar?
+tetikleyici | örnek
+fiil | Ich versuche, pünktlich zu sein. · Vergiss nicht, mich anzurufen.
+isim kalıbı | Hast du Lust, mitzukommen? · Ich habe keine Zeit, Sport zu machen.
+Es ist + sıfat | Es ist wichtig, regelmäßig zu üben.
+özne farklı | Ich hoffe, dass du kommst. (zu yok, dass)
+modal / werden / lassen / gehen | Ich kann kommen. · Ich gehe schwimmen. (zu yok)
+@ende
+
+@tabelle zu nerede?
+fiil türü | mastar | zu ile
+basit | lernen | zu lernen
+ayrılabilen | anrufen | anzurufen
+ayrılabilen | aufstehen | aufzustehen
+ayrılamayan | besuchen | zu besuchen
+dönüşlü | sich anmelden | mich / dich / sich anzumelden
+@ende
+
+@beispiel Ich habe vergessen, dir zu schreiben. | Sana yazmayı unuttum.
+@beispiel Hast du Lust, heute Abend ins Kino zu gehen? | Bu akşam sinemaya gitmek ister misin?
+@beispiel Es ist wichtig, jeden Tag ein bisschen zu üben. | Her gün biraz pratik yapmak önemli.
+
+@teil verb | Fiilden sonra: versuchen, vergessen, anfangen … | kelime sırası
+luecke | 1 | Ich habe vergessen, dir ___. (schreiben) | zu schreiben | | Sana yazmayı unuttum. | vergessen + zu + mastar (en sonda). | vergessen; schreiben
+wahl | 1 | Ich versuche, jeden Tag zehn neue Wörter ___. | zu lernen | zu lernen / lernen / lerne | Her gün on yeni kelime öğrenmeye çalışıyorum. | versuchen + zu + mastar; mastar en sonda. | versuchen; lernen
+luecke | 2 | Wann hast du angefangen, Deutsch ___? (lernen) | zu lernen | | Almanca öğrenmeye ne zaman başladın? | anfangen + zu + mastar. | anfangen mit; lernen
+ordnen | 2 | ich / habe vor / am Wochenende / mein Zimmer / zu streichen | Ich habe vor, am Wochenende mein Zimmer zu streichen. / Ich habe vor, mein Zimmer am Wochenende zu streichen. | | Hafta sonu odamı boyamayı planlıyorum. | vorhaben ayrılır (habe … vor); zu + mastar (zu streichen) en sonda. | vorhaben; das Zimmer
+fehler | 2 | Der Arzt hat mir empfohlen, mehr Sport machen. | Der Arzt hat mir empfohlen, mehr Sport zu machen. | machen | Doktor bana daha çok spor yapmamı önerdi. | empfehlen'den sonra zu + mastar: zu machen. | empfehlen; der Arzt; der Sport
+luecke | 2 | Wir haben beschlossen, im Sommer nach Italien ___. (fahren) | zu fahren | | Yazın İtalya'ya gitmeye karar verdik. | beschließen + zu + mastar. | beschließen; fahren
+umform | 3 | Ich rufe dich morgen an. Das verspreche ich dir. → zu | Ich verspreche dir, dich morgen anzurufen. | | Seni yarın arayacağıma söz veriyorum. | Özne aynı (ich) → zu + mastar; ayrılabilen fiilde zu ortada: anzurufen. | versprechen; anrufen
+luecke | 2 | Meine Mutter bittet mich, ihr beim Einkaufen ___. (helfen) | zu helfen | | Annem alışverişte ona yardım etmemi rica ediyor. | bitten + zu + mastar; mastarın öznesi bitten'in nesnesi (mich). | bitten um; helfen bei
+
+@teil nomen | İsimden sonra: die Lust, die Zeit, die Angst, die Möglichkeit | kelime sırası
+wahl | 1 | Hast du Lust, heute Abend ins Kino ___? | zu gehen | zu gehen / gehen / für gehen | Bu akşam sinemaya gitmek ister misin? | Lust haben + zu + mastar. "für gehen", Türkçedeki "-mek için"den gelen hatadır. | die Lust; das Kino
+luecke | 2 | Ich habe keine Zeit, die ganze Wohnung ___. (aufräumen) | aufzuräumen | | Bütün evi toplamaya vaktim yok. | Zeit haben + zu; ayrılabilen fiilde zu ortada: auf-zu-räumen. | aufräumen; die Zeit; die Wohnung
+ordnen | 2 | es / macht / mir / Spaß / mit dir / zu kochen | Es macht mir Spaß, mit dir zu kochen. / Mir macht es Spaß, mit dir zu kochen. | | Seninle yemek yapmak bana keyif veriyor. | Spaß machen + zu + mastar; zu kochen en sonda. | der Spaß; kochen
+luecke | 2 | Viele Menschen haben Angst, vor einer Gruppe ___. (sprechen) | zu sprechen | | Birçok insan bir grubun önünde konuşmaktan korkar. | Angst haben + zu + mastar. Türkçede "-mekten", Almancada yine zu. | die Angst; die Gruppe
+umform | 3 | Ich habe die Möglichkeit. Ich kann in Bremen studieren. → zu | Ich habe die Möglichkeit, in Bremen zu studieren. | | Bremen'de okuma imkânım var. | die Möglichkeit haben + zu + mastar; modal fiil (kann) düşer. | die Möglichkeit; studieren
+
+@teil adjektiv | Es ist wichtig / schwer / leicht … zu | kelime sırası
+luecke | 1 | Es ist wichtig, regelmäßig ___. (üben) | zu üben | | Düzenli pratik yapmak önemli. | Es ist + sıfat + zu + mastar. | wichtig; regelmäßig
+wahl | 2 | Es ist nicht leicht, in Bremen eine Wohnung ___. | zu finden | zu finden / finden / zu findet | Bremen'de ev bulmak kolay değil. | Es ist + sıfat → zu + mastar; zu'dan sonra hep mastar (findet değil). | leicht; finden; die Wohnung
+ordnen | 3 | es / ist / schwer / im Winter / früh / aufzustehen | Es ist schwer, im Winter früh aufzustehen. / Im Winter ist es schwer, früh aufzustehen. | | Kışın erken kalkmak zor. | aufstehen → aufzustehen (zu ortada); zu-mastar en sonda. | schwer; aufstehen
+umform | 2 | Man lernt jeden Tag ein bisschen. Das ist gut. → zu | Es ist gut, jeden Tag ein bisschen zu lernen. | | Her gün biraz çalışmak iyidir. | Es ist + sıfat (gut) + zu + mastar; man düşer. | lernen
+
+@teil trennbar | zu'nun yeri: anzurufen, mich zu … | kelime sırası
+luecke | 2 | Vergiss nicht, den Herd ___! (ausmachen) | auszumachen | | Ocağı kapatmayı unutma! | Ayrılabilen fiil: aus-zu-machen, bitişik. | der Herd; ausmachen
+fehler | 2 | Ich hatte keine Zeit, dich zu anrufen. | Ich hatte keine Zeit, dich anzurufen. | zu anrufen | Seni aramaya vaktim yoktu. | Ayrılabilen fiilde zu ön ekle kök arasına girer: anzurufen. | anrufen; die Zeit
+luecke | 3 | Ich versuche, ___ besser ___. (sich konzentrieren) | mich ; zu konzentrieren | | Daha iyi konsantre olmaya çalışıyorum. | Dönüşlü zamir öznenin kişisine uyar (ich → mich); zu + mastar en sonda. | sich konzentrieren auf; versuchen
+ordnen | 2 | vergiss nicht / dich / für den Kurs / anzumelden | Vergiss nicht, dich für den Kurs anzumelden. | | Kursa kaydolmayı unutma. | Dönüşlü zamir (dich) başta; anmelden → anzumelden en sonda. | sich anmelden für; der Kurs
+umform | 3 | Ich sehe dich bald wieder. Das hoffe ich. → zu | Ich hoffe, dich bald wiederzusehen. | | Seni yakında tekrar görmeyi umuyorum. | Özne aynı (ich) → zu + mastar; wiedersehen ayrılabilen: wiederzusehen. | hoffen auf
+
+@teil kontrast | zu var mı yok mu? · zu mu dass mı? | kelime sırası
+wahl | 1 | Ich kann heute leider nicht ___. | kommen | kommen / zu kommen | Bugün maalesef gelemiyorum. | Modal fiillerden (können, müssen, wollen …) sonra zu yok. | können; kommen
+fehler | 1 | Ich gehe heute Abend mit Freunden essen. | Ich gehe heute Abend mit Freunden essen. | - | Bu akşam arkadaşlarla yemeğe gidiyorum. | Hata yok: gehen + mastar (essen), zu yok. | essen
+wahl | 3 | Ich hoffe, ___ du die Prüfung bestehst. | dass | dass / zu / um | Umarım sınavı geçersin. | Özne farklı (ich / du) → dass + yan cümle. Özne aynı olsaydı: Ich hoffe, die Prüfung zu bestehen. | hoffen auf; bestehen; die Prüfung
+fehler | 2 | Ich muss morgen früh zu arbeiten. | Ich muss morgen früh arbeiten. | zu | Yarın erken çalışmam gerekiyor. | müssen modal fiildir: ardından zu'suz mastar. | müssen; arbeiten
+

@@ -1,0 +1,86 @@
+# Gramer konusu: yan cümlede kelime sırası (bütün bağlaçlar karışık). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id nebensatz-satzbau
+@titel Wortstellung im Nebensatz: Verb am Ende, Nebensatz vorn
+@tr Yan cümlede kelime sırası: fiil sonda; yan cümle başta → fiil, virgül, fiil
+@stufe A2–B1
+@kapitel A2–B1 tekrar (her Kapitel)
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus weil-dass
+@kontrast konnektoren-deshalb-trotzdem
+@etiket kelime sırası
+@kurz Yan cümle: bağlaç + özne + … + çekimli fiil en sonda. Yan cümle başta → ana cümle çekimli fiille başlar (fiil, virgül, fiil).
+
+@erklaerung
+Bütün yan cümleler (weil, dass, ob, wenn, als, obwohl, bevor, nachdem, damit, W-soru …) aynı kuralla kurulur. Bu konu kuralın kendisini karışık bağlaçlarla çalıştırır.
+
+1. Sıra: bağlaç – özne – zamirler (dönüşlü zamir dahil) – zaman – … – nicht – fiil grubu. Çekimli fiil EN SONDA.
+2. Birden çok fiil varsa çekimli olan en son: … kommen kann · … gekommen ist. Ayrılabilen fiil bitişir: … ankommt.
+3. Yan cümle, ana cümlenin 1. öğesi sayılır: hemen ardından ana cümlenin çekimli fiili, sonra özne gelir: Wenn ich Zeit habe, rufe ich dich an.
+4. Yan cümle ile ana cümle arasında hep virgül.
+5. Üç kutu: yan cümle bağlaçları (weil, dass, ob, wenn, obwohl …) fiili sona atar. Ana cümle bağlaçları (und, aber, oder, denn, sondern) sırayı değiştirmez. Zarflar (deshalb, trotzdem, dann, danach) 1. yeri alır, ardından hemen fiil gelir. Edatlar (wegen, trotz, vor, nach) ise yalnız isimle kullanılır.
+
+Türkçeyle: Türkçede fiil hep sondadır, bu yüzden yan cümleyi Türk öğrenciler kolay kurar. Asıl hata ana cümlede: yan cümleden sonra özneyle başlamak (✗ Wenn ich Zeit habe, ich komme) ve deshalb / denn'i weil gibi kullanmak.
+
+Konuşma dilinde "weil ich bin müde" duyulur; yazılı sınavda hata sayılır.
+@ende
+
+@tabelle Üç kutu
+tür | kelimeler | sonraki sıra | örnek
+yan cümle bağlacı | weil, da, dass, ob, wenn, als, obwohl, bevor, nachdem, damit | çekimli fiil en sonda | …, weil ich müde bin.
+ana cümle bağlacı (0. yer) | und, aber, oder, denn, sondern | özne + fiil (sıra değişmez) | …, denn ich bin müde.
+zarf (1. yer) | deshalb, trotzdem, dann, danach, außerdem | fiil + özne | …, deshalb bin ich müde.
+edat | wegen, trotz, vor, nach, während | + isim | wegen der Arbeit
+@ende
+
+@tabelle Yan cümlenin sonu
+durum | sıra | örnek
+Präsens | … fiil | …, dass er heute kommt.
+modal | … mastar + modal | …, dass er heute kommen kann.
+Perfekt | … Partizip + haben / sein | …, dass er gestern gekommen ist.
+ayrılabilen | … bitişik fiil | …, dass er heute ankommt.
+dönüşlü | özne + zamir … fiil | …, dass er sich heute anmeldet.
+nicht | … nicht + fiil grubu | …, dass er heute nicht kommt.
+@ende
+
+@beispiel Wenn du Hilfe brauchst, ruf mich an. | Yardıma ihtiyacın olursa beni ara.
+@beispiel Ich glaube nicht, dass er heute noch kommt. | Bugün artık geleceğini sanmıyorum.
+@beispiel Obwohl es spät war, haben wir noch lange geredet. | Geç olmasına rağmen daha uzun süre konuştuk.
+
+@teil verbgruppe | Birden çok fiil: çekimli olan en sonda | kelime sırası
+wahl | 1 | Ich glaube, dass wir morgen früher ___. | aufstehen müssen | aufstehen müssen / müssen aufstehen | Sanırım yarın daha erken kalkmamız gerekiyor. | Yan cümlede önce mastar (aufstehen), en sonda çekimli modal (müssen). | aufstehen; müssen; früh
+luecke | 2 | Sie hat mir erzählt, dass sie letztes Jahr in Wien ___ ___. (wohnen · Perfekt) | gewohnt ; hat | | Geçen yıl Viyana'da oturduğunu anlattı. | Perfekt yan cümlede: Partizip (gewohnt), sonra çekimli yardımcı fiil (hat). | erzählen von; wohnen
+luecke | 2 | Ich weiß nicht, ob der Kurs morgen ___. (stattfinden) | stattfindet | | Kursun yarın yapılıp yapılmayacağını bilmiyorum. | Ayrılabilen fiil yan cümlede bitişik ve sonda: stattfindet. | stattfinden; der Kurs
+fehler | 2 | Ich bin traurig, weil mein Freund ist nach Berlin umgezogen. | Ich bin traurig, weil mein Freund nach Berlin umgezogen ist. | ist | Arkadaşım Berlin'e taşındığı için üzgünüm. | weil'den sonra çekimli yardımcı fiil (ist) en sona gider. Konuşmada duyulur, yazıda hata. | traurig; umziehen; der Freund
+ordnen | 3 | er / hat / gesagt / dass / er / heute / nicht / kommen / kann | Er hat gesagt, dass er heute nicht kommen kann. | | Bugün gelemeyeceğini söyledi. | Yan cümlede nicht fiil grubunun önünde; önce mastar (kommen), en sonda modal (kann). | sagen; kommen; können
+umform | 3 | Der Bus ist schon abgefahren. Hast du das gewusst? → dass | Hast du gewusst, dass der Bus schon abgefahren ist? / Wusstest du, dass der Bus schon abgefahren ist? | | Otobüsün çoktan kalktığını biliyor muydun? | "das" yerine dass-yan cümlesi gelir; Perfekt'te yardımcı fiil (ist) en sonda. | abfahren; der Bus; wissen
+
+@teil mittelfeld | Zamirler, nicht ve zaman yan cümlenin ortasında | kelime sırası
+luecke | 2 | Ich freue mich, wenn du ___ morgen besuchst. (ich · Akkusativ) | mich | | Yarın beni ziyaret edersen sevinirim. | Zamir nesne yan cümlede öznenin hemen arkasına gelir: wenn du mich … besuchst. | besuchen; sich freuen über
+ordnen | 2 | ich / weiß / dass / du / dich / heute / nicht / wohlfühlst | Ich weiß, dass du dich heute nicht wohlfühlst. | | Bugün kendini iyi hissetmediğini biliyorum. | Sıra: özne (du) → dönüşlü zamir (dich) → zaman (heute) → nicht → fiil en sonda. | wohl; wissen
+fehler | 3 | Ich bin froh, dass hat mich mein Bruder vom Bahnhof abgeholt. | Ich bin froh, dass mein Bruder mich vom Bahnhof abgeholt hat. / Ich bin froh, dass mich mein Bruder vom Bahnhof abgeholt hat. | hat | Kardeşimin beni istasyondan almasına sevindim. | dass'tan sonra çekimli fiil (hat) 2. yerde kalmaz, en sona gider: … abgeholt hat. | froh; abholen; der Bahnhof; der Bruder
+wahl | 2 | Welcher Satz ist richtig? | Ich hoffe, dass du mir das Buch bald zurückgibst. | Ich hoffe, dass du mir das Buch bald zurückgibst. / Ich hoffe, dass du gibst mir das Buch bald zurück. / Ich hoffe, dass du mir das Buch bald gibst zurück. | Umarım kitabı bana yakında geri verirsin. | Yan cümlede ayrılabilen fiil bitişik ve en sonda: zurückgibst. | das Buch; bald
+luecke | 2 | Mein Bruder fragt, ob ___ ___ am Samstag treffen. (wir · sich treffen) | wir ; uns | | Kardeşim cumartesi buluşup buluşmayacağımızı soruyor. | Yan cümlede özne (wir) bağlaçtan hemen sonra, dönüşlü zamir (uns) öznenin hemen arkasında. | sich treffen mit; der Bruder
+
+@teil vorn | Yan cümle başta → fiil, virgül, fiil | kelime sırası
+wahl | 1 | Wenn ich Zeit habe, ___ | helfe ich dir | helfe ich dir / ich helfe dir / ich dir helfe | Vaktim olursa sana yardım ederim. | Yan cümle 1. yerde → ana cümlenin çekimli fiili hemen arkasında: helfe ich dir. | helfen; die Zeit
+luecke | 2 | Als ich nach Hause kam, ___ meine Mitbewohnerin schon. (schlafen · Präteritum) | schlief | | Eve geldiğimde ev arkadaşım çoktan uyuyordu. | Yan cümle başta → ana cümle çekimli fiille başlar: schlief meine Mitbewohnerin. | schlafen
+ordnen | 2 | weil / es / regnet / fahren / wir / mit dem Bus | Weil es regnet, fahren wir mit dem Bus. / Wir fahren mit dem Bus, weil es regnet. | | Yağmur yağdığı için otobüsle gidiyoruz. | Yan cümlede fiil sonda (regnet); yan cümle başta ise ana cümle fiille başlar: fahren wir. | regnen; der Bus
+fehler | 2 | Bevor ich zur Arbeit gehe, ich trinke einen Kaffee. | Bevor ich zur Arbeit gehe, trinke ich einen Kaffee. | ich trinke | İşe gitmeden önce bir kahve içerim. | Yan cümle başta → ana cümle fiille başlar: trinke ich. | die Arbeit; der Kaffee
+fehler | 1 | Nachdem wir gegessen hatten, gingen wir spazieren. | Nachdem wir gegessen hatten, gingen wir spazieren. | - | Yemek yedikten sonra yürüyüşe çıktık. | Hata yok: yan cümlede yardımcı fiil sonda (hatten), ana cümle fiille başlıyor (gingen wir). | essen; spazieren gehen
+umform | 3 | Ich verstehe ein Wort nicht. Dann schaue ich ins Wörterbuch. → Wenn … | Wenn ich ein Wort nicht verstehe, schaue ich ins Wörterbuch. / Wenn ich ein Wort nicht verstehe, dann schaue ich ins Wörterbuch. | | Bir kelimeyi anlamadığımda sözlüğe bakarım. | Yan cümle başta; nicht fiilin önünde, fiil sonda (verstehe). Ana cümle fiille başlar: schaue ich. | verstehen; das Wort; das Wörterbuch
+
+@teil konj-adv | Bağlaç, zarf ya da edat? (weil · denn · deshalb · wegen) | bağlaç
+wahl | 2 | Ich habe schlecht geschlafen, ___ bin ich heute müde. | deshalb | deshalb / weil / denn | Kötü uyudum, bu yüzden bugün yorgunum. | Arkada fiil hemen geliyor (bin ich) → zarf: deshalb. weil'den sonra fiil sonda, denn'den sonra özne önce gelirdi. | schlecht; müde
+wahl | 1 | Ich bin heute müde, ___ ich habe schlecht geschlafen. | denn | denn / weil / deshalb | Bugün yorgunum, çünkü kötü uyudum. | Arkada fiil 2. yerde (ich habe …) → ana cümle bağlacı denn. weil olsaydı: weil ich schlecht geschlafen habe. | müde; schlafen
+luecke | 1 | ___ des schlechten Wetters bleiben wir zu Hause. | Wegen | Wegen / Weil / Deshalb | Kötü hava yüzünden evde kalıyoruz. | Arkada fiil yok, Genitiv isim var (des schlechten Wetters) → edat wegen. weil yan cümle ister: weil das Wetter schlecht ist. | wegen; das Wetter; schlecht
+luecke | 1 | ___ das Wetter schlecht ist, bleiben wir zu Hause. | Weil | Weil / Wegen / Deshalb | Hava kötü olduğu için evde kalıyoruz. | Arkada özne + fiil sonda (ist) → yan cümle bağlacı Weil. | das Wetter; schlecht
+umform | 3 | Wegen seiner Krankheit konnte er nicht arbeiten. → weil | Er konnte nicht arbeiten, weil er krank war. / Weil er krank war, konnte er nicht arbeiten. | | Hastalığı yüzünden çalışamadı. | Edat (wegen + isim) yan cümleye dönünce özne ve fiil gerekir: weil er krank war. | die Krankheit; krank; arbeiten
+ordnen | 2 | ich / habe / viel gelernt / deshalb / habe / ich / die Prüfung / bestanden | Ich habe viel gelernt, deshalb habe ich die Prüfung bestanden. | | Çok çalıştım, bu yüzden sınavı geçtim. | deshalb zarftır: ardından hemen çekimli fiil (habe), sonra özne (ich). | lernen; bestehen; die Prüfung
+fehler | 3 | Ich gehe heute nicht zum Kurs, deshalb ich krank bin. | Ich gehe heute nicht zum Kurs, weil ich krank bin. / Ich gehe heute nicht zum Kurs, denn ich bin krank. / Ich gehe heute nicht zum Kurs, da ich krank bin. | deshalb | Bugün kursa gitmiyorum, çünkü hastayım. | Sebep → weil (fiil sonda) ya da denn (sıra değişmez). deshalb "bu yüzden" demektir, sonuç bildirir. | krank; der Kurs
+
+@teil mix | Karışık bağlaçlar | kelime sırası
+ordnen | 3 | obwohl / ich / mich / beeilt habe / habe / ich / den Zug / verpasst | Obwohl ich mich beeilt habe, habe ich den Zug verpasst. / Ich habe den Zug verpasst, obwohl ich mich beeilt habe. | | Acele etmeme rağmen treni kaçırdım. | Yan cümlede dönüşlü zamir öznenin arkasında, yardımcı fiil sonda (beeilt habe); ana cümle fiille başlar: habe ich. | sich beeilen; verpassen; der Zug
+umform | 3 | Kommst du heute mit? Das möchte ich wissen. → ob | Ich möchte wissen, ob du heute mitkommst. | | Bugün bizimle gelip gelmeyeceğini öğrenmek istiyorum. | Evet/hayır sorusu → ob; ayrılabilen fiil bitişir ve sona gider: mitkommst. | wissen
+luecke | 2 | Ich warte hier, bis du ___. (zurückkommen) | zurückkommst | | Sen dönene kadar burada bekliyorum. | bis yan cümle açar; ayrılabilen fiil bitişik ve sonda: zurückkommst. | warten auf

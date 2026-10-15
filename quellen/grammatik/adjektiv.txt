@@ -1,0 +1,103 @@
+# Gramer konusu: sıfat çekimi (belirli artikel, belirsiz artikel, artikelsiz; bütün hâller). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: FORMAT.md umform tablosunda olmayan hedefler (uygulamadaki yönerge önerisi):
+#   "Adjektiv"    → "ikinci cümledeki sıfatı ismin önüne koyarak tek cümle yap"
+#   "Plural"      → "çoğul yap"
+#   "unbestimmt"  → "belirsiz artikelle (ein / eine) yaz"
+@id adjektiv
+@titel Adjektivdeklination: mit bestimmtem, unbestimmtem und ohne Artikel
+@tr Sıfat çekimi: der kleine, ein kleiner, kleiner … (artikelli, belirsiz, artikelsiz)
+@stufe A2–B1
+@kapitel A2 · artikelsiz B1 K9 ?
+@goethe 2 | Schreiben 1-2-3 (Brief: Liebe …, Mit freundlichen Grüßen) · Sprechen 1-2 · Lesen
+@kontrast komparation
+@etiket artikel/çekim
+@kurz Sıfat ismin önündeyse ek alır. Artikel cinsiyeti göstermiyorsa (ein, artikelsiz) sıfat gösterir: ein kleiner Hund · kleines Kind. Artikel varsa Dativ, Genitiv ve çoğulda hep -en (artikelsiz Dativ: bei schönem Wetter).
+
+@erklaerung
+Türkçede sıfat hiç değişmez: "büyük ev, büyük evde, büyük evler". Almancada sıfat ismin ÖNÜNDE durunca ek alır; yüklemde (Das Haus ist groß.) ek almaz.
+
+Temel fikir: cümlede birisi ismin cinsiyetini ve hâlini "göstermeli". Bunu ya artikel yapar ya sıfat.
+
+1. Belirli artikel (der, die, das, dieser, jeder): artikel her şeyi gösteriyor, sıfat dinlenir → çoğunlukla -e ya da -en. Nominativ tekil hep -e (der neue Kollege, die neue Wohnung, das neue Auto); geri kalan neredeyse her yer -en (den neuen Kollegen, mit dem neuen Auto, die neuen Schuhe). Yalnız Akkusativ dişil ve nötr -e kalır: die neue Jacke, das neue Auto.
+2. Belirsiz artikel (ein, kein, mein, dein …): "ein" eril ve nötrde cinsiyeti göstermez, sıfat gösterir: ein netter Mann (der), ein kleines Zimmer (das). Dişil -e: eine gute Idee. Akkusativ eril: einen netten Mann.
+3. Artikelsiz: sıfat artikelin işini yapar, artikelin sonunu alır: der → kalter Kaffee, das → frisches Obst, die → warme Milch, Dativ dem → bei schönem Wetter, der → mit warmer Milch. Mektupta: Lieber Herr Schmidt, Liebe Frau Kaya, Mit freundlichen Grüßen.
+4. Dativ ve Genitiv: artikel varsa sıfat HEP -en (mit dem neuen Arzt, mit einer guten Freundin). Çoğul Dativ'de isim de -n alır: mit alten Freunden.
+
+Tipik hata: "einen schöner Tag", "frischen Obst" (das Obst → frisches), sıfatı hiç çekmemek ("ein klein Zimmer").
+
+Sınavda: Schreiben'de hitap ve kapanış (Lieber / Liebe, Mit freundlichen Grüßen) ve tarif cümleleri (eine große Wohnung mit Balkon) her görevde lazım.
+@ende
+
+@tabelle Belirli artikel (der, dieser, jeder)
+hâl | eril (der) | dişil (die) | nötr (das) | çoğul (die)
+Nominativ | der neue Tisch | die neue Lampe | das neue Bett | die neuen Stühle
+Akkusativ | den neuen Tisch | die neue Lampe | das neue Bett | die neuen Stühle
+Dativ | dem neuen Tisch | der neuen Lampe | dem neuen Bett | den neuen Stühlen
+Genitiv | des neuen Tisches | der neuen Lampe | des neuen Bettes | der neuen Stühle
+@ende
+
+@tabelle Belirsiz artikel (ein, kein, mein …)
+hâl | eril (der) | dişil (die) | nötr (das) | çoğul (kein / mein)
+Nominativ | ein neuer Tisch | eine neue Lampe | ein neues Bett | keine neuen Stühle
+Akkusativ | einen neuen Tisch | eine neue Lampe | ein neues Bett | keine neuen Stühle
+Dativ | einem neuen Tisch | einer neuen Lampe | einem neuen Bett | keinen neuen Stühlen
+Genitiv | eines neuen Tisches | einer neuen Lampe | eines neuen Bettes | keiner neuen Stühle
+@ende
+
+@tabelle Artikelsiz (sıfat artikelin sonunu alır)
+hâl | eril (der) | dişil (die) | nötr (das) | çoğul (die)
+Nominativ | kalter Kaffee | warme Milch | frisches Obst | alte Freunde
+Akkusativ | kalten Kaffee | warme Milch | frisches Obst | alte Freunde
+Dativ | kaltem Kaffee | warmer Milch | frischem Obst | alten Freunden
+Genitiv | kalten Kaffees | warmer Milch | frischen Obstes | alter Freunde
+@ende
+
+@beispiel Wir suchen eine große Wohnung mit Balkon. | Balkonlu büyük bir daire arıyoruz.
+@beispiel Der neue Kollege kommt aus der Türkei. | Yeni iş arkadaşı Türkiye'den geliyor.
+@beispiel Bei schönem Wetter fahre ich mit dem Fahrrad zur Uni. | Hava güzel olunca üniversiteye bisikletle giderim.
+@beispiel Lieber Herr Schmidt, vielen Dank für Ihre schnelle Antwort. | Sevgili Bay Schmidt, hızlı cevabınız için çok teşekkürler.
+
+@teil bestimmt | Belirli artikelden sonra: -e / -en | artikel/çekim
+wahl | 1 | Wie findest du den ___ Pullover? – Toll! | blauen | blauen / blaue / blauer | Mavi kazağı nasıl buluyorsun? – Harika! | den Pullover = Akkusativ eril; belirli artikelden sonra Akkusativ erilde sıfat -en alır: den blauen Pullover. | der Pullover
+luecke | 2 | Die ___ Wohnung ist leider zu teuer. (neu) | neue | | Yeni daire maalesef çok pahalı. | Nominativ tekil + belirli artikel → sıfat -e: die neue Wohnung. | die Wohnung; neu; teuer
+luecke | 2 | Siehst du das ___ Haus an der Ecke? Dort wohne ich. (gelb) | gelbe | | Köşedeki sarı evi görüyor musun? Orada oturuyorum. | das Haus Akkusativ'de de das kalır; belirli artikel + nötr Akkusativ → -e: das gelbe Haus. | das Haus; die Ecke
+luecke | 2 | Die ___ Schuhe haben 120 Euro gekostet. (schwarz) | schwarzen | | Siyah ayakkabılar 120 avroya mal oldu. | Belirli artikelli çoğulda sıfat hep -en: die schwarzen Schuhe. | der Schuh; kosten
+fehler | 2 | Ich habe den neue Kollegen noch nicht kennengelernt. | Ich habe den neuen Kollegen noch nicht kennengelernt. | den neue | Yeni iş arkadaşıyla henüz tanışmadım. | den (Akkusativ eril) → sıfat -en: den neuen Kollegen. der Kollege da n-Deklination olduğu için isim de -n alır. | der Kollege; kennenlernen
+ordnen | 2 | der / neue / Kollege / kommt / aus der Türkei | Der neue Kollege kommt aus der Türkei. / Aus der Türkei kommt der neue Kollege. | | Yeni iş arkadaşı Türkiye'den geliyor. | Nominativ tekil + der → -e: der neue Kollege. | der Kollege; kommen
+
+@teil unbestimmt | ein / kein / mein'den sonra: -er / -es / -e / -en | artikel/çekim
+wahl | 1 | Ich suche schon lange einen ___ Job. | neuen | neuen / neuer / neues | Uzun zamandır yeni bir iş arıyorum. | einen gösteriyor: Akkusativ eril → sıfat -en: einen neuen Job. | suchen
+luecke | 1 | Das ist eine ___ Idee! (gut) | gute | | Bu iyi bir fikir! | Dişil (die Idee) + eine → sıfat -e: eine gute Idee. | die Idee; gut
+luecke | 2 | Mein Bruder hat ein ___ Auto gekauft. (gebraucht) | gebrauchtes | | Kardeşim ikinci el bir araba aldı. | ein nötrde cinsiyeti göstermez; sıfat gösterir: das → ein gebrauchtes Auto. | das Auto; kaufen
+luecke | 2 | Mein Opa ist ein sehr ___ Mensch. (freundlich) | freundlicher | | Dedem çok güler yüzlü bir insandır. | der Mensch, Nominativ: ein cinsiyeti göstermez, sıfat -er alır: ein freundlicher Mensch. | der Mensch; freundlich
+wahl | 1 | Welcher Satz ist richtig? | Ich habe nur ein kleines Zimmer. | Ich habe nur ein kleines Zimmer. / Ich habe nur ein kleine Zimmer. / Ich habe nur ein kleiner Zimmer. | Sadece küçük bir odam var. | das Zimmer, Akkusativ: ein + sıfat -es (das'ın sonu): ein kleines Zimmer. | das Zimmer; klein
+umform | 2 | Das ist der neue Kollege. → unbestimmt | Das ist ein neuer Kollege. | | Bu yeni bir iş arkadaşı. | der → ein: artık sıfat cinsiyeti göstermeli: der neue → ein neuer. | der Kollege; neu
+umform | 3 | Das ist ein Film. Er ist sehr spannend. → Adjektiv | Das ist ein sehr spannender Film. | | Bu çok heyecanlı bir film. | der Film, Nominativ + ein → -er: ein spannender Film. Yüklemde (Er ist spannend.) ek yoktu. | der Film; spannend
+fehler | 2 | Ich wünsche dir einen schöner Tag! | Ich wünsche dir einen schönen Tag! | schöner | Sana güzel bir gün dilerim! | einen = Akkusativ eril; einen'den sonra sıfat -en: einen schönen Tag. | der Tag; wünschen; schön
+ordnen | 2 | ich suche / eine / große / Wohnung / mit Balkon | Ich suche eine große Wohnung mit Balkon. | | Balkonlu büyük bir daire arıyorum. | die Wohnung, Akkusativ + eine → -e: eine große Wohnung. | die Wohnung; der Balkon; groß
+
+@teil ohne | Artikelsiz: sıfat artikelin sonunu alır | artikel/çekim
+luecke | 2 | Ich trinke morgens gern ___ Kaffee. (schwarz) | schwarzen | | Sabahları sade (siyah) kahve içmeyi severim. | Artikel yok: der Kaffee Akkusativ'de den → sıfat -en: schwarzen Kaffee. | der Kaffee; trinken
+luecke | 2 | Zum Frühstück esse ich ___ Obst und Joghurt. (frisch) | frisches | | Kahvaltıda taze meyve ve yoğurt yerim. | Artikelsiz: das Obst → sıfat das'ın sonunu alır: frisches Obst. | das Obst; das Frühstück; frisch
+wahl | 1 | ___ Herr Schmidt, vielen Dank für Ihre E-Mail. | Lieber | Lieber / Liebe / Lieben | Sevgili Bay Schmidt, e-postanız için çok teşekkürler. | Hitapta artikel yok, Nominativ eril → sıfat -er: Lieber Herr …; kadına: Liebe Frau … | der Herr; die E-Mail
+umform | 3 | Ich trinke Tee. Der Tee ist heiß. → Adjektiv | Ich trinke heißen Tee. | | Sıcak çay içiyorum. | Artikelsiz Akkusativ eril → sıfat -en (den'in sonu): heißen Tee. | der Tee; heiß
+umform | 3 | Ich kaufe einen warmen Pullover. → Plural | Ich kaufe warme Pullover. | | Sıcak tutan kazaklar alıyorum. | Belirsiz artikelin çoğulu yoktur → artikelsiz çoğul, Akkusativ → sıfat -e: warme Pullover. | der Pullover; warm
+fehler | 2 | Ich esse jeden Tag frischen Obst. | Ich esse jeden Tag frisches Obst. | frischen Obst | Her gün taze meyve yerim. | das Obst nötr; artikelsiz Akkusativ'de sıfat -es alır: frisches Obst. | das Obst; frisch
+ordnen | 2 | frisches / Gemüse / ist / gesund / und / lecker | Frisches Gemüse ist gesund und lecker. / Frisches Gemüse ist lecker und gesund. | | Taze sebze sağlıklı ve lezzetlidir. | das Gemüse artikelsiz → frisches; yüklemdeki sıfatlar (gesund, lecker) ek almaz. | das Gemüse; gesund; lecker
+fehler | 1 | Ich schicke dir viele liebe Grüße aus Bremen. | Ich schicke dir viele liebe Grüße aus Bremen. | - | Sana Bremen'den çok sevgiler gönderiyorum. | Hata yok: artikelsiz çoğul Akkusativ → -e: viele liebe Grüße. | der Gruß; schicken
+
+@teil dativ | Dativ: artikelli hep -en, artikelsiz -em / -er / -en | hâl
+luecke | 2 | Wir haben mit dem ___ Arzt gesprochen. (neu) | neuen | | Yeni doktorla konuştuk. | Artikelden sonra Dativ'de sıfat hep -en: mit dem neuen Arzt. | der Arzt; sprechen mit
+luecke | 3 | Ich wohne mit einer ___ Freundin zusammen. (gut) | guten | | İyi bir arkadaşımla birlikte oturuyorum. | mit + Dativ; einer (Dativ dişil) → sıfat -en: mit einer guten Freundin. | die Freundin; zusammen
+luecke | 3 | Bei ___ Wetter gehen wir oft spazieren. (schön) | schönem | | Hava güzel olunca sık sık yürüyüşe çıkarız. | bei + Dativ, artikel yok: dem'in sonu sıfata geçer → schönem Wetter. | das Wetter; spazieren gehen
+luecke | 2 | Mit ___ Grüßen – Tuna (freundlich) | freundlichen | | Saygılarımla – Tuna | Resmî mektup kapanışı: mit + Dativ çoğul, artikelsiz → -en: Mit freundlichen Grüßen. Sınavda ezber kalıp. | der Gruß; freundlich
+umform | 3 | Ich habe mit einem netten Nachbarn gesprochen. → Plural | Ich habe mit netten Nachbarn gesprochen. | | Sevimli komşularla konuştum. | Artikelsiz Dativ çoğul → sıfat -en, isim de -n: mit netten Nachbarn. | der Nachbar; nett
+ordnen | 3 | wir haben / einen / schönen / Abend / mit / alten / Freunden / verbracht | Wir haben einen schönen Abend mit alten Freunden verbracht. / Wir haben mit alten Freunden einen schönen Abend verbracht. | | Eski arkadaşlarla güzel bir akşam geçirdik. | einen schönen Abend (Akkusativ eril, -en); mit alten Freunden (Dativ çoğul artikelsiz, -en + isim -n). | der Abend; der Freund; verbringen
+wahl | 2 | Ich trinke Tee am liebsten mit ___ Milch. | warmer | warmer / warme / warmem | Çayı en çok sıcak sütle içerim. | mit + Dativ, die Milch, artikel yok → der'in sonu: mit warmer Milch. | die Milch; der Tee
+
+@teil kontrast | der mi ein mi? Eki kim gösteriyor? | artikel/çekim
+luecke | 3 | Der ___ Laptop ist zu teuer, ich nehme einen ___. (neu · gebraucht) | neue ; gebrauchten | | Yeni dizüstü bilgisayar çok pahalı, ikinci el bir tane alıyorum. | der (Nominativ) → neue; einen (Akkusativ eril) → gebrauchten. İsim düşse de ek kalır. | teuer
+wahl | 1 | Ich hätte gern ___, bitte. | ein großes Bier | ein großes Bier / ein großer Bier / ein große Bier | Büyük bir bira alabilir miyim, lütfen? | das Bier nötr: ein cinsiyeti göstermez → sıfat -es: ein großes Bier. | das Bier
+wahl | 2 | Welcher Satz ist richtig? | Das ist ein guter Wein. | Das ist ein guter Wein. / Das ist der guter Wein. / Das ist ein gute Wein. | Bu iyi bir şarap. | ein + eril Nominativ → -er (ein guter Wein); der + Nominativ → -e (der gute Wein). | der Wein; gut

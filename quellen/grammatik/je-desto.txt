@@ -1,0 +1,83 @@
+# Gramer konusu: je … desto / umso. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id je-desto
+@titel Je … desto / umso
+@tr Ne kadar …, o kadar …: je … desto / umso
+@stufe B1
+@kapitel B1 K12 ?
+@goethe 1 | Schreiben 2-3 (çeşitlilik) · Lesen
+@voraus komparation, weil-dass
+@etiket kelime sırası
+@kurz Je + Komparativ … fiil SONDA, desto / umso + Komparativ + fiil + özne: Je mehr ich übe, desto besser spreche ich.
+
+@erklaerung
+je … desto (ya da je … umso) Türkçedeki "-dıkça / ne kadar …, o kadar …" demektir: Je mehr ich lese, desto besser verstehe ich. = Ne kadar çok okursam o kadar iyi anlarım. desto ile umso aynı anlamdadır.
+
+Cümle iki parçalıdır ve iki parçanın kelime sırası farklıdır:
+1. je-kısmı bir yan cümledir: je + Komparativ + özne + … + çekimli fiil EN SONDA: Je mehr ich lese, …
+2. desto-kısmı ana cümledir: desto + Komparativ birlikte 1. yeri doldurur, sonra hemen çekimli fiil, sonra özne: …, desto besser verstehe ich.
+3. İki tarafta da Komparativ gelir: schnell → schneller, alt → älter, warm → wärmer, gut → besser, viel → mehr, gern → lieber, oft → öfter, hoch → höher.
+4. Komparativ bir isme aitse isimle birlikte kalır: Je mehr Zeit ich habe, desto mehr Bücher lese ich.
+
+Türk öğrencinin tipik hataları: desto'dan sonra özneyi öne almak ("desto ich verstehe besser") ve je-kısmında fiili 2. yere koymak ("Je mehr lese ich"). Kısa formül: je → fiil sonda, desto → fiil hemen arkada (fiil, virgül, fiil).
+
+Sınavda: Schreiben'de bir görüşü güçlendirmek için iyi bir çeşitlilik (Je früher man anfängt, desto leichter ist es.).
+@ende
+
+@tabelle İki kısım, iki sıra
+kısım | yapı | örnek
+je-kısmı (yan cümle) | je + Komparativ + özne + … + fiil | Je länger ich in Bremen wohne,
+desto-kısmı (ana cümle) | desto / umso + Komparativ + fiil + özne + … | desto besser gefällt mir die Stadt.
+@ende
+
+@tabelle Sık düzensiz Komparativ
+sıfat / zarf | Komparativ | örnek
+gut | besser | Je besser ich schlafe, …
+viel | mehr | Je mehr ich übe, …
+wenig | weniger | … desto weniger Stress habe ich.
+gern | lieber | … desto lieber sitze ich draußen.
+oft | öfter | Je öfter man Sport macht, …
+hoch | höher | Je höher die Miete ist, …
+alt / warm / lang | älter / wärmer / länger | Je älter man wird, …
+@ende
+
+@beispiel Je mehr ich übe, desto besser spreche ich. | Ne kadar çok pratik yaparsam o kadar iyi konuşurum.
+@beispiel Je länger ich in Bremen wohne, desto besser gefällt mir die Stadt. | Bremen'de yaşadıkça şehir daha çok hoşuma gidiyor.
+@beispiel Je genauer ich plane, umso weniger Stress habe ich. | Ne kadar dikkatli plan yaparsam o kadar az stresim oluyor.
+
+@teil je-satz | je-kısmı yan cümle: fiil sonda | kelime sırası
+wahl | 1 | Je ___, desto besser verstehe ich. | mehr ich lese | mehr ich lese / mehr lese ich / ich mehr lese | Ne kadar çok okursam o kadar iyi anlarım. | je-kısmı yan cümledir: je + Komparativ (mehr) + özne (ich) + çekimli fiil (lese) en sonda. | lesen; verstehen
+luecke | 2 | Je länger ich in Deutschland ___, desto mehr Freunde habe ich. (wohnen) | wohne | | Almanya'da ne kadar uzun yaşarsam o kadar çok arkadaşım oluyor. | je-kısmında çekimli fiil (wohne) en sona gider. | wohnen; lang
+fehler | 2 | Je früher kommst du, desto mehr Zeit haben wir. | Je früher du kommst, desto mehr Zeit haben wir. | kommst du | Ne kadar erken gelirsen o kadar çok vaktimiz olur. | je-kısmı bir yan cümledir: çekimli fiil (kommst) en sona gider. | früh; die Zeit
+luecke | 2 | Je öfter man Sport ___, desto fitter ___ man. (machen · werden) | macht ; wird | | İnsan ne kadar sık spor yaparsa o kadar formda olur. | je-kısmında fiil sonda (macht); desto-kısmında fiil hemen Komparativ'in arkasında (wird). | oft; der Sport; werden
+ordnen | 2 | je / mehr / ich / arbeite / desto / müder / bin / ich | Je mehr ich arbeite, desto müder bin ich. | | Ne kadar çok çalışırsam o kadar yoruluyorum. | je-kısmı: fiil (arbeite) sonda; desto müder 1. yerde → fiil (bin), sonra özne (ich). | arbeiten; müde
+
+@teil desto | desto / umso + Komparativ → fiil hemen arkada | kelime sırası
+wahl | 1 | Je wärmer das Wetter ist, ___ | desto lieber sitze ich draußen. | desto lieber sitze ich draußen. / desto lieber ich sitze draußen. / desto lieber ich draußen sitze. | Hava ne kadar sıcak olursa dışarıda oturmayı o kadar çok severim. | desto + Komparativ (lieber) 1. yeri doldurur → hemen çekimli fiil (sitze), sonra özne (ich). | warm; das Wetter; draußen; sitzen
+luecke | 2 | Je mehr du übst, desto sicherer ___. (du · werden) | wirst du | | Ne kadar çok pratik yaparsan kendinden o kadar emin olursun. | desto sicherer 1. yerde: önce çekimli fiil (wirst), sonra özne (du). | sicher; werden
+luecke | 1 | Je näher die Prüfung kommt, ___ nervöser werde ich. | desto / umso | | Sınav yaklaştıkça daha da gerginleşiyorum. | je'nin eşi desto ya da umso: ikisi de doğru, anlamları aynı. | die Prüfung; nervös
+fehler | 2 | Je älter mein Opa wird, desto er wird ruhiger. | Je älter mein Opa wird, desto ruhiger wird er. | desto er wird ruhiger | Dedem yaşlandıkça daha sakin oluyor. | desto Komparativ'le birlikte (desto ruhiger) 1. yerdedir; ardından fiil (wird), sonra özne (er). | der Opa; alt; ruhig
+ordnen | 3 | je / später / es / wird / desto / leerer / ist / der Bus | Je später es wird, desto leerer ist der Bus. | | Saat ilerledikçe otobüs daha boş oluyor. | je-kısmında fiil (wird) sonda; desto leerer 1. yerde → ist der Bus. | spät; leer; der Bus
+fehler | 1 | Je mehr Gemüse du isst, umso gesünder lebst du. | Je mehr Gemüse du isst, umso gesünder lebst du. | - | Ne kadar çok sebze yersen o kadar sağlıklı yaşarsın. | Hata yok: je-kısmında fiil sonda (isst), umso + Komparativ'ten sonra fiil (lebst), sonra özne (du). | das Gemüse; gesund; leben
+
+@teil komparativ | Komparativ biçimi: -er, Umlaut, gut → besser | artikel/çekim
+luecke | 1 | Je ___ das Wetter ist, desto mehr Leute gehen schwimmen. (warm) | wärmer | wärmer / warmer / mehr warm | Hava ne kadar sıcaksa o kadar çok insan yüzmeye gider. | warm'ın Komparativ'i umlautludur: wärmer. je ve desto'dan sonra hep Komparativ. | warm; das Wetter; schwimmen
+luecke | 2 | Je ___ ich schlafe, desto ___ fühle ich mich. (gut · gut) | besser ; besser | | Ne kadar iyi uyursam kendimi o kadar iyi hissederim. | gut'un Komparativ'i düzensiz: besser. | schlafen; sich fühlen
+luecke | 2 | Je ___ ich selbst koche, desto ___ esse ich im Restaurant. (oft · wenig) | öfter ; weniger | | Ne kadar sık kendim yemek yaparsam restoranda o kadar az yerim. | oft → öfter, wenig → weniger. | oft; kochen; das Restaurant
+wahl | 1 | Je ___ Geld man verdient, desto mehr gibt man aus. | mehr | mehr / viel / vieler | İnsan ne kadar çok para kazanırsa o kadar çok harcar. | viel'in Komparativ'i mehr'dir ve çekimlenmez (mehr Geld, mehr Leute). | das Geld; verdienen; ausgeben für
+fehler | 3 | Je gut ich vorbereitet bin, desto ruhiger bin ich in der Prüfung. | Je besser ich vorbereitet bin, desto ruhiger bin ich in der Prüfung. | gut | Ne kadar iyi hazırlıklı olursam sınavda o kadar sakin olurum. | je'den sonra sıfatın yalın hâli değil Komparativ gelir: gut → besser. | die Prüfung; ruhig
+
+@teil nomen | Komparativ + isim birlikte kalır | kelime sırası
+ordnen | 2 | je / mehr Sprachen / man / spricht / desto / mehr Möglichkeiten / hat / man | Je mehr Sprachen man spricht, desto mehr Möglichkeiten hat man. | | İnsan ne kadar çok dil konuşursa o kadar çok imkânı olur. | mehr + isim bir bütündür: Je mehr Sprachen … / desto mehr Möglichkeiten hat man. | die Sprache; die Möglichkeit
+wahl | 2 | Welcher Satz ist richtig? | Je mehr Zeit ich habe, desto mehr Bücher lese ich. | Je mehr Zeit ich habe, desto mehr Bücher lese ich. / Je mehr ich Zeit habe, desto mehr lese ich Bücher. / Je mehr Zeit habe ich, desto mehr Bücher lese ich. | Ne kadar çok vaktim olursa o kadar çok kitap okurum. | mehr bir isme aitse (mehr Zeit, mehr Bücher) birlikte kalır; je-kısmında fiil (habe) sonda. | die Zeit; das Buch
+luecke | 2 | Je ___ Leute zur Party kommen, desto ___ wird es. (viel · lustig) | mehr ; lustiger | | Partiye ne kadar çok insan gelirse o kadar eğlenceli olur. | viel → mehr (isimle birlikte: mehr Leute); lustig → lustiger. | die Party; lustig
+umform | 3 | Wir haben viele Gäste. Wir brauchen viel Essen. → je … desto | Je mehr Gäste wir haben, desto mehr Essen brauchen wir. / Je mehr Gäste wir haben, umso mehr Essen brauchen wir. | | Ne kadar çok misafirimiz olursa o kadar çok yemeğe ihtiyacımız olur. | viele / viel → mehr, isimle birlikte kalır. je-kısmında fiil (haben) sonda, desto mehr Essen'den sonra fiil (brauchen). | der Gast; das Essen; brauchen
+
+@teil umform | İki cümleyi je … desto ile birleştir | kelime sırası
+umform | 2 | Ich übe viel. Ich spreche gut. → je … desto | Je mehr ich übe, desto besser spreche ich. / Je mehr ich übe, umso besser spreche ich. | | Ne kadar çok pratik yaparsam o kadar iyi konuşurum. | viel → mehr, gut → besser. je-kısmında fiil sonda (übe), desto besser → spreche ich. |
+umform | 3 | Der Weg ist lang. Die Kinder werden müde. → je … desto | Je länger der Weg ist, desto müder werden die Kinder. / Je länger der Weg ist, umso müder werden die Kinder. | | Yol ne kadar uzunsa çocuklar o kadar yoruluyor. | lang → länger, müde → müder. je-kısmında fiil (ist) sonda; desto müder → werden die Kinder. | der Weg; lang; das Kind; müde
+umform | 3 | Man fährt schnell. Ein Unfall ist gefährlich. → je … desto | Je schneller man fährt, desto gefährlicher ist ein Unfall. / Je schneller man fährt, umso gefährlicher ist ein Unfall. | | Ne kadar hızlı gidilirse bir kaza o kadar tehlikeli olur. | schnell → schneller, gefährlich → gefährlicher; desto-kısmında fiil (ist) özneden (ein Unfall) önce. | schnell; der Unfall; gefährlich
+luecke | 3 | Je ___ die Miete ___, desto weniger Geld ___ mir am Monatsende. (hoch · sein · bleiben) | höher ; ist ; bleibt | | Kira ne kadar yüksekse ay sonunda bana o kadar az para kalıyor. | hoch → höher (c düşer). je-kısmında fiil (ist) sonda; desto weniger Geld 1. yerde, fiil (bleibt) hemen arkada. | die Miete; hoch; das Geld; bleiben
+ordnen | 3 | je / älter / man / wird / umso / wichtiger / ist / die Gesundheit | Je älter man wird, umso wichtiger ist die Gesundheit. | | İnsan yaşlandıkça sağlık daha da önemli hâle gelir. | je-kısmında fiil (wird) sonda; umso wichtiger 1. yerde → ist die Gesundheit. | alt; wichtig; die Gesundheit
+wahl | 1 | Welcher Satz bedeutet dasselbe wie "Wenn ich mehr verdiene, kann ich mehr sparen"? | Je mehr ich verdiene, desto mehr kann ich sparen. | Je mehr ich verdiene, desto mehr kann ich sparen. / Je mehr ich verdiene, desto weniger kann ich sparen. / Je weniger ich verdiene, desto mehr kann ich sparen. | Ne kadar çok kazanırsam o kadar çok biriktirebilirim. | İki taraf aynı yönde artıyor: mehr … mehr. | verdienen; sparen

@@ -1,0 +1,85 @@
+# Gramer konusu: amaç ve sonuç (um … zu, damit, sodass / so … dass). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id damit-um-zu
+@titel Zweck und Folge: um … zu, damit, sodass
+@tr Amaç ve sonuç: -mek için (um … zu, damit), öyle ki / bu yüzden (sodass)
+@stufe B1
+@kapitel B1 K5–8 ? · sodass B1 K2 ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2
+@voraus weil-dass
+@kontrast weil-dass
+@etiket bağlaç
+@kurz Özne aynı → um … zu + mastar (en sonda, özne yok). Özne farklı → damit + çekimli fiil sonda. sodass = sonuç (bu yüzden, öyle ki).
+
+@erklaerung
+Türkçedeki "-mek için / -sın diye" Almancaya iki yolla çevrilir.
+
+1. Ana cümle ile amaç aynı kişiyse: um … zu + mastar. Mastar en sonda, zu hemen önünde; özne ve çekimli fiil YOK: Ich lerne Deutsch, um in Bremen zu studieren. Ayrılabilen fiilde zu araya girer ve bitişik yazılır: um früh aufzustehen. Dönüşlü zamir kalır: um mich zu erholen.
+2. Kişiler farklıysa: damit + yan cümle, çekimli fiil sonda: Ich spreche langsam, damit du mich verstehst. Kişiler aynıyken de damit olur (damit ich die Prüfung bestehe), ama um … zu daha doğal.
+3. damit-cümlesinde wollen / möchten kullanılmaz: amaç zaten bağlaçta. ✗ damit du mich anrufen willst → ✓ damit du mich anrufen kannst.
+4. sodass (ya da so dass): sonuç, "bu yüzden, öyle ki": Es regnete stark, sodass das Spiel ausfiel. so + sıfat … dass: Ich war so müde, dass ich sofort eingeschlafen bin.
+5. weil = sebep (warum?), damit / um … zu = amaç (wozu? ne için?), sodass = sonuç.
+
+Tipik hatalar (Türkçeden): "-mek için" yerine für + mastar (✗ für Deutsch lernen), um … zu cümlesine özne koymak (✗ um ich zu lernen) ve zu'yu unutmak. für yalnız isimle: für die Prüfung.
+
+Sınavda: Schreiben'de "Ich schreibe Ihnen, um … zu …" ve "…, damit …" çok kullanılır.
+@ende
+
+@tabelle Hangi yapı?
+yapı | ne zaman | fiil | örnek
+um … zu + mastar | özne aynı | mastar en sonda, özne yok | Ich spare, um ein Auto zu kaufen.
+damit + yan cümle | özne farklı (ya da aynı) | çekimli fiil sonda | Ich spare, damit meine Kinder studieren können.
+sodass / so … dass | sonuç | çekimli fiil sonda | Es war laut, sodass ich nicht schlafen konnte.
+weil | sebep | çekimli fiil sonda | Ich spare, weil ich ein Auto brauche.
+@ende
+
+@tabelle zu nerede?
+fiil | um … zu
+lernen | um Deutsch zu lernen
+aufstehen (ayrılabilen) | um früh aufzustehen
+einkaufen (ayrılabilen) | um einzukaufen
+sich erholen (dönüşlü) | um mich zu erholen
+nicht ile | um den Zug nicht zu verpassen
+@ende
+
+@beispiel Ich gehe früh ins Bett, um morgen fit zu sein. | Yarın zinde olmak için erken yatıyorum.
+@beispiel Die Lehrerin spricht langsam, damit alle sie verstehen. | Öğretmen herkes onu anlasın diye yavaş konuşuyor.
+@beispiel Es hat stark geregnet, sodass wir zu Hause geblieben sind. | Çok yağmur yağdı, bu yüzden evde kaldık.
+
+@teil um-zu | um … zu + mastar | kelime sırası
+luecke | 2 | Ich fahre nach Bremen, um dort ___. (studieren) | zu studieren | | Orada üniversite okumak için Bremen'e gidiyorum. | um … zu: özne yok, zu + mastar en sonda: zu studieren. | studieren
+luecke | 2 | Ich stehe um sechs Uhr auf, um pünktlich zur Arbeit ___. (kommen) | zu kommen | | İşe zamanında varmak için saat altıda kalkıyorum. | Özne aynı (ich) → um … zu; zu + mastar en sonda. | pünktlich; die Arbeit; kommen
+luecke | 2 | Ich gehe in den Supermarkt, um ___. (einkaufen) | einzukaufen | | Alışveriş yapmak için süpermarkete gidiyorum. | Ayrılabilen fiilde zu ön ek ile kökün arasına girer, bitişik: einzukaufen. | einkaufen; der Supermarkt
+luecke | 3 | Ich fahre am Wochenende ans Meer, um ___ zu erholen. (sich erholen) | mich | | Dinlenmek için hafta sonu denize gidiyorum. | Dönüşlü zamir um … zu cümlesinde de kalır ve ana cümlenin öznesine uyar: ich → mich. | sich erholen von; das Meer
+fehler | 1 | Ich lerne jeden Tag, um ich die Prüfung zu bestehen. | Ich lerne jeden Tag, um die Prüfung zu bestehen. | ich | Sınavı geçmek için her gün çalışıyorum. | um … zu cümlesinde özne olmaz; özne ana cümleninkiyle aynıdır. | bestehen; die Prüfung
+fehler | 2 | Ich spare Geld, für ein neues Fahrrad zu kaufen. | Ich spare Geld, um ein neues Fahrrad zu kaufen. | für | Yeni bir bisiklet almak için para biriktiriyorum. | "-mek için" für + zu-mastar ile kurulmaz (Türkçe aktarım): um … zu kaufen. für yalnız isimle: Ich spare für ein neues Fahrrad. | sparen; das Fahrrad; kaufen
+ordnen | 2 | ich / gehe / ins Fitnessstudio / um / fit / zu / bleiben | Ich gehe ins Fitnessstudio, um fit zu bleiben. / Um fit zu bleiben, gehe ich ins Fitnessstudio. | | Zinde kalmak için spor salonuna gidiyorum. | um … zu: önce um, sonra tamamlayıcı (fit), en sonda zu + mastar (zu bleiben). | bleiben
+umform | 3 | Ich mache einen Deutschkurs. Ich will in Deutschland arbeiten. → um … zu | Ich mache einen Deutschkurs, um in Deutschland zu arbeiten. / Um in Deutschland zu arbeiten, mache ich einen Deutschkurs. | | Almanya'da çalışmak için Almanca kursuna gidiyorum. | Özne aynı (ich) → um … zu; ich ve will düşer, mastar en sonda: zu arbeiten. | arbeiten
+
+@teil damit | damit: özne farklı → yan cümle | kelime sırası
+luecke | 2 | Ich erkläre es dir noch einmal, damit du es ___. (verstehen) | verstehst | | Anlaman için sana bir kez daha açıklıyorum. | damit yan cümle açar: özne var (du), çekimli fiil sonda: verstehst. | erklären; verstehen
+luecke | 2 | Die Ärztin hat mir Tabletten verschrieben, damit die Schmerzen schnell ___. (aufhören) | aufhören | | Ağrılar çabuk geçsin diye doktor bana tablet yazdı. | Özne farklı (die Schmerzen) → damit; ayrılabilen fiil bitişik ve sonda: aufhören. | verschreiben; die Tablette; der Schmerz; aufhören mit
+ordnen | 2 | ich / schreibe / dir / die Adresse / auf / damit / du / sie / nicht / vergisst | Ich schreibe dir die Adresse auf, damit du sie nicht vergisst. | | Unutmayasın diye adresi sana yazıyorum. | damit-yan cümlesinde: özne (du) + zamir (sie) + nicht + çekimli fiil en sonda (vergisst). | die Adresse; vergessen
+fehler | 3 | Ich gebe dir meine Nummer, damit du mich anrufen willst. | Ich gebe dir meine Nummer, damit du mich anrufen kannst. / Ich gebe dir meine Nummer, damit du mich anrufst. | willst | Beni arayabilmen için sana numaramı veriyorum. | damit zaten amaç bildirir; wollen / möchten kullanılmaz. Gerekirse können: anrufen kannst. | die Nummer; anrufen
+umform | 3 | Die Lehrerin spricht langsam. Alle Schüler sollen sie verstehen. → damit | Die Lehrerin spricht langsam, damit alle Schüler sie verstehen. / Die Lehrerin spricht langsam, damit alle Schüler sie verstehen können. | | Öğretmen, bütün öğrenciler onu anlasın diye yavaş konuşuyor. | Özneler farklı (die Lehrerin / alle Schüler) → damit; sollen düşer, çekimli fiil sonda. | langsam; verstehen; der Schüler
+
+@teil umzu-damit | um … zu mu, damit mi? | bağlaç
+wahl | 1 | Ich arbeite am Wochenende, ___ mehr Geld zu verdienen. | um | um / damit / weil | Daha çok para kazanmak için hafta sonu çalışıyorum. | Sonda zu + mastar (zu verdienen) var ve özne yok → um … zu. | verdienen; das Geld
+wahl | 1 | Ich arbeite am Wochenende, ___ meine Familie mehr Geld hat. | damit | damit / um / weil | Ailemin daha çok parası olsun diye hafta sonu çalışıyorum. | Yeni özne (meine Familie) ve çekimli fiil sonda (hat); amaç (ne için?) → damit. | die Familie; das Geld
+wahl | 2 | Welcher Satz ist richtig? | Ich lese viel, um meinen Wortschatz zu verbessern. | Ich lese viel, um meinen Wortschatz zu verbessern. / Ich lese viel, damit meinen Wortschatz verbessern. / Ich lese viel, um ich meinen Wortschatz verbessere. | Kelime hazinemi geliştirmek için çok okuyorum. | um … zu: özne yok, zu + mastar sonda. damit olsaydı özne ve çekimli fiil gerekirdi: damit ich meinen Wortschatz verbessere. | verbessern
+luecke | 1 | Wir sprechen leise, ___ das Baby nicht aufwacht. | damit | damit / um / denn | Bebek uyanmasın diye sessiz konuşuyoruz. | Yeni özne (das Baby) ve fiil sonda (aufwacht) → damit. denn'den sonra fiil 2. yerde olurdu, um zu ister. | leise; aufwachen
+umform | 3 | Ich nehme ein Taxi. Ich will den Zug nicht verpassen. → um … zu | Ich nehme ein Taxi, um den Zug nicht zu verpassen. / Um den Zug nicht zu verpassen, nehme ich ein Taxi. | | Treni kaçırmamak için taksiye biniyorum. | Özne aynı → um … zu; nicht doğrudan zu + mastarın önüne: nicht zu verpassen. | der Zug; verpassen
+ordnen | 2 | wir / machen / das Fenster / zu / damit / es / nicht / so kalt / wird | Wir machen das Fenster zu, damit es nicht so kalt wird. / Damit es nicht so kalt wird, machen wir das Fenster zu. | | Çok soğuk olmasın diye pencereyi kapatıyoruz. | Özne değişiyor (wir → es) → damit; çekimli fiil sonda: wird. Ana cümlede zumachen ayrılır: machen … zu. | zumachen; das Fenster; kalt
+
+@teil sodass | sodass / so … dass: sonuç | bağlaç
+luecke | 2 | Der Zug hatte Verspätung, ___ ich den Termin verpasst habe. | sodass | sodass / damit / um | Tren rötar yaptı, bu yüzden randevuyu kaçırdım. | Rötarın sonucu (amaç değil) → sodass. Kimse randevuyu kaçırmak istemedi; damit olmaz. | die Verspätung; der Termin; verpassen
+luecke | 2 | Ich war so müde, ___ ich im Bus eingeschlafen bin. | dass | | Öyle yorgundum ki otobüste uyuyakaldım. | so + sıfat (so müde) … dass: "öyle … ki". dass-yan cümlesinde yardımcı fiil sonda: eingeschlafen bin. | müde; der Bus
+ordnen | 3 | es / war / so laut / dass / ich / nicht / schlafen / konnte | Es war so laut, dass ich nicht schlafen konnte. | | O kadar gürültülüydü ki uyuyamadım. | so laut … dass: sonuç. Yan cümlede önce mastar (schlafen), en sonda çekimli modal (konnte). | laut; schlafen; können
+umform | 3 | Es hat stark geschneit. Deshalb ist der Unterricht ausgefallen. → sodass | Es hat stark geschneit, sodass der Unterricht ausgefallen ist. / Es hat stark geschneit, so dass der Unterricht ausgefallen ist. | | Çok kar yağdı, bu yüzden ders iptal oldu. | deshalb'lı cümle sonuçtur → sodass-yan cümlesi; yardımcı fiil sonda: ausgefallen ist. | schneien; der Unterricht; ausfallen
+fehler | 2 | Ich hatte Kopfschmerzen, sodass ich früh nach Hause gegangen bin. | Ich hatte Kopfschmerzen, sodass ich früh nach Hause gegangen bin. | - | Başım ağrıyordu, bu yüzden eve erken gittim. | Hata yok: sonuç → sodass; yardımcı fiil (bin) en sonda. | früh
+
+@teil kontrast | weil (sebep) · damit (amaç) · sodass (sonuç) | bağlaç
+wahl | 1 | Ich lerne Vokabeln mit einer App, ___ sie sehr praktisch ist. | weil | weil / damit / um | Uygulama çok pratik olduğu için kelimeleri onunla çalışıyorum. | Uygulamanın pratik olması sebeptir (warum?) → weil. damit amaç bildirir (wozu?). | praktisch
+wahl | 2 | Ich habe den Wecker gestellt, ___ ich morgen nicht verschlafe. | damit | damit / weil / um | Yarın uyuyakalmayayım diye çalar saati kurdum. | Amaç (ne için?) → damit. weil olsaydı "uyuyakalmadığım için" olurdu; um zu ister. | der Wecker; stellen
+fehler | 3 | Ich bleibe heute zu Hause, damit ich krank bin. | Ich bleibe heute zu Hause, weil ich krank bin. | damit | Hasta olduğum için bugün evde kalıyorum. | Hastalık evde kalmanın sebebi, amacı değil → weil. damit "hasta olayım diye" demek olurdu. | krank

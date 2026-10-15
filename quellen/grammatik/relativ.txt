@@ -1,0 +1,94 @@
+# Gramer konusu: ilgi cümlesi (Relativsatz: Nominativ / Akkusativ / Dativ, edatlı, wo / was). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id relativ
+@titel Relativsätze
+@tr İlgi cümlesi: der / den / dem / denen, mit dem, wo, was (-en / -diği)
+@stufe B1
+@kapitel B1 K6, K11 ?
+@goethe 2 | Schreiben 1-2-3 · Sprechen 2 · Lesen
+@voraus weil-dass, adjektiv
+@kontrast weil-dass
+@etiket hâl
+@kurz İlgi zamirinin cinsi ve sayısı öndeki isimden, hâli ilgi cümlesindeki görevinden gelir (der Mann, den ich kenne). Edat zamirin önüne gelir (mit dem). Çekimli fiil en sonda, iki yanda virgül.
+
+@erklaerung
+İlgi cümlesi (der Relativsatz), Türkçedeki "-en / -an" ve "-dığı / -diği" yapısıdır: "yan dairede oturan adam" → der Mann, der neben mir wohnt; "dün gördüğüm film" → der Film, den ich gestern gesehen habe. Türkçede bu kısım ismin ÖNÜNDE, Almancada isimden SONRA gelir.
+
+İki soru sor:
+1. Cinsiyet ve sayı: öndeki isme bak. der Mann → der / den / dem; die Frau → die / der; das Kind → das / dem; çoğul → die / denen.
+2. Hâl: ilgi cümlesinin içinde zamir ne iş yapıyor? Özne → Nominativ (der Mann, der …). Nesne → Akkusativ (der Film, den ich sehe). helfen, danken, gehören, gefallen ya da Dativ edatı → Dativ (die Frau, der ich helfe).
+3. Edatlı fiiller: edat zamirin önüne gelir: der Kollege, mit dem ich spreche; das Thema, für das ich mich interessiere. Türkçe düşünüp edatı sona bırakma.
+4. Zamir, artikelle aynıdır; yalnız Dativ çoğul denen (Genitiv dessen / deren: B1'de çoğunlukla okumada).
+5. Yer bildiren isimlerden sonra wo kullanılabilir: die Stadt, wo / in der ich wohne. alles, etwas, nichts, das Beste ve bütün cümleye bağlanınca was: Alles, was er sagt, ist richtig.
+6. Kelime sırası: ilgi cümlesi bir yan cümledir, çekimli fiil EN SONA gider; iki yanında virgül olur. Tipik hata: "eine Wohnung, die hat einen Balkon".
+
+Sınavda: Schreiben'de tanıtma ve tarif ("Ich habe eine Freundin, die in Berlin wohnt"), Lesen'de uzun cümleleri çözmek için.
+@ende
+
+@tabelle İlgi zamirleri
+hâl | eril | dişil | nötr | çoğul
+Nominativ | der | die | das | die
+Akkusativ | den | die | das | die
+Dativ | dem | der | dem | denen
+Genitiv | dessen | deren | dessen | deren
+@ende
+
+@tabelle Hâl nereden gelir?
+ilgi cümlesinde görev | örnek | zamir
+özne | Das ist der Mann, der neben mir wohnt. | der (Nom.)
+nesne | Das ist der Film, den ich gesehen habe. | den (Akk.)
+Dativ fiili | Das ist die Kollegin, der ich oft helfe. | der (Dat.)
+edat + zamir | Das ist der Kollege, mit dem ich arbeite. | mit + dem
+yer | Das ist das Café, wo wir uns kennengelernt haben. | wo / in dem
+alles / etwas / nichts | Alles, was er sagt, stimmt. | was
+@ende
+
+@beispiel Ich habe eine Freundin, die in Berlin studiert. | Berlin'de üniversite okuyan bir arkadaşım var.
+@beispiel Die Jacke, die ich gestern gekauft habe, ist zu klein. | Dün aldığım ceket çok küçük.
+@beispiel Das ist der Kollege, mit dem ich jeden Tag arbeite. | Bu, her gün birlikte çalıştığım iş arkadaşı.
+@beispiel Gibt es etwas, was ich für dich tun kann? | Senin için yapabileceğim bir şey var mı?
+
+@teil nom | Nominativ: der / die / das (özne) | hâl
+wahl | 1 | Das ist der Mann, ___ neben mir wohnt. | der | der / den / dem | Bu, yan dairede oturan adam. | Zamir ilgi cümlesinde özne (kim oturuyor? → o) → Nominativ eril: der. | wohnen; neben
+luecke | 1 | Ich habe eine Freundin, ___ in Berlin studiert. | die | | Berlin'de üniversite okuyan bir arkadaşım var. | die Freundin dişil; zamir özne → die. | die Freundin; studieren
+luecke | 2 | Das Café, ___ an der Ecke ist, hat sehr guten Kuchen. | das | | Köşedeki kafenin pastası çok güzel. | das Café nötr; zamir özne → das. | das Café; der Kuchen
+luecke | 1 | Kinder, ___ viel Sport machen, schlafen meistens besser. | die | | Çok spor yapan çocuklar genellikle daha iyi uyur. | Çoğul, özne → die. | das Kind; der Sport
+umform | 2 | Ich habe einen Kollegen. Er spricht fünf Sprachen. → Relativsatz | Ich habe einen Kollegen, der fünf Sprachen spricht. | | Beş dil konuşan bir iş arkadaşım var. | er = özne → der (Nominativ eril); çekimli fiil (spricht) en sona. | der Kollege; die Sprache
+
+@teil akk | Akkusativ: den / die / das (nesne) | hâl
+wahl | 1 | Wie heißt der Film, ___ du gestern gesehen hast? | den | den / der / dem | Dün izlediğin filmin adı ne? | Özne du; filmi gördün → film nesne → Akkusativ eril: den. | der Film; sehen
+luecke | 1 | Die Jacke, ___ ich gestern gekauft habe, ist zu klein. | die | | Dün aldığım ceket çok küçük. | die Jacke dişil; Akkusativ dişil de die. | die Jacke; kaufen
+luecke | 2 | Das ist der Kuchen, ___ meine Oma immer backt. | den | | Bu, büyükannemin hep yaptığı pasta. | Özne meine Oma; pastayı yapıyor → nesne → den (Akkusativ eril). | der Kuchen; backen
+umform | 3 | Das Buch ist sehr spannend. Ich lese es gerade. → Relativsatz | Das Buch, das ich gerade lese, ist sehr spannend. | | Şu anda okuduğum kitap çok heyecanlı. | es = nesne → das (Akkusativ nötr); ilgi cümlesi isimden hemen sonra, iki yanı virgüllü. | das Buch; spannend
+fehler | 2 | Der Mann, der ich gestern getroffen habe, ist Arzt. | Der Mann, den ich gestern getroffen habe, ist Arzt. | der ich | Dün karşılaştığım adam doktor. | Özne ich; adam nesne → Akkusativ eril den. | der Mann; treffen
+
+@teil dat | Dativ: dem / der / dem / denen | hâl
+wahl | 2 | Das ist die Kollegin, ___ ich bei der Arbeit oft helfe. | der | der / die / denen | Bu, işte sık sık yardım ettiğim iş arkadaşı. | helfen + Dativ; dişil Dativ → der. | die Kollegin; helfen
+luecke | 2 | Der Freund, ___ ich mein Fahrrad geliehen habe, bringt es heute zurück. | dem | | Bisikletimi ödünç verdiğim arkadaş onu bugün geri getiriyor. | jemandem etwas leihen: kime? → Dativ eril dem. | der Freund; leihen
+luecke | 3 | Die Leute, ___ ich geholfen habe, waren sehr dankbar. | denen | | Yardım ettiğim insanlar çok minnettardı. | helfen + Dativ, çoğul → denen (artikel gibi den değil!). | die Leute; helfen; dankbar
+luecke | 2 | Das Kind, ___ das Spielzeug gehört, weint. | dem | | Oyuncağın sahibi olan çocuk ağlıyor. | gehören + Dativ (kime ait?); das Kind → dem. | das Kind; gehören
+umform | 3 | Das ist meine Nachbarin. Ich habe ihr den Schlüssel gegeben. → Relativsatz | Das ist meine Nachbarin, der ich den Schlüssel gegeben habe. | | Bu, anahtarı verdiğim komşum. | ihr = Dativ dişil → der; fiil grubu en sonda: gegeben habe. | die Nachbarin; der Schlüssel; geben
+
+@teil praep | Edat + zamir: mit dem, für das, auf die | edat
+wahl | 2 | Das ist die Firma, ___ ich arbeite. | bei der | bei der / bei die / der | Bu, çalıştığım firma. | arbeiten bei + Dativ; edat zamirin önünde: bei der (die Firma, Dativ). | die Firma; arbeiten
+luecke | 2 | Wie heißt der Kollege, ___ du gesprochen hast? (mit) | mit dem | | Konuştuğun iş arkadaşının adı ne? | sprechen mit + Dativ → mit dem (eril). Edat başa. | der Kollege; sprechen mit
+luecke | 3 | Das ist ein Thema, ___ ich mich sehr interessiere. (für) | für das | | Bu, çok ilgilendiğim bir konu. | sich interessieren für + Akkusativ; das Thema → für das. | das Thema; sich interessieren für
+luecke | 3 | Die Freunde, ___ ich lange gewartet habe, sind nicht gekommen. (auf) | auf die | | Uzun süre beklediğim arkadaşlar gelmedi. | warten auf + Akkusativ, çoğul → auf die. | der Freund; warten auf
+umform | 3 | Das ist meine Freundin Ayşe. Ich fahre mit ihr in den Urlaub. → Relativsatz | Das ist meine Freundin Ayşe, mit der ich in den Urlaub fahre. | | Bu, birlikte tatile gittiğim arkadaşım Ayşe. | mit ihr → mit der (Dativ dişil); edat zamirle birlikte başa, fiil en sonda. | die Freundin; der Urlaub
+fehler | 2 | Das ist der Kurs, den ich mich angemeldet habe. | Das ist der Kurs, für den ich mich angemeldet habe. / Das ist der Kurs, zu dem ich mich angemeldet habe. | den ich mich | Bu, kaydolduğum kurs. | sich anmelden für / zu: edat zamirin önüne gelmeli → für den / zu dem. | der Kurs; sich anmelden
+
+@teil wo-was | wo ve was | hâl
+wahl | 1 | Alles, ___ er sagt, ist richtig. | was | was / das / dass | Söylediği her şey doğru. | alles, etwas, nichts'ten sonra ilgi zamiri was. | sagen
+luecke | 2 | Das ist das Café, ___ wir uns kennengelernt haben. | wo / in dem | | Bu, tanıştığımız kafe. | Yer bildiren isimden sonra wo ya da edat + zamir (in dem). | das Café; kennenlernen
+luecke | 2 | Gibt es etwas, ___ ich für dich tun kann? | was / das | | Senin için yapabileceğim bir şey var mı? | etwas'tan sonra genellikle was (das da doğru). alles ve nichts'ten sonra yalnız was. | etwas; tun
+luecke | 3 | Er hat die Prüfung bestanden, ___ mich sehr freut. | was | | Sınavı geçti, bu da beni çok sevindiriyor. | Zamir tek bir isme değil, bütün cümleye bağlanıyor → was. | die Prüfung; bestehen
+ordnen | 2 | das ist / die Stadt / wo / ich / geboren bin | Das ist die Stadt, wo ich geboren bin. | | Burası doğduğum şehir. | Yer için wo; ilgi cümlesinde çekimli fiil (bin) en sonda. | die Stadt
+
+@teil stellung | Kelime sırası: fiil en sonda, virgül | kelime sırası
+ordnen | 2 | der Bus / der / zum Bahnhof / fährt / kommt / gleich | Der Bus, der zum Bahnhof fährt, kommt gleich. | | İstasyona giden otobüs birazdan geliyor. | İlgi cümlesi isimden hemen sonra; içinde fiil (fährt) en sonda, sonra ana cümlenin fiili (kommt). | der Bus; der Bahnhof; fahren
+ordnen | 3 | die Wohnung / die / wir / gestern / besichtigt haben / war / zu teuer | Die Wohnung, die wir gestern besichtigt haben, war zu teuer. | | Dün gezdiğimiz daire çok pahalıydı. | Akkusativ die (nesne); fiil grubu (besichtigt haben) en sonda; ana cümle fiili (war) virgülden sonra. | die Wohnung; besichtigen; teuer
+ordnen | 2 | ich kenne / eine Ärztin / die / gut / Türkisch / spricht | Ich kenne eine Ärztin, die gut Türkisch spricht. / Ich kenne eine Ärztin, die Türkisch gut spricht. | | İyi Türkçe konuşan bir doktor tanıyorum. | die = özne (Nominativ dişil); çekimli fiil (spricht) en sonda. | die Ärztin; sprechen mit
+fehler | 2 | Ich suche eine Wohnung, die hat einen Balkon. | Ich suche eine Wohnung, die einen Balkon hat. | die hat einen Balkon | Balkonlu bir daire arıyorum. | İlgi cümlesi yan cümledir: çekimli fiil (hat) en sona. | die Wohnung; der Balkon
+fehler | 2 | Das ist der Lehrer, mit dem ich gestern gesprochen habe. | Das ist der Lehrer, mit dem ich gestern gesprochen habe. | - | Bu, dün konuştuğum öğretmen. | Hata yok: mit + Dativ eril → mit dem; fiil grubu en sonda. | der Lehrer; sprechen mit
+umform | 3 | Die Frau wohnt neben uns. Sie ist Ärztin. → Relativsatz | Die Frau, die neben uns wohnt, ist Ärztin. | | Yan dairemizde oturan kadın doktor. | İlgi cümlesi isimden hemen sonra araya girer: Die Frau, die …, ist Ärztin. | die Frau; die Ärztin; wohnen

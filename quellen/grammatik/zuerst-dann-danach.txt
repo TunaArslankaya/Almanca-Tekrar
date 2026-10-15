@@ -1,0 +1,86 @@
+# Gramer konusu: sıralama zarfları zuerst, dann, danach, anschließend, vorher, zum Schluss (+ nach / nachdem / bevor ayrımı). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id zuerst-dann-danach
+@titel Reihenfolge: zuerst, dann, danach, vorher, zum Schluss
+@tr Sıralama zarfları: önce, sonra, ondan sonra, ondan önce, en sonunda
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 2 | Schreiben 1 (olay anlatma) · Sprechen 2 (sunum: Folien sırası)
+@voraus v2-satzbau
+@kontrast temporal
+@etiket kelime sırası
+@kurz zuerst / dann / danach / anschließend / vorher / zum Schluss 1. yerde → hemen çekimli fiil. danach / vorher zarftır (fiil arkada), nachdem / bevor bağlaçtır (fiil sonda), nach + isim edattır.
+
+@erklaerung
+Bir olayı sırayla anlatırken zarflar kullanılır: zuerst (önce), dann (sonra), danach / anschließend (ondan sonra), später (daha sonra), vorher / davor (ondan önce), zum Schluss / am Ende (en sonunda). Hepsi 1. yeri doldurur: arkalarından hemen çekimli fiil, sonra özne gelir: Zuerst frühstücke ich, dann fahre ich zur Uni.
+
+Türkçede "sonra ben gidiyorum" dediğimiz için "dann ich gehe" hatası çok yapılır. Doğrusu: dann gehe ich.
+
+1. und / aber sıra saymaz: …, und dann gehe ich nach Hause. Özne tekrar edilmezse: Ich esse und gehe dann nach Hause.
+2. Üç benzer sözcük: nach + Dativ bir isimle (nach dem Kurs), danach tek başına (zarf, fiil hemen arkada), nachdem yan cümle açar (fiil sonda): Nachdem ich gegessen hatte, bin ich gegangen. nachdem'li cümlede önceki olay bir zaman geride durur (Plusquamperfekt / Perfekt).
+3. Önce olan için: vorher (zarf) ↔ bevor (bağlaç, fiil sonda) ↔ vor + Dativ (vor dem Kurs).
+4. wenn-yan cümlesinden sonra dann gelebilir; arkasından yine fiil: Wenn du Zeit hast, dann ruf mich an.
+
+Sınavda: Schreiben Teil 1'de bir olayı, Sprechen Teil 2'de sunumu sıralarken (Zuerst … Dann … Zum Schluss …) kullanılır.
+@ende
+
+@tabelle Sıralama zarfları (hepsi 1. yerde → fiil hemen arkada)
+zarf | anlam | örnek
+zuerst | önce, ilk olarak | Zuerst lese ich die Aufgabe.
+dann | sonra | Dann schreibe ich die Antwort.
+danach / anschließend | ondan sonra | Danach kontrolliere ich alles.
+vorher / davor | ondan önce | Vorher muss ich noch einkaufen.
+später | daha sonra | Später rufe ich dich an.
+zum Schluss / am Ende | en sonunda | Zum Schluss mache ich den Computer aus.
+@ende
+
+@tabelle Edat mı, zarf mı, bağlaç mı?
+tür | sonra | önce | sıra
+edat + Dativ | nach dem Essen | vor dem Essen | isim grubu: Nach dem Essen gehe ich …
+zarf | danach | vorher | 1. yer, fiil hemen arkada: Danach gehe ich …
+bağlaç | nachdem ich gegessen hatte | bevor ich esse | yan cümle, fiil sonda: …, gehe ich …
+@ende
+
+@beispiel Zuerst frühstücke ich, dann fahre ich mit dem Rad zur Uni. | Önce kahvaltı yapıyorum, sonra bisikletle üniversiteye gidiyorum.
+@beispiel Nach dem Kurs gehe ich in die Mensa. Danach lerne ich in der Bibliothek. | Kurstan sonra yemekhaneye gidiyorum. Ondan sonra kütüphanede çalışıyorum.
+@beispiel Wir treffen uns um acht. Vorher muss ich noch einkaufen. | Saat sekizde buluşuyoruz. Ondan önce bir de alışveriş yapmam lazım.
+
+@teil vorn | Zarf 1. yerde → fiil hemen arkada | kelime sırası
+wahl | 1 | Zuerst frühstücke ich, dann ___ zur Arbeit. | fahre ich | fahre ich / ich fahre / fahren ich | Önce kahvaltı yapıyorum, sonra işe gidiyorum. | dann 1. yeri doldurur: arkasından hemen çekimli fiil (fahre), sonra özne (ich). | frühstücken; die Arbeit
+luecke | 2 | Danach ___ wir noch einen Kaffee ___. (trinken · Perfekt) | haben ; getrunken | | Ondan sonra bir de kahve içtik. | Danach 1. yerde: çekimli yardımcı fiil (haben) hemen arkada, Partizip (getrunken) en sonda. | der Kaffee; trinken
+luecke | 2 | Zum Schluss ___ den Computer aus. (ich · machen) | mache ich | | En sonunda bilgisayarı kapatıyorum. | Zum Schluss 1. yerde: önce çekimli fiil (mache), sonra özne (ich); ön ek (aus) en sonda. | der Computer, -; ausmachen
+fehler | 2 | Am Morgen dusche ich, danach ich ziehe mich an. | Am Morgen dusche ich, danach ziehe ich mich an. | ich ziehe | Sabah duş alıyorum, ondan sonra giyiniyorum. | danach 1. yerde: fiil (ziehe) önce, özne (ich) sonra; dönüşlü zamir (mich) öznenin arkasında. | duschen; sich anziehen
+ordnen | 2 | zuerst / ich / koche / dann / wir / essen / zusammen | Zuerst koche ich, dann essen wir zusammen. / Ich koche zuerst, dann essen wir zusammen. / Zuerst koche ich, wir essen dann zusammen. / Ich koche zuerst, wir essen dann zusammen. | | Önce ben yemek yapıyorum, sonra birlikte yiyoruz. | Zarf 1. yerdeyse fiil hemen arkasında (koche ich, essen wir); özne başta kalırsa zarf fiilden sonra gelir. | kochen; zusammen
+umform | 2 | Ich mache meine Hausaufgaben. Ich sehe fern. → danach | Ich mache meine Hausaufgaben, danach sehe ich fern. / Ich mache meine Hausaufgaben und danach sehe ich fern. / Ich mache meine Hausaufgaben und sehe danach fern. / Ich mache meine Hausaufgaben, ich sehe danach fern. | | Ödevlerimi yapıyorum, ondan sonra televizyon izliyorum. | danach 1. yerde → sehe ich fern; ön ek (fern) en sonda. und ile özne tekrar edilmezse: … und sehe danach fern. | die Hausaufgabe; fernsehen
+
+@teil und-dann | und / aber + dann: und sıra saymaz | kelime sırası
+luecke | 1 | Wir haben gegessen und dann ___ spazieren gegangen. | sind wir | sind wir / wir sind / haben wir | Yemek yedik, sonra yürüyüşe çıktık. | und 0. yerde, dann 1. yerde → çekimli fiil (sind) hemen arkada, özne (wir) sonra. spazieren gehen yer değiştirir → sein. | spazieren gehen; essen
+wahl | 2 | Welcher Satz ist richtig? | Ich lese die E-Mail und dann antworte ich sofort. | Ich lese die E-Mail und dann antworte ich sofort. / Ich lese die E-Mail und dann ich antworte sofort. / Ich lese die E-Mail und ich dann antworte sofort. | E-postayı okuyorum, sonra hemen cevap veriyorum. | und sayılmaz, dann 1. yer: dann antworte ich. Özne tekrar edilmezse "… und antworte dann sofort" de doğru. | die E-Mail, -s; antworten; sofort
+fehler | 2 | Ich bin nach Hause gekommen und habe dann gekocht. | Ich bin nach Hause gekommen und habe dann gekocht. | - | Eve geldim ve sonra yemek yaptım. | Hata yok: özne tekrar edilmediği için und'dan sonra doğrudan çekimli fiil (habe) gelir, dann fiilden sonra. | kochen
+ordnen | 3 | wir / waren / im Kino / und / danach / sind / wir / noch / in eine Bar / gegangen | Wir waren im Kino und danach sind wir noch in eine Bar gegangen. / Wir waren im Kino und wir sind danach noch in eine Bar gegangen. | | Sinemadaydık, ondan sonra bir de bara gittik. | und sıra saymaz: danach 1. yerde → sind wir; Partizip (gegangen) en sonda. | das Kino; die Bar
+
+@teil nachdem | nach (edat) · danach (zarf) · nachdem (bağlaç) | bağlaç
+wahl | 1 | ___ dem Unterricht gehe ich in die Mensa. | Nach | Nach / Danach / Nachdem | Dersten sonra yemekhaneye gidiyorum. | Arkada bir isim grubu (dem Unterricht) var → edat nach + Dativ. | der Unterricht; die Mensa
+wahl | 2 | ___ ich die Prüfung bestanden hatte, habe ich mit Freunden gefeiert. | Nachdem | Nach / Danach / Nachdem | Sınavı geçtikten sonra arkadaşlarla kutladım. | Arkada fiili sonda olan bir yan cümle var (… bestanden hatte) → bağlaç nachdem. | die Prüfung; bestehen; feiern
+luecke | 1 | Ich habe die Prüfung bestanden. ___ habe ich mit Freunden gefeiert. | Danach | Nach / Danach / Nachdem | Sınavı geçtim. Ondan sonra arkadaşlarla kutladım. | Çekimli fiil (habe) hemen arkada → zarf danach: "ondan sonra". | die Prüfung; bestehen; feiern
+umform | 3 | Ich habe gefrühstückt. Danach bin ich zur Uni gefahren. → Nachdem … | Nachdem ich gefrühstückt hatte, bin ich zur Uni gefahren. | | Kahvaltı yaptıktan sonra üniversiteye gittim. | nachdem-yan cümlesinde fiil sonda; önceki olay bir zaman geride: Plusquamperfekt (gefrühstückt hatte). Ana cümle fiille başlar: …, bin ich … | frühstücken; die Uni, -s
+fehler | 3 | Danach ich gegessen hatte, habe ich abgewaschen. | Nachdem ich gegessen hatte, habe ich abgewaschen. | Danach | Yemek yedikten sonra bulaşıkları yıkadım. | Fiili sonda olan yan cümleyi danach değil nachdem açar. danach zarftır: Ich habe gegessen, danach habe ich abgewaschen. | essen; abwaschen
+luecke | 2 | ___ dem Kurs ___ ich meistens in die Bibliothek. (sonra · gehen) | Nach ; gehe | | Kurstan sonra genelde kütüphaneye gidiyorum. | İsim grubu (dem Kurs) önünde edat nach + Dativ; bu grup 1. yerdedir, çekimli fiil (gehe) hemen arkasında. | der Kurs; die Bibliothek; meistens
+
+@teil vorher | vorher (zarf) · bevor (bağlaç) · vor (edat) | bağlaç
+luecke | 2 | Wir treffen uns um acht. ___ muss ich noch einkaufen. | Vorher | Vorher / Bevor / Vor | Saat sekizde buluşuyoruz. Ondan önce bir de alışveriş yapmam lazım. | Çekimli fiil (muss) hemen arkada → zarf; anlam "ondan önce" → vorher. bevor yan cümle açar, vor ise isimle gelir (vor dem Treffen). | einkaufen; sich treffen mit
+wahl | 2 | ___ du losfährst, ruf mich bitte an. | Bevor | Bevor / Vorher / Danach | Yola çıkmadan önce beni ara lütfen. | Fiil (losfährst) sonda → yan cümle: bağlaç bevor. | losfahren; anrufen
+umform | 3 | Die Gäste kommen um sieben. Vorher räume ich die Wohnung auf. → Bevor … | Bevor die Gäste um sieben kommen, räume ich die Wohnung auf. | | Misafirler yedide gelmeden önce evi topluyorum. | bevor-yan cümlesinde fiil (kommen) sonda; yan cümle başta → ana cümle fiille başlar: räume ich … auf. | der Gast; aufräumen; die Wohnung
+ordnen | 3 | ich / muss / vorher / noch / meine Mutter / anrufen | Ich muss vorher noch meine Mutter anrufen. / Vorher muss ich noch meine Mutter anrufen. / Ich muss meine Mutter vorher noch anrufen. / Vorher muss ich meine Mutter noch anrufen. / Meine Mutter muss ich vorher noch anrufen. | | Ondan önce daha annemi aramam lazım. | Modal fiil (muss) 2. yerde, mastar (anrufen) en sonda; vorher 1. yere çıkabilir → muss ich. | die Mutter; anrufen
+
+@teil wenn-dann | wenn …, (dann) …: yan cümle başta | kelime sırası
+luecke | 2 | Wenn du Hilfe brauchst, dann ___ mich ___! (anrufen · Imperativ du) | ruf ; an / rufe ; an | | Yardıma ihtiyacın olursa beni ara! | Yan cümleden sonra dann gelebilir; arkasından yine fiil gelir. Emir kipinde: ruf … an, ön ek (an) en sonda. | die Hilfe; brauchen; anrufen
+wahl | 1 | Wenn es morgen regnet, ___ ins Museum. | dann gehen wir | dann gehen wir / dann wir gehen / wir gehen | Yarın yağmur yağarsa müzeye gideriz. | wenn-yan cümlesinden sonra ana cümle fiille başlar; dann varsa da fiil hemen arkasında: dann gehen wir. | regnen; das Museum
+fehler | 2 | Wenn ich mit dem Kurs fertig bin, dann ich suche eine Arbeit. | Wenn ich mit dem Kurs fertig bin, dann suche ich eine Arbeit. | dann ich suche | Kursu bitirince iş arayacağım. | dann 1. yer → çekimli fiil (suche) hemen arkada, özne (ich) sonra. | fertig; der Kurs; suchen; die Arbeit
+fehler | 1 | Wenn ich Zeit habe, lese ich gern Krimis. | Wenn ich Zeit habe, lese ich gern Krimis. | - | Vaktim olunca polisiye okumayı severim. | Hata yok: dann olmadan da ana cümle doğrudan çekimli fiille (lese) başlar. | die Zeit; lesen; der Krimi
+ordnen | 3 | wenn / der Film / zu Ende ist / dann / gehen / wir / essen | Wenn der Film zu Ende ist, dann gehen wir essen. / Wenn der Film zu Ende ist, gehen wir dann essen. / Wir gehen dann essen, wenn der Film zu Ende ist. | | Film bitince yemeğe gideriz. | wenn-yan cümlesi başta (fiil sonda: ist); sonra dann + fiil + özne. | der Film; essen
+
+@teil ablauf | Bir süreci sırayla anlatmak | kelime sırası
+luecke | 3 | Zuerst ___ ich die Zutaten, dann ___ ich das Gemüse und zum Schluss ___ alles in den Topf. (kaufen · schneiden · ich geben) | kaufe ; schneide ; gebe ich | | Önce malzemeleri alıyorum, sonra sebzeleri doğruyorum ve en sonunda her şeyi tencereye koyuyorum. | Her sıralama zarfından sonra çekimli fiil gelir. und sıra saymaz: und zum Schluss gebe ich … | kaufen; das Gemüse; schneiden; der Topf
+umform | 2 | Ich stehe auf. Ich trinke einen Kaffee. → Zuerst … | Zuerst stehe ich auf, dann trinke ich einen Kaffee. / Zuerst stehe ich auf und dann trinke ich einen Kaffee. / Zuerst stehe ich auf, danach trinke ich einen Kaffee. / Zuerst stehe ich auf und danach trinke ich einen Kaffee. / Zuerst stehe ich auf und trinke dann einen Kaffee. | | Önce kalkıyorum, sonra bir kahve içiyorum. | Zuerst 1. yerde → stehe ich … auf; ikinci cümle dann / danach ile: dann trinke ich … | aufstehen; der Kaffee; trinken

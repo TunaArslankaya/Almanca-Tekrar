@@ -101,3 +101,50 @@ die Beerdigung, -en | 3 | cenaze töreni
 der Moderator, -en | 3 | sunucu (TV / radyo)
 die Motivation | 3 | motivasyon
 der Staat, -en | 2 | devlet
+die Toleranz | 3 | hoşgörü
+die Fairness | 3 | hakkaniyet, fair play
+die Ehrlichkeit | 3 | dürüstlük
+die Gerechtigkeit | 3 | adalet
+die Gleichberechtigung | 3 | eşit haklılık (kadın–erkek eşitliği)
+die Hilfsbereitschaft | 3 | yardımseverlik
+die Zivilcourage | 3 | sivil cesaret
+die Solidarität | 3 | dayanışma
+die Würde | 3 | onur, (insan) haysiyeti
+die Bildung | 3 | eğitim, öğrenim
+das Vorurteil, -e | 3 | önyargı
+das Zusammenleben | 3 | birlikte yaşam
+der Umgang | 3 | (biriyle) ilişki; (bir şeyle) başa çıkma
+das Bedürfnis, -se | 3 | ihtiyaç
+die Not, ¨-e | 3 | sıkıntı, darlık; acil durum
+das Ehrenamt, ¨-er | 3 | gönüllü (karşılıksız) görev
+der Feuerwehrmann, ¨-er | 3 | itfaiyeci (çoğul ayrıca: die Feuerwehrleute)
+das Hochwasser, - | 3 | sel, taşkın
+das Vereinsmitglied, -er | 3 | dernek üyesi
+die Patenschaft, -en | 3 | (gönüllü) destekçilik
+der Pate, -n | 3 | (gönüllü) destekçi; vaftiz babası
+das Vorhaben, - | 3 | plan, niyet
+der Behördengang, ¨-e | 3 | resmi daireye gidiş
+das Einwohnermeldeamt, ¨-er | 3 | adres kayıt dairesi
+die Anfrage, -n | 3 | (resmî) soru, talep
+der Dolmetscher, - | 3 | (sözlü) tercüman
+die Demokratie, -n | 3 | demokrasi
+die Meinungsfreiheit | 3 | ifade özgürlüğü
+die Regierung, -en | 3 | hükümet
+der Bundestag | 3 | Federal Meclis
+der Bundeskanzler, - | 3 | federal şansölye
+der Minister, - | 3 | bakan
+der Bürgermeister, - | 3 | belediye başkanı
+die Bürgerversammlung, -en | 3 | halk toplantısı
+der Mitgliedsstaat, -en | 3 | üye devlet
+die Währung, -en | 3 | para birimi
+die Grenzkontrolle, -n | 3 | sınır kontrolü
+der Weltkrieg, -e | 3 | dünya savaşı
+der Frieden | 3 | barış
+der Ausstieg, -e | 3 | çıkış, ayrılma
+die Dienstleistung, -en | 3 | hizmet
+die Brezel, -n | 3 | brezel
+die Semmel, -n | 3 | küçük ekmek (Güney Almanya)
+der Quark | 3 | quark (yumuşak taze peynir)
+die Schlagsahne | 3 | krem şanti
+die Konfitüre, -n | 3 | reçel
+die Aprikose, -n | 3 | kayısı

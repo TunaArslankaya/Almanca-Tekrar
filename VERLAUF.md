@@ -200,3 +200,25 @@ Son incelenen log satırı en alttaki notta yazar.
     (GitHub anahtarı) ve Safari'de "anahtarı kopyala".
 - Testler: `tests/e2e_smoke.js` turlarla güncellendi (paket önce; akış için yeni sınırı testte 25), `tests/sim_stau.js` birikme yayma; ikisi de geçti.
 - Son incelenen log satırı değişmedi: 2026-10-11 17:45:24 (bu not uygulama değişikliği).
+
+## 2026-10-15 — v5: tek hafıza + soru merdiveni, Gramer, Prüfung, Konuşma, gece Claude işi
+
+**İstek (14.10 akşam):** uygulama çekici ve verimli olsun, "biliyorum/bilmiyorum" soruları kalksın, Almanca çalışmanın tamamını kapsasın (gramer, sınav, Netzwerk neu K9–12), Claude gömülsün (düzeltme uygulamadan, içerik her gün yenilensin), her iş 1–2 denetçiden geçsin.
+
+**Araştırma (ajanlar, raporlar scratchpad'de):** öğrenme bilimi (successive relearning, hatırlama > tanıma, ön testin bağlantısız çiftlerde işe yaramaması, FSRS yük eğrisi), Almanca didaktiği (artikel üretimin parçası, edatlı fiil tek birim, Stammform kök başına), uygulama incelemeleri (Anki/WaniKani/Duolingo/Clozemaster/Lingvist), alışkanlık, log analizi (liste sonrası bırakma %55 vs %27; "biliyorum" 84/84 test edilmemiş; 2–4 Ekim'de 147 öğe = birikmenin %78'i), kod haritası, Android, gramer müfredatı, Goethe B1 sınavı, çalışma yöntemleri. 3 tasarım + 2 hakem + sentez: `scratchpad/girdi/SPEC.md`.
+
+**Yapılanlar**
+- Çekirdek v5 taş 1–4 bitti (kern.js + göç/senkron + akış + ekranlar; her taş Opus denetçi + düzeltme; commit'ler a38610b…5b889c6). Taş 5 (yan bölümler tek hafızaya: ünite/paket/fiil metni/okuma/oyun) ve son kullanıcı simülasyonu bekliyor. `js/kern.js` (DOM'suz, `tests/test_kern.js` 379, `tests/test_goc.js` 76): öğe başına tek hafıza `m` (+ isimde `art`, düzensiz fiilde kök `S.kok`), basamak (B0 tanı → B1 seç → B2 yaz → B3 cümlede boşluk → B4 tam cümle), notu sistem verir (biçim ofseti, kısmi kredi, günde tek kalıcı yazım), seçim (`Kern.sec`: yeniden sorma → yeni parti → metin → kurtarma → R azalan), kota (genç öğe yüküne bağlı, en az 2), göç (547 kart → öğe; `kartenV3` yedeği, 30 gün gölge yazım, `v3Yetis`, `surum` işareti, boş cihaz yazmaz), cihaz başına gün sayaçları (`tageC`), log ayrı anahtarda. Kontrol listesi / ön test / rastgele kontrol kapalı.
+- Gramer bölümü (`quellen/grammatik/*.txt`, `FORMAT.md`, `js/gramer.js`): 29 konu / ~870 alıştırma (5 tür), konu başına FSRS, hayalet tekrar, karışık tekrar; 4 grup Opus denetçiden geçti (satır satır düzeltme).
+- Prüfung (`js/pruefung.js`): Lesen tam/mini prova (Übungssatz, süre, puan ×3,33, Teil tablosu, yanlışlar), Schreiben Teil 1–3 süreli, Sprechen sınav akışı (hazırlık 15 dk, partner sesi, 5 slayt, Teil 3 soru), sınav tarihi geri sayımı. Goethe metinleri okuma havuzundan çıktı.
+- Konuşma: shadowing (dinle–tekrarla–kaydet), Sprechen Teil 1–3 kartları, Redemittel (`sprechen1/2/3`).
+- Okuma: DW ses (`audio`), sesli oku. Üniteler: `@kapitel`, `@inaktiv`, Ayarlar'dan aç/kapa; Netzwerk neu K9–K12 (`unite3..6`, kapalı; kaynak: Klett Glossar OCR dökümleri + web özetleri, Tuna kitapla karşılaştıracak).
+- Claude gömme: `.github/workflows/gece.yml` (Claude Code aboneliğiyle; `tools/istem_gece.md`, `istem_geribildirim.md`), `tools/feedback_json.js` → `log/feedback.json`, uygulamada "Claude'a şimdi baktır".
+- Senkron/PWA: kart kart birleştirme, `cache: no-store`, kabuk önbellekten anında, manifest `id`, gün değişimi, seri rekoru geçmişten, Google Takvim hatırlatıcı, Artikel oyunu hedefe sayılmaz, toast/kombo/hover/paket Devam düzeltmeleri.
+
+- `tests/sim_akis.js` "3 gün üst üste artış" ölçütü gürültüye karşı gevşetildi (toplam +6'dan az sayılmaz; +2/+3 dalgaları eski kodda da vardı).
+
+**Aksilik:** 14.10 22:30 UTC'de oturum limitine takıldı, 05:00 UTC'ye kadar durdu; sabah 7 hedefi kaçtı, 12:00'ye ertelendi.
+
+**Sorular:** Ünite 2 26.10'a kadar bitmeli mi (hızlandırma)? Günlük hedef 3 mü 4 tur mu? K9–K12 listeleri kitapla uyuyor mu? Sınav tarihi?
+Son incelenen log satırı: 2026-10-14 19:35:21 (abr v063).

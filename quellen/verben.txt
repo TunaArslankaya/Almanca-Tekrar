@@ -688,3 +688,18 @@ empfinden | A | 3 | hissetmek, duymak | empfindet, empfand, hat empfunden
 betragen | A | 3 | (miktar) tutmak, olmak | beträgt, betrug, hat betragen
 gelangen | - | 3 | (bir yere) ulaşmak, varmak | gelangt, gelangte, ist gelangt
 kommen auf | auf+A | 3 | (bir çözümü / fikri) bulmak, aklına gelmek
+spenden | A | 3 | bağışlamak | spendet, spendete, hat gespendet
+alarmieren | A | 3 | (itfaiye, polis) çağırmak | alarmiert, alarmierte, hat alarmiert
+ausbilden | A | 3 | yetiştirmek, (meslek) eğitimi vermek | bildet aus, bildete aus, hat ausgebildet
+bewältigen | A | 3 | üstesinden gelmek | bewältigt, bewältigte, hat bewältigt
+durchführen | A | 3 | gerçekleştirmek, yürütmek | führt durch, führte durch, hat durchgeführt
+sich abmelden | - | 3 | kaydını sildirmek | meldet ab, meldete ab, hat abgemeldet
+herausfinden | A | 3 | bulup çıkarmak, öğrenmek | findet heraus, fand heraus, hat herausgefunden
+dolmetschen | - | 3 | sözlü tercüme yapmak | dolmetscht, dolmetschte, hat gedolmetscht
+verbreiten | A | 3 | yaymak | verbreitet, verbreitete, hat verbreitet
+befürchten | A | 3 | (kötü bir şeyden) endişe etmek | befürchtet, befürchtete, hat befürchtet
+unterzeichnen | A | 3 | (resmî belge) imzalamak | unterzeichnet, unterzeichnete, hat unterzeichnet
+beitreten | D | 3 | (bir kuruma) katılmak, üye olmak | tritt bei, trat bei, ist beigetreten
+führen zu | zu+D | 3 | -e yol açmak | führt, führte, hat geführt
+zulassen | A | 3 | izin vermek; (resmî) onaylamak | lässt zu, ließ zu, hat zugelassen
+würzen | A | 3 | baharatlamak | würzt, würzte, hat gewürzt

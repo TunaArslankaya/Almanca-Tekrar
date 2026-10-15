@@ -1,0 +1,120 @@
+# Ünite (Kapitel 12): Netzwerk neu B1.2 "Geld regiert die Welt?". Liste Claude'un web araştırmasından (Klett Glossar sayfa sırası + konu); örnek cümleleri Claude yazdı (kitaptan kopya yok).
+# tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
+# tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat
+# @inaktiv: Tuna Ayarlar'dan açana kadar kapalı (kitapta sırası gelince aç). Açınca istersen @bis YYYY-MM-DD ekle.
+# kaynak: web-ozet
+@kapitel 12
+@titel Geld regiert die Welt?
+@inaktiv
+@gruppe Geld und Bank
+n | das Konto | die Konten | (banka) hesap | Für mein Studium in Bremen habe ich ein Konto bei einer Bank eröffnet. | Konto | Bremen'deki üniversite eğitimim için bir bankada hesap açtım.
+n | der Kontoauszug | die Kontoauszüge | hesap dökümü, hesap ekstresi | Auf dem Kontoauszug sehe ich genau, wofür ich mein Geld ausgegeben habe. | Kontoauszug | Hesap dökümünde parayı neye harcadığımı tam olarak görüyorum.
+n | das Bankgeschäft | die Bankgeschäfte | bankacılık işlemi | Die meisten Bankgeschäfte erledige ich inzwischen bequem online von zu Hause. | Bankgeschäfte | Bankacılık işlemlerimin çoğunu artık evden rahatça internetten hallediyorum.
+n | der Kredit | die Kredite | kredi | Die Bank gibt mir keinen Kredit, weil ich zu wenig verdiene. | Kredit | Banka bana kredi vermiyor, çünkü çok az kazanıyorum.
+x | einen Kredit aufnehmen | nimmt auf, nahm auf, hat aufgenommen | kredi çekmek | Meine Schwester hat einen Kredit aufgenommen, um ihr Studium zu finanzieren. | aufgenommen | Ablam üniversite eğitimini finanse etmek için kredi çekti.
+n | die Rate | die Raten | taksit | Den Fernseher bezahle ich in zwölf Raten von je fünfzig Euro. | Raten | Televizyonu ellişer avrodan on iki taksitte ödüyorum.
+n | der Zins | die Zinsen (meist Pl.) | faiz | Für mein Sparkonto bekomme ich leider kaum noch Zinsen. | Zinsen | Birikim hesabım için maalesef artık neredeyse hiç faiz almıyorum.
+n | die Schulden | (Pl.) | borç | Nach dem Studium hatte er fast zehntausend Euro Schulden. | Schulden | Üniversiteden sonra neredeyse on bin avro borcu vardı.
+v | geraten in | in + A · gerät, geriet, ist geraten | (bir duruma) düşmek; in Schulden geraten = borca girmek | Viele junge Leute sind durch teure Handyverträge in Schulden geraten. | geraten | Birçok genç pahalı cep telefonu sözleşmeleri yüzünden borca girdi.
+n | die Schuld | (Sg.) · schuld sein an + D | suç, kabahat (borç değil!) | Die Bank hat den Fehler gemacht, es ist nicht meine Schuld. | Schuld | Hatayı banka yaptı, benim suçum değil.
+n | der Betrag | die Beträge | tutar, miktar | Bitte überweisen Sie den Betrag bis Ende des Monats auf unser Konto. | Betrag | Lütfen tutarı ay sonuna kadar hesabımıza havale edin.
+n | die Gebühr | die Gebühren | ücret, harç | Für eine Überweisung ins Ausland verlangt meine Bank eine Gebühr. | Gebühr | Bankam yurt dışına havale için ücret alıyor.
+n | die Kontoführungsgebühr | die Kontoführungsgebühren | hesap işletim ücreti | Bei dieser Bank zahlen Studierende keine monatliche Kontoführungsgebühr. | Kontoführungsgebühr | Bu bankada öğrenciler aylık hesap işletim ücreti ödemiyor.
+n | die Kontoeröffnung | die Kontoeröffnungen | hesap açma | Für die Kontoeröffnung brauchen Sie Ihren Pass und eine Meldebescheinigung. | Kontoeröffnung | Hesap açmak için pasaportunuz ve ikamet belgeniz gerekiyor.
+n | das Bargeld | (Sg.) | nakit para | In Deutschland bezahlen viele Menschen immer noch gern mit Bargeld. | Bargeld | Almanya'da birçok insan hâlâ nakit ödemeyi seviyor.
+a | bargeldlos | | nakitsiz, kartla | Im Café an der Uni kann man nur bargeldlos bezahlen. | bargeldlos | Üniversitedeki kafede sadece kartla ödeme yapılabiliyor.
+n | das Kleingeld | (Sg.) | bozuk para | Hast du Kleingeld für den Parkautomaten? Ich habe nur Scheine. | Kleingeld | Otopark makinesi için bozuk paran var mı? Bende sadece kâğıt para var.
+n | die Münze | die Münzen | madeni para | Am Automaten kann man nur mit Münzen bezahlen, nicht mit Karte. | Münzen | Otomatta sadece madeni parayla ödeme yapılabiliyor, kartla değil.
+n | der Schein | die Scheine | kâğıt para, banknot | Der Geldautomat gibt leider nur Scheine von fünfzig Euro aus. | Scheine | ATM maalesef sadece elli avroluk banknot veriyor.
+n | der Geldautomat | die Geldautomaten · den Geldautomaten | ATM, bankamatik | Der nächste Geldautomat ist leider zwei Kilometer von hier entfernt. | Geldautomat | En yakın ATM maalesef buraya iki kilometre uzaklıkta.
+v | abheben | trennbar: hebt ab, hob ab, hat abgehoben | (para) çekmek | Ich muss noch schnell Geld abheben, bevor wir ins Restaurant gehen. | abheben | Restorana gitmeden önce hemen para çekmem lazım.
+v | einzahlen | trennbar: zahlt ein, zahlte ein, hat eingezahlt | (hesaba) para yatırmak | Gestern habe ich das Geld vom Flohmarkt auf mein Konto eingezahlt. | eingezahlt | Dün bit pazarından kazandığım parayı hesabıma yatırdım.
+n | der Beleg | die Belege | makbuz, fiş, belge | Heben Sie alle Belege auf, dann können Sie die Kosten später prüfen. | Belege | Bütün makbuzları saklayın, o zaman masrafları sonra kontrol edebilirsiniz.
+n | die Einnahme | die Einnahmen | gelir | Meine Einnahmen sind leider niedriger als meine Ausgaben. | Einnahmen | Gelirlerim maalesef giderlerimden düşük.
+n | die Ausgabe | die Ausgaben | harcama, gider (ayrıca: baskı) | Ich schreibe alle Ausgaben in eine App, um mehr zu sparen. | Ausgaben | Daha çok biriktirmek için bütün harcamalarımı bir uygulamaya yazıyorum.
+n | die Zahlung | die Zahlungen | ödeme | Die Zahlung ist noch nicht auf meinem Konto angekommen. | Zahlung | Ödeme henüz hesabıma gelmedi.
+n | der Verlust | die Verluste | kayıp, zarar | Die Firma hat im letzten Jahr hohe Verluste gemacht. | Verluste | Şirket geçen yıl büyük zarar etti.
+v | überziehen | überzieht, überzog, hat überzogen | (hesabı) eksiye düşürmek | Wer sein Konto überzieht, muss der Bank hohe Zinsen zahlen. | überzieht | Hesabını eksiye düşüren, bankaya yüksek faiz ödemek zorunda kalır.
+v | angeben | trennbar: gibt an, gab an, hat angegeben | belirtmek; (günlük dil) hava atmak | Bei einer Überweisung sollten Sie den Verwendungszweck angeben. | angeben | Havalede ödeme açıklamasını belirtmelisiniz.
+v | regieren | regiert, regierte, hat regiert | yönetmek, hükmetmek | Viele Leute glauben, dass Geld die Welt regiert. | regiert | Birçok insan paranın dünyayı yönettiğine inanıyor.
+n | der Antrag | die Anträge | başvuru (formu), dilekçe | Den Antrag für das Konto können Sie auch online ausfüllen. | Antrag | Hesap başvuru formunu internetten de doldurabilirsiniz.
+v | beantragen | beantragt, beantragte, hat beantragt | (resmî olarak) başvurmak, talep etmek | Ich habe bei meiner Bank eine neue Kreditkarte beantragt. | beantragt | Bankamdan yeni bir kredi kartı talep ettim.
+n | die Nebenkosten | (Pl.) | yan giderler (ısınma, su, çöp) | Die Miete beträgt 400 Euro, die Nebenkosten kommen noch dazu. | Nebenkosten | Kira 400 avro, yan giderler buna ekleniyor.
+v | anfallen | trennbar: fällt an, fiel an, ist angefallen | (masraf, ücret) çıkmak, doğmak | Bei Zahlungen im Ausland können zusätzliche Gebühren anfallen. | anfallen | Yurt dışındaki ödemelerde ek ücretler çıkabilir.
+@gruppe Online-Banking
+n | das Online-Banking | (Sg.) | internet bankacılığı | Mit Online-Banking kann ich meine Rechnungen auch nachts bezahlen. | Online-Banking | İnternet bankacılığıyla faturalarımı gece de ödeyebiliyorum.
+v | sich einloggen | trennbar: loggt sich ein, hat sich eingeloggt | oturum açmak, giriş yapmak | Um dich einzuloggen, brauchst du deinen Benutzernamen und ein Passwort. | einzuloggen | Giriş yapmak için kullanıcı adına ve bir şifreye ihtiyacın var.
+n | der Benutzername | die Benutzernamen · des Benutzernamens | kullanıcı adı | Ich habe meinen Benutzernamen vergessen und kann mich nicht einloggen. | Benutzernamen | Kullanıcı adımı unuttum ve giriş yapamıyorum.
+n | die Überweisung | die Überweisungen | havale | Eine Überweisung innerhalb von Deutschland dauert normalerweise nur einen Tag. | Überweisung | Almanya içinde bir havale normalde sadece bir gün sürer.
+v | überweisen | D + A · überweist, überwies, hat überwiesen | havale etmek | Kannst du mir das Geld für die Konzertkarte morgen überweisen? | überweisen | Konser biletinin parasını bana yarın havale edebilir misin?
+n | der Dauerauftrag | die Daueraufträge | düzenli ödeme talimatı | Meine Miete bezahle ich jeden Monat automatisch per Dauerauftrag. | Dauerauftrag | Kiramı her ay otomatik olarak düzenli ödeme talimatıyla ödüyorum.
+a | monatlich | | aylık, her ay | Mein Handyvertrag kostet monatlich fünfzehn Euro, das ist nicht viel. | monatlich | Cep telefonu sözleşmem aylık on beş avro, bu çok değil.
+v | eintragen | trennbar: trägt ein, trug ein, hat eingetragen | (forma) yazmak, girmek | Hier müssen Sie die IBAN und den Namen des Empfängers eintragen. | eintragen | Buraya alıcının IBAN'ını ve adını girmeniz gerekiyor.
+v | gutschreiben | trennbar: schreibt gut, schrieb gut, hat gutgeschrieben | (hesaba) alacak olarak geçirmek | Der Betrag wird Ihrem Konto innerhalb von zwei Tagen gutgeschrieben. | gutgeschrieben | Tutar iki gün içinde hesabınıza geçirilecek.
+v | versäumen | versäumt, versäumte, hat versäumt | kaçırmak, ihmal etmek | Wenn Sie eine Rate versäumen, müssen Sie eine Gebühr bezahlen. | versäumen | Bir taksidi kaçırırsanız ücret ödemeniz gerekir.
+v | bedenken | bedenkt, bedachte, hat bedacht | göz önünde bulundurmak, hesaba katmak | Bevor du einen Kredit aufnimmst, solltest du alle Kosten bedenken. | bedenken | Kredi çekmeden önce bütün masrafları göz önünde bulundurmalısın.
+v | betrügen | betrügt, betrog, hat betrogen | dolandırmak; aldatmak | Im Internet versuchen Kriminelle oft, Kunden mit falschen E-Mails zu betrügen. | betrügen | İnternette suçlular sık sık sahte e-postalarla müşterileri dolandırmaya çalışıyor.
+@gruppe Konsum und Globalisierung
+n | der Verbraucher | die Verbraucher | tüketici | Die Verbraucher zahlen immer mehr für Lebensmittel und Energie. | Verbraucher | Tüketiciler gıda ve enerji için gittikçe daha fazla ödüyor.
+n | der Konsument | die Konsumenten · den Konsumenten | tüketici | Viele Konsumenten achten heute darauf, wo ihre Kleidung produziert wird. | Konsumenten | Birçok tüketici bugün kıyafetlerinin nerede üretildiğine dikkat ediyor.
+n | die Wirtschaft | (Sg.) | ekonomi | Die deutsche Wirtschaft exportiert viele Autos und Maschinen in die ganze Welt. | Wirtschaft | Alman ekonomisi dünyanın her yerine çok sayıda araba ve makine ihraç ediyor.
+n | die Globalisierung | (Sg.) | küreselleşme | Durch die Globalisierung werden viele Produkte in Asien hergestellt und bei uns verkauft. | Globalisierung | Küreselleşmeyle birlikte birçok ürün Asya'da üretilip bizde satılıyor.
+n | der Weltmarkt | die Weltmärkte | dünya piyasası | Der Preis für Kaffee hängt vom Weltmarkt ab. | Weltmarkt | Kahvenin fiyatı dünya piyasasına bağlı.
+a | global | | küresel | Der Klimawandel ist ein globales Problem, das alle Länder betrifft. | globales | İklim değişikliği bütün ülkeleri etkileyen küresel bir sorun.
+n | der Wohlstand | (Sg.) | refah | Der Wohlstand in Deutschland ist nach dem Krieg schnell gewachsen. | Wohlstand | Almanya'daki refah savaştan sonra hızla arttı.
+v | profitieren von | von + D · profitiert, profitierte, hat profitiert | -den yararlanmak, kazançlı çıkmak | Nicht alle Länder profitieren gleich stark von der Globalisierung. | profitieren | Bütün ülkeler küreselleşmeden aynı ölçüde yararlanmıyor.
+v | nützen | + D · nützt, nützte, hat genützt | (birine) yararı olmak, işine yaramak | Billige Kleidung nützt vor allem den großen Firmen, nicht den Arbeitern. | nützt | Ucuz giyim en çok büyük şirketlerin işine yarıyor, işçilerin değil.
+v | besitzen | besitzt, besaß, hat besessen | sahip olmak | Die meisten Jugendlichen besitzen heute ein eigenes Smartphone. | besitzen | Gençlerin çoğunun bugün kendi akıllı telefonu var.
+a | wertvoll | | değerli | In einem alten Handy stecken wertvolle Metalle wie Gold und Kupfer. | wertvolle | Eski bir cep telefonunda altın ve bakır gibi değerli metaller bulunur.
+n | die Wissenschaft | die Wissenschaften | bilim | Die Wissenschaft sucht nach Wegen, alte Handys besser zu recyceln. | Wissenschaft | Bilim eski cep telefonlarını daha iyi geri dönüştürmenin yollarını arıyor.
+v | überleben | überlebt, überlebte, hat überlebt | hayatta kalmak; (bir şeyi) atlatmak | Viele kleine Läden überleben die Konkurrenz der großen Online-Shops nicht. | überleben | Birçok küçük dükkân büyük internet mağazalarının rekabetini atlatamıyor.
+v | zunehmen | trennbar: nimmt zu, nahm zu, hat zugenommen | artmak; kilo almak | Der Handel im Internet hat in den letzten Jahren stark zugenommen. | zugenommen | İnternet ticareti son yıllarda çok arttı.
+v | basieren auf | auf + D · basiert, basierte, hat basiert | -e dayanmak | Der Artikel basiert auf einer Studie mit tausend Verbrauchern. | basiert | Makale bin tüketiciyle yapılan bir araştırmaya dayanıyor.
+n | die Bekämpfung | (Sg.) | (bir şeyle) mücadele | Die Regierung gibt viel Geld für die Bekämpfung der Armut aus. | Bekämpfung | Hükümet yoksullukla mücadeleye çok para harcıyor.
+n | der Pluspunkt | die Pluspunkte | artı, avantaj | Der niedrige Preis ist ein Pluspunkt, aber die Qualität ist schlecht. | Pluspunkt | Düşük fiyat bir artı, ama kalite kötü.
+a | problematisch | | sorunlu | Ich finde es problematisch, dass Kinder in Fabriken arbeiten müssen. | problematisch | Çocukların fabrikalarda çalışmak zorunda olmasını sorunlu buluyorum.
+a | fortschrittlich | | ilerici, modern | Das Land ist sehr fortschrittlich: Fast niemand bezahlt dort noch bar. | fortschrittlich | Ülke çok ilerici: Orada neredeyse kimse artık nakit ödemiyor.
+v | befürworten | befürwortet, befürwortete, hat befürwortet | desteklemek, savunmak | Ich befürworte strengere Regeln für Kredite an junge Leute. | befürworte | Gençlere verilen krediler için daha sıkı kuralları destekliyorum.
+a | überzeugend | | ikna edici | Seine Argumente für den Kauf waren nicht besonders überzeugend. | überzeugend | Satın almaya dair argümanları pek ikna edici değildi.
+a | übertrieben | | abartılı, aşırı | Fünf Paar Schuhe in einem Monat zu kaufen, finde ich übertrieben. | übertrieben | Bir ayda beş çift ayakkabı almayı abartılı buluyorum.
+a | wünschenswert | | arzu edilir, istenen | Es wäre wünschenswert, dass alle Firmen faire Löhne zahlen. | wünschenswert | Bütün şirketlerin adil ücret ödemesi arzu edilir bir şey olurdu.
+a | teilweise | | kısmen | Die Kosten für den Kurs werden teilweise von der Stadt bezahlt. | teilweise | Kursun masrafları kısmen belediye tarafından ödeniyor.
+a | gering | | az, düşük | Das Risiko ist gering, aber die Zinsen sind auch niedrig. | gering | Risk düşük ama faizler de düşük.
+a | unzufrieden | mit + D | memnuniyetsiz, memnun değil | Viele Kunden sind mit dem Service ihrer Bank unzufrieden. | unzufrieden | Birçok müşteri bankasının hizmetinden memnun değil.
+a | erfreulich | | sevindirici | Es ist erfreulich, dass immer mehr Menschen gebrauchte Sachen kaufen. | erfreulich | Gittikçe daha fazla insanın ikinci el eşya alması sevindirici.
+v | sparen | für + A · spart, sparte, hat gespart | (para) biriktirmek, tasarruf etmek | Ich spare schon seit einem Jahr für eine Reise nach Japan. | spare | Bir yıldır Japonya'ya bir yolculuk için para biriktiriyorum.
+v | sich leisten | sich (D) + A · leistet sich, hat sich geleistet | (bir şeye) parası yetmek | Als Student kann ich mir eine eigene Wohnung leider nicht leisten. | leisten | Öğrenci olarak maalesef kendi evime param yetmiyor.
+v | leihen | D + A · leiht, lieh, hat geliehen | ödünç vermek; sich (D) leihen = ödünç almak | Kannst du mir bis Freitag zwanzig Euro leihen? | leihen | Bana cumaya kadar yirmi avro ödünç verebilir misin?
+@gruppe Gewissensfragen
+n | das Gewissen | (Sg.) | vicdan | Ich habe ein schlechtes Gewissen, weil ich so viel Geld ausgegeben habe. | Gewissen | Bu kadar çok para harcadığım için vicdanım rahat değil.
+n | die Gewissensfrage | die Gewissensfragen | vicdan meselesi | Soll man gefundenes Geld behalten? Das ist eine echte Gewissensfrage. | Gewissensfrage | Bulunan para alıkonulmalı mı? Bu gerçek bir vicdan meselesi.
+n | der Vorwurf | die Vorwürfe | suçlama, sitem | Mach dir keine Vorwürfe, das hätte jedem passieren können. | Vorwürfe | Kendini suçlama, bu herkesin başına gelebilirdi.
+n | das Versprechen | die Versprechen | söz, vaat | Er hat sein Versprechen gehalten und mir das Geld zurückgegeben. | Versprechen | Sözünü tuttu ve parayı bana geri verdi.
+n | die Ansicht | die Ansichten | görüş, fikir | Meiner Ansicht nach sollte man Schulden so schnell wie möglich zurückzahlen. | Ansicht | Bence borçlar mümkün olduğunca çabuk geri ödenmeli.
+n | die Sicht | (Sg.) | bakış açısı; görüş (görme) | Aus meiner Sicht ist Ehrlichkeit viel wichtiger als ein paar Euro. | Sicht | Bana göre dürüstlük birkaç avrodan çok daha önemli.
+v | einwerfen | trennbar: wirft ein, warf ein, hat eingeworfen | (para, mektup) atmak | Für die Zeitung muss man zwei Euro in den Kasten einwerfen. | einwerfen | Gazete için kutuya iki avro atmak gerekiyor.
+v | nachprüfen | trennbar: prüft nach, prüfte nach, hat nachgeprüft | kontrol etmek, doğruluğunu sınamak | Die Bank sollte die Zahlung noch einmal genau nachprüfen. | nachprüfen | Banka ödemeyi bir kez daha dikkatle kontrol etmeli.
+v | verlegen | verlegt, verlegte, hat verlegt | (bir şeyi) koyup yerini unutmak; başka yere taşımak | Ich habe mein Portemonnaie verlegt und finde es nirgends. | verlegt | Cüzdanımı bir yere koydum, hiçbir yerde bulamıyorum.
+v | merken | merkt, merkte, hat gemerkt | fark etmek | Die Verkäuferin hat nicht gemerkt, dass sie mir zu viel Geld zurückgegeben hat. | gemerkt | Satıcı kadın bana fazla para üstü verdiğini fark etmedi.
+a | einmalig | | tek seferlik; eşsiz | Für die Karte zahlen Sie eine einmalige Gebühr von zehn Euro. | einmalige | Kart için on avroluk tek seferlik bir ücret ödüyorsunuz.
+a | pauschal | | götürü, toplu; genelleyerek | Man kann nicht pauschal sagen, dass reiche Menschen geizig sind. | pauschal | Zengin insanların cimri olduğu genelleyerek söylenemez.
+x | drin sein | (ugs.) Mehr ist nicht drin. | (günlük dil) mümkün olmak, bütçe yetmek | Ein neues Fahrrad ist diesen Monat leider nicht drin. | drin | Bu ay maalesef yeni bir bisiklet almak mümkün değil.
+v | spenden | spendet, spendete, hat gespendet | bağışlamak | Zu Weihnachten spenden viele Deutsche Geld für Menschen in Not. | spenden | Noel'de birçok Alman ihtiyaç sahibi insanlar için para bağışlıyor.
+@gruppe Die Fuggerei in Augsburg
+n | die Siedlung | die Siedlungen | yerleşim yeri, site | Die Fuggerei ist eine kleine Siedlung mitten in Augsburg. | Siedlung | Fuggerei, Augsburg'un ortasında küçük bir yerleşim yeri.
+n | die Stiftung | die Stiftungen | vakıf | Die Fuggerei wird bis heute von einer Stiftung der Familie Fugger finanziert. | Stiftung | Fuggerei bugün hâlâ Fugger ailesinin bir vakfı tarafından finanse ediliyor.
+n | die Jahresmiete | die Jahresmieten | yıllık kira | Die Jahresmiete in der Fuggerei beträgt nur 88 Cent. | Jahresmiete | Fuggerei'de yıllık kira sadece 88 sent.
+n | die Immobilie | die Immobilien | gayrimenkul, mülk | Immobilien in München sind so teuer, dass viele Familien sie sich nicht leisten können. | Immobilien | Münih'teki gayrimenkuller o kadar pahalı ki birçok ailenin onlara gücü yetmiyor.
+n | der Nachtwächter | die Nachtwächter | gece bekçisi | Wer nach 22 Uhr nach Hause kommt, muss dem Nachtwächter etwas bezahlen. | Nachtwächter | Saat 22'den sonra eve gelen, gece bekçisine biraz para ödemek zorunda.
+n | die Stadtmauer | die Stadtmauern | şehir suru | Von der alten Stadtmauer ist heute nur noch ein kleiner Teil zu sehen. | Stadtmauer | Eski şehir surundan bugün sadece küçük bir parça görülebiliyor.
+n | der Zustand | die Zustände | durum, hâl | Die Häuser sind alt, aber in einem sehr guten Zustand. | Zustand | Evler eski ama çok iyi durumda.
+v | beten | betet, betete, hat gebetet | dua etmek | Die Bewohner sollen jeden Tag für die Familie Fugger beten. | beten | Sakinlerin her gün Fugger ailesi için dua etmesi gerekiyor.
+a | wohltätig | | hayırsever, hayır amaçlı | Die Familie Fugger hat ihr Geld auch für wohltätige Zwecke verwendet. | wohltätige | Fugger ailesi parasını hayır amaçları için de kullandı.
+v | stammen aus | aus + D · stammt, stammte, hat gestammt | -den gelmek, … kökenli olmak | Meine Großeltern stammen aus einem kleinen Dorf am Schwarzen Meer. | stammen | Büyükannemle büyükbabam Karadeniz'de küçük bir köyden geliyor.
+v | ausziehen | trennbar: zieht aus, zog aus, ist ausgezogen | (evden) taşınmak, çıkmak | Wenn man aus der Wohnung auszieht, bekommt man die Kaution zurück. | auszieht | Evden taşınınca depozito geri alınır.
+@gruppe Partizip I als Adjektiv
+a | steigend | Partizip I: steigen → steigend | artan, yükselen | Wegen der steigenden Mieten finden Studenten in Bremen kaum Wohnungen. | steigenden | Artan kiralar yüzünden öğrenciler Bremen'de neredeyse hiç ev bulamıyor.
+a | sinkend | Partizip I: sinken → sinkend | azalan, düşen | Bei sinkenden Preisen kaufen die Leute wieder mehr ein. | sinkenden | Fiyatlar düşerken insanlar yine daha çok alışveriş yapar.
+a | wachsend | Partizip I: wachsen → wachsend | büyüyen, artan | Die wachsende Zahl der Online-Käufe ist ein Problem für kleine Läden. | wachsende | Artan internetten alışveriş sayısı küçük dükkânlar için bir sorun.
+@gruppe je … desto
+k | je … desto / umso | + Komparativ; je-Satz: Verb am Ende | ne kadar …, o kadar … | Je mehr ich verdiene, desto mehr Geld kann ich sparen. | desto | Ne kadar çok kazanırsam o kadar çok para biriktirebilirim.

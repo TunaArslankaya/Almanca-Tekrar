@@ -1,0 +1,142 @@
+# Ünite: kurstaki kitabın konusu (Netzwerk neu B1.2, Kapitel 9: Kunststücke). Kelimeler kitabın Glossar'ından (web özeti); örnek cümleler Claude'un (kitaptan kopya yok).
+# tür | kelime | ek (çoğul / çekim / edat) | Türkçe | örnek cümle | cümlede boşluk olacak kısım | cümlenin Türkçesi
+# tür: n isim (artikelli) · v fiil · a sıfat/zarf · x kalıp · k bağlaç/edat
+# @inaktiv: kitapta sırası gelmedi; Tuna Ayarlar'dan "Aç" deyince açılır. Açılınca @bis eklenebilir.
+# kaynak: web-ozet
+@kapitel 9
+@titel Kunststücke
+@inaktiv
+@gruppe Kunst im Alltag
+n | die Kunst | die Künste | sanat | Über moderne Kunst kann man oft lange diskutieren. | Kunst | Modern sanat hakkında çoğu zaman uzun uzun tartışılabilir.
+n | das Kunstwerk | die Kunstwerke | sanat eseri | Im Museum hängen viele berühmte Kunstwerke aus dem 19. Jahrhundert. | Kunstwerke | Müzede 19. yüzyıldan birçok ünlü sanat eseri asılı.
+n | das Kunststück | die Kunststücke | hüner, marifet; gösteri numarası | Der Zauberer zeigte den Kindern ein tolles Kunststück mit Karten. | Kunststück | Sihirbaz çocuklara kartlarla harika bir numara gösterdi.
+n | das Kunstobjekt | die Kunstobjekte | sanat objesi | Die Putzfrau hielt das Kunstobjekt für Müll und warf es weg. | Kunstobjekt | Temizlikçi kadın sanat objesini çöp sandı ve attı.
+n | das Werk | die Werke | eser | Die Ausstellung zeigt die wichtigsten Werke der Künstlerin. | Werke | Sergi, sanatçının en önemli eserlerini gösteriyor.
+n | das Gemälde | die Gemälde | tablo, (yağlı boya) resim | Dieses Gemälde hat ein Maler aus Bremen vor hundert Jahren gemalt. | Gemälde | Bu tabloyu yüz yıl önce Bremenli bir ressam yaptı.
+n | der Künstler | die Künstler | sanatçı | Viele junge Künstler stellen ihre Bilder zuerst im Internet aus. | Künstler | Birçok genç sanatçı resimlerini önce internette sergiliyor.
+n | der Maler | die Maler | ressam | Der Maler arbeitet am liebsten mit kräftigen Farben. | Maler | Ressam en çok canlı renklerle çalışmayı sever.
+n | die Statue | die Statuen | heykel | Vor dem Bremer Rathaus steht eine berühmte Statue: der Roland. | Statue | Bremen Belediye Sarayı'nın önünde ünlü bir heykel duruyor: Roland.
+n | der Brunnen | die Brunnen | çeşme; kuyu | Im Sommer spielen die Kinder gern am Brunnen auf dem Marktplatz. | Brunnen | Yazın çocuklar meydandaki çeşmenin başında oynamayı sever.
+n | die Installation | die Installationen | enstalasyon (yerleştirme sanatı) | Die Installation im Park zeigt, wie viel Plastik wir täglich wegwerfen. | Installation | Parktaki enstalasyon her gün ne kadar plastik attığımızı gösteriyor.
+n | das Graffiti | die Graffitis (auch: die Graffiti) | grafiti (duvar resmi / yazısı) | An der Brücke hat jemand über Nacht ein riesiges Graffiti gesprüht. | Graffiti | Birisi bir gecede köprüye kocaman bir grafiti yapmış.
+n | die Hauswand | die Hauswände | (binanın dış) duvarı | Die Künstler haben die graue Hauswand mit bunten Farben bemalt. | Hauswand | Sanatçılar gri bina duvarını renkli boyalarla boyadı.
+n | der Stadtteil | die Stadtteile | semt | Mein Stadtteil ist bekannt für seine kleinen Cafés und Galerien. | Stadtteil | Semtim küçük kafeleri ve galerileriyle tanınır.
+n | die Galerie | die Galerien | galeri | Die Galerie zeigt diesen Monat Fotos von jungen Künstlerinnen. | Galerie | Galeri bu ay genç kadın sanatçıların fotoğraflarını sergiliyor.
+n | die Ausstellung | die Ausstellungen | sergi | Die Ausstellung ist noch bis Ende Oktober im Kunstmuseum zu sehen. | Ausstellung | Sergi ekim sonuna kadar sanat müzesinde görülebilir.
+n | die Auktion | die Auktionen | açık artırma, mezat | Bei der Auktion wurde das Bild für zwei Millionen Euro verkauft. | Auktion | Açık artırmada tablo iki milyon avroya satıldı.
+n | der Käufer | die Käufer | alıcı | Der Käufer des Gemäldes möchte lieber unbekannt bleiben. | Käufer | Tablonun alıcısı adının bilinmemesini tercih ediyor.
+n | der Kunstsammler | die Kunstsammler | sanat koleksiyoncusu | Ein reicher Kunstsammler hat seine Bilder dem Museum geschenkt. | Kunstsammler | Zengin bir sanat koleksiyoncusu resimlerini müzeye hediye etti.
+n | das Missgeschick | die Missgeschicke | aksilik, talihsizlik | Durch ein kleines Missgeschick fiel die Vase vom Tisch. | Missgeschick | Küçük bir aksilik yüzünden vazo masadan düştü.
+n | die Putzfrau | die Putzfrauen | temizlikçi kadın | Die Putzfrau kommt jeden Freitag und putzt die ganze Wohnung. | Putzfrau | Temizlikçi kadın her cuma gelip bütün evi temizliyor.
+x | aus Versehen | | yanlışlıkla | Ich habe aus Versehen deinen Kaffee getrunken, tut mir leid! | Versehen | Yanlışlıkla senin kahveni içtim, kusura bakma!
+v | beschädigen | hat beschädigt | hasar vermek | Beim Transport wurde die Statue leider stark beschädigt. | beschädigt | Taşıma sırasında heykel maalesef ağır hasar gördü.
+v | zerstören | hat zerstört | yok etmek, tahrip etmek | Im Krieg wurden viele alte Gebäude in der Stadt zerstört. | zerstört | Savaşta şehirdeki birçok eski bina yıkıldı.
+v | konsumieren | hat konsumiert | tüketmek | Wir konsumieren zu viel und werfen Dinge zu schnell weg. | konsumieren | Çok fazla tüketiyoruz ve eşyaları çok çabuk atıyoruz.
+v | sich handeln um | um + A · nur: es handelt sich um | söz konusu olmak, (aslında) … olmak | Bei dem Bild handelt es sich um ein frühes Werk von Picasso. | handelt | Bu tablo, Picasso'nun erken dönem eserlerinden biri.
+v | erraten | errät, erriet, hat erraten | (doğru) tahmin etmek, bilmek | Du wirst nie erraten, was das Bild wirklich gekostet hat! | erraten | Tablonun gerçekte kaça mal olduğunu asla tahmin edemezsin!
+v | anregen | zu + D · trennbar: regt an · hat angeregt | teşvik etmek, (düşünmeye) sevk etmek | Gute Kunst regt die Menschen zum Nachdenken an. | regt | İyi sanat insanları düşünmeye sevk eder.
+@gruppe ein Bild beschreiben
+n | der Vordergrund | (Sg.) · im Vordergrund stehen | ön plan | Im Vordergrund stehen zwei Frauen mit großen, roten Hüten. | Vordergrund | Ön planda büyük, kırmızı şapkalı iki kadın duruyor.
+n | der Hintergrund | die Hintergründe | arka plan | Im Hintergrund des Bildes sieht man einen kleinen Hund. | Hintergrund | Resmin arka planında küçük bir köpek görülüyor.
+n | die Darstellung | die Darstellungen | tasvir, betimleme | Die Darstellung der Stadt auf dem Bild ist sehr realistisch. | Darstellung | Resimdeki şehir tasviri çok gerçekçi.
+v | erkennen | erkennt, erkannte, hat erkannt | tanımak; fark etmek, seçmek | Auf dem alten Foto kann man die Gesichter kaum erkennen. | erkennen | Eski fotoğrafta yüzler neredeyse hiç seçilmiyor.
+@gruppe kreative Kurse
+n | die Ölfarbe | die Ölfarben | yağlı boya | Im Malkurs lernen wir, wie man mit Ölfarben arbeitet. | Ölfarben | Resim kursunda yağlı boyayla nasıl çalışıldığını öğreniyoruz.
+n | das Aquarell | die Aquarelle | suluboya resim | Seit sie in Rente ist, malt meine Oma Aquarelle von Blumen. | Aquarelle | Büyükannem emekli olduğundan beri suluboya çiçek resimleri yapıyor.
+n | die Zeichnung | die Zeichnungen | çizim, karakalem resim | Die Zeichnungen meiner Tochter hängen alle in der Küche. | Zeichnungen | Kızımın çizimlerinin hepsi mutfakta asılı.
+v | malen | hat gemalt | (resim) yapmak, boyamak | Am Wochenende male ich gern Landschaften mit bunten Farben. | male | Hafta sonu renkli boyalarla manzara resmi yapmayı severim.
+v | zeichnen | hat gezeichnet | çizmek | Kannst du mir schnell den Weg zum Bahnhof zeichnen? | zeichnen | Bana tren istasyonuna giden yolu çabucak çizebilir misin?
+v | gestalten | hat gestaltet | biçimlendirmek, tasarlamak, düzenlemek | Die Schüler haben den Schulhof mit Pflanzen und Bildern neu gestaltet. | gestaltet | Öğrenciler okul bahçesini bitkiler ve resimlerle yeniden düzenledi.
+v | basteln | hat gebastelt | el işi yapmak | Aus alten Dosen haben die Kinder bunte Lampen gebastelt. | gebastelt | Çocuklar eski konserve kutularından renkli lambalar yaptı.
+n | die Kreativität | (Sg.) | yaratıcılık | In diesem Kurs ist vor allem eure Kreativität gefragt. | Kreativität | Bu kursta her şeyden önce yaratıcılığınız isteniyor.
+n | das Talent | die Talente | yetenek | Du hast echt Talent zum Zeichnen, mach doch einen Kurs! | Talent | Çizimde gerçekten yeteneğin var, bir kursa yazılsana!
+n | die Broschüre | die Broschüren | broşür | In der Broschüre finden Sie alle Kurse für das Wintersemester. | Broschüre | Broşürde kış dönemi için bütün kursları bulabilirsiniz.
+n | der Schwerpunkt | die Schwerpunkte | odak noktası, ağırlık noktası | Der Schwerpunkt des Kurses liegt auf Porträts und Landschaften. | Schwerpunkt | Kursun ağırlık noktası portreler ve manzaralar.
+v | bestehen aus | aus + D · besteht, bestand, hat bestanden | -den oluşmak | Der Kurs besteht aus zehn Terminen am Dienstagabend. | besteht | Kurs, salı akşamları on buluşmadan oluşuyor.
+v | anwenden | wendet an, wandte an, hat angewandt | uygulamak, kullanmak | Im zweiten Teil des Kurses wenden wir die neue Technik an. | wenden | Kursun ikinci bölümünde yeni tekniği uyguluyoruz.
+n | der Kursabschluss | die Kursabschlüsse | kursun bitişi | Zum Kursabschluss stellen alle Teilnehmer ihre Bilder aus. | Kursabschluss | Kurs bitiminde bütün katılımcılar resimlerini sergiliyor.
+n | die Veranstaltung | die Veranstaltungen | etkinlik | Die Veranstaltung beginnt um 19 Uhr, der Eintritt ist frei. | Veranstaltung | Etkinlik saat 19'da başlıyor, giriş ücretsiz.
+v | veranstalten | hat veranstaltet | (etkinlik) düzenlemek | Die Volkshochschule veranstaltet jedes Jahr ein großes Kunstfest. | veranstaltet | Halk eğitim merkezi her yıl büyük bir sanat şenliği düzenliyor.
+n | die Eröffnung | die Eröffnungen | açılış | Zur Eröffnung der Ausstellung kamen über zweihundert Gäste. | Eröffnung | Serginin açılışına iki yüzden fazla misafir geldi.
+n | das Büfett | die Büfetts | açık büfe | Nach der Eröffnung gibt es ein kleines Büfett mit Getränken. | Büfett | Açılıştan sonra içeceklerle birlikte küçük bir büfe var.
+@gruppe Theater und Impro-Theater
+n | das Theaterstück | die Theaterstücke | tiyatro oyunu | Das Theaterstück war so lustig, dass alle laut gelacht haben. | Theaterstück | Tiyatro oyunu o kadar komikti ki herkes yüksek sesle güldü.
+n | die Bühne | die Bühnen | sahne | Als ich auf der Bühne stand, war ich plötzlich ganz ruhig. | Bühne | Sahnede durduğumda birden sakinleştim.
+n | die Aufführung | die Aufführungen | gösteri, temsil | Die Aufführung dauert zwei Stunden und hat eine Pause. | Aufführung | Gösteri iki saat sürüyor ve bir arası var.
+v | aufführen | trennbar: führt auf · hat aufgeführt | sahnelemek | Unsere Theatergruppe führt im Mai ein Stück von Brecht auf. | führt | Tiyatro grubumuz mayısta Brecht'in bir oyununu sahneliyor.
+v | auftreten | tritt auf, trat auf, ist aufgetreten | sahneye çıkmak | Gestern ist meine Schwester zum ersten Mal im Theater aufgetreten. | aufgetreten | Dün kız kardeşim ilk kez tiyatroda sahneye çıktı.
+n | der Schauspieler | die Schauspieler | oyuncu | Die Schauspieler mussten den ganzen Text auswendig lernen. | Schauspieler | Oyuncular bütün metni ezberlemek zorundaydı.
+n | die Rolle | die Rollen | rol | In dem Stück spiele ich die Rolle eines Detektivs. | Rolle | Oyunda bir dedektif rolünü oynuyorum.
+n | der Regisseur | die Regisseure | yönetmen | Der Regisseur war mit der letzten Probe überhaupt nicht zufrieden. | Regisseur | Yönetmen son provadan hiç memnun değildi.
+n | das Kostüm | die Kostüme | kostüm | Für das Märchen haben wir die Kostüme selbst genäht. | Kostüme | Masal için kostümleri kendimiz diktik.
+v | sich schminken | hat sich geschminkt | makyaj yapmak | Vor der Aufführung müssen sich alle Schauspieler schminken. | schminken | Gösteriden önce bütün oyuncuların makyaj yapması gerekiyor.
+n | das Publikum | (Sg.) | seyirci(ler) | Das Publikum hat am Ende fünf Minuten lang geklatscht. | Publikum | Seyirciler sonunda beş dakika boyunca alkışladı.
+n | der Applaus | (Sg.) | alkış | Nach der Vorstellung gab es lauten Applaus für alle Schauspieler. | Applaus | Gösteriden sonra bütün oyuncular yüksek sesle alkışlandı.
+n | das Impro-Theater | die Impro-Theater | doğaçlama tiyatro | Beim Impro-Theater gibt es keinen festen Text, alles ist spontan. | Impro-Theater | Doğaçlama tiyatroda sabit bir metin yoktur, her şey anlık gelişir.
+v | improvisieren | hat improvisiert | doğaçlama yapmak | Der Schauspieler hatte seinen Text vergessen und musste improvisieren. | improvisieren | Oyuncu repliğini unutmuştu ve doğaçlama yapmak zorunda kaldı.
+v | zusehen | D · sieht zu, sah zu, hat zugesehen | seyretmek, izlemek | Die Zuschauer dürfen hier nicht nur zusehen, sondern auch mitspielen. | zusehen | Seyirciler burada sadece izlemekle kalmaz, oyuna da katılabilir.
+n | das Missverständnis | die Missverständnisse | yanlış anlaşılma | Das war nur ein Missverständnis, ich wollte dich nicht ärgern. | Missverständnis | Bu sadece bir yanlış anlaşılmaydı, seni kızdırmak istemedim.
+n | der Dieb | die Diebe | hırsız | Der Dieb kam nachts und hat ein wertvolles Bild gestohlen. | Dieb | Hırsız gece geldi ve değerli bir tablo çaldı.
+n | der Detektiv | die Detektive | dedektif | Im Spiel muss der Detektiv herausfinden, wer das Bild gestohlen hat. | Detektiv | Oyunda dedektifin tabloyu kimin çaldığını bulması gerekiyor.
+v | schreien | schreit, schrie, hat geschrien | bağırmak, çığlık atmak | Plötzlich schrie jemand im Publikum: „Hilfe, eine Maus!“ | schrie | Birden seyircilerden biri bağırdı: "İmdat, bir fare!"
+@gruppe Upcycling und Ideen
+n | das Upcycling | (Sg.) | ileri dönüşüm (eski eşyadan yeni ürün) | Beim Upcycling macht man aus alten Sachen etwas Neues. | Upcycling | İleri dönüşümde eski eşyalardan yeni bir şey yapılır.
+v | ersetzen | hat ersetzt | (bir şeyin) yerine koymak | Für die Lampe haben wir das Glas durch eine alte Dose ersetzt. | ersetzt | Lamba için camın yerine eski bir konserve kutusu koyduk.
+v | umsetzen | trennbar: setzt um · hat umgesetzt | hayata geçirmek, uygulamak | Ich habe viele Ideen, aber keine Zeit, sie umzusetzen. | umzusetzen | Birçok fikrim var ama onları hayata geçirecek vaktim yok.
+v | erfinden | erfindet, erfand, hat erfunden | icat etmek; uydurmak | Meine Tochter erfindet abends gern lustige Geschichten über unseren Hund. | erfindet | Kızım akşamları köpeğimiz hakkında komik hikâyeler uydurmayı sever.
+n | die Eigenschaft | die Eigenschaften | özellik | Geduld ist eine wichtige Eigenschaft für jeden Künstler. | Eigenschaft | Sabır her sanatçı için önemli bir özelliktir.
+n | der Gründer | die Gründer | kurucu | Der Gründer des Vereins war früher selbst Schauspieler. | Gründer | Derneğin kurucusu eskiden kendisi de oyuncuydu.
+n | der Gedanke | die Gedanken · n-Deklination: des Gedankens | düşünce | Schon der Gedanke an die Prüfung macht mich ganz nervös. | Gedanke | Sınavı düşünmek bile beni çok geriyor.
+x | Das ist lange her. | | Uzun zaman oldu, eskide kaldı. | Ich habe früher Gitarre gespielt, aber das ist lange her. | lange her | Eskiden gitar çalardım ama bu çok eskide kaldı.
+@gruppe Literatur, Märchen und Musik
+n | die Literatur | (Sg.) | edebiyat | Sie interessiert sich sehr für deutsche Literatur, vor allem für Romane. | Literatur | Alman edebiyatına, özellikle romanlara çok ilgi duyuyor.
+n | der Roman | die Romane | roman | Den neuen Roman habe ich in nur drei Tagen gelesen. | Roman | Yeni romanı sadece üç günde okudum.
+n | der Schriftsteller | die Schriftsteller | yazar, edebiyatçı | Der Schriftsteller liest heute Abend in der Stadtbibliothek aus seinem Buch. | Schriftsteller | Yazar bu akşam şehir kütüphanesinde kitabından okuma yapıyor.
+v | veröffentlichen | hat veröffentlicht | yayımlamak | Die Autorin hat letztes Jahr ihren ersten Roman veröffentlicht. | veröffentlicht | Yazar geçen yıl ilk romanını yayımladı.
+n | die Fortsetzung | die Fortsetzungen | devam (bölümü / kitabı) | Ich kann die Fortsetzung der Geschichte kaum erwarten! | Fortsetzung | Hikâyenin devamını sabırsızlıkla bekliyorum!
+n | das Gedicht | die Gedichte | şiir | In der Schule mussten wir viele Gedichte auswendig lernen. | Gedichte | Okulda birçok şiir ezberlemek zorundaydık.
+n | das Märchen | die Märchen | masal | Die Bremer Stadtmusikanten sind ein bekanntes Märchen der Brüder Grimm. | Märchen | Bremen Mızıkacıları, Grimm Kardeşler'in bilinen bir masalıdır.
+n | die Figur | die Figuren | figür; (hikâyede) karakter | Welche Figur aus dem Märchen findest du am sympathischsten? | Figur | Masaldaki hangi karakteri en sempatik buluyorsun?
+n | der Jäger | die Jäger | avcı | Im Märchen rettet der Jäger das Mädchen aus dem Bauch des Wolfes. | Jäger | Masalda avcı, kızı kurdun karnından kurtarıyor.
+v | einsperren | trennbar: sperrt ein · hat eingesperrt | kapatmak, hapsetmek | Die böse Königin hat die Prinzessin in einem Turm eingesperrt. | eingesperrt | Kötü kraliçe prensesi bir kuleye kapattı.
+n | die Wut | (Sg.) | öfke | Vor Wut hat er den Brief in kleine Stücke zerrissen. | Wut | Öfkeden mektubu küçük parçalara yırttı.
+x | Frieden schließen | mit + D · der Frieden (Sg.) | barışmak, barış yapmak | Am Ende des Märchens schließen die beiden Könige Frieden. | Frieden | Masalın sonunda iki kral barış yapıyor.
+n | die Tradition | die Traditionen | gelenek | Bei uns ist es eine Tradition, am Sonntag zusammen zu frühstücken. | Tradition | Bizde pazar günü birlikte kahvaltı etmek bir gelenektir.
+n | das Volkslied | die Volkslieder | halk şarkısı, türkü | Beim Fest haben alle zusammen alte Volkslieder gesungen. | Volkslieder | Şenlikte herkes birlikte eski halk şarkıları söyledi.
+n | der Chor | die Chöre | koro | Seit einem Jahr singe ich jeden Mittwoch in einem Chor. | Chor | Bir yıldır her çarşamba bir koroda şarkı söylüyorum.
+v | musizieren | hat musiziert | müzik yapmak, çalıp söylemek | Am Wochenende musizieren wir oft gemeinsam mit den Nachbarn im Garten. | musizieren | Hafta sonları sık sık komşularla bahçede birlikte müzik yapıyoruz.
+n | die Nachbarschaft | die Nachbarschaften | komşuluk; mahalle, komşular | Die ganze Nachbarschaft hat beim Straßenfest im Sommer fleißig mitgeholfen. | Nachbarschaft | Yazın sokak şenliğinde bütün mahalle gayretle yardım etti.
+n | die Oper | die Opern | opera | Ich war noch nie in der Oper, aber ich möchte es mal probieren. | Oper | Hiç operaya gitmedim ama bir kez denemek istiyorum.
+@gruppe Kunst kommentieren
+v | ansprechen | spricht an, sprach an, hat angesprochen | hoşuna gitmek, hitap etmek; (birine) seslenmek | Moderne Kunst spricht mich ehrlich gesagt nicht besonders an. | spricht | Açıkçası modern sanat bana pek hitap etmiyor.
+n | der Geschmack | (meist Sg.) · nach meinem Geschmack | zevk; tat | Das Bild ist nicht nach meinem Geschmack, es ist mir zu bunt. | Geschmack | Tablo zevkime uygun değil, bana fazla renkli.
+a | abstrakt | | soyut | Ich verstehe abstrakte Bilder oft nicht, aber die Farben gefallen mir. | abstrakte | Soyut resimleri çoğu zaman anlamıyorum ama renkleri hoşuma gidiyor.
+a | kreativ | | yaratıcı | Mein Bruder ist sehr kreativ und hat immer neue Ideen. | kreativ | Erkek kardeşim çok yaratıcı ve hep yeni fikirleri var.
+a | künstlerisch | | sanatsal | Das Projekt hat für mich keinen großen künstlerischen Wert. | künstlerischen | Proje benim için büyük bir sanatsal değer taşımıyor.
+a | talentiert | | yetenekli | Die junge Sängerin aus Bremen ist wirklich unglaublich talentiert. | talentiert | Bremenli genç şarkıcı gerçekten inanılmaz yetenekli.
+a | originell | | özgün, orijinal | Die Idee, aus alten Flaschen Lampen zu machen, finde ich sehr originell. | originell | Eski şişelerden lamba yapma fikrini çok özgün buluyorum.
+a | gelungen | | başarılı, iyi olmuş | Die Ausstellung ist wirklich gelungen, ich komme bestimmt wieder. | gelungen | Sergi gerçekten başarılı olmuş, kesin yine geleceğim.
+a | altmodisch | | eski moda, demode | Viele junge Leute finden Volksmusik altmodisch und langweilig. | altmodisch | Birçok genç halk müziğini demode ve sıkıcı buluyor.
+a | spannend | | heyecanlı, sürükleyici | Der Krimi war so spannend, dass ich nicht schlafen konnte. | spannend | Polisiye o kadar sürükleyiciydi ki uyuyamadım.
+a | traditionell | | geleneksel | Auf dem Fest gab es traditionelle Musik und Tänze aus vielen Ländern. | traditionelle | Şenlikte birçok ülkeden geleneksel müzik ve danslar vardı.
+a | chaotisch | | kaotik, karmakarışık | Die erste Probe war total chaotisch, niemand kannte seinen Text. | chaotisch | İlk prova tam bir kaostu, kimse repliğini bilmiyordu.
+a | weltberühmt | | dünyaca ünlü | Die Mona Lisa ist ein weltberühmtes Gemälde von Leonardo da Vinci. | weltberühmtes | Mona Lisa, Leonardo da Vinci'nin dünyaca ünlü bir tablosudur.
+a | zeitlos | | zamansız, eskimeyen | Die Märchen der Brüder Grimm sind zeitlos, Kinder lieben sie noch heute. | zeitlos | Grimm Kardeşler'in masalları zamansızdır, çocuklar onları bugün hâlâ seviyor.
+a | erfahren | | deneyimli | Unsere Kursleiterin ist eine erfahrene Malerin aus Hamburg. | erfahrene | Kurs hocamız Hamburglu deneyimli bir ressam.
+a | engagiert | | (bir işe) kendini adamış, aktif | Die Gruppe sucht engagierte Leute, die gern Theater spielen. | engagierte | Grup, tiyatro oynamayı seven, işine kendini veren insanlar arıyor.
+a | heimlich | | gizlice | Mein Vater hat heimlich Gedichte geschrieben, das wusste niemand. | heimlich | Babam gizlice şiir yazmış, bunu kimse bilmiyordu.
+a | freiwillig | | gönüllü (olarak) | Im Theater arbeiten viele Helfer freiwillig und ohne Geld. | freiwillig | Tiyatroda birçok yardımcı gönüllü ve parasız çalışıyor.
+a | ungerecht | | haksız, adaletsiz | Ich finde es ungerecht, dass Künstler oft so wenig Geld verdienen. | ungerecht | Sanatçıların çoğu zaman bu kadar az para kazanmasını haksızlık buluyorum.
+@gruppe Aussagen verstärken und relativieren
+a | total | | tamamen; çok, aşırı (günlük dil) | Das Konzert gestern war total toll, du hast echt was verpasst! | total | Dünkü konser aşırı güzeldi, gerçekten çok şey kaçırdın!
+a | äußerst | | son derece | Die Arbeit an der Statue war äußerst schwierig und dauerte drei Jahre. | äußerst | Heykel üzerindeki çalışma son derece zordu ve üç yıl sürdü.
+x | überhaupt nicht | | hiç (değil) | Das Stück hat mir überhaupt nicht gefallen, es war viel zu lang. | überhaupt | Oyun hiç hoşuma gitmedi, çok fazla uzundu.
+a | ziemlich | | oldukça | Der Film war ziemlich lang, aber trotzdem nicht langweilig. | ziemlich | Film oldukça uzundu ama yine de sıkıcı değildi.
+a | relativ | | nispeten, görece | Die Karten für das Theater waren relativ günstig, nur 15 Euro. | relativ | Tiyatro biletleri nispeten ucuzdu, sadece 15 avro.
+a | eher | | daha çok, -den ziyade | Das Bild finde ich eher langweilig als schön. | eher | Tabloyu güzel olmaktan çok sıkıcı buluyorum.
+v | relativieren | hat relativiert | (bir sözü) yumuşatmak, göreceli kılmak | Er hat seine harte Kritik später ein bisschen relativiert. | relativiert | Sert eleştirisini daha sonra biraz yumuşattı.
+@gruppe Negation
+k | nicht …, sondern … | | … değil, (aksine) … | Wir gehen heute nicht ins Kino, sondern ins Theater. | sondern | Bugün sinemaya değil, tiyatroya gidiyoruz.
+k | kein …, sondern … | | (hiç) … değil, … | Das ist kein Müll, sondern ein teures Kunstwerk! | kein | Bu çöp değil, pahalı bir sanat eseri!
+v | verneinen | hat verneint | olumsuz yapmak; hayır demek | Verneinen Sie den Satz mit „nicht“ oder mit „kein“. | Verneinen | Cümleyi "nicht" ya da "kein" ile olumsuz yapın.
+n | die Stellung | die Stellungen | konum, yer | Die Stellung von „nicht“ im Satz ist für viele Lerner schwierig. | Stellung | "Nicht"in cümledeki yeri birçok öğrenci için zor.

@@ -1,0 +1,91 @@
+# Gramer konusu: Dönüşlü fiiller (Akkusativ / Dativ zamir, yeri). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id reflexiv
+@titel Reflexive Verben
+@tr Dönüşlü fiiller: mich / mir, dich / dir, sich (Akkusativ ve Dativ zamir, yeri)
+@stufe A2–B1
+@kapitel B1 K8 ?
+@goethe 2 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus v2-satzbau, weil-dass
+@kontrast praep-verben
+@etiket dönüşlü zamir
+@kurz Dönüşlü zamir kişiye uyar: ich → mich, du → dich, er / sie / es / sie / Sie → sich. Cümlede başka Akkusativ nesne varsa zamir Dativ: Ich wasche mir die Hände. Perfekt hep haben.
+
+@erklaerung
+Türkçede "yıkanmak, giyinmek, sevinmek" gibi fiiller ekle dönüşlü olur; Almancada ayrı bir zamir gerekir: Ich wasche mich. Ich freue mich.
+
+1. Akkusativ zamir: mich, dich, sich, uns, euch, sich. er / sie / es, sie (çoğul) ve Sie için hep sich (ihn, ihr değil!).
+2. Cümlede ayrıca bir Akkusativ nesne varsa zamir Dativ olur: mir, dir, sich, uns, euch, sich. Ich wasche mir die Hände. Ich kaufe mir ein Fahrrad. Ich merke mir das. Yalnız ich ve du'da fark görünür (mich / mir, dich / dir).
+3. Yeri: ana cümlede çekimli fiilin hemen arkasında: Ich freue mich. Özne fiilin arkasına geçerse (Heute …) ve özne zamirse önce özne, sonra zamir: Heute freue ich mich. Yan cümlede özne zamirinin arkasında: …, weil ich mich nicht wohlfühle.
+4. Perfekt hep haben ile: Ich habe mich erkältet (✗ bin … erkältet).
+5. Birçok dönüşlü fiilin sabit edatı var: sich freuen auf / über, sich interessieren für, sich erinnern an, sich kümmern um, sich ärgern über, sich gewöhnen an.
+6. Aynı fiil dönüşlü olmadan da kullanılabilir: Ich wasche das Auto (arabayı yıkıyorum) · Ich wasche mich (yıkanıyorum).
+
+Tipik hatalar: zamiri unutmak (✗ Ich freue auf …), er için ihn kullanmak (✗ Er freut ihn), Akkusativ nesne varken mich demek (✗ Ich ziehe mich die Jacke an), Türkçede dönüşlü olmayan fiillerde zamiri atlamak: sich beeilen (acele etmek), sich erkälten (üşütmek), sich bewerben (başvurmak).
+Sınavda: Schreiben'de "Ich freue mich auf …", "Ich interessiere mich für …", "Ich entschuldige mich …" her e-postada çıkar.
+@ende
+
+@tabelle Dönüşlü zamirler
+kişi | Akkusativ | Dativ | örnek (Akk) | örnek (Dat)
+ich | mich | mir | Ich freue mich. | Ich wasche mir die Hände.
+du | dich | dir | Beeil dich! | Kauf dir eine Jacke!
+er / sie / es | sich | sich | Er erholt sich. | Sie merkt sich alles.
+wir | uns | uns | Wir treffen uns. | Wir sehen uns den Film an.
+ihr | euch | euch | Habt ihr euch angemeldet? | Putzt euch die Zähne!
+sie / Sie | sich | sich | Sie streiten sich. | Sie leisten sich ein Auto.
+@ende
+
+@tabelle Sık dönüşlü fiiller (edatıyla)
+fiil | Türkçe | fiil | Türkçe
+sich freuen auf + A | dört gözle beklemek | sich freuen über + A | sevinmek
+sich interessieren für + A | ilgilenmek | sich erinnern an + A | hatırlamak
+sich kümmern um + A | ilgilenmek, bakmak | sich ärgern über + A | sinirlenmek
+sich gewöhnen an + A | alışmak | sich bewerben um + A | başvurmak
+sich beeilen | acele etmek | sich erkälten | üşütmek
+@ende
+
+@beispiel Ich freue mich auf das Wochenende. | Hafta sonunu dört gözle bekliyorum.
+@beispiel Ich wasche mir vor dem Essen die Hände. | Yemekten önce ellerimi yıkıyorum.
+@beispiel Ich bleibe zu Hause, weil ich mich erkältet habe. | Üşüttüğüm için evde kalıyorum.
+
+@teil akk | Akkusativ zamir: mich, dich, sich … | dönüşlü zamir
+luecke | 1 | Ich freue ___ auf das Wochenende. | mich | | Hafta sonunu dört gözle bekliyorum. | ich → mich; sich freuen auf + Akkusativ. | sich freuen auf; das Wochenende, -n
+wahl | 1 | Mein Bruder interessiert ___ sehr für Fußball. | sich | sich / ihn / ihm | Kardeşim futbolla çok ilgileniyor. | er / sie / es için dönüşlü zamir hep sich; ihn başka birini gösterir. | sich interessieren für
+luecke | 1 | Beeil ___, der Bus kommt gleich! (du) | dich | | Acele et, otobüs birazdan geliyor! | Emir kipinde de zamir kalır: Beeil dich! sich beeilen Türkçede dönüşlü değil, Almancada dönüşlü. | sich beeilen; der Bus
+luecke | 2 | Wir haben ___ im Deutschkurs kennengelernt. (wir) | uns | | Almanca kursunda tanıştık. | wir → uns; sich kennenlernen = birbirini tanımak. | kennenlernen; der Kurs
+fehler | 2 | Ich fühle heute nicht so gut. | Ich fühle mich heute nicht so gut. | fühle heute | Bugün kendimi pek iyi hissetmiyorum. | sich fühlen dönüşlüdür: zamir (mich) çekimli fiilin hemen arkasına. | sich fühlen
+luecke | 1 | Habt ihr ___ schon für die Prüfung angemeldet? (ihr) | euch | | Sınava kaydoldunuz mu? | ihr → euch; sich anmelden für. | sich anmelden für; die Prüfung
+
+@teil dat | Dativ zamir: mir, dir (+ Akkusativ nesne) | dönüşlü zamir
+wahl | 2 | Ich wasche ___ vor dem Essen die Hände. | mir | mir / mich / sich | Yemekten önce ellerimi yıkıyorum. | Cümlede başka bir Akkusativ nesne (die Hände) var → zamir Dativ: mir. | waschen
+luecke | 2 | Kauf ___ doch einen neuen Mantel! (du) | dir | | Kendine yeni bir palto alsana! | Akkusativ nesne (einen Mantel) var → Dativ: dir. | der Mantel; kaufen
+luecke | 3 | Ich kann ___ seinen Namen einfach nicht merken. | mir | | Onun adını bir türlü aklımda tutamıyorum. | sich(D) merken: Akkusativ nesne (seinen Namen) var → mir. | sich(D) merken
+ordnen | 2 | ich / putze / mir / jeden Abend / die Zähne | Ich putze mir jeden Abend die Zähne. / Jeden Abend putze ich mir die Zähne. / Ich putze mir die Zähne jeden Abend. | | Her akşam dişlerimi fırçalıyorum. | Akkusativ nesne (die Zähne) var → mir; zamir fiile ve özneye yakın. | putzen; der Zahn
+fehler | 2 | Ich ziehe mich schnell die Jacke an. | Ich ziehe mir schnell die Jacke an. | mich | Ceketimi hızlıca giyiyorum. | Akkusativ nesne (die Jacke) varsa zamir Dativ: mir. "Ich ziehe mich an" (giyiniyorum) ise doğru. | sich anziehen; die Jacke
+
+@teil stellung | Zamirin yeri: inversion ve yan cümle | kelime sırası
+ordnen | 1 | heute / freue / ich / mich / sehr | Heute freue ich mich sehr. / Ich freue mich heute sehr. | | Bugün çok mutluyum. | Fiil 2. yerde; özne zamirse önce özne (ich), sonra dönüşlü zamir (mich). | sich freuen über
+ordnen | 3 | ich / bleibe / zu Hause / weil / ich / mich / erkältet / habe | Ich bleibe zu Hause, weil ich mich erkältet habe. / Weil ich mich erkältet habe, bleibe ich zu Hause. | | Üşüttüğüm için evde kalıyorum. | Yan cümlede zamir öznenin hemen arkasında (ich mich); çekimli yardımcı fiil (habe) en sonda. | sich erkälten
+fehler | 3 | Am Wochenende ich ruhe mich aus. | Am Wochenende ruhe ich mich aus. | ich ruhe mich | Hafta sonu dinleniyorum. | 1. yerde zaman ifadesi varsa fiil 2. yerde, sonra özne, sonra zamir: ruhe ich mich aus. | sich ausruhen; das Wochenende, -n
+luecke | 2 | Ich weiß nicht, ob er ___ noch an mich erinnert. | sich | | Beni hâlâ hatırlayıp hatırlamadığını bilmiyorum. | er → sich; yan cümlede zamir öznenin arkasında. | sich erinnern an
+umform | 3 | Ich gehe oft ins Museum. Ich interessiere mich für Kunst. → weil | Ich gehe oft ins Museum, weil ich mich für Kunst interessiere. / Weil ich mich für Kunst interessiere, gehe ich oft ins Museum. | | Sanatla ilgilendiğim için sık sık müzeye giderim. | weil-cümlesinde zamir öznenin arkasında (ich mich), çekimli fiil en sonda (interessiere). | sich interessieren für; die Kunst; das Museum
+ordnen | 2 | kannst / du / dich / heute / um die Kinder / kümmern | Kannst du dich heute um die Kinder kümmern? | | Bugün çocuklarla ilgilenebilir misin? | Soru: modal başta, özne, zamir (dich); mastar (kümmern) en sonda. | sich kümmern um; das Kind
+
+@teil perfekt | Perfekt: hep haben | yardımcı fiil
+wahl | 2 | Gestern ___ ich mich erkältet. | habe | habe / bin / werde | Dün üşüttüm. | Dönüşlü fiiller Perfekt'te hep haben alır: habe … erkältet. | sich erkälten
+luecke | 2 | Wir ___ uns lange über das Problem ___. (sich unterhalten · Perfekt) | haben ; unterhalten | | Sorun hakkında uzun uzun konuştuk. | Dönüşlü → haben; unterhalten ayrılamayan fiil, Partizip'te ge- almaz: unterhalten. | sich unterhalten über; das Problem
+umform | 2 | Er beeilt sich. → Perfekt | Er hat sich beeilt. | | Acele etti. | haben + zamir (sich) + Partizip (beeilt). | sich beeilen
+fehler | 2 | Sie hat sich bei einer großen Firma beworben. | Sie hat sich bei einer großen Firma beworben. | - | Büyük bir firmaya başvurdu. | Hata yok: dönüşlü fiil → haben; bewerben → beworben. | sich bewerben bei; die Firma
+umform | 2 | Wir treffen uns vor dem Kino. → Perfekt | Wir haben uns vor dem Kino getroffen. | | Sinemanın önünde buluştuk. | haben + uns + getroffen; zamir yardımcı fiilin arkasında. | sich treffen mit; das Kino
+
+@teil praep | Edatlı dönüşlü fiiller | edat
+wahl | 2 | Ich erinnere mich gern ___ meine Kindheit. | an | an / für / auf | Çocukluğumu severek hatırlarım. | sich erinnern an + Akkusativ. | sich erinnern an; die Kindheit
+luecke | 3 | Ärgerst du ___ auch ___ den Lärm? | dich ; über | | Sen de gürültüye sinirleniyor musun? | du → dich; sich ärgern über + Akkusativ. | sich ärgern über; der Lärm
+luecke | 2 | Wer kümmert sich ___ die Katze, wenn du im Urlaub bist? | um | | Sen tatildeyken kediyle kim ilgilenecek? | sich kümmern um + Akkusativ. | sich kümmern um; die Katze, -n; der Urlaub
+umform | 3 | Du hast dich so schnell an das Wetter gewöhnt. Das finde ich toll. → dass | Ich finde es toll, dass du dich so schnell an das Wetter gewöhnt hast. / Ich finde toll, dass du dich so schnell an das Wetter gewöhnt hast. / Dass du dich so schnell an das Wetter gewöhnt hast, finde ich toll. | | Havaya bu kadar çabuk alışman harika. | dass-cümlesi: du dich … gewöhnt hast; çekimli yardımcı fiil en sonda. | sich gewöhnen an; das Wetter
+
+@teil kontrast | Dönüşlü mü değil mi? | dönüşlü zamir
+luecke | 2 | Die Mutter zieht das Kind an, dann zieht sie ___ selbst an. | sich | | Anne çocuğu giydiriyor, sonra kendisi giyiniyor. | Nesne başkası (das Kind) → zamir yok; kendisi → sich. | sich anziehen; das Kind
+wahl | 1 | Welcher Satz bedeutet „Arabamı yıkıyorum“? | Ich wasche mein Auto. | Ich wasche mein Auto. / Ich wasche mich. / Ich wasche mich mein Auto. | Arabamı yıkıyorum. | Nesne araba → dönüşlü zamir yok. Ich wasche mich = yıkanıyorum. | waschen; das Auto
+

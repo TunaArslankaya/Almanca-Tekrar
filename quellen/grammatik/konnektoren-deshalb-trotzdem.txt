@@ -1,0 +1,90 @@
+# Gramer konusu: bağlaç zarfları deshalb / deswegen / darum, trotzdem, sonst, außerdem. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id konnektoren-deshalb-trotzdem
+@titel Konnektoren: deshalb, trotzdem, sonst, außerdem
+@tr Bağlaç zarfları: deshalb (bu yüzden), trotzdem (yine de), sonst (yoksa), außerdem (ayrıca)
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-3
+@voraus v2-satzbau, weil-dass
+@kontrast weil-dass, obwohl-wenn
+@etiket kelime sırası
+@kurz deshalb / deswegen / darum / trotzdem / sonst / außerdem 1. yerde → hemen çekimli fiil, sonra özne: …, deshalb bleibe ich zu Hause.
+
+@erklaerung
+deshalb, deswegen, darum (bu yüzden), trotzdem (yine de, buna rağmen), sonst (yoksa, aksi hâlde) ve außerdem (ayrıca) aslında zarftır (das Adverb). Cümlede 1. yeri doldururlar; bu yüzden hemen arkalarından çekimli fiil, sonra özne gelir: Ich bin krank, deshalb bleibe ich zu Hause.
+
+Türkçede "bu yüzden ben evde kalıyorum" dediğimiz için en sık hata "deshalb ich bleibe" olur. Kural: zarf 1. yerdeyse fiil 2. yerde, özne 3. yerde.
+
+1. Sonuç: deshalb = deswegen = darum. Önce sebep, sonra sonuç: Es regnet, deshalb nehme ich den Bus.
+2. Beklenene aykırı: trotzdem. Es regnet, trotzdem gehe ich spazieren. Aynı anlamı obwohl da verir ama yan cümle açar, fiil sona gider: Obwohl es regnet, gehe ich spazieren.
+3. Uyarı / koşul: sonst = "yapmazsan …": Beeil dich, sonst verpasst du den Bus.
+4. Ek bilgi: außerdem. Görüş yazısında ikinci argümanı açar: Außerdem ist Radfahren gesund.
+5. Bu zarflar fiilden sonra orta alana da girebilir: Ich bleibe deshalb zu Hause. · Wir gehen trotzdem spazieren. O zaman özne başta kalır, fiil yine 2. yerde.
+6. und / aber sıra saymaz: …, und deshalb bleibe ich zu Hause. · …, aber trotzdem gehe ich hin.
+
+Karıştırma: weil (yan cümle, fiil sonda) ve denn (sıra değişmez) SEBEBİ verir; deshalb SONUCU verir.
+Sınavda: Schreiben'de argümanları bağlamak (außerdem, deshalb, trotzdem) metni B1 düzeyine taşır.
+@ende
+
+@tabelle Zarf 1. yerde: fiil hemen arkada
+zarf | anlam | örnek
+deshalb / deswegen / darum | bu yüzden | Ich habe Hunger, deshalb koche ich jetzt.
+trotzdem | yine de | Ich bin müde, trotzdem lerne ich noch.
+sonst | yoksa | Nimm einen Schirm mit, sonst wirst du nass.
+außerdem | ayrıca | Die Wohnung ist hell, außerdem ist sie billig.
+@ende
+
+@tabelle Sebep mi sonuç mu? Fiil nerede?
+sözcük | ne verir | sıra | örnek
+weil | sebep | yan cümle: fiil en sonda | Ich bleibe zu Hause, weil ich krank bin.
+denn | sebep | sıra değişmez | Ich bleibe zu Hause, denn ich bin krank.
+deshalb | sonuç | fiil hemen arkada | Ich bin krank, deshalb bleibe ich zu Hause.
+obwohl | aykırılık | yan cümle: fiil en sonda | Obwohl ich krank bin, gehe ich zur Arbeit.
+trotzdem | aykırılık | fiil hemen arkada | Ich bin krank, trotzdem gehe ich zur Arbeit.
+@ende
+
+@beispiel Ich möchte in Bremen studieren, deshalb lerne ich Deutsch. | Bremen'de okumak istiyorum, bu yüzden Almanca öğreniyorum.
+@beispiel Das Wetter war schlecht, trotzdem sind wir an den Strand gefahren. | Hava kötüydü, yine de plaja gittik.
+@beispiel Beeil dich, sonst verpasst du den Bus. | Acele et, yoksa otobüsü kaçırırsın.
+@beispiel Die Wohnung ist hell. Außerdem ist die Miete nicht zu hoch. | Ev aydınlık. Ayrıca kira da çok yüksek değil.
+
+@teil folge | deshalb / deswegen / darum: sonuç, fiil hemen arkada | kelime sırası
+wahl | 1 | Ich habe morgen eine Prüfung, deshalb ___ heute Abend. | lerne ich | lerne ich / ich lerne / ich lernen | Yarın sınavım var, bu yüzden bu akşam ders çalışıyorum. | deshalb 1. yeri doldurur: arkasından hemen çekimli fiil (lerne), sonra özne (ich). | die Prüfung; lernen
+luecke | 2 | Der Bus ist nicht gekommen, deswegen ___ ich zu Fuß ___. (gehen · Perfekt) | bin ; gegangen | | Otobüs gelmedi, bu yüzden yürüyerek gittim. | deswegen'den sonra hemen çekimli yardımcı fiil (bin), Partizip (gegangen) en sonda. gehen yer değiştirme fiili → sein. | der Bus; gehen; der Fuß
+ordnen | 2 | es regnet stark / darum / wir / bleiben / heute zu Hause | Es regnet stark, darum bleiben wir heute zu Hause. / Es regnet stark, wir bleiben darum heute zu Hause. | | Çok yağmur yağıyor, bu yüzden bugün evde kalıyoruz. | darum 1. yerdeyse fiil (bleiben) hemen arkasında; özne başta kalırsa darum fiilden sonra gelir. | regnen; stark
+fehler | 2 | Ich hatte keine Zeit, deshalb ich habe dich nicht angerufen. | Ich hatte keine Zeit, deshalb habe ich dich nicht angerufen. | ich habe | Vaktim yoktu, bu yüzden seni aramadım. | deshalb 1. yeri doldurur: çekimli fiil (habe) hemen arkasında, özne (ich) fiilden sonra. Türkçe sıra ("bu yüzden ben …") burada yanlış. | die Zeit; anrufen
+umform | 3 | Ich habe meinen Schlüssel vergessen. Ich komme nicht in die Wohnung. → deshalb | Ich habe meinen Schlüssel vergessen, deshalb komme ich nicht in die Wohnung. / Ich habe meinen Schlüssel vergessen, ich komme deshalb nicht in die Wohnung. | | Anahtarımı unuttum, bu yüzden eve giremiyorum. | Birinci cümle sebep, ikincisi sonuç → deshalb ikinci cümlenin başına; arkasından fiil (komme), sonra özne (ich). | der Schlüssel; vergessen; die Wohnung
+
+@teil trotzdem | trotzdem: beklenene rağmen | kelime sırası
+luecke | 1 | Das Wetter war schlecht, ___ sind wir an den Strand gefahren. | trotzdem | trotzdem / deshalb / außerdem | Hava kötüydü, yine de plaja gittik. | Kötü havada plaja gitmek beklenmez: aykırılık → trotzdem. deshalb sonuç bildirir. | das Wetter; der Strand
+wahl | 1 | Welcher Satz ist richtig? | Ich war sehr müde, trotzdem habe ich weitergelernt. | Ich war sehr müde, trotzdem habe ich weitergelernt. / Ich war sehr müde, trotzdem ich habe weitergelernt. / Ich war sehr müde, trotzdem ich weitergelernt habe. | Çok yorgundum, yine de çalışmaya devam ettim. | trotzdem zarftır, yan cümle açmaz: arkasından hemen çekimli fiil (habe), sonra özne (ich). | müde
+luecke | 2 | Mein Kollege ist krank, trotzdem ___ ins Büro. (er · kommen) | kommt er | | İş arkadaşım hasta, yine de ofise geliyor. | trotzdem 1. yerde: önce çekimli fiil (kommt), sonra özne (er). | der Kollege; krank; das Büro
+umform | 3 | Obwohl ich wenig Geld habe, fahre ich in den Urlaub. → trotzdem | Ich habe wenig Geld, trotzdem fahre ich in den Urlaub. / Ich habe wenig Geld, ich fahre trotzdem in den Urlaub. | | Az param var, yine de tatile gidiyorum. | obwohl yan cümlesinde fiil sondaydı (habe). trotzdem ise ikinci ana cümlenin başına gelir, fiil hemen arkasında: trotzdem fahre ich. | das Geld; der Urlaub
+ordnen | 3 | der Film war lang / trotzdem / er / war / nicht langweilig | Der Film war lang, trotzdem war er nicht langweilig. / Der Film war lang, er war trotzdem nicht langweilig. | | Film uzundu, yine de sıkıcı değildi. | trotzdem 1. yerde → war er; özne başta → er war trotzdem. | der Film; langweilig
+
+@teil sonst | sonst: yoksa, aksi hâlde | kelime sırası
+luecke | 1 | Zieh eine Jacke an, ___ erkältest du dich. | sonst | sonst / deshalb / trotzdem | Mont giy, yoksa üşütürsün. | "Bunu yap, yapmazsan kötü bir şey olur" → sonst. | die Jacke; anziehen; sich erkälten
+luecke | 2 | Wir müssen jetzt gehen, sonst ___ den Zug. (wir · verpassen) | verpassen wir | | Şimdi gitmemiz lazım, yoksa treni kaçırırız. | sonst 1. yeri doldurur: önce çekimli fiil (verpassen), sonra özne (wir). | der Zug; verpassen
+fehler | 2 | Du musst dich anmelden, sonst du kannst nicht mitmachen. | Du musst dich anmelden, sonst kannst du nicht mitmachen. | du kannst | Kaydolman lazım, yoksa katılamazsın. | sonst'tan sonra özne değil çekimli fiil gelir: sonst kannst du … | sich anmelden
+umform | 3 | Du musst pünktlich sein. Wenn du nicht pünktlich bist, fängt der Kurs ohne dich an. → sonst | Du musst pünktlich sein, sonst fängt der Kurs ohne dich an. | | Dakik olmalısın, yoksa kurs sensiz başlar. | "Wenn du nicht pünktlich bist" = sonst. Arkasından çekimli fiil (fängt), ayrılabilen ön ek (an) en sonda. | pünktlich; der Kurs; anfangen mit
+
+@teil ausserdem | außerdem: ayrıca, ek argüman | kelime sırası
+wahl | 1 | Die Wohnung ist hell und ruhig. ___ ist die Miete nicht zu hoch. | Außerdem | Außerdem / Trotzdem / Sonst | Ev aydınlık ve sessiz. Ayrıca kira da çok yüksek değil. | Aynı yönde bir artı daha → außerdem. trotzdem aykırılık, sonst uyarı bildirir. | die Wohnung; hell; ruhig; die Miete
+luecke | 2 | Radfahren ist billig. Außerdem ___ gut für die Gesundheit. (es · sein) | ist es | | Bisiklete binmek ucuz. Ayrıca sağlığa da iyi gelir. | Außerdem 1. yerde: çekimli fiil (ist) hemen arkada, özne (es) sonra. | billig; die Gesundheit
+ordnen | 2 | das Hotel liegt zentral / außerdem / es / hat / einen schönen Garten | Das Hotel liegt zentral, außerdem hat es einen schönen Garten. / Das Hotel liegt zentral, es hat außerdem einen schönen Garten. | | Otel merkezi bir yerde, ayrıca güzel bir bahçesi var. | außerdem 1. yerde → hat es; özne başta → es hat außerdem. | das Hotel; zentral; der Garten
+fehler | 2 | Ich lerne gern in der Bibliothek. Außerdem treffe ich dort oft meine Freunde. | Ich lerne gern in der Bibliothek. Außerdem treffe ich dort oft meine Freunde. | - | Kütüphanede çalışmayı seviyorum. Ayrıca orada sık sık arkadaşlarımla buluşuyorum. | Hata yok: Außerdem 1. yerde, çekimli fiil (treffe) hemen arkasında, özne (ich) sonra. | die Bibliothek; treffen
+
+@teil mittelfeld | Özne başta: zarf fiilden sonra | kelime sırası
+luecke | 2 | Ich bin erkältet. Ich gehe ___ heute nicht zum Training. (bu yüzden) | deshalb / deswegen / darum | | Üşüttüm. Bu yüzden bugün antrenmana gitmiyorum. | Özne (ich) 1. yerde olunca zarf çekimli fiilin arkasına girer: Ich gehe deshalb … Fiil yine 2. yerde. | erkältet; das Training
+wahl | 2 | Welcher Satz ist richtig? | Es war kalt, aber wir sind trotzdem schwimmen gegangen. | Es war kalt, aber wir sind trotzdem schwimmen gegangen. / Es war kalt, aber trotzdem wir sind schwimmen gegangen. / Es war kalt, aber wir trotzdem sind schwimmen gegangen. | Soğuktu ama yine de yüzmeye gittik. | aber sıra saymaz. Sonra özne (wir) 1. yerde, çekimli fiil (sind) 2. yerde, trotzdem fiilden sonra. | kalt; schwimmen
+fehler | 3 | Es regnet, aber ich trotzdem gehe joggen. | Es regnet, aber ich gehe trotzdem joggen. / Es regnet, aber trotzdem gehe ich joggen. | ich trotzdem gehe | Yağmur yağıyor ama yine de koşuya gidiyorum. | Özne (ich) başta ise çekimli fiil (gehe) hemen arkasında, trotzdem fiilden sonra. Fiil hep 2. yerde. | regnen
+
+@teil kontrast | weil · denn · deshalb · obwohl · trotzdem | bağlaç
+wahl | 1 | Ich gehe heute früh schlafen, ___ ich bin sehr müde. | denn | weil / denn / deshalb | Bugün erken yatıyorum, çünkü çok yorgunum. | Arkadaki cümlede özne + fiil (ich bin) normal sırada ve anlam sebep → denn. weil olsaydı: weil ich sehr müde bin. | müde; schlafen
+wahl | 3 | Ich bin sehr müde, ___ gehe ich heute früh schlafen. | deshalb | weil / denn / deshalb / obwohl | Çok yorgunum, bu yüzden bugün erken yatıyorum. | Fiil (gehe) bağlaçtan hemen sonra geliyor → zarf. Anlam sonuç → deshalb. | müde; schlafen
+luecke | 2 | ___ ich viel gelernt habe, habe ich die Prüfung nicht bestanden. | Obwohl | Obwohl / Trotzdem / Weil | Çok çalışmama rağmen sınavı geçemedim. | Fiil (habe) birinci kısmın sonunda → yan cümle açan bağlaç gerekir; anlam aykırılık → obwohl. trotzdem'den sonra fiil hemen gelirdi. | die Prüfung; bestehen
+umform | 3 | Ich habe viel gearbeitet, weil ich Geld für die Reise brauche. → deshalb | Ich brauche Geld für die Reise, deshalb habe ich viel gearbeitet. / Ich brauche Geld für die Reise, ich habe deshalb viel gearbeitet. | | Yolculuk için paraya ihtiyacım var, bu yüzden çok çalıştım. | weil sebebi verir, deshalb sonucu. Önce sebep (Ich brauche Geld …), sonra deshalb + çekimli fiil (habe). | das Geld; die Reise; brauchen
+luecke | 3 | Ich will in Bremen studieren, ___ besuche ich einen Deutschkurs. ___ lerne ich jeden Tag Vokabeln. (bu yüzden · ayrıca) | deshalb ; Außerdem / deswegen ; Außerdem / darum ; Außerdem | | Bremen'de okumak istiyorum, bu yüzden bir Almanca kursuna gidiyorum. Ayrıca her gün kelime çalışıyorum. | Sonuç → deshalb (deswegen, darum); ek bilgi → außerdem. İkisinden sonra da fiil hemen gelir (besuche, lerne). | studieren
+ordnen | 2 | ich habe mich beeilt / trotzdem / ich / habe / den Bus / verpasst | Ich habe mich beeilt, trotzdem habe ich den Bus verpasst. / Ich habe mich beeilt, ich habe trotzdem den Bus verpasst. / Ich habe mich beeilt, ich habe den Bus trotzdem verpasst. | | Acele ettim, yine de otobüsü kaçırdım. | trotzdem 1. yerde → habe ich; özne başta → ich habe trotzdem … Partizip (verpasst) en sonda. | sich beeilen; der Bus; verpassen

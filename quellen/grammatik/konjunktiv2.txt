@@ -1,0 +1,95 @@
+# Gramer konusu: Konjunktiv II (rica, dilek, tavsiye, gerçek dışı koşul). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id konjunktiv2
+@titel Konjunktiv II: Bitten, Wünsche, Ratschläge, irreale Bedingungen
+@tr Konjunktiv II: kibar rica, dilek, tavsiye, gerçek dışı koşul (würde, hätte, wäre, könnte, sollte)
+@stufe A2–B1
+@kapitel A2 · Vergangenheit B1 K5–8 ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus v2-satzbau, weil-dass
+@kontrast futur, praeteritum, obwohl-wenn
+@etiket artikel/çekim
+@kurz würde + mastar (sonda); sein / haben / modal fiiller kendi biçimiyle: wäre, hätte, könnte, müsste, sollte. Rica: Könnten Sie …? Tavsiye: Du solltest … Gerçek dışı: Wenn ich Zeit hätte, würde ich …
+
+@erklaerung
+Konjunktiv II Türkçedeki "-sa / -se", "-ardı / -erdi" ve kibar "-ebilir misiniz"in karşılığıdır.
+
+Biçim: çoğu fiilde würde + mastar (en sonda): Ich würde gern reisen. sein, haben ve modal fiillerin kendi biçimi var: wäre, hätte, könnte, müsste, dürfte, sollte (Umlaut önemli!).
+
+Dört iş:
+1. Kibar rica: Könnten Sie mir helfen? Würden Sie bitte das Fenster schließen? Hätten Sie kurz Zeit?
+2. Dilek: Ich hätte gern einen Kaffee. Ich würde gern in Berlin wohnen. Wenn ich doch mehr Zeit hätte!
+3. Tavsiye ve öneri: Du solltest mehr schlafen. An deiner Stelle würde ich … Wir könnten am Samstag …
+4. Gerçek dışı koşul: Wenn ich reich wäre, würde ich reisen. (Zengin olsam seyahat ederdim, ama değilim.) wenn-cümlesinde fiil sonda; yan cümle öndeyse ana cümle fiille başlar.
+
+Türk öğrencinin tuzağı: Türkçedeki "-sa" hem gerçek koşulu (vaktim olursa gelirim) hem gerçek dışı koşulu (vaktim olsa gelirdim) karşılar. Almancada ayrılır: Wenn ich Zeit habe, komme ich (gerçek, olabilir). Wenn ich Zeit hätte, würde ich kommen (gerçek dışı, vaktim yok). Ayrıca würde (-ardı) ≠ wurde (oldu), könnte (-ebilirdi) ≠ konnte (-ebildi): tek fark Umlaut.
+
+Sınavda: Sprechen Teil 3'te birlikte plan yaparken (Wir könnten …, Hättest du Lust …, Ich würde vorschlagen …), Schreiben Teil 3'te resmî ricada (Könnten Sie …? Ich wäre Ihnen dankbar, wenn …).
+@ende
+
+@tabelle Biçimler
+kişi | werden → würde | haben → hätte | sein → wäre | können → könnte | sollen → sollte
+ich | würde | hätte | wäre | könnte | sollte
+du | würdest | hättest | wärst | könntest | solltest
+er / sie / es | würde | hätte | wäre | könnte | sollte
+wir | würden | hätten | wären | könnten | sollten
+ihr | würdet | hättet | wärt | könntet | solltet
+sie / Sie | würden | hätten | wären | könnten | sollten
+@ende
+
+@tabelle Hangi iş, hangi kalıp?
+iş | kalıp | örnek
+kibar rica | Könnten / Würden Sie …? · Hätten Sie …? | Könnten Sie mir bitte helfen?
+dilek | Ich hätte gern … · Ich würde gern … · Wenn … doch …! | Ich würde gern in Berlin wohnen.
+tavsiye | Du solltest … · An deiner Stelle würde ich … | Du solltest mehr schlafen.
+öneri | Wir könnten … · Wie wäre es mit …? | Wir könnten ins Kino gehen.
+gerçek dışı koşul | Wenn …, würde / hätte / wäre … | Wenn ich Zeit hätte, würde ich mitkommen.
+@ende
+
+@beispiel Könnten Sie mir bitte sagen, wann der Kurs anfängt? | Kursun ne zaman başladığını söyleyebilir misiniz lütfen?
+@beispiel Wenn ich mehr Zeit hätte, würde ich öfter Sport machen. | Daha çok vaktim olsa daha sık spor yapardım.
+@beispiel Du solltest mehr Wasser trinken. | Daha çok su içmelisin.
+
+@teil formen | Biçimler: hätte, wäre, könnte, würde | artikel/çekim
+luecke | 1 | Wenn ich mehr Zeit ___, würde ich öfter Sport machen. (haben) | hätte | | Daha çok vaktim olsa daha sık spor yapardım. | Gerçek dışı koşul: haben → hätte (Umlaut!). | die Zeit; der Sport
+luecke | 1 | Es ___ schön, wenn du am Samstag kommen könntest. (sein) | wäre | | Cumartesi gelebilsen güzel olurdu. | sein → wäre; es wäre schön = güzel olurdu. | schön
+luecke | 2 | ___ ihr uns beim Umzug helfen? (können · Konjunktiv II) | Könntet | | Taşınmada bize yardım edebilir misiniz? | ihr-biçimi: könntet. Kibar rica. | helfen bei; der Umzug
+wahl | 1 | Ich ___ gern mit dir ins Kino gehen, aber ich muss leider arbeiten. | würde | würde / wurde / werde | Seninle sinemaya gitmeyi çok isterdim ama maalesef çalışmam gerek. | würde (Umlaut) = -ardı / -erdi. wurde = oldu (Präteritum), werde = Futur. | das Kino; arbeiten
+
+@teil bitte | Kibar rica | artikel/çekim
+wahl | 1 | Welche Bitte ist am höflichsten? | Könnten Sie mir bitte helfen? | Könnten Sie mir bitte helfen? / Helfen Sie mir! / Sie müssen mir helfen. | Bana yardım edebilir misiniz lütfen? | Konjunktiv II (könnten) + bitte = en kibar rica. Emir kipi ve müssen sert duyulur. | helfen
+umform | 2 | Können Sie das Fenster schließen? → Konjunktiv II | Könnten Sie das Fenster schließen? / Würden Sie das Fenster schließen? / Könnten Sie bitte das Fenster schließen? / Würden Sie bitte das Fenster schließen? | | Pencereyi kapatabilir misiniz? | können → könnten; ya da würden + mastar (sonda). | das Fenster; schließen
+umform | 2 | Hast du kurz Zeit? → Konjunktiv II | Hättest du kurz Zeit? | | Biraz vaktin var mı acaba? | haben → hätte; du-biçimi hättest. | die Zeit
+luecke | 2 | Ich ___ gern einen Termin für nächste Woche. (haben · Konjunktiv II) | hätte | | Gelecek hafta için bir randevu almak istiyorum. | Ich hätte gern … = kibar istek (ich möchte ile aynı anlam). | der Termin
+ordnen | 2 | würden / Sie / mir / bitte / die Unterlagen / schicken | Würden Sie mir bitte die Unterlagen schicken? / Würden Sie mir die Unterlagen bitte schicken? | | Bana belgeleri gönderir misiniz lütfen? | Soru: würden başta, mastar (schicken) en sonda. | die Unterlagen; schicken
+ordnen | 3 | ich wäre Ihnen dankbar / wenn / Sie / mich / zurückrufen / könnten | Ich wäre Ihnen dankbar, wenn Sie mich zurückrufen könnten. | | Beni geri arayabilirseniz minnettar olurum. | Resmî e-posta kalıbı; wenn-cümlesinde çekimli fiil (könnten) en sonda. | dankbar
+fehler | 2 | Könnten Sie mir bitte sagen, wo der Bahnhof ist? | Könnten Sie mir bitte sagen, wo der Bahnhof ist? | - | Bana istasyonun nerede olduğunu söyleyebilir misiniz lütfen? | Hata yok: kibar rica (könnten) + dolaylı soru (fiil ist sonda). | der Bahnhof; sagen
+
+@teil wunsch | Dilek | artikel/çekim
+luecke | 2 | Wenn ich doch nur mehr Geld ___! (haben) | hätte | | Keşke daha çok param olsa! | Dilek: Wenn … doch (nur) + Konjunktiv II; fiil sonda. | das Geld
+luecke | 2 | Ich ___ gern in einer größeren Wohnung ___. (wohnen · Konjunktiv II) | würde ; wohnen | | Daha büyük bir evde oturmak isterdim. | Çoğu fiilde würde + mastar; mastar en sonda. | wohnen; die Wohnung
+wahl | 2 | Ich habe kein Auto. Ich wünschte, ich ___ eins. | hätte | hätte / habe / hatte | Arabam yok. Keşke bir arabam olsa. | Gerçek dışı dilek → hätte. habe gerçek durumu, hatte geçmişi anlatır. | das Auto
+fehler | 3 | Ich würde gern einen Kaffee haben, wenn es keine Umstände macht. | Ich würde gern einen Kaffee haben, wenn es keine Umstände macht. | - | Zahmet olmazsa bir kahve rica ederim. | Hata yok: würde gern + mastar doğru; "Ich hätte gern einen Kaffee" daha kısa ve sık. | der Kaffee
+
+@teil rat | Tavsiye ve öneri | artikel/çekim
+luecke | 1 | Du hustest so viel. Du ___ zum Arzt gehen. (sollen · Konjunktiv II) | solltest | | Çok öksürüyorsun. Doktora gitmelisin. | Tavsiye: sollte; du solltest. | husten; der Arzt
+wahl | 2 | An deiner Stelle ___ ich mehr Wasser trinken. | würde | würde / werde / wurde | Senin yerinde olsam daha çok su içerdim. | An deiner Stelle = "senin yerinde olsam" → gerçek dışı: würde. | das Wasser; trinken
+ordnen | 2 | wir / könnten / am Samstag / einen Ausflug / machen | Wir könnten am Samstag einen Ausflug machen. / Am Samstag könnten wir einen Ausflug machen. | | Cumartesi bir gezi yapabiliriz. | Öneri: könnten 2. yerde, mastar sonda. Sprechen Teil 3'ün en kullanışlı kalıbı. | der Ausflug
+fehler | 2 | Du solltest weniger Kaffee trinken. | Du solltest weniger Kaffee trinken. | - | Daha az kahve içmelisin. | Hata yok: tavsiye = solltest + mastar (sonda). | der Kaffee; trinken
+luecke | 3 | Was ___ du an meiner Stelle machen? (werden · Konjunktiv II) | würdest | | Benim yerimde olsan ne yapardın? | du würdest + mastar (machen) en sonda. | machen
+
+@teil irreal | Gerçek dışı koşul: Wenn …, würde … | kelime sırası
+luecke | 2 | Wenn der Bus pünktlich ___, ___ ich nicht zu spät kommen. (sein ; werden) | wäre ; würde | | Otobüs zamanında gelse geç kalmazdım. | wenn-cümlesinde fiil sonda (wäre); yan cümle öndeyse ana cümle fiille başlar (würde ich). | der Bus; pünktlich
+wahl | 3 | Welcher Satz ist irreal (nicht real)? | Wenn ich Zeit hätte, würde ich mitkommen. | Wenn ich Zeit hätte, würde ich mitkommen. / Wenn ich Zeit habe, komme ich mit. / Als ich Zeit hatte, kam ich mit. | Vaktim olsa gelirdim (ama yok). | hätte / würde = gerçek dışı. habe = gerçek koşul (vaktim olursa gelirim). Türkçede "-sa" ikisini de karşılar. |
+fehler | 2 | Wenn ich du wäre, ich würde den Job annehmen. | Wenn ich du wäre, würde ich den Job annehmen. / Ich würde den Job annehmen, wenn ich du wäre. | ich würde | Senin yerinde olsam işi kabul ederdim. | wenn-cümlesi öndeyse ana cümle fiille başlar: …, würde ich … | annehmen
+fehler | 3 | Wenn ich Zeit habe, würde ich dir helfen. | Wenn ich Zeit hätte, würde ich dir helfen. | habe | Vaktim olsa sana yardım ederdim. | Gerçek dışı koşulda iki taraf da Konjunktiv II: hätte … würde. | helfen; die Zeit
+umform | 3 | Ich bin nicht reich. Ich kann nicht um die Welt reisen. → wenn | Wenn ich reich wäre, könnte ich um die Welt reisen. / Wenn ich reich wäre, würde ich um die Welt reisen. / Ich könnte um die Welt reisen, wenn ich reich wäre. / Ich würde um die Welt reisen, wenn ich reich wäre. | | Zengin olsam dünyayı gezebilirdim. | Olumsuz gerçek → olumlu gerçek dışı: nicht reich → wenn ich reich wäre; kann → könnte. | reich; reisen; die Welt
+umform | 3 | Ich habe keinen Führerschein. Ich fahre mit dem Bus. → wenn | Wenn ich einen Führerschein hätte, würde ich nicht mit dem Bus fahren. / Ich würde nicht mit dem Bus fahren, wenn ich einen Führerschein hätte. | | Ehliyetim olsa otobüsle gitmezdim. | Gerçeğin tersini kur: keinen → einen Führerschein hätte; fahre → würde nicht … fahren. | der Führerschein; der Bus
+luecke | 3 | Wenn wir ein Auto ___, ___ wir am Wochenende ans Meer fahren. (haben ; können) | hätten ; könnten | | Arabamız olsa hafta sonu denize gidebilirdik. | haben → hätten, können → könnten (wir-biçimi). | das Auto; das Meer
+ordnen | 3 | wenn / ich / du / wäre / würde / ich / früher / ins Bett / gehen | Wenn ich du wäre, würde ich früher ins Bett gehen. / Ich würde früher ins Bett gehen, wenn ich du wäre. | | Senin yerinde olsam daha erken yatardım. | wenn-cümlesi: fiil sonda (wäre); ardından ana cümle fiille başlar (würde ich); mastar en sonda. | früh
+
+@teil kontrast | könnte / konnte · würde / wurde | artikel/çekim
+wahl | 1 | Als Kind ___ ich nicht schwimmen. | konnte | konnte / könnte / kann | Çocukken yüzme bilmiyordum. | Geçmişteki yetenek: konnte (Umlaut yok). könnte = "-ebilirdi" (Konjunktiv II). | schwimmen
+wahl | 2 | Letztes Jahr ___ mein Bruder 18. | wurde | wurde / würde / wird | Geçen yıl kardeşim 18 yaşına girdi. | Letztes Jahr = geçmiş → werden'in Präteritum'u: wurde. würde Konjunktiv II'dir (-ardı), wird şimdiki zaman. | werden
+

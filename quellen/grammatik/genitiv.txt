@@ -1,0 +1,94 @@
+# Gramer konusu: Genitiv (isim tamlaması, özel isimler, wegen / trotz / während / statt). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: FORMAT.md umform tablosunda olmayan hedefler (uygulamadaki yönerge önerisi):
+#   "Genitiv"     → "von + Dativ yerine Genitiv kullan"
+#   "trotz", "wegen" → "… ile tek cümle yap (yan cümle yerine edat + isim)"
+@id genitiv
+@titel Genitiv: Nomen, Namen und Präpositionen
+@tr Genitiv (-in / -ın hâli): des / der, -s, Annas, wegen, trotz, während, statt
+@stufe B1
+@kapitel B1 K1–2 ?
+@goethe 1 | Lesen · Hören · Schreiben 3 (wegen / trotz, resmî dil)
+@voraus adjektiv
+@kontrast obwohl-wenn, weil-dass
+@etiket hâl
+@kurz Genitiv = "-in / -ın": eril ve nötr des + isim -(e)s (des Kurses), dişil ve çoğul der (der Firma). Özel isim + s, kesme işareti yok (Annas). wegen / trotz / während / statt + Genitiv.
+
+@erklaerung
+Genitiv, Türkçedeki isim tamlamasıdır: "öğretmenin arabası" → das Auto der Lehrerin. Sıra Türkçenin tersidir: önce sahip olunan şey (das Auto), sonra sahip (der Lehrerin).
+
+1. Artikel: eril ve nötr → des / eines / meines, isim -s ya da -es alır: -s, -ß, -z, -x ile bitenlerde -es zorunlu (des Kurses), tek hecelilerde ikisi de olur (des Films / des Filmes). Dişil ve çoğul → der / einer / meiner, isim değişmez (der Firma, meiner Eltern).
+2. Sıfat Genitiv'de hep -en: wegen des schlechten Wetters, das Haus meiner alten Tante.
+3. Özel isim: isme -s eklenir, kesme işareti YOK: Annas Wohnung, Peters Mutter. İsim s / z / x ile bitiyorsa yalnız kesme işareti: Thomas' Auto. İngilizcedeki gibi "Maria's" yazmak hatadır.
+4. Konuşmada Genitiv yerine çoğu zaman von + Dativ kullanılır: das Auto von meinem Bruder. Yazıda (mektup, Schreiben) Genitiv daha iyi durur.
+5. Edatlar: wegen (… yüzünden), trotz (… -e rağmen), während (… sırasında), statt (… yerine) + Genitiv. Konuşmada "wegen dem Regen" çok duyulur; sınavda Genitiv yaz: wegen des Regens.
+6. Karıştırma: wegen + isim ↔ weil + yan cümle; trotz + isim ↔ obwohl + yan cümle. Wegen des Regens … = Weil es regnet, …
+
+Sınavda: Lesen ve Hören metinlerinde çok geçer; Schreiben'de "Wegen meiner Krankheit kann ich leider nicht kommen." gibi kısa ve resmî gerekçe cümlesi işe yarar.
+@ende
+
+@tabelle Genitiv artikeli ve isim
+cins | belirli | belirsiz / iyelik | örnek
+eril | des … -(e)s | eines / meines … -(e)s | das Ende des Films · das Fahrrad meines Bruders
+nötr | des … -(e)s | eines / meines … -(e)s | die Farbe des Autos
+dişil | der | einer / meiner | die Adresse der Firma
+çoğul | der | – / meiner | die Wohnung meiner Eltern
+özel isim | isim + s | (s / z / x ile bitiyorsa ') | Annas Bruder · Thomas' Auto
+@ende
+
+@tabelle Genitiv edatları
+edat | anlam | örnek | yan cümleyle
+wegen | … yüzünden, … nedeniyle | Wegen des Regens bleiben wir zu Hause. | Weil es regnet, …
+trotz | … -e rağmen | Trotz des Regens gehen wir spazieren. | Obwohl es regnet, …
+während | … sırasında | Während des Unterrichts telefoniert man nicht. | Während wir lernen, …
+statt | … yerine | Statt eines Briefes schreibe ich eine E-Mail. | –
+@ende
+
+@beispiel Das ist das Fahrrad meines Bruders. | Bu, kardeşimin bisikleti.
+@beispiel Hast du Annas neue Wohnung schon gesehen? | Anna'nın yeni dairesini gördün mü?
+@beispiel Wegen des Streiks fahren heute keine Busse. | Grev yüzünden bugün otobüs yok.
+@beispiel Trotz des Fiebers ist er zur Arbeit gegangen. | Ateşine rağmen işe gitti.
+
+@teil artikel | des / der + isim -(e)s | hâl
+wahl | 1 | Das ist das Auto ___ Lehrerin. | der | der / des / dem | Bu, öğretmenin arabası. | die Lehrerin dişil; dişil Genitiv → der: das Auto der Lehrerin. | die Lehrerin; das Auto
+luecke | 1 | Der Name ___ Hotels ist „Seeblick“. | des | des / der / dem | Otelin adı „Seeblick“. | das Hotel nötr → Genitiv des, isim -s alır: des Hotels. | das Hotel; der Name
+luecke | 2 | Das Ende des ___ war sehr traurig. (der Film) | Films / Filmes | | Filmin sonu çok hüzünlüydü. | Eril Genitiv: artikel des, isim -s ya da -es alır: des Films / des Filmes. | der Film; traurig
+luecke | 2 | Die Farbe ___ gefällt mir nicht. (das Auto) | des Autos | | Arabanın rengini beğenmiyorum. | Nötr Genitiv: des + isim -s → des Autos. | das Auto; gefallen
+luecke | 2 | Die Wohnung ___ ist sehr groß. (meine Eltern) | meiner Eltern | | Annemle babamın dairesi çok büyük. | Çoğul Genitiv: meine → meiner, isim değişmez: meiner Eltern. | die Eltern; die Wohnung
+luecke | 2 | Der Anfang ___ ist immer schwer. (der Kurs) | des Kurses | | Kursun başlangıcı hep zordur. | Eril Genitiv; -s ile biten isim -es alır: des Kurses. | der Kurs; schwer
+umform | 2 | Das ist die Tasche von meiner Schwester. → Genitiv | Das ist die Tasche meiner Schwester. | | Bu, kız kardeşimin çantası. | von + Dativ (konuşma dili) → Genitiv: dişil meine → meiner. | die Schwester; die Tasche
+umform | 2 | Die Adresse von der Firma ist neu. → Genitiv | Die Adresse der Firma ist neu. | | Firmanın adresi yeni. | von der Firma → der Firma (dişil Genitiv = der). | die Firma; die Adresse
+umform | 3 | Der Garten von unserem Nachbarn ist sehr schön. → Genitiv | Der Garten unseres Nachbarn ist sehr schön. | | Komşumuzun bahçesi çok güzel. | Eril Genitiv: unser → unseres; der Nachbar n-Deklination olduğu için -s değil -n alır: unseres Nachbarn. | der Nachbar; der Garten
+fehler | 2 | Das ist das Fahrrad meines Bruder. | Das ist das Fahrrad meines Bruders. | meines Bruder | Bu, erkek kardeşimin bisikleti. | Eril Genitiv'de artikel (meines) yetmez, isim de -s alır: meines Bruders. | der Bruder; das Fahrrad
+
+@teil namen | Özel isim + s: Annas, Peters | hâl
+luecke | 1 | Das ist ___ Fahrrad. (Tuna) | Tunas | | Bu, Tuna'nın bisikleti. | Özel isme -s eklenir ve isimden önce gelir; kesme işareti yok: Tunas Fahrrad. | das Fahrrad
+wahl | 1 | Wie heißt ___ Mutter? | Peters | Peters / Peter's / des Peters | Peter'in annesinin adı ne? | Almancada özel isim + s, kesme işareti yok: Peters Mutter. Peter's İngilizce yazımdır. | die Mutter; heißen
+luecke | 2 | Hast du ___ neue Wohnung schon gesehen? (Anna) | Annas | | Anna'nın yeni dairesini gördün mü? | Özel isim + s: Annas neue Wohnung. Kesme işareti yok. | die Wohnung; neu
+umform | 3 | Das ist das Auto von Thomas. → Genitiv | Das ist Thomas' Auto. / Das ist Thomas’ Auto. | | Bu, Thomas'ın arabası. | İsim -s ile bitiyorsa ikinci bir s eklenmez, yalnız kesme işareti: Thomas' Auto. | das Auto
+fehler | 2 | Ich habe Maria's Handy im Kurs gefunden. | Ich habe Marias Handy im Kurs gefunden. | Maria's | Maria'nın cep telefonunu kursta buldum. | Almancada özel isim Genitiv'i kesme işaretsiz: Marias Handy. | das Handy; finden
+ordnen | 2 | kennst du / Annas / neuen / Freund | Kennst du Annas neuen Freund? | | Anna'nın yeni erkek arkadaşını tanıyor musun? | Annas = Genitiv; der Freund Akkusativ'de ve önünde artikel yok → sıfat -en: Annas neuen Freund. | der Freund; kennen
+
+@teil praep | wegen, trotz, während, statt + Genitiv | edat
+wahl | 1 | ___ des schlechten Wetters sind wir zu Hause geblieben. | Wegen | Wegen / Trotz / Statt | Kötü hava yüzünden evde kaldık. | Kötü hava evde kalmanın sebebi → wegen (… yüzünden). | das Wetter; schlecht
+wahl | 1 | ___ des Regens sind wir spazieren gegangen. | Trotz | Trotz / Wegen | Yağmura rağmen yürüyüşe çıktık. | Yağmur var ama yine de yürüdük → trotz (… -e rağmen). | der Regen; spazieren gehen
+luecke | 2 | Während ___ darf man nicht telefonieren. (der Unterricht) | des Unterrichts / des Unterrichtes | | Ders sırasında telefonla konuşulmaz. | während + Genitiv; eril → des Unterrichts. | der Unterricht; telefonieren mit
+luecke | 2 | Statt ___ hat er mir eine E-Mail geschrieben. (ein Brief) | eines Briefes / eines Briefs | | Mektup yerine bana e-posta yazdı. | statt + Genitiv; eril belirsiz → eines Briefes. | der Brief; die E-Mail
+luecke | 2 | Wegen ___ konnte ich nicht zum Kurs kommen. (meine Erkältung) | meiner Erkältung | | Soğuk algınlığım yüzünden kursa gelemedim. | wegen + Genitiv; dişil meine → meiner. | die Erkältung; der Kurs
+luecke | 3 | Trotz ___ hat sie den Marathon geschafft. (die Schmerzen) | der Schmerzen | | Ağrılara rağmen maratonu başardı. | trotz + Genitiv; çoğul die → der: trotz der Schmerzen. | der Schmerz; schaffen
+ordnen | 2 | wegen / des Streiks / fahren / heute / keine / Busse | Wegen des Streiks fahren heute keine Busse. / Heute fahren wegen des Streiks keine Busse. | | Grev yüzünden bugün otobüs yok. | wegen + Genitiv (des Streiks) cümlenin başında 1. öğedir; fiil (fahren) hemen arkasından. | der Streik; der Bus
+ordnen | 3 | während / der Pause / trinke / ich / meistens / einen Kaffee | Während der Pause trinke ich meistens einen Kaffee. / Ich trinke während der Pause meistens einen Kaffee. / Ich trinke meistens während der Pause einen Kaffee. / Meistens trinke ich während der Pause einen Kaffee. | | Teneffüste genellikle bir kahve içerim. | während + Genitiv; die Pause dişil → der Pause. | die Pause; der Kaffee
+fehler | 2 | Wegen dem Regen ist das Fußballspiel ausgefallen. | Wegen des Regens ist das Fußballspiel ausgefallen. | dem Regen | Yağmur yüzünden futbol maçı iptal oldu. | wegen + Dativ konuşma dilidir; yazılı dilde Genitiv: wegen des Regens. | der Regen; ausfallen
+fehler | 2 | Trotz des Fiebers ist er zur Arbeit gegangen. | Trotz des Fiebers ist er zur Arbeit gegangen. | - | Ateşine rağmen işe gitti. | Hata yok: trotz + Genitiv, das Fieber → des Fiebers. | das Fieber; die Arbeit
+
+@teil adj | Genitiv'de sıfat: hep -en (artikelsiz çoğul -er) | artikel/çekim
+luecke | 3 | Wegen des ___ Wetters fällt das Fest aus. (schlecht) | schlechten | | Kötü hava yüzünden şenlik iptal oluyor. | Artikelli Genitiv'de sıfat hep -en: des schlechten Wetters. | das Wetter; ausfallen
+luecke | 2 | Das ist das Haus meiner ___ Tante. (alt) | alten | | Bu, yaşlı teyzemin evi. | Genitiv + iyelik (meiner) → sıfat -en: meiner alten Tante. | die Tante; das Haus
+wahl | 3 | Trotz ___ Fehler hat sie die Prüfung bestanden. | vieler | vieler / viele / vielen | Birçok hataya rağmen sınavı geçti. | Artikelsiz çoğul Genitiv → -er (der'in sonu): trotz vieler Fehler. | der Fehler; die Prüfung; bestehen
+
+@teil kontrast | wegen ↔ weil, trotz ↔ obwohl | bağlaç
+wahl | 2 | Ich bleibe heute zu Hause, ___ ich krank bin. | weil | weil / wegen / trotz | Hasta olduğum için bugün evde kalıyorum. | Arkada fiilli bir yan cümle var (… krank bin) → bağlaç weil. wegen'den sonra yalnız isim gelir: wegen meiner Krankheit. | krank
+umform | 3 | Es regnet stark. Trotzdem gehen wir spazieren. → trotz | Trotz des starken Regens gehen wir spazieren. / Wir gehen trotz des starken Regens spazieren. | | Şiddetli yağmura rağmen yürüyüşe çıkıyoruz. | trotz + isim (Genitiv): es regnet stark → des starken Regens; arkasından fiil gelir (gehen wir). | der Regen; stark; spazieren gehen
+umform | 3 | Ich komme heute nicht, weil ich krank bin. → wegen | Wegen meiner Krankheit komme ich heute nicht. / Ich komme heute wegen meiner Krankheit nicht. / Ich komme wegen meiner Krankheit heute nicht. / Heute komme ich wegen meiner Krankheit nicht. | | Hastalığım yüzünden bugün gelmiyorum. | weil + yan cümle → wegen + isim: krank sein → meine Krankheit → Genitiv meiner Krankheit. | die Krankheit; krank
+ordnen | 3 | trotz / der Kälte / sind / wir / schwimmen gegangen | Trotz der Kälte sind wir schwimmen gegangen. / Wir sind trotz der Kälte schwimmen gegangen. | | Soğuğa rağmen yüzmeye gittik. | trotz + Genitiv (die Kälte → der Kälte); trotz-grubu başta ise fiil (sind) hemen arkasından. | die Kälte; schwimmen

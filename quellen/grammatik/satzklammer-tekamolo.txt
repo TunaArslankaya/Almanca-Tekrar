@@ -1,0 +1,84 @@
+# Gramer konusu: cümle kıskacı (Satzklammer), orta alan sırası (TeKaMoLo), iki nesnenin sırası. Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: v2-satzbau (fiil 2. yerde, soru) ile örtüşmemesi için burada ağırlık orta alanda (Mittelfeld).
+@id satzklammer-tekamolo
+@titel Satzklammer und Mittelfeld (TeKaMoLo)
+@tr Cümle kıskacı ve orta alan: fiilin iki parçası, zaman – sebep – tarz – yer sırası
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
+@voraus v2-satzbau
+@etiket kelime sırası
+@kurz Çekimli fiil 2. yerde, ikinci parça (mastar, Partizip, ön ek) EN SONDA. Arada genelde Te – Ka – Mo – Lo: wann – warum – wie – wo / wohin. İki zamir: önce Akkusativ (es ihm).
+
+@erklaerung
+Almanca ana cümlede fiil çoğu zaman ikiye bölünür ve bir kıskaç (die Satzklammer) kurar: çekimli parça 2. yerde, ikinci parça en sonda. Türkçede fiil tek parça ve sonda olduğu için "Ich habe gekauft ein Auto" ya da "Ich kann nicht kommen heute" gibi hatalar olur.
+
+1. Kıskaç: Modalverb + mastar (Ich muss heute arbeiten.) · Perfekt (Ich habe gestern ein Fahrrad gekauft.) · ayrılabilen fiil (Der Zug fährt um acht ab.) · werden + mastar.
+2. Orta alan (das Mittelfeld) sırası TeKaMoLo: Temporal (wann? morgen) – Kausal (warum? wegen der Prüfung) – Modal (wie? mit dem Zug) – Lokal (wo / wohin? nach Hamburg): Ich fahre morgen wegen der Prüfung mit dem Zug nach Hamburg. İyi haber: Türkçedeki sırayla aynı ("yarın sınav yüzünden trenle Hamburg'a"). Bu bir eğilimdir, katı kural değil; ama yön / yer bilgisi (nach Hause, zur Arbeit) hemen hemen hep sona en yakın durur.
+3. Herhangi bir öğe 1. yere çıkabilir; o zaman fiil yine 2., özne 3. yerde: Morgen fahre ich …
+4. İki nesne: iki isimde önce Dativ, sonra Akkusativ (Ich gebe meiner Schwester das Buch). Zamir isimden önce gelir (Ich gebe ihr das Buch). İki zamirde önce Akkusativ: Ich gebe es ihr.
+
+Sınavda: her yazma görevinde Perfekt ve modal fiil kullanılır; kıskacı kapatmayı (Partizip / mastar sonda) unutmak en çok puan kaybettiren sıra hatasıdır.
+@ende
+
+@tabelle Kıskaç: 2. yer … son
+yapı | 2. yer | orta alan | son
+Modalverb | kann | heute leider nicht | kommen
+Perfekt | habe | gestern ein Fahrrad | gekauft
+trennbar | fährt | um acht Uhr von Gleis 3 | ab
+werden + mastar | werde | nächstes Jahr in Bremen | studieren
+@ende
+
+@tabelle TeKaMoLo
+Te: wann? | Ka: warum? | Mo: wie? / mit wem? | Lo: wo? / wohin?
+morgen | wegen der Prüfung | mit dem Zug | nach Hamburg
+heute | wegen des Streiks | zu Fuß | zur Arbeit
+letztes Jahr | wegen der Arbeit | allein | nach Deutschland
+@ende
+
+@tabelle İki nesne
+durum | sıra | örnek
+iki isim | Dativ → Akkusativ | Ich gebe meiner Schwester das Buch.
+zamir + isim | zamir önce | Ich gebe ihr das Buch. / Ich gebe es meiner Schwester.
+iki zamir | Akkusativ → Dativ | Ich gebe es ihr.
+@ende
+
+@beispiel Ich habe gestern im Kurs einen neuen Freund kennengelernt. | Dün kursta yeni bir arkadaşla tanıştım.
+@beispiel Ich fahre morgen wegen der Prüfung mit dem Zug nach Hamburg. | Yarın sınav yüzünden trenle Hamburg'a gidiyorum.
+@beispiel Hast du deinem Vater die Fotos gezeigt? – Ja, ich habe sie ihm gezeigt. | Babana fotoğrafları gösterdin mi? – Evet, onları ona gösterdim.
+
+@teil klammer | Fiilin ikinci parçası en sonda | kelime sırası
+wahl | 1 | Welcher Satz ist richtig? | Ich habe gestern ein neues Fahrrad gekauft. | Ich habe gestern ein neues Fahrrad gekauft. / Ich habe gekauft gestern ein neues Fahrrad. / Ich gestern habe ein neues Fahrrad gekauft. | Dün yeni bir bisiklet aldım. | Perfekt'te çekimli yardımcı fiil (habe) 2. yerde, Partizip (gekauft) en sonda; arada her şey. | das Fahrrad; kaufen
+luecke | 2 | Ich ___ heute leider nicht zum Kurs ___. (kommen · können) | kann ; kommen | | Bugün maalesef kursa gelemiyorum. | Modal fiil (kann) 2. yerde, mastar (kommen) en sonda. | der Kurs; leider; kommen
+fehler | 2 | Der Zug fährt um 8 Uhr ab von Gleis 3. | Der Zug fährt um 8 Uhr von Gleis 3 ab. | ab von | Tren saat 8'de 3. perondan kalkıyor. | Ayrılabilen ön ek (ab) kıskacın sonudur: en sona gider, yer bilgisi (von Gleis 3) ondan önce. | der Zug; abfahren; das Gleis
+ordnen | 2 | ich / muss / am Wochenende / meine Wohnung / aufräumen | Ich muss am Wochenende meine Wohnung aufräumen. / Am Wochenende muss ich meine Wohnung aufräumen. / Ich muss meine Wohnung am Wochenende aufräumen. / Meine Wohnung muss ich am Wochenende aufräumen. | | Hafta sonu evimi toplamam lazım. | Modal fiil (muss) 2. yerde, mastar (aufräumen) en sonda; 1. yere başka bir öğe çıkarsa özne fiilin arkasına geçer. | das Wochenende, -n; die Wohnung; aufräumen
+umform | 3 | Wir sehen uns am Abend einen Film an. → Perfekt | Wir haben uns am Abend einen Film angesehen. / Am Abend haben wir uns einen Film angesehen. | | Akşam bir film izledik. | haben 2. yerde, Partizip en sonda; ayrılabilen fiilde -ge- ön ekten sonra: angesehen. Dönüşlü zamir (uns) çekimli fiilin hemen arkasında kalır. | sich(D) ansehen; der Film; der Abend, -e
+luecke | 3 | Mein Bruder ___ nächstes Jahr in Berlin eine Ausbildung ___. (anfangen · möchten) | möchte ; anfangen | | Erkek kardeşim gelecek yıl Berlin'de bir meslek eğitimine başlamak istiyor. | möchte 2. yerde, mastar (anfangen) en sonda; ayrılabilen fiil mastarda bitişik. | der Bruder; die Ausbildung; anfangen mit
+luecke | 2 | Der Film ___ um 20 Uhr ___. (anfangen) | fängt ; an | | Film saat 20'de başlıyor. | Ayrılabilen fiil ana cümlede bölünür: fängt 2. yerde, an en sonda. | der Film; anfangen mit
+wahl | 1 | Welcher Satz ist richtig? | Kannst du mich morgen vom Bahnhof abholen? | Kannst du mich morgen vom Bahnhof abholen? / Kannst du abholen mich morgen vom Bahnhof? / Kannst du mich abholen morgen vom Bahnhof? | Yarın beni istasyondan alabilir misin? | Soru cümlesinde de kıskaç var: modal fiil (kannst) başta, mastar (abholen) en sonda. | der Bahnhof; abholen
+umform | 2 | Der Kurs fängt am Montag um neun Uhr an. → Perfekt | Der Kurs hat am Montag um neun Uhr angefangen. / Am Montag hat der Kurs um neun Uhr angefangen. | | Kurs pazartesi saat dokuzda başladı. | anfangen'in Perfekt'i haben ile: hat … angefangen; Partizip en sonda. | der Kurs; anfangen mit
+
+@teil tekamolo | Orta alan: zaman – sebep – tarz – yer | kelime sırası
+wahl | 1 | Welcher Satz klingt am natürlichsten? | Ich fahre morgen mit dem Zug nach Hamburg. | Ich fahre morgen mit dem Zug nach Hamburg. / Ich fahre nach Hamburg morgen mit dem Zug. / Ich fahre mit dem Zug nach Hamburg morgen. | Yarın trenle Hamburg'a gidiyorum. | Te (morgen) – Mo (mit dem Zug) – Lo (nach Hamburg): Türkçedeki sırayla aynı. Yön bilgisi sona en yakın. | der Zug; fahren
+wahl | 2 | Welcher Satz klingt am natürlichsten? | Ich gehe heute wegen des Streiks zu Fuß zur Arbeit. | Ich gehe heute wegen des Streiks zu Fuß zur Arbeit. / Ich gehe zur Arbeit heute wegen des Streiks zu Fuß. / Ich gehe zu Fuß zur Arbeit heute wegen des Streiks. | Bugün grev yüzünden işe yürüyerek gidiyorum. | Te (heute) – Ka (wegen des Streiks) – Mo (zu Fuß) – Lo (zur Arbeit). Yön bilgisi (zur Arbeit) en sonda. | der Streik; der Fuß; die Arbeit
+ordnen | 2 | wir / treffen uns / heute Abend / nach dem Kurs / im Café | Wir treffen uns heute Abend nach dem Kurs im Café. | | Bu akşam kurstan sonra kafede buluşuyoruz. | Önce zaman bilgileri (heute Abend, nach dem Kurs), en sonda yer (im Café). | sich treffen mit; der Kurs; das Café
+ordnen | 3 | ich / bin / letztes Jahr / wegen der Arbeit / allein / nach Deutschland / gekommen | Ich bin letztes Jahr wegen der Arbeit allein nach Deutschland gekommen. / Letztes Jahr bin ich wegen der Arbeit allein nach Deutschland gekommen. / Wegen der Arbeit bin ich letztes Jahr allein nach Deutschland gekommen. | | Geçen yıl iş yüzünden tek başıma Almanya'ya geldim. | Te – Ka – Mo – Lo; bir öğe 1. yere çıkarsa fiil (bin) 2., özne (ich) 3. yerde. Partizip (gekommen) en sonda. | die Arbeit; allein; kommen
+luecke | 2 | Ich bin ___ ___ angekommen. (in Bremen · gestern Abend) | gestern Abend ; in Bremen | | Dün akşam Bremen'e vardım. | Önce zaman (gestern Abend), sonra yer (in Bremen); Partizip (angekommen) en sonda. | ankommen
+luecke | 2 | Wir fahren ___ ___. (in die Türkei · im Sommer) | im Sommer ; in die Türkei | | Yazın Türkiye'ye gidiyoruz. | Te (im Sommer) önce, yön bilgisi (in die Türkei) en sonda. | die Türkei
+
+@teil vorfeld | 1. yerde başka öğe → fiil 2., özne 3. yerde | kelime sırası
+fehler | 1 | Am Montag ich habe einen Termin beim Arzt. | Am Montag habe ich einen Termin beim Arzt. | ich habe | Pazartesi doktordan randevum var. | 1. yer (Am Montag) doluysa çekimli fiil (habe) 2., özne (ich) 3. yerde. | der Termin; der Arzt
+luecke | 1 | In Bremen ___ mit dem Fahrrad. (viele Studenten · fahren) | fahren viele Studenten | fahren viele Studenten / viele Studenten fahren | Bremen'de birçok öğrenci bisiklete biner. | 1. yer (In Bremen) dolu → çekimli fiil (fahren) hemen arkada, özne (viele Studenten) sonra. | der Student; das Fahrrad
+ordnen | 2 | den Schlüssel / habe / ich / leider / vergessen | Ich habe leider den Schlüssel vergessen. / Ich habe den Schlüssel leider vergessen. / Leider habe ich den Schlüssel vergessen. / Den Schlüssel habe ich leider vergessen. | | Anahtarı maalesef unuttum. | Hangi öğe 1. yerde olursa olsun çekimli fiil (habe) 2. yerde, Partizip (vergessen) en sonda. | der Schlüssel; leider; vergessen
+umform | 2 | Ich fahre mit dem Rad zur Uni. Das mache ich jeden Tag. → Jeden Tag … | Jeden Tag fahre ich mit dem Rad zur Uni. | | Her gün bisikletle üniversiteye gidiyorum. | Zaman 1. yerde → fiil (fahre) 2., özne (ich) 3. yerde; sonra Mo (mit dem Rad) – Lo (zur Uni). | das Rad; die Uni, -s
+umform | 3 | Es regnet. Deshalb spielen wir heute in der Halle. → Wegen des Regens … | Wegen des Regens spielen wir heute in der Halle. | | Yağmur yüzünden bugün salonda oynuyoruz. | Sebep bir isim grubu olur (wegen + Genitiv: des Regens) ve 1. yere çıkar; fiil (spielen) hemen arkada. | der Regen; die Halle
+fehler | 1 | Nach dem Kurs gehe ich mit Ali in die Mensa. | Nach dem Kurs gehe ich mit Ali in die Mensa. | - | Kurstan sonra Ali ile yemekhaneye gidiyorum. | Hata yok: 1. yer (Nach dem Kurs), fiil (gehe), özne (ich), sonra Mo (mit Ali) – Lo (in die Mensa). | der Kurs; die Mensa
+
+@teil objekte | İki nesne: Dativ – Akkusativ, zamir önce | hâl
+wahl | 2 | Welcher Satz ist richtig? | Ich schenke es ihr zum Geburtstag. | Ich schenke es ihr zum Geburtstag. / Ich schenke ihr es zum Geburtstag. / Ich schenke zum Geburtstag ihr es. | Onu ona doğum gününde hediye ediyorum. | İki zamir yan yana: önce Akkusativ (es), sonra Dativ (ihr). Zamirler orta alanın başına gelir. | schenken; der Geburtstag
+luecke | 2 | Kannst du ___ ___ erklären? (die Aufgabe · mir) | mir ; die Aufgabe | | Bana ödevi açıklayabilir misin? | Zamir (mir) isimden (die Aufgabe) önce gelir; mastar (erklären) en sonda. | die Aufgabe; erklären
+luecke | 3 | Hast du deinem Vater die Fotos gezeigt? – Ja, ich habe ___ ___ gestern gezeigt. (ihm · sie) | sie ; ihm | | Babana fotoğrafları gösterdin mi? – Evet, onları ona dün gösterdim. | İki zamir: önce Akkusativ (sie = die Fotos), sonra Dativ (ihm = dem Vater). | der Vater; das Foto; zeigen
+ordnen | 3 | der Lehrer / hat / uns / die Ergebnisse / erklärt | Der Lehrer hat uns die Ergebnisse erklärt. / Die Ergebnisse hat uns der Lehrer erklärt. / Die Ergebnisse hat der Lehrer uns erklärt. / Uns hat der Lehrer die Ergebnisse erklärt. | | Öğretmen bize sonuçları açıkladı. | Zamir (uns) isimden (die Ergebnisse) önce; Partizip (erklärt) en sonda. | der Lehrer; das Ergebnis; erklären
+fehler | 3 | Ich habe ihm es schon gesagt. | Ich habe es ihm schon gesagt. | ihm es | Bunu ona zaten söyledim. | İki zamirde önce Akkusativ gelir: es ihm. | sagen

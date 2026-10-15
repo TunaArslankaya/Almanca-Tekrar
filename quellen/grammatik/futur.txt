@@ -1,0 +1,83 @@
+# Gramer konusu: Futur I ve werden'in işleri. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id futur
+@titel Futur I und die Aufgaben von werden
+@tr Futur I (-ecek): werden + mastar; werden'in üç işi
+@stufe A2–B1
+@kapitel B1 K6 ?
+@goethe 1 | Schreiben 1-2 (Pläne, Versprechen) · Sprechen 3
+@voraus v2-satzbau
+@kontrast passiv, konjunktiv2
+@etiket zaman
+@kurz werden (2. yerde) + mastar (en sonda): Ich werde dich anrufen. Gelecek çoğu zaman Präsens + zaman zarfıyla da söylenir; Futur söz, tahmin ve "herhalde" (wohl) için.
+
+@erklaerung
+Futur I = werden + mastar. Türkçedeki "-ecek / -acak": Ich werde dich morgen anrufen. (Seni yarın arayacağım.)
+
+1. werden 2. yerde çekimlenir, mastar en sona gider: ich werde, du wirst, er wird, wir werden, ihr werdet, sie werden.
+2. Ayrılabilen fiil mastar olarak bitişik kalır: Der Kurs wird im Oktober anfangen.
+3. Yan cümlede werden en sonda: …, dass es morgen regnen wird.
+4. Almancada gelecek çoğu zaman Präsens + zaman zarfıyla söylenir: Morgen fahre ich nach Berlin. Futur özellikle şunlar için: söz ve karar (Ich werde dir helfen), tahmin (Morgen wird es regnen), wohl / bestimmt ile şimdiki tahmin (Er wird wohl krank sein = herhalde hastadır).
+5. werden'in üç işi var: tek başına "olmak" (Ich werde Ärztin. Es wird kalt.), + mastar = Futur (Ich werde arbeiten.), + Partizip II = Passiv (Das Haus wird gebaut.). würde ise Konjunktiv II'dir (-ardı).
+
+Tipik hatalar: İngilizcedeki "will" ile karıştırmak: Almancada ich will = istiyorum, gelecek değil. Ayrıca ich wird / du werdest gibi yanlış çekim ve mastarı ortada bırakmak (✗ Ich werde fahren morgen).
+Sınavda: Schreiben'de plan ve söz ("Ich werde pünktlich sein"), Sprechen'de tahmin ("Das wird bestimmt schön").
+@ende
+
+@tabelle werden çekimi
+kişi | werden | örnek
+ich | werde | Ich werde dir helfen.
+du | wirst | Wirst du kommen?
+er / sie / es | wird | Es wird regnen.
+wir | werden | Wir werden sehen.
+ihr | werdet | Ihr werdet es schaffen.
+sie / Sie | werden | Sie werden umziehen.
+@ende
+
+@tabelle werden'in işleri
+yapı | anlamı | örnek
+werden + sıfat / isim | olmak | Es wird kalt. · Sie wird Ärztin.
+werden + mastar | Futur (-ecek) | Ich werde morgen anrufen.
+werden + wohl + mastar | tahmin (herhalde) | Er wird wohl im Stau stehen.
+werden + Partizip II | Passiv (-ıl / -ın) | Das Fahrrad wird repariert.
+würde + mastar | Konjunktiv II (-ardı) | Ich würde gern kommen.
+@ende
+
+@beispiel Ich werde dich morgen anrufen. | Seni yarın arayacağım.
+@beispiel Morgen wird es in ganz Norddeutschland regnen. | Yarın bütün Kuzey Almanya'da yağmur yağacak.
+@beispiel Tuna ist nicht da. Er wird wohl krank sein. | Tuna burada değil. Herhalde hastadır.
+
+@teil bildung | werden çekimi | artikel/çekim
+wahl | 1 | Morgen ___ es in ganz Norddeutschland regnen. | wird | wird / will / werdet | Yarın bütün Kuzey Almanya'da yağmur yağacak. | Tahmin → Futur: es wird + regnen. will "istiyor" demek, İngilizcedeki will değil. | regnen
+luecke | 1 | ___ du mir morgen beim Umzug helfen? (werden) | Wirst | | Yarın taşınmada bana yardım edecek misin? | werden'de du-biçimi düzensiz: du wirst. | helfen bei; der Umzug
+luecke | 1 | Wir ___ dich nächste Woche besuchen. (werden) | werden | | Seni gelecek hafta ziyaret edeceğiz. | wir werden; mastar (besuchen) en sonda. | besuchen
+luecke | 2 | Ihr ___ sehen: Die Prüfung ___ nicht so schwer sein. (werden ; werden) | werdet ; wird | | Göreceksiniz: Sınav o kadar zor olmayacak. | ihr werdet; die Prüfung (= sie, tekil) wird. | die Prüfung; schwer
+fehler | 2 | Ich wird dich heute Abend anrufen. | Ich werde dich heute Abend anrufen. | Ich wird | Seni bu akşam arayacağım. | ich werde; wird yalnız er / sie / es için. | anrufen
+wahl | 1 | Keine Sorge, ich ___ pünktlich sein! | werde | werde / würde / wurde | Merak etme, zamanında orada olacağım! | Söz → Futur: werde. würde "olurdum" (Konjunktiv II), wurde "oldu" (Präteritum). | pünktlich; die Sorge
+
+@teil satzbau | Mastar en sonda; yan cümlede werden en sonda | kelime sırası
+ordnen | 2 | ich / werde / am Wochenende / meine Großeltern / besuchen | Ich werde am Wochenende meine Großeltern besuchen. / Am Wochenende werde ich meine Großeltern besuchen. / Ich werde meine Großeltern am Wochenende besuchen. / Meine Großeltern werde ich am Wochenende besuchen. | | Hafta sonu büyükannemle büyükbabamı ziyaret edeceğim. | werde 2. yerde, mastar (besuchen) en sonda. | besuchen; das Wochenende, -n
+ordnen | 2 | der Kurs / wird / im Oktober / anfangen | Der Kurs wird im Oktober anfangen. / Im Oktober wird der Kurs anfangen. | | Kurs ekimde başlayacak. | Futur'da ayrılabilen fiil mastar olarak bitişik ve en sonda: anfangen. | anfangen mit; der Kurs
+fehler | 2 | Ich werde fahren morgen mit dem Bus zur Arbeit. | Ich werde morgen mit dem Bus zur Arbeit fahren. / Morgen werde ich mit dem Bus zur Arbeit fahren. | werde fahren morgen | Yarın otobüsle işe gideceğim. | Mastar (fahren) en sona gider; werde 2. yerde kalır. | fahren; der Bus; die Arbeit
+luecke | 2 | Ich verspreche dir, dass ich nie wieder zu spät ___ ___. (kommen · Futur) | kommen ; werde | | Sana bir daha asla geç kalmayacağıma söz veriyorum. | Yan cümlede werden en sonda, mastar hemen önünde: kommen werde. | versprechen; kommen
+ordnen | 3 | ich glaube / dass / es / morgen / schneien / wird | Ich glaube, dass es morgen schneien wird. | | Yarın kar yağacağını düşünüyorum. | dass-cümlesinde çekimli werden en sonda, mastar önünde. | schneien; glauben
+umform | 2 | Ich rufe dich morgen an. → Futur | Ich werde dich morgen anrufen. / Morgen werde ich dich anrufen. | | Seni yarın arayacağım. | werden 2. yere gelir; ayrılabilen fiil mastar olarak bitişik ve sonda: anrufen. | anrufen
+umform | 3 | Wir ziehen im Sommer nach Hamburg um. → Futur | Wir werden im Sommer nach Hamburg umziehen. / Im Sommer werden wir nach Hamburg umziehen. | | Yazın Hamburg'a taşınacağız. | umziehen mastar olarak bitişik ve en sonda; um ayrı kalmaz. | umziehen
+umform | 2 | Die Preise steigen nächstes Jahr wieder. → Futur | Die Preise werden nächstes Jahr wieder steigen. / Nächstes Jahr werden die Preise wieder steigen. | | Fiyatlar gelecek yıl yine artacak. | Çoğul özne (die Preise) → werden; mastar (steigen) en sonda. | steigen; der Preis
+
+@teil gebrauch | Ne zaman Futur? Söz, tahmin, wohl | zaman
+wahl | 2 | Tuna ist heute nicht im Kurs. Er ___ wohl krank sein. | wird | wird / wurde / würde | Tuna bugün kursta değil. Herhalde hastadır. | werden + wohl = şimdi için tahmin ("herhalde"); gelecekten söz etmiyor. | krank; wohl
+wahl | 1 | Welcher Satz spricht über die Zukunft? | Nächsten Monat mache ich einen Deutschkurs. | Nächsten Monat mache ich einen Deutschkurs. / Letzten Monat habe ich einen Deutschkurs gemacht. / Ich mache gerade einen Deutschkurs. | Gelecek ay bir Almanca kursuna gideceğim. | Almancada gelecek çoğu zaman Präsens + zaman zarfı (nächsten Monat) ile söylenir. | die Zukunft; der Kurs
+luecke | 2 | Keine Angst, wir ___ eine Lösung ___. (finden · Futur) | werden ; finden | | Korkma, bir çözüm bulacağız. | Güvence / söz → Futur: werden … finden. | finden; die Lösung; die Angst
+fehler | 2 | Morgen fahre ich nach Berlin. | Morgen fahre ich nach Berlin. | - | Yarın Berlin'e gidiyorum. | Hata yok: gelecek Präsens + zaman zarfı (morgen) ile söylenebilir; Futur şart değil. | fahren; morgen
+luecke | 3 | Bis zum Sommer ___ ich bestimmt besser Deutsch ___. (sprechen · Futur) | werde ; sprechen | | Yaza kadar kesinlikle daha iyi Almanca konuşacağım. | Futur + bestimmt = güçlü tahmin ya da umut. Mastar en sonda. | sprechen mit; bestimmt
+umform | 3 | Er hat wahrscheinlich keine Zeit. → Futur | Er wird wahrscheinlich keine Zeit haben. / Er wird wohl keine Zeit haben. | | Muhtemelen vakti yoktur. | Şimdiki tahmin de Futur ile söylenir: wird … haben; wahrscheinlich yerine wohl da olur. | wahrscheinlich; die Zeit
+ordnen | 3 | er / wird / wohl / im Stau / stehen | Er wird wohl im Stau stehen. | | Herhalde trafikte sıkışmıştır. | wird + wohl + mastar = şimdi için tahmin; Türkçedeki "herhalde …-dır". | der Stau; stehen; wohl
+
+@teil werden | werden: olmak · Futur · Passiv · würde | zaman
+wahl | 2 | In welchem Satz ist werden Futur? | Ich werde morgen früh aufstehen. | Ich werde morgen früh aufstehen. / Ich werde langsam müde. / Das Haus wird renoviert. | Yarın erken kalkacağım. | Futur = werden + mastar (aufstehen). werden + sıfat (müde) = olmak; werden + Partizip II (renoviert) = Passiv. | aufstehen
+luecke | 1 | Meine Schwester möchte Ärztin ___. (werden) | werden | | Kız kardeşim doktor olmak istiyor. | werden tek başına "olmak (bir şeye dönüşmek)": Ärztin werden. | werden; die Ärztin
+luecke | 2 | Mein Fahrrad ___ gerade repariert, ich ___ es morgen abholen. (werden ; werden) | wird ; werde | | Bisikletim şu anda tamir ediliyor, yarın gidip alacağım. | İlki Passiv (wird + repariert), ikincisi Futur (werde + abholen). | das Fahrrad; reparieren; abholen
+fehler | 2 | Es will morgen bestimmt regnen. | Es wird morgen bestimmt regnen. | will | Yarın kesin yağmur yağacak. | Gelecek / tahmin için werden: es wird. will (wollen) "istemek" demektir. | regnen; bestimmt
+

@@ -1,0 +1,86 @@
+# Gramer konusu: lassen ve nicht / nur brauchen … zu. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id lassen-brauchen
+@titel lassen und brauchen … zu
+@tr lassen (yaptırmak, izin vermek, bırakmak) ve nicht / nur brauchen … zu (gerek yok / sadece … yeter)
+@stufe B1
+@kapitel B1 K2 ?
+@goethe 1 | Schreiben 1-3 · Sprechen 3
+@voraus v2-satzbau, perfekt
+@kontrast zu-infinitiv, passiv
+@etiket kelime sırası
+@kurz lassen modal fiil gibi: lassen 2. yerde, mastar sonda, zu YOK (Ich lasse mein Rad reparieren). brauchen ise yalnız nicht / kein / nur ile ve zu ile: Du brauchst nicht zu kommen.
+
+@erklaerung
+lassen B1'de üç anlamda kullanılır:
+1. Yaptırmak (işi başkası yapar): Ich lasse mein Fahrrad reparieren. = Bisikletimi tamir ettiriyorum. Türkçedeki -tir / -dır ekinin karşılığı. Kendine yaptırırsan Dativ zamir: Ich lasse mir die Haare schneiden.
+2. İzin vermek: Meine Eltern lassen mich allein reisen. Lass mich bitte ausreden!
+3. Bırakmak: Ich lasse das Auto heute zu Hause.
+
+Yapı modal fiil gibidir: çekimli lassen 2. yerde, mastar en sonda, zu yok. Çekim: du lässt, er lässt (Umlaut); Präteritum ließ. Perfekt'te başka bir mastarla birlikteyse gelassen değil lassen: Ich habe mein Rad reparieren lassen. Tek başınaysa gelassen: Ich habe den Schirm im Bus gelassen.
+
+brauchen … zu, müssen'in olumsuzu gibidir: Du musst nicht kommen = Du brauchst nicht zu kommen (gelmene gerek yok). Yalnız nicht, kein ya da nur ile kullanılır: Du brauchst nur anzurufen (araman yeter). zu unutulmaz; ayrılabilen fiilde araya girer: anzurufen, mitzubringen.
+
+Tipik hatalar: lassen'den sonra zu yazmak (✗ ich lasse mein Handy zu reparieren), nicht brauchen'i nicht dürfen (yasak) ile karıştırmak, brauchen'de zu'yu unutmak. Konuşmada "Du brauchst nicht kommen" duyulur; sınavda zu yaz.
+@ende
+
+@tabelle lassen'in anlamları
+anlam | örnek | Türkçe
+yaptırmak | Ich lasse mein Auto reparieren. | Arabamı tamir ettiriyorum.
+kendine yaptırmak | Ich lasse mir die Haare schneiden. | Saçlarımı kestiriyorum.
+izin vermek | Sie lässt mich ihr Auto fahren. | Arabasını sürmeme izin veriyor.
+bırakmak | Ich lasse den Schirm zu Hause. | Şemsiyeyi evde bırakıyorum.
+Perfekt + mastar | Ich habe das Auto reparieren lassen. | Arabayı tamir ettirdim.
+Perfekt tek başına | Ich habe den Schirm zu Hause gelassen. | Şemsiyeyi evde bıraktım.
+@ende
+
+@tabelle müssen / brauchen / dürfen
+cümle | anlam
+Du musst kommen. | gelmek zorundasın
+Du musst nicht kommen. = Du brauchst nicht zu kommen. | gelmene gerek yok (istersen gel)
+Du brauchst nur anzurufen. | araman yeter
+Du darfst nicht kommen. | gelmen yasak
+@ende
+
+@beispiel Ich lasse mein Fahrrad in der Werkstatt reparieren. | Bisikletimi tamirhanede tamir ettiriyorum.
+@beispiel Lass mich bitte ausreden! | Lütfen sözümü bitirmeme izin ver!
+@beispiel Morgen ist Feiertag, du brauchst nicht zu arbeiten. | Yarın tatil, çalışmana gerek yok.
+
+@teil machen-lassen | lassen = yaptırmak | kelime sırası
+wahl | 1 | Ich repariere mein Auto nicht selbst, ich ___ es in der Werkstatt reparieren. | lasse | lasse / mache / werde | Arabamı kendim tamir etmiyorum, tamirhanede tamir ettiriyorum. | İşi başkası yapıyor → lassen + mastar. | das Auto; die Werkstatt; reparieren
+luecke | 1 | Meine Schwester ___ sich die Haare kurz schneiden. (lassen) | lässt | | Kız kardeşim saçlarını kısa kestiriyor. | lassen düzensiz: du lässt, er / sie lässt (Umlaut). | das Haar; schneiden
+luecke | 2 | Wo ___ du deine Wäsche waschen? (lassen) | lässt | | Çamaşırlarını nerede yıkatıyorsun? | du lässt ve er lässt aynı yazılır (Umlaut). Mastar (waschen) en sonda. | die Wäsche; waschen
+ordnen | 2 | wir / lassen / die Wohnung / renovieren | Wir lassen die Wohnung renovieren. / Die Wohnung lassen wir renovieren. | | Daireyi yeniletiyoruz. | lassen 2. yerde, mastar en sonda, zu yok. | die Wohnung
+umform | 3 | Ein Mechaniker repariert mein Fahrrad. → lassen | Ich lasse mein Fahrrad reparieren. / Ich lasse mein Fahrrad von einem Mechaniker reparieren. | | Bisikletimi tamir ettiriyorum. | Yaptıran ben → ich lasse + nesne + mastar (reparieren) en sonda. | das Fahrrad; reparieren
+fehler | 2 | Ich lasse mein Handy zu reparieren. | Ich lasse mein Handy reparieren. | zu reparieren | Telefonumu tamir ettiriyorum. | lassen modal fiil gibidir: ardından gelen mastarda zu yok. | das Handy; reparieren
+luecke | 3 | Ich habe mir gestern die Haare ___ ___. (schneiden lassen · Perfekt) | schneiden ; lassen | | Dün saçlarımı kestirdim. | Mastar + lassen birlikteyse Perfekt'te gelassen değil lassen: habe … schneiden lassen. | das Haar; schneiden
+wahl | 1 | Welcher Satz bedeutet: Eine andere Person schneidet meine Haare? | Ich lasse mir die Haare schneiden. | Ich lasse mir die Haare schneiden. / Ich schneide mir die Haare. / Ich lasse meine Haare. | Saçlarımı kestiriyorum. | lassen + mastar = işi başkası yapar. schneide mir = kendim keserim. | das Haar; schneiden
+
+@teil erlauben | lassen = izin vermek | kelime sırası
+wahl | 2 | Früher ___ mich meine Eltern nie allein in die Stadt gehen. | ließen | ließen / lassten / gelassen | Eskiden annemle babam şehre yalnız gitmeme hiç izin vermezdi. | lassen düzensiz: Präteritum ließ, ließen. "lassten" diye bir biçim yok. | die Eltern
+luecke | 1 | ___ mich bitte ausreden! (lassen · du-Imperativ) | Lass | | Lütfen sözümü bitirmeme izin ver! | du-emri: Lass! (ek yok). Tartışmada çok kullanılır. | lassen
+ordnen | 2 | der Lehrer / lässt / uns / heute / früher / nach Hause / gehen | Der Lehrer lässt uns heute früher nach Hause gehen. / Heute lässt uns der Lehrer früher nach Hause gehen. / Heute lässt der Lehrer uns früher nach Hause gehen. | | Öğretmen bugün eve daha erken gitmemize izin veriyor. | lässt 2. yerde, mastar (gehen) en sonda. | der Lehrer
+fehler | 2 | Lassen Sie mich Ihnen helfen! | Lassen Sie mich Ihnen helfen! | - | Size yardım edeyim! | Hata yok: kibar öneri: Lassen Sie mich + mastar (helfen) sonda. | helfen
+luecke | 2 | Ich finde es gut, dass meine Chefin mich von zu Hause arbeiten ___. (lassen) | lässt | | Şefimin evden çalışmama izin vermesi hoşuma gidiyor. | Yan cümlede çekimli lassen en sonda, mastarın arkasında. | arbeiten
+
+@teil bleiben-lassen | lassen = bırakmak | yardımcı fiil
+luecke | 1 | Ich ___ mein Auto heute zu Hause und fahre mit dem Rad. (lassen) | lasse | | Arabamı bugün evde bırakıyorum, bisikletle gidiyorum. | lassen tek başına = bırakmak. | das Auto
+luecke | 2 | Ich habe meine Tasche im Zug ___. (lassen · Perfekt) | gelassen | | Çantamı trende bıraktım. | lassen tek başınaysa Partizip gelassen. | die Tasche; der Zug
+umform | 2 | Ich lasse die Kinder heute bei meiner Mutter. → Perfekt | Ich habe die Kinder heute bei meiner Mutter gelassen. / Heute habe ich die Kinder bei meiner Mutter gelassen. | | Bugün çocukları annemin yanında bıraktım. | lassen tek başına → habe … gelassen. | das Kind; die Mutter
+
+@teil brauchen | nicht / nur brauchen … zu | kelime sırası
+wahl | 1 | Morgen ist Feiertag. Du ___ nicht zu arbeiten. | brauchst | brauchst / musst / darfst | Yarın tatil. Çalışmana gerek yok. | nicht brauchen + zu + mastar = gerek yok. musst ile zu olmaz; darfst nicht = yasak. | der Feiertag; brauchen … zu
+luecke | 2 | Sie brauchen das Formular nicht ___. (ausdrucken) | auszudrucken | | Formu yazdırmanıza gerek yok. | Ayrılabilen fiilde zu araya girer ve bitişik yazılır: aus-zu-drucken. | das Formular; ausdrucken; brauchen … zu
+luecke | 2 | Du brauchst mich nur ___, dann komme ich sofort. (anrufen) | anzurufen | | Beni araman yeter, hemen gelirim. | nur brauchen … zu = sadece … yeter; an-zu-rufen. | anrufen; brauchen … zu
+umform | 2 | Du musst nicht kommen. → brauchen … zu | Du brauchst nicht zu kommen. | | Gelmene gerek yok. | musst nicht → brauchst nicht + zu + mastar. | brauchen … zu
+umform | 3 | Ihr müsst keine Bücher mitbringen. → brauchen … zu | Ihr braucht keine Bücher mitzubringen. | | Kitap getirmenize gerek yok. | ihr braucht; ayrılabilen fiilde zu araya: mitzubringen. | brauchen … zu
+ordnen | 2 | du / brauchst / heute / nicht / zu kochen | Du brauchst heute nicht zu kochen. / Heute brauchst du nicht zu kochen. | | Bugün yemek yapmana gerek yok. | brauchst 2. yerde; nicht + zu + mastar en sonda. | kochen; brauchen … zu
+fehler | 2 | Du brauchst nicht kommen, ich schaffe das allein. | Du brauchst nicht zu kommen, ich schaffe das allein. | nicht kommen | Gelmene gerek yok, ben tek başıma hallederim. | Yazılı dilde brauchen'den sonra zu zorunlu; zu'suz biçim konuşma dilidir. | schaffen; brauchen … zu
+luecke | 3 | Die Prüfung ist online, wir ___ also nicht in die Uni zu fahren. (brauchen) | brauchen | | Sınav online, yani üniversiteye gitmemize gerek yok. | wir brauchen … nicht … zu fahren; also cümlede 1. yerde değil, fiil yine 2. yerde. | die Prüfung; brauchen … zu
+
+@teil kontrast | lassen / brauchen / dürfen / müssen | kelime sırası
+wahl | 2 | Im Museum ist Fotografieren verboten. Sie ___ hier nicht fotografieren. | dürfen | dürfen / brauchen / müssen | Müzede fotoğraf çekmek yasak. Burada fotoğraf çekemezsiniz. | Yasak → nicht dürfen. nicht brauchen (zu) / nicht müssen = gerek yok, yasak değil. | das Museum; fotografieren
+ordnen | 3 | ich / muss / meinen Pass / verlängern lassen | Ich muss meinen Pass verlängern lassen. / Meinen Pass muss ich verlängern lassen. | | Pasaportumu uzattırmam gerekiyor. | Modal (muss) 2. yerde; en sonda önce mastar (verlängern), sonra lassen. | der Pass; verlängern
+fehler | 3 | Weil ich keine Zeit habe, lasse ich mir eine Pizza liefern. | Weil ich keine Zeit habe, lasse ich mir eine Pizza liefern. | - | Vaktim olmadığı için pizza söylüyorum. | Hata yok: yan cümle önde → ana cümle fiille başlar (lasse ich); mir eine Pizza liefern lassen = kendime getirtmek. | die Pizza; liefern
+

@@ -626,3 +626,18 @@ zur Seite gehen | andere | 3 | kenara çekilmek
 sichtbar | adj | 3 | görünür
 einerseits … andererseits | konj | 3 | bir yandan … diğer yandan
 nicht nur … sondern auch | konj | 3 | sadece … değil, … de
+ehrenamtlich | adj | 3 | gönüllü (karşılıksız)
+bedürftig | adj | 3 | muhtaç, yoksul
+übrig | adj | 3 | artan, kalan
+interkulturell | adj | 3 | kültürlerarası
+bundesweit | adj | 3 | ülke çapında (Almanya'da)
+wirtschaftlich | adj | 3 | ekonomik
+erstaunlich | adj | 3 | şaşırtıcı
+nebeneinander | adv | 3 | yan yana
+aneinander | adv | 3 | birbirine
+füreinander | adv | 3 | birbiri için
+voneinander | adv | 3 | birbirinden
+sich Mühe geben | andere | 3 | çaba göstermek
+eine Entscheidung treffen | andere | 3 | karar vermek
+einen Vertrag schließen | andere | 3 | antlaşma / sözleşme yapmak
+den Faden verlieren | andere | 3 | (konuşurken) konuyu kaybetmek

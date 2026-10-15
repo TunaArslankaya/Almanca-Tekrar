@@ -1,0 +1,95 @@
+# Gramer konusu: Komparativ ve Superlativ (yüklemde ve ismin önünde; als / so … wie). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: FORMAT.md umform tablosunda olmayan hedefler (uygulamadaki yönerge önerisi):
+#   "Komparativ"  → "karşılaştırma cümlesi yap (-er als)"
+#   "Superlativ"  → "en … olanı söyle (am -sten)"
+#   "so … wie"    → "so … wie ile tek cümle yap"
+@id komparation
+@titel Komparativ und Superlativ
+@tr Karşılaştırma: größer als, so groß wie, am größten, der größte
+@stufe A2–B1
+@kapitel A2 · B1 K5–8 ?
+@goethe 2 | Sprechen 3 (Vor- und Nachteile) · Schreiben 1-3 · Lesen
+@voraus adjektiv
+@kontrast je-desto
+@etiket artikel/çekim
+@kurz daha … = sıfat + -er + als (größer als). aynı … = so + sıfat + wie. en … = am + sıfat + -sten (am größten) ya da ismin önünde der / die / das + -ste (der größte). İsmin önünde normal sıfat eki de eklenir.
+
+@erklaerung
+Türkçede "daha" ve "en" sıfatın önüne gelir, sıfat değişmez. Almancada sıfatın kendisine ek gelir.
+
+1. Komparativ: sıfat + -er, ardından als: Bremen ist kleiner als Hamburg. Bazı sık kullanılan kısa sıfatlar a / o / u'yu umlautlı yapar (ezberle): alt → älter, groß → größer, jung → jünger, lang → länger, warm → wärmer.
+2. Eşitlik: so + sıfat (eksiz) + wie: Ich bin so alt wie du. Olumsuz: nicht so … wie (… kadar değil).
+3. Tuzak: "daha" varsa als, "kadar" varsa wie. Konuşmada "größer wie" duyulur; yazılı dilde hata.
+4. Superlativ (yüklemde): am + sıfat + -sten: am schnellsten, am wärmsten. Sıfat -t, -d, -s, -ß, -z, -sch ile bitiyorsa -esten: am interessantesten, am kürzesten (ama: am größten).
+5. Düzensizler: gut → besser → am besten · viel → mehr → am meisten · gern → lieber → am liebsten · hoch → höher → am höchsten · nah → näher → am nächsten.
+6. İsmin önünde: Komparativ ve Superlativ da normal sıfat eki alır: eine größere Wohnung, einen schnelleren Laptop, der beste Film, die größte Stadt. "mehr" ve "weniger" ek almaz: mehr Zeit.
+
+Sınavda: Sprechen 3 sunumunda (Vor- und Nachteile, eigene Erfahrung) ve Schreiben'de görüş bildirirken: "Ich finde das Fahrrad praktischer als das Auto."
+@ende
+
+@tabelle Biçimler
+temel | Komparativ | Superlativ | not
+klein | kleiner | am kleinsten | düzenli
+alt | älter | am ältesten | umlaut + -esten
+groß | größer | am größten | umlaut, -ßten
+teuer | teurer | am teuersten | -er'de e düşer
+gut | besser | am besten | düzensiz
+viel | mehr | am meisten | düzensiz, ek almaz
+gern | lieber | am liebsten | düzensiz (zarf)
+hoch | höher | am höchsten | Komparativ'de c düşer
+@ende
+
+@tabelle Karşılaştırma kalıpları
+anlam | Almanca | örnek
+daha … -dan | Komparativ + als | Mein Bruder ist älter als ich.
+… kadar | so + sıfat + wie | Mein Zimmer ist so groß wie dein Zimmer.
+… kadar değil | nicht so + sıfat + wie | Der Test war nicht so schwer, wie ich gedacht habe.
+en … | am + -sten | Im August ist es am wärmsten.
+en … (isimle) | der / die / das + -ste | Das ist der beste Film.
+@ende
+
+@beispiel Mit dem Fahrrad bin ich schneller als mit dem Bus. | Bisikletle otobüsten daha hızlıyım.
+@beispiel Mein Zimmer ist nicht so groß wie dein Zimmer. | Odam senin odan kadar büyük değil.
+@beispiel Am liebsten esse ich Döner mit Salat. | En çok salatalı döner yemeyi severim.
+@beispiel Wir suchen eine größere Wohnung. | Daha büyük bir daire arıyoruz.
+
+@teil form | Komparativ biçimi: -er, umlaut, düzensizler | artikel/çekim
+wahl | 1 | Ich trinke ___ Tee als Kaffee. | lieber | lieber / gerner / mehr gern | Çayı kahveye tercih ederim. | gern düzensizdir: gern → lieber → am liebsten. | der Tee; gern
+luecke | 1 | Mein Bruder ist zwei Jahre ___ als ich. (alt) | älter | | Kardeşim benden iki yaş büyük. | alt → älter: umlaut alır (a → ä). | alt; der Bruder
+luecke | 1 | Im Sommer sind die Tage ___ als im Winter. (lang) | länger | | Yazın günler kıştan daha uzundur. | lang → länger (umlaut). | lang
+luecke | 2 | Heute geht es mir schon viel ___ als gestern. (gut) | besser | | Bugün dünden çok daha iyiyim. | gut düzensiz: gut → besser → am besten. | gut
+luecke | 1 | Mit dem Fahrrad bin ich ___ als mit dem Bus. (schnell) | schneller | | Bisikletle otobüsten daha hızlıyım. | Düzenli: schnell → schneller; arkasından als. | schnell; das Fahrrad
+fehler | 2 | Das Wetter ist heute guter als gestern. | Das Wetter ist heute besser als gestern. | guter | Bugün hava dünden daha iyi. | gut'un Komparativ'i düzensiz: besser. | das Wetter; gut
+wahl | 2 | Eine Monatskarte kostet dieses Jahr ___ als letztes Jahr. | mehr | mehr / viel / meisten | Aylık bilet bu yıl geçen yıldan daha pahalı. | viel → mehr → am meisten; als varsa Komparativ: mehr als. | kosten
+
+@teil als-wie | als (daha …) / so … wie (… kadar) | bağlaç
+wahl | 1 | Bremen ist kleiner ___ Hamburg. | als | als / wie / so | Bremen Hamburg'dan daha küçük. | Komparativ (kleiner) varsa → als. | klein
+wahl | 1 | Mein Zimmer ist so groß ___ dein Zimmer. | wie | wie / als / so | Odam senin odan kadar büyük. | so + sıfat (eksiz) → wie: so groß wie. | das Zimmer; groß
+luecke | 2 | Der Test war nicht so schwer, ___ ich gedacht habe. | wie | wie / als | Sınav düşündüğüm kadar zor değildi. | nicht so + sıfat (eksiz) → wie. | der Test; schwer
+luecke | 2 | Die Prüfung war leichter, ___ ich gedacht habe. | als | als / wie | Sınav düşündüğümden daha kolaydı. | Komparativ (leichter) → als; arkadan yan cümle de gelebilir: …, als ich gedacht habe. | die Prüfung; leicht
+fehler | 2 | Meine Schwester ist größer wie ich. | Meine Schwester ist größer als ich. | wie | Kız kardeşim benden daha uzun. | Komparativ'den sonra als. "größer wie" konuşma dilidir, yazıda hata. | die Schwester; groß
+umform | 3 | Anna ist 1,70 m groß. Lena ist auch 1,70 m groß. → so … wie | Anna ist so groß wie Lena. / Lena ist so groß wie Anna. | | Anna, Lena kadar uzun. | Eşitlik: so + sıfat (eksiz) + wie. | groß
+umform | 3 | Der Zug kostet 50 Euro. Der Bus kostet 20 Euro. → Komparativ | Der Zug ist teurer als der Bus. / Der Bus ist billiger als der Zug. / Der Bus ist günstiger als der Zug. / Der Zug kostet mehr als der Bus. / Der Bus kostet weniger als der Zug. | | Tren otobüsten daha pahalı. | teuer → teurer (e düşer) + als. | teuer; billig; der Zug
+ordnen | 2 | ich / spreche / besser / Englisch / als / Deutsch | Ich spreche besser Englisch als Deutsch. / Ich spreche Englisch besser als Deutsch. / Englisch spreche ich besser als Deutsch. | | İngilizceyi Almancadan daha iyi konuşuyorum. | gut → besser; karşılaştırılan ikinci şey als'tan sonra en sonda. | gut
+
+@teil superlativ | Yüklemde Superlativ: am -(e)sten | artikel/çekim
+luecke | 2 | Im August ist es in Bremen ___. (warm · Superlativ) | am wärmsten | | Bremen'de en sıcak ay ağustostur. | Yüklemde Superlativ: am + sıfat + -sten; warm → am wärmsten (umlaut). | warm
+luecke | 2 | Wer läuft in eurer Familie ___? (schnell · Superlativ) | am schnellsten | | Ailenizde en hızlı kim koşuyor? | am + schnell + -sten. | schnell; laufen
+wahl | 1 | Was machst du in deiner Freizeit ___? | am liebsten | am liebsten / am gernsten / lieber | Boş zamanında en çok ne yapmayı seversin? | gern → lieber → am liebsten (düzensiz). | die Freizeit; gern
+luecke | 3 | Von allen Fächern finde ich Mathe ___. (interessant · Superlativ) | am interessantesten | | Bütün dersler içinde en ilginç bulduğum matematik. | -t ile biten sıfat → -esten: am interessantesten. | interessant; das Fach
+luecke | 3 | Welcher Weg zum Bahnhof ist ___? (kurz · Superlativ) | am kürzesten / der kürzeste | | İstasyona en kısa yol hangisi? | kurz → kürzer → am kürzesten (-z ile bittiği için -esten); isimle: der kürzeste (Weg). | kurz; der Weg
+fehler | 2 | Am Wochenende schlafe ich am meistens. | Am Wochenende schlafe ich am meisten. | am meistens | En çok hafta sonu uyurum. | viel → mehr → am meisten. meistens (çoğunlukla) ayrı bir kelimedir. | viel; meistens
+umform | 3 | Der Rock kostet 30 Euro, die Hose 50 Euro, der Mantel 120 Euro. → Superlativ | Der Mantel ist am teuersten. / Am teuersten ist der Mantel. / Der Mantel kostet am meisten. | | En pahalısı palto. | teuer → am teuersten. | der Mantel; teuer
+ordnen | 2 | am / liebsten / esse / ich / Döner / mit / Salat | Am liebsten esse ich Döner mit Salat. / Ich esse am liebsten Döner mit Salat. / Döner mit Salat esse ich am liebsten. | | En çok salatalı döner yemeyi severim. | am liebsten = en çok severek; başa gelirse fiil (esse) hemen arkasından. | gern; der Salat
+
+@teil attributiv | İsmin önünde: eine größere Wohnung, der beste Film | artikel/çekim
+luecke | 2 | Das ist der ___ Film, den ich kenne. (gut · Superlativ) | beste | | Bu, bildiğim en iyi film. | İsmin önünde Superlativ: best- + sıfat eki; der + Nominativ → -e: der beste Film. | der Film; gut
+luecke | 3 | Wir suchen eine ___ Wohnung. Unsere ist zu klein. (groß · Komparativ) | größere | | Daha büyük bir daire arıyoruz. Bizimki çok küçük. | Komparativ + normal sıfat eki: größer + -e (eine, Akkusativ dişil) → eine größere Wohnung. | die Wohnung; groß
+luecke | 2 | Berlin ist die ___ Stadt Deutschlands. (groß · Superlativ) | größte | | Berlin Almanya'nın en büyük şehridir. | İsmin önünde Superlativ: größt- + -e (die, Nominativ): die größte Stadt. | die Stadt; groß
+wahl | 2 | Ich habe mir einen ___ Laptop gekauft. | schnelleren | schnelleren / schneller / schnellere | Kendime daha hızlı bir dizüstü bilgisayar aldım. | Komparativ ismin önündeyse sıfat eki de alır: einen (Akkusativ eril) → schneller + -en. | schnell; kaufen
+ordnen | 3 | das ist / der / schönste / Tag / meines / Lebens | Das ist der schönste Tag meines Lebens. | | Bu, hayatımın en güzel günü. | der schönste Tag (Superlativ + -e), meines Lebens (Genitiv). | schön; das Leben
+ordnen | 2 | wir / brauchen / ein / größeres / Auto / für / die Kinder | Wir brauchen ein größeres Auto für die Kinder. / Für die Kinder brauchen wir ein größeres Auto. / Wir brauchen für die Kinder ein größeres Auto. | | Çocuklar için daha büyük bir arabaya ihtiyacımız var. | ein + nötr Akkusativ → größer + -es: ein größeres Auto. | das Auto; brauchen
+fehler | 2 | Das ist das beste Restaurant in der Stadt. | Das ist das beste Restaurant in der Stadt. | - | Bu, şehrin en iyi restoranı. | Hata yok: gut → best-; das + Nominativ → -e: das beste Restaurant. | das Restaurant; die Stadt
+umform | 3 | Meine alte Wohnung war klein. Meine neue Wohnung ist groß. → Komparativ | Meine neue Wohnung ist größer als meine alte. / Meine neue Wohnung ist größer als meine alte Wohnung. / Meine alte Wohnung war kleiner als meine neue. / Meine alte Wohnung war kleiner als meine neue Wohnung. | | Yeni dairem eskisinden daha büyük. | groß → größer + als (yüklemde ek yok). | die Wohnung; groß; klein
