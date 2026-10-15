@@ -235,3 +235,4 @@ Test ölçütleri gerçek veriye göre düzeltildi: simülasyonda "3 gün üst �
 - Bilinen / sonraya: 2 turla birikme büyüyor (K=24 simülasyonu 83 → ~105; 3 turla 83 → ~64), Tuna'nın bilinçli kararı, Bugün ekranı söylüyor; yeni kelime kotası genç öğe yükü yüzünden haftalarca 2'de kalır; ünite metni boşlukları hafızaya yazılmıyor (yalnız sayaç); isim boşluğunda yalnız ek hatası (Nebel/Nebels) `falsch`; bileşik isimde `wortLuecke` tutmayınca bos0 yerine tam cümle; `#/liste` ile açılışta adres kalıyor; kök günlük sayacı/`turKelime` bekleyen işlemede güncellenmiyor; `kokYanlis` üreticisi yok.
 - Testler: `tests/sim_akis.js` yük ölçütü tohum ortalamasına (yankı dalgası), `e2e_smoke` ikinci hatırlama parti boyu + ara tekrar payı, tur 12–15 cevap, aynı öğe ≥ 7; `e2e_ui` Bonus tur kabul; `tests/surucu.js` kabuk hazır olana dek bekler.
 
+- (geri bildirim, otomatik) 2026-10-15 16:00: 21 düzeltme, son satır 2026-10-15 15:25:26
