@@ -41,20 +41,30 @@
   const tikDur = () => { if (tik) clearInterval(tik); tik = null; };
 
   // ---------- ana ekran ----------
+  let sonEkran = '';
   function render() {
     if (!ses) ses = { ekran: 'ana' };
     api.durum('');
     ({ ana: renderAna, lesen: renderLesen, lesenSon: renderLesenSon, schreiben: renderSchreiben, sprechen: renderSprechen, hoeren: renderHoeren })[ses.ekran]();
     api.tastatur && api.tastatur();
+    // ekran / adım değişince sayfa başa (görev ve sayaç görünür kalsın)
+    const ek = ses.ekran + ':' + (ses.adim || '') + ':' + (ses.ekran === 'lesen' ? ses.teil : '');
+    if (ek !== sonEkran) { sonEkran = ek; try { root.scrollTo(0, 0); } catch (e) { /* yok */ } }
   }
+  // Schreiben taslağı: sayfa yenilenir / Android uygulamayı öldürürse yazı kaybolmasın
+  const TASLAK = 'almanca-tekrar-pr-taslak';
+  const taslakAl = () => { try { return JSON.parse(localStorage.getItem(TASLAK) || 'null'); } catch (e) { return null; } };
+  const taslakYaz = () => { try { if (ses && ses.ekran === 'schreiben') localStorage.setItem(TASLAK, JSON.stringify({ teil: ses.teil, aid: ses.a.id, metin: ses.metin || '', madde: ses.madde, start: ses.start, bitis: ses.bitis })); } catch (e) { /* yok */ } };
+  const taslakSil = () => { try { localStorage.removeItem(TASLAK); } catch (e) { /* yok */ } };
   function sonPuan(modul) { const l = st().sonuc.filter(x => x.modul === modul); return l.length ? l[l.length - 1] : null; }
   function renderAna() {
     tikDur();
     const p = st(), tarih = p.tarih, gun = tarih ? Math.round((new Date(tarih) - new Date(api.tag())) / 86400000) : null;
+    const tl = taslakAl(), taslakKart = tl && tl.metin && tl.metin.trim() ? `<div class="kural">✏️ Yarım kalan Schreiben Teil ${tl.teil} (${tl.metin.trim().split(/\s+/).length} kelime) <button class="btn mini ana" data-p="schreiben" data-teil="${tl.teil}" type="button">devam et</button></div>` : '';
     const kart = (modul, ad, ikon, alt, btn) => { const s = sonPuan(modul); return `<div class="pr-kart"><div class="pr-kart-ust"><span class="pr-ikon">${ikon}</span><b>${ad}</b>${s ? `<span class="durum-pil ${s.puan >= 60 ? 'sitzt' : 'schwach'}">son: ${s.puan}</span>` : '<span class="soluk">henüz yok</span>'}</div><div class="soluk">${alt}</div><div class="sira">${btn}</div></div>`; };
     el().innerHTML = `<div class="tur"><span class="yeni">prüfung</span><span>Goethe-Zertifikat B1 provası · her modül 100 puan, 60 geçer</span></div>
       <div class="pr-tarih">${tarih ? (gun >= 0 ? `📅 Sınava <b>${gun}</b> gün (${esc(tarih)})` : `📅 Sınav tarihi geçti (${esc(tarih)})`) : '📅 Sınav tarihi: <button class="btn mini" data-p="tarih" type="button">gir</button>'}${tarih ? ' <button class="btn mini" data-p="tarih" type="button">değiştir</button>' : ''}</div>
-      ${kart('lesen', 'Lesen', '📖', '5 Teil, 30 madde, 65 dk. Übungssatz\'ın gerçek metinleri. Mini: tek Teil (10–20 dk).', `<button class="btn ana" data-p="lesen-tam" type="button">Tam Lesen · 65 dk</button><button class="btn" data-p="lesen-mini" type="button">Mini: en zayıf Teil</button>`)}
+      ${taslakKart}${kart('lesen', 'Lesen', '📖', '5 Teil, 30 madde, 65 dk. Übungssatz\'ın gerçek metinleri. Mini: tek Teil (10–20 dk).', `<button class="btn ana" data-p="lesen-tam" type="button">Tam Lesen · 65 dk</button><button class="btn" data-p="lesen-mini" type="button">Mini: en zayıf Teil</button>`)}
       ${kart('hoeren', 'Hören', '🎧', 'Resmî ses dosyası uygulamada yok (telif). Dinleme kası için: Okuma\'daki DW metinlerini önce dinle, sonra oku; Goethe\'nin ücretsiz Modellsatz sesini goethe.de\'den dinle.', `<button class="btn" data-p="hoeren" type="button">Dinleme alıştırması</button>`)}
       ${kart('schreiben', 'Schreiben', '✏️', 'Teil 1 e-posta (20 dk, 80 kelime) · Teil 2 forum (25 dk, 80) · Teil 3 resmî (15 dk, 40). Claude düzeltir ve puanlar.', `<button class="btn ana" data-p="schreiben" data-teil="1" type="button">Teil 1</button><button class="btn" data-p="schreiben" data-teil="2" type="button">Teil 2</button><button class="btn" data-p="schreiben" data-teil="3" type="button">Teil 3</button>`)}
       ${kart('sprechen', 'Sprechen', '🎙️', '15 dk hazırlık → Teil 1 birlikte planlama (partner sesi) → Teil 2 sunum (5 slayt, 3 dk) → Teil 3 soru ve geri bildirim. Kendini kaydet, listeyle değerlendir.', `<button class="btn ana" data-p="sprechen" type="button">Sınav modu</button>`)}
@@ -70,7 +80,7 @@
     ses = { ekran: 'lesen', mod, teil: mod === 'mini' ? teil : 1, texte, cevap: {}, start: now(), bitis: now() + sure * 60000, sure };
     render(); tikBasla();
   }
-  function sureDoldu() { if (ses && ses.ekran === 'lesen') { ses.bitti = true; api.toast('Süre doldu: cevaplar değerlendiriliyor.'); lesenBitir(); } else if (ses && ses.ekran === 'schreiben') { api.toast('Süre doldu! Gönder.'); tikDur(); const t = el().querySelector('.pr-zaman'); if (t) t.textContent = '0:00'; } else if (ses && ses.ekran === 'sprechen') { ses.bitis = null; tikDur(); sprechenIleri(); } }
+  function sureDoldu() { if (ses && ses.ekran === 'lesen' && !Object.keys(ses.cevap).length) { tikDur(); api.toast('Süre doldu; hiç cevap yoktu, sınav kaydedilmedi.'); ses = { ekran: 'ana' }; render(); } else if (ses && ses.ekran === 'lesen') { ses.bitti = true; api.toast('Süre doldu: cevaplar değerlendiriliyor.'); lesenBitir(); } else if (ses && ses.ekran === 'schreiben') { api.toast('Süre doldu! Gönder.'); tikDur(); const t = el().querySelector('.pr-zaman'); if (t) t.textContent = '0:00'; } else if (ses && ses.ekran === 'sprechen') { ses.bitis = null; tikDur(); sprechenIleri(); } }
   function renderLesen() {
     const teiller = [...new Set(ses.texte.map(x => +x.teil))];
     const texte = ses.texte.filter(x => +x.teil === ses.teil);
@@ -110,7 +120,7 @@
     el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">${gecti ? '🏆' : '🌱'}</div><div class="ts-baslik">Lesen: <b>${s.puan}</b> / 100 · ${gecti ? 'bestanden' : 'noch nicht'}</div>
       <div class="ts-istatlar"><div class="ts-istat"><b>${s.roh}/${s.n}</b>doğru</div><div class="ts-istat"><b>${s.dk}</b>dakika</div><div class="ts-istat"><b>${Object.keys(s.teile).length}</b>Teil</div></div>
       <div class="tablo-kap"><table class="tablo"><thead><tr><th>Teil</th><th class="num">doğru</th><th>not</th></tr></thead><tbody>${Object.keys(s.teile).map(k => `<tr><td>Teil ${k}</td><td class="num">${s.teile[k].d}/${s.teile[k].n}</td><td>${s.teile[k].d / s.teile[k].n >= 0.6 ? '✓' : 'çalış'}</td></tr>`).join('')}</tbody></table></div>
-      ${!gecti ? `<div class="kural">60 için ${Math.ceil(18 - s.roh * 30 / s.n)} doğru daha gerekiyordu${zayif ? `; en zayıf Teil ${zayif[0]} (${zayif[1].d}/${zayif[1].n})` : ''}.</div>` : ''}
+      ${!gecti ? `<div class="kural">60 için ${Math.max(1, Math.ceil(0.6 * s.n) - s.roh)} doğru daha gerekiyordu${zayif ? `; en zayıf Teil ${zayif[0]} (${zayif[1].d}/${zayif[1].n})` : ''}.</div>` : ''}
       ${ses.yanlis.length ? `<h2>Yanlışlar</h2>${ses.yanlis.map(({ L, a, c }) => `<div class="oge"><span class="de"><b>${a.n}</b> ${esc(a.s)}${a.o ? `<br><span class="soluk">${a.o.map((o, i) => 'abc'[i] + ') ' + esc(o)).join(' · ')}</span>` : ''}</span><span class="tr">senin: <s>${esc(c == null ? '—' : c)}</s> → doğru: <b>${esc(a.l)}</b> <span class="soluk">(${esc(L.titel)})</span></span></div>`).join('')}` : '<div class="kural">Hepsi doğru!</div>'}
       <div class="sira ts-btns"><button class="btn ana" data-p="ana" type="button">Prüfung</button><button class="btn" data-git="ana" type="button">Bugün</button></div></div>`;
   }
@@ -120,8 +130,15 @@
     const A = (root.AUFGABEN || []).filter(a => a.typ === T.typ);
     if (!A.length) { api.toast('Bu türde görev yok.'); return; }
     const done = new Set(((S.texte) || []).map(x => x.id));
+    const tl = taslakAl(), ta = tl && tl.teil === teil ? A.find(x => x.id === tl.aid) : null;
+    if (ta && tl.metin && tl.metin.trim()) {
+      // yarım taslak: aynı görev, yazı ve işaretler geri gelir; süre kaldığı yerden (bittiyse 0:00)
+      ses = { ekran: 'schreiben', teil, a: ta, start: tl.start || now(), bitis: tl.bitis || now() + T.dk * 60000, kalip: false, madde: tl.madde || {}, metin: tl.metin };
+      render(); tikBasla(); return;
+    }
     const c = A.filter(a => !done.has(a.id)); const a = (c.length ? c : A)[Math.floor(Math.random() * (c.length ? c : A).length)];
     ses = { ekran: 'schreiben', teil, a, start: now(), bitis: now() + T.dk * 60000, kalip: false, madde: {} };
+    taslakYaz();
     render(); tikBasla();
   }
   function renderSchreiben() {
@@ -133,13 +150,19 @@
       <textarea id="pr-metin" class="pr-text" rows="9" placeholder="Hier schreiben …" spellcheck="false">${esc(text)}</textarea>
       <div class="sira"><span class="soluk pr-say"><b>${n}</b> kelime</span><button class="btn mini" data-p="kalip" type="button">${ses.kalip ? 'Redemittel gizle' : 'Redemittel (sınavda yok)'}</button></div>
       ${ses.kalip && api.kalipHTML ? `<div class="pr-kalip">${api.kalipHTML(a)}</div>` : ''}
+      <div class="pr-uyari" role="alert" aria-live="polite"></div>
       <div class="sira pr-alt"><button class="btn ana devam-btn" data-p="schreiben-gonder" type="button">Gönder</button><button class="btn" data-p="iptal" type="button">Vazgeç</button></div>`;
-    const ta = el().querySelector('#pr-metin'); if (ta) { ta.addEventListener('input', () => { ses.metin = ta.value; const s = el().querySelector('.pr-say b'); if (s) s.textContent = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0; }); }
+    const ta = el().querySelector('#pr-metin'); if (ta) { ta.addEventListener('input', () => { ses.metin = ta.value; taslakYaz(); const s = el().querySelector('.pr-say b'); if (s) s.textContent = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0; const u = el().querySelector('.pr-uyari'); if (u) u.textContent = ''; }); }
   }
   function schreibenGonder() {
     const T = SCHREIBEN[ses.teil], a = ses.a, text = (ses.metin || '').trim(), n = text ? text.split(/\s+/).length : 0;
-    if (n < Math.round(T.woerter * 0.5)) { api.toast(`Çok kısa: en az ${T.woerter} kelime hedefle (şu an ${n}).`); return; }
-    tikDur();
+    if (n < Math.round(T.woerter * 0.5)) {
+      // uyarı düğmenin hemen üstünde, satır içi (flash ekranın dışında kalıyordu)
+      const u = el().querySelector('.pr-uyari'); const m = `Çok kısa: en az ${T.woerter} kelime hedefle (şu an ${n}).`;
+      if (u) { u.textContent = m; try { u.scrollIntoView({ block: 'center' }); } catch (e) { /* yok */ } } else api.toast(m);
+      return;
+    }
+    tikDur(); taslakSil();
     const teile = a.de.split(' · ').length - 1, isaretli = Object.values(ses.madde).filter(Boolean).length, kullanilan = Math.round((now() - ses.start) / 60000);
     S.texte = S.texte || []; S.texte.push({ zeit: now(), id: a.id, pruefung: ses.teil });
     api.logEintrag({ modus: 'text', id: `pr:${SET.id}:schreiben:${ses.teil}`, item: a.id, frage: a.de, antwort: text.replace(/\s*\n+\s*/g, ' ¶ '), ergebnis: 'neu', loesung: '', notiz: `pruefung | kelime:${n} | dk:${kullanilan}/${T.dk} | maddeler:${isaretli}/${teile || 0}` });
@@ -231,9 +254,9 @@
       const bt = el().querySelector('[data-p="lesen-bitir"]'); if (bt) bt.textContent = n < top ? `Bitir (${top - n} boş)` : 'Bitir ve puanla';
     }
     else if (a === 'lesen-bitir') { const bos = ses.texte.reduce((x, L) => x + L.aufgaben.filter((_, i) => ses.cevap[L.id + ':' + i] == null).length, 0); if (!bos || confirm(`${bos} soru boş. Yine de bitir?`)) lesenBitir(); }
-    else if (a === 'iptal') { if (confirm('Sınavı yarıda bırak?')) { tikDur(); ses = { ekran: 'ana' }; render(); } }
+    else if (a === 'iptal') { if (confirm('Sınavı yarıda bırak?')) { tikDur(); if (ses && ses.ekran === 'schreiben') taslakSil(); ses = { ekran: 'ana' }; render(); } }
     else if (a === 'schreiben') schreibenBaslat(+b.dataset.teil);
-    else if (a === 'madde') ses.madde[b.dataset.i] = b.checked;
+    else if (a === 'madde') { ses.madde[b.dataset.i] = b.checked; taslakYaz(); }
     else if (a === 'kalip') { ses.kalip = !ses.kalip; render(); }
     else if (a === 'schreiben-gonder') schreibenGonder();
     else if (a === 'sprechen') sprechenBaslat();
@@ -252,6 +275,8 @@
   const ozet = () => { const p = S.pruefung || { sonuc: [], tarih: '' }; const gun = p.tarih ? Math.round((new Date(p.tarih) - new Date(api.tag())) / 86400000) : null; return { gun, son: p.sonuc.slice(-1)[0] || null, n: p.sonuc.length }; };
   function init(a) { api = a; S = api.S(); }
   function yenile() { S = api.S(); }
-  function reset() { tikDur(); ses = null; }
-  root.Pruefung = { init, yenile, render, klick, tus, ozet, reset };
+  function reset() { tikDur(); ses = null; sonEkran = ''; }
+  // süreli bir sınav bölümü sürüyor mu (çıkışta onay için; giriş ve sonuç ekranlarında değil)
+  const aktifMi = () => !!(ses && (ses.ekran === 'lesen' || ses.ekran === 'schreiben' || (ses.ekran === 'sprechen' && ses.adim !== 'son')));
+  root.Pruefung = { init, yenile, render, klick, tus, ozet, reset, aktifMi };
 })(window);

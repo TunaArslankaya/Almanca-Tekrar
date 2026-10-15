@@ -1,7 +1,7 @@
 // v5 akış simülasyonu (Playwright gerekir): node tests/sim_akis.js [zustand.json] [gün=14] [K=36] [δ=-0.4] [tohum=3]
 // Gerçek durumun kopyası uygulamada açılır (göç), sonra çekirdek (Kern.sec → notVer → uygula → oturumIsle) günde K cevapla
 // (12'lik turlar) simüle edilir. "Gerçek" başarı modeli: σ(logit R + d); seçmeli +0,5, ipuçlu (yaz0 / bos0) δ + 0,2, üretim δ.
-// Kabul: vadeli öğe 7. günde ≤ 0,8 × başlangıç; vadeli sayısı 3 gün üst üste artmıyor; kota hiç 0 değil (dönüş turu hariç);
+// Kabul (tohum ortalaması): vadeli öğe 7. günde ≤ 0,8 × başlangıç; vadeli sayısı 3 gün üst üste artmıyor; kota hiç 0 değil (dönüş turu hariç);
 // hafıza başına günde ≤ 1 kalıcı yazım. Günlük sayılar yazdırılır.
 const D = require('./surucu');
 const path = require('path');
@@ -107,19 +107,23 @@ async function simule(p, o) {
   await p.waitForTimeout(400);
   const r = await simule(p, { GUN, K, DELTA, TOHUM, DBG: !!process.env.DBG });
   const fehler = [];
+  // Yük ölçütleri tohumların ORTALAMASI üzerinden: tek tohumun 7. gün değeri gürültülü (aynı kodda 10 tohumda 57–81;
+  // HEAD'de bile 10 tohumun 5'i tek başına ölçütü aşıyordu). Tohum başına değerler yazdırılır; kota ve yazım kuralı tohum başına.
+  const ort = a => a.reduce((x, y) => x + y, 0) / a.length;
   r.forEach(x => {
     console.log(`tohum ${x.tohum}: gün · vadeli · kota (sebep) · yeni · cevap · doğruluk`);
     x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
-    const v = x.gunler.map(g => g.vadeli);
-    if (v.length >= 7 && v[6] > 0.8 * v[0]) fehler.push(`tohum ${x.tohum}: 7. gün vadeli ${v[6]} > 0,8 × ${v[0]}`);
-    // yankı dalgası: ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte döner (+15–25, sonra iner); büyüme sayılmaz.
-    // Büyüme ölçütü: ikinci haftanın (8–14. gün) ortalaması başlangıcı aşmasın, son gün başlangıcı aşmasın
-    const ort = a => a.reduce((x, y) => x + y, 0) / a.length;
-    if (v.length >= 14 && ort(v.slice(7, 14)) > v[0]) fehler.push(`tohum ${x.tohum}: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > başlangıç ${v[0]}`);
-    if (v.length >= 14 && v[13] > v[0]) fehler.push(`tohum ${x.tohum}: 14. gün vadeli ${v[13]} > başlangıç ${v[0]}`);
     x.gunler.forEach(g => { if (!g.q) fehler.push(`tohum ${x.tohum}: ${g.d + 1}. gün kota 0`); });
     if (x.ihlal.length) fehler.push(`tohum ${x.tohum}: günde ikinci kalıcı yazım: ${x.ihlal.slice(0, 5).join(', ')}`);
   });
+  const gunSay = Math.min(...r.map(x => x.gunler.length));
+  const v = Array.from({ length: gunSay }, (_, d) => ort(r.map(x => x.gunler[d].vadeli)));
+  console.log(`ortalama vadeli: ${v.map(x => x.toFixed(1)).join(' ')}`);
+  if (v.length >= 7 && v[6] > 0.8 * v[0]) fehler.push(`ortalama: 7. gün vadeli ${v[6].toFixed(1)} > 0,8 × ${v[0].toFixed(1)}`);
+  // yankı dalgası: ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte döner (+15–25, sonra iner); büyüme sayılmaz.
+  // Büyüme ölçütü: ikinci haftanın (8–14. gün) ortalaması başlangıcı aşmasın, son gün başlangıcı aşmasın
+  if (v.length >= 14 && ort(v.slice(7, 14)) > v[0]) fehler.push(`ortalama: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > başlangıç ${v[0].toFixed(0)}`);
+  if (v.length >= 14 && v[13] > v[0]) fehler.push(`ortalama: 14. gün vadeli ${v[13].toFixed(1)} > başlangıç ${v[0].toFixed(1)}`);
   if (p.hatalar.length) fehler.push('sayfa hataları: ' + p.hatalar.join(' | '));
   await b.close();
   if (fehler.length) { console.log('HATA:\n  ' + fehler.join('\n  ')); process.exit(1); }

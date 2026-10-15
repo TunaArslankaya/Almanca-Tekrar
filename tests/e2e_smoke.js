@@ -21,7 +21,7 @@ function logDenetle(ad, log, o) {
   const n = m => log.filter(e => e.modus === m).length;
   if (n('kontrol') || n('pretest')) hata(ad, `kontrol ${n('kontrol')} / pretest ${n('pretest')} satırı (0 olmalı)`);
   const turlar = log.filter(e => e.modus === 'tur');
-  turlar.forEach(e => { const c = +(/cevap:(\d+)/.exec(e.notiz) || [])[1]; if (e.ergebnis === 'bitti' && c !== 12 && !o.boy) hata(ad, `tur satırı cevap:${c} (12 olmalı)`); if (!/yeni:\d+ \| seviye\+:\d+ \| tekrar:\d+/.test(e.notiz)) hata(ad, 'tur satırında yeni / seviye+ / tekrar yok'); });
+  turlar.forEach(e => { const c = +(/cevap:(\d+)/.exec(e.notiz) || [])[1]; if (e.ergebnis === 'bitti' && (c < 12 || c > 15) && !o.boy) hata(ad, `tur satırı cevap:${c} (12, yeniden sorulacak yanlış kaldıysa en çok 15 olmalı)`); if (!/yeni:\d+ \| seviye\+:\d+ \| tekrar:\d+/.test(e.notiz)) hata(ad, 'tur satırında yeni / seviye+ / tekrar yok'); });
   if (!turlar.some(e => e.ergebnis === 'bitti')) hata(ad, 'hiç tur bitmedi');
   const cevap = log.filter(e => CEVAP_MODUS.has(e.modus) && /basamak:/.test(e.notiz || ''));
   log.filter(e => CEVAP_MODUS.has(e.modus) && e.modus !== 'luecke' || (e.modus === 'luecke' && /bicim:/.test(e.notiz || ''))).forEach(e => {

@@ -118,6 +118,8 @@
     if (ses.ekran === 'ueb') return renderUebung();
     if (ses.ekran === 'son') return renderSon();
   }
+  // içerikteki "doğrulanmadı" işareti (?) öğrenciye gösterilmez
+  const kapTemiz = s => String(s || '').replace(/\s*\?/g, '');
   // ---- konu listesi ----
   function renderListe() {
     const ids = Object.keys(GR);
@@ -125,7 +127,7 @@
     const due = ids.filter(vadeli), ac = ids.filter(id => acik(id) && !vadeli(id)), yeni = acilabilir();
     const ghosts = hayaletHazir();
     const pil = id => { const Sg = kararlilik(id); return !acik(id) ? '' : vadeli(id) ? '<span class="durum-pil schwach">tekrar</span>' : Sg >= 21 ? '<span class="durum-pil sitzt">oturdu</span>' : '<span class="durum-pil lernt">öğreniliyor</span>'; };
-    const satir = (id, btn) => { const k = GR[id].kopf; return `<div class="oge g-oge"><span class="de">${esc(k.titel)}${k.goethe.stufe === 3 ? ' <span class="soluk">★ sınavda şart</span>' : ''}</span><span class="tr">${esc(k.tr)}${k.kapitel ? ` · <span class="soluk">${esc(k.kapitel)}</span>` : ''}</span><span class="yan">${pil(id)} ${btn}</span></div>`; };
+    const satir = (id, btn) => { const k = GR[id].kopf; return `<div class="oge g-oge"><span class="de">${esc(k.titel)}${k.goethe.stufe === 3 ? ' <span class="soluk">★ sınavda şart</span>' : ''}</span><span class="tr">${esc(k.tr)}${k.kapitel ? ` · <span class="soluk">${esc(kapTemiz(k.kapitel))}</span>` : ''}</span><span class="yan">${pil(id)} ${btn}</span></div>`; };
     const h = [`<div class="tur"><span class="yeni">gramer</span><span>konu başına kısa kural + alıştırma · yanlışlar kısa aralıkla geri gelir</span></div>`];
     if (ghosts.length) h.push(`<div class="kural">⚡ ${ghosts.length} hayalet tekrar hazır (az önce yanlış yaptığın kurallar) <button class="btn mini ana" data-g="ghost-basla" type="button">Çöz</button></div>`);
     if (due.length) h.push(`<h2>Tekrar zamanı (${due.length})</h2>${due.length > 1 ? `<div class="sira"><button class="btn ana" data-g="karisik" type="button">Karışık tekrar · ${due.length} konu</button></div>` : ''}` + due.map(id => satir(id, `<button class="btn mini ana" data-g="tekrar" data-id="${id}" type="button">Tekrar et</button>`)).join(''));
@@ -147,7 +149,7 @@
     }).join('');
     const tablolar = (g.tabellen || []).map(t => `<div class="tablo-kap"><table class="tablo"><caption>${esc(t.titel)}</caption><thead><tr>${t.kopf.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${t.zeilen.map(z => `<tr>${z.map(c => `<td>${de(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`).join('');
     const bsp = (g.beispiele || []).map(([a, t]) => `<li>${de(a)} <button class="ses-mini" data-g="ses" data-metin="${esc(a)}" type="button" aria-label="dinle">🔊</button><br><span class="soluk">${esc(t)}</span></li>`).join('');
-    el().innerHTML = `<div class="tur"><span class="yeni">gramer · kural</span><span>${esc(k.stufe)}${k.kapitel ? ' · ' + esc(k.kapitel) : ''}</span></div>
+    el().innerHTML = `<div class="tur"><span class="yeni">gramer · kural</span><span>${esc(k.stufe)}${k.kapitel ? ' · ' + esc(kapTemiz(k.kapitel)) : ''}</span></div>
       <div class="soru">${esc(k.titel)}</div><div class="soluk">${esc(k.tr)}</div>
       <div class="kural g-kurz">${de(k.kurz)}</div>
       <div class="g-erkl">${paras}</div>${tablolar}${bsp ? `<ul class="erkl g-bsp">${bsp}</ul>` : ''}
@@ -250,7 +252,7 @@
     // teil istatistiği, görülme
     const t = ks.teil[u.teil] || (ks.teil[u.teil] = { d: 0, y: 0, son: 0 });
     if (n === 3) t.d++; else t.y++; t.son = now(); ks.gesehen[u.n] = now();
-    ses.erg.push({ n: u.n, teil: u.teil, not: n, tur: u.tur, z: u.z });
+    ses.erg.push({ n: u.n, teil: u.teil, not: n, tur: u.tur, z: u.z, konu: ses.id });
     // hayalet: yanlış → aynı teil kısa aralıkla; üretim türünde küçük hata da
     const key = ses.id + ':' + u.teil, gh = st().ghost;
     if (ses.art === 'ghost') {
@@ -291,10 +293,15 @@
   function renderSon() {
     const g = GR[ses.id], ks = konuSt(ses.id);
     const gun = ks.karte && ks.karte.due ? Math.max(0, Math.round((ks.karte.due - now()) / DAY)) : 0;
-    const zayif = [...new Set(ses.erg.filter(e => e.not < 3).map(e => (g.teile[e.teil] || {}).name || e.teil))];
+    // teil adı alıştırmanın kendi konusundan (karışık tekrarda konular farklı)
+    const zayif = [...new Set(ses.erg.filter(e => e.not < 3).map(e => { const gg = GR[e.konu] || g; return (gg.teile[e.teil] || {}).name || e.teil; }))];
     const dahaDue = Object.keys(GR).filter(id => id !== ses.id && vadeli(id));
+    const sonraki = id => { const kk = konuSt(id).karte; const dk = kk && kk.due ? kk.due - now() : 0; return dk < DAY ? (dk < 3600000 ? 'birazdan' : 'yarın') : Math.round(dk / DAY) + ' gün sonra'; };
+    const kopf = ses.karisikOzet && ses.karisikOzet.length > 1
+      ? `<div class="ts-baslik">Karışık tekrar · ${ses.karisikOzet.length} konu</div>${ses.karisikOzet.map(o => `<div class="oge"><span class="de">${esc(GR[o.id].kopf.titel)}</span><span class="tr">${o.p}/${o.n} puan · sıradaki tekrar ${sonraki(o.id)}</span></div>`).join('')}`
+      : `<div class="ts-baslik">${esc(g.kopf.titel)}</div><div class="soluk">${ses.puan}/${ses.n} puan${ses.setNot ? ` · sıradaki tekrar ${gun === 0 ? 'yarın' : gun === 1 ? 'yarın' : gun + ' gün sonra'}` : ' · hayalet tekrar'}</div>`;
     el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">${ses.setNot === 3 ? '🏆' : ses.setNot === 2 ? '👍' : ses.art === 'ghost' ? '👻' : '🌱'}</div>
-      <div class="ts-baslik">${esc(g.kopf.titel)}</div><div class="soluk">${ses.puan}/${ses.n} puan${ses.setNot ? ` · sıradaki tekrar ${gun === 0 ? 'yarın' : gun === 1 ? 'yarın' : gun + ' gün sonra'}` : ' · hayalet tekrar'}</div>
+      ${kopf}
       ${zayif.length ? `<div class="kural">Zayıf kaldı: ${zayif.map(esc).join(', ')} → kısa aralıkla yeniden gelecek.</div>` : ''}
       <div class="sira ts-btns">${dahaDue.length ? `<button class="btn ana" data-g="tekrar" data-id="${dahaDue[0]}" type="button">Sıradaki konu: ${esc(GR[dahaDue[0]].kopf.titel)}</button>` : ''}<button class="btn${dahaDue.length ? '' : ' ana'}" data-g="liste" type="button">Konu listesi</button><button class="btn" data-g="oku" data-id="${ses.id}" type="button">Kuralı oku</button></div></div>`;
     if (ses.setNot === 3 && api.konfeti) api.konfeti();
@@ -364,11 +371,13 @@
   }
   function karisikBitir(kar) {
     const t = now(); let toplam = 0, n = 0;
+    const ozetler = [];
     kar.forEach(s => { if (!s.erg.length) return; const ks = konuSt(s.id); const p = s.erg.reduce((a, e) => a + (e.not === 3 ? 1 : e.not === 2 ? 0.5 : 0), 0); const o = p / s.erg.length; const nt = o >= 0.8 ? 3 : o >= 0.5 ? 2 : 1;
+      ozetler.push({ id: s.id, p, n: s.erg.length, nt });
       ks.karte = api.FSRS.review(ks.karte && ks.karte.S ? ks.karte : {}, nt, t, api.ret()); if (nt === 1) ks.karte.due = Math.min(ks.karte.due, t + DAY);
       api.logEintrag({ modus: 'gram', id: 'g:' + s.id, item: GR[s.id].kopf.titel, frage: 'tekrar', antwort: '', ergebnis: ['', 'falsch', 'fast', 'richtig'][nt], loesung: '', notiz: `puan:${p}/${s.erg.length} | karışık` }); toplam += p; n += s.erg.length; });
     api.save();
-    ses = { ekran: 'son', id: kar[0].id, erg: kar.flatMap(s => s.erg), puan: toplam, n, setNot: n ? (toplam / n >= 0.8 ? 3 : toplam / n >= 0.5 ? 2 : 1) : null, art: 'tekrar' };
+    ses = { ekran: 'son', id: kar[0].id, erg: kar.flatMap(s => s.erg), puan: toplam, n, setNot: n ? (toplam / n >= 0.8 ? 3 : toplam / n >= 0.5 ? 2 : 1) : null, art: 'tekrar', karisikOzet: ozetler };
     render();
   }
   function ghostBaslat() {

@@ -960,3 +960,7 @@ details.daha > summary { min-height: var(--hedef); display: flex; align-items: c
 .u-kelime:not(.tanidik) .de { opacity: .75; }
 .diger-satir[disabled] { opacity: .55; cursor: default; }
 .diger-satir .is-metin { display: grid; gap: .1rem; }
+/* yeni sürüm çubuğu tur sırasında gizli (ilerleme çubuğunu kapatmasın); Bugün'e dönünce görünür */
+body.calis-modu .yenile-cubuk { display: none; }
+.pr-uyari { color: var(--bad); font-weight: 700; }
+.pr-uyari:empty { display: none; }

@@ -47,6 +47,7 @@
   const KISMI = 0.7;                      // yazım / yavaşlık: not 3, büyüme biraz az, D değişmez
   const PK_BICIM = new Set(['yaz', 'bos', 'cumle', 'metin', 'yoklama']);
   const SECMELI = new Set(['sec', 'anla', 'metinde']);
+  const KOK_BICIM = new Set(['kok', 'kokSatz', 'kokSec']);
   const YAVAS = 15000, COK_HIZLI = 400, FLAS_SURE = 8000;
   const W_RET = { 0.8: 1.15, 0.85: 1, 0.9: 0.8 };
 
@@ -96,9 +97,13 @@
       }
       case 'yoklama': {
         et.push('yoklama');
-        return r(4, art && art.sinandi ? (art.dogru ? 4 : 1) : null, 'richtig', { c: 0 });
+        // kelime biliniyor; artikel yanlışsa log sözleşmesi: fast + 'artikel der → die' (yine de "zaten biliyorsun")
+        if (art && art.sinandi && !art.dogru) { artEt(); return r(4, 1, 'fast', { c: 0 }); }
+        return r(4, art && art.sinandi ? 4 : null, 'richtig', { c: 0 });
       }
     }
+    // kök (çekim) sorusunda bilmiyorum / boş / göster: kök hafızası cezalanır, anlam hafızası değil
+    if (KOK_BICIM.has(b) && ['bos', 'goster', 'bilmiyorum'].includes(s.tip)) { et.push('bilmiyorum'); return r(null, null, 'falsch', { k: 1, ck: OFS[b] || 0 }); }
     if (secmeli && s.sure != null && s.sure < COK_HIZLI) { et.push('sayılmadı'); return r(null, null, null); }
     switch (s.tip) {
       case 'dogru':
@@ -167,6 +172,8 @@
     let sv = h.S < 2 ? 1 : h.S < 7 ? 2 : h.S < 21 ? 3 : h.S < 90 ? 4 : (h.pk || 0) >= 2 ? 5 : 4;
     const pk = h.pk || 0;
     if (pk === 0) sv = Math.min(sv, 2); else if (pk === 1) sv = Math.min(sv, 3);
+    // "Yazıyor" en az iki değerlendirilmiş cevaptan sonra (tanıtım + tek seçmeli kelimeyi yazıyor yapmasın)
+    if (sv === 2 && h.reps != null && h.reps < 2 && !(h.lastG >= 3 && pk >= 1)) sv = 1;
     if (id && C) { try { const k = C.kind(id); if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) sv = Math.min(sv, 3); } catch (e) { /* bilinmeyen öğe */ } }
     return sv;
   };
@@ -200,7 +207,12 @@
       else if (k === 'v') aday = u < 0.5 ? ['sec', 'metinde', 'anla'] : u < 0.7 ? ['anla', 'sec', 'metinde'] : ['metinde', 'sec', 'anla'];
       else aday = u < 0.6 ? ['sec', 'metinde'] : ['metinde', 'sec'];
       if (!kx) aday = aday.filter(x => x !== 'metinde');
-    } else if (b === 2) aday = [(h.S || 0) < 4 || h.lastG === 1 ? 'yaz0' : 'yaz'];
+    } else if (b === 2) {
+      // erken üretim kapısında (pk 0) tutulan oturmuş öğe: ara sıra fiili / kelimeyi verilen cümle boşluğu (bos0; pk saymaz),
+      // böylece göçten sonra da turda cümle gelir (kural 7, 11)
+      if ((h.pk || 0) === 0 && (h.S || 0) >= 7 && h.lastG !== 1 && C.tazeCumle(id) && rnd() < 0.35) aday = ['bos0', 'yaz'];
+      else aday = [(h.S || 0) < 4 || h.lastG === 1 ? 'yaz0' : 'yaz'];
+    }
     else if (b === 3) aday = [(h.S || 0) < 10 ? 'bos0' : 'bos'];
     else aday = ['cumle'];
     const bicim = aday.find(x => !tekrarli(x));
@@ -382,11 +394,14 @@
     const derMi = id => ((C.byId[id] || {}).art || '') === 'der';
     const sirali = vad.slice().sort((a, b) => b.R - a.R);
     const artlar = sirali.filter(v => v.tur === 'art').sort((a, b) => (derMi(a.id) ? 1 : 0) - (derMi(b.id) ? 1 : 0) || b.R - a.R);
-    let ilkAday = null;
+    // flaşlar art arda blok olmasın: son 2 soruda flaş varsa önce başka soru (başka aday yoksa yine flaş)
+    const sonArt = gecmis.slice(-2).some(x => x.tur === 'art');
+    let ilkAday = null, artYedek = null;
     for (const v of sirali) {
       if (v.tur === 'art') {
         if (artSay >= ART_TUR) continue;
         const a = artlar[0];
+        if (sonArt) { artYedek = artYedek || a; continue; }
         return { tur: 'art', kaynak: 'vadeli', id: a.id, b: 0, bicim: 'artikel', R: a.R };
       }
       if (v.tur === 'kok') {
@@ -404,6 +419,7 @@
       const bc = bicimSec(it, bs.b, { id: ilkAday.id, t }, rnd, []);
       return { tur: 'm', kaynak: 'vadeli', id: ilkAday.id, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, R: ilkAday.R };
     }
+    if (artYedek) return { tur: 'art', kaynak: 'vadeli', id: artYedek.id, b: 0, bicim: 'artikel', R: artYedek.R };
     // 6b) yeni kök: günde en çok 2 (düzensiz fiil, formları görülmüş, m.S ≥ 2)
     if (!o.klavyesiz && kokSay < 1 && (gs.kok || 0) < 4 && (gs.kokYeni || 0) < 2) {
       const tanir = it => !!it && !(it.tanit && gun4(it.tanit) === gun4(t)) && (!!it.a1 || !!(it.m && it.m.S >= 2));
