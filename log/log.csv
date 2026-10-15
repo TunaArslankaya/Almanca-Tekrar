@@ -1629,3 +1629,13 @@
 2026-10-15 07:05:23;akt;match;eşleştir;der Antrag, der Wohnsitz, das Amt, sich verlassen auf, sich verlaufen, beweisen;;richtig;;hata:0
 2026-10-15 07:05:34;leech;w0172;frech;arsız, şımarık;;takiliyor;;günler:2026-10-02,2026-10-09,2026-10-15
 2026-10-15 07:05:34;prod;w0172:prod;frech;arsız, şımarık;furch;falsch;frech;farklı | sek:7 | ipucu:0
+2026-10-15 07:06:12;erk;w0119:erk;eher;Doch für viele Menschen aus dem englischsprachigen Ausland ist daraus eher „Doobie Scoot Canoe“ geworden.;daha çok, daha ziyade;fast;daha çok, daha ziyade;yavaş | sek:37 | ipucu:0
+2026-10-15 07:06:18;erk;w0209:erk;glatt;kaygan;nass;falsch;glatt;sek:3 | ipucu:1
+2026-10-15 07:06:26;abr;v642:abr;sich wenden an;(birine) başvurmak;wenden an;falsch;sich wenden an (an + Akk);dönüşlü zamir | sek:4 | ipucu:1
+2026-10-15 07:06:30;erk;n1169:erk;der Sturm;fırtına;der Sturm;richtig;der Sturm;sek:4 | ipucu:1
+2026-10-15 07:06:38;prod;w0171:prod;folgend;aşağıdaki, sonraki;folgende;falsch;folgend;ek | sek:5 | ipucu:1
+2026-10-15 07:06:42;bed;v256:bed;feststellen;Einen deutlichen Zeitverlust kann ich persönlich nicht feststellen.;tespit etmek;richtig;tespit etmek;sek:4 | ipucu:0
+2026-10-15 07:06:46;erk;n0474:erk;das Gewitter;das Gewitter;fırtına;richtig;fırtına (gök gürültülü);sek:3 | ipucu:0
+2026-10-15 07:06:52;paket;p03:0;die Anmeldung;Anmeldung beim Bürgeramt;Anmeldung;richtig;Anmeldung;
+2026-10-15 07:06:55;paket;p03:1;das Amt;Anmeldung beim Bürgeramt;Amt;richtig;Amt;
+2026-10-15 07:07:00;paket;p03:2;das Formular;Anmeldung beim Bürgeramt;Vertrag;falsch;Formular;farklı
