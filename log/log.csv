@@ -1714,3 +1714,10 @@
 2026-10-15 15:09:19;wort;n0248:wort;der Donner;gök gürültüsü;donnern;falsch;der Donner;basamak:B2 | bicim:yaz0 | not:m1 | R:0.84 | S:0.7 | kelime yanlış | sek:5 | ipucu:0
 2026-10-15 15:13:00;bed;v169:bed;donnern;donnern;dolu yağmak;falsch;gök gürlemek;basamak:B1 | bicim:anla | not:m1 | R:0.40 | S:0.0 | kurtarma | sek:220
 2026-10-15 15:13:09;abr;v643:abr;werden;olmak (… hâline gelmek);werden;richtig;werden;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:8 | ipucu:0
+2026-10-15 15:16:43;akt;diktat:n0914;dinle–yaz;Ich interessiere mich nicht für Politik.;Ich interresiere mich für die Politik;falsch;Ich interessiere mich nicht für Politik.;
+2026-10-15 15:16:50;wort;n0660:wort;die Kosten;masraflar (çoğul);die Kosten;richtig;die Kosten;basamak:B2 | bicim:yaz0 | not:m3 | R:0.84 | S:6.2 | sek:3 | ipucu:0
+2026-10-15 15:16:54;erk;n0248:erk;der Donner;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:4
+2026-10-15 15:17:00;prod;w0547:prod;weltweit;dünya çapında;Weltweit;richtig;weltweit;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | kapı:14g | sek:5 | ipucu:2
+2026-10-15 15:17:00;yeni;w0547;weltweit;yoklama;Weltweit;bekannt;dünya çapında;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-10-15 15:17:04;bed;v169:bed;donnern;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:sec | not:- | R:0.97 | S:0.0 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-15 15:17:04;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:0 | yanlış:4 | puan:68 | dk:8 | yeni:1 | seviye+:2 | tekrar:9
