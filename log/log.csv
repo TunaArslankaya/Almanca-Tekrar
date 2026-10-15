@@ -1700,3 +1700,7 @@
 2026-10-15 07:18:18;wort;n0925:wort;die Präsentation;sunum;die Präsentation;richtig;die Präsentation;sek:8 | ipucu:0
 2026-10-15 07:18:21;nsatz;n0994:nsatz;das Rezept;Diese Schmerztabletten gibt es nur auf _____.;Rezept;richtig;Rezept;sek:3 | ipucu:0
 2026-10-15 07:18:28;satz;v063:satz;sich aufregen über;Warum hast du dich so _____?;aufgeregt;richtig;aufgeregt;sek:7 | ipucu:0
+2026-10-15 07:18:44;abr;v272:abr;frieren;"üşümek; donmak";fresch;falsch;frieren;farklı | sek:6 | ipucu:0
+2026-10-15 07:19:11;akt;diktat:v589;dinle–yaz;Du kannst dich nicht immer auf andere verlassen.;Du kannst nicht immer andere verlassen ;falsch;Du kannst dich nicht immer auf andere verlassen.;
+2026-10-15 07:19:21;nsatz;n0973:nsatz;der Regen;In der Landwirtschaft braucht man sowohl Sonnenschein als auch _____, damit die Pflanzen genug Wasser bekommen.;Regen;richtig;Regen;sek:6 | ipucu:0
+2026-10-15 07:19:21;tur;akis;Çalış;;;bitti;;cevap:25 | doğru:14 | küçük:0 | yanlış:11 | puan:192 | dk:5
