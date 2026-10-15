@@ -2814,7 +2814,9 @@
     e.zeit = zeitStr(now());
     S.log.push(e);
     S.pending.push(e);
-    if (ghToken()) { (S.ghPending = S.ghPending || []).push(e); if (S.ghPending.length >= 10) ghSync(S.ghPending.length >= 20 || session.q % 30 === 0); }
+    // GitHub'a toplu yazım: her 30 satırda bir (log + ilerleme birlikte); sık commit GitHub Pages yayınını sürekli iptal ettiriyordu
+    // (her push yeni yayın başlatır, öncekini iptal eder: dakikada bir commit varken yeni sürüm hiç yayınlanamıyor). Ayrıca 3 dk'lık zamanlayıcı ve gizlenme yazıyor.
+    if (ghToken()) { (S.ghPending = S.ghPending || []).push(e); if (S.ghPending.length >= 30) ghSync(true); }
     save();
     dateiSchreiben();
   }
