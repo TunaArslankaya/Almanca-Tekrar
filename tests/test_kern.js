@@ -488,6 +488,29 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   ok(bm.items.n2, 'birleştir: yalnız uzaktaki öğe'); eq(bm.karten['n1:erk'].last, 7, 'birleştir: karten last');
   eq(bm.tage.d1.n, 12, 'birleştir: tage = cihaz toplamı'); eq(bm.tageC.d1.A.n, 5, 'birleştir: cihaz sayacı en büyüğü'); eq(bm.surum, 4, 'birleştir: surum');
   eq(bm.log[0], 1, 'birleştir: log yerelden');
+  // zustandBirlestir'in (v3) alanları kaybolmaz
+  const l2 = { karten: { 'n1:erk': { last: 1 } }, tage: { '2026-10-14': { n: 30 } }, xpToplam: 100, seri: { rekor: 3, frz: 1 },
+    oyun: { rekor: 4 }, unite: { u2: { idx: { a: 1 }, done: { x: 1 } } }, kontext: { s1: 5 }, iz: { n1: 2 }, formGesehen: { v1: true },
+    gelesen: { k1: 1 }, fiilMetin: { a: 1 }, einst: { ret: 0.9 } };
+  const u2 = { karten: { 'n1:erk': { last: 2 } }, tage: { '2026-10-13': { n: 40 }, '2026-10-14': { n: 50 } }, xpToplam: 900, seri: { rekor: 9 },
+    oyun: { rekor: 7 }, unite: { u2: { idx: { b: 2 }, done: { y: 1 } }, u3: { idx: { c: 1 } } }, kontext: { s2: 6 }, iz: { n9: 1 },
+    formGesehen: { v2: true }, gelesen: { k2: 1 }, fiilMetin: { b: 1 }, einst: { ret: 0.8 } };
+  const b2 = K.birlestir(l2, u2);
+  eq(b2.tage['2026-10-13'].n, 40, 'birleştir: yerelde olmayan uzak gün korunur'); eq(b2.tage['2026-10-14'].n, 50, 'birleştir: gün başına en büyük');
+  eq(b2.xpToplam, 900, 'birleştir: xpToplam en büyük'); eq(b2.seri.rekor, 9, 'birleştir: seri.rekor en büyük'); eq(b2.seri.frz, 1, 'birleştir: seri yerel alanı');
+  eq(b2.oyun.rekor, 7, 'birleştir: oyun.rekor');
+  eq(JSON.stringify(b2.unite.u2.idx), '{"b":2,"a":1}', 'birleştir: ünite idx birleşim'); ok(b2.unite.u2.done.x && b2.unite.u2.done.y, 'birleştir: ünite done birleşim');
+  ok(b2.unite.u3, 'birleştir: yalnız uzaktaki ünite');
+  ok(b2.kontext.s1 && b2.kontext.s2 && b2.iz.n1 && b2.iz.n9 && b2.formGesehen.v1 && b2.formGesehen.v2 && b2.gelesen.k1 && b2.gelesen.k2 && b2.fiilMetin.a && b2.fiilMetin.b, 'birleştir: kontext/iz/formGesehen/gelesen/fiilMetin birleşim');
+  eq(b2.einst.ret, 0.9, 'birleştir: dolu yerelin ayarı');
+  eq(K.birlestir({ einst: { ret: 0.85 } }, u2).einst.ret, 0.8, 'birleştir: boş yerel uzaktaki ayarı alır');
+  // göç günü: eski istemci 20 + v5 12 cevap; tageC yalnız v5'i biliyor → sayaç düşmez
+  const g = '2026-10-16';
+  const b3 = K.birlestir({ tage: { [g]: { n: 32, richtig: 25 } }, tageC: { [g]: { mobil: { n: 12, richtig: 9 } } } }, { tage: {} });
+  eq(b3.tage[g].n, 32, 'birleştir: göç günü sayacı silinmez'); eq(b3.tage[g].richtig, 25, 'birleştir: göç günü doğru sayısı');
+  const b4 = K.birlestir({ tage: { [g]: { n: 10, richtig: 8, modi: { akis: 10 } } }, tageC: { [g]: { mobil: { n: 10, richtig: 8 } } } },
+    { tage: { [g]: { n: 9 } }, tageC: { [g]: { masa: { n: 9, richtig: 2 } } } });
+  eq(b4.tage[g].n, 19, 'birleştir: iki cihaz toplamı büyükse alınır'); eq(b4.tage[g].richtig, 10, 'birleştir: alan alan'); ok(b4.tage[g].modi, 'birleştir: gün ek alanları kalır');
 }
 
 // ---------- toparlanma tahmini ----------

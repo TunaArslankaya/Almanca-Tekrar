@@ -546,11 +546,22 @@
     return { birlestir: true, yaz: true, sebep: 'ok' };
   }
   const sonra = (a, b) => (!a ? b : !b ? a : ((a.last || 0) >= (b.last || 0) ? a : b));
-  // alan alan birleştirme: hafızalarda last'ı büyük olan; fehlTage birleşim, leech VEYA, seit en küçük; tageC cihaz başına (G-Counter)
+  // alan alan birleştirme; app.js zustandBirlestir'in (v3) bütün alanlarını kapsar, üstüne v5 alanları (m/art/kok/pakete.m/tageC):
+  // hafızalarda last'ı büyük olan; tage gün başına en büyük (yerelde olmayan uzak gün korunur); unite idx/done birleşim;
+  // xpToplam / seri.rekor / oyun.rekor en büyük; fehlTage birleşim, leech VEYA, seit en küçük; tageC cihaz başına (G-Counter),
+  // tage[g] yalnız cihaz toplamı daha büyükse değişir (göç günü eski istemcinin saydığı cevaplar silinmez). normalize çağıran yapar.
+  const SADE = ['kontext', 'iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'fiilMetin', 'kontrol'];
+  const TOP_ALAN = ['n', 'richtig', 'fast', 'falsch', 'xp'];
   function birlestir(lok, uz) {
     if (!uz || typeof uz !== 'object') return lok;
+    lok = lok || {};
     const m = Object.assign({}, uz, lok);
-    const her = (k, f) => { const o = Object.assign({}, uz[k] || {}); Object.entries(lok[k] || {}).forEach(([x, v]) => { o[x] = o[x] === undefined ? v : f(v, o[x]); }); m[k] = o; };
+    const her = (k, f) => {
+      if (lok[k] === undefined && uz[k] === undefined) return;
+      const o = Object.assign({}, uz[k] || {});
+      Object.entries(lok[k] || {}).forEach(([x, v]) => { o[x] = o[x] === undefined ? v : f(v, o[x]); });
+      m[k] = o;
+    };
     her('karten', sonra);
     her('items', (a, b) => {
       const x = Object.assign({}, b, a);
@@ -565,24 +576,39 @@
     });
     her('kok', (a, b) => Object.assign({}, b, a, sonra(a.S ? a : null, b.S ? b : null) || {}));
     her('pakete', (a, b) => { const x = Object.assign({}, b, a); const h = sonra(a.m, b.m); if (h) x.m = h; return x; });
+    her('tage', (a, b) => ((a.n || 0) >= (b.n || 0) ? a : b));
+    her('unite', (a, b) => Object.assign({}, b, a, { idx: Object.assign({}, b.idx, a.idx), done: Object.assign({}, b.done, a.done) }));
+    SADE.forEach(k => her(k, a => a));
+    if (lok.xpToplam !== undefined || uz.xpToplam !== undefined) m.xpToplam = Math.max(lok.xpToplam || 0, uz.xpToplam || 0);
+    if (uz.seri || lok.seri) {
+      const a = lok.seri || {}, b = uz.seri || {};
+      m.seri = Object.assign({}, b, a, { rekor: Math.max(a.rekor || 0, b.rekor || 0), donmus: Object.assign({}, b.donmus, a.donmus) });
+    }
+    if (uz.oyun || lok.oyun) m.oyun = Object.assign({}, uz.oyun, lok.oyun, { rekor: Math.max((lok.oyun || {}).rekor || 0, (uz.oyun || {}).rekor || 0) });
+    // ayarlar: yerelde ilerleme varsa yerelinki (yeni cihazın varsayılanları uzaktakini ezmesin)
+    const dolu = s => Object.keys((s && s.karten) || {}).length || Object.values((s && s.items) || {}).some(it => it && it.m && it.m.S);
+    if (lok.einst || uz.einst) m.einst = lok.einst && dolu(lok) ? lok.einst : (uz.einst || lok.einst);
     if (lok.tageC || uz.tageC) {
       const tc = {};
-      [uz.tageC || {}, lok.tageC || {}].forEach(src => Object.entries(src).forEach(([g, cs]) => Object.entries(cs).forEach(([cih, v]) => {
+      [uz.tageC || {}, lok.tageC || {}].forEach(src => Object.entries(src).forEach(([g, cs]) => Object.entries(cs || {}).forEach(([cih, v]) => {
         tc[g] = tc[g] || {};
         if (!tc[g][cih] || (v.n || 0) >= (tc[g][cih].n || 0)) tc[g][cih] = v;
       })));
       m.tageC = tc;
-      her('tage', (a, b) => ((a.n || 0) >= (b.n || 0) ? a : b));
+      m.tage = m.tage || {};
       Object.entries(tc).forEach(([g, cs]) => {
-        const top = { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0 };
-        Object.values(cs).forEach(v => Object.keys(top).forEach(k => { top[k] += v[k] || 0; }));
-        m.tage[g] = Object.assign({}, m.tage[g] || {}, top);
+        const top = {};
+        TOP_ALAN.forEach(k => { top[k] = 0; });
+        Object.values(cs).forEach(v => TOP_ALAN.forEach(k => { top[k] += v[k] || 0; }));
+        const eski = m.tage[g] || {};
+        if (top.n > (eski.n || 0)) { const x = Object.assign({}, eski); TOP_ALAN.forEach(k => { x[k] = Math.max(eski[k] || 0, top[k]); }); m.tage[g] = x; }
       });
     }
     m.surum = Math.max(lok.surum || 0, uz.surum || 0) || undefined;
     if (m.surum === undefined) delete m.surum;
     if (lok.goc4 || uz.goc4) m.goc4 = !lok.goc4 ? uz.goc4 : !uz.goc4 ? lok.goc4 : (lok.goc4.zaman <= uz.goc4.zaman ? lok.goc4 : uz.goc4);
     m.log = lok.log; m.pending = lok.pending; m.ghPending = lok.ghPending;
+    ['log', 'pending', 'ghPending'].forEach(k => { if (m[k] === undefined) delete m[k]; });
     return m;
   }
 
