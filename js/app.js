@@ -3732,15 +3732,19 @@
   }
   function bugunKarti() {
     const oz = gunOzeti(tag()); if (!oz.var) return '';
-    const sayi = (v, ad) => `<span><b>${v}</b>${ad}</span>`;
-    return `<div class="ana-kart bugun-kart"><h3>Bugün ne yaptın</h3>
-      <div class="bk-sayilar">${sayi(oz.n, 'cevap')}${oz.n ? sayi('%' + oz.dogru, 'doğru') : ''}${oz.xp ? sayi('+' + oz.xp, 'puan') : ''}${oz.dk ? sayi(oz.dk, 'dk') : ''}${oz.yeni.length ? sayi(oz.yeni.length, 'yeni kelime') : ''}${oz.seviye ? sayi(oz.seviye, 'seviye ↑') : ''}</div>
-      ${oz.bolum.length ? `<div class="soluk">${esc(oz.bolum.join(' · '))}</div>` : ''}
-      ${oz.yeni.length || oz.yanlis.length || oz.secYanlis ? `<details class="daha"><summary>ayrıntı</summary>
-        ${oz.yeni.length ? `<div class="bk-b">Yeni kelimeler</div><div class="bk-cipler">${oz.yeni.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div>` : ''}
-        ${oz.yanlis.length ? `<div class="bk-b">Yanlışlar (yazarak)</div><ul>${oz.yanlis.slice(0, 8).map(y => `<li><b>${esc(y.item)}</b>: <s>${esc(y.antwort || '—')}</s> → ${esc(y.loesung || '')}</li>`).join('')}${oz.yanlis.length > 8 ? `<li class="soluk">+${oz.yanlis.length - 8} daha · Diğer → Geçmiş</li>` : ''}</ul>` : ''}
-        ${oz.secYanlis ? `<div class="soluk">seçmelide ${oz.secYanlis} yanlış</div>` : ''}
-      </details>` : ''}</div>`;
+    const kutu = (v, ad, sinif) => `<div class="bk-kutu${sinif ? ' ' + sinif : ''}"><b>${v}</b><span>${ad}</span></div>`;
+    const toplamYanlis = oz.yanlis.length + oz.secYanlis;
+    const kutular = [kutu(oz.n, 'cevap'), kutu('%' + oz.dogru, 'doğru', oz.dogru >= 80 ? 'iyi' : oz.dogru < 60 ? 'zayif' : ''), kutu('+' + oz.xp, 'puan'),
+      kutu(oz.dk || '–', 'dakika'), kutu(oz.yeni.length, 'yeni kelime'), kutu(oz.seviye, 'seviye ↑')].join('');
+    const yanlisSatir = y => `<div class="bk-y"><b>${esc(y.item)}</b><span><s>${esc(y.antwort || '—')}</s> → ${esc(y.loesung || '')}</span></div>`;
+    return `<div class="ana-kart bugun-kart">
+      <div class="bk-baslik"><h3>Bugün ne yaptın</h3>${oz.bolum.length ? `<span class="soluk">${esc(oz.bolum.join(' · '))}</span>` : ''}</div>
+      <div class="bk-kutular">${kutular}</div>
+      ${oz.yeni.length ? `<div class="bk-bolum"><div class="bk-b">Yeni kelimeler</div><div class="bk-cipler">${oz.yeni.map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>` : ''}
+      ${toplamYanlis ? `<div class="bk-bolum"><div class="bk-b">Yanlışlar <span class="soluk">${oz.yanlis.length ? `${oz.yanlis.length} yazarak` : ''}${oz.yanlis.length && oz.secYanlis ? ' · ' : ''}${oz.secYanlis ? `${oz.secYanlis} seçmeli` : ''}</span></div>
+        ${oz.yanlis.length ? `<div class="bk-yanlis">${oz.yanlis.slice(0, 5).map(yanlisSatir).join('')}</div>` : ''}
+        ${oz.yanlis.length > 5 || oz.secYanlis ? `<button class="btn mini" data-act-ana="gecmis" type="button">Hepsi · Geçmiş</button>` : ''}</div>` : ''}
+    </div>`;
   }
   // İlerleme: son 14 günün satırları (yalnız etkinlik olan günler)
   function gunSatirlari(gun) {
@@ -4171,6 +4175,7 @@
     else if (act === 'kur' && kurPrompt) { kurPrompt.prompt(); kurPrompt.userChoice.finally(() => { kurPrompt = null; renderAna(); }); }
     else if (act === 'kur-gizle') { S.einst.kurGizle = true; save(); renderAna(); }
     else if (act === 'guven-tamam') { session.guvenAcik = false; renderAna(); }
+    else if (act === 'gecmis') zeigView('kayit');
     else if (act === 'notlar-tamam' || act === 'notlar-hepsi') { S.ayar4.fbGorulen = feedbackListe().length; save(); if (act === 'notlar-hepsi') zeigView('kayit'); else renderAna(); }
     else if (act === 'token-kopya') { ghSync(true); try { navigator.clipboard.writeText(ghToken()).then(() => toast('Anahtar kopyalandı: ana ekran uygulamasında "Getir"e yapıştır.')); } catch (e) { toast('Kopyalanamadı: Ayarlar → GitHub\'dan al.'); } }
     else if (act === 'getir') {

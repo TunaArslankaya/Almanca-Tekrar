@@ -972,13 +972,26 @@ body.calis-modu .yenile-cubuk { display: none; }
 .pr-uyari:empty { display: none; }
 
 /* Bugün ne yaptın kartı + İlerleme son 14 gün */
-.bugun-kart .bk-sayilar { display: flex; flex-wrap: wrap; gap: .3rem 1rem; }
-.bugun-kart .bk-sayilar span { display: inline-flex; align-items: baseline; gap: .3rem; color: var(--muted); font-size: .85rem; }
-.bugun-kart .bk-sayilar b { font-family: var(--f-disp); font-size: 1.2rem; color: var(--ink); }
-.bugun-kart .bk-b { font-weight: 700; margin-top: .5rem; font-size: .9rem; }
-.bugun-kart .bk-cipler { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .3rem; }
-.bugun-kart details.daha { margin-top: .2rem; }
-.bugun-kart s { color: var(--muted); }
+.bugun-kart { gap: .7rem; }
+.bugun-kart .bk-baslik { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; flex-wrap: wrap; }
+.bugun-kart .bk-baslik .soluk { font-size: .8rem; }
+.bugun-kart .bk-kutular { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+@media (min-width: 620px) { .bugun-kart .bk-kutular { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.bugun-kart .bk-kutu { background: var(--surface-2); border-radius: 12px; padding: .55rem .4rem; display: grid; gap: .1rem; text-align: center; }
+.bugun-kart .bk-kutu b { font-family: var(--f-disp); font-size: 1.25rem; line-height: 1.1; color: var(--ink); }
+.bugun-kart .bk-kutu span { color: var(--muted); font-size: .72rem; letter-spacing: .02em; }
+.bugun-kart .bk-kutu.iyi b { color: var(--ok, #1e8e5a); }
+.bugun-kart .bk-kutu.zayif b { color: var(--fire, #c0392b); }
+.bugun-kart .bk-bolum { display: grid; gap: .4rem; }
+.bugun-kart .bk-b { font-weight: 700; font-size: .9rem; display: flex; gap: .5rem; align-items: baseline; }
+.bugun-kart .bk-b .soluk { font-weight: 500; font-size: .78rem; }
+.bugun-kart .bk-cipler { display: flex; flex-wrap: wrap; gap: .35rem; }
+.bugun-kart .bk-yanlis { display: grid; gap: .3rem; }
+.bugun-kart .bk-y { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: .6rem; align-items: baseline; padding: .35rem .55rem; border-radius: 10px; background: var(--surface-2); font-size: .92rem; }
+.bugun-kart .bk-y b { overflow-wrap: anywhere; }
+.bugun-kart .bk-y s { color: var(--muted); }
+@media (max-width: 420px) { .bugun-kart .bk-y { grid-template-columns: 1fr; gap: .1rem; } }
+.bugun-kart .btn.mini { justify-self: start; }
 .gun-tablo { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .92rem; }
 .gun-tablo th, .gun-tablo td { padding: .35rem .4rem; border-bottom: 1px solid var(--line); text-align: right; }
 .gun-tablo th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
