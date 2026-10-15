@@ -12,7 +12,11 @@
     [/^um … zu$|^um \.\.\. zu$/i, () => '„um … zu“ ile birleştir'], [/^Passiv$/i, () => 'Passiv yap'], [/^Perfekt$/i, () => 'Perfekt yap'], [/^Präteritum$/i, () => 'Präteritum yap'],
     [/^Plusquamperfekt$/i, () => 'Plusquamperfekt yap'], [/^Futur( I)?$/i, () => 'Futur I yap'], [/^indirekt$/i, () => 'dolaylı soru yap (Können Sie mir sagen, …?)'],
     [/^Relativsatz$/i, () => 'ilgi cümlesiyle tek cümle yap'], [/^Konjunktiv II$/i, () => 'kibar / dilek cümlesi yap (Konjunktiv II)'], [/^Nebensatz$/i, () => 'yan cümle yap'],
-    [/^(\S+) …$/, h => `„${h.replace(/ …$/, '')}“ ile başlayarak birleştir`]];
+    [/^verneinen$/i, () => 'olumsuz yap (nicht / kein)'], [/^(kein|nicht) … sondern$/i, () => '„nicht/kein …, sondern …“ ile düzelt'],
+    [/^je … desto$/i, () => '„je …, desto …“ ile tek cümle yap'], [/^zwar … aber$/i, () => '„zwar …, aber …“ ile birleştir'],
+    [/^(danach|dann|deshalb|trotzdem|vorher|außerdem|sonst)$/i, h => `„${h}“ ile ikinci cümleyi bağla`],
+    [/^(Wegen|Trotz|Während) /i, h => `„${h.replace(/ …$/, '')}“ ile başla (Genitiv)`],
+    [/^(.+?) …$/, h => `„${h.replace(/ …$/, '')}“ ile başlayarak yeniden kur`]];
   const umformYonerge = hedef => { for (const [re, f] of UMFORM_TR) { const m = hedef.match(re); if (m) return f(hedef, m); } return `hedef: ${hedef}`; };
 
   // ---------- durum ----------
