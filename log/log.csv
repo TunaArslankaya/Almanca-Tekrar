@@ -1783,3 +1783,10 @@
 2026-10-15 16:03:34;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:8 | küçük:1 | yanlış:4 | puan:54 | dk:2 | yeni:0 | seviye+:4 | tekrar:13
 2026-10-15 16:04:04;erk;w0560:erk;windig;rüzgârlı;windig;richtig;windig;basamak:B1 | bicim:sec | not:m3 | R:0.80 | S:9.5 | ısınma | kapı:7g | sek:2
 2026-10-15 16:04:09;erk;n1038:erk;der Schirm;şemsiye;der Schirm;richtig;der Schirm;basamak:B1 | bicim:sec | not:m3,a3 | R:0.80 | S:9.5 | ısınma | kapı:7g | sek:3
+2026-10-15 16:04:14;bed;v589:bed;sich verlassen auf;sich verlassen auf;güvenmek;richtig;(birine / bir şeye) güvenmek;basamak:B1 | bicim:anla | not:m3 | R:0.80 | S:13.5 | ısınma | sek:5
+2026-10-15 16:04:18;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.74 | S:0.4 | artikel die → das | sek:2
+2026-10-15 16:04:21;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B1 | bicim:sec | not:m3 | R:0.80 | S:3.1 | sek:2
+2026-10-15 16:04:33;stamm;v672:stamm;zustimmen;Meine Eltern haben meinem Vorschlag sofort _____.;zustimmt;fast;zugestimmt;basamak:K | bicim:kokSatz | not:k2 | R:0.79 | S:14.9 | kök:stimmen | Partizip: zugestimmt | sek:9
+2026-10-15 16:04:37;erk;n0790:erk;die Miete;kira;die Miete;richtig;die Miete;basamak:B1 | bicim:sec | not:m3,a3 | R:0.60 | S:1.3 | kurtarma | sek:3
+2026-10-15 16:04:41;art;n0313:art;die Erlaubnis;Erlaubnis;der;falsch;die Erlaubnis;basamak:A | bicim:artikel | not:a1 | R:0.72 | S:0.4 | artikel der → die | sek:2
+2026-10-15 16:04:41;leech;n0313;die Erlaubnis;izin;;takiliyor;;günler:2026-10-02,2026-10-03,2026-10-15
