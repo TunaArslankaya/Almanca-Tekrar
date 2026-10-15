@@ -1830,3 +1830,7 @@
 2026-10-15 16:18:55;erk;n0055:erk;die Apotheke;Manche Mittel werden in Apotheken auch noch selbst hergestellt, zum Beispiel Salben, Tropfen oder Teemischungen.;eczane;richtig;eczane;basamak:B1 | bicim:metinde | not:m3 | R:0.61 | S:3.6 | ısınma | sek:3
 2026-10-15 16:18:57;art;n0433:art;die Geduld;Geduld;das;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.67 | S:0.2 | artikel das → die | sek:2
 2026-10-15 16:19:06;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;bracht;falsch;gebracht;basamak:K | bicim:kokSatz | not:k1 | R:0.76 | S:0.6 | kök:bringen | Partizip: gebracht | sek:7
+2026-10-15 16:19:09;art;n0972:art;die Regel;Regel;die;richtig;die Regel;basamak:A | bicim:artikel | not:a3 | R:0.62 | S:2.2 | sek:2
+2026-10-15 16:19:12;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-15 16:19:14;art;n0937:art;das Projekt;Projekt;das;richtig;das Projekt;basamak:A | bicim:artikel | not:a3 | R:0.50 | S:0.4 | sek:1
+2026-10-15 16:19:14;tur;akis;Çalış;;;leer;;cevap:8 | doğru:5 | küçük:0 | yanlış:3 | puan:30 | dk:1 | yeni:0 | seviye+:1 | tekrar:8
