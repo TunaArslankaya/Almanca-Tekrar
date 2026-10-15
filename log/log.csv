@@ -1802,3 +1802,13 @@
 2026-10-15 16:05:26;lesen-wort;v487;sprechen mit;Schule;;neu;(biriyle) konuşmak;
 2026-10-15 16:05:27;lesen-wort;w0494;und;Schule;;neu;ve;
 2026-10-15 16:05:28;lesen-wort;w0538;was;Schule;;neu;ne;
+2026-10-15 16:07:02;paket;p05:0;einkaufen;Im Supermarkt;einkaufen;richtig;einkaufen;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı
+2026-10-15 16:07:05;paket;p05:1;der Supermarkt;Im Supermarkt;supermarkt;fast;Supermarkt;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı | groß/klein: isim büyük harfle
+2026-10-15 16:07:11;paket;p05:2;das Gemüse;Im Supermarkt;gemüse;fast;Gemüse;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı | groß/klein: isim büyük harfle
+2026-10-15 16:07:16;paket;p05:3;das Sonderangebot;Im Supermarkt;sonenangebot;falsch;Sonderangebot;basamak:B3 | bicim:metin | not:m1 | R:0.65 | S:0.1 | artikel/çekim
+2026-10-15 16:07:21;paket;p05:4;der Preis;Im Supermarkt;Preis;richtig;Preis;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı
+2026-10-15 16:07:24;paket;p05:5;die Kasse;Im Supermarkt;Kasse;richtig;Kasse;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı
+2026-10-15 16:07:26;paket;p05:6;das Bargeld;Im Supermarkt;Bar;falsch;Bargeld;basamak:B3 | bicim:metin | not:- | R:1.00 | S:4.4 | hafıza:yazılmadı | artikel/çekim
+2026-10-15 16:07:32;paket;p05:7;bezahlen;Im Supermarkt;Bezahlen;fast;bezahle;basamak:B3 | bicim:metin | not:- | R:- | S:- | hafıza:yazılmadı | biçim: metinde bezahle
+2026-10-15 16:07:35;paket;p05:8;die Tüte;Im Supermarkt;Tüte;richtig;Tüte;basamak:B3 | bicim:metin | not:- | R:1.00 | S:5.6 | hafıza:yazılmadı
+2026-10-15 16:07:38;paket;p05:9;die Quittung;Im Supermarkt;Rechnung;falsch;Quittung;basamak:B3 | bicim:metin | not:m1 | R:0.65 | S:0.1 | farklı
