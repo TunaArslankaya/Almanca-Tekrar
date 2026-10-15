@@ -492,27 +492,88 @@
     r.kok = Object.keys(S.kok || {}).length; r.kokS = Object.values(S.kok || {}).filter(k => k.S).length;
     r.vadeli = Object.values(items).filter(it => (it.m && it.m.S && it.m.due <= t) || (it.art && it.art.S && it.art.due <= t)).length;
     r.ret = ret;
-    if (!S.goc4) S.goc4 = { zaman: t, rapor: r };
+    tageGoc(S);
+    if (!S.goc4) S.goc4 = { zaman: t, rapor: r, v3Yedek: false };
     S.surum = Math.max(S.surum || 0, 4);
     return r;
   }
-  // eski istemcinin (v3) göçten sonra yazdığı kart cevaplarını öğe hafızasına uygular; gölge kartlar (last === m.last) iki kez sayılmaz
+  // gün sayaçları (M6): tageC'si olmayan gün (v3'ün ya da eski istemcinin saydığı) tageC[gün].v3 olur; toplamlar korunur.
+  // xpToplam türetilir (Σ tage.xp + xpTaban); günlere dağılmamış eski puan bir kez xpTaban'a yazılır
+  function tageGoc(S) {
+    const tg = S.tage = S.tage || {}, tc = S.tageC = S.tageC || {};
+    Object.keys(tg).forEach(g => { if (!tc[g] && tg[g]) tc[g] = { v3: JSON.parse(JSON.stringify(tg[g])) }; });
+    if (S.xpTaban == null) S.xpTaban = Math.max(0, (S.xpToplam || 0) - Object.values(tg).reduce((a, x) => a + ((x && x.xp) || 0), 0));
+    tageTuret(S);
+  }
+  // G-Counter: her cihaz yalnız kendi sayacını artırır; gün toplamı = cihazların toplamı (alan alan, modi dahil).
+  // tage[g] hiçbir alanda düşmez (göç günü eski istemcinin tage'e doğrudan yazdıkları silinmez)
+  function gunEkle(top, v) {
+    Object.entries(v || {}).forEach(([k, x]) => {
+      if (typeof x === 'number' && Number.isFinite(x)) top[k] = (top[k] || 0) + x;
+      else if (k === 'modi' && x && typeof x === 'object') { top.modi = top.modi || {}; Object.entries(x).forEach(([m, o]) => { top.modi[m] = top.modi[m] || {}; gunEkle(top.modi[m], o); }); }
+    });
+    return top;
+  }
+  function gunMax(a, b) {
+    const x = Object.assign({}, a || {});
+    Object.entries(b || {}).forEach(([k, v]) => {
+      if (typeof v === 'number') x[k] = Math.max(typeof x[k] === 'number' ? x[k] : 0, v);
+      else if (k === 'modi' && v && typeof v === 'object') { x.modi = Object.assign({}, x.modi); Object.entries(v).forEach(([m, o]) => { x.modi[m] = gunMax(x.modi[m], o); }); }
+      else if (x[k] === undefined) x[k] = v;
+    });
+    return x;
+  }
+  function tageTuret(S, g) {
+    const tg = S.tage = S.tage || {}, tc = S.tageC || {};
+    (g ? [g] : Object.keys(tc)).forEach(d => {
+      if (!tc[d]) return;
+      const top = {};
+      Object.values(tc[d]).forEach(v => gunEkle(top, v));
+      tg[d] = gunMax(tg[d], top);
+    });
+    S.xpToplam = Object.values(tg).reduce((a, x) => a + ((x && x.xp) || 0), 0) + (S.xpTaban || 0);
+    return g ? tg[g] : tg;
+  }
+  // eski istemcinin (v3) göçten sonra yazdığı kart cevaplarını hafızaya uygular (zaman sırasıyla, kartın notu + tür ofseti).
+  // Gölge kart (g4 === last) iki kez sayılmaz; ama hedefi kartınkinden eskiyse (eski istemcinin yerel-kazanır birleştirmesi
+  // bayat m / kok / pakete yazdı) hedef kartın değerlerinden onarılır. Döner: uygulanan + onarılan sayısı
+  const HAF = ['S', 'D', 'last', 'due', 'reps', 'lapses', 'lastG'];
   function v3Yetis(S, t) {
     if (!S.goc4 || !S.karten) return 0;
     const ret = (S.einst && S.einst.ret) || 0.85, z = S.goc4.zaman;
-    const l = Object.entries(S.karten).filter(([, c]) => c && c.S && c.last > z && !c.selbst && c.g4 !== c.last).sort((a, b) => a[1].last - b[1].last);
+    const l = Object.entries(S.karten).filter(([, c]) => c && c.S && c.last > z && !c.selbst).sort((a, b) => a[1].last - b[1].last);
     let n = 0;
     l.forEach(([u, c]) => {
       const i = u.lastIndexOf(':'), id = u.slice(0, i), tur = u.slice(i + 1), g = c.lastG || 3, ofs = TUR_OFS[tur] || 0;
-      if (tur === 'pak') { const p = (S.pakete || {})[id]; if (p && (!p.m || c.last > p.m.last)) { p.m = guncelle(p.m, g, c.last, ret, ofs); n++; } return; }
-      if (tur === 'stamm') { const bs = C.base(id), kk = S.kok = S.kok || {}; const h = kk[bs] && kk[bs].S ? kk[bs] : null; if (!h || c.last > h.last) { kk[bs] = Object.assign({}, kk[bs] || {}, guncelle(h, g, c.last, ret, ofs), { ornek: (kk[bs] && kk[bs].ornek) || id }); n++; } return; }
-      const it = S.items[id]; if (!it) return;
-      const anah = tur === 'art' ? 'art' : 'm';
-      if (anah === 'm' && !PROD.has(tur) && !REK.has(tur)) return;
-      const h = it[anah] && it[anah].S ? it[anah] : null;
+      // hedef: { al: () => hafıza, koy: h => yaz, pk }
+      let al, koy, pkSay = false;
+      if (tur === 'pak') {
+        const p = (S.pakete || {})[id]; if (!p) return;
+        al = () => p.m; koy = h => { p.m = h; };
+      } else if (tur === 'stamm') {
+        if (C.kind(id) !== 'v') return;
+        const bs = C.base(id), kk = S.kok = S.kok || {};
+        al = () => (kk[bs] && kk[bs].S ? kk[bs] : null);
+        koy = h => { kk[bs] = Object.assign({}, kk[bs] || {}, h, { ornek: (kk[bs] && kk[bs].ornek) || id }); delete kk[bs].yeni; };
+      } else {
+        const it = S.items[id]; if (!it) return;
+        const anah = tur === 'art' ? 'art' : 'm';
+        if (anah === 'm' && !PROD.has(tur) && !REK.has(tur)) return;
+        al = () => (it[anah] && it[anah].S ? it[anah] : null);
+        koy = h => { it[anah] = h; if (anah === 'm') { delete it.yarim; delete it.m.dogrula; } };
+        pkSay = anah === 'm' && PROD.has(tur) && g >= 3;
+      }
+      const h = al();
       if (h && c.last <= h.last) return;
-      it[anah] = guncelle(h, g, c.last, ret, ofs, { pkSay: anah === 'm' && PROD.has(tur) && g >= 3 });
-      if (anah === 'm') delete it.yarim;
+      if (c.g4 != null && c.g4 === c.last) {
+        // gölge kart: aynı cevap zaten bir hafızaya yazılmıştı; hedef bayatsa kartın değerleriyle onar
+        const x = Object.assign({}, h || {});
+        HAF.forEach(k => { if (c[k] !== undefined) x[k] = c[k]; });
+        koy(x); n++;
+        return;
+      }
+      if (c.g4 != null && c.last < c.g4) return;
+      koy(guncelle(h, g, c.last, ret, ofs, { pkSay }));
       n++;
     });
     return n;
@@ -541,7 +602,9 @@
   function yazabilir(lok, uz, kodSurum) {
     if (!uz) return { birlestir: false, yaz: true, sebep: 'ok' };
     if ((uz.surum || 0) > kodSurum) return { birlestir: false, yaz: false, sebep: 'yeni-sema' };
-    const say = s => kodSurum >= 4 ? Object.values((s && s.items) || {}).filter(it => it && it.m && it.m.S).length : Object.keys((s && s.karten) || {}).length;
+    // benzer benzerle: uzak v4 ise m'li öğe sayısı, uzak v3 ise kart sayısı (yerel v4 de karten'i korur)
+    const v4 = kodSurum >= 4 && (uz.surum || 0) >= 4;
+    const say = s => v4 ? Object.values((s && s.items) || {}).filter(it => it && it.m && it.m.S).length : Object.keys((s && s.karten) || {}).length;
     if (say(lok) < say(uz) / 2) return { birlestir: true, yaz: false, sebep: 'bos-yerel' };
     return { birlestir: true, yaz: true, sebep: 'ok' };
   }
@@ -588,25 +651,28 @@
     // ayarlar: yerelde ilerleme varsa yerelinki (yeni cihazın varsayılanları uzaktakini ezmesin)
     const dolu = s => Object.keys((s && s.karten) || {}).length || Object.values((s && s.items) || {}).some(it => it && it.m && it.m.S);
     if (lok.einst || uz.einst) m.einst = lok.einst && dolu(lok) ? lok.einst : (uz.einst || lok.einst);
+    if (lok.ayar4 || uz.ayar4) {
+      const a = lok.ayar4 || {}, b = uz.ayar4 || {};
+      m.ayar4 = Object.assign({}, lok.ayar4 && dolu(lok) ? Object.assign({}, b, a) : Object.assign({}, a, b), { gosterildi: Object.assign({}, b.gosterildi, a.gosterildi) });
+    }
+    if (lok.xpTaban != null || uz.xpTaban != null) m.xpTaban = Math.max(lok.xpTaban || 0, uz.xpTaban || 0);
     if (lok.tageC || uz.tageC) {
+      // cihaz başına, alan başına en büyük (her cihaz yalnız kendi sayacını artırır)
       const tc = {};
       [uz.tageC || {}, lok.tageC || {}].forEach(src => Object.entries(src).forEach(([g, cs]) => Object.entries(cs || {}).forEach(([cih, v]) => {
         tc[g] = tc[g] || {};
-        if (!tc[g][cih] || (v.n || 0) >= (tc[g][cih].n || 0)) tc[g][cih] = v;
+        tc[g][cih] = gunMax(tc[g][cih], v);
       })));
       m.tageC = tc;
-      m.tage = m.tage || {};
-      Object.entries(tc).forEach(([g, cs]) => {
-        const top = {};
-        TOP_ALAN.forEach(k => { top[k] = 0; });
-        Object.values(cs).forEach(v => TOP_ALAN.forEach(k => { top[k] += v[k] || 0; }));
-        const eski = m.tage[g] || {};
-        if (top.n > (eski.n || 0)) { const x = Object.assign({}, eski); TOP_ALAN.forEach(k => { x[k] = Math.max(eski[k] || 0, top[k]); }); m.tage[g] = x; }
-      });
+      m.tage = Object.assign({}, m.tage || {});
+      tageTuret(m);
     }
     m.surum = Math.max(lok.surum || 0, uz.surum || 0) || undefined;
     if (m.surum === undefined) delete m.surum;
-    if (lok.goc4 || uz.goc4) m.goc4 = !lok.goc4 ? uz.goc4 : !uz.goc4 ? lok.goc4 : (lok.goc4.zaman <= uz.goc4.zaman ? lok.goc4 : uz.goc4);
+    if (lok.goc4 || uz.goc4) {
+      const a = lok.goc4, b = uz.goc4;
+      m.goc4 = !a ? b : !b ? a : Object.assign({}, a.zaman <= b.zaman ? a : b, { v3Yedek: !!(a.v3Yedek || b.v3Yedek) });
+    }
     m.log = lok.log; m.pending = lok.pending; m.ghPending = lok.ghPending;
     ['log', 'pending', 'ghPending'].forEach(k => { if (m[k] === undefined) delete m[k]; });
     return m;
@@ -665,7 +731,7 @@
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
-    goc, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin,
+    goc, tageGoc, tageTuret, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin,
   };
   return api;
 });

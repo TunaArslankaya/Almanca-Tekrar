@@ -24,7 +24,7 @@
   // v5 M−1: öz-değerlendirme listesi (aktTriage) ve rastgele kontrol (aktKontrol) kapalı; tekrarlar gerçek soruyla sorulur
   const KONTROL = false;
   // senkron koruması: bu kodun anladığı en yeni şema (uzaktaki S.surum bundan büyükse birleştirme ve yazma yok)
-  const CODE_SURUM = 3;
+  const CODE_SURUM = 4;
 
   // ================= Veri =================
   const byId = Object.fromEntries(window.NOMEN.liste.map(n => [n.id, n]));
@@ -169,8 +169,15 @@
 
   // ================= Durum =================
   const KEY = 'almanca-tekrar-v1';
+  // v5: log ayrı anahtarda (her kayıtta bütün log yeniden yazılmasın); cihaz kimliği S'e yazılmaz (cihaz başına gün sayacı, G-Counter)
+  const LOG_KEY = 'almanca-tekrar-log', CIHAZ_KEY = 'almanca-tekrar-cihaz';
+  const CIHAZ = (() => {
+    const yeni = () => 'c' + Math.random().toString(36).slice(2, 10);
+    try { let c = localStorage.getItem(CIHAZ_KEY); if (!c) { c = yeni(); localStorage.setItem(CIHAZ_KEY, c); } return c; } catch (e) { return yeni(); }
+  })();
+  const AYAR4 = { yeniGunluk: 6, uniteHizli: {}, gosterildi: {}, turHedef: 3 };
   const DEF = { karten: {}, items: {}, pakete: {}, tage: {}, log: [], pending: [], ghPending: [], kontext: {},
-    einst: { ret: 0.85, modi: {} }, version: 3 };
+    einst: { ret: 0.85, modi: {} }, version: 3, kok: {}, tageC: {}, ayar4: AYAR4 };
   // Bölümler: her birinin kendi günlük hedefi (soru) ve yeni öğe sınırı.
   const MODI = {
     akis: { ad: 'Çalış', grup: 'Hepsi karışık', ziel: 80, neu: 10, neuTr: 'yeni kelime / fiil' },
@@ -199,8 +206,9 @@
   const MIN_TAG = 10;  // bu kadar sayılan cevap = gün "çalışılmış" sayılır (seri)
 
   function normalize(x) {
-    const s = Object.assign({}, DEF, x || {});
-    ['karten', 'items', 'pakete', 'tage', 'kontext'].forEach(k => { s[k] = s[k] || {}; });
+    const s = Object.assign(JSON.parse(JSON.stringify(DEF)), x || {});
+    ['karten', 'items', 'pakete', 'tage', 'kontext', 'kok', 'tageC'].forEach(k => { s[k] = s[k] || {}; });
+    s.ayar4 = Object.assign(JSON.parse(JSON.stringify(AYAR4)), s.ayar4);
     ['log', 'pending', 'ghPending'].forEach(k => { s[k] = s[k] || []; });
     s.einst = Object.assign({ ret: 0.9 }, s.einst);
     s.einst.modi = s.einst.modi || {};
@@ -213,8 +221,20 @@
     Object.keys(MODI).forEach(m => { s.einst.modi[m] = Object.assign({ ziel: MODI[m].ziel, neu: MODI[m].neu }, s.einst.modi[m]); });
     return s;
   }
-  let S;
-  try { S = normalize(JSON.parse(localStorage.getItem(KEY) || '{}')); } catch (e) { S = normalize({}); }
+  // açılış: ana anahtar + ayrı log anahtarı; eski kayıtta (log ana anahtarda) satırlar log anahtarına taşınır
+  function yukle() {
+    let x = {}, log = null;
+    try { x = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { x = {}; }
+    try { log = JSON.parse(localStorage.getItem(LOG_KEY) || 'null'); } catch (e) { log = null; }
+    if (!Array.isArray(log)) log = [];
+    if (Array.isArray(x.log) && x.log.length) {
+      const gorulen = new Set(log.map(e => JSON.stringify(e)));
+      x.log.forEach(e => { if (!gorulen.has(JSON.stringify(e))) log.push(e); });
+    }
+    x.log = log;
+    return normalize(x);
+  }
+  let S = yukle();
   // Çalış'ın günlük hedefi uyarlanır: son 7 çalışılan günün medyanı × 1,1 (en az 3 tur, en çok 80), tura yuvarlanır.
   // Kullanıcı Ayarlar'da elle girerse (hedefSabit) o sayı kullanılır. Günü kurtarmak (seri) ayrı: MIN_TAG.
   function gunHedef() {
@@ -230,15 +250,27 @@
   }
   const ziel = m => m === 'akis' ? gunHedef() : S.einst.modi[m].ziel;
   const neuMax = m => S.einst.modi[m].neu;
+  // log yalnız değiştiyse yazılır (son satır ve uzunluk)
+  let logYazilan = { n: -1, son: null };
   function save() {
     try {
+      tageTuret(tag());
       if (S.log.length > 3000) S.log = S.log.slice(-3000);
-      localStorage.setItem(KEY, JSON.stringify(S));
+      localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { log: [] })));
+      const son = S.log[S.log.length - 1] || null;
+      if (logYazilan.n !== S.log.length || logYazilan.son !== son) { localStorage.setItem(LOG_KEY, JSON.stringify(S.log)); logYazilan = { n: S.log.length, son }; }
     } catch (e) { console.warn('kaydedilemedi', e); }
   }
   window.addEventListener('pagehide', save);
-  const heute = () => { const t = tag(); return S.tage[t] || (S.tage[t] = { n: 0, richtig: 0, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 }); };
-  const heuteM = m => { const d = heute(); d.modi = d.modi || {}; return d.modi[m] || (d.modi[m] = { n: 0, richtig: 0, fast: 0, falsch: 0, neu: 0, bekannt: 0, ungezaehlt: 0 }); };
+  // gün sayaçları: her cihaz yalnız kendi sayacını artırır (S.tageC[gün][CIHAZ]); S.tage[gün] = cihazların toplamı (türetilir).
+  // heute()/heuteM() yazmak içindir (yerel cihaz); okumak için bugun()/bugunM() (bütün cihazların toplamı)
+  const GUN0 = () => ({ n: 0, richtig: 0, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 });
+  const MOD0 = () => ({ n: 0, richtig: 0, fast: 0, falsch: 0, neu: 0, bekannt: 0, ungezaehlt: 0 });
+  const heute = () => { const t = tag(), c = S.tageC[t] = S.tageC[t] || {}; return c[CIHAZ] || (c[CIHAZ] = GUN0()); };
+  const heuteM = m => { const d = heute(); d.modi = d.modi || {}; return d.modi[m] || (d.modi[m] = MOD0()); };
+  const tageTuret = g => Kern.tageTuret(S, g);
+  const bugun = () => { const t = tag(); if (S.tageC[t]) tageTuret(t); return S.tage[t] || GUN0(); };
+  const bugunM = m => { const d = bugun(); return (d.modi && d.modi[m]) || MOD0(); };
 
   // ================= Birimler =================
   // Tanıma (Hızlı tur): erk (DE→TR seçmeli), bed (fiil DE→TR seçmeli), art (der/die/das)
@@ -384,6 +416,10 @@
   const themaSet = () => { const id = themaId(); if (_thFor !== id) { _thFor = id; _thSet = new Set(thById[id] ? thById[id].items : []); } return _thSet; };
   // konu sırası: önce B1, sonra A2, A1; fiil / isim / diğer karışık
   const tierOf = id => ({ v: () => vById[id].tier, w: () => wById[id].tier, p: () => 2, n: () => byId[id].tier })[kind(id)]();
+  // v5 çekirdeği (js/kern.js): göç, senkron ve gün sayaçları için uygulama bağlamı (akış M3'te bağlanır)
+  Kern.init({ kind, byId, vById, wById, istNdek, istRefl,
+    tierOf: id => { try { return tierOf(id); } catch (e) { return 2; } },
+    base: id => (vById[id] || {}).base || id, plOnly: id => !!(byId[id] || {}).plOnly });
   const themaOrder = () => (thById[themaId()] ? thById[themaId()].items : []).filter(id => gueltig(id + ':x'))
     .slice().sort((a, b) => tierOf(b) - tierOf(a) || mix(a) - mix(b));
   // odakta daha önce tanıtılmış ama modül birimi olmayan öğelere birimi ekle
@@ -432,7 +468,7 @@
     return r;
   }
   function naechsteNeuRoh() {
-    const m = session.modus, hm = heuteM(m);
+    const m = session.modus, hm = bugunM(m);
     // yarıda bırakılmış yeni paket önce bitirilir (sınırdan düşmez)
     if (m === 'paket') { const offen = PAKETE.find(p => S.pakete[p.id] && !paketFertig(p.id)); if (offen) return { paket: offen.id }; }
     // tekrar yükü arttıkça yeni öğe azalır (birikmiş STAU'da sıfır); tekrarları bitirdikçe yeniden açılır.
@@ -600,6 +636,8 @@
     const filter = FILTER[m];
     const dueAlle = faellig(filter);
     let due = dueAlle.filter(u => izOk(itemOf(u)) && triTor(u));
+    // çekim aralığı en başta: yalnız çekim kartı kalmışsa boş liste aşağıdaki "tekrar yok" dallarına düşer (göçle formGesehen yazılan fiiller)
+    if (!stammErlaubt()) due = due.filter(u => typOf(u) !== 'stamm');
     // birikme: ara verdiysen önce tekrarlar (yayılmış kartlar da sayılır: yayma yükü gizlemez, yalnız dağıtır)
     const rs = rueckstand(filter);
     session.stau = rs > stauGrenze(m) ? rs : 0;
@@ -654,6 +692,7 @@
     const z = iz();
     // çekim: en az 8 soru arayla, günde en çok 4; başka soru olmasa da sınır aşılmaz
     if (!stammErlaubt()) due = due.filter(u => typOf(u) !== 'stamm');
+    if (!due.length) return null;
     // her 5 soruda bir: öğrendiğin kelime gerçek bir metin cümlesinin içinde (DW / Klexikon / Goethe) — anlamı ne?
     if (m !== 'paket' && m !== 'zayif' && session.q % 5 === 4 && session.letzteKontext !== session.q && (session.bicimler || []).slice(-1)[0] !== 'kontext') {
       session.letzteKontext = session.q;
@@ -1651,7 +1690,7 @@
     if (!session.aufgabe || anders) { session.aufgabe = aufgabeWaehlen(anders); session.pflicht = pflichtWoerter(session.aufgabe); }
     const a = session.aufgabe, teile = a.de.split(' · ');
     aktuell = { typ: 'yazma', id: a.id };
-    const heute = heuteM('yazma').n;
+    const heute = bugunM('yazma').n;
     $('#durum-satiri').innerHTML = '';
     kart.innerHTML = `<div class="tur"><span class="yeni">yazma</span><span>${esc({ email: 'arkadaşa e-posta', forum: 'forumda görüş', formell: 'resmî e-posta' }[a.typ] || a.typ)} · en az ${a.min} kelime${thById[a.thema] ? ' · ' + esc(thById[a.thema].tr) : ''}</span></div>
       ${heute ? '<div class="sonuc richtig"><div class="baslik">✓ Bugün bir metin gönderdin.</div><div class="soluk">İstersen bir tane daha yazabilirsin. Claude\'a "sonuçlarıma bak" de, düzeltir.</div></div>' : ''}
@@ -2806,12 +2845,12 @@
     if (!sel && session.tur && session.tur.n > 0 && SORU_MODI.has(m)) { turSonuRender('leer'); return; }
     if (!sel) {
       aktuell = { typ: 'leer' };
-      const hm = heuteM(m);
+      const hm = bugunM(m);
       let msg;
       if (m === 'zayif') msg = `<div class="buyuk">Zayıf öğe yok.</div><div class="soluk">Yanlış yaptıkların burada toplanır.</div><button class="btn ana" data-modus="akis" type="button">Çalış'a geç</button>`;
       else if (m === 'paket' && !PAKETE.some(p => !S.pakete[p.id])) msg = `<div class="buyuk">Bütün paketleri bitirdin.</div><div class="soluk">Claude'a "yeni paket yaz" de; zayıf kelimelerinden yeni sahneler yazar.</div>`;
       else {
-        const naechst = session.schreibStau ? 'normal' : PLAN.find(x => x !== m && heuteM(x).n < ziel(x));
+        const naechst = session.schreibStau ? 'normal' : PLAN.find(x => x !== m && bugunM(x).n < ziel(x));
         msg = `<div class="buyuk">${esc(MODI[m].ad)}: şu an tekrar yok.</div>
           <div class="soluk">Bugün ${hm.n} soru · ${hm.neu} / ${neuMax(m)} ${esc(MODI[m].neuTr)}. Sıradaki tekrar: ${naechsteFaelligkeit()}.</div>
           <div class="sira">${naechst ? `<button class="btn ana" data-modus="${naechst}" type="button">Sıradaki: ${esc(MODI[naechst].ad)} <kbd>Enter</kbd></button>` : ''}<button class="btn" data-act="extra" type="button">Ekstra çalış</button><button class="btn" data-git="ana" type="button">Ana sayfa</button></div>`;
@@ -2973,7 +3012,7 @@
     d.n++; dm.n++; d.neuGelernt = (d.neuGelernt || 0) + 1;
     if (session.tur && !session.tur.bitti) session.tur.n++;
     xpEkle(5 * (session.donusBonus ? 2 : 1));
-    gunSayac(d);
+    gunSayac(tageTuret(tag()));
     otRender();
   }
   function lichtWeiter() {
@@ -3031,14 +3070,14 @@
   // bugünün sayaçları (çok hızlı / boş cevaplar hedefe sayılmaz)
   function zaehlen(q, urteil) {
     const d = heute(), dm = heuteM(session.modus);
-    if (q.ungezaehlt) { d.ungezaehlt = (d.ungezaehlt || 0) + 1; dm.ungezaehlt = (dm.ungezaehlt || 0) + 1; return; }
+    if (q.ungezaehlt) { d.ungezaehlt = (d.ungezaehlt || 0) + 1; dm.ungezaehlt = (dm.ungezaehlt || 0) + 1; tageTuret(tag()); return; }
     d.n++; d[urteil]++;
     dm.n++; dm[urteil]++;
     const c = CAT[q.typ]; if (c) d[c] = (d[c] || 0) + 1;
     // tur, puan, seri
     if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil] = (session.tur[urteil] || 0) + 1; }
     xpEkle(xpFuer(q, urteil));
-    gunSayac(d);
+    gunSayac(tageTuret(tag()));
     otRender();
   }
 
@@ -3251,31 +3290,34 @@
   async function ghSchreiben(datei, text, sha, msg) {
     return ghApi(`/contents/${datei}`, { method: 'PUT', body: JSON.stringify({ message: msg, content: b64enc(text), branch: GH.branch, sha: sha || undefined }) });
   }
-  // Cihazlar arası birleştirme (telefon + bilgisayar): GitHub'daki durumla yerel durum kart kart birleşir, son cevaplanan kazanır.
-  // Boş bir cihaz (yeni ana ekran uygulaması) böylece uzaktaki ilerlemeyi asla ezemez.
+  // Cihazlar arası birleştirme (telefon + bilgisayar): GitHub'daki durumla yerel durum alan alan birleşir (js/kern.js birlestir):
+  // hafızalar (m, art, kok, pakete.m) ve kartlar son cevaplanan kazanır, gün sayaçları cihaz başına (G-Counter).
+  // Boş bir cihaz (yeni ana ekran uygulaması) böylece uzaktaki ilerlemeyi asla ezemez. Ardından göç + v3Yetis yeniden çalışır.
   function zustandBirlestir(lok, uz) {
-    if (!uz || typeof uz !== 'object' || !uz.karten) return lok;
-    const m = Object.assign({}, uz, lok);
-    const sonra = (a, b) => ((a && a.last) || 0) >= ((b && b.last) || 0) ? a : b;
-    const birles = (k, f) => {
-      const o = Object.assign({}, uz[k] || {});
-      Object.entries(lok[k] || {}).forEach(([key, v]) => { o[key] = o[key] === undefined ? v : f(v, o[key]); });
-      m[k] = o;
-    };
-    birles('karten', sonra);
-    birles('items', (a, b) => Object.assign({}, b, a, { fehlTage: [...new Set([...(b.fehlTage || []), ...(a.fehlTage || [])])].sort() }));
-    birles('tage', (a, b) => ((a.n || 0) >= (b.n || 0) ? a : b));
-    birles('unite', (a, b) => Object.assign({}, b, a, { idx: Object.assign({}, b.idx, a.idx), done: Object.assign({}, b.done, a.done) }));
-    ['kontext', 'iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'pakete', 'fiilMetin', 'kontrol'].forEach(k => birles(k, a => a));
-    m.xpToplam = Math.max(lok.xpToplam || 0, uz.xpToplam || 0);
-    if (uz.seri || lok.seri) {
-      const a = lok.seri || {}, b = uz.seri || {};
-      m.seri = Object.assign({}, b, a, { rekor: Math.max(a.rekor || 0, b.rekor || 0), donmus: Object.assign({}, b.donmus, a.donmus) });
-    }
-    if (uz.oyun || lok.oyun) m.oyun = Object.assign({}, uz.oyun, lok.oyun, { rekor: Math.max((lok.oyun || {}).rekor || 0, (uz.oyun || {}).rekor || 0) });
-    m.einst = lok.einst && Object.keys(lok.karten || {}).length ? lok.einst : (uz.einst || lok.einst);
-    m.log = lok.log; m.pending = lok.pending; m.ghPending = lok.ghPending;
-    return normalize(m);
+    if (!uz || typeof uz !== 'object') return lok;
+    return normalize(Kern.birlestir(lok, uz));
+  }
+  // v5 hafızası: m'si eksik öğe kartlarından kurulur (öğe başına idempotent), eski istemcinin göçten sonraki cevapları uygulanır.
+  // İlk göçte bir kez 'akt;goc4' log satırı. Açılışta ve her birleştirmeden sonra.
+  function kernAc() {
+    const ilk = !S.goc4;
+    const bos = !Object.keys(S.items).length && !Object.keys(S.karten).length;
+    if (!bos) {
+      const r = Kern.goc(S, now(), S.einst.ret);
+      if (ilk && S.goc4) {
+        logEintrag({ modus: 'akt', id: 'goc4', item: 'v5 göçü', frage: '', antwort: '', ergebnis: 'gelesen', loesung: '',
+          notiz: `öğe:${r.oge} | m:${r.m} | yarım:${r.yarim} | art:${r.art} | kök:${r.kok} | vadeli:${r.vadeli} | ret:${r.ret}` });
+      }
+    } else { Kern.tageGoc(S); S.surum = Math.max(S.surum || 0, 4); }
+    const n = Kern.v3Yetis(S, now());
+    tageTuret();
+    return n;
+  }
+  function uzakBirlestir(uz) {
+    S = zustandBirlestir(S, uz);
+    kernAc();
+    ghUzakZaman = uz.gespeichert || '';
+    save();
   }
   let ghUzakZaman = '';  // en son birleştirilen uzak kaydın zamanı
   // "Uygulamayı yenile" çubuğu: yeni SW sürümü devraldıysa ya da GitHub'daki kayıt bu koddan yeni şemadaysa
@@ -3334,10 +3376,20 @@
       const karar = Kern.yazabilir(S, uz, CODE_SURUM);
       if (!karar.birlestir) { if (karar.sebep === 'yeni-sema') yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); return false; }
       const once = Object.keys(S.karten).length;
-      S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save();
+      uzakBirlestir(uz);
       if (!sessiz) ghDurum(`İlerleme GitHub ile birleştirildi (${uz.gespeichert || ''}).`);
       return Object.keys(S.karten).length >= once;
     } catch (e) { console.warn('çekilemedi', e); return false; }
+  }
+  // geri dönüş verisi: ilk v4 yazımından önce uzaktaki v3 kaydı (surum yok) bir kez log/zustand_v3.json'a kopyalanır
+  async function v3Yedekle(metin, uzSurum) {
+    if (!S.goc4 || S.goc4.v3Yedek) return;
+    if (metin && !uzSurum) {
+      const y = await ghLesen('log/zustand_v3.json');
+      if (!y.text) await ghSchreiben('log/zustand_v3.json', metin, null, 'v3 yedeği (v5 göçünden önce)');
+    }
+    S.goc4.v3Yedek = true;
+    save();
   }
   let ghLaeuft = false, ghZuletzt = 0, ghSemaUyari = false, ghBosYerel = false;
   async function ghSync(zustandAuch) {
@@ -3369,16 +3421,18 @@
             const alt = await ghLesen('log/zustand.json');
             // önce uzaktakini birleştir (başka cihazda çalışılmış olabilir), sonra yaz.
             // Koruma: uzaktaki yeni şemadaysa (yeni sürüm) dokunma; yerel neredeyse boşsa (yeni cihaz) yalnız birleştir, yazma
-            let karar = { birlestir: true, yaz: true, sebep: 'ok' };
+            let karar = { birlestir: true, yaz: true, sebep: 'ok' }, uzSurum = 0;
             if (alt.text) {
               try {
                 const uz = JSON.parse(alt.text);
+                uzSurum = uz.surum || 0;
                 karar = Kern.yazabilir(S, uz, CODE_SURUM);
-                if (karar.birlestir && uz.gespeichert !== ghUzakZaman) { S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save(); }
+                if (karar.birlestir && uz.gespeichert !== ghUzakZaman) uzakBirlestir(uz);
               } catch (e) { console.warn('uzak durum okunamadı', e); }
             }
             if (karar.sebep === 'yeni-sema') { yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); ghSemaUyari = true; break; }
             if (!karar.yaz) { ghBosYerel = true; break; }
+            await v3Yedekle(alt.text, uzSurum);
             const zaman = zeitStr(now());
             await ghSchreiben('log/zustand.json', JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: zaman })), alt.sha, 'ilerleme');
             ghUzakZaman = zaman;
@@ -3404,7 +3458,7 @@
       if (!z.text) { ghDurum('GitHub\'da kayıtlı ilerleme yok.'); return; }
       const uz = JSON.parse(z.text);
       if (Kern.yazabilir(S, uz, CODE_SURUM).sebep === 'yeni-sema') { yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); ghDurum('Alınmadı: GitHub\'daki ilerleme daha yeni bir uygulama sürümünden. Önce uygulamayı yenile.'); return; }
-      S = zustandBirlestir(S, uz); ghUzakZaman = uz.gespeichert || ''; save(); renderAyar(); renderHedef();
+      uzakBirlestir(uz); renderAyar(); renderHedef();
       if (!$('#v-ana').hidden) renderAna(); else if (!$('#v-calis').hidden) zeige();
       ghDurum(`İlerleme GitHub'dan alındı ve birleştirildi (${uz.gespeichert || ''}).`);
     } catch (e) { ghDurum('Alınamadı: ' + e.message); }
@@ -3420,7 +3474,7 @@
   // ================= Görünümler =================
   // üstteki sayaç: seçili bölümün bugünkü hedefi
   function renderHedef() {
-    const m = session.modus, d = heuteM(m), z = ziel(m);
+    const m = session.modus, d = bugunM(m), z = ziel(m);
     $('#hedef-n').textContent = d.n;
     $('#hedef-z').textContent = z;
     $('#hedef-dolu').style.width = Math.min(100, d.n / z * 100) + '%';
@@ -3432,13 +3486,13 @@
   function renderPlan() {
     const us = $('#ust-seri'); if (us) { const n = seriSay(); us.innerHTML = `🔥 <b>${n}</b>`; us.classList.toggle('yandi', gunAktif(tag())); }
     if (!$('#v-ana').hidden) renderAna();
-    const d = heute(), hm = heuteM('akis'), z = ziel('akis'), m = session.modus;
+    const d = bugun(), hm = bugunM('akis'), z = ziel('akis'), m = session.modus;
     const chip = (mm, no, ad, sayi, ok, extra) => `<button class="plan-chip ${ok ? 'ok' : ''} ${m === mm ? 'aktif' : ''} ${extra || ''}" data-modus="${mm}" type="button"><span class="no">${ok ? '✓' : no}</span>${ad}${sayi ? ` <span class="sayi">${sayi}</span>` : ''}</button>`;
     let chips = chip('akis', '▶', 'Çalış', `${hm.n}/${z}`, hm.n >= z, 'ana-chip');
-    chips += chip('fiilmetin', '+', 'Fiil metni', 'günün', heuteM('fiilmetin').n > 0);
-    if (yazmaFaellig() || heuteM('yazma').n) chips += chip('yazma', '+', 'Yazma', 'metin', heuteM('yazma').n > 0);
+    chips += chip('fiilmetin', '+', 'Fiil metni', 'günün', bugunM('fiilmetin').n > 0);
+    if (yazmaFaellig() || bugunM('yazma').n) chips += chip('yazma', '+', 'Yazma', 'metin', bugunM('yazma').n > 0);
     if (UNITEN.some(uAktiv)) { const U = UNITEN.find(uAktiv); chips += chip('unite', '★', 'Ünite: ' + esc(U.titel), `${U.items.filter(it => uState(U).done[it.id]).length}/${U.items.length}`, false, 'vurgu'); }
-    if (!['akis', 'fiilmetin', 'yazma', 'unite'].includes(m) && MODI[m]) chips += `<span class="plan-et">odak:</span>` + chip(m, '·', esc(MODI[m].ad), MODI[m].ziel > 1 ? `${heuteM(m).n}/${ziel(m)}` : '', false);
+    if (!['akis', 'fiilmetin', 'yazma', 'unite'].includes(m) && MODI[m]) chips += `<span class="plan-et">odak:</span>` + chip(m, '·', esc(MODI[m].ad), MODI[m].ziel > 1 ? `${bugunM(m).n}/${ziel(m)}` : '', false);
     const opt = $('#odak option[value="unite"]'); if (opt) opt.hidden = !UNITEN.some(uAktiv);
     const sayildi = d.n >= MIN_TAG;
     const bitti = hm.n >= z;
@@ -3510,8 +3564,8 @@
     const bolum = x => Object.keys(MODI).filter(m => x.modi && x.modi[m] && x.modi[m].n)
       .map(m => `${esc(MODI[m].ad)} ${x.modi[m].n}/${ziel(m)}${x.modi[m].n >= ziel(m) ? ' ✓' : ''}`).join(' · ');
     ilerlemeUst();
-    $('#ozet').innerHTML = Object.keys(MODI).filter(m => heuteM(m).n || heuteM(m).neu).map(m => { const b = heuteM(m); return `<div class="tile"><div class="sayi">${b.n} / ${ziel(m)}</div><div class="et">bugün · ${esc(MODI[m].ad)}${m !== 'zayif' ? ` · yeni ${b.neu}/${neuMax(m)}` : ''}${b.bekannt ? ` · ${b.bekannt} zaten biliniyordu` : ''}</div></div>`; }).join('') +
-      [[streak, `gün seri (en az ${MIN_TAG} cevap)`], [items, 'öğrenilen öğe'], [sitzt, 'oturmuş (21+ gün)'], [ges, 'toplam cevap'], [heute().ungezaehlt || 0, 'bugün sayılmayan (çok hızlı / boş)']]
+    $('#ozet').innerHTML = Object.keys(MODI).filter(m => bugunM(m).n || bugunM(m).neu).map(m => { const b = bugunM(m); return `<div class="tile"><div class="sayi">${b.n} / ${ziel(m)}</div><div class="et">bugün · ${esc(MODI[m].ad)}${m !== 'zayif' ? ` · yeni ${b.neu}/${neuMax(m)}` : ''}${b.bekannt ? ` · ${b.bekannt} zaten biliniyordu` : ''}</div></div>`; }).join('') +
+      [[streak, `gün seri (en az ${MIN_TAG} cevap)`], [items, 'öğrenilen öğe'], [sitzt, 'oturmuş (21+ gün)'], [ges, 'toplam cevap'], [bugun().ungezaehlt || 0, 'bugün sayılmayan (çok hızlı / boş)']]
         .map(([n, l]) => `<div class="tile"><div class="sayi">${n}</div><div class="et">${l}</div></div>`).join('');
     const W = 640, H = 170, pad = 24, bw = (W - pad * 2) / tage.length;
     const max = Math.max(10, ...tage.map(x => x[1].n)) || 1;
@@ -3629,7 +3683,7 @@
     if (!n) return;
     const d = heute();
     d.xp = (d.xp || 0) + n;
-    S.xpToplam = (S.xpToplam || 0) + n;
+    tageTuret(tag());   // S.xpToplam = Σ tage.xp (türetilir)
     if (session.tur) session.tur.xp += n;
     xpUc(n);
   }
@@ -3683,7 +3737,9 @@
     save();
   }
   // gün içi sayaç arttı: gün kurtarıldı mı, seri onarıldı mı
+  // d: bugünün toplamı (bütün cihazlar); MIN_TAG toplam üzerinden
   function gunSayac(d) {
+    d = d || bugun();
     if (d.n === MIN_TAG) seriGunTamam();
     const sr = seriDurum();
     if (sr.onarim && sr.onarim.bis === tag() && d.n >= 2 * MIN_TAG) {
@@ -3702,7 +3758,7 @@
   // ---- tur ----
   function turBaslat() {
     const fx = $('#fx'); if (fx) fx.replaceChildren();
-    session.tur = { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0, start: now(), w: {}, neu: [], hedefOnce: heute().n >= ziel('akis'), seriOnce: gunAktif(tag()) };
+    session.tur = { n: 0, richtig: 0, fast: 0, falsch: 0, xp: 0, start: now(), w: {}, neu: [], hedefOnce: bugun().n >= ziel('akis'), seriOnce: gunAktif(tag()) };
     otRender();
   }
   // tur içinde görülen kelime: en kötü sonucu tutulur (özet: güçlenenler / tekrar gelecekler)
@@ -3730,7 +3786,7 @@
     const sayilan = tu.richtig + tu.fast + tu.falsch;
     const oran = sayilan ? Math.round((tu.richtig + tu.fast * 0.5) / sayilan * 100) : 0;
     const iyi = Object.keys(tu.w).filter(id => tu.w[id] >= 3), zor = Object.keys(tu.w).filter(id => tu.w[id] <= 1);
-    const d = heute(), z = ziel('akis'), b = turBoyu(), turHedef = Math.max(1, Math.round(z / b)), turYapilan = Math.min(turHedef, Math.floor(d.n / b));
+    const d = bugun(), z = ziel('akis'), b = turBoyu(), turHedef = Math.max(1, Math.round(z / b)), turYapilan = Math.min(turHedef, Math.floor(d.n / b));
     const hedefYeni = !tu.hedefOnce && d.n >= z, seriYeni = !tu.seriOnce && gunAktif(tag());
     const seri = seriSay();
     const chip = (id, cls) => `<span class="ts-chip ${cls}">${deItemHTML(id)}</span>`;
@@ -3849,7 +3905,7 @@
   const selam = () => { const h = new Date(now()).getHours(); return h < 5 ? 'İyi geceler' : h < 11 ? 'Günaydın' : h < 17 ? 'İyi günler' : h < 22 ? 'İyi akşamlar' : 'İyi geceler'; };
   function renderAna() {
     const el = $('#ana'); if (!el) return;
-    const d = heute(), z = ziel('akis'), b = turBoyu(), turHedef = Math.max(1, Math.round(z / b));
+    const d = bugun(), z = ziel('akis'), b = turBoyu(), turHedef = Math.max(1, Math.round(z / b));
     const turYapilan = Math.floor(d.n / b), tamam = d.n >= z;
     const sr = seriDurum(), seri = seriSay(), bugunSayildi = gunAktif(tag());
     const tekrar = faellig(FILTER.akis).length;
@@ -3872,9 +3928,9 @@
       const kalan = U.bis ? Math.max(0, Math.round((new Date(U.bis + 'T23:59:59') - new Date(now())) / DAY)) : null;
       isler.push(`<button class="is-kart" data-modus="unite" type="button"><span class="is-ikon">⭐</span><span class="is-metin"><b>Ünite: ${esc(U.titel)}</b><span>${done}/${U.items.length} kelime tanıdık${kalan != null ? ` · ${kalan} gün kaldı` : ''}</span><span class="is-cubuk"><span style="width:${(done / U.items.length * 100).toFixed(1)}%"></span></span></span><span class="is-ok">›</span></button>`);
     }
-    const fmOk = heuteM('fiilmetin').n > 0;
+    const fmOk = bugunM('fiilmetin').n > 0;
     if (LT.length) isler.push(`<button class="is-kart${fmOk ? ' bitti' : ''}" data-modus="fiilmetin" type="button"><span class="is-ikon">📰</span><span class="is-metin"><b>Günün fiil metni</b><span>${fmOk ? 'okundu ✓' : 'gerçek metin + 6 soruluk çekim testi · ~5 dk'}</span></span><span class="is-ok">${fmOk ? '✓' : '›'}</span></button>`);
-    if (yazmaFaellig() || heuteM('yazma').n) { const yOk = heuteM('yazma').n > 0; isler.push(`<button class="is-kart${yOk ? ' bitti' : ''}" data-modus="yazma" type="button"><span class="is-ikon">✏️</span><span class="is-metin"><b>Yazma görevi</b><span>${yOk ? 'gönderildi ✓' : '~80 kelime · Claude düzeltir'}</span></span><span class="is-ok">${yOk ? '✓' : '›'}</span></button>`); }
+    if (yazmaFaellig() || bugunM('yazma').n) { const yOk = bugunM('yazma').n > 0; isler.push(`<button class="is-kart${yOk ? ' bitti' : ''}" data-modus="yazma" type="button"><span class="is-ikon">✏️</span><span class="is-metin"><b>Yazma görevi</b><span>${yOk ? 'gönderildi ✓' : '~80 kelime · Claude düzeltir'}</span></span><span class="is-ok">${yOk ? '✓' : '›'}</span></button>`); }
     const zayifN = Object.keys(S.items).filter(id => gueltig(id + ':x') && schwach(id)).length;
     if (zayifN) isler.push(`<button class="is-kart" data-modus="zayif" type="button"><span class="is-ikon">🎯</span><span class="is-metin"><b>Zayıflar</b><span>${zayifN} kelime · yeni cümlelerde tekrar</span></span><span class="is-ok">›</span></button>`);
     try { const po = Pruefung.ozet(); if (po.gun != null && po.gun >= 0) isler.push(`<button class="is-kart" data-modus="pruefung" type="button"><span class="is-ikon">🎓</span><span class="is-metin"><b>Sınava ${po.gun} gün</b><span>${po.son ? `son: ${esc(po.son.modul)} ${po.son.puan != null ? po.son.puan + ' puan' : ''}` : 'ilk provayı yap: mini Lesen 10 dk'}</span></span><span class="is-ok">›</span></button>`); } catch (e) { /* yok */ }
@@ -4160,7 +4216,7 @@
       else if (!ok) { c.due = Math.min(c.due, morgen(t) + 4 * 3600000); c.lastG = 1; }
     }
     // oyun günlük hedefe / seriye sayılmaz (emek harcamadan dolmasın); yalnız artikel kartlarını ilerletir
-    const d = heute(); d.oyun = (d.oyun || 0) + 1; heuteM('artoyun').n++;
+    const d = heute(); d.oyun = (d.oyun || 0) + 1; heuteM('artoyun').n++; tageTuret(tag());
     xpEkle(ok ? 2 : 0);
     artOyunRender();
   }
@@ -4538,7 +4594,7 @@
   $('#yedek-indir').addEventListener('click', () => herunterladen('zustand.json', JSON.stringify(S), 'application/json'));
   $('#yedek-yukle').addEventListener('change', async e => {
     const f = e.target.files[0]; if (!f) return;
-    try { S = normalize(JSON.parse(await f.text())); save(); renderAyar(); renderHedef(); zeige(); }
+    try { S = normalize(JSON.parse(await f.text())); kernAc(); save(); renderAyar(); renderHedef(); zeige(); }
     catch (err) { $('#klasor-durum').textContent = 'Dosya okunamadı: ' + err.message; }
   });
   $('#sifirla').addEventListener('click', () => { $('#sifirla-onay').hidden = false; });
@@ -4559,7 +4615,7 @@
       aktifKapitel: () => { const U = UNITEN.find(uAktiv); return U && U.kapitel ? 'K' + U.kapitel : null; },
       birikme: () => rueckstand(FILTER.akis) > stauGrenze('akis'),
       kelimeAnlam: w => { const id = labelIdx[w]; return id ? trOf(id) : ''; }, kelimeGesehen: w => { const id = labelIdx[w]; return !id || !!S.items[id]; },
-      sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(d); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
+      sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
       leech: (id, ad) => logEintrag({ modus: 'leech', id, item: ad, frage: '', antwort: '', ergebnis: 'takiliyor', loesung: '', notiz: 'gramer' }),
     });
   })();
@@ -4577,6 +4633,8 @@
     }
   })();
   if (!S.retGoc) { if (!S.einst.retSecildi && (S.einst.ret == null || S.einst.ret === 0.9)) S.einst.ret = 0.85; S.retGoc = true; save(); }
+  // v5 göçü retGoc'tan SONRA (vadeler son hedef hatırlamayla); ghCek ilk çizimden sonra gelir, birleştirmede göç yeniden çalışır
+  kernAc(); save();
   seriBakim();
   if (session.donduruldu) session.willkommenAna = `❄️ Seri dondurucu kullanıldı: kaçırdığın ${session.donduruldu} gün serini bozmadı.`;
   const start = (location.hash || '').replace(/^#\/?/, '');

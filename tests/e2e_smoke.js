@@ -1,6 +1,7 @@
 // Tarayıcı duman testi (isteğe bağlı, Playwright gerekir): node tests/e2e_smoke.js
 // Gün 1: Çalış (tek akış, ara etkinlikler dahil), bir paket baştan sona (odak), gün 2: yeniden açılış + Çalış. Sayfa hatası olursa çıkış kodu 1.
 const path = require('path');
+const fs = require('fs');
 let chromium;
 try { ({ chromium } = require('playwright')); } catch (e) {
   try { ({ chromium } = require(require('child_process').execSync('npm root -g').toString().trim() + '/playwright')); }
@@ -91,7 +92,13 @@ const DAY = 86400000;
   // paket önce: bir paket ~10 yeni kelime getirir, günlük yeni sınırı (8) Çalış'ta dolarsa paket o gün açılmaz
   const paket = await bolum('paket', 40);
   const akis = await bolum('akis', 140);
+  // v5 M2: log ayrı anahtarda; yeniden yüklemede kaybolmaz, ana anahtarda boş
+  const logOnce = await p.evaluate(() => window.__tekrar.S.log.length);
   await bump(DAY); await p.reload(); await wait(200);
+  const logKayit = await p.evaluate(() => ({ ana: (JSON.parse(localStorage.getItem('almanca-tekrar-v1')).log || []).length,
+    ayri: (JSON.parse(localStorage.getItem('almanca-tekrar-log') || '[]')).length, bellek: window.__tekrar.S.log.length,
+    cihaz: localStorage.getItem('almanca-tekrar-cihaz'), tageC: Object.keys(window.__tekrar.S.tageC || {}).length }));
+  console.log('log:', JSON.stringify(Object.assign({ once: logOnce }, logKayit)));
   const akis2 = await bolum('akis', 60);
   const kontrol = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'kontrol').length);
   console.log('kontrol listesi:', kontrol, 'satır');
@@ -105,7 +112,13 @@ const DAY = 86400000;
   await wait(150);
   const surum = await p.evaluate(() => (document.querySelector('#a-surum') || {}).textContent || '');
   console.log('ayarlar:', surum);
-  if (!/Kod sürümü 3/.test(surum)) fehler.push('Ayarlar\'da kod sürümü görünmüyor');
+  if (!/Kod sürümü 4/.test(surum)) fehler.push('Ayarlar\'da kod sürümü görünmüyor');
+  if (logKayit.ana) fehler.push(`ana anahtarda ${logKayit.ana} log satırı (boş olmalı)`);
+  if (logKayit.bellek < logOnce || logKayit.ayri < logOnce) fehler.push(`yeniden yüklemede log kayboldu (${logOnce} → ${logKayit.bellek} / ${logKayit.ayri})`);
+  if (!logKayit.cihaz || !logKayit.tageC) fehler.push('cihaz kimliği ya da cihaz sayacı (tageC) yok');
+  // gün toplamı = cihaz sayaçlarının toplamı
+  const gt = await p.evaluate(() => { const S = window.__tekrar.S; return Object.keys(S.tageC).map(g => [g, S.tage[g].n, Object.values(S.tageC[g]).reduce((a, x) => a + (x.n || 0), 0)]); });
+  gt.forEach(([g, t, c]) => { if (t !== c) fehler.push(`${g}: tage.n ${t} ≠ cihaz toplamı ${c}`); });
   if (!(await p.evaluate(() => !!(window.__tekrar.Kern && window.__tekrar.Kern.sec)))) fehler.push('Kern yüklenmedi');
   if (!/tur/i.test(plan)) fehler.push('Bugün ekranında tur yok');
   const turlar = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'tur').length);
@@ -114,6 +127,29 @@ const DAY = 86400000;
   if (akis.n < 40) fehler.push('Çalış akışı 40 cevaba ulaşmadı');
   if (akis2.n < 20) fehler.push('2. gün Çalış akışı ilerlemedi');
   if (paket.n < 10) fehler.push('paket tamamlanmadı');
+  // gerçek durumun KOPYASI (log/zustand.json yalnız okunur): açılışta göç, 'akt;goc4' tam bir kez, iki yeniden yüklemeden sonra da bir
+  const ZP = path.resolve(__dirname, '..', 'log', 'zustand.json');
+  if (fs.existsSync(ZP)) {
+    const Z = fs.readFileSync(ZP, 'utf8');
+    const c2 = await b.newContext(), p2 = await c2.newPage();
+    p2.on('pageerror', e => errs.push('gerçek kopya: ' + e.message));
+    await p2.route(/fonts/, r => r.abort());
+    await p2.addInitScript(z => { if (!localStorage.getItem('__yuklendi')) { localStorage.setItem('almanca-tekrar-v1', z); localStorage.setItem('__yuklendi', '1'); } }, Z);
+    const gocSay = () => p2.evaluate(() => {
+      const S = window.__tekrar.S, l = S.log.filter(e => e.modus === 'akt' && e.id === 'goc4');
+      return { n: l.length, notiz: l[0] && l[0].notiz, m: Object.values(S.items).filter(it => it.m && it.m.S).length, kart: Object.keys(S.karten).length,
+        v3: Object.keys(S.kartenV3 || {}).length, surum: S.surum, ana: (JSON.parse(localStorage.getItem('almanca-tekrar-v1')).log || []).length };
+    });
+    await p2.goto(URL); await p2.waitForTimeout(400);
+    const g1 = await gocSay();
+    await p2.reload(); await p2.waitForTimeout(300); await p2.reload(); await p2.waitForTimeout(300);
+    const g3 = await gocSay();
+    console.log('gerçek kopya göçü:', JSON.stringify(g1), '→ iki yeniden yüklemeden sonra', g3.n, 'satır');
+    if (g1.n !== 1 || g3.n !== 1) fehler.push(`akt;goc4 satırı ${g1.n} / ${g3.n} (tam bir olmalı)`);
+    if (g1.surum !== 4 || !g1.m || g1.v3 !== g1.kart) fehler.push('gerçek kopyada göç eksik (surum / m / kartenV3)');
+    if (g3.ana) fehler.push('gerçek kopya: ana anahtarda log satırı kaldı');
+    await c2.close();
+  }
   if (errs.length) fehler.push('sayfa hataları: ' + errs.join(' | '));
   await b.close();
   if (fehler.length) { console.log('HATA:', fehler.join('; ')); process.exit(1); }
