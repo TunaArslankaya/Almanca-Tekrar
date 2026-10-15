@@ -124,7 +124,7 @@
   function uygula(S, id, not, t, opts) {
     opts = opts || {};
     const it = S.items[id] = S.items[id] || { seit: t };
-    const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, seviyeOnce: seviye(it) };
+    const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, seviyeOnce: seviye(it, id) };
     const yeniGun = opts.yeniGun != null ? opts.yeniGun : !!(it.tanit && gun4(it.tanit) === g);
     const yaz = (h, not_, c, pkSay) => {
       const once = R(h, t);
@@ -154,15 +154,21 @@
       delete kk[bs].yeni;
       out.k = x.r;
     }
-    out.seviyeSonra = seviye(it);
+    out.seviyeSonra = seviye(it, id);
     return out;
   }
 
   // ================= Merdiven (§3) =================
-  const seviye = it => {
+  // kapılar basamakla aynı (§3): pk 0 → en çok 2 (Yazıyor), pk 1 → en çok 3 (Cümlede); id verilirse tier-3 isim/diğer
+  // (ünite/konu dışı) → en çok 3. Seçmeli / metinde doğrusu S'i büyütse de kelimeyi "Cümlede" yapmaz.
+  const seviye = (it, id) => {
     const h = it && it.m;
     if (!h || !h.S) return 0;
-    return h.S < 2 ? 1 : h.S < 7 ? 2 : h.S < 21 ? 3 : h.S < 90 ? 4 : (h.pk || 0) >= 2 ? 5 : 4;
+    let sv = h.S < 2 ? 1 : h.S < 7 ? 2 : h.S < 21 ? 3 : h.S < 90 ? 4 : (h.pk || 0) >= 2 ? 5 : 4;
+    const pk = h.pk || 0;
+    if (pk === 0) sv = Math.min(sv, 2); else if (pk === 1) sv = Math.min(sv, 3);
+    if (id && C) { try { const k = C.kind(id); if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) sv = Math.min(sv, 3); } catch (e) { /* bilinmeyen öğe */ } }
+    return sv;
   };
   // bag: { id, t, isinma, momentum, kurtarma, klavyesiz } → { b, yenidenTanit }
   function basamak(it, bag, rnd) {
@@ -714,9 +720,11 @@
 
   // ================= Toparlanma tahmini (§5.6) =================
   // sim5 mantığı: günde kap cevap, üretimde gerçek başarı modelden δ = −0,4 logit düşük; 3 tohum, medyan.
-  // Döner: günün başındaki vadeli öğe sayısının ≤ 0,75·kap'a indiği ilk gün (0 = bugün), ya da null (3 haftadan uzun)
+  // Döner: günün başındaki vadeli öğe sayısının ≤ esik'e indiği ilk gün (0 = bugün), ya da null (3 haftadan uzun).
+  // esik: bitiş çizgisi (cevap); farklı tur sayılarını karşılaştırırken hepsinde AYNI olmalı (varsayılan 0,75·kap)
   function tohum(seed) { let s = seed >>> 0; return () => (s = (Math.imul(s, 1664525) + 1013904223) >>> 0) / 4294967296; }
-  function tahmin(durum, kap, t) {
+  function tahmin(durum, kap, t, esik) {
+    if (!(esik > 0)) esik = 0.75 * kap;
     const S = durum.S, ret = (S.einst && S.einst.ret) || 0.85, delta = -0.4, GUN = 21;
     const tek = seed => {
       const rnd = tohum(seed);
@@ -729,7 +737,7 @@
       for (let d = 0; d < GUN; d++) {
         const t0 = t + d * DAY;
         const vad = A.filter(x => (x.m && x.m.due <= t0) || (x.a && x.a.due <= t0));
-        if (vad.length <= 0.75 * kap) return d;
+        if (vad.length <= esik) return d;
         let butce = kap;
         // yeni kelime: tanıtım + mini + ikinci ≈ 2 cevap (ilk 3 gün göç kotası)
         const q = d < 3 ? Math.min(q0, 2) : q0;

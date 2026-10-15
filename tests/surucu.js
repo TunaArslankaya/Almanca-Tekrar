@@ -94,11 +94,13 @@ async function adim(p, o) {
   if (ad === 'metin') {
     for (let i = 0; i < s.blanks.length; i++) await p.fill(`.u-luecke[data-al="${i}"]`, rnd() < (o.dogru == null ? 1 : o.dogru) ? s.blanks[i] : 'xxxyz');
     await p.click('[data-akt="pruef"]'); await p.waitForTimeout(60);
+    if (o.sonucCek) await o.sonucCek(await durum(p));
     await p.keyboard.press('Enter'); await p.waitForTimeout(100);
     return { ad, s };
   }
   if (ad === 'diktat') {
     await p.fill('#cevap', dogruMu ? s.satz : 'ich weiß nicht'); await p.press('#cevap', 'Enter'); await p.waitForTimeout(60);
+    if (o.sonucCek) await o.sonucCek(await durum(p));
     await p.keyboard.press('Enter'); await p.waitForTimeout(100);
     return { ad, s };
   }

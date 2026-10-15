@@ -214,7 +214,11 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(bs(30, null, { klavyesiz: true }), 1, 'klavyesiz tur → B1');
   // seviye
   eq(K.seviye({}), 0, 'seviye 0'); eq(K.seviye({ m: { S: 1 } }), 1, 'seviye 1'); eq(K.seviye({ m: { S: 3 } }), 2, 'seviye 2');
-  eq(K.seviye({ m: { S: 10 } }), 3, 'seviye 3'); eq(K.seviye({ m: { S: 100, pk: 1 } }), 4, 'seviye 4 (pk < 2)'); eq(K.seviye({ m: { S: 100, pk: 2 } }), 5, 'seviye 5');
+  eq(K.seviye({ m: { S: 10, pk: 1 } }), 3, 'seviye 3'); eq(K.seviye({ m: { S: 30, pk: 2 } }), 4, 'seviye 4'); eq(K.seviye({ m: { S: 100, pk: 2 } }), 5, 'seviye 5');
+  // kapılar basamakla aynı (§3): pk 0 → ≤ 2, pk 1 → ≤ 3
+  eq(K.seviye({ m: { S: 10 } }), 2, 'seviye: pk 0 → en çok 2 (seçmeliyle Cümlede olmaz)'); eq(K.seviye({ m: { S: 100, pk: 1 } }), 3, 'seviye: pk 1 → en çok 3');
+  eq(K.seviye({ m: { S: 100, pk: 3 } }, 'n2'), 3, 'seviye: tier-3 isim (ünite dışı) → en çok 3'); eq(K.seviye({ m: { S: 100, pk: 3 } }, 'n3'), 5, 'seviye: tier-3 ünite kelimesi tavansız');
+  eq(K.seviye({ m: { S: 100, pk: 3 } }, 'v3'), 5, 'seviye: tier-3 fiil tavansız');
 }
 // biçim tablosu
 {
@@ -544,6 +548,9 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(t12, null, 'tahmin: günde 12 cevapla 3 haftadan uzun');
   eq(K.tahmin({ S: yeniS({ n1: { m: h(10, 0.99, { due: T + 5 * DAY }) } }), kap: 36 }, 36, T), 0, 'tahmin: birikme yoksa 0');
   eq(K.tahmin({ S, kap: 36 }, 36, T), t36, 'tahmin belirlenimci');
+  // aynı bitiş çizgisiyle (esik) karşılaştırma: 4 tur 3 turdan geç bitemez
+  const e36 = K.tahmin({ S, kap: 36 }, 36, T, 27), e48 = K.tahmin({ S, kap: 48 }, 48, T, 27);
+  ok(e48 !== null && (e36 === null || e48 <= e36), 'tahmin: aynı eşikte 48 cevap ≤ 36 cevap', { e36, e48 });
 }
 
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);

@@ -24,6 +24,18 @@ const kucukler = (p, kok) => p.evaluate(kok => {
   return r;
 }, kok);
 const yatay = p => p.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+// sabit (position: fixed) görünür öğeler yan kenarlardan ≥ 16 px içeride (alt gezinti / tam genişlik katmanlar hariç)
+const sabitTasma = (p, kok) => p.evaluate(kok => {
+  const r = [];
+  document.querySelectorAll(`${kok} *`).forEach(e => {
+    const st = getComputedStyle(e);
+    if (st.position !== 'fixed' || st.display === 'none' || e.closest('[hidden]')) return;
+    const b = e.getBoundingClientRect();
+    if (!b.width || !b.height || b.width >= innerWidth - 1) return;
+    if (b.left < 15.5 || b.right > innerWidth - 15.5) r.push(`${e.tagName.toLowerCase()}.${[...e.classList].join('.')} ${Math.round(b.left)}–${Math.round(b.right)} / ${innerWidth}`);
+  });
+  return r;
+}, kok);
 const toastAcik = p => p.evaluate(() => { const t = document.querySelector('#toast'); return !!(t && !t.hidden && t.classList.contains('acik') && getComputedStyle(t).opacity !== '0'); });
 const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height : innerHeight);
 
@@ -50,6 +62,9 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   if (borc) hata('bugün', `vadeli / borç sayısı görünüyor: "${borc[0]}"`);
   if (/\d\s?%/.test(ana.metin)) hata('bugün', 'yüzde "58%" biçiminde');
   if (await yatay(p) > 1) hata('bugün', 'yatay kaydırma');
+  (await sabitTasma(p, '#v-ana')).forEach(x => hata('bugün sabit öğe taşıyor', x));
+  { const bb = await p.evaluate(() => { const e = document.querySelector('.basla-sabit'); if (!e) return null; const b = e.getBoundingClientRect(); return { r: b.right, w: innerWidth }; });
+    if (bb && bb.r > bb.w - 16) hata('bugün', `Başla sağdan taşıyor: sağ ${Math.round(bb.r)} / ${bb.w}`); }
   (await kucukler(p, '#v-ana')).forEach(x => hata('bugün ≥48', x));
   (await kucukler(p, '.alt-nav')).forEach(x => hata('gezinti ≥48', x));
 
@@ -85,14 +100,21 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   // ---- tur ----
   await p.click('[data-act-ana="basla"]'); await p.waitForTimeout(250);
   await p.evaluate(() => window.__tekrar.toast('deneme tostu'));
-  let turSonu = false, kontrol = 0, devam = 0, toastGoruldu = 0;
+  let turSonu = false, kontrol = 0, devam = 0, toastGoruldu = 0; const akt = {};
   for (let i = 0; i < 40 && !turSonu; i++) {
     const s = await D.durum(p);
     if (await toastAcik(p)) toastGoruldu++;
     if (s.tur === 'turSonu') { turSonu = true; break; }
     if (s.tur === 'leer' || s.tur === 'yok') break;
     const h = await vh(p);
-    const ust = await p.evaluate(() => { const e = document.querySelector('#q-alt:not([hidden]) .mc-opt, #q-alt:not([hidden]) .art-btn, #q-alt:not([hidden]) #cevap'); return e ? e.getBoundingClientRect().top : null; });
+    const ust = await p.evaluate(() => { const e = document.querySelector('#q-alt:not([hidden]) .mc-opt, #q-alt:not([hidden]) .art-btn, #q-alt:not([hidden]) #cevap, #q-alt:not([hidden]) [data-akt="pruef"]'); return e ? e.getBoundingClientRect().top : null; });
+    // metin / dikte: odak düzeninde (q-alt), ä ö ü ß girdiye bağlı (global satır gizli)
+    if (s.tur === 'metin' || s.tur === 'diktat') {
+      akt[s.tur] = (akt[s.tur] || 0) + 1;
+      const d = await p.evaluate(() => ({ qalt: !!document.querySelector('#q-alt:not([hidden])'), ic: !!document.querySelector('#q-alt .klavye.ic'), glob: !document.querySelector('#umlaut').hidden }));
+      if (!d.qalt) hata('odak', `${s.tur}: #q-alt yok`);
+      if (!d.ic || d.glob) hata('odak', `${s.tur}: ä ö ü ß girdiye bağlı değil (iç ${d.ic}, global ${d.glob})`);
+    }
     if (ust != null) { kontrol++; if (ust < 0.45 * h) hata('odak', `${s.tur}: cevap kontrolü üst kenarı ${Math.round(ust)} < %45 (${Math.round(0.45 * h)})`); }
     if (await yatay(p) > 1) hata('odak', `${s.tur}: yatay kaydırma`);
     if (i < 14) (await kucukler(p, '#v-calis')).forEach(x => hata(`odak ≥48 (${s.tur})`, x));
@@ -112,6 +134,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
       } });
   }
   if (!turSonu) hata('tur', 'tur sonuna varılamadı');
+  if (Object.keys(akt).length) console.log(`metin etkinliği ölçüldü: ${JSON.stringify(akt)}`);
   if (!kontrol) hata('odak', 'cevap kontrolü hiç ölçülmedi');
   if (!devam) hata('sonuç', 'sonuç panelinde Devam hiç ölçülmedi');
   if (toastGoruldu) hata('tost', `#v-calis açıkken #toast ${toastGoruldu} kez göründü`);
