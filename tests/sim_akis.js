@@ -112,8 +112,11 @@ async function simule(p, o) {
     x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
     const v = x.gunler.map(g => g.vadeli);
     if (v.length >= 7 && v[6] > 0.8 * v[0]) fehler.push(`tohum ${x.tohum}: 7. gün vadeli ${v[6]} > 0,8 × ${v[0]}`);
-    // gürültü payı: 3 günde toplam +6'dan az artış sayılmaz (tekrar dalgaları +2/+3 oynatıyor)
-    for (let i = 0; i + 3 < v.length; i++) if (v[i] < v[i + 1] && v[i + 1] < v[i + 2] && v[i + 2] < v[i + 3] && v[i + 3] - v[i] >= 6) fehler.push(`tohum ${x.tohum}: vadeli ${i + 1}–${i + 4}. günlerde 3 gün üst üste arttı (+${v[i + 3] - v[i]})`);
+    // yankı dalgası: ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte döner (+15–25, sonra iner); büyüme sayılmaz.
+    // Büyüme ölçütü: ikinci haftanın (8–14. gün) ortalaması başlangıcı aşmasın, son gün başlangıcı aşmasın
+    const ort = a => a.reduce((x, y) => x + y, 0) / a.length;
+    if (v.length >= 14 && ort(v.slice(7, 14)) > v[0]) fehler.push(`tohum ${x.tohum}: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > başlangıç ${v[0]}`);
+    if (v.length >= 14 && v[13] > v[0]) fehler.push(`tohum ${x.tohum}: 14. gün vadeli ${v[13]} > başlangıç ${v[0]}`);
     x.gunler.forEach(g => { if (!g.q) fehler.push(`tohum ${x.tohum}: ${g.d + 1}. gün kota 0`); });
     if (x.ihlal.length) fehler.push(`tohum ${x.tohum}: günde ikinci kalıcı yazım: ${x.ihlal.slice(0, 5).join(', ')}`);
   });

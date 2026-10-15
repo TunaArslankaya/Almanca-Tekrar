@@ -38,7 +38,8 @@ async function sayfa(b, o) {
     window.setTimeout = (fn, ms, ...a) => st(fn, (ms || 0) * 0.25, ...a);
   }, { z: o.zustand || null, off: o.saatOfs || 0 });
   await p.goto(o.url || URL);
-  await p.waitForTimeout(250);
+  await p.waitForFunction(() => !!window.__tekrar, null, { timeout: 8000 }).catch(() => {});   // uygulama kabuğu hazır olana dek (açılışta zustand/feedback çekimi gecikebilir)
+  await p.waitForTimeout(150);
   p.ctx = ctx;
   return p;
 }

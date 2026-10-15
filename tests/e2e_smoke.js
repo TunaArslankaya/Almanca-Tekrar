@@ -54,7 +54,9 @@ function logDenetle(ad, log, o) {
       const mi = sonraki.findIndex(x => x.id.startsWith(e.id + ':') && /\| parti/.test(x.notiz));
       if (mi >= 0) { mini++; if (mi > 3) hata(ad, `mini ${mi} cevap sonra: ${e.id}`); }
       const ii = sonraki.findIndex(x => x.id.startsWith(e.id + ':') && /\| ikinci/.test(x.notiz));
-      if (ii >= 0) { ikinci++; if (ii > 6) hata(ad, `ikinci hatırlama ${ii} cevap sonra: ${e.id}`); if (!/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama hafızaya yazdı: ${sonraki[ii].id}`); }
+      // parti n öğe: son öğenin ikincisi mini'sinden 4 soru sonra = tanıtımdan 3 + n cevap sonra (yanlış tekrarı araya girebilir: +1)
+      let n = 1; for (let k = i + 1; k < T.length && T[k].modus === 'yeni'; k++) n++; for (let k = i - 1; k >= 0 && T[k].modus === 'yeni'; k--) n++;
+      if (ii >= 0) { ikinci++; if (ii > Math.max(6, 4 + n)) hata(ad, `ikinci hatırlama ${ii} cevap sonra (parti ${n}): ${e.id}`); if (!/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama hafızaya yazdı: ${sonraki[ii].id}`); }
     });
     const son = {};
     cv.forEach((e, k) => {

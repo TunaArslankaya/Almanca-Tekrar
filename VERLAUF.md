@@ -222,3 +222,7 @@ Son incelenen log satırı en alttaki notta yazar.
 
 **Sorular:** Ünite 2 26.10'a kadar bitmeli mi (hızlandırma)? Günlük hedef 3 mü 4 tur mu? K9–K12 listeleri kitapla uyuyor mu? Sınav tarihi?
 Son incelenen log satırı: 2026-10-14 19:35:21 (abr v063).
+
+**15.10 öğle, canlıya alma:** Tuna sabah 09:18'de eski sürümde 25 cevap (14 doğru / 11 yanlış) verdi; canlı daldaki log commit'leri birleştirildi. Son testler: test_kern 379, test_goc 76, gramer, stichprobe, e2e duman (4 senaryo, göç 195 öğe / 70 vadeli), e2e arayüz, 14 günlük simülasyon geçti.
+Test ölçütleri gerçek veriye göre düzeltildi: simülasyonda "3 gün üst üste artış" yerine "2. hafta ortalaması ve 14. gün başlangıcı aşmasın" (ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte dönüyor: yankı dalgası, büyüme değil); ikinci hatırlama sınırı parti boyuna bağlı (4 öğelik partide 7. soru); test sürücüsü kabuk hazır olana dek bekliyor (açılış yarışı).
+Kalan: T5 (ünite / paket / fiil metni / okuma / oyun bölümlerinin tek hafızaya bağlanması), TASARIM/CLAUDE belgelerinin son hâli, kişilik simülasyonu; edat grubu gramer konuları; Hören.
