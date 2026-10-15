@@ -1758,3 +1758,11 @@
 2026-10-15 15:27:51;art;n0384:art;das Formular;Formular;das;richtig;das Formular;basamak:A | bicim:artikel | not:a3 | R:0.82 | S:13.6 | sek:1
 2026-10-15 15:27:56;stamm;v347:stamm;können;können — Präteritum;konnte;richtig;konnte;basamak:K | bicim:kokSatz | not:k3 | R:0.82 | S:13.5 | kök:können | sek:4
 2026-10-15 15:28:04;wort;n0155:wort;die Bestätigung;onay;die Bestätigung;richtig;die Bestätigung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.82 | S:13.6 | kapı:7g | sek:8 | ipucu:0
+2026-10-15 15:28:09;bed;v466:bed;schweigen;susmak;schweigen;richtig;schweigen;basamak:B1 | bicim:sec | not:m3 | R:0.45 | S:0.1 | kurtarma | sek:5
+2026-10-15 15:28:14;art;n0691:art;die Kunst;Kunst;der;falsch;die Kunst;basamak:A | bicim:artikel | not:a1 | R:0.80 | S:0.5 | artikel der → die | sek:3
+2026-10-15 15:28:14;leech;n0691;die Kunst;sanat;;takiliyor;;günler:2026-10-03,2026-10-06,2026-10-15
+2026-10-15 15:28:17;prod;w0108:prod;drinnen;içeride;drinnen;richtig;drinnen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:7.9 | kapı:7g | sek:3 | ipucu:0
+2026-10-15 15:28:22;erk;x1484:erk;der Kommilitone;sınıf arkadaşı (üniversite);der Kommilitone;richtig;der Kommilitone;basamak:B1 | bicim:sec | not:m3,a3 | R:0.81 | S:3.3 | sek:4
+2026-10-15 15:28:24;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.77 | S:3.8 | sek:2
+2026-10-15 15:28:27;nsatz;n1095:nsatz;die Sonne;Ich habe zu lange in der _____ gelegen.;Sonne;richtig;Sonne;basamak:B2 | bicim:bos0 | not:m3 | R:0.80 | S:17.9 | kapı:7g | sek:3 | ipucu:0
+2026-10-15 15:28:27;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:84 | dk:1 | yeni:0 | seviye+:5 | tekrar:12
