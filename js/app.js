@@ -250,6 +250,17 @@
   }
   // sayfa kapanırken (Android uygulamayı öldürür, geri tuşu, yenileme): bekleyen cevap (sonuç paneli açık) önce işlenir
   window.addEventListener('pagehide', () => { try { arkaPlanNotla(); } catch (e) { console.warn(e); } save(); });
+  // gizlenince (ekran kilidi, başka uygulama): cevap İŞLENMEZ (dönünce itiraz / kendiliğinden geçiş sürer), yalnız kalıcı kaydedilir;
+  // uygulama arka planda öldürülürse sonraki açılışta bekleyenIsle işler
+  const BEKLEYEN_KEY = 'almanca-tekrar-bekleyen';
+  const Q_ALAN = ['id', 'sel', 'bicim', 'antwort', 'ziel', 'frageText', 'typ', 'modus', 'mc', 'artFrage', 'bos', 'yoklama', 'ipucu', 'ipucuLv', 'sek', 'oneri', 'kontext', 'b', 'itiraz'];
+  function bekleyenKaydet() {
+    const q = aktuell;
+    if (!(q && q.done && !q.islendi && q.sonuc)) return;
+    try { const r = {}; Q_ALAN.forEach(k => { if (q[k] !== undefined) r[k] = q[k]; }); r.sonuc = q.sonuc; r.t = now(); r.modusB = session.modus; localStorage.setItem(BEKLEYEN_KEY, JSON.stringify(r)); } catch (e) { /* yok */ }
+  }
+  const bekleyenSil = () => { try { localStorage.removeItem(BEKLEYEN_KEY); } catch (e) { /* yok */ } };
+
   // gün sayaçları: her cihaz yalnız kendi sayacını artırır (S.tageC[gün][CIHAZ]); S.tage[gün] = cihazların toplamı (türetilir).
   // heute()/heuteM() yazmak içindir (yerel cihaz); okumak için bugun()/bugunM() (bütün cihazların toplamı)
   const GUN0 = () => ({ n: 0, richtig: 0, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 });
@@ -2719,6 +2730,7 @@
     if (['yazim', 'mastar'].includes(sonuc.tip) || (not.etiketler || []).includes('yavaş')) n.push('kısmi');
     if (yaz(out.m) && it && it.m && it.m.lastG >= 2) { const pk0 = it.m.pk || 0, ham = FSRS.intervalDays(it.m.S, S.einst.ret); if (pk0 < 2 && ham > (pk0 ? 14 : 7) && (it.m.due - t) / DAY <= (pk0 ? 14 : 7) + 0.01) n.push(`kapı:${pk0 ? 14 : 7}g`); }
     if (opt.kaynak) n.push('kaynak:' + opt.kaynak);
+    if (opt.ek) n.push(opt.ek);
     if (eski === 'stamm') n.push('kök:' + (vById[id] || {}).base);
     const et = (not.etiketler || []).filter(x => !['yoklama', 'yavaş', 'sayılmadı', 'bilmiyorum'].includes(x));
     if (et.length) n.push(et.join(', '));
@@ -2733,9 +2745,11 @@
   }
 
   // cevap işlendi: hafıza + gölge + log, sayaçlar (tur, gün, puan, seri), oturum kuyruğu (yanlış → 3–5 soru sonra), takılan kelime
+  const KOK_BICIM = new Set(['kok', 'kokSatz', 'kokSec']);
   function cevapIsle(q, sonuc, sessiz) {
     if (!q || q.islendi) return;
     q.islendi = true;
+    bekleyenSil();
     clearTimers();
     const t = now(), id = q.id, ot = session.ot;
     const r = hafizaYaz(q, sonuc, t);
@@ -2751,7 +2765,7 @@
       if (r.out.seviyeSonra > r.out.seviyeOnce && r.out.seviyeOnce > 0) { tu.seviye.push(id); (session.seviyeCip = session.seviyeCip || []).push({ id, sv: r.out.seviyeSonra }); }
     }
     if (q.kontext) { const h = S.kontext[id] || (S.kontext[id] = []); h.push(q.kontext); if (h.length > 12) h.shift(); }
-    if (r.ergebnis === 'falsch' && !q.yoklama) leechPruefen(id);
+    if (r.ergebnis === 'falsch' && !q.yoklama && !KOK_BICIM.has(q.bicim) && q.modus !== 'stamm') leechPruefen(id);   // kök hatası anlamı 'takılan' yapmaz
     if (q.yoklama) {
       // yoklama: doğruysa "zaten biliyorsun" (kotaya sayılmaz); yanlışsa tanıtım kartı gelir
       const bildi = r.ergebnis !== 'falsch' && !q.bos;
@@ -2845,7 +2859,7 @@
     } catch (e) { console.warn('log yazılamadı', e); $('#klasor-durum').textContent = 'Yazılamadı: ' + e.message; }
     schreibt = false;
   }
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { try { arkaPlanNotla(); } catch (e) { console.warn(e); } dateiSchreiben(true); ghSync(true); } });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { bekleyenKaydet(); dateiSchreiben(true); ghSync(true); } else bekleyenSil(); });
 
   // ---- GitHub'a doğrudan kayıt (site olarak açıldığında push gerekmez) ----
   const GH = { repo: 'mahmutarsla/Almanca-Tekrar', branch: 'claude/chat-session-1vghmx' };
@@ -3460,7 +3474,8 @@
     const b = buTurBoyu();
     if (tu.n < b) return false;
     const ot = session.ot, bek = ot ? (ot.kuyruk || []).filter(k => k.neden === 'yanlis') : [];
-    if (bek.length && tu.n < b + TUR_UZAT) { bek.forEach(k => { k.at = Math.min(k.at, ot.adim || 0); }); return false; }
+    // uzatmada bekleyen yanlış hemen değil, en erken 2 soru sonra (uzatmaya sığmıyorsa 1 soru sonra) gelir
+    if (bek.length && tu.n < b + TUR_UZAT) { const a = ot.adim || 0, ara = tu.n + 2 <= b + TUR_UZAT ? 2 : 1; bek.forEach(k => { k.at = Math.min(k.at, a + ara); }); return false; }
     return true;
   }
   function otRender() {
@@ -3689,7 +3704,7 @@
     const vad = faellig().length, gunIs = 0.75 * gunHedef();
     let toparlanma = '';
     if (vad > 1.2 * gunIs && !ilkGun) {
-      toparlanma = `<div class="toparlanma">Toparlanıyor · ${toparlanmaMetni(turHedef)}</div>`;
+      { const tm = toparlanmaMetni(turHedef); toparlanma = `<div class="toparlanma">${/^bu tempoda birikme büyüyor/.test(tm) ? tm.replace(/^bu tempoda birikme büyüyor/, 'Birikme büyüyor') : 'Toparlanıyor · ' + tm}</div>`; }
     }
     // en çok 2 iş kartı: ünite · paket tekrarı · fiil metni
     const isler = [];
@@ -4547,6 +4562,19 @@
     setModus(m && MODI[m] ? m : 'akis');
   })();
   // açılışta soru yalnız Çalış görünürken seçilir (gizli zeige() tur hakkı yemesin)
+  // önceki oturumda cevaplanmış ama işlenmemiş soru (sonuç paneli açıkken uygulama arka planda kapatıldı): hafıza + log + gün sayacı
+  (function bekleyenIsle() {
+    let r = null; try { r = JSON.parse(localStorage.getItem(BEKLEYEN_KEY) || 'null'); } catch (e) { r = null; }
+    bekleyenSil();
+    if (!r || !r.id || !r.sonuc || !(byId[r.id] || vById[r.id] || wById[r.id]) || !(now() - r.t < 3 * DAY)) return;
+    try {
+      const m0 = session.modus; if (r.modusB && MODI[r.modusB]) session.modus = r.modusB;
+      const h = hafizaYaz(r, r.sonuc, r.t, { ek: 'arka planda kapandı' });
+      r.ungezaehlt = h.sayilmadi; zaehlen(r, h.ergebnis);
+      if (h.ergebnis === 'falsch' && !r.yoklama && !KOK_BICIM.has(r.bicim) && r.modus !== 'stamm') leechPruefen(r.id);
+      session.modus = m0; save();
+    } catch (e) { console.warn('bekleyen cevap işlenemedi', e); }
+  })();
   if (!$('#v-calis').hidden) zeige();
   ordnerLaden();
   window.__tekrar = { Kern: window.Kern, CODE_SURUM, get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, get ot() { return session.ot; },

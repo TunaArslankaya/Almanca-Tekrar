@@ -208,9 +208,9 @@
       else aday = u < 0.6 ? ['sec', 'metinde'] : ['metinde', 'sec'];
       if (!kx) aday = aday.filter(x => x !== 'metinde');
     } else if (b === 2) {
-      // erken üretim kapısında (pk 0) tutulan oturmuş öğe: ara sıra fiili / kelimeyi verilen cümle boşluğu (bos0; pk saymaz),
+      // erken üretim kapısında (pk 0) tutulan, oturmaya başlamış öğe (S ≥ 3): ara sıra fiili / kelimeyi verilen cümle boşluğu (bos0; pk saymaz),
       // böylece göçten sonra da turda cümle gelir (kural 7, 11)
-      if ((h.pk || 0) === 0 && (h.S || 0) >= 7 && h.lastG !== 1 && C.tazeCumle(id) && rnd() < 0.35) aday = ['bos0', 'yaz'];
+      if ((h.pk || 0) === 0 && (h.S || 0) >= 3 && h.lastG !== 1 && C.tazeCumle(id) && rnd() < 0.35) aday = ['bos0', (h.S || 0) < 4 ? 'yaz0' : 'yaz'];
       else aday = [(h.S || 0) < 4 || h.lastG === 1 ? 'yaz0' : 'yaz'];
     }
     else if (b === 3) aday = [(h.S || 0) < 10 ? 'bos0' : 'bos'];
