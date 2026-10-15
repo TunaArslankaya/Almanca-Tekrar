@@ -4,7 +4,6 @@
 # @bis YYYY-MM-DD: o gün bitince ünite kendiliğinden kapanır (@geschlossen gibi: çalışılan kelimeler tekrar sistemine geçer)
 @kapitel 8
 @titel fit und gesund bleiben
-@bis 2026-10-26
 @gruppe fit und gesund bleiben
 n | die Gymnastik | (Sg.) | jimnastik, egzersiz | Jeden Morgen mache ich zehn Minuten Gymnastik. | Gymnastik | Her sabah on dakika jimnastik yapıyorum.
 v | sich anstrengen | trennbar: strengt sich an | çaba göstermek, kendini zorlamak | Du musst dich mehr anstrengen, wenn du die Prüfung bestehen willst. | anstrengen | Sınavı geçmek istiyorsan daha çok çaba göstermelisin.

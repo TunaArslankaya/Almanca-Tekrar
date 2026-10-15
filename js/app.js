@@ -169,7 +169,7 @@
     const yeni = () => 'c' + Math.random().toString(36).slice(2, 10);
     try { let c = localStorage.getItem(CIHAZ_KEY); if (!c) { c = yeni(); localStorage.setItem(CIHAZ_KEY, c); } return c; } catch (e) { return yeni(); }
   })();
-  const AYAR4 = { yeniGunluk: 6, uniteHizli: {}, gosterildi: {}, turHedef: 3 };
+  const AYAR4 = { yeniGunluk: 6, uniteHizli: {}, gosterildi: {}, turHedef: 2 };   // Tuna (15.10): günde 2 tur, rutin oturunca artırılır
   const DEF = { karten: {}, items: {}, pakete: {}, tage: {}, log: [], pending: [], ghPending: [], kontext: {},
     einst: { ret: 0.85, modi: {} }, version: 3, kok: {}, tageC: {}, ayar4: AYAR4 };
   // Bölümler: her birinin kendi günlük hedefi (soru) ve yeni öğe sınırı.
@@ -203,6 +203,8 @@
     const s = Object.assign(JSON.parse(JSON.stringify(DEF)), x || {});
     ['karten', 'items', 'pakete', 'tage', 'kontext', 'kok', 'tageC'].forEach(k => { s[k] = s[k] || {}; });
     s.ayar4 = Object.assign(JSON.parse(JSON.stringify(AYAR4)), s.ayar4);
+    // 15.10: hafif rutin (günde 2 tur) bir kez uygulanır; Ayarlar'dan elle seçilmişse (secildi) dokunulmaz
+    if (!s.ayar4.rutin) { s.ayar4.rutin = 1; if (!s.ayar4.secildi) s.ayar4.turHedef = 2; }
     ['log', 'pending', 'ghPending'].forEach(k => { s[k] = s[k] || []; });
     s.einst = Object.assign({ ret: 0.9 }, s.einst);
     s.einst.modi = s.einst.modi || {};
@@ -231,7 +233,7 @@
   let S = yukle();
   // günlük hedef: tur sayısı (Ayarlar, varsayılan 3) × tur boyu; uyarlamalı hedef kalktı. Günü kurtarmak (seri) ayrı: MIN_TAG.
   function gunHedef() {
-    return Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 3)) * turBoyu();
+    return Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2)) * turBoyu();
   }
   const ziel = m => m === 'akis' ? gunHedef() : S.einst.modi[m].ziel;
   const neuMax = m => S.einst.modi[m].neu;
@@ -3405,7 +3407,7 @@
     $('#ses-btn').innerHTML = sesAcik() ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
   }
   // günlük hedef (tur) ve bugün yapılan tur
-  const turHedefi = () => Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 3));
+  const turHedefi = () => Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2));
   const turYapildi = () => Math.floor(bugun().n / turBoyu());
   // log'daki en sık çalışma saati (çeyreğe yuvarlı): hatırlatıcı önerisi
   function sikSaat() {
@@ -4179,8 +4181,8 @@
     const b = e.target.closest('[data-ayar] button'); if (!b) return;
     const ad = b.parentElement.dataset.ayar, v = +b.dataset.val;
     if (ad === 'ret') { S.einst.ret = v || 0.85; S.einst.retSecildi = true; }
-    else if (ad === 'yeni') S.ayar4.yeniGunluk = Math.max(2, Math.min(10, v || 6));
-    else if (ad === 'hedef') S.ayar4.turHedef = Math.max(1, Math.min(8, v || 3));
+    else if (ad === 'yeni') { S.ayar4.yeniGunluk = Math.max(2, Math.min(10, v || 6)); S.ayar4.secildi = true; }
+    else if (ad === 'hedef') { S.ayar4.turHedef = Math.max(1, Math.min(8, v || 2)); S.ayar4.secildi = true; }
     save(); renderAyar();
   });
   $('#a-saat').addEventListener('change', e => {

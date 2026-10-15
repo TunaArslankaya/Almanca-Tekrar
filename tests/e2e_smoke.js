@@ -56,13 +56,16 @@ function logDenetle(ad, log, o) {
       const ii = sonraki.findIndex(x => x.id.startsWith(e.id + ':') && /\| ikinci/.test(x.notiz));
       // parti n öğe: son öğenin ikincisi mini'sinden 4 soru sonra = tanıtımdan 3 + n cevap sonra (yanlış tekrarı araya girebilir: +1)
       let n = 1; for (let k = i + 1; k < T.length && T[k].modus === 'yeni'; k++) n++; for (let k = i - 1; k >= 0 && T[k].modus === 'yeni'; k--) n++;
-      if (ii >= 0) { ikinci++; if (ii > Math.max(6, 4 + n)) hata(ad, `ikinci hatırlama ${ii} cevap sonra (parti ${n}): ${e.id}`); if (!/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama hafızaya yazdı: ${sonraki[ii].id}`); }
+      // araya giren yanlış tekrarları (tekrar:) sıraya göre ikinciden önce gelebilir: her biri +1
+      const araTekrar = ii > 0 ? sonraki.slice(0, ii).filter(x => /\| tekrar:/.test(x.notiz || '')).length : 0;
+      if (ii >= 0) { ikinci++; if (ii > Math.max(6, 4 + n) + araTekrar) hata(ad, `ikinci hatırlama ${ii} cevap sonra (parti ${n}, ara tekrar ${araTekrar}): ${e.id}`); if (!/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama hafızaya yazdı: ${sonraki[ii].id}`); }
     });
     const son = {};
     cv.forEach((e, k) => {
       const oge = e.id.split(':')[0];
       const kuyruk = /\| (parti|ikinci|tekrar:)/.test(e.notiz) || e.modus === 'luecke';
-      if (!kuyruk && son[oge] != null && k - son[oge] < 8) hata(ad, `aynı öğe ${k - son[oge]} soru arayla: ${oge}`);
+      // çekirdek son 7 soruya bakar (ARA 8); metin etkinliğinin boşlukları log'da ayrı satır, geçmişte tek giriş: sayım 1 oynayabilir → 7 kabul
+      if (!kuyruk && son[oge] != null && k - son[oge] < 7) hata(ad, `aynı öğe ${k - son[oge]} soru arayla: ${oge}`);
       son[oge] = k;
     });
   });

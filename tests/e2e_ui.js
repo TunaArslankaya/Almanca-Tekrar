@@ -57,7 +57,8 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     return { birincil: birincil.map(e => e.innerText.trim()), metin: kopya.innerText };
   });
   if (ana.birincil.length !== 1 || !/Başla|İlk turun|Devam et|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `birincil düğmeler: ${JSON.stringify(ana.birincil)}`);
-  if (!/Başla/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" değil: ${ana.birincil[0]}`);
+  // gerçek kayıtta günün hedefi dolmuşsa (bugün zaten çalışmış) düğme "Bonus tur" olur
+  if (!/Başla|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" / "Bonus tur" değil: ${ana.birincil[0]}`);
   const borc = /\d+\s*(vadeli|tekrar|kart|borç|birikme|bekleyen)/i.exec(ana.metin);
   if (borc) hata('bugün', `vadeli / borç sayısı görünüyor: "${borc[0]}"`);
   if (/\d\s?%/.test(ana.metin)) hata('bugün', 'yüzde "58%" biçiminde');
