@@ -1874,3 +1874,23 @@
 2026-10-16 22:49:26;wort;n0051:wort;die Anzeige;"ilan; şikâyet (polise)";die Anzeige;richtig;die Anzeige;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.84 | S:25.6 | kapı:14g | sek:14 | ipucu:2
 2026-10-16 22:49:33;wort;n0111:wort;der Balkon;balkon;der Balkon;richtig;der Balkon;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.84 | S:25.6 | kapı:14g | sek:7 | ipucu:2
 2026-10-16 22:49:36;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.80 | S:0.2 | artikel die → das | sek:2
+2026-10-16 22:49:36;leech;n0994;das Rezept;"reçete; tarif";;takiliyor;;günler:2026-10-04,2026-10-15,2026-10-16
+2026-10-16 22:49:45;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebrachen;falsch;gebracht;basamak:K | bicim:kokSatz | not:k1 | R:0.84 | S:0.2 | kök:bringen | Partizip: gebracht | sek:8
+2026-10-16 22:49:49;erk;n0432:erk;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.84 | S:0.7 | sek:3
+2026-10-16 22:49:51;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.79 | S:0.8 | sek:1
+2026-10-16 22:49:56;bed;v111:bed;sich bemühen um;(bir şey için) çabalamak;sich bemühen um;richtig;sich bemühen um;basamak:B1 | bicim:sec | not:m3 | R:0.84 | S:1.4 | sek:3
+2026-10-16 22:50:04;abr;v629:abr;sich(D) vorstellen;(bir şeyi) hayal etmek, gözünde canlandırmak;sich vorstellen;richtig;sich(D) vorstellen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.84 | S:7.7 | sek:7 | ipucu:0
+2026-10-16 22:50:04;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:67 | dk:1 | yeni:0 | seviye+:4 | tekrar:12
+2026-10-16 22:50:14;bed;v459:bed;schneien;kar yağmak;frieren;falsch;schneien;basamak:B1 | bicim:sec | not:m1 | R:0.83 | S:0.2 | ısınma | sek:4
+2026-10-16 22:50:17;bed;v672:bed;zustimmen;(birine) katılmak, onaylamak;zustimmen;richtig;zustimmen;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:6.3 | ısınma | kapı:7g | sek:2
+2026-10-16 22:50:21;bed;v117:bed;berichten über;Ein Reporter ist ein Journalist, der zu einem Ereignis oder Ort fährt, um darüber zu berichten.;haber vermek, anlatmak;richtig;(bir şey hakkında) haber vermek, anlatmak;basamak:B1 | bicim:metinde | not:m3 | R:0.77 | S:0.8 | ısınma | sek:3
+2026-10-16 22:50:26;art;n0926:art;die Praxis;Praxis;die;richtig;die Praxis;basamak:A | bicim:artikel | not:a3 | R:0.78 | S:0.6 | sek:4
+2026-10-16 22:50:40;bed;v459:bed;schneien;kar yağmak;scheinen;falsch;schneien;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-16 22:50:45;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:5.8 | kapı:7g | sek:5
+2026-10-16 22:50:50;art;n0433:art;die Geduld;Geduld;das;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.74 | S:0.1 | artikel das → die | sek:4
+2026-10-16 22:50:54;erk;n1375:erk;der Wetterbericht;hava raporu;der Wetterbericht;richtig;der Wetterbericht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.80 | S:0.8 | sek:4
+2026-10-16 22:50:58;bed;v063:bed;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über;basamak:B1 | bicim:sec | not:m3 | R:0.73 | S:0.8 | sek:3
+2026-10-16 22:51:00;art;n0244:art;die Diskussion;Diskussion;der;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.72 | S:0.1 | artikel der → die | sek:1
+2026-10-16 22:51:16;stamm;v069:stamm;ausfüllen;Ich habe den Fragebogen schon _____.;ausgefühlt;fast;ausgefüllt;basamak:K | bicim:kokSatz | not:k2 | R:0.72 | S:8.4 | kök:füllen | Partizip: ausgefüllt | sek:11
+2026-10-16 22:51:20;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.2 | tekrar:2 | hafıza:yazılmadı | sek:4
+2026-10-16 22:51:20;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:1 | yanlış:4 | puan:48 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
