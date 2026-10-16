@@ -1838,3 +1838,9 @@
 2026-10-15 16:20:18;art;n0928:art;der Preis;Preis;die;falsch;der Preis;basamak:A | bicim:artikel | not:a1 | R:0.83 | S:0.6 | artikel die → der | sek:1
 2026-10-15 16:20:20;art;n0957:art;der Rat;Rat;der;richtig;der Rat;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:2.8 | sek:1
 2026-10-15 16:20:20;tur;akis;Çalış;;;leer;;cevap:3 | doğru:2 | küçük:0 | yanlış:1 | puan:11 | dk:1 | yeni:0 | seviye+:0 | tekrar:3
+2026-10-16 22:46:04;erk;n0341:erk;der Fall;durum, vaka;der Fall;richtig;der Fall;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:3.7 | ısınma | sek:3
+2026-10-16 22:46:07;bed;v643:bed;werden;olmak (… hâline gelmek);werden;richtig;werden;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:3.8 | ısınma | sek:2
+2026-10-16 22:46:14;erk;w0536:erk;warm;Wenn man vom Klima spricht, ist gemeint, dass es irgendwo normalerweise warm oder kalt ist, dass es trocken oder feucht ist.;sıcak, ılık;richtig;sıcak, ılık;basamak:B1 | bicim:metinde | not:m3 | R:0.88 | S:2.1 | ısınma | sek:6
+2026-10-16 22:46:17;yeni;v173;dürfen;tanıtım;;neu;-ebilmek (izinli olmak);basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-10-16 22:46:18;yeni;v534;tun;tanıtım;;neu;yapmak;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-16 22:46:22;bed;v534:bed;tun;yapmak;tun;richtig;tun;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
