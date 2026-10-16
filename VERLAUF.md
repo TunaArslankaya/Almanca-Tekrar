@@ -237,3 +237,10 @@ Test ölçütleri gerçek veriye göre düzeltildi: simülasyonda "3 gün üst �
 
 - (geri bildirim, otomatik) 2026-10-15 16:00: 21 düzeltme, son satır 2026-10-15 15:25:26
 - (geri bildirim, otomatik) 2026-10-15 16:30: 0 düzeltme, son satır 2026-10-15 15:28:27
+
+**2026-10-16 (gece işi, otomatik)**
+- 15.10 16:02–16:20 oturumu: 6 tur (~70 cevap). Seçmeli yanlışlar: schneien/üşümek, sich fürchten vor (edat auf), Artikel karışıkları: Geduld (das→die), Preis (die→der), Praxis (der→die, leech), Rezept (die→das), Erlaubnis (der→die, leech), Wind (das→der). Yazma: Eis, bewölkt (yazım). Kök: bringen → gebracht, zustimmen → zugestimmt.
+- Paket p05 (%58) ve p04 (%48) zayıf; 12 düzeltme `feedback.js`'e eklendi (Sonderangebot, Bargeld, Quittung, anmelden, Dozent, Referat, Kommilitone, Mensa …). `lesen-wort` (Schule metni) satırları basit kelimeler (neu), yeni cümle gerekmedi.
+- `die Erlaubnis` için kanca eklendi (Praxis'in vardı).
+- DW "Autorin: KI" sözlüğünden Goethe listesinde olanlar: Werk, gelingen, ankommen auf (+ metindeki Vorwurf, Zweifel, Qualität, Herkunft, Roman): 8 çeviri cümlesi + gloss.
+Son incelenen log satırı: 2026-10-15 16:20:20 (tur akis).

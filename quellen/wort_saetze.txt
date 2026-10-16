@@ -2652,3 +2652,9 @@ w0117 | eben | Das Auto ist alt, deshalb ist es eben billig. | Araba eski, o yü
 n0914 | die Politik | Mein Vater diskutiert gern über Politik. | Babam siyaset hakkında tartışmayı sever.
 n0914 | die Politik | Die Politik muss mehr für die Umwelt tun. | Siyaset çevre için daha fazlasını yapmalı.
 w0344 | nass | Nach dem Regen war die Bank im Park noch nass. | Yağmurdan sonra parktaki bank hâlâ ıslaktı.
+n1351 | der Vorwurf | Der Chef machte ihr einen Vorwurf, weil sie zu spät kam. | Patron geç geldiği için ona sitem etti.
+n1446 | der Zweifel | Ich habe Zweifel, ob er die Wahrheit sagt. | Doğruyu söyleyip söylemediğinden şüphem var.
+n0947 | die Qualität | Das Brot hier hat eine sehr gute Qualität. | Buradaki ekmeğin kalitesi çok iyi.
+n0532 | die Herkunft | Die Herkunft der Zutaten ist auf der Verpackung angegeben. | Malzemelerin menşei ambalajın üzerinde yazıyor.
+n1003 | der Roman | Ich lese gerade einen spannenden Roman. | Şu an heyecanlı bir roman okuyorum.
+n1369 | das Werk | Dieses Werk ist weltweit bekannt. | Bu eser dünya çapında tanınıyor.

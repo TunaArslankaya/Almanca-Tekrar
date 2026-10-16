@@ -1118,3 +1118,5 @@ v672 | Meine Eltern haben meinem Vorschlag sofort zugestimmt. | Annemle babam ö
 v626 | Mein Kollege hat mir ein besseres Programm vorgeschlagen. | İş arkadaşım bana daha iyi bir program önerdi.
 v169 | Es donnert schon, wir sollten schnell nach Hause gehen. | Gök gürlemeye başladı bile, hemen eve gitsek iyi olur.
 v149 | Draußen blitzt es, bleib lieber im Haus. | Dışarıda şimşek çakıyor, evde kalsan daha iyi.
+v287 | Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu bestehen. | Çok denemeden sonra sonunda sınavı geçmeyi başardı.
+v027 | Es kommt auf das Wetter an, ob wir morgen grillen. | Yarın mangal yapıp yapmayacağımız havaya bağlı.

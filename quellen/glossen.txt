@@ -4058,3 +4058,11 @@ Diese Schuhe eignen sich nicht für nasses Wetter. | nass = ıslak
 Es donnert schon, wir sollten schnell nach Hause gehen. | sollten = -se iyi olur (Konjunktiv II)
 Draußen blitzt es, bleib lieber im Haus. | draußen = dışarıda; lieber = daha iyisi
 Nach dem Regen war die Bank im Park noch nass. | die Bank = (oturma) bankı
+Der Chef machte ihr einen Vorwurf, weil sie zu spät kam. | der Chef = patron; weil = çünkü; spät = geç
+Ich habe Zweifel, ob er die Wahrheit sagt. | die Wahrheit = gerçek; ob = -ip -mediği
+Das Brot hier hat eine sehr gute Qualität. | das Brot = ekmek
+Die Herkunft der Zutaten ist auf der Verpackung angegeben. | die Zutat = malzeme; die Verpackung = ambalaj; angegeben = belirtilmiş
+Ich lese gerade einen spannenden Roman. | spannend = heyecanlı; gerade = şu an
+Dieses Werk ist weltweit bekannt. | weltweit = dünya çapında; bekannt = tanınmış
+Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu bestehen. | der Versuch = deneme; endlich = sonunda; bestehen = geçmek
+Es kommt auf das Wetter an, ob wir morgen grillen. | grillen = mangal yapmak; ob = -ip -mediği

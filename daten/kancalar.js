@@ -23,5 +23,6 @@ window.KANCA = {
   w0344: "nass → 'nasıl bu kadar ıslandın?'; isimden önce takı alır: die nasse Jacke, mit nassen Schuhen; sonda çıplak: Meine Haare sind nass; nass werden = ıslanmak",
   n0972: "die Regel → 'regülasyon' = kural koyma; regelmäßig = düzenli (kurallı); die kırmızı: kurallar kırmızı çizgidir, geçilmez; çoğul die Regeln; in der Regel = genellikle; die Geduld (sabır) ile karıştırma",
   v278: "sich fürchten vor → furchtbar = korkunç, die Furcht = korku; korkudan 'fırt' diye kaçarsın; vor + Dat: vor dem Hund, vor der Prüfung; er fürchtet sich (-et), Perfekt hat sich gefürchtet",
+  n0313: "die Erlaubnis → -nis ile biten isimler das (das Ergebnis) ama Erlaubnis die'dir (istisna!); kırmızı izin kağıdı sahnesi: die Erlaubnis = izin (erlauben = izin vermek)",
   v592: "sich verletzen → 'lezyon' (yara) sesi: ver-LEZ-yon; ver- ile ge- almaz: Partizip verletzt = er/du verletzt (Pass auf, dass du dich nicht verletzt!); organ varsa mir: Ich habe mir den Arm verletzt",
 };
