@@ -1936,3 +1936,12 @@
 2026-10-17 12:58:14;bed;v177:bed;sich eignen für;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:sec | not:m3 | R:0.65 | S:0.2 | sek:3
 2026-10-17 12:58:19;erk;n0972:erk;die Regel;kural;die Regel;richtig;die Regel;basamak:B1 | bicim:sec | not:m3,a3 | R:0.65 | S:0.4 | sek:4
 2026-10-17 12:58:19;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:48 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
+2026-10-17 12:59:54;bed;v620:bed;verzichten auf;Müssen Profifußballspielerinnen wegen ihrer Karriere auf Kinder verzichten?;vazgeçmek;richtig;(bir şeyden) vazgeçmek;basamak:B1 | bicim:metinde | not:m3 | R:0.65 | S:0.4 | ısınma | sek:3
+2026-10-17 12:59:57;erk;w0165:erk;feucht;nemli;feucht;richtig;feucht;basamak:B1 | bicim:sec | not:m3 | R:0.62 | S:0.2 | ısınma | sek:2
+2026-10-17 13:00:01;bed;v278:bed;sich fürchten vor;(bir şeyden) korkmak;sich fürchten vor;richtig;sich fürchten vor;basamak:B1 | bicim:sec | not:m3 | R:0.61 | S:0.2 | ısınma | sek:3
+2026-10-17 13:00:04;art;n0928:art;der Preis;Preis;der;richtig;der Preis;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:2.3 | sek:2
+2026-10-17 13:00:12;stamm;v527:stamm;treffen;Ich habe Petra zufällig in der Stadt _____.;getroffen;richtig;getroffen;basamak:K | bicim:kokSatz | not:k3 | R:0.67 | S:4.6 | kök:treffen | sek:9
+2026-10-17 13:00:15;art;n0844:art;der Nebel;Nebel;der;richtig;der Nebel;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:1.3 | sek:2
+2026-10-17 13:00:19;art;n0973:art;der Regen;Regen;die;falsch;der Regen;basamak:A | bicim:artikel | not:a1 | R:0.57 | S:0.1 | artikel die → der | sek:2
+2026-10-17 13:00:19;leech;n0973;der Regen;yağmur;;takiliyor;;günler:2026-10-02,2026-10-04,2026-10-17
+2026-10-17 13:00:19;tur;akis;Çalış;;;leer;;cevap:7 | doğru:6 | küçük:0 | yanlış:1 | puan:41 | dk:1 | yeni:0 | seviye+:0 | tekrar:7
