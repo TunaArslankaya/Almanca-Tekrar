@@ -26,4 +26,6 @@ window.KANCA = {
   v278: "sich fürchten vor → furchtbar = korkunç, die Furcht = korku; korkudan 'fırt' diye kaçarsın; vor + Dat: vor dem Hund, vor der Prüfung; er fürchtet sich (-et), Perfekt hat sich gefürchtet",
   n0313: "die Erlaubnis → -nis ile biten isimler das (das Ergebnis) ama Erlaubnis die'dir (istisna!); kırmızı izin kağıdı sahnesi: die Erlaubnis = izin (erlauben = izin vermek)",
   v592: "sich verletzen → 'lezyon' (yara) sesi: ver-LEZ-yon; ver- ile ge- almaz: Partizip verletzt = er/du verletzt (Pass auf, dass du dich nicht verletzt!); organ varsa mir: Ich habe mir den Arm verletzt",
+  n0244: "die Diskussion → -ion ile biten her isim die (die Information, die Situation, die Religion); kırmızı (die) masa başında kızışan 'diskusyon'",
+  n0973: "der Regen → hava olayları der: der Regen, der Schnee, der Wind, der Nebel, der Sturm (ama das Wetter); 'Regen' sesi 'reng-i' gök: mavi (der) yağmur damlaları",
 };

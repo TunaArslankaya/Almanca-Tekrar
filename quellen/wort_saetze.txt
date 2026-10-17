@@ -2663,3 +2663,15 @@ n1286 | die Unterschrift | Für die Petition brauchen wir viele Unterschriften. 
 n1058 | die Schuld | Es war nicht meine Schuld, dass der Bus zu spät kam. | Otobüsün geç gelmesi benim suçum değildi.
 n1268 | die Umfrage | In einer Umfrage haben viele Menschen ihre Meinung gesagt. | Bir ankette birçok kişi fikrini söyledi.
 n0380 | die Folge | Die Folge des Regens war ein Stau auf der Autobahn. | Yağmurun sonucu otoyolda trafik oldu.
+w0213 | gleichzeitig | Man kann nicht gleichzeitig essen und telefonieren. | Aynı anda hem yemek yiyip hem telefonla konuşulmaz.
+w0213 | gleichzeitig | Die beiden Züge sind gleichzeitig angekommen. | İki tren aynı anda geldi.
+w0026 | anwesend | Bei der Besprechung waren alle Kollegen anwesend. | Toplantıda bütün iş arkadaşları hazır bulunuyordu.
+w0026 | anwesend | Der Lehrer fragt, wer heute nicht anwesend ist. | Öğretmen bugün kimin olmadığını soruyor.
+w0011 | allerdings | Das Hotel war sehr schön, allerdings auch ziemlich teuer. | Otel çok güzeldi, gerçi epey de pahalıydı.
+w0011 | allerdings | Ich komme gern mit, allerdings erst nach der Arbeit. | Seve seve gelirim, ancak işten sonra.
+w0051 | beide | Beide Kinder gehen in dieselbe Schule. | İki çocuk da aynı okula gidiyor.
+w0051 | beide | Ich habe beide Bücher gelesen, aber das erste hat mir besser gefallen. | İki kitabı da okudum ama ilki daha çok hoşuma gitti.
+n0433 | die Geduld | Mit kleinen Kindern braucht man viel Geduld. | Küçük çocuklarla çok sabır gerekir.
+n1422 | das Ziel | Unser Ziel ist es, bis zum Sommer B1 zu schaffen. | Hedefimiz yaza kadar B1'i başarmak.
+n0244 | die Diskussion | Nach dem Vortrag gab es eine lange Diskussion über das Thema. | Sunumdan sonra konu üzerine uzun bir tartışma oldu.
+n0973 | der Regen | Wegen des starken Regens ist das Spiel ausgefallen. | Şiddetli yağmur yüzünden maç iptal oldu.

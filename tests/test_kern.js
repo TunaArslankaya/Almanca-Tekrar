@@ -254,7 +254,9 @@ NT.forEach(([ad, girdi, bekl]) => {
   const oturmus = () => ({ m: { S: 40, D: 5, last: T - DAY, due: T + 30 * DAY } });
   const q = (items, x) => K.kota(Object.assign({ S: yeniS(items), kap: 36 }, x || {}), T).q;
   eq(q(doldur(73, eskiVade)), 2, 'kota: birikme > 2·kap → 2');
-  eq(q(doldur(58, genc)), 2, 'kota: genç > 1,6·kap → 2');
+  eq(q(doldur(58, genc)), 4, 'kota: genç > 1,6·kap, birikme yok → 4');
+  eq(q(Object.assign(doldur(59, genc), { x1: eskiVade() })), 2, 'kota: genç > 1,6·kap ve birikme var → 2');
+  eq(K.kota({ S: yeniS(doldur(58, genc)), kap: 36, bonus: 1 }, T).q, 6, 'kota: genç çok ama birikme yok → bonus tur +2');
   eq(q(doldur(40, genc)), 4, 'kota: genç > 1,1·kap → 4');
   eq(q(doldur(39, genc)), 6, 'kota: diğer → 6');
   eq(q(doldur(100, oturmus)), 6, 'kota: oturmuş öğe çok ama genç az → 6');
@@ -264,7 +266,8 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(q(doldur(33, genc)), 6, 'ret .85: 33 genç → 6');
   eq(q({}, { bonus: 1 }), 8, 'bonus tur +2');
   eq(q({}, { bonus: 3 }), 10, 'bonus en çok +4');
-  eq(q(doldur(73, genc), { bonus: 2 }), 2, 'bonus yalnız genç < 2·kap');
+  eq(q(Object.assign(doldur(73, genc), { x1: eskiVade() }), { bonus: 2 }), 2, 'bonus yok: genç ≥ 2·kap ve birikme var');
+  eq(q(doldur(73, genc), { bonus: 2 }), 8, 'bonus: birikme yoksa genç çok olsa da +4');
   const Sg = yeniS({}, { goc4: { zaman: T - DAY } });
   eq(K.kota({ S: Sg, kap: 36 }, T).q, 2, 'göçten sonraki ilk 3 gün ≤ 2');
   eq(K.kota({ S: yeniS({}, { goc4: { zaman: T - 3 * DAY } }), kap: 36 }, T).q, 6, 'göçten 3 gün sonra normal');
@@ -346,7 +349,8 @@ const oturum = x => Object.assign({ adim: 0, boy: 12, kuyruk: [], gecmis: [] }, 
   eq(bos({}, { adim: 10 }).tur, 'parti', '7) vadeli yok → parti');
   const bt = bos({ donus: true }, { adim: 10 });
   eq(bt.tur, 'bitti', '7) kota yok → bitti'); eq(bt.teklif, '+3', '+3 yeni teklifi');
-  eq(bos({ donus: true, gunSay: { ekYeniTeklif: 1 } }, { adim: 10 }).teklif, null, '+3 teklifi günde bir');
+  eq(bos({ donus: true, gunSay: { ekYeniTeklif: 1 } }, { adim: 10 }).teklif, '+3', '+3 teklifi: birikme yoksa ikinci kez de sunulur');
+  eq(bos({ donus: true, gunSay: { ekYeniTeklif: 3 } }, { adim: 10 }).teklif, null, '+3 teklifi: birikme yoksa günde en çok üç');
   // artikel flaşı: der olmayan önce, turda en çok 3
   const art = () => ({ n1: { m: h(10, 0.97, { due: T + 9 * DAY }), art: h(5, 0.8, { due: T - DAY }) }, n2: { m: h(10, 0.97, { due: T + 9 * DAY }), art: h(5, 0.7, { due: T - DAY }) } });
   const a = K.sec({ S: yeniS(art()), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true }), T, R99);

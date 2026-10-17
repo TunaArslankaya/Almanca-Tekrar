@@ -265,8 +265,14 @@
     const genc = L.filter(it => it.m && it.m.S && it.m.S < 7).length;
     const birikme = L.filter(it => (it.m && it.m.S && it.m.due < b4) || (it.art && it.art.S && it.art.due < b4)).length;
     const taban = ((S.ayar4 || {}).yeniGunluk) || 6;
-    let q = birikme > 2 * kap ? 2 : genc > 1.6 * kap ? 2 : genc > 1.1 * kap ? 4 : taban, sebep = q === taban ? 'normal' : birikme > 2 * kap ? 'birikme' : 'genç';
-    if (durum.bonus && genc < 2 * kap) q += Math.min(4, 2 * durum.bonus);
+    // Genç kelime freni yalnız birikme oluşuyorsa tam kısar (2); birikme sıfırsa (tekrarlar günü gününe yapılıyor) en çok 4'e iner:
+    // 17.10: Tuna birikmesiz 50+ cevapla günü bitiriyordu ve kota haftalarca 2'de kalacaktı (genç 95 > 1,6 × kap)
+    let q, sebep;
+    if (birikme > 2 * kap) { q = 2; sebep = 'birikme'; }
+    else if (genc > 1.6 * kap) { q = birikme > 0 ? 2 : Math.min(taban, 4); sebep = 'genç'; }
+    else if (genc > 1.1 * kap) { q = Math.min(taban, 4); sebep = 'genç'; }
+    else { q = taban; sebep = 'normal'; }
+    if (durum.bonus && (genc < 2 * kap || birikme === 0)) q += Math.min(4, 2 * durum.bonus);   // bonus tur: birikme yoksa genç sayısına bakılmaz
     if (S.goc4 && S.goc4.zaman && !S.goc4.bos && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
     q = Math.max(2, q);
     let qUnite = q;
@@ -427,7 +433,7 @@
       if (yk) return { tur: 'kok', kaynak: 'yeniKok', id: yk[1].ornek, base: yk[0], b: 0, bicim: 'kokSatz', R: 0 };
     }
     // 7) vadeli yoksa: kota varsa parti (kota kalmışsa turun ikinci partisi de olabilir); kuyrukta bekleyen soru varsa
-    //    sırasını beklemeden (son 2 sorudaki öğe hariç); yoksa tur biter (+3 yeni teklifi günde bir)
+    //    sırasını beklemeden (son 2 sorudaki öğe hariç); yoksa tur biter (+3 yeni teklifi günde bir, birikme yoksa üç)
     //    (önceki partinin mini / ikinci soruları bitmeden yeni parti açılmaz: ikinci hatırlama tanıtımdan ≤ 6 soru sonra kalsın)
     //    Malzeme yokken (yalnız bekleyen kuyruk) son sorulan öğe dışındaki en erken kuyruk sorusu sırasını beklemeden gelir.
     const son1 = gecmis.length ? gecmis[gecmis.length - 1].id : null;
@@ -436,7 +442,9 @@
     const bek = bekleyen.filter(k => k.id !== son1).sort((a, b) => a.at - b.at)[0];
     if (bek) return kuyrukSec(bek);
     { const p = partiAc(); if (p) return p; }
-    return { tur: 'bitti', kaynak: 'bitti', teklif: gs.ekYeniTeklif ? null : '+3' };
+    // "+3 yeni" teklifi: günde bir; birikme sıfırsa (tekrarlar günü gününe) günde üç kez
+    const teklifSay = +gs.ekYeniTeklif || 0, teklifHak = kota(durum, t).birikme === 0 ? 3 : 1;
+    return { tur: 'bitti', kaynak: 'bitti', teklif: teklifSay < teklifHak ? '+3' : null };
   }
   // cevaptan sonra oturumu ilerlet: adım, geçmiş, art arda yanlış, yeniden sorma kuyruğu (§4.4)
   function oturumIsle(o, secim, sonuc, rnd) {

@@ -66,7 +66,9 @@ function nanVeSira(S) {
   return { nan, ters };
 }
 
-const ZP = path.join(R, 'log/zustand.json');
+// göç testleri göç ÖNCESİ (v3) kayıt ister: gerçek log/zustand.json 15.10'dan beri v4 → dondurulmuş kopya tests/fixtures/zustand_v3.json
+const ZF = path.join(R, 'tests/fixtures/zustand_v3.json'), ZR = path.join(R, 'log/zustand.json');
+const ZP = fs.existsSync(ZF) ? ZF : ZR;
 const Z = fs.existsSync(ZP) ? JSON.parse(fs.readFileSync(ZP, 'utf8')) : null;
 const T = new Date(2026, 9, 15, 19, 0, 0).getTime();
 

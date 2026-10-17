@@ -2356,7 +2356,7 @@
   // sırada soru yok: turda cevap varsa tur sonu ("şimdilik bu kadar" + günde bir "+3 yeni"), yoksa boş ekran
   function leerGoster(sel) {
     const m = session.modus, gs = gs4(), teklif = sel && sel.teklif && m === 'akis' ? sel.teklif : null;
-    if (teklif) gs.ekYeniTeklif = true;
+    if (teklif) gs.ekYeniTeklif = (+gs.ekYeniTeklif || 0) + 1;   // teklif sayısı (günde 1, birikme yoksa 3)
     if (session.tur && session.tur.n > 0) { turSonuRender('leer', teklif); return; }
     aktuell = { typ: 'leer', teklif };
     let msg;

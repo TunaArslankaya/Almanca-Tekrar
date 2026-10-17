@@ -59,7 +59,8 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   if (ana.birincil.length !== 1 || !/Başla|İlk turun|Devam et|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `birincil düğmeler: ${JSON.stringify(ana.birincil)}`);
   // gerçek kayıtta günün hedefi dolmuşsa (bugün zaten çalışmış) düğme "Bonus tur" olur
   if (!/Başla|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" / "Bonus tur" değil: ${ana.birincil[0]}`);
-  const borc = /\d+\s*(vadeli|tekrar|kart|borç|birikme|bekleyen)/i.exec(ana.metin);
+  // aynı satırda sayı + kelime (satır sonu sayılmaz: seri pili "🔥 2" + "Tekrar hoş geldin" yanlış yakalanmasın)
+  const borc = /\d+[ \t]*(vadeli|tekrar|kart|borç|birikme|bekleyen)\b/i.exec(ana.metin);
   if (borc) hata('bugün', `vadeli / borç sayısı görünüyor: "${borc[0]}"`);
   if (/\d ?%/.test(ana.metin)) hata('bugün', 'yüzde "58%" biçiminde');
   if (await yatay(p) > 1) hata('bugün', 'yatay kaydırma');
