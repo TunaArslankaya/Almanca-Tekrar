@@ -10,6 +10,7 @@
   'use strict';
 
   const DAY = 86400000, SAAT = 3600000;
+  const MAX_ARALIK = 60;   // gün: hiçbir tekrar aralığı bundan uzun olmaz (17.10, Tuna: 94 gün çok uzun)
   const sig = z => 1 / (1 + Math.exp(-z));
   const logit = p => Math.log(p / (1 - p));
   const kirp = (x, a, b) => Math.min(b, Math.max(a, x));
@@ -65,7 +66,7 @@
     let due;
     if (g === 1) due = ertesiGun4(t);
     else {
-      let gun = FSRS.intervalDays(n.S, ret);
+      let gun = Math.min(FSRS.intervalDays(n.S, ret), MAX_ARALIK);   // en uzun aralık 60 gün (B1 ufku; %85 hedefte aralık ≈ 1,9 × S olur, 94 gün çok uzun)
       // kapı bu cevaptan sonraki pk ile: bu cevap üretim kanıtıysa (pk 0 → 1) aralık ≤ 14 g; kanıtsız ≤ 7 g
       if (n.pk === 0) gun = Math.min(gun, 7); else if (n.pk === 1) gun = Math.min(gun, 14);
       due = t + gun * DAY;
@@ -258,6 +259,15 @@
     return !!once && gunFark(g, once) >= 3;
   }
   // §5.2 kota. durum: { S, kap (günlük hedef, cevap), bonus (bugünkü bonus tur), donus, uniteKalan {kalan, gun} }
+  // Mevcut hafızalarda MAX_ARALIK'tan uzun aralık varsa (eski %85 hesabı) vadeyi last + 60 güne çeker; idempotent, her açılışta ucuz
+  function aralikKisalt(S, t) {
+    let n = 0; const kes = h => { if (h && h.S && h.due && h.last && h.due - h.last > MAX_ARALIK * DAY) { h.due = Math.max(h.last + MAX_ARALIK * DAY, t); n++; } };
+    Object.values(S.items || {}).forEach(it => { kes(it.m); kes(it.art); });
+    Object.values(S.kok || {}).forEach(kes);
+    Object.values(S.pakete || {}).forEach(p => kes(p.m));
+    return n;
+  }
+
   function kota(durum, t) {
     const S = durum.S, ret = (S.einst && S.einst.ret) || 0.85;
     const kap = (durum.kap || 36) * wRet(ret), b4 = gunBas4(t);
@@ -269,10 +279,10 @@
     // 17.10: Tuna birikmesiz 50+ cevapla günü bitiriyordu ve kota haftalarca 2'de kalacaktı (genç 95 > 1,6 × kap)
     let q, sebep;
     if (birikme > 2 * kap) { q = 2; sebep = 'birikme'; }
-    else if (genc > 1.6 * kap) { q = birikme > 0 ? 2 : Math.min(taban, 4); sebep = 'genç'; }
+    else if (genc > 1.6 * kap) { q = birikme > kap / 4 ? 2 : Math.min(taban, 4); sebep = 'genç'; }   // birkaç gecikmiş öğe (sabah) kotayı yarıya indirmez
     else if (genc > 1.1 * kap) { q = Math.min(taban, 4); sebep = 'genç'; }
     else { q = taban; sebep = 'normal'; }
-    if (durum.bonus && (genc < 2 * kap || birikme === 0)) q += Math.min(4, 2 * durum.bonus);   // bonus tur: birikme yoksa genç sayısına bakılmaz
+    if (durum.bonus && (genc < 2 * kap || birikme <= kap / 4)) q += Math.min(4, 2 * durum.bonus);   // bonus tur: birikme yoksa genç sayısına bakılmaz
     if (S.goc4 && S.goc4.zaman && !S.goc4.bos && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
     q = Math.max(2, q);
     let qUnite = q;
@@ -443,7 +453,7 @@
     if (bek) return kuyrukSec(bek);
     { const p = partiAc(); if (p) return p; }
     // "+3 yeni" teklifi: günde bir; birikme sıfırsa (tekrarlar günü gününe) günde üç kez
-    const teklifSay = +gs.ekYeniTeklif || 0, teklifHak = kota(durum, t).birikme === 0 ? 3 : 1;
+    const teklifSay = +gs.ekYeniTeklif || 0, teklifHak = kt.birikme <= kt.kap / 4 ? 3 : 1;   // sayaç kabulde artar (ekYeniAl)
     return { tur: 'bitti', kaynak: 'bitti', teklif: teklifSay < teklifHak ? '+3' : null };
   }
   // cevaptan sonra oturumu ilerlet: adım, geçmiş, art arda yanlış, yeniden sorma kuyruğu (§4.4)
@@ -501,7 +511,7 @@
     Object.keys(K).forEach(u => { const i = u.lastIndexOf(':'), id = u.slice(0, i); (kartlar[id] = kartlar[id] || []).push({ t: u.slice(i + 1), c: K[u] }); });
     const selbstSon = (id, c) => !!(c.selbst && kz[id] && c.last === kz[id]);
     const uretimHedef = (id, it) => C.kind(id) === 'v' || C.tierOf(id) <= 2 || it.quelle === 'unite' || !!it.a1;
-    const vade = h => { h.due = h.last + FSRS.intervalDays(h.S, ret) * DAY; return h; };
+    const vade = h => { h.due = h.last + Math.min(FSRS.intervalDays(h.S, ret), MAX_ARALIK) * DAY; return h; };
     const r = { oge: 0, m: 0, mProd: 0, mRek: 0, mRekIndirim: 0, mSelbst: 0, yarim: 0, art: 0, artSelbst: 0, kok: 0, kokS: 0, pak: 0, olu: 0 };
     if (!S.kartenV3 && Object.keys(K).length) S.kartenV3 = JSON.parse(JSON.stringify(K));   // dondurulmuş kopya (geri dönüş)
     Object.keys(items).forEach(id => {
@@ -791,7 +801,7 @@
     return r === Infinity ? null : r;
   }
 
-  const api = {
+  const api = { aralikKisalt, MAX_ARALIK,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, ARA,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,

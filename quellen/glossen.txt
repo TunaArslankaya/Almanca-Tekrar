@@ -4073,17 +4073,13 @@ In einer Umfrage haben viele Menschen ihre Meinung gesagt. | die Meinung = fikir
 Die Folge des Regens war ein Stau auf der Autobahn. | der Regen = yağmur; der Stau = trafik sıkışıklığı; die Autobahn = otoyol
 Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. | der Unterricht = ders; das Handy = cep telefonu; benutzen = kullanmak
 Der Chef verlängert den Vertrag um ein Jahr. | der Chef = patron; der Vertrag = sözleşme; das Jahr = yıl
-Ich treffe meinen Bruder heute Abend in der Stadt. | der Bruder = erkek kardeş; die Stadt = şehir
-Gestern habe ich zufällig meine alte Lehrerin getroffen. | zufällig = tesadüfen; die Lehrerin = (kadın) öğretmen
-Man kann nicht gleichzeitig essen und telefonieren. | telefonieren = telefonla konuşmak
-Die beiden Züge sind gleichzeitig angekommen. | der Zug = tren; ankommen = varmak
+Gestern habe ich zufällig meine alte Lehrerin getroffen. | zufällig = tesadüfen
+Die beiden Züge sind gleichzeitig angekommen. | ankommen = varmak
 Bei der Besprechung waren alle Kollegen anwesend. | die Besprechung = toplantı, görüşme; der Kollege = iş arkadaşı
-Der Lehrer fragt, wer heute nicht anwesend ist. | der Lehrer = öğretmen
-Das Hotel war sehr schön, allerdings auch ziemlich teuer. | ziemlich = epey; teuer = pahalı
+Das Hotel war sehr schön, allerdings auch ziemlich teuer. | ziemlich = epey
 Ich komme gern mit, allerdings erst nach der Arbeit. | mitkommen = birlikte gelmek; erst = ancak, daha
 Beide Kinder gehen in dieselbe Schule. | dieselbe = aynı
 Ich habe beide Bücher gelesen, aber das erste hat mir besser gefallen. | gefallen = hoşuna gitmek
-Mit kleinen Kindern braucht man viel Geduld. | brauchen = ihtiyacı olmak
 Unser Ziel ist es, bis zum Sommer B1 zu schaffen. | schaffen = başarmak; der Sommer = yaz
 Nach dem Vortrag gab es eine lange Diskussion über das Thema. | der Vortrag = sunum, konuşma; das Thema = konu
-Wegen des starken Regens ist das Spiel ausgefallen. | wegen + Gen = yüzünden; ausfallen = iptal olmak; das Spiel = maç, oyun
+Wegen des starken Regens ist das Spiel ausgefallen. | wegen + Gen = yüzünden; ausfallen = iptal olmak

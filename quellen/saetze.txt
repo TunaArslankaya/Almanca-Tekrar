@@ -1122,5 +1122,5 @@ v287 | Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu besteh
 v027 | Es kommt auf das Wetter an, ob wir morgen grillen. | Yarın mangal yapıp yapmayacağımız havaya bağlı.
 v571 | Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. | Okul, öğrencilerin derste cep telefonu kullanmasını yasaklıyor.
 v587 | Der Chef verlängert den Vertrag um ein Jahr. | Patron sözleşmeyi bir yıl uzatıyor.
-v527 | Ich treffe meinen Bruder heute Abend in der Stadt. | Bu akşam kardeşimle şehirde buluşuyorum.
-v527 | Gestern habe ich zufällig meine alte Lehrerin getroffen. | Dün eski öğretmenime tesadüfen rastladım.
+v527 | Ich treffe meinen Bruder heute Abend in der Stadt. | Bu akşam erkek kardeşimle şehir merkezinde buluşuyorum.
+v527 | Gestern habe ich zufällig meine alte Lehrerin getroffen. | Dün eski (kadın) öğretmenime tesadüfen rastladım.

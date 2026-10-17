@@ -245,6 +245,16 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(K.bicimSec({ a1: 1, m: h(1, 0.9) }, 1, { id: 'n4' }, () => 0.9, []).bicim, 'sec', 'A1 B1 yalnız sec');
 }
 
+// ---------- en uzun aralık ----------
+{
+  const u = K.guncelle({ S: 400, D: 5, last: T - 30 * DAY, reps: 9, lapses: 0, pk: 2 }, 3, T, 0.85, 0);
+  eq(Math.round((u.due - T) / DAY) <= K.MAX_ARALIK, true, 'aralık en çok MAX_ARALIK (60) gün');
+  const Sx = yeniS({ n1: { m: { S: 50, D: 5, last: T - 2 * DAY, due: T + 94 * DAY, reps: 2, lapses: 0 } }, n2: { m: { S: 10, D: 5, last: T - DAY, due: T + 15 * DAY, reps: 2, lapses: 0 } } });
+  eq(K.aralikKisalt(Sx, T), 1, 'aralikKisalt: yalnız uzun olan çekilir');
+  eq(Math.round((Sx.items.n1.m.due - T) / DAY), 58, 'aralikKisalt: due = last + 60 gün');
+  eq(K.aralikKisalt(Sx, T), 0, 'aralikKisalt idempotent');
+}
+
 // ---------- §5.2 kota ----------
 {
   const doldur = (n, f) => { const o = {}; for (let i = 0; i < n; i++) o['n' + (100 + i)] = f(i); return o; };
@@ -255,7 +265,9 @@ NT.forEach(([ad, girdi, bekl]) => {
   const q = (items, x) => K.kota(Object.assign({ S: yeniS(items), kap: 36 }, x || {}), T).q;
   eq(q(doldur(73, eskiVade)), 2, 'kota: birikme > 2·kap → 2');
   eq(q(doldur(58, genc)), 4, 'kota: genç > 1,6·kap, birikme yok → 4');
-  eq(q(Object.assign(doldur(59, genc), { x1: eskiVade() })), 2, 'kota: genç > 1,6·kap ve birikme var → 2');
+  const birikmeli = (n, k) => { const o = {}; for (let i = 0; i < k; i++) o['e' + i] = eskiVade(); return Object.assign(doldur(n, genc), o); };
+  eq(q(birikmeli(59, 3)), 4, 'kota: genç > 1,6·kap, birikme küçük (≤ kap/4) → 4');
+  eq(q(birikmeli(59, 10)), 2, 'kota: genç > 1,6·kap ve birikme > kap/4 → 2');
   eq(K.kota({ S: yeniS(doldur(58, genc)), kap: 36, bonus: 1 }, T).q, 6, 'kota: genç çok ama birikme yok → bonus tur +2');
   eq(q(doldur(40, genc)), 4, 'kota: genç > 1,1·kap → 4');
   eq(q(doldur(39, genc)), 6, 'kota: diğer → 6');
@@ -266,7 +278,7 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(q(doldur(33, genc)), 6, 'ret .85: 33 genç → 6');
   eq(q({}, { bonus: 1 }), 8, 'bonus tur +2');
   eq(q({}, { bonus: 3 }), 10, 'bonus en çok +4');
-  eq(q(Object.assign(doldur(73, genc), { x1: eskiVade() }), { bonus: 2 }), 2, 'bonus yok: genç ≥ 2·kap ve birikme var');
+  eq(q(birikmeli(73, 10), { bonus: 2 }), 2, 'bonus yok: genç ≥ 2·kap ve birikme > kap/4');
   eq(q(doldur(73, genc), { bonus: 2 }), 8, 'bonus: birikme yoksa genç çok olsa da +4');
   const Sg = yeniS({}, { goc4: { zaman: T - DAY } });
   eq(K.kota({ S: Sg, kap: 36 }, T).q, 2, 'göçten sonraki ilk 3 gün ≤ 2');

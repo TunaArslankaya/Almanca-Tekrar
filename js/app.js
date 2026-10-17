@@ -2356,7 +2356,7 @@
   // sırada soru yok: turda cevap varsa tur sonu ("şimdilik bu kadar" + günde bir "+3 yeni"), yoksa boş ekran
   function leerGoster(sel) {
     const m = session.modus, gs = gs4(), teklif = sel && sel.teklif && m === 'akis' ? sel.teklif : null;
-    if (teklif) gs.ekYeniTeklif = (+gs.ekYeniTeklif || 0) + 1;   // teklif sayısı (günde 1, birikme yoksa 3)
+
     if (session.tur && session.tur.n > 0) { turSonuRender('leer', teklif); return; }
     aktuell = { typ: 'leer', teklif };
     let msg;
@@ -2370,7 +2370,7 @@
     tastatur();
   }
   // +3 yeni (günde bir kez): kotayı aşabilir
-  function ekYeniAl() { const gs = gs4(); gs.ekYeni = (gs.ekYeni || 0) + 3; save(); const b = session.tur && session.tur.boyu; turBaslat(); session.tur.mod = session.modus; if (b) session.tur.boyu = b; zeige(); }
+  function ekYeniAl() { const gs = gs4(); gs.ekYeni = (gs.ekYeni || 0) + 3; gs.ekYeniTeklif = (+gs.ekYeniTeklif || 0) + 1; /* kabul sayısı: günde 1, birikme yoksa 3 */ save(); const b = session.tur && session.tur.boyu; turBaslat(); session.tur.mod = session.modus; if (b) session.tur.boyu = b; zeige(); }
 
   // ---------- yeni parti: tanıtım kartları art arda, sonra mini sorular (Kern.partiBasladi) ----------
   function partiKur(sel) {
@@ -2924,6 +2924,7 @@
     const bos = !Object.keys(S.items).length && !Object.keys(S.karten).length;
     if (!bos) {
       const r = Kern.goc(S, now(), S.einst.ret);
+      Kern.aralikKisalt(S, now());   // 60 günden uzun aralık kalmasın
       if (ilk && S.goc4) {
         logEintrag({ modus: 'akt', id: 'goc4', item: 'v5 göçü', frage: '', antwort: '', ergebnis: 'gelesen', loesung: '',
           notiz: `öğe:${r.oge} | m:${r.m} | yarım:${r.yarim} | art:${r.art} | kök:${r.kok} | vadeli:${r.vadeli} | ret:${r.ret}` });

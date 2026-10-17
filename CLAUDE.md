@@ -75,6 +75,7 @@
   yeni kelimenin mini sorusu ve ≥ 4 soru sonra ikinci hatırlaması `yaz0`, yazılmaz) 2) yeni parti (turda bir, adım 3 – boy−7; tanıtım kartları art arda, `frageTanit`; tier-1 / uluslararası adaylara yoklama `frageYoklama`)
   3) metin etkinliği (turda bir, adım ≥ 8; gerçek paragrafta 2–4 boşluk, her boşluk bir cevap; günde bir dikte) 4) kurtarma (adım ≥ 6, R'si en düşük) 5) ısınma (ilk 3) / momentum: R'si en yüksek, bir basamak aşağı
   6) vadeliler R azalan (aynı öğe ≥ 8 soru arayla; artikel flaşı turda ≤ 3; kök turda 1, günde 4, yeni kök günde 2) 7) vadeli yoksa parti, yoksa "şimdilik bu kadar" + günde bir "+3 yeni".
+  En uzun tekrar aralığı 60 gün (`Kern.MAX_ARALIK`; açılışta `aralikKisalt` eski uzun vadeleri çeker; %85 hedefte FSRS aralığı ≈ 1,9 × S olduğundan 94 güne çıkıyordu).
   Merdiven (`Kern.basamak`): S < 2 seç, < 7 yaz, < 21 cümlede boşluk, üstü tam cümle; erken üretim kapısı pk 0 → ≤ B2 ve aralık ≤ 7 g, pk 1 → ≤ B3 ve ≤ 14 g; tier-3 isim / diğer (ünite dışı) ≤ B3; A1 anlam sorulmaz.
   Not (`Kern.notVer`): doğru 3 (biçim ofseti: seçmeli büyüme az), yazım / mastar eki / yavaş 3 (+0,7), umlaut / hâl / çekim 2, edat / sich / yanlış 1; isimde anlam ve artikel ayrı (kelime ✓ artikel ✗ = m3 a1).
   Yazım hoşgörüsü (`G.pruefen(…, {lemma:true})`): ae/oe/ue/ss tam doğru; lemma ≥ 5 harf + lev 1, ≥ 10 harf + lev ≤ 2 ve yazılan sözlükte başka kelime değilse (liegen/legen, Stadt/Staat ayrışır).
