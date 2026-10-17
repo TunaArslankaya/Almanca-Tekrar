@@ -1921,3 +1921,18 @@
 2026-10-17 12:57:10;art;n0244:art;die Diskussion;Diskussion;der;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.1 | artikel der → die | sek:2
 2026-10-17 12:57:10;leech;n0244;die Diskussion;tartışma;;takiliyor;;günler:2026-10-15,2026-10-16,2026-10-17
 2026-10-17 12:57:13;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:m3 | R:0.81 | S:0.3 | sek:3
+2026-10-17 12:57:17;bed;v272:bed;frieren;An winzigen Schneekristallen frieren immer mehr Wassertröpfchen fest.;üşümek;richtig;üşümek;basamak:B1 | bicim:metinde | not:m3 | R:0.69 | S:1.7 | sek:4
+2026-10-17 12:57:17;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:63 | dk:1 | yeni:0 | seviye+:5 | tekrar:12
+2026-10-17 12:57:25;erk;n1044:erk;der Schmerz;ağrı;der Schmerz;richtig;der Schmerz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.69 | S:0.8 | ısınma | sek:3
+2026-10-17 12:57:28;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:m3 | R:0.69 | S:0.8 | ısınma | sek:3
+2026-10-17 12:57:36;bed;v184:bed;sich einigen auf;sich einigen auf;anlaşmak, uzlaşmak;richtig;(bir şeyde) anlaşmak, uzlaşmak;basamak:B1 | bicim:anla | not:m3 | R:0.68 | S:0.9 | ısınma | sek:7
+2026-10-17 12:57:40;art;n0433:art;die Geduld;Geduld;der;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.74 | S:0.0 | artikel der → die | sek:3
+2026-10-17 12:57:49;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebrachen;falsch;gebracht;basamak:K | bicim:kokSatz | not:k1 | R:0.82 | S:0.1 | kök:bringen | Partizip: gebracht | sek:9
+2026-10-17 12:57:53;erk;n0948:erk;die Quittung;makbuz, fiş;die Quittung;richtig;die Quittung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.67 | S:0.4 | sek:3
+2026-10-17 12:57:57;art;n1422:art;das Ziel;Ziel;der;falsch;das Ziel;basamak:A | bicim:artikel | not:a1 | R:0.69 | S:0.1 | artikel der → das | sek:3
+2026-10-17 12:58:02;erk;n1094:erk;das Sonderangebot;özel indirim;der Sonderangebot;fast;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a1 | R:0.67 | S:0.4 | artikel der → das | sek:3
+2026-10-17 12:58:08;bed;v466:bed;schweigen;susmak;schweigen;richtig;schweigen;basamak:B1 | bicim:sec | not:m3 | R:0.66 | S:0.3 | sek:5
+2026-10-17 12:58:11;art;n1379:art;der Wind;Wind;der;richtig;der Wind;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:3.8 | sek:1
+2026-10-17 12:58:14;bed;v177:bed;sich eignen für;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:sec | not:m3 | R:0.65 | S:0.2 | sek:3
+2026-10-17 12:58:19;erk;n0972:erk;die Regel;kural;die Regel;richtig;die Regel;basamak:B1 | bicim:sec | not:m3,a3 | R:0.65 | S:0.4 | sek:4
+2026-10-17 12:58:19;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:48 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
