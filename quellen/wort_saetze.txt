@@ -2658,3 +2658,8 @@ n0947 | die Qualität | Das Brot hier hat eine sehr gute Qualität. | Buradaki e
 n0532 | die Herkunft | Die Herkunft der Zutaten ist auf der Verpackung angegeben. | Malzemelerin menşei ambalajın üzerinde yazıyor.
 n1003 | der Roman | Ich lese gerade einen spannenden Roman. | Şu an heyecanlı bir roman okuyorum.
 n1369 | das Werk | Dieses Werk ist weltweit bekannt. | Bu eser dünya çapında tanınıyor.
+n0381 | die Forderung | Die Schülerinnen unterstützen die Forderung nach einer neuen Schuluniform. | Öğrenciler yeni bir okul üniforması talebini destekliyor.
+n1286 | die Unterschrift | Für die Petition brauchen wir viele Unterschriften. | Dilekçe için çok sayıda imzaya ihtiyacımız var.
+n1058 | die Schuld | Es war nicht meine Schuld, dass der Bus zu spät kam. | Otobüsün geç gelmesi benim suçum değildi.
+n1268 | die Umfrage | In einer Umfrage haben viele Menschen ihre Meinung gesagt. | Bir ankette birçok kişi fikrini söyledi.
+n0380 | die Folge | Die Folge des Regens war ein Stau auf der Autobahn. | Yağmurun sonucu otoyolda trafik oldu.

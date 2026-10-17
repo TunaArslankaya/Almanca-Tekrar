@@ -1120,3 +1120,5 @@ v169 | Es donnert schon, wir sollten schnell nach Hause gehen. | Gök gürlemeye
 v149 | Draußen blitzt es, bleib lieber im Haus. | Dışarıda şimşek çakıyor, evde kalsan daha iyi.
 v287 | Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu bestehen. | Çok denemeden sonra sonunda sınavı geçmeyi başardı.
 v027 | Es kommt auf das Wetter an, ob wir morgen grillen. | Yarın mangal yapıp yapmayacağımız havaya bağlı.
+v571 | Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. | Okul, öğrencilerin derste cep telefonu kullanmasını yasaklıyor.
+v587 | Der Chef verlängert den Vertrag um ein Jahr. | Patron sözleşmeyi bir yıl uzatıyor.

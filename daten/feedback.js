@@ -214,4 +214,8 @@ window.FEEDBACK = [
   { zeit: '2026-10-15 16:08', id: 'p04:5', antwort: 'Präsentation', richtig: 'das Referat', urteil: 'falsch', text: 'Präsentation → das Referat (sunum/ödev konuşması): metinde Referat geçiyor.' },
   { zeit: '2026-10-15 16:08', id: 'p04:7', antwort: 'Komilitone', richtig: 'der Kommilitone', urteil: 'falsch', text: 'Komilitone → Kommilitone (iki m); n-Deklination: metinde Kommilitonen.' },
   { zeit: '2026-10-15 16:08', id: 'p04:8', antwort: 'Melsa', richtig: 'die Mensa', urteil: 'fast', text: 'Melsa → die Mensa (üniversite yemekhanesi): Men-sa, l yok.' },
+  { zeit: '2026-10-16 22:47', id: 'diktat:v620', antwort: 'Wegen der Kälter verzichten wir auf den Ausflug', richtig: 'Wegen der Kälte verzichten wir auf den Ausflug.', urteil: 'fast', text: 'Kälter → die Kälte: wegen + Genitiv, die Kälte (soğuk) dişil, sonda -r yok.' },
+  { zeit: '2026-10-16 22:48', id: 'v148:stamm', antwort: 'geliebt', richtig: 'geblieben', urteil: 'falsch', text: 'bleiben → ist geblieben (düzensiz, -en biter, ge- + blieb + -en). geliebt = lieben fiilinin Partizip\'i, karıştırma.' },
+  { zeit: '2026-10-16 22:49', id: 'v157:stamm', antwort: 'gebrachen', richtig: 'gebracht', urteil: 'falsch', text: 'bringen → hat gebracht (karışık fiil: -t biter ama kök değişir, brach- değil bracht).' },
+  { zeit: '2026-10-16 22:51', id: 'v069:stamm', antwort: 'ausgefühlt', richtig: 'ausgefüllt', urteil: 'fast', text: 'ausgefühlt → ausgefüllt: füllen (doldurmak), "ü + ll", "ühl" değil; Partizip: aus-ge-füll-t.' },
 ];

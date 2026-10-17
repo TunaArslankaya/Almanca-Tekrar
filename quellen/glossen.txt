@@ -4066,3 +4066,10 @@ Ich lese gerade einen spannenden Roman. | spannend = heyecanlı; gerade = şu an
 Dieses Werk ist weltweit bekannt. | weltweit = dünya çapında; bekannt = tanınmış
 Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu bestehen. | der Versuch = deneme; endlich = sonunda; bestehen = geçmek
 Es kommt auf das Wetter an, ob wir morgen grillen. | grillen = mangal yapmak; ob = -ip -mediği
+Die Schülerinnen unterstützen die Forderung nach einer neuen Schuluniform. | unterstützen = desteklemek; die Schuluniform = okul üniforması; neu = yeni
+Für die Petition brauchen wir viele Unterschriften. | die Petition = dilekçe, imza kampanyası; brauchen = ihtiyaç duymak
+Es war nicht meine Schuld, dass der Bus zu spät kam. | der Bus = otobüs; zu spät = çok geç
+In einer Umfrage haben viele Menschen ihre Meinung gesagt. | die Meinung = fikir; sagen = söylemek
+Die Folge des Regens war ein Stau auf der Autobahn. | der Regen = yağmur; der Stau = trafik sıkışıklığı; die Autobahn = otoyol
+Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. | der Unterricht = ders; das Handy = cep telefonu; benutzen = kullanmak
+Der Chef verlängert den Vertrag um ein Jahr. | der Chef = patron; der Vertrag = sözleşme; das Jahr = yıl

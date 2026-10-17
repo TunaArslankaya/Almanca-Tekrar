@@ -244,3 +244,8 @@ Test ölçütleri gerçek veriye göre düzeltildi: simülasyonda "3 gün üst �
 - `die Erlaubnis` için kanca eklendi (Praxis'in vardı).
 - DW "Autorin: KI" sözlüğünden Goethe listesinde olanlar: Werk, gelingen, ankommen auf (+ metindeki Vorwurf, Zweifel, Qualität, Herkunft, Roman): 8 çeviri cümlesi + gloss.
 Son incelenen log satırı: 2026-10-15 16:20:20 (tur akis).
+
+**2026-10-17 (gece işi, otomatik)**
+- 16.10 22:46–22:51 oturumu: 5 tur (~60 cevap). Seçmeli/artikel yanlışları: schneien (frieren/scheinen ile karıştı, 3. denemede doğru), Artikel: Preis (die→der), Kunst (der→die), Rezept (die→das, leech: 3 ayrı gün), Geduld (das→die), Diskussion (der→die), Luft (der→die). Kök: bleiben (geliebt), bringen (gebrachen), ausfüllen (ausgefühlt). Dikte: Kälter→Kälte. Yoklamada bilinip sonra yazmada yanlış olan yok; itiraz (`öneri:`) yok.
+- 4 düzeltme `feedback.js`'e, Rezept için kanca. DW "Schuluniform" metninden (Forderung, Unterschrift, Schuld, Umfrage, Folge, verbieten, verlängern): 7 çeviri cümlesi + gloss.
+Son incelenen log satırı: 2026-10-16 22:51:20 (tur akis).
