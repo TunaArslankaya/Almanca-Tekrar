@@ -1945,3 +1945,16 @@
 2026-10-17 13:00:19;art;n0973:art;der Regen;Regen;die;falsch;der Regen;basamak:A | bicim:artikel | not:a1 | R:0.57 | S:0.1 | artikel die → der | sek:2
 2026-10-17 13:00:19;leech;n0973;der Regen;yağmur;;takiliyor;;günler:2026-10-02,2026-10-04,2026-10-17
 2026-10-17 13:00:19;tur;akis;Çalış;;;leer;;cevap:7 | doğru:6 | küçük:0 | yanlış:1 | puan:41 | dk:1 | yeni:0 | seviye+:0 | tekrar:7
+2026-10-17 13:00:50;stamm;v173:stamm;dürfen;dürfen — Präteritum;durfte;richtig;durfte;basamak:K | bicim:kokSatz | not:k3 | R:0.59 | S:2.5 | kök:dürfen | sek:5
+2026-10-17 13:00:56;yeni;w0026;anwesend;tanıtım;;neu;orada bulunan, hazır;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-10-17 13:00:58;yeni;w0011;allerdings;tanıtım;;neu;ancak, gerçi;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-17 13:00:59;yeni;w0051;beide;tanıtım;;neu;her ikisi;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-17 13:01:05;erk;w0026:erk;anwesend;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-17 13:01:07;erk;w0051:erk;beide;her ikisi;beide;richtig;beide;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-17 13:01:11;erk;w0011:erk;allerdings;ancak, gerçi;allerdings;richtig;allerdings;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-17 13:01:18;prod;w0026:prod;anwesend;orada bulunan, hazır;anwiesig;falsch;anwesend;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | ek | sek:6 | ipucu:0
+2026-10-17 13:01:21;prod;w0051:prod;beide;her ikisi;beide;richtig;beide;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-17 13:01:26;prod;w0011:prod;allerdings;ancak, gerçi;anwiesend;falsch;allerdings;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | farklı | sek:4 | ipucu:0
+2026-10-17 13:01:31;erk;w0026:erk;anwesend;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-17 13:01:46;erk;w0011:erk;allerdings;Allerdings war das eine teure Sache, zumindest, wenn der Empfänger weit weg wohnte.;ancak, gerçi;richtig;ancak, gerçi;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:14
+2026-10-17 13:01:46;tur;akis;Çalış;;;leer;;cevap:9 | doğru:7 | küçük:0 | yanlış:2 | puan:54 | dk:1 | yeni:3 | seviye+:0 | tekrar:3
