@@ -1894,3 +1894,30 @@
 2026-10-16 22:51:16;stamm;v069:stamm;ausfüllen;Ich habe den Fragebogen schon _____.;ausgefühlt;fast;ausgefüllt;basamak:K | bicim:kokSatz | not:k2 | R:0.72 | S:8.4 | kök:füllen | Partizip: ausgefüllt | sek:11
 2026-10-16 22:51:20;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.2 | tekrar:2 | hafıza:yazılmadı | sek:4
 2026-10-16 22:51:20;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:1 | yanlış:4 | puan:48 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-17 12:55:02;bed;v173:bed;dürfen;-ebilmek (izinli olmak);dürfen;richtig;dürfen;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:3.0 | ısınma | sek:2
+2026-10-17 12:55:05;bed;v534:bed;tun;tun;yapmak;richtig;yapmak;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:4.2 | ısınma | kapı:7g | sek:2
+2026-10-17 12:55:08;bed;v262:bed;folgen;Sie folgen Verschwörungsideologien, haben wenig Vertrauen in den Staat und verachten die westlich-liberale Gesellschaft.;takip etmek;richtig;(birini) takip etmek;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:14.5 | ısınma | kapı:7g | sek:3
+2026-10-17 12:55:13;yeni;v527;treffen;tanıtım;;neu;(biriyle) buluşmak, karşılaşmak;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:5
+2026-10-17 12:55:19;yeni;w0213;gleichzeitig;tanıtım;;neu;aynı anda;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-10-17 12:55:21;erk;w0213:erk;gleichzeitig;aynı anda;gleichzeitig;richtig;gleichzeitig;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-17 12:55:25;bed;v527:bed;treffen;(biriyle) buluşmak, karşılaşmak;treffen;richtig;treffen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-17 12:55:28;art;n0746:art;die Luft;Luft;die;richtig;die Luft;basamak:A | bicim:artikel | not:a3 | R:0.94 | S:1.7 | sek:2
+2026-10-17 12:55:31;bed;v590:bed;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:sec | not:m3 | R:0.60 | S:0.2 | kurtarma | sek:3
+2026-10-17 12:55:38;prod;w0213:prod;gleichzeitig;aynı anda;gleichzeitig;richtig;gleichzeitig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-10-17 12:55:41;abr;v527:abr;treffen;(biriyle) buluşmak, karşılaşmak;treffen;richtig;treffen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-17 12:56:18;akt;diktat:v169;dinle–yaz;Es donnert schon, wir sollten schnell nach Hause gehen.;Es donnert schon wir sollen schnell nach Hause gehen.;fast;Es donnert schon, wir sollten schnell nach Hause gehen.;yazım: Es donnert schon, wir sollten schnell nach Hause gehen.
+2026-10-17 12:56:25;art;n0361:art;das Fieber;Fieber;das;richtig;das Fieber;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:8.8 | sek:2
+2026-10-17 12:56:31;erk;x1504:erk;die Behauptung;iddia;die Behauptung;richtig;die Behauptung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:2.5 | sek:5
+2026-10-17 12:56:31;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:1 | yanlış:0 | puan:71 | dk:2 | yeni:2 | seviye+:4 | tekrar:7
+2026-10-17 12:56:37;erk;x1501:erk;die Clique;klik, arkadaş grubu;die Clique;richtig;die Clique;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:8.1 | ısınma | kapı:7g | sek:2
+2026-10-17 12:56:42;erk;n0381:erk;die Forderung;talep;die Forderung;richtig;die Forderung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:8.1 | ısınma | kapı:7g | sek:3
+2026-10-17 12:56:45;bed;v429:bed;regnen;In manchen warmen Ländern regnet es so lange, dass man von der Regenzeit spricht.;yağmur yağmak;richtig;yağmur yağmak;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:10.2 | ısınma | sek:2
+2026-10-17 12:56:47;art;n0691:art;die Kunst;Kunst;der;falsch;die Kunst;basamak:A | bicim:artikel | not:a1 | R:0.81 | S:0.1 | artikel der → die | sek:1
+2026-10-17 12:56:54;stamm;v148:stamm;bleiben;bleiben — Perfekt;geblieben;richtig;geblieben;basamak:K | bicim:kokSatz | not:k3 | R:0.85 | S:0.7 | kök:bleiben | sek:7
+2026-10-17 12:56:58;prod;w0290:prod;kühl;serin;kühl;richtig;kühl;basamak:B2 | bicim:yaz | not:m3 | R:0.84 | S:19.1 | kapı:14g | sek:3 | ipucu:2
+2026-10-17 12:57:00;art;n0994:art;das Rezept;Rezept;der;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.79 | S:0.1 | artikel der → das | sek:2
+2026-10-17 12:57:04;erk;w0171:erk;folgend;aşağıdaki, sonraki;folgend;richtig;folgend;basamak:B1 | bicim:sec | not:m3 | R:0.84 | S:1.5 | sek:2
+2026-10-17 12:57:08;bed;v642:bed;sich wenden an;sich wenden an;başvurmak;richtig;(birine) başvurmak;basamak:B1 | bicim:anla | not:m3 | R:0.82 | S:2.1 | sek:3
+2026-10-17 12:57:10;art;n0244:art;die Diskussion;Diskussion;der;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.1 | artikel der → die | sek:2
+2026-10-17 12:57:10;leech;n0244;die Diskussion;tartışma;;takiliyor;;günler:2026-10-15,2026-10-16,2026-10-17
+2026-10-17 12:57:13;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:m3 | R:0.81 | S:0.3 | sek:3
