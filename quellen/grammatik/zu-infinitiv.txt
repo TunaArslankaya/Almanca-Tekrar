@@ -8,7 +8,7 @@
 @stufe A2–B1
 @kapitel B1 K1–5 ?
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
-@voraus v2-satzbau, trennbar
+@voraus verbstellung, trennbar
 @kontrast damit-um-zu, lassen-brauchen
 @etiket kelime sırası
 @kurz Bazı fiil, isim ve sıfatlardan sonra zu + mastar en sonda: Ich versuche, Deutsch zu sprechen. Ayrılabilen fiilde zu ortada: anzurufen. Modal fiil, werden, lassen, gehen'den sonra zu YOK.
@@ -118,12 +118,12 @@ ceviri | 3 | Beni istasyondan almayı unutma! | Vergiss nicht, mich vom Bahnhof 
 text | 3 | Liebe Mitbewohner, bitte vergesst nicht, den Müll ___ (rausbringen)! Es wäre schön, abends die Musik etwas leiser ___ (machen). Und wer hat Lust, am Freitag mit mir ___ (einkaufen)? | rauszubringen ; zu machen ; einzukaufen | | Sevgili ev arkadaşlarım, lütfen çöpü çıkarmayı unutmayın! Akşamları müziği biraz kısarsanız çok iyi olur. Cuma günü benimle alışverişe gitmek isteyen var mı? | Ayrılabilen fiilde zu ortada: raus-zu-bringen, ein-zu-kaufen; leiser machen'de zu mastarın önünde. | vergessen; der Müll; die Musik; einkaufen; die Lust
 dinle | 2 | Ich habe vergessen, das Fenster zuzumachen. | Ich habe vergessen, das Fenster zuzumachen. | | Pencereyi kapatmayı unuttum. | zumachen ayrılabilen: zu + zu + machen → zuzumachen (iki kez zu). | vergessen; das Fenster; zumachen
 eslestir | 1 | anrufen ;; aufstehen ;; besuchen ;; sich anmelden | anzurufen ;; aufzustehen ;; zu besuchen ;; sich anzumelden | | - | Ayrılabilen fiilde zu ortada (anzurufen); ayrılamayan fiilde önde (zu besuchen). | anrufen; aufstehen; besuchen; sich anmelden
-fehler | 2 | Hast du Lust, mit uns zu mitkommen? | Hast du Lust mitzukommen? / Hast du Lust, mit uns mitzukommen? / Hast du Lust, mit uns zu kommen? / Hast du Lust, mit uns mitzukommen | zu mitkommen | Bizimle gelmek ister misin? | mitkommen ayrılabilen: zu ön ekle kök arasına girer, mitzukommen. | die Lust
+fehler | 2 | Hast du Lust, mit uns zu mitkommen? | Hast du Lust, mit uns mitzukommen? / Hast du Lust, mit uns zu kommen? | zu mitkommen | Bizimle gelmek ister misin? | mitkommen ayrılabilen: zu ön ekle kök arasına girer, mitzukommen. | die Lust
 luecke | 2 | Es ist wichtig, die Hausaufgaben pünktlich ___. (abgeben) | abzugeben | | Ödevleri zamanında teslim etmek önemli. | abgeben ayrılabilen: ab-zu-geben, bitişik ve en sonda. | wichtig; die Hausaufgabe; pünktlich; abgeben
 
 @teil kontrast
 kategori | 1 | zu oder kein zu? | zu + Infinitiv: Ich versuche …, Ich habe Lust …, Es ist wichtig …, Ich habe vor … ;; nur Infinitiv: Ich kann …, Ich möchte …, Ich gehe …, Ich lasse … | | Arkasından zu + mastar mı, yalın mastar mı gelir? | versuchen, Lust haben, es ist wichtig, vorhaben → zu. Modal fiiller, gehen ve lassen → zu yok. |
-kategori | 2 | Was ist möglich? | zu + Infinitiv möglich: ich hoffe + ich bestehe, sie verspricht + sie kommt pünktlich, wir beschließen + wir ziehen um ;; nur dass-Satz: ich hoffe + du bestehst, sie sagt + der Kurs fällt aus, wir glauben + es regnet | | Hangisinde zu + mastar kurulabilir, hangisinde yalnız dass? | Özne aynıysa zu + mastar kurulabilir (Ich hoffe, zu bestehen); özne farklıysa yalnız dass (Ich hoffe, dass du bestehst). sagen ve glauben farklı özneyle hep dass ister. |
+kategori | 2 | Was ist möglich? | zu + Infinitiv möglich: ich hoffe + ich bestehe, sie verspricht + sie kommt pünktlich, wir beschließen + wir ziehen um ;; nur dass-Satz: ich hoffe + du bestehst, sie sagt + der Kurs fällt aus, wir glauben + es regnet | | Hangisinde zu + mastar kurulabilir, hangisinde yalnız dass? | Özne aynıysa zu + mastar kurulabilir (Ich hoffe, die Prüfung zu bestehen); özne farklıysa yalnız dass (Ich hoffe, dass du bestehst). sagen ve glauben farklı özneyle hep dass ister. |
 eslestir | 2 | Ich muss ;; Ich habe keine Lust, ;; Ich hoffe, dass | morgen arbeiten. ;; morgen zu arbeiten. ;; du morgen Zeit hast. | | - | Modal fiilden sonra zu yok; Lust haben → zu + mastar; dass → özne + çekimli fiil sonda. | müssen; die Lust; arbeiten
 ceviri | 3 | Annem bugün eve gelmemi istiyor. | Meine Mutter möchte, dass ich heute nach Hause komme. / Meine Mutter will, dass ich heute nach Hause komme. / Meine Mutter möchte, dass ich heute heimkomme. / Meine Mutter will, dass ich heute heimkomme. | | - | wollen / möchten'den sonra özne farklıysa dass gelir; zu + mastar olmaz (✗ Meine Mutter möchte mich, nach Hause zu kommen). | die Mutter; kommen
 fehler | 2 | Am Samstag gehen wir zusammen zu schwimmen. | Am Samstag gehen wir zusammen schwimmen. | zu | Cumartesi birlikte yüzmeye gidiyoruz. | gehen + mastar: zu yok (Türkçedeki "-meye" zu'ya çevrilmez). | schwimmen
