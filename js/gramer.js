@@ -111,11 +111,16 @@
     const u = norm(giris);
     for (const h of hedefler) { if (low1(u) === low1(norm(h))) return 'richtig'; }
     for (const h of hedefler) { if (fold(u) === fold(norm(h))) return 'fast'; }
+    // kaynaşmış edat (im / in dem, zum / zu dem …): listede yoksa küçük hata (dilbilgisel olarak doğru, yalnız biçim)
+    for (const h of hedefler) { if (kaynasAc(fold(u)) === kaynasAc(fold(norm(h)))) return 'fast'; }
     return 'falsch';
   }
+  const KAYNAS = { im: 'in dem', ins: 'in das', am: 'an dem', ans: 'an das', zum: 'zu dem', zur: 'zu der', beim: 'bei dem', vom: 'von dem', aufs: 'auf das', ubers: 'uber das', durchs: 'durch das', furs: 'fur das' };
+  const kaynasAc = s => s.replace(/\b(im|ins|am|ans|zum|zur|beim|vom|aufs|ubers|durchs|furs)\b/g, m => KAYNAS[m]);
   const Gx = () => (api && api.G) || root.G;
   function cumlePruef(giris, alts) {
     const r = Gx().pruefen(giris, alts[0], alts.slice(1));
+    if (r.urteil === 'falsch' && alts.some(a => kaynasAc(fold(norm(a))) === kaynasAc(fold(norm(giris))))) return { urteil: 'fast', tags: ['kaynaştırma'], diff: r.diff };
     return { urteil: r.urteil, tags: r.tags || [], diff: r.diff };
   }
   function lev(a, b) {

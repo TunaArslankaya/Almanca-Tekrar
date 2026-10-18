@@ -570,5 +570,97 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   ok(e48 !== null && (e36 === null || e48 <= e36), 'tahmin: aynı eşikte 48 cevap ≤ 36 cevap', { e36, e48 });
 }
 
+// ---------- akşam tekrarı: aday kuralı, kart koşulu, hafıza istisnası, seçim ----------
+{
+  const sabah = new Date(2026, 9, 15, 8, 0).getTime(), aksam = new Date(2026, 9, 15, 18, 30).getTime(), g = K.gun4(sabah);
+  const yazNot = (tip, art) => K.notVer({ bicim: 'yaz', tip, artikel: art ? { sinandi: true, dogru: art === 'ok' } : undefined });
+  // durum: n1 bugün tanıtıldı + mini doğru; n3 bugün yanlış (eski öğe); n4 bugün doğru, oturmuş; n5 R < 0,9 (vadesi gelmemiş);
+  // v1 bugün doğru ama log'da sonradan fast; w1 eski oturmuş (bugün görülmedi, R yüksek)
+  const kur = () => {
+    const S = yeniS({
+      n1: { seit: sabah, tanit: sabah, yeni4: g }, n3: { m: h(10, 0.86, { pk: 2 }), art: h(10, 0.9) }, n4: { m: h(30, 0.86, { pk: 2 }), art: h(30, 0.9) },
+      n5: { m: Object.assign(h(3, 0.85, { pk: 1 }), { due: aksam + DAY }) }, v1: { m: h(20, 0.86, { pk: 2 }) }, w1: { m: Object.assign(h(40, 0.99), { due: aksam + 30 * DAY }) },
+    });
+    K.uygula(S, 'n1', K.notVer({ bicim: 'sec', tip: 'dogru', sure: 2000, artikel: { sinandi: true, dogru: true } }), sabah + 60000);
+    K.uygula(S, 'n3', yazNot('yanlis'), sabah + 120000);
+    K.uygula(S, 'n4', yazNot('dogru', 'ok'), sabah + 180000);
+    K.uygula(S, 'v1', K.notVer({ bicim: 'yaz', tip: 'dogru' }), sabah + 240000);
+    return S;
+  };
+  const S = kur();
+  eq(K.ilkCevap(S, aksam), sabah, 'akşam: ilk cevap = sabahki ilk tanıtım / yazım');
+  const ad = K.aksamAdaylar(S, aksam, { yanlis: ['v1'] });
+  const ids = ad.map(x => x.id);
+  eq(ids.slice(0, 1).join(), 'n1', 'akşam adayı 1: bugün tanıtılan önce');
+  ok(ids.includes('n3') && ad.find(x => x.id === 'n3').neden === 'yanlis', 'akşam adayı: bugün yanlış (hafıza lastG 1)', ad);
+  ok(ids.includes('v1') && ad.find(x => x.id === 'v1').neden === 'yanlis', 'akşam adayı: log\'da fast/yanlış (opts.yanlis)', ad);
+  ok(ids.includes('n5') && ad.find(x => x.id === 'n5').neden === 'dusukR', 'akşam adayı: R < 0,9 vadesiz', ad);
+  ok(!ids.includes('n4'), 'akşam: bugün doğru bilinen oturmuş öğe girmez', ad);
+  ok(!ids.includes('w1'), 'akşam: R ≥ 0,9 eski öğe girmez', ad);
+  ok(ids.indexOf('n3') < ids.indexOf('n5'), 'akşam: yanlış, düşük R\'den önce', ids);
+  ok(!K.aksamAdaylar(S, aksam, { yanlis: ['v1'], haric: ['n1'] }).some(x => x.id === 'n1'), 'akşam: bu akşam sorulan hariç');
+  const cok = {}; for (let i = 0; i < 30; i++) cok['n' + (700 + i)] = { tanit: sabah, yeni4: g };
+  eq(K.aksamAdaylar(yeniS(cok), aksam).length, 15, 'akşam: en çok 15 aday');
+  // kart koşulu
+  ok(K.aksamUygun(sabah, aksam, 4), 'koşul: 08:00 ilk cevap, 18:30, 4 aday → kart');
+  ok(!K.aksamUygun(sabah, new Date(2026, 9, 15, 15, 59).getTime(), 4), 'koşul: 8 saat dolmadı → yok');
+  ok(!K.aksamUygun(sabah, new Date(2026, 9, 15, 10, 0).getTime(), 4), 'koşul: sabah 10:00 → yok');
+  ok(!K.aksamUygun(sabah, aksam, 2), 'koşul: aday < 3 → yok');
+  ok(!K.aksamUygun(new Date(2026, 9, 15, 13, 5).getTime(), new Date(2026, 9, 15, 23, 0).getTime(), 5), 'koşul: ilk cevap 13:00\'ten sonra → yok');
+  ok(!K.aksamUygun(new Date(2026, 9, 14, 8, 0).getTime(), aksam, 5), 'koşul: ilk cevap dünün → yok');
+  ok(K.aksamUygun(new Date(2026, 9, 15, 12, 59).getTime(), new Date(2026, 9, 16, 1, 0).getTime(), 3), 'koşul: gece 01:00 hâlâ aynı öğrenme günü');
+  eq(K.ilkCevap(yeniS({ n1: { m: h(5, 0.9) } }), aksam), null, 'ilkCevap: bugün cevap yok → null');
+  // hafıza istisnası
+  {
+    const S = kur(), m0 = Object.assign({}, S.items.n1.m), a0 = Object.assign({}, S.items.n1.art);
+    const r0 = K.uygula(S, 'n1', yazNot('dogru', 'ok'), aksam);
+    ok(!r0.yazildi, 'akşam seçeneği olmadan: günde tek yazım (yeni öğe de yazılmaz)');
+    const r = K.uygula(S, 'n1', yazNot('dogru', 'ok'), aksam, { aksam: true });
+    ok(r.yazildi && r.aksam && r.m.yazildi && r.m.aksam, 'akşam: bugün tanıtılan öğe yazılır', r);
+    ok(S.items.n1.m.S > m0.S && S.items.n1.m.last === aksam && S.items.n1.m.reps === m0.reps + 1, 'akşam: m güncellendi', S.items.n1.m);
+    ok(S.items.n1.art.last === aksam, 'akşam: art da güncellendi');
+    ok(S.items.n1.m.due <= K.ertesiGun4(aksam) && S.items.n1.art.due <= K.ertesiGun4(aksam), 'akşam: vade en geç yarın 04:00');
+    eq(S.items.n1.m.aksam, g, 'akşam: işaret (aksam = gün)');
+    const r2 = K.uygula(S, 'n1', yazNot('yanlis'), aksam + 10 * 60000, { aksam: true });
+    ok(!r2.yazildi, 'akşam: aynı akşam ikinci cevap yazılmaz', r2);
+    eq(K.ilkCevap(S, aksam), sabah, 'ilkCevap: akşam yazımı ilk cevabı değiştirmez');
+    // bugün yanlış (hafıza lastG 1): yazılır, vade yarın 04:00
+    const rn3 = K.uygula(S, 'n3', yazNot('dogru', 'ok'), aksam, { aksam: true });
+    ok(rn3.m.yazildi && rn3.aksam, 'akşam: bugün yanlış öğe yazılır', rn3);
+    ok(S.items.n3.m.due <= K.ertesiGun4(aksam), 'akşam: yanlış öğenin vadesi en geç yarın 04:00');
+    ok(rn3.a.yazildi, 'akşam: art da (bugün yazılmıştı) bir kez daha yazılır');
+    // log'dan bildirilen fast (hafıza doğru): yalnız aksamYanlis ile
+    ok(!K.uygula(S, 'v1', yazNot('dogru'), aksam, { aksam: true }).yazildi, 'akşam: bugün doğru (hafızada) öğe yazılmaz');
+    ok(K.uygula(S, 'v1', yazNot('dogru'), aksam + 60000, { aksam: true, aksamYanlis: true }).yazildi, 'akşam: log\'da yanlış/fast bildirilen öğe yazılır');
+    // oturmuş öğe: hafıza:yazılmadı
+    const S4 = S.items.n4.m.S;
+    ok(!K.uygula(S, 'n4', yazNot('yanlis'), aksam, { aksam: true }).yazildi && S.items.n4.m.S === S4, 'akşam: oturmuş, bugün doğru öğe yazılmaz');
+    // bugün görülmemiş düşük R öğe: normal kural (günün ilk cevabı) yazılır, istisna işareti yok
+    const rn5 = K.uygula(S, 'n5', yazNot('dogru'), aksam, { aksam: true });
+    ok(rn5.yazildi && !rn5.aksam && !S.items.n5.m.aksam, 'akşam: bugün görülmemiş öğe normal kuralla yazılır', rn5);
+    // ertesi gün: normal yazım
+    ok(K.uygula(S, 'n1', yazNot('dogru', 'ok'), K.ertesiGun4(aksam) + 3 * SAAT).yazildi, 'akşam: ertesi gün normal yazım');
+  }
+  // seçim: o.aksam → yalnız adaylar, her biri bir kez, yeni öğe çoğunlukla yaz0; bitti teklifsiz; yanlış → kuyruk
+  {
+    const S = kur(), ad = K.aksamAdaylar(S, aksam, { yanlis: ['v1'] }).map(x => x.id);
+    const o = { adim: 0, boy: 12, kuyruk: [], gecmis: [], aksam: ad, filtre: id => ad.includes(id) };
+    const rnd = K.tohum(7), sorulan = [];
+    for (let i = 0; i < 12; i++) {
+      const s = K.sec({ S, kap: 24, gunSay: {} }, o, aksam, rnd);
+      if (s.tur === 'bitti') { ok(s.teklif === null, 'akşam seçimi: bitti, teklif yok'); break; }
+      ok(s.tur === 'm' && ad.includes(s.id), 'akşam seçimi: yalnız aday, anlam sorusu', s);
+      sorulan.push(s.id + (s.kaynak === 'kuyruk' ? '*' : ''));
+      if (s.id === 'n1' && s.kaynak === 'aksam') ok(s.bicim === 'yaz0' || s.b <= 1, 'akşam: yeni öğe yaz0 (ya da merdiven)', s);
+      K.oturumIsle(o, s, { ergebnis: s.id === 'n3' && s.kaynak === 'aksam' ? 'falsch' : 'richtig' }, rnd);
+    }
+    ok(ad.every(id => sorulan.includes(id)), 'akşam seçimi: bütün adaylar soruldu', sorulan);
+    ok(sorulan.includes('n3*'), 'akşam seçimi: yanlış → aynı turda kuyruktan yeniden', sorulan);
+    ok(sorulan.length === ad.length + 1, 'akşam seçimi: her aday bir kez (+ yeniden sorma)', sorulan);
+    let y0 = 0; for (let i = 0; i < 200; i++) { const s = K.sec({ S, kap: 24, gunSay: {} }, { adim: 0, gecmis: [], kuyruk: [], aksam: ['n1'] }, aksam, K.tohum(i)); if (s.bicim === 'yaz0') y0++; }
+    ok(y0 > 120, 'akşam: yeni öğrenilende yaz0 ağırlıklı', y0);
+  }
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);
