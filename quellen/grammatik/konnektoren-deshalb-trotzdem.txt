@@ -7,7 +7,7 @@
 @stufe A2–B1
 @kapitel A2 · B1 tekrar ?
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-3
-@voraus v2-satzbau, weil-dass
+@voraus verbstellung, weil-dass
 @kontrast weil-dass, obwohl-wenn
 @etiket kelime sırası
 @kurz deshalb / deswegen / darum / trotzdem / sonst / außerdem 1. yerde → hemen çekimli fiil, sonra özne: …, deshalb bleibe ich zu Hause.
