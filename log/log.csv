@@ -1992,3 +1992,33 @@
 2026-10-18 11:26:53;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:77 | dk:1 | yeni:2 | seviye+:4 | tekrar:7
 2026-10-18 11:27:05;bed;v447:bed;scheinen;scheinen;parlamak;richtig;(güneş) parlamak;basamak:B1 | bicim:anla | not:m3 | R:0.83 | S:4.9 | ısınma | sek:5
 2026-10-18 11:27:10;erk;n0520:erk;der Hausmeister;kapıcı, apartman görevlisi;der Hausmeister;richtig;der Hausmeister;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:3.6 | ısınma | sek:3
+2026-10-18 11:27:15;bed;v509:bed;sich streiten mit;(biriyle) kavga etmek, tartışmak;sich streiten mit;richtig;sich streiten mit;basamak:B1 | bicim:sec | not:m3 | R:0.83 | S:5.6 | ısınma | sek:3
+2026-10-18 11:27:21;yeni;x1547;die Toleranz;tanıtım;;neu;hoşgörü;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-10-18 11:27:25;erk;x1547:erk;die Toleranz;hoşgörü;die Toleranz;richtig;die Toleranz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-18 11:27:28;bed;v232:bed;erleichtern;erleichtern;kolaylaştırmak;richtig;kolaylaştırmak;basamak:B1 | bicim:anla | not:m3 | R:0.83 | S:11.3 | kapı:7g | sek:2
+2026-10-18 11:27:32;art;n0926:art;die Praxis;Praxis;die;richtig;die Praxis;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:1.1 | sek:3
+2026-10-18 11:27:40;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebracht;richtig;gebracht;basamak:K | bicim:kokSatz | not:k3 | R:0.69 | S:0.4 | kök:bringen | sek:7
+2026-10-18 11:27:48;wort;x1547:wort;die Toleranz;hoşgörü;die Tolerans;fast;die Toleranz;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:5 | ipucu:0
+2026-10-18 11:27:51;art;n1422:art;das Ziel;Ziel;die;falsch;das Ziel;basamak:A | bicim:artikel | not:a1 | R:0.71 | S:0.1 | artikel die → das | sek:2
+2026-10-18 11:27:51;leech;n1422;das Ziel;hedef;;takiliyor;;günler:2026-10-15,2026-10-17,2026-10-18
+2026-10-18 11:27:54;erk;w0172:erk;frech;arsız, şımarık;frech;richtig;frech;basamak:B1 | bicim:sec | not:m3 | R:0.69 | S:0.3 | sek:2
+2026-10-18 11:27:57;art;n0691:art;die Kunst;Kunst;der;falsch;die Kunst;basamak:A | bicim:artikel | not:a1 | R:0.68 | S:0.0 | artikel der → die | sek:1
+2026-10-18 11:27:57;tur;akis;Çalış;;;leer;;cevap:11 | doğru:8 | küçük:1 | yanlış:2 | puan:58 | dk:1 | yeni:1 | seviye+:2 | tekrar:9
+2026-10-18 11:28:06;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.67 | S:0.0 | artikel die → das | sek:3
+2026-10-18 11:28:13;stamm;v629:stamm;sich(D) vorstellen;So schwierig habe ich mir die Arbeit nicht _____.;vorgestellt;richtig;vorgestellt;basamak:K | bicim:kokSatz | not:k3 | R:0.54 | S:3.8 | kök:stellen | sek:6
+2026-10-18 11:28:15;art;n0244:art;die Diskussion;Diskussion;der;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.64 | S:0.0 | artikel der → die | sek:2
+2026-10-18 11:28:17;yeni;x1548;die Fairness;tanıtım;;neu;hakkaniyet, fair play;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-18 11:28:29;yeni;x1549;die Ehrlichkeit;tanıtım;;neu;dürüstlük;basamak:B0 | bicim:tanit | not:- | parti | sek:12
+2026-10-18 11:28:33;yeni;x1550;die Gerechtigkeit;tanıtım;;neu;adalet;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-10-18 11:28:38;erk;x1549:erk;die Ehrlichkeit;dürüstlük;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-18 11:28:42;erk;x1548:erk;die Fairness;hakkaniyet, fair play;die Fairness;richtig;die Fairness;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:28:46;erk;x1550:erk;die Gerechtigkeit;adalet;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-18 11:28:49;art;n0433:art;die Geduld;Geduld;der;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.63 | S:0.0 | artikel der → die | sek:2
+2026-10-18 11:28:58;wort;x1549:wort;die Ehrlichkeit;dürüstlük;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:8 | ipucu:0
+2026-10-18 11:29:02;wort;x1548:wort;die Fairness;hakkaniyet, fair play;die Fairness;richtig;die Fairness;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-10-18 11:29:10;wort;x1550:wort;die Gerechtigkeit;adalet;die Gedichkeit;falsch;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kelime yanlış | sek:5 | ipucu:0
+2026-10-18 11:29:10;tur;akis;Çalış;;;leer;;cevap:10 | doğru:6 | küçük:0 | yanlış:4 | puan:55 | dk:1 | yeni:3 | seviye+:0 | tekrar:4
+2026-10-18 11:29:26;art;n0973:art;der Regen;Regen;der;richtig;der Regen;basamak:A | bicim:artikel | not:a3 | R:0.73 | S:0.3 | sek:3
+2026-10-18 11:29:36;stamm;v643:stamm;werden;Warum fährst du so schnell? Bist du verrückt _____?!;worden;falsch;geworden;basamak:K | bicim:kokSatz | not:k1 | R:0.54 | S:0.1 | kök:werden | Partizip: geworden | sek:8
+2026-10-18 11:29:36;tur;akis;Çalış;;;leer;;cevap:2 | doğru:1 | küçük:0 | yanlış:1 | puan:8 | dk:1 | yeni:0 | seviye+:0 | tekrar:2
+2026-10-18 11:29:43;yeni;x1551;die Gleichberechtigung;tanıtım;;neu;eşit haklılık (kadın–erkek eşitliği);basamak:B0 | bicim:tanit | not:- | parti | sek:5
