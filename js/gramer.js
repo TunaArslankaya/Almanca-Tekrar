@@ -154,8 +154,15 @@
     if (T === 'wahl' || (T === 'luecke' && u.opt)) return { urteil: u.cevap.includes(giris) ? 'richtig' : 'falsch', tags: [], antwort: String(giris == null ? '' : giris) };
     if (T === 'luecke' || T === 'text') {
       const parcalar = (giris || []).map(x => (x == null ? '' : String(x)).trim());
-      const hedef = T === 'text' ? u.parcalar : parcalar.map((_, i) => u.cevap.map(c => c.split(' ; ')[i] || ''));
-      const detay = parcalar.map((p, i) => parcaPruef(p, hedef[i] || []));
+      let hedef, detay;
+      if (T === 'text') { hedef = u.parcalar; detay = parcalar.map((p, i) => parcaPruef(p, hedef[i] || [])); }
+      else {
+        // luecke: her alternatif TAM bir set ("habe ; gearbeitet / bin ; gegangen"); setler karışmasın diye en iyi uyan set seçilir
+        const puan = d => d.reduce((a, x) => a + (x === 'richtig' ? 2 : x === 'fast' ? 1 : 0), 0);
+        let enIyi = null;
+        for (const c of u.cevap) { const set = c.split(' ; '); const d = parcalar.map((p, i) => parcaPruef(p, [set[i] || ''])); if (!enIyi || puan(d) > puan(enIyi.d)) enIyi = { d, set }; }
+        detay = enIyi ? enIyi.d : []; hedef = (enIyi ? enIyi.set : []).map(x => [x]);
+      }
       const n = (hedef || []).length || 1;
       const urteil = detay.length === n && detay.every(x => x === 'richtig') ? 'richtig'
         : T === 'luecke' ? (detay.every(x => x !== 'falsch') ? 'fast' : 'falsch')
