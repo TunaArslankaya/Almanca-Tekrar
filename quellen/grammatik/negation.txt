@@ -11,7 +11,7 @@
 @voraus satzklammer-tekamolo
 @kontrast zweiteilig
 @etiket kelime sırası
-@kurz Belirsiz artikelli (ein) ya da artikelsiz isim → kein. Geri kalan her şey → nicht. Bütün cümle olumsuzsa nicht sona doğru, ama mastar / Partizip / ön ek / sıfat / yön bilgisinden ÖNCE.
+@kurz Belirsiz artikelli (ein) ya da artikelsiz isim → kein. Fiil, sıfat, zarf, der / mein'li isim → nicht. Bütün cümle olumsuzsa nicht sona doğru, ama mastar / Partizip / ön ek / sıfat / yön bilgisinden ÖNCE.
 
 @erklaerung
 Türkçede olumsuzluk fiile eklenir (-me / -ma) ve yeri hep aynıdır. Almancada iki sözcük var ve yerleri değişir.
@@ -19,7 +19,7 @@ Türkçede olumsuzluk fiile eklenir (-me / -ma) ve yeri hep aynıdır. Almancada
 1. kein: ein'li ya da artikelsiz ismi olumsuzlar ve ein gibi çekimlenir: Ich habe ein Auto → kein Auto · Ich habe Zeit → keine Zeit · Ich habe keinen Hunger. Meslekler ve sayılamayanlar da: Ich bin keine Lehrerin. Ich trinke keinen Kaffee. Tipik hata: "Ich habe nicht Zeit."
 2. nicht: fiili, sıfatı, belirli artikelli (den Mann) ya da iyelikli (mein Handy) ismi, özel isimleri olumsuzlar: Ich kenne den Mann nicht. Das ist nicht mein Handy.
 3. nicht'in yeri (cümle olumsuzu): olabildiğince sona. Nesneden ve zaman bilgisinden SONRA, ama şunlardan ÖNCE gelir: ikinci fiil parçası (nicht kommen, nicht gemacht, fängt nicht an), sıfat / isim yüklem (ist nicht krank), yön ve yer bilgisi (nicht nach Hause), edatlı nesne (nicht auf den Bus). Tipik hata: Türkçe sırayla "Ich nicht verstehe".
-4. Parça olumsuzu: yalnız bir öğeyi olumsuzlarsan nicht hemen onun önüne gelir ve çoğu zaman doğrusu sondern ile verilir: Ich komme nicht heute, sondern morgen. Das ist kein Tee, sondern Kaffee. Düzeltme yoksa (sadece karşıtlık) aber: Ich habe nicht viel Geld, aber ich bin glücklich.
+4. Parça olumsuzu: yalnız bir öğeyi olumsuzlarsan nicht hemen onun önüne gelir ve çoğu zaman doğrusu sondern ile verilir: Ich komme nicht heute, sondern morgen. Das ist kein Tee, sondern Kaffee. Düzeltme yoksa (yalnız karşıtlık) aber: Ich habe nicht viel Geld, aber ich bin glücklich.
 5. Zaman: noch nicht (henüz … değil) ↔ schon; nicht mehr (artık … değil) ↔ noch. İsimle: noch kein Job · kein Geld mehr.
 
 Sınavda: Lesen'de "nicht / kein" ifadenin anlamını tersine çevirir; richtig / falsch sorularında dikkat.
@@ -60,7 +60,7 @@ luecke | 1 | Ich kenne den Mann ___. | nicht | nicht / keinen / kein | Adamı ta
 luecke | 2 | Wir haben ___ Auto, wir fahren immer mit dem Rad. | kein | | Arabamız yok, hep bisikletle gidiyoruz. | ein Auto → kein Auto (das Auto, Akkusativ nötr: kein). | das Auto; das Rad
 luecke | 2 | Das ist ___ gute Idee. | keine | | Bu iyi bir fikir değil. | eine gute Idee → keine gute Idee: kein, ein gibi çekimlenir. | die Idee
 fehler | 2 | Ich habe nicht Hunger, danke. | Ich habe keinen Hunger, danke. | nicht | Aç değilim, teşekkürler. | Hunger artikelsiz bir isim → keinen Hunger (der Hunger, Akkusativ). Türkçe "aç değilim" sıfat gibi düşündürür ama Almancada isimdir. | der Hunger
-wahl | 2 | Das ist ___ Handy, das ist Laras Handy. | nicht mein | nicht mein / kein mein / mein nicht | Bu benim telefonum değil, Lara'nın telefonu. | İyelikli isimde (mein Handy) kein kullanılmaz → nicht mein Handy. | das Handy
+wahl | 2 | Das ist ___ Handy, sondern Laras Handy. | nicht mein | nicht mein / kein mein / mein nicht | Bu benim telefonum değil, Lara'nın telefonu. | İyelikli isimde (mein Handy) kein kullanılmaz → nicht mein Handy. | das Handy
 ordnen | 1 | ich / brauche / heute / kein Auto | Ich brauche heute kein Auto. / Heute brauche ich kein Auto. | | Bugün arabaya ihtiyacım yok. | ein Auto'nun olumsuzu kein Auto; fiil (brauche) 2. yerde. | brauchen; das Auto
 
 @teil stellung | Cümle olumsuzu: nicht sona doğru | kelime sırası
@@ -93,7 +93,7 @@ ordnen | 2 | wir / haben / leider / keine Karten / mehr | Wir haben leider keine
 
 # Yeni türler (ceviri, text, eslestir, kategori, dinle) ve ek alıştırmalar. '@teil <kod>' yalnız kodla daha önce tanımlanmış teil'e döner.
 @teil kein-nicht
-ceviri | 2 | Arabam yok, bu yüzden bisikletle gidiyorum. | Ich habe kein Auto, deshalb fahre ich mit dem Fahrrad. / Ich habe kein Auto, deshalb fahre ich Fahrrad. / Ich habe kein Auto, deswegen fahre ich mit dem Fahrrad. / Ich habe kein Auto, deswegen fahre ich Fahrrad. / Ich habe kein Auto, also fahre ich mit dem Fahrrad. / Ich habe kein Auto, also fahre ich Fahrrad. | | - | Türkçedeki "yok" Almancada kein + isim: ein Auto → kein Auto. deshalb'dan sonra hemen fiil gelir. | das Auto; das Fahrrad
+ceviri | 2 | Arabam yok, bu yüzden bisikletle gidiyorum. | Ich habe kein Auto, deshalb fahre ich mit dem Fahrrad. / Ich habe kein Auto, deshalb fahre ich Fahrrad. / Ich habe kein Auto, deswegen fahre ich mit dem Fahrrad. / Ich habe kein Auto, deswegen fahre ich Fahrrad. / Ich habe kein Auto, also fahre ich mit dem Fahrrad. / Ich habe kein Auto, also fahre ich Fahrrad. / Ich habe kein Auto, darum fahre ich mit dem Fahrrad. / Ich habe kein Auto, darum fahre ich Fahrrad. / Ich habe kein Auto, deshalb fahre ich mit dem Rad. / Ich habe kein Auto, deswegen fahre ich mit dem Rad. | | - | Türkçedeki "yok" Almancada kein + isim: ein Auto → kein Auto. deshalb'dan sonra hemen fiil gelir. | das Auto; das Fahrrad
 dinle | 2 | Ich habe leider keinen Hunger. | Ich habe leider keinen Hunger. | | Maalesef aç değilim. | der Hunger eril, Akkusativ → keinen. Sondaki -en'i dinle. | der Hunger; leider
 kategori | 1 | nicht oder kein? | kein: Zeit, ein Auto, Geld, Kinder ;; nicht: den Mann, mein Handy, krank, pünktlich | | - | Artikelsiz ya da ein'li isim → kein. Belirli artikelli ya da iyelikli isim, sıfat ve zarf → nicht. |
 luecke | 2 | Wir haben heute ___ Unterricht, der Lehrer ist krank. | keinen | | Bugün dersimiz yok, öğretmen hasta. | der Unterricht artikelsiz → kein; eril Akkusativ → keinen. | der Unterricht; der Lehrer; krank
@@ -101,7 +101,7 @@ eslestir | 2 | Ich habe kein ;; Ich habe keine ;; Ich habe keinen ;; Ich versteh
 fehler | 1 | Das ist nicht mein Fahrrad. | Das ist nicht mein Fahrrad. | - | Bu benim bisikletim değil. | Hata yok: iyelikli isim (mein Fahrrad) kein almaz → nicht. | das Fahrrad
 
 @teil stellung
-ceviri | 2 | Soruyu anlamadım. | Ich habe die Frage nicht verstanden. / Die Frage habe ich nicht verstanden. | | - | nicht nesneden (die Frage) sonra, Partizip'ten (verstanden) hemen önce. | verstehen; die Frage
+ceviri | 2 | Soruyu anlamadım. | Ich habe die Frage nicht verstanden. / Die Frage habe ich nicht verstanden. / Ich verstand die Frage nicht. / Ich verstehe die Frage nicht. | | - | nicht nesneden (die Frage) sonra, Partizip'ten (verstanden) hemen önce. | verstehen; die Frage
 ceviri | 3 | Bu akşam sinemaya gelemiyorum. | Ich kann heute Abend nicht ins Kino kommen. / Heute Abend kann ich nicht ins Kino kommen. / Ich kann heute Abend nicht ins Kino gehen. / Heute Abend kann ich nicht ins Kino gehen. / Ich kann heute Abend nicht mit ins Kino kommen. / Heute Abend kann ich nicht mit ins Kino kommen. | | - | nicht zamandan (heute Abend) sonra, yön bilgisinden (ins Kino) önce; mastar en sonda. | das Kino; können
 text | 2 | Hallo Jonas, leider kann ich morgen ___ zum Training kommen. Ich fühle mich ___ gut, ich habe Fieber. Ich habe auch ___ Zeit, weil ich für die Prüfung lernen muss. | nicht ; nicht ; keine | | Merhaba Jonas, maalesef yarın antrenmana gelemiyorum. Kendimi iyi hissetmiyorum, ateşim var. Sınava çalışmam gerektiği için vaktim de yok. | nicht yön bilgisinden (zum Training) ve sıfattan (gut) önce. Zeit artikelsiz → keine. | das Training; sich fühlen; das Fieber; die Zeit
 dinle | 2 | Wir fahren dieses Jahr nicht in den Urlaub. | Wir fahren dieses Jahr nicht in den Urlaub. | | Bu yıl tatile gitmiyoruz. | nicht zaman bilgisinden (dieses Jahr) sonra, yön bilgisinden (in den Urlaub) önce. | der Urlaub
@@ -120,21 +120,21 @@ fehler | 1 | Der Termin ist nicht am Montag, sondern am Dienstag. | Der Termin i
 
 @teil mehr
 ceviri | 2 | Artık sigara içmiyorum. | Ich rauche nicht mehr. / Ich rauche jetzt nicht mehr. / Jetzt rauche ich nicht mehr. | | - | Bir alışkanlık bitti → nicht mehr (artık … değil). | rauchen
-ceviri | 3 | Henüz doktordan randevum yok. | Ich habe noch keinen Termin beim Arzt. / Ich habe noch keinen Arzttermin. / Beim Arzt habe ich noch keinen Termin. | | - | Henüz yok + isim → noch kein; der Termin, Akkusativ → noch keinen Termin. | der Termin; der Arzt
+ceviri | 3 | Henüz doktordan randevum yok. | Ich habe noch keinen Termin beim Arzt. / Ich habe noch keinen Arzttermin. / Beim Arzt habe ich noch keinen Termin. / Ich habe beim Arzt noch keinen Termin. | | - | Henüz yok + isim → noch kein; der Termin, Akkusativ → noch keinen Termin. | der Termin; der Arzt
 dinle | 2 | Wir wohnen nicht mehr in Hannover. | Wir wohnen nicht mehr in Hannover. | | Artık Hannover'da oturmuyoruz. | nicht mehr = artık … değil; yer bilgisinden (in Hannover) önce. | wohnen
 eslestir | 1 | schon ;; noch ;; schon ein Kind ;; noch Geld | noch nicht ;; nicht mehr ;; noch kein Kind ;; kein Geld mehr | | - | schon'un olumsuzu noch nicht, noch'un olumsuzu nicht mehr. İsimde: noch kein … / kein … mehr. | das Kind; das Geld
-text | 2 | Früher habe ich in Ankara gewohnt, jetzt wohne ich ___ dort. In Bremen habe ich ___ keine Freunde, aber ich lerne jeden Tag neue Leute kennen. Deutsch spreche ich ___ perfekt, aber schon ziemlich gut. | nicht mehr ; noch ; noch nicht | | Eskiden Ankara'da oturuyordum, artık orada oturmuyorum. Bremen'de henüz arkadaşım yok, ama her gün yeni insanlarla tanışıyorum. Almancayı henüz mükemmel konuşmuyorum, ama şimdiden epey iyi konuşuyorum. | Bir şey bitti → nicht mehr. Henüz yok → noch kein- / noch nicht; schon'un karşıtı noch nicht. | wohnen; kennenlernen; perfekt
+text | 2 | Früher habe ich in Ankara gewohnt, jetzt wohne ich ___ (artık değil) dort. In Bremen habe ich ___ (henüz) keine Freunde, aber ich lerne jeden Tag neue Leute kennen. Deutsch spreche ich ___ (henüz değil) perfekt, aber schon ziemlich gut. | nicht mehr ; noch ; noch nicht | | Eskiden Ankara'da oturuyordum, artık orada oturmuyorum. Bremen'de henüz arkadaşım yok, ama her gün yeni insanlarla tanışıyorum. Almancayı henüz mükemmel konuşmuyorum, ama şimdiden epey iyi konuşuyorum. | Bir şey bitti → nicht mehr. Henüz yok → noch kein- / noch nicht; schon'un karşıtı noch nicht. | wohnen; kennenlernen; perfekt
 umform | 3 | Ich habe noch Geld. → verneinen | Ich habe kein Geld mehr. | | Artık param yok. | noch + isim'in olumsuzu: kein + isim + mehr. | das Geld
 fehler | 2 | Ich habe keine mehr Zeit. | Ich habe keine Zeit mehr. | keine mehr Zeit | Artık vaktim yok. | "artık yok": kein + isim + mehr; mehr ismin arkasına gelir. | die Zeit
 
 @teil doch | Olumsuz soru ve kısa cevap: doch · auch nicht · gar nicht · nie | bağlaç
 wahl | 1 | Kommst du nicht mit? – ___, ich komme gern mit! | Doch | Doch / Ja / Nein | Gelmiyor musun? – Geliyorum tabii, seve seve! | Olumsuz soruya olumlu cevap doch ile verilir, ja ile değil. Nein = gelmiyorum. | doch
 wahl | 2 | Ich habe keine Lust auf Kino. – Ich ___. Bleiben wir zu Hause! | auch nicht | auch nicht / auch / nicht auch | Sinemaya hiç hevesim yok. – Benim de yok. Evde kalalım! | Olumsuz cümleye katılmak: ich auch nicht. Türkçe "benim de" diye düşünüp ich auch demek ters anlam verir. | die Lust; das Kino
-luecke | 2 | Hast du keinen Hunger? – ___, ich habe sogar großen Hunger. | Doch | | Aç değil misin? – Açım, hem de çok. | Olumsuz soruya olumlu cevap → Doch. | der Hunger; sogar; doch
+luecke | 2 | Hast du keinen Hunger? – ___, ich habe sogar großen Hunger. | Doch / Doch, doch | | Aç değil misin? – Açım, hem de çok. | Olumsuz soruya olumlu cevap → Doch. | der Hunger; sogar; doch
 luecke | 2 | Der Film war ___ gut, ich bin eingeschlafen. (hiç) | gar nicht / überhaupt nicht | | Film hiç iyi değildi, uyuyakaldım. | "hiç … değil" = gar nicht ya da überhaupt nicht; sıfatın (gut) önünde. | der Film; gar nicht; überhaupt
 fehler | 2 | Kommst du nicht? – Ja, ich komme gleich. | Kommst du nicht? – Doch, ich komme gleich. | Ja | Gelmiyor musun? – Geliyorum, hemen geliyorum. | Olumsuz soruya olumlu cevap ja ile değil, doch ile verilir. | doch
 dinle | 2 | Ich war noch nie in Berlin. | Ich war noch nie in Berlin. | | Hiç Berlin'de bulunmadım. | noch nie = şimdiye kadar hiç. nie zaten olumsuzdur, yanına nicht gelmez. | nie
-ceviri | 2 | Ben de bilmiyorum. | Ich weiß es auch nicht. / Ich weiß das auch nicht. / Das weiß ich auch nicht. / Ich weiß auch nicht. | | - | Olumsuz cümleye katılmak: auch nicht; nicht cümlenin sonunda. | wissen
+ceviri | 2 | Ben de bilmiyorum. | Ich weiß es auch nicht. / Ich weiß das auch nicht. / Das weiß ich auch nicht. / Ich weiß auch nicht. / Ich weiß es leider auch nicht. / Auch ich weiß es nicht. | | - | Olumsuz cümleye katılmak: auch nicht; nicht cümlenin sonunda. | wissen
 ordnen | 2 | ich / habe / ihn / noch nie / gesehen | Ich habe ihn noch nie gesehen. / Noch nie habe ich ihn gesehen. / Ihn habe ich noch nie gesehen. | | Onu hiç görmedim. | Zamir (ihn) öne; noch nie Partizip'ten (gesehen) önce. | sehen; nie
 kategori | 1 | Positive Antwort: ja oder doch? | ja: Kommst du mit?, Hast du Zeit?, Ist das dein Buch? ;; doch: Kommst du nicht mit?, Hast du keine Zeit?, Ist das nicht dein Buch? | | - | Olumlu soruya evet → ja. Olumsuz soruya (nicht / kein) evet → doch. | doch
-text | 3 | – Kommst du heute Abend nicht zur Party? – ___, aber ich komme später. Lara kommt ___, sie ist krank. – Schade! Und Ali? – Den habe ich ___ (henüz) gefragt. | Doch ; nicht ; noch nicht | | – Bu akşam partiye gelmiyor musun? – Geliyorum, ama daha geç. Lara gelmiyor, hasta. – Yazık! Peki Ali? – Ona henüz sormadım. | Olumsuz soruya olumlu cevap → Doch. Fiil olumsuzu → nicht. Henüz → noch nicht, Partizip'ten (gefragt) önce. | die Party; fragen; schade
+text | 3 | – Kommst du heute Abend nicht zur Party? – ___, aber ich komme später. Lara kommt ___, sie ist krank. – Schade! Und Ali? – Den habe ich ___ (henüz) gefragt. | Doch ; nicht ; noch nicht / noch gar nicht | | – Bu akşam partiye gelmiyor musun? – Geliyorum, ama daha geç. Lara gelmiyor, hasta. – Yazık! Peki Ali? – Ona henüz sormadım. | Olumsuz soruya olumlu cevap → Doch. Fiil olumsuzu → nicht. Henüz → noch nicht, Partizip'ten (gefragt) önce. | die Party; fragen; schade
