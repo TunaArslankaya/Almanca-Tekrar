@@ -1,0 +1,139 @@
+# Gramer konusu: Perfekt (konuşma dilinin geçmiş zamanı). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id perfekt
+@titel Perfekt
+@tr Perfekt: konuşma dilinin geçmiş zamanı (habe gemacht, bin gefahren)
+@stufe A1–A2
+@kapitel A1–A2 tekrar · B1 her Kapitel
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-2
+@kontrast praeteritum, plusquamperfekt
+@etiket yardımcı fiil
+@kurz haben / sein 2. yerde, Partizip II en sonda. Hareket (A → B), durum değişimi, bleiben, passieren → sein; gerisi haben. be- / ver- / er- / -ieren: ge- yok.
+
+@erklaerung
+Perfekt konuşmada ve arkadaşa yazılan e-postada kullanılan geçmiş zamandır; Türkçedeki "-di"nin çoğu buna karşılık gelir: Dün sinemaya gittim → Gestern bin ich ins Kino gegangen. Türkçede fiil tek kelime ve sonda; Almancada iki parça var: çekimli haben / sein 2. yerde, anlamı taşıyan Partizip II cümlenin en sonunda (die Satzklammer).
+
+1. Düzenli fiil: ge- + kök + -t: machen → gemacht. Kök -t / -d ile bitiyorsa -et: gearbeitet, geredet.
+2. Düzensiz fiil: ge- + kök + -en, kök çoğu zaman değişir: schreiben → geschrieben, treffen → getroffen. Karışık fiil: kök değişir ama -t alır: bringen → gebracht, wissen → gewusst.
+3. Ayrılabilen fiilde ge- ortaya girer: einkaufen → eingekauft, aufstehen → aufgestanden.
+4. be-, ver-, er-, ent-, zer- ön ekli ve -ieren ile biten fiillerde ge- yok: besucht, verstanden, studiert.
+5. sein: bir yerden bir yere hareket (gehen, fahren, fliegen), durum değişimi (aufstehen, einschlafen, werden) ve sein, bleiben, passieren. Gerisi haben; dönüşlü fiiller hep haben: Ich habe mich verlaufen.
+6. Yan cümlede çekimli yardımcı fiil en sona: …, weil ich den Bus verpasst habe.
+
+Konuşma tuzağı: sein, haben ve modal fiillerde Perfekt yerine çoğunlukla Präteritum söylenir: Ich war krank, ich hatte keine Zeit, ich konnte nicht kommen.
+Sınavda: Schreiben 1'de (arkadaşa e-posta) ne yaptığını Perfekt'le anlatırsın; puanı en çok haben / sein seçimi ve Partizip'in yeri düşürür.
+@ende
+
+@tabelle Partizip II nasıl kurulur?
+fiil türü | kural | örnek
+düzenli | ge- + kök + -(e)t | machen → gemacht · arbeiten → gearbeitet
+düzensiz | ge- + (değişen) kök + -en | schreiben → geschrieben · treffen → getroffen
+karışık | ge- + değişen kök + -t | bringen → gebracht · denken → gedacht
+ayrılabilen | ön ek + ge + Partizip | einkaufen → eingekauft · aufstehen → aufgestanden
+be- / ver- / er- / -ieren | ge- yok | besuchen → besucht · verstehen → verstanden · studieren → studiert
+@ende
+
+@tabelle haben mi sein mi?
+sein ile | haben ile
+hareket A → B: gehen, fahren, fliegen, kommen | nesneli fiiller: kaufen, essen, sehen, lesen
+durum değişimi: aufstehen, einschlafen, werden | dönüşlü fiiller: sich treffen, sich verlaufen
+istisna: sein, bleiben, passieren | yerinde kalma: wohnen, schlafen, arbeiten, warten
+@ende
+
+@tabelle Sık düzensiz Partizip'ler
+mastar | Perfekt | mastar | Perfekt
+gehen | ist gegangen | essen | hat gegessen
+fahren | ist gefahren | trinken | hat getrunken
+kommen | ist gekommen | schreiben | hat geschrieben
+bleiben | ist geblieben | treffen | hat getroffen
+werden | ist geworden | sprechen | hat gesprochen
+fliegen | ist geflogen | finden | hat gefunden
+@ende
+
+@beispiel Gestern habe ich im Supermarkt eingekauft. | Dün süpermarkette alışveriş yaptım.
+@beispiel Am Wochenende sind wir an die Nordsee gefahren. | Hafta sonu Kuzey Denizi'ne gittik.
+@beispiel Ich habe die Hausaufgabe nicht verstanden. | Ödevi anlamadım.
+@beispiel Ich bin müde, weil ich schlecht geschlafen habe. | Kötü uyuduğum için yorgunum.
+
+@teil regel | Düzenli fiiller: ge- … -(e)t | artikel/çekim
+luecke | 1 | Gestern ___ ich drei Stunden für die Prüfung ___. (lernen) | habe ; gelernt | | Dün sınav için üç saat çalıştım. | Çekimli haben 2. yerde, Partizip en sonda. Düzenli fiil: ge-lern-t. | lernen; die Prüfung
+luecke | 2 | Meine Kollegin hat gestern bis 22 Uhr im Café ___. (arbeiten) | gearbeitet | | İş arkadaşım dün saat 22'ye kadar kafede çalıştı. | Kök -t ile bitiyorsa araya -e- girer: ge-arbeit-et. | arbeiten; die Kollegin, -nen; das Café
+wahl | 1 | Am Samstag haben wir zusammen türkisch ___. | gekocht | gekocht / gekochen / kochten | Cumartesi birlikte Türk yemeği yaptık. | kochen düzenli: ge- + koch + -t. -en sonu düzensiz fiillerin Partizip'idir; kochten Präteritum, haben'le gelmez. | kochen
+luecke | 2 | Wie lange ___ ihr auf den Bus ___? (warten) | habt ; gewartet | | Otobüsü ne kadar beklediniz? | Beklemek hareket değil → haben. Kök -t ile bitiyor: ge-wart-et. | warten auf; der Bus
+dinle | 2 | Wir haben am Abend lange über die Prüfung geredet. | Wir haben am Abend lange über die Prüfung geredet. | | Akşam sınav hakkında uzun uzun konuştuk. | reden düzenli; kök -d ile bitince -et: geredet. Çekimli haben 2. yerde, Partizip sonda. | reden über; die Prüfung
+ceviri | 2 | Dün akşam iki saat yağmur yağdı. (Perfekt) | Gestern Abend hat es zwei Stunden geregnet. / Es hat gestern Abend zwei Stunden geregnet. / Gestern Abend hat es zwei Stunden lang geregnet. / Es hat gestern Abend zwei Stunden lang geregnet. | | - | regnen düzenli: ge-regn-et; özne es, yardımcı fiil haben. | regnen
+umform | 2 | Ich suche eine Wohnung und frage viele Leute. → Perfekt | Ich habe eine Wohnung gesucht und viele Leute gefragt. / Ich habe eine Wohnung gesucht und habe viele Leute gefragt. | | Ev aradım ve birçok kişiye sordum. | suchen → gesucht, fragen → gefragt; ikinci habe yazılmayabilir, çünkü özne ve yardımcı fiil aynı. | suchen; fragen; die Wohnung
+
+@teil unregel | Düzensiz ve karışık fiiller: kök değişir | artikel/çekim
+luecke | 1 | Hast du den Brief schon ___? (schreiben) | geschrieben | | Mektubu yazdın mı? | schreiben düzensiz: ge-schrieb-en (ei → ie), -t değil -en ile biter. | schreiben; der Brief
+luecke | 2 | Gestern ___ ich Ali in der Mensa ___. (treffen) | habe ; getroffen | | Dün yemekhanede Ali'ye rastladım. | treffen → getroffen (e → o). Birine rastlamak hareket değil → haben (ist getraffen değil). | treffen; die Mensa
+wahl | 1 | Ich habe meinen Schlüssel endlich ___. | gefunden | gefunden / gefindet / gefanden | Sonunda anahtarımı buldum. | finden düzensiz: i → u, sonu -en: gefunden. fand Präteritum biçimidir, Partizip değil. | finden; der Schlüssel
+fehler | 2 | Er hat mir das Buch gebrachen. | Er hat mir das Buch gebracht. | gebrachen | Bana kitabı getirdi. | bringen karışık fiildir: kök değişir ama sonu -t: gebracht. | bringen; das Buch
+eslestir | 1 | treffen ;; bringen ;; trinken ;; denken | getroffen ;; gebracht ;; getrunken ;; gedacht | | - | Düzensiz fiil -en ile biter (getroffen, getrunken); karışık fiilde kök değişir ama -t gelir (gebracht, gedacht). | treffen; bringen; trinken; denken
+ceviri | 2 | Kursta yeni bir kitap okuduk. (Perfekt) | Wir haben im Kurs ein neues Buch gelesen. / Im Kurs haben wir ein neues Buch gelesen. | | - | lesen düzensiz: gelesen (kök aynı, sonu -en). haben 2. yerde, Partizip en sonda. | lesen; das Buch; der Kurs
+dinle | 2 | Ich habe das Wort im Wörterbuch nicht gefunden. | Ich habe das Wort im Wörterbuch nicht gefunden. | | Kelimeyi sözlükte bulamadım. | finden → gefunden (-en). nicht Partizip'in önünde durur. | finden; das Wort; das Wörterbuch
+luecke | 2 | Ich habe nicht ___, dass heute ein Feiertag ist. (wissen) | gewusst | | Bugünün tatil olduğunu bilmiyordum. | wissen karışık fiil: kök değişir (i → u), sonu -t: gewusst. | wissen; der Feiertag
+umform | 3 | Der Arzt gibt mir ein Rezept und ich nehme die Tabletten. → Perfekt | Der Arzt hat mir ein Rezept gegeben und ich habe die Tabletten genommen. | | Doktor bana reçete verdi ve ben ilaçları aldım. | geben → gegeben, nehmen → genommen. Özne değiştiği için ikinci cümlede yardımcı fiil (habe) yeniden yazılır. | geben; nehmen; das Rezept; die Tablette; der Arzt
+ordnen | 2 | wir / haben / im Kurs / einen Film / gesehen | Wir haben im Kurs einen Film gesehen. / Im Kurs haben wir einen Film gesehen. / Einen Film haben wir im Kurs gesehen. | | Kursta bir film izledik. | haben 2. yerde, Partizip (gesehen) en sonda; başa hangi öğe gelirse gelsin bu iki yer değişmez. | sehen; der Film; der Kurs
+
+@teil trennbar | Ayrılabilen fiil: ge- ortada | artikel/çekim
+luecke | 1 | Ich habe gestern im Supermarkt ___. (einkaufen) | eingekauft | | Dün süpermarkette alışveriş yaptım. | Ayrılabilen fiilde ge- ön ekle kökün arasına girer: ein-ge-kauft. | einkaufen; der Supermarkt
+luecke | 2 | Wann ___ der Zug ___? (abfahren) | ist ; abgefahren | | Tren ne zaman kalktı? | abfahren yer değiştirmedir → sein. ge- ortada: ab-ge-fahren. | abfahren; der Zug
+wahl | 1 | Heute Morgen bin ich zu spät ___. | aufgestanden | aufgestanden / geaufstanden / aufgesteht | Bu sabah çok geç kalktım. | Ayrılabilen fiilde ge- ön ekten sonra gelir: auf-ge-standen. stehen düzensizdir, -t almaz. | aufstehen; spät
+fehler | 2 | Hast du mich gestern geangerufen? | Hast du mich gestern angerufen? | geangerufen | Dün beni aradın mı? | anrufen ayrılabilen: ge- başa değil ortaya girer → an-ge-rufen. | anrufen
+ordnen | 2 | ich / habe / meine Freundin / vom Bahnhof / abgeholt | Ich habe meine Freundin vom Bahnhof abgeholt. / Meine Freundin habe ich vom Bahnhof abgeholt. / Vom Bahnhof habe ich meine Freundin abgeholt. | | Kız arkadaşımı istasyondan aldım. | habe 2. yerde, Partizip (ab-ge-holt) en sonda. | abholen; der Bahnhof; die Freundin, -nen
+umform | 2 | Der Kurs fängt um neun Uhr an. → Perfekt | Der Kurs hat um neun Uhr angefangen. / Um neun Uhr hat der Kurs angefangen. | | Kurs saat dokuzda başladı. | anfangen: an-ge-fangen, yardımcı fiil haben. Ön ek (an) artık ayrı durmaz, Partizip'in içine girer. | anfangen mit; der Kurs
+dinle | 2 | Wir sind in Hannover umgestiegen. | Wir sind in Hannover umgestiegen. | | Hannover'de aktarma yaptık. | umsteigen: ge- ortada (um-ge-stiegen); bir trenden ötekine geçmek yer değiştirme → sein. | umsteigen
+ceviri | 2 | Saat kaçta eve döndün? | Wann bist du nach Hause gekommen? / Um wie viel Uhr bist du nach Hause gekommen? / Wann bist du nach Hause zurückgekommen? / Um wie viel Uhr bist du nach Hause zurückgekommen? | | - | (zurück)kommen hareket → sein. Ayrılabilen zurückkommen'de ge- ortada: zurück-ge-kommen. | kommen
+
+@teil ohne-ge | be- / ver- / er- / -ieren: ge- yok | artikel/çekim
+luecke | 1 | Hast du die Aufgabe ___? (verstehen) | verstanden | | Görevi anladın mı? | ver- ön ekli fiilde ge- yok: verstanden. | verstehen; die Aufgabe
+luecke | 2 | Ich habe zwei Semester in Istanbul ___. (studieren) | studiert | | İstanbul'da iki dönem okudum. | -ieren ile biten fiillerde ge- yok: studiert. | studieren; das Semester
+wahl | 1 | Gestern haben wir unsere Oma im Krankenhaus ___. | besucht | besucht / gebesucht / besuchen | Dün büyükannemizi hastanede ziyaret ettik. | be- ön ekli fiilde ge- gelmez: besucht. | besuchen; die Oma; das Krankenhaus
+fehler | 2 | Er hat mir in der Diskussion widersprecht. | Er hat mir in der Diskussion widersprochen. | widersprecht | Tartışmada bana itiraz etti. | widersprechen, sprechen gibi düzensiz: widersprochen. wider- ayrılmaz, bu yüzden ge- de yok. | widersprechen; die Diskussion
+fehler | 1 | Ich habe die Rechnung schon bezahlt. | Ich habe die Rechnung schon bezahlt. | - | Faturayı çoktan ödedim. | Hata yok: be- ön ekli fiil, ge- yok: bezahlt. | bezahlen; die Rechnung
+luecke | 2 | Gestern haben wir uns im Wald ___. (sich verlaufen) | verlaufen | | Dün ormanda yolumuzu kaybettik. | ver- ön ek: ge- yok; laufen gibi düzensiz → verlaufen (Partizip = mastar). Dönüşlü fiil olduğu için haben. | sich verlaufen; der Wald
+kategori | 1 | Partizip mit ge- oder ohne ge-? | mit ge-: machen, fahren, einkaufen ;; ohne ge-: besuchen, verstehen, telefonieren, erklären | | - | be-, ver-, er- ön ekli ve -ieren fiillerde ge- yok. Ayrılabilen fiil (einkaufen) ge- alır, ama ortada: eingekauft. |
+dinle | 2 | Ich habe gestern Abend lange mit meiner Familie telefoniert. | Ich habe gestern Abend lange mit meiner Familie telefoniert. | | Dün akşam ailemle uzun uzun telefonda konuştum. | -ieren fiili: ge- yok, telefoniert. | telefonieren mit; die Familie
+ceviri | 2 | Öğretmen kuralı iki kez açıkladı. (Perfekt) | Der Lehrer hat die Regel zweimal erklärt. / Die Lehrerin hat die Regel zweimal erklärt. | | - | er- ön ekli fiil: ge- yok, erklärt. | erklären; die Regel; der Lehrer
+umform | 3 | Ich bekomme eine Antwort und erzähle meinen Eltern davon. → Perfekt | Ich habe eine Antwort bekommen und meinen Eltern davon erzählt. / Ich habe eine Antwort bekommen und habe meinen Eltern davon erzählt. | | Bir cevap aldım ve anneme babama anlattım. | bekommen (be-, ge- yok, Partizip = mastar), erzählen → erzählt (er-, ge- yok). | bekommen; erzählen von; die Antwort
+
+@teil hilfsverb | haben mi sein mi? | yardımcı fiil
+wahl | 1 | Am Wochenende ___ wir nach Berlin gefahren. | sind | sind / haben / hat | Hafta sonu Berlin'e gittik. | nach Berlin = bir yerden bir yere hareket → sein: wir sind … gefahren. | fahren
+luecke | 1 | Was ___ passiert? Du siehst so traurig aus. | ist | ist / hat | Ne oldu? Çok üzgün görünüyorsun. | passieren hareket değil ama hep sein ile: Was ist passiert? | passieren; traurig
+luecke | 2 | Ich ___ gestern den ganzen Tag zu Hause ___. (bleiben) | bin ; geblieben | | Dün bütün gün evde kaldım. | bleiben istisnadır: hareket yok ama sein. Partizip düzensiz: geblieben. | bleiben
+luecke | 2 | Mein Bruder ___ im Sommer Vater ___. (werden) | ist ; geworden | | Kardeşim yazın baba oldu. | werden durum değişimidir → sein. Partizip geworden (gewurden değil). | werden; der Bruder; der Vater
+fehler | 2 | Wir haben mit dem Fahrrad zur Uni gefahren. | Wir sind mit dem Fahrrad zur Uni gefahren. | haben | Üniversiteye bisikletle gittik. | zur Uni = yer değiştirme → sein. haben … gefahren yalnız nesneyle: Ich habe das Auto gefahren. | fahren; das Fahrrad; die Uni, -s
+fehler | 2 | Letztes Jahr sind wir in einer kleinen Wohnung gewohnt. | Letztes Jahr haben wir in einer kleinen Wohnung gewohnt. | sind | Geçen yıl küçük bir dairede oturduk. | wohnen bir yerde kalmaktır, hareket değil → haben. | wohnen; die Wohnung
+fehler | 1 | Das Kind ist sofort eingeschlafen. | Das Kind ist sofort eingeschlafen. | - | Çocuk hemen uyuyakaldı. | Hata yok: einschlafen durum değişimidir (uyanık → uykuda) → sein. Ama schlafen: hat geschlafen. | das Kind
+kategori | 2 | haben oder sein? | haben: wohnen, schlafen, kaufen, sich treffen ;; sein: fliegen, aufwachen, bleiben, passieren | | - | Hareket, durum değişimi ve bleiben / passieren → sein. Bir yerde kalmak, nesneli ve dönüşlü fiiller → haben. |
+ordnen | 2 | was / ist / gestern / in der WG / passiert | Was ist gestern in der WG passiert? / Was ist in der WG gestern passiert? | | Dün evde (WG'de) ne oldu? | Soru kelimesi 1., çekimli ist 2. yerde, Partizip en sonda. passieren hep sein. | passieren
+ceviri | 2 | Geçen yaz Türkiye'ye uçtuk. | Letzten Sommer sind wir in die Türkei geflogen. / Wir sind letzten Sommer in die Türkei geflogen. / Im letzten Sommer sind wir in die Türkei geflogen. / Wir sind im letzten Sommer in die Türkei geflogen. | | - | fliegen hareket → sein: sind … geflogen. die Türkei artikelli: in die Türkei. | fliegen
+ceviri | 3 | Ne oldu? Neden bu kadar geç kaldın? | Was ist passiert? Warum bist du so spät gekommen? / Was ist passiert? Warum bist du zu spät gekommen? / Was ist denn passiert? Warum bist du so spät gekommen? / Was ist passiert? Wieso bist du so spät gekommen? | | - | passieren ve kommen → sein. "geç kalmak" Almancada spät kommen: bist … gekommen. | passieren; kommen; spät
+text | 2 | Hi Lisa, am Samstag sind wir nach Hamburg ___ (fahren). Wir ___ zwei Tage dort geblieben. Leider ___ etwas Dummes passiert: Ich ___ mein Handy im Zug verloren. | gefahren ; sind ; ist ; habe | | Selam Lisa, cumartesi Hamburg'a gittik. İki gün orada kaldık. Maalesef saçma bir şey oldu: Telefonumu trende kaybettim. | fahren (yön), bleiben, passieren → sein; verlieren nesneli (mein Handy) → haben. | fahren; bleiben; passieren; verlieren; das Handy
+
+@teil satz | Partizip sonda; yan cümlede yardımcı fiil sonda | kelime sırası
+ordnen | 1 | ich / bin / gestern / ins Kino / gegangen | Ich bin gestern ins Kino gegangen. / Gestern bin ich ins Kino gegangen. / Ins Kino bin ich gestern gegangen. | | Dün sinemaya gittim. | Çekimli bin 2. yerde, Partizip (gegangen) en sonda. | gehen; das Kino
+ordnen | 3 | ich bin müde / weil / ich / schlecht / geschlafen / habe | Ich bin müde, weil ich schlecht geschlafen habe. | | Kötü uyuduğum için yorgunum. | Yan cümlede önce Partizip (geschlafen), en sonda çekimli yardımcı fiil (habe). | schlafen; müde
+luecke | 2 | Ich weiß nicht, wo ich meinen Schlüssel ___ ___. (verlieren · Perfekt) | verloren ; habe | | Anahtarımı nerede kaybettiğimi bilmiyorum. | Yan cümlede (wo …) çekimli yardımcı fiil en sona: verloren habe. | verlieren; der Schlüssel
+fehler | 2 | Ich habe gemacht gestern meine Hausaufgaben. | Ich habe gestern meine Hausaufgaben gemacht. | gemacht gestern | Dün ödevlerimi yaptım. | Partizip cümlenin en sonuna gider; haben ile Partizip cümleyi bir parantez gibi sarar. | machen; die Hausaufgabe
+fehler | 3 | Gestern ich bin mit dem Bus zum Arzt gefahren. | Gestern bin ich mit dem Bus zum Arzt gefahren. | ich bin | Dün otobüsle doktora gittim. | gestern 1. yerdeyse çekimli fiil (bin) 2. yerde kalır, özne arkasına geçer. | der Bus; der Arzt
+fehler | 2 | Weißt du, dass Lena die Prüfung bestanden hat? | Weißt du, dass Lena die Prüfung bestanden hat? | - | Lena'nın sınavı geçtiğini biliyor musun? | Hata yok: dass-yan cümlesinde Partizip, ardından çekimli yardımcı fiil en sonda. | bestehen; die Prüfung
+umform | 3 | Ich habe den Bus verpasst. Ich bin zu spät gekommen. → weil | Ich bin zu spät gekommen, weil ich den Bus verpasst habe. / Weil ich den Bus verpasst habe, bin ich zu spät gekommen. | | Otobüsü kaçırdığım için geç kaldım. | İlk cümle sebep → weil-yan cümlesi; çekimli habe en sona: verpasst habe. Yan cümle başta ise ana cümle fiille başlar. | verpassen; der Bus; spät
+text | 2 | Hallo Mehmet, gestern ___ ich endlich eine Wohnung ___ (finden). Ich bin so froh, weil ich lange ___ (suchen). Am Abend ___ wir zusammen gefeiert. | habe ; gefunden ; gesucht habe ; haben | | Selam Mehmet, dün sonunda bir ev buldum. Çok uzun aradığım için çok mutluyum. Akşam birlikte kutladık. | Ana cümlede haben 2. yerde, Partizip sonda; weil-yan cümlesinde çekimli habe en sonda: gesucht habe. | finden; suchen; die Wohnung; feiern; froh
+dinle | 3 | Er hat mir erzählt, dass er nach Bremen umgezogen ist. | Er hat mir erzählt, dass er nach Bremen umgezogen ist. | | Bana Bremen'e taşındığını anlattı. | umziehen yer değiştirme → sein; yan cümlede ist en sonda. | umziehen; erzählen von
+ceviri | 3 | Kursa gelemedim, çünkü treni kaçırdım. | Ich konnte nicht zum Kurs kommen, weil ich den Zug verpasst habe. / Weil ich den Zug verpasst habe, konnte ich nicht zum Kurs kommen. / Ich bin nicht zum Kurs gekommen, weil ich den Zug verpasst habe. / Weil ich den Zug verpasst habe, bin ich nicht zum Kurs gekommen. / Ich konnte nicht zum Kurs kommen, denn ich habe den Zug verpasst. | | - | weil-yan cümlesinde Perfekt: verpasst habe en sonda. können konuşmada Präteritum: konnte … kommen. | verpassen; der Zug; der Kurs
+eslestir | 2 | Ich bin heute müde, weil ;; Ich bin heute müde, denn ;; Ich bin spät ins Bett gegangen, deshalb | ich spät ins Bett gegangen bin. ;; ich bin spät ins Bett gegangen. ;; bin ich heute müde. | | - | weil → yardımcı fiil en sonda (gegangen bin). denn → sıra değişmez (ich bin … gegangen). deshalb 1. yerde → hemen fiil (bin ich). | müde; spät
+
+@teil kontrast | Perfekt mi Präteritum mu? · fahren: haben / sein | yardımcı fiil
+wahl | 1 | Letzte Woche ___ ich krank und konnte nicht zum Kurs kommen. | war | war / bin / habe | Geçen hafta hastaydım ve kursa gelemedim. | Letzte Woche = geçmiş. sein konuşmada da çoğunlukla Präteritum: war (bin krank gewesen de doğru ama daha ağır). | krank; der Kurs
+wahl | 2 | Welcher Satz ist richtig? | Ich habe das Auto in die Werkstatt gefahren. | Ich habe das Auto in die Werkstatt gefahren. / Ich bin das Auto in die Werkstatt gefahren. / Ich habe mit dem Auto in die Werkstatt gefahren. | Arabayı tamirhaneye götürdüm. | fahren nesneyle (das Auto) → haben. Nesnesiz yolculuk → sein: Ich bin mit dem Auto in die Werkstatt gefahren. | fahren; das Auto; die Werkstatt
+luecke | 2 | Gestern ___ ich keine Zeit, weil ich arbeiten ___. (haben ; müssen) | hatte ; musste | | Dün vaktim yoktu, çünkü çalışmam gerekiyordu. | haben ve modal fiiller konuşmada da Präteritum: hatte, musste. "habe gehabt" ve "habe arbeiten müssen" ağır kalır. | die Zeit; arbeiten; müssen
+fehler | 3 | Ich habe gestern nicht gekonnt kommen. | Ich konnte gestern nicht kommen. / Gestern konnte ich nicht kommen. / Ich habe gestern nicht kommen können. | gekonnt kommen | Dün gelemedim. | Modal fiil + mastar geçmişte Präteritum ile: konnte … kommen. Perfekt'te gekonnt kullanılmaz, iki mastar gelir: habe … kommen können. | können; kommen
+umform | 2 | Ich bin krank gewesen und habe keinen Hunger gehabt. → Präteritum | Ich war krank und hatte keinen Hunger. | | Hastaydım ve iştahım yoktu. | sein ve haben'de Präteritum daha doğal: war, hatte. | krank; der Hunger
+ceviri | 2 | Dün hastaydım ve evde kaldım. | Gestern war ich krank und bin zu Hause geblieben. / Ich war gestern krank und bin zu Hause geblieben. / Gestern war ich krank und blieb zu Hause. / Ich war gestern krank und blieb zu Hause. / Gestern bin ich krank gewesen und zu Hause geblieben. | | - | sein → çoğunlukla Präteritum (war); bleiben → Perfekt sein ile (bin geblieben). | krank; bleiben
+dinle | 2 | Ich hatte keine Zeit, deshalb bin ich zu Hause geblieben. | Ich hatte keine Zeit, deshalb bin ich zu Hause geblieben. | | Vaktim yoktu, bu yüzden evde kaldım. | haben → hatte (Präteritum); bleiben → bin geblieben (Perfekt, sein). deshalb'dan sonra hemen fiil. | die Zeit; bleiben
+text | 3 | Liebes Tagebuch, heute ___ (sein) ein schrecklicher Tag. Ich ___ (haben) Kopfschmerzen und ___ (können) nicht zur Uni gehen. Dann ___ ich den ganzen Tag ___ (schlafen). | war ; hatte ; konnte ; habe ; geschlafen | | Sevgili günlük, bugün berbat bir gündü. Başım ağrıyordu ve üniversiteye gidemedim. Sonra bütün gün uyudum. | sein, haben, können → Präteritum (war, hatte, konnte); öteki fiiller Perfekt: habe … geschlafen. | schlafen; die Uni, -s
+kategori | 2 | Was sagt man im Gespräch meistens? | meistens Präteritum: war, hatte, musste, konnte ;; meistens Perfekt: bin gegangen, habe gegessen, habe gesehen, ist passiert | | - | Konuşmada sein, haben ve modal fiiller Präteritum; öteki fiillerin çoğu Perfekt. |
+eslestir | 1 | Gestern war ich ;; Gestern hatte ich ;; Gestern konnte ich | krank. ;; keine Zeit. ;; nicht kommen. | | - | sein → war + sıfat (krank); haben → hatte + isim (keine Zeit); können → konnte + mastar (kommen). | krank; die Zeit; kommen

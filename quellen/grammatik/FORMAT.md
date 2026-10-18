@@ -1,7 +1,7 @@
 # Gramer bölümü: içerik biçimi ve tekrar kuralları
 
-Kaynak dosyalar: `quellen/grammatik/<id>.txt` (bir dosya = bir konu). Örnek: `ORNEK_nebensatz_weil_dass.txt` (bu klasörde; gerçek adı `weil-dass.txt` olur).
-Başvuru denetleyicisi: `pruef_grammatik.py` (bu klasörde; `python3 -I pruef_grammatik.py <dosya> <repo kökü>`). `tools/build.py` aynı kuralları uygulamalı.
+Kaynak dosyalar: `quellen/grammatik/<id>.txt` (bir dosya = bir konu). Örnek: `weil-dass.txt` (sonunda her yeni türden birer örnek).
+Denetleyici ve ayrıştırıcı: `pruef_grammatik.py` (bu klasörde; `python3 -I quellen/grammatik/pruef_grammatik.py [<dosya> …] [<repo kökü>]`, dosya verilmezse hepsi). `tools/build.py` bu dosyayı yükler: kurallar tek yerde.
 Araştırma gerekçeleri: alt bölüm 13 ve araştırma raporu.
 
 ---
@@ -12,7 +12,7 @@ Araştırma gerekçeleri: alt bölüm 13 ve araştırma raporu.
 - Alan ayırıcı: ` | ` (dikey çizgi). İçerikte `|` geçmez.
 - Dosya adı = `@id` (küçük harf, rakam, tire): `weil-dass.txt`, `passiv.txt`.
 - **Alıştırma kimliği dosyadaki sırasıdır** (yalnız alıştırma satırları sayılır; `@` ve `#` satırları sayılmaz). Log kimliği: `g:<id>:<sıra>`, ör. `g:weil-dass:7`.
-  - Yeni alıştırma **hep dosyanın sonuna** (son `@teil` altına ya da yeni bir `@teil` açarak sona) eklenir.
+  - Yeni alıştırma **hep dosyanın sonuna** eklenir: son `@teil` altına, yeni bir `@teil` açarak ya da `@teil <kod>` (yalnız kod) ile daha önce tanımlanmış bir teil'e dönerek (bkz. 4).
   - Var olan satırı düzeltmek serbesttir (yazım düzeltmesi, ek doğru cevap, daha iyi açıklama); satır silinmez, yer değiştirmez.
   - Kaldırmak için tür adının önüne `-` konur (`-luecke | …`): satır sayılır ama gösterilmez.
 - Kelime sırası `@teil` grupları içinde görsel düzen içindir; uygulama alıştırmaları teil koduna göre seçer, dosya sırasına göre değil.
@@ -58,6 +58,12 @@ değer | değer | değer
 ```
 
 - `kod`: küçük harf/rakam/tire, dosyada tek (`v-end`, `modal`, `perfekt`, `vorn`, `kontrast`).
+- **Yeniden açma**: `@teil <kod>` (yalnız kod; ad ve etiket yok) daha önce tanımlanmış teil'e döner; sonraki alıştırmalar o teil'e ait olur. Böylece eski teil'lere alıştırma dosya **sonuna** eklenir, kimlikler (dosyadaki sıra) değişmez. Tanımsız kodla yalnız-kod satırı hatadır; tam satırı (`kod | ad | etiket`) ikinci kez yazmak da hata.
+
+```
+@teil v-end
+ceviri | 2 | Bugün evde kalıyorum, çünkü hastayım. | Ich bleibe heute zu Hause, weil ich krank bin. | | - | … | bleiben; krank
+```
 - Altındaki her alıştırma bu teil'e aittir. Hata etiketi, log'daki mevcut etiketlerle aynı sözcükler olmalı: `kelime sırası`, `yardımcı fiil`, `dönüşlü zamir`, `edat`, `artikel/çekim`, `hâl`, `bağlaç`, `zaman`.
 - Her konuda en az 3 teil; her teil'de en az 2 (tercihen 3+) alıştırma. Karıştırılan iki yapı için bir `kontrast` teil'i önerilir.
 
@@ -84,6 +90,11 @@ Türlere göre:
 | `ordnen` | parçalar ` / ` ile; küçük harfle (isim ve `Sie` büyük), noktalama yok; parça birden çok kelime olabilir (`ich finde`, `vom Bahnhof`) | dizilmiş tam cümle(ler); serbest sıralar alternatif olarak yazılır | boş | dokunarak dizme; ilk harf ve noktalama otomatik |
 | `fehler` | bir cümle (hatalı ya da doğru) | doğru tam cümle | soruda aynen geçen **hatalı kısım**; cümle doğruysa `-` | 1) hatalı yere dokun ya da "hata yok" de, 2) doğrusunu yaz (z1–2'de yalnız 1. adım yeter) |
 | `umform` | kaynak cümle(ler) + ` → ` + hedef | dönüştürülmüş cümle(ler) | boş | kaynak + Türkçe yönerge, yazma kutusu |
+| `ceviri` | Türkçe tam cümle | Almanca; alternatifler ` / ` ile (bütün doğal sıralar) | boş | "Almancası" yönergesi, Türkçe büyük, yazma kutusu. Türkçe alanı `-` |
+| `text` | 2–4 cümlelik kısa metin; 2–5 boşluk `___`, her boşluğun ardından isteğe bağlı `(ipucu)`: `___ (werden · Perfekt)` | parçalar ` ; ` ile (boşluk sırasıyla), her parçada alternatifler ` / `: `studieren will ; geworden ist ; bestehe / bestehen werde` | boş | metin içinde küçük giriş kutuları; ipucu kutunun yanında küçük |
+| `eslestir` | sol öğeler ` ;; ` ile (3–5; ör. cümle başları) | sağ öğeler ` ;; ` ile, **aynı sırada** doğru eşler | boş | sağ sütun karışık; sola dokun → sağa dokun eşler (eşlenen sönükleşir, yeniden dokununca eş bozulur). Türkçe alanı isteğe bağlı (`-`) |
+| `kategori` | yönerge (`Dativ oder Akkusativ?`) | `grup adı: öğe, öğe ;; grup adı: öğe, öğe` (2–3 grup, toplam 4–8 öğe; öğe içinde `,` ve `;;` yok) | boş | öğeler karışık sırada, her öğenin yanında grup düğmeleri. Türkçe `-` olabilir |
+| `dinle` | Almanca cümle (TTS ile okunur, **ekranda gösterilmez**) | aynı cümle (alternatifler ` / `) | boş | "Dinle" + "yavaş" düğmeleri, yazma kutusu; Türkçe alanı = Türkçesi (ipucu). Ses yoksa (TTS desteklenmiyorsa) bu tür seçilmez |
 
 `umform` hedefleri (uygulama Türkçe yönergeye çevirir):
 
@@ -96,11 +107,18 @@ Türlere göre:
 | `Relativsatz` | "ilgi cümlesiyle tek cümle yap" |
 | `Konjunktiv II` | "kibar / dilek cümlesi yap" |
 
-Denetim kuralları (build ve `pruef_grammatik.py`): 8 alan; tür ve zorluk geçerli; `luecke`'de `___` sayısı = cevap parça sayısı; seçenekli `luecke` / `wahl`'da cevap seçenekler arasında; `ordnen` parçalarının kelimeleri = cevabın kelimeleri; `fehler`'de hatalı kısım soruda geçer ve soru ≠ cevap (`-` ise soru = cevap); `umform`'da ` → ` var; zorunlu başlıklar ve `@erklaerung` var.
+Yazarak / seçmeli: **yazarak** = `umform`, `ordnen`, `fehler`, `ceviri`, `dinle`, `text`, seçeneksiz `luecke`; **seçmeli** = `wahl`, seçenekli `luecke`, `eslestir`, `kategori`.
+
+Denetim kuralları (build ve `pruef_grammatik.py`; hata build'i durdurur): 8 alan; tür ve zorluk geçerli; `luecke`'de `___` sayısı = cevap parça sayısı; seçenekli `luecke` / `wahl`'da cevap seçenekler arasında; `ordnen` parçalarının kelimeleri = cevabın kelimeleri; `fehler`'de hatalı kısım soruda geçer ve soru ≠ cevap (`-` ise soru = cevap); `umform`'da ` → ` var; `ceviri` / `text` / `eslestir` / `kategori` / `dinle`'de 5. alan boş; `ceviri` / `dinle`'de cevap boş değil, `dinle`'de soru cevaplardan biri (noktalama ve büyük harf hariç); `text`'te `___` sayısı = ` ; ` parça sayısı ve parça boş değil; `eslestir`'de sol ve sağ öğe sayısı eşit, 3–5, öğe tekrar yok; `kategori`'de 2–3 grup, her grubun adı ve ≥ 1 öğesi var, öğe ve grup adı tekrar yok; `@teil <kod>` yalnız tanımlı teil'e döner; zorunlu başlıklar ve `@erklaerung` var. Uyarı (durdurmaz): `text` 2–5 boşluk dışında, `kategori` toplam 4–8 öğe dışında.
 
 ## 6. İçerik yazma kuralları (Claude için)
 
-1. Konu başına **en az 20** alıştırma; her tür en az 2; zorluk dağılımı kabaca z1 %20–30, z2 %45–55, z3 %20–30.
+1. Konu başına **en az 50** alıştırma. Tür başına en az: `ceviri` 6, `text` 3, `dinle` 3, `eslestir` 2, `kategori` 2 (`eslestir` / `kategori` konuya uymuyorsa 1); eski türler (`luecke`, `wahl`, `ordnen`, `fehler`, `umform`) her biri 4. Zorluk dağılımı kabaca z1 %20–30, z2 %45–55, z3 %20–30. Build bu dağılımı konu başına tek satır **uyarı** olarak verir (hata değil).
+   - `ceviri`: Türkçe doğal ve tek anlamlı olsun (hedef yapıyı zorlasın: "hasta olduğum için" → weil); bütün doğal Almanca sıralar cevapta.
+   - `text`: 2–4 cümle, bağlamlı küçük bir sahne; boşluklar konunun hedef yapısında (çekimli fiil, bağlaç …), ipucu mastar / zaman.
+   - `eslestir`: eşleşme ancak dilbilgisiyle tek olmalı (weil → `ich Fieber habe`, denn → `ich habe Fieber`); anlamca da uyan ikinci eş varsa öğeyi değiştir.
+   - `kategori`: gruplar konunun ayırt ettiği şey (Dativ / Akkusativ, fiil sonda / 2. yerde …); öğe tek gruba ait olmalı.
+   - `dinle`: ≤ 12 kelime, hedef yapı duyulunca fark edilecek yerde (dass / das, hab / habe); sayı ve özel ad yerine kelime.
 2. `fehler` alıştırmalarının yaklaşık dörtte biri **hata yok** (`-`): "her cümlede hata var" alışkanlığı olmasın.
 3. Çeldiriciler gerçek hatalardan: Türkçe aktarımı (`weil ich bin krank`), Tuna'nın log'undaki hatalar (`gestreitet`, `verlauft`, `Ihren`), karışan yapı (`denn`/`weil`). Saçma çeldirici yok.
 4. z1 seçimleri **anlam işletmeli** (processing instruction): doğru seçenek ancak cümlenin anlamına ya da bir ipucuna bakarak bulunur (`denn` mi `weil` mi: arkadaki fiilin yerine bak; Passiv: "işi kim yapıyor?").
@@ -119,7 +137,17 @@ Karşılaştırmadan önce: baş/son boşluk ve çoklu boşluk atılır, sondaki
 | `fast` | hedef yapı doğru, yalnız: büyük/küçük harf, umlaut/ß yerine `ae/oe/ue/ss`, eksik virgül, hedef dışı bir kelimede tek harf yazım hatası |
 | `falsch` | hedef yapı yanlış: kelime sırası, yardımcı fiil, çekim, zamir, bağlaç, hâl. `luecke`'de boşluğun içeriği dilbilgisel olarak farklıysa (`hat` ≠ `habe`) |
 
-- `umform` ve uzun `ordnen` cevabı alternatiflere uymazsa sistem `falsch` önerir; Tuna kendi notunu verir (1/2/3, kural 8: not sonrası direkt sonraki soru). Not öneriden farklıysa `öneri:X` loglanır. "Sonuçlarıma bak"ta Claude bu satırları inceler; doğru olan yeni bir sıralamayı ilgili satırın cevabına alternatif olarak ekler.
+Yeni türler:
+
+| tür | richtig | fast | falsch |
+|---|---|---|---|
+| `ceviri` | `umform` gibi (`G.pruefen`, alternatifler) | yazım / umlaut / büyük harf | hedef yapı yanlış; alternatiflere uymazsa Tuna kendi notunu verebilir (`öneri:`) |
+| `text` | bütün boşluklar doğru | doğru (ya da küçük hatalı) boşluk oranı ≥ 0,5 | oran < 0,5 |
+| `eslestir` | bütün eşler doğru | bir karışıklık (en çok 2 yanlış eş: iki eşin yer değiştirmesi) | daha fazlası |
+| `kategori` | bütün öğeler doğru grupta | 1 yanlış öğe | 2 ve üstü |
+| `dinle` | noktalama ve büyük/küçük harf yok sayılarak aynı | umlaut/ß yazımı; ya da tek kelimede tek harf (kelime ≥ 5 harf ve son iki harf aynı: çekim değil) | kısa kelimede fark (`das`/`dass`, `hab`/`habe`), sıra, eksik kelime |
+
+- `umform`, `ceviri` ve uzun `ordnen` cevabı alternatiflere uymazsa sistem `falsch` önerir; Tuna kendi notunu verir (1/2/3, kural 8: not sonrası direkt sonraki soru). Not öneriden farklıysa `öneri:X` loglanır. "Sonuçlarıma bak"ta Claude bu satırları inceler; doğru olan yeni bir sıralamayı ilgili satırın cevabına alternatif olarak ekler.
 - Mevcut `js/grammatik.js` karşılaştırma yardımcıları (umlaut / büyük harf / yazım farkı) yeniden kullanılır.
 
 ## 8. Log (`log/log.csv`)
@@ -127,6 +155,7 @@ Karşılaştırmadan önce: baş/son boşluk ve çoklu boşluk atılır, sondaki
 | durum | modus | id | item | frage | antwort | ergebnis | loesung | notiz |
 |---|---|---|---|---|---|---|---|---|
 | alıştırma | `gram` | `g:weil-dass:7` | `weil-dass/perfekt` | gösterilen soru | yazdığı / seçtiği | `richtig` `fast` `falsch` | asıl cevap | `tür:luecke \| z:2 \| kelime sırası \| ghost:1 \| ipucu:1 \| öneri:falsch \| sek:12` |
+| (yeni türler) | `gram` | `g:weil-dass:35` | | soru alanı (dinle: okunan cümle) | `text`: parçalar ` ; ` · `eslestir`: `sol → seçtiği sağ ;; …` · `kategori`: `grup: öğe, öğe ;; …` · `ceviri` / `dinle`: cümle | | antwort ile aynı biçimde (`eslestir`: `sol → doğru sağ ;; …`) | `tür:ceviri` … |
 | tanıtım | `gram` | `g:weil-dass` | konu | `tanıtım` | | `neu` | | `sek:N` (okuma süresi) |
 | set sonu | `gram` | `g:weil-dass` | konu | `tekrar` / `giriş` / `kontrast` | | `richtig`/`fast`/`falsch` (= set notu) | | `puan:2.5/3 \| teil:v-end,modal,vorn` |
 | takılma | `leech` | `g:weil-dass:vorn` | konu/teil | | | `takiliyor` | | |
@@ -155,14 +184,14 @@ Bir tekrar = **3 alıştırma**, her tekrarda başka alıştırma:
 
 - **Teil**: 1) en zayıf teil (başarı `(d+1)/(d+y+2)` en düşük), 2) en uzun süredir görülmeyen teil, 3) kalanlardan rastgele. Hayaleti açık teil bu sete girmez (hayalet kendi yolunda döner).
 - **Zorluk**, konu kartının kararlılığına (S, gün) göre: S < 4 → z1–z2 (en az biri z2); 4 ≤ S < 21 → z2–z3 (en az biri z3); S ≥ 21 → en az ikisi z3 / üretim (`umform`, `fehler`, `ordnen`, yazarak `luecke`).
-- **Tür**: üç farklı tür; en az biri yazarak; `wahl` en çok 1.
+- **Tür**: üç farklı tür (teil tercihinden önce gelir); en az biri yazarak (`ceviri`, `dinle`, `text`, `umform`, `ordnen`, `fehler`, seçeneksiz `luecke`); `eslestir` / `kategori` seçmeli sayılır ve sette bunlardan en çok 1. Giriş setinde de `eslestir` + `kategori` en çok 1.
 - **Alıştırma**: son 14 günde görülmemiş olan; hepsi görüldüyse en eski görülen. Kelimeleri (`kelimeler`) görülmüş olan alıştırma önce; görülmemiş kelime varsa altında anlamı gösterilir.
 - **Not**: richtig = 1, fast = 0,5, falsch = 0. Toplam ≥ 2,5 → 3 (doğru); ≥ 1,5 → 2 (küçük hata); daha az → 1 (yanlış). FSRS set başına **bir kez** güncellenir.
 
 ### 10.4 Hayalet (yanlışın kısa süreli dönüşü)
 Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana takvimden bağımsız olarak kısa aralıkla yeniden sorulur.
 
-- Açılış: `falsch` alınan her alıştırma; üretim türlerinde (`umform`, `ordnen`, yazarak `luecke`) `fast` da. Hayalet **teil** içindir, cümle için değil.
+- Açılış: `falsch` alınan her alıştırma; yazarak türlerde (`umform`, `ordnen`, `fehler`, `ceviri`, `dinle`, `text`, yazarak `luecke`) `fast` da. Hayalet **teil** içindir, cümle için değil.
 - Adım 1: aynı oturumda, en az 8 başka sorudan (ve ≥ 5 dk) sonra, aynı teil'den **başka** bir alıştırma (yoksa aynısı).
 - Adım 2: ertesi gün (günün kuyruğunda öncelikli). Adım 3: 3 gün sonra.
 - Art arda **2 doğru** → hayalet silinir. Hayalette yanlış → adım 1'e döner (oturumda bir teil için en çok bir kez).
@@ -187,7 +216,8 @@ window.GRAMMATIK = { "weil-dass": {
   kopf: {titel, tr, stufe, kapitel, goethe: {stufe: 3, wo: "…"}, voraus: [], kontrast: [], etiket, kurz},
   erklaerung: "…", tabellen: [{titel, kopf: [], zeilen: [[]]}], beispiele: [[de, tr]],
   teile: {"v-end": {name, etiket}},
-  uebungen: [{n: 1, tur, z, teil, soru, cevap: [], opt: [] | hata, tr, aciklama, woerter: [], aus: false}]
+  uebungen: [{n: 1, tur, z, teil, soru, cevap: [], opt: [] | hata, tr, aciklama, woerter: [], aus: false,
+              parcalar: [[alt, …], …] /* text */, sol: [], sag: [] /* eslestir */, gruplar: [{ad, oge: []}] /* kategori */}]
 }}
 ```
 

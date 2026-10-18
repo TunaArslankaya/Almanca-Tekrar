@@ -1,0 +1,138 @@
+# Gramer konusu: yer edatları (wohin? / wo? / woher?). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id lokal-praep
+@titel Lokale Präpositionen: wohin, wo, woher?
+@tr Yer edatları: nereye (nach / in / zu), nerede (in / bei / an / auf), nereden (aus / von)
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 3 | Schreiben 1-2 · Sprechen 1-3 · Hören (yol, buluşma yeri)
+@voraus praep-dat-akk
+@kontrast wechselpraep
+@etiket edat
+@kurz Nereye: şehir / artikelsiz ülke → nach, artikelli ülke / bina → in + Akk, kişi / kurum → zu. Nerede: in / bei / an / auf + Dativ. Nereden: in → aus, zu / bei → von. Ev: nach Hause / zu Hause.
+
+@erklaerung
+Türkçede tek ek yeter: Bremen'e, doktora (-e) · Bremen'de, doktorda (-de) · Bremen'den, doktordan (-den). Almancada edat, yerin türüne göre değişir. Önce sor: "Nasıl bir yer?"
+
+1. Artikelsiz şehir ve ülke (Bremen, Deutschland, Spanien): nach Bremen · in Bremen · aus Bremen.
+2. Artikelli ülke (die Türkei, die Schweiz, die USA) ve içine girilen yer (das Kino, die Bibliothek): in die Türkei · in der Türkei · aus der Türkei.
+3. Kişi, doktor, kurum, dükkân (die Tante, der Arzt, die Post, der Bahnhof): zu · bei · von: zum Arzt · beim Arzt · vom Arzt.
+4. Su kenarı (das Meer, der See): ans Meer · am Meer · vom Meer. Açık alan, ada, etkinlik (der Markt, die Insel, die Party): auf den Markt · auf dem Markt · vom Markt.
+5. Ev: nach Hause (eve) · zu Hause (evde) · von zu Hause (evden).
+
+zu, bei, von, aus, nach hep Dativ alır; in, an, auf yönde Akkusativ, yerde Dativ.
+
+Tuzak: "doktora gidiyorum" → Ich gehe zum Arzt ("in den Arzt" değil); "annemlerdeyim" → Ich bin bei meinen Eltern ("zu" değil); "teyzemden geliyorum" → von meiner Tante ("aus" değil). Konuşma dilinde "Ich bin auf der Arbeit" çok duyulur; yazıda "bei der Arbeit" ya da "im Büro" daha güvenli.
+
+Sınavda: Schreiben'de tatil, taşınma, buluşma yeri anlatırken; Sprechen Teil 3'te "Wo treffen wir uns?" planlarken her cümlede gerekir.
+@ende
+
+@tabelle Wohin? – Wo? – Woher?
+yer türü | wohin? (nereye) | wo? (nerede) | woher? (nereden)
+şehir / artikelsiz ülke | nach Bremen | in Bremen | aus Bremen
+artikelli ülke | in die Türkei | in der Türkei | aus der Türkei
+bina / kapalı yer | ins Kino | im Kino | aus dem Kino
+kişi | zu meiner Tante | bei meiner Tante | von meiner Tante
+doktor / kurum / dükkân | zum Arzt | beim Arzt | vom Arzt
+deniz / göl kenarı | ans Meer | am Meer | vom Meer
+açık alan / ada / etkinlik | auf den Markt | auf dem Markt | vom Markt
+ev | nach Hause | zu Hause | von zu Hause
+@ende
+
+@tabelle Kısaltmalar
+edat + artikel | kısa | örnek
+zu + dem | zum | zum Bahnhof
+zu + der | zur | zur Post
+bei + dem | beim | beim Friseur
+von + dem | vom | vom Zahnarzt
+in + das / dem | ins / im | ins Kino · im Kino
+an + das / dem | ans / am | ans Meer · am Meer
+@ende
+
+@beispiel Am Wochenende fahre ich zu meiner Tante nach Hamburg. | Hafta sonu Hamburg'a, teyzemin yanına gidiyorum.
+@beispiel Ich war heute beim Arzt und danach in der Apotheke. | Bugün doktordaydım, ondan sonra da eczanedeydim.
+@beispiel Meine Familie kommt aus der Türkei, aber ich wohne jetzt in Bremen. | Ailem Türkiye'den, ama ben şimdi Bremen'de oturuyorum.
+@beispiel Nach dem Kurs gehe ich nach Hause und bleibe den ganzen Abend zu Hause. | Kurstan sonra eve gidiyorum ve bütün akşam evde kalıyorum.
+
+@teil wohin | Nereye? nach · in · zu · an · auf | edat
+wahl | 1 | Ich habe starke Zahnschmerzen. Ich muss heute noch ___ Zahnarzt. | zum | zum / beim / nach | Dişim çok ağrıyor. Bugün mutlaka dişçiye gitmem lazım. | Nereye? Doktora gitmek: zu + Dativ (zu dem = zum). beim "doktorda" demektir, nach yalnız şehir ve ülkeyle. | der Zahn; der Arzt
+luecke | 1 | Im Sommer fliegen wir zwei Wochen ___ Spanien. | nach | nach / in / zu | Yazın iki haftalığına İspanya'ya uçuyoruz. | Artikelsiz ülke ve şehre gitmek: nach (nach Spanien, nach Bremen). | fliegen
+luecke | 2 | Ich bringe das Paket schnell ___ Post. (zu + die) | zur | | Paketi hemen postaneye götürüyorum. | Kuruma gitmek: zu + Dativ; zu + der = zur. | das Paket; die Post
+luecke | 2 | Am Samstag gehen wir ___ Markt und kaufen Gemüse. (auf · wohin?) | auf den | | Cumartesi pazara gidip sebze alıyoruz. | Açık alan (der Markt) → auf; yön (wohin?) → Akkusativ: auf den Markt. Yerde olsaydı: auf dem Markt. | der Markt; das Gemüse
+luecke | 2 | Bei schönem Wetter fahren wir nach dem Kurs ___ See. (an · wohin?) | an den | | Hava güzel olunca kurstan sonra göle gidiyoruz. | Su kenarına gitmek: an + Akkusativ; der See → an den See. | der See; das Wetter
+fehler | 2 | Nach dem Unterricht gehe ich in den Arzt. | Nach dem Unterricht gehe ich zum Arzt. | in den Arzt | Dersten sonra doktora gidiyorum. | Kişiye ve doktora gidilir, içine girilmez: zu + Dativ → zum Arzt. | der Unterricht; der Arzt
+ordnen | 2 | ich / muss / heute / noch / zur Apotheke / gehen | Ich muss heute noch zur Apotheke gehen. / Heute muss ich noch zur Apotheke gehen. / Zur Apotheke muss ich heute noch gehen. | | Bugün bir de eczaneye gitmem lazım. | Modal fiil (muss) 2. yerde, mastar (gehen) en sonda; yön (zur Apotheke) mastarın hemen önünde. | die Apotheke
+ceviri | 2 | Yarın akşam bir partiye gidiyoruz. | Morgen Abend gehen wir auf eine Party. / Wir gehen morgen Abend auf eine Party. / Morgen Abend gehen wir zu einer Party. / Wir gehen morgen Abend zu einer Party. | | - | Etkinliğe gitmek: auf + Akkusativ (auf eine Party) ya da zu + Dativ (zu einer Party). Zaman öne gelirse fiil yine 2. yerde. | die Party
+ceviri | 2 | Bu hafta sonu kuaföre gitmem lazım. | Ich muss dieses Wochenende zum Friseur. / Ich muss dieses Wochenende zum Friseur gehen. / Dieses Wochenende muss ich zum Friseur. / Dieses Wochenende muss ich zum Friseur gehen. / Ich muss an diesem Wochenende zum Friseur. / Ich muss an diesem Wochenende zum Friseur gehen. / An diesem Wochenende muss ich zum Friseur. / An diesem Wochenende muss ich zum Friseur gehen. | | - | Kuaför bir kişi / dükkân: zu + Dativ → zum Friseur. Modal fiilden sonra gehen düşebilir: Ich muss zum Friseur. | der Friseur; das Wochenende, -n
+ceviri | 2 | Pazartesi yabancılar dairesine gitmem lazım. | Am Montag muss ich zur Ausländerbehörde. / Am Montag muss ich zur Ausländerbehörde gehen. / Ich muss am Montag zur Ausländerbehörde. / Ich muss am Montag zur Ausländerbehörde gehen. | | - | Daireye / kuruma gitmek: zu + Dativ; die Behörde → zur Ausländerbehörde. | die Behörde
+dinle | 2 | Nach dem Kurs gehe ich noch schnell zur Bank. | Nach dem Kurs gehe ich noch schnell zur Bank. | | Kurstan sonra hemen bir bankaya uğruyorum. | İlk nach zaman bildirir (nach dem Kurs = kurstan sonra); yön zur Bank (zu + der). | der Kurs; die Bank
+eslestir | 1 | Ich fahre nach … ;; Ich fahre in die … ;; Ich fahre zum … ;; Wir fahren auf die … | Italien ;; Schweiz ;; Bahnhof ;; Insel | | - | nach + artikelsiz ülke (Italien); in die + artikelli ülke (die Schweiz); zum + eril / nötr yer (der Bahnhof); auf die + ada (die Insel). | der Bahnhof; die Insel
+
+@teil wo | Nerede? in · bei · an · auf + Dativ | edat
+wahl | 1 | Tuna ist gerade nicht da, er ist ___ Friseur. | beim | beim / bei / im | Tuna şu an burada değil, kuaförde. | Kişide / dükkânda olmak: bei + Dativ (bei dem = beim). Friseur'un "içinde" denmez: im olmaz. | der Friseur
+luecke | 1 | Meine Schwester wohnt noch ___ unseren Eltern. | bei | bei / zu / in | Kız kardeşim hâlâ annemlerle oturuyor. | Birinin yanında / evinde olmak: bei + Dativ. zu yön bildirir (zu unseren Eltern fahren). | die Schwester; die Eltern; wohnen
+luecke | 2 | Wir haben den ganzen Nachmittag ___ Strand gelegen. (an · wo?) | am | | Bütün öğleden sonra kumsalda yattık. | Su kenarı, kumsal: an + Dativ (wo?); an dem = am. | der Strand
+luecke | 2 | Ich habe dich gestern ___ Party gar nicht gesehen. (auf · wo?) | auf der | | Dün partide seni hiç görmedim. | Etkinlikte bulunmak: auf + Dativ → auf der Party. | die Party
+luecke | 2 | Ich war heute zwei Stunden ___ Ausländerbehörde. (bei + die) | bei der | | Bugün iki saat yabancılar dairesindeydim. | Kurumda bulunmak: bei + Dativ; die Behörde → bei der. | die Behörde
+fehler | 2 | Am Wochenende war ich zu meinen Eltern. | Am Wochenende war ich bei meinen Eltern. | zu meinen Eltern | Hafta sonu annemlerdeydim. | sein bir yer bildirir (wo?): kişinin yanında olmak bei. zu yalnız yön için: Ich fahre zu meinen Eltern. | die Eltern; das Wochenende, -n
+fehler | 2 | Im Sommer waren wir zwei Wochen auf einer Insel in Griechenland. | Im Sommer waren wir zwei Wochen auf einer Insel in Griechenland. | - | Yazın iki hafta Yunanistan'da bir adadaydık. | Hata yok: adada → auf + Dativ (auf einer Insel); artikelsiz ülkede → in (in Griechenland). | die Insel
+ordnen | 2 | wir / treffen / uns / um sieben / am Bahnhof | Wir treffen uns um sieben am Bahnhof. / Um sieben treffen wir uns am Bahnhof. / Am Bahnhof treffen wir uns um sieben. | | Saat yedide istasyonda buluşuyoruz. | Buluşma yeri wo? sorusuna cevap verir: an + Dativ → am Bahnhof. Zaman (um sieben) genelde yerden önce gelir. | sich treffen mit; der Bahnhof
+umform | 2 | Ich gehe ins Schwimmbad. → Wo? (sein) | Ich bin im Schwimmbad. | | Yüzme havuzuna gidiyorum. → Yüzme havuzundayım. | Yön (ins = in das, Akkusativ) yer olunca Dativ olur: im = in dem. | das Schwimmbad
+ceviri | 2 | Erkek kardeşim Berlin'de oturuyor, ama şu an annemlerde. | Mein Bruder wohnt in Berlin, aber im Moment ist er bei meinen Eltern. / Mein Bruder wohnt in Berlin, aber er ist im Moment bei meinen Eltern. / Mein Bruder wohnt in Berlin, aber gerade ist er bei meinen Eltern. / Mein Bruder wohnt in Berlin, aber er ist gerade bei meinen Eltern. / Mein Bruder wohnt in Berlin, aber jetzt ist er bei meinen Eltern. / Mein Bruder wohnt in Berlin, aber er ist jetzt bei meinen Eltern. | | - | Şehirde: in Berlin. Birinin evinde: bei + Dativ (bei meinen Eltern). | der Bruder; die Eltern; wohnen
+ceviri | 2 | Yazın iki hafta denizdeydik. | Im Sommer waren wir zwei Wochen am Meer. / Wir waren im Sommer zwei Wochen am Meer. | | - | Deniz kenarında bulunmak: an + Dativ → am Meer ("im Meer" suyun içinde demektir). | das Meer
+dinle | 2 | Ich war gestern beim Arzt, weil ich Fieber hatte. | Ich war gestern beim Arzt, weil ich Fieber hatte. | | Dün doktordaydım, çünkü ateşim vardı. | Doktorda bulunmak: bei + Dativ (beim Arzt). weil-yan cümlesinde fiil (hatte) sonda. | der Arzt; das Fieber
+kategori | 1 | Wo bist du? Welche Präposition passt? | bei: der Arzt, meine Tante, der Friseur ;; in: die Bibliothek, das Kino, die Türkei ;; auf: der Markt, die Insel | | - | Kişi ve doktor yanında → bei; içinde → in; açık alan ve ada üstünde → auf. | der Arzt; die Tante; der Friseur; die Bibliothek; das Kino; die Türkei; der Markt; die Insel
+
+@teil woher | Nereden? aus · von | edat
+wahl | 1 | Woher kommst du? – Ich komme ___ Izmir. | aus | aus / nach / bei | Nerelisin? – İzmirliyim. | Memleket, şehir, ülke (woher?): aus + Dativ. nach yön, bei yer bildirir. |
+luecke | 1 | Ich komme gerade ___ Arzt, deshalb bin ich so spät. | vom | vom / aus dem / zum | Doktordan yeni geliyorum, o yüzden bu kadar geç kaldım. | zu / bei ile gidilen yerden dönülürken von: zum Arzt → beim Arzt → vom Arzt. | der Arzt
+luecke | 2 | Wann kommst du heute ___ Arbeit nach Hause? (von + die) | von der | | Bugün işten eve ne zaman geliyorsun? | İşten dönmek: von + Dativ → von der Arbeit. | die Arbeit
+luecke | 2 | Sie nimmt ihr Handy ___ Tasche. (aus + die) | aus der | | Telefonunu çantasından çıkarıyor. | Bir şeyin içinden çıkmak: aus + Dativ → aus der Tasche. | das Handy; die Tasche
+luecke | 2 | Holst du mich morgen ___ Bahnhof ab? (von + der) | vom | | Yarın beni istasyondan alır mısın? | jemanden von … abholen: von + dem = vom. | abholen; der Bahnhof
+fehler | 2 | Dieses Paket ist aus meiner Mutter. | Dieses Paket ist von meiner Mutter. | aus meiner Mutter | Bu paket annemden. | Kişiden gelen şey: von + Dativ. aus "içinden" demektir (aus der Türkei, aus der Tasche). | das Paket; die Mutter
+fehler | 3 | Wann kommt ihr aus dem Urlaub zurück? | Wann kommt ihr aus dem Urlaub zurück? | - | Tatilden ne zaman dönüyorsunuz? | Hata yok: aus dem Urlaub zurückkommen kalıptır (Urlaub'da "içinde" olunur: im Urlaub). | der Urlaub; zurück
+ordnen | 2 | mein Mitbewohner / kommt / heute / erst spät / von der Arbeit | Mein Mitbewohner kommt heute erst spät von der Arbeit. / Heute kommt mein Mitbewohner erst spät von der Arbeit. | | Ev arkadaşım bugün işten ancak geç geliyor. | Fiil 2. yerde; nereden? → von der Arbeit, cümlenin sonunda. | die Arbeit; erst
+umform | 3 | Ich bin bei meiner Tante. → Woher? (kommen) | Ich komme von meiner Tante. | | Teyzemdeyim. → Teyzemden geliyorum. | bei (yer) ile söylenen kişiden dönülürken von: bei meiner Tante → von meiner Tante. "aus meiner Tante" olmaz. | die Tante
+ceviri | 3 | Partiden ancak gece yarısı döndüm. | Ich bin erst um Mitternacht von der Party zurückgekommen. / Erst um Mitternacht bin ich von der Party zurückgekommen. / Ich bin erst um Mitternacht von der Party nach Hause gekommen. / Erst um Mitternacht bin ich von der Party nach Hause gekommen. / Ich kam erst um Mitternacht von der Party zurück. / Ich kam erst um Mitternacht von der Party nach Hause. | | - | Etkinlikten dönmek: von + Dativ (von der Party). zurückkommen hareket bildirir → Perfekt'te sein. | die Party; erst; zurück
+dinle | 2 | Mein Mitbewohner kommt erst um zehn von der Uni zurück. | Mein Mitbewohner kommt erst um zehn von der Uni zurück. | | Ev arkadaşım üniversiteden ancak onda dönüyor. | von der Uni: nereden? → von + Dativ; ayrılabilen fiilin ön eki (zurück) en sonda. | die Uni, -s; erst; zurück
+
+@teil hause | nach Hause · zu Hause · von zu Hause | edat
+wahl | 1 | Ich bin total müde. Ich gehe jetzt ___. | nach Hause | nach Hause / zu Hause / ins Haus | Çok yorgunum. Şimdi eve gidiyorum. | gehen yön bildirir → nach Hause (eve). zu Hause "evde" demektir. | müde
+luecke | 1 | Bei Regen bleibe ich am liebsten ___. | zu Hause | zu Hause / nach Hause / von zu Hause | Yağmurda en çok evde kalmayı severim. | bleiben bir yer bildirir (wo?) → zu Hause. | der Regen; bleiben
+luecke | 2 | Heute arbeite ich ___, weil die Bahn streikt. (evden) | von zu Hause / von zu Hause aus | | Bugün evden çalışıyorum, çünkü tren grevde. | Evden: von zu Hause (aus). "von Hause" ya da "aus Hause" olmaz. | arbeiten; die Bahn; streiken
+fehler | 1 | Gestern Abend war ich nach Hause. | Gestern Abend war ich zu Hause. | nach Hause | Dün akşam evdeydim. | sein yer bildirir (wo?) → zu Hause. nach Hause yalnız gitmek / gelmekle. |
+fehler | 2 | Wann kommst du heute nach Hause? | Wann kommst du heute nach Hause? | - | Bugün eve ne zaman geliyorsun? | Hata yok: kommen yön bildirir → nach Hause. |
+ordnen | 2 | nach dem Kurs / gehe / ich / direkt / nach Hause | Nach dem Kurs gehe ich direkt nach Hause. / Ich gehe nach dem Kurs direkt nach Hause. | | Kurstan sonra doğrudan eve gidiyorum. | İlk nach zaman (nach dem Kurs), ikincisi yön (nach Hause). Hangisi başta olursa olsun fiil 2. yerde. | der Kurs; direkt
+umform | 2 | Ich gehe nach Hause. → Wo? (bleiben) | Ich bleibe zu Hause. | | Eve gidiyorum. → Evde kalıyorum. | Yön (nach Hause) yer olunca zu Hause olur. | bleiben
+ceviri | 2 | Bu akşam evde yemek yapıyoruz. | Heute Abend kochen wir zu Hause. / Wir kochen heute Abend zu Hause. | | - | Evde: zu Hause ("in Hause" ya da "nach Hause" değil). | kochen
+dinle | 2 | Ich bin um sechs nach Hause gekommen und den ganzen Abend zu Hause geblieben. | Ich bin um sechs nach Hause gekommen und den ganzen Abend zu Hause geblieben. | | Altıda eve geldim ve bütün akşam evde kaldım. | Yön: nach Hause gekommen; yer: zu Hause geblieben. İkisi de Perfekt'te sein alır. | bleiben
+text | 2 | Hi Lea, ich bin noch in der Bibliothek, aber in einer Stunde fahre ich ___. Hast du heute Abend Zeit? Wir können ___ kochen. Morgen arbeite ich ___, dann können wir lange frühstücken. | nach Hause ; zu Hause ; von zu Hause / von zu Hause aus | | Selam Lea, hâlâ kütüphanedeyim ama bir saat sonra eve gidiyorum. Bu akşam vaktin var mı? Evde yemek yapabiliriz. Yarın evden çalışıyorum, o zaman uzun uzun kahvaltı yapabiliriz. | Eve (yön) → nach Hause; evde (yer) → zu Hause; evden → von zu Hause. | die Bibliothek; kochen; frühstücken
+eslestir | 1 | eve ;; evde ;; evden ;; Bremen'e | nach Hause ;; zu Hause ;; von zu Hause ;; nach Bremen | | - | Ev için kalıplar: nach Hause (yön), zu Hause (yer), von zu Hause (çıkış). Şehre gitmek de nach ile. |
+
+@teil land | Şehir ve ülke: artikelsiz / artikelli | artikel/çekim
+wahl | 1 | Meine Eltern leben seit drei Jahren ___ Schweiz. | in der | in der / in die / nach | Annemler üç yıldır İsviçre'de yaşıyor. | leben yer bildirir (wo?); die Schweiz artikelli → in + Dativ: in der Schweiz. | die Eltern
+luecke | 1 | Nächsten Sommer fliege ich ___ Türkei. | in die | in die / nach / in der | Gelecek yaz Türkiye'ye uçuyorum. | Artikelli ülkeye (die Türkei) nach ile gidilmez: in + Akkusativ → in die Türkei. | fliegen; die Türkei
+luecke | 2 | Ali kommt ___ Iran. (aus · mit Artikel) | aus dem / aus | | Ali İran'dan geliyor. | der Iran artikelli: aus + Dativ → aus dem Iran (bugün "aus Iran" da yazılıyor). |
+luecke | 2 | Viele Studierende gehen nach dem Studium ___ USA. (in · wohin?) | in die | | Pek çok öğrenci üniversiteden sonra ABD'ye gidiyor. | die USA çoğuldur: yön → in die USA, yer → in den USA. | das Studium; der Studierende
+fehler | 2 | Nächste Woche fliege ich nach die Türkei. | Nächste Woche fliege ich in die Türkei. | nach die Türkei | Gelecek hafta Türkiye'ye uçuyorum. | nach yalnız artikelsiz ülke ve şehirle. Artikelli ülke → in die. | fliegen; die Türkei
+fehler | 3 | Ich habe zwei Jahre in Türkei gearbeitet. | Ich habe zwei Jahre in der Türkei gearbeitet. | in Türkei | İki yıl Türkiye'de çalıştım. | die Türkei'de artikel düşmez: in der Türkei, aus der Türkei. | die Türkei; arbeiten
+fehler | 2 | Meine Freundin wohnt in Österreich, aber sie kommt aus Polen. | Meine Freundin wohnt in Österreich, aber sie kommt aus Polen. | - | Kız arkadaşım Avusturya'da oturuyor ama aslen Polonyalı. | Hata yok: artikelsiz ülkelerde yer → in, köken → aus. | die Freundin, -nen; wohnen
+umform | 3 | Wir sind in der Schweiz. → Woher? (kommen) | Wir kommen aus der Schweiz. | | İsviçre'deyiz. → İsviçre'den geliyoruz. | Artikelli ülkede artikel kalır, yalnız edat değişir: in der Schweiz → aus der Schweiz. |
+umform | 2 | Ich wohne in Bremen. → Wohin? (fahren) | Ich fahre nach Bremen. | | Bremen'de oturuyorum. → Bremen'e gidiyorum. | Artikelsiz şehre yön: nach. "in Bremen" yerdir. | fahren; wohnen
+ceviri | 3 | Ali İran'dan geliyor, ben de Türkiye'den. | Ali kommt aus dem Iran und ich komme aus der Türkei. / Ali kommt aus dem Iran, ich komme aus der Türkei. / Ali kommt aus dem Iran und ich aus der Türkei. / Ali kommt aus dem Iran, ich aus der Türkei. / Ali kommt aus Iran und ich komme aus der Türkei. / Ali kommt aus Iran und ich aus der Türkei. | | - | Artikelli ülkeler: aus dem Iran, aus der Türkei. İkinci cümlede fiil tekrar edilmeyebilir. | die Türkei
+kategori | 2 | Wohin fährst du? nach … oder in die …? | nach: Deutschland, Spanien, Bremen, Italien ;; in die: Türkei, Schweiz, USA, Niederlande | | - | Artikelsiz ülke ve şehir → nach. Artikelli ülke (die Türkei, die Schweiz, çoğul die USA, die Niederlande) → in die. | die Türkei
+dinle | 2 | Meine Familie lebt in der Türkei, aber ich studiere in Deutschland. | Meine Familie lebt in der Türkei, aber ich studiere in Deutschland. | | Ailem Türkiye'de yaşıyor, ama ben Almanya'da okuyorum. | in der Türkei (artikelli ülke, Dativ) ↔ in Deutschland (artikelsiz). | die Familie; die Türkei; studieren
+text | 3 | Liebe Frau Weber, leider konnte ich drei Wochen nicht ___ Kurs kommen. Ich musste ___ Türkei fliegen, weil meine Mutter ___ Krankenhaus lag. Jetzt geht es ihr besser und am Montag komme ich ___ Türkei zurück. | in den / zum ; in die ; im ; aus der | | Sayın Weber Hanım, maalesef üç hafta kursa gelemedim. Türkiye'ye uçmak zorunda kaldım, çünkü annem hastanede yatıyordu. Şimdi daha iyi ve pazartesi Türkiye'den dönüyorum. | Kursa: in den / zum Kurs; artikelli ülkeye: in die Türkei; hastanede: im Krankenhaus; artikelli ülkeden: aus der Türkei. | der Kurs; die Türkei; die Mutter; das Krankenhaus
+
+@teil kontrast | wohin · wo · woher karışık: zu ↔ bei ↔ von, in ↔ aus | edat
+wahl | 2 | Welcher Satz ist richtig? | Ich gehe heute Abend zu meiner Freundin. | Ich gehe heute Abend zu meiner Freundin. / Ich gehe heute Abend bei meiner Freundin. / Ich gehe heute Abend in meine Freundin. | Bu akşam kız arkadaşıma gidiyorum. | Kişiye gitmek: zu + Dativ. bei "yanında" (yer) demektir, gehen ile olmaz. | die Freundin, -nen
+wahl | 2 | Welcher Satz ist richtig? | Wir haben am Wochenende bei Freunden in Hamburg übernachtet. | Wir haben am Wochenende bei Freunden in Hamburg übernachtet. / Wir haben am Wochenende zu Freunden in Hamburg übernachtet. / Wir haben am Wochenende bei Freunden nach Hamburg übernachtet. | Hafta sonu Hamburg'da arkadaşlarda kaldık. | übernachten yer bildirir (wo?): kişinin yanında → bei, şehirde → in. zu ve nach yön içindir. | übernachten; das Wochenende, -n
+fehler | 3 | Ich komme gerade bei meiner Tante. | Ich komme gerade von meiner Tante. | bei meiner Tante | Teyzemden yeni geliyorum. | kommen + nereden? → von. bei yalnız yer (wo?) içindir: Ich war bei meiner Tante. | die Tante; gerade
+umform | 3 | Ich bin bei meiner Oma. → Wohin? (fahren) | Ich fahre zu meiner Oma. | | Babaannemdeyim. → Babaanneme gidiyorum. | Kişi: wo? bei → wohin? zu → woher? von. | die Oma
+ordnen | 3 | zuerst / fahre / ich / zu meiner Tante / und / dann / nach Hause | Zuerst fahre ich zu meiner Tante und dann nach Hause. / Ich fahre zuerst zu meiner Tante und dann nach Hause. | | Önce teyzeme, sonra eve gidiyorum. | Kişiye → zu, eve → nach Hause. İkinci kısımda fiil tekrar edilmez. | die Tante; zuerst
+ceviri | 3 | Kurstan sonra doktora gittim, şimdi eczanedeyim. | Nach dem Kurs bin ich zum Arzt gegangen, jetzt bin ich in der Apotheke. / Nach dem Kurs bin ich zum Arzt gegangen und jetzt bin ich in der Apotheke. / Ich bin nach dem Kurs zum Arzt gegangen, jetzt bin ich in der Apotheke. / Ich bin nach dem Kurs zum Arzt gegangen und jetzt bin ich in der Apotheke. / Nach dem Kurs bin ich zum Arzt gegangen, jetzt bin ich in der Apotheke. | | - | Doktora (yön) → zum Arzt; eczanede (yer) → in der Apotheke. gehen Perfekt'te sein alır. | der Kurs; der Arzt; die Apotheke
+eslestir | 2 | Wohin? ;; Wo? ;; Woher? | zum Arzt ;; beim Arzt ;; vom Arzt | | - | Kişi ve doktor için üçlü: zu (nereye) – bei (nerede) – von (nereden), hepsi Dativ. | der Arzt
+eslestir | 2 | doktora ;; teyzemde ;; Türkiye'den ;; denize | zum Arzt ;; bei meiner Tante ;; aus der Türkei ;; ans Meer | | - | Doktora → zu; kişide → bei; ülkeden → aus; deniz kenarına → an + Akkusativ (ans). | der Arzt; die Tante; die Türkei; das Meer
+text | 2 | Samstagmorgen: Zuerst gehe ich ___ Bäcker. Dort treffe ich meine Nachbarin, sie steht auch ___ Bäcker in der Schlange. Dann komme ich ___ Bäcker zurück und frühstücke ___. | zum ; beim ; vom ; zu Hause | | Cumartesi sabahı: önce fırına gidiyorum. Orada komşumla karşılaşıyorum, o da fırında sırada bekliyor. Sonra fırından dönüp evde kahvaltı yapıyorum. | Dükkân / kişi: zum (nereye) – beim (nerede) – vom (nereden). Evde: zu Hause. | die Nachbarin; die Schlange; frühstücken
+text | 2 | Hallo Jonas, ich bin noch ___ Bibliothek. Danach gehe ich ___ Markt und kaufe Gemüse. Kannst du um sechs ___ Bahnhof sein? Wir holen Lea zusammen ab. | in der ; auf den / zum ; am | | Selam Jonas, hâlâ kütüphanedeyim. Sonra pazara gidip sebze alacağım. Saat altıda istasyonda olabilir misin? Lea'yı birlikte alalım. | Kütüphanede (içinde, wo?) → in der; pazara (wohin?) → auf den / zum; istasyonda buluşma (wo?) → am Bahnhof. | die Bibliothek; der Markt; das Gemüse; der Bahnhof; abholen
