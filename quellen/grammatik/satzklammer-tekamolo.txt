@@ -1,14 +1,14 @@
 # Gramer konusu: cümle kıskacı (Satzklammer), orta alan sırası (TeKaMoLo), iki nesnenin sırası. Biçim: FORMAT.md.
 # Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
 # Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
-# Not: v2-satzbau (fiil 2. yerde, soru) ile örtüşmemesi için burada ağırlık orta alanda (Mittelfeld).
+# Not: verbstellung (fiil 2. yerde, inversion, soru) ile örtüşmemesi için burada ağırlık orta alanda (Mittelfeld).
 @id satzklammer-tekamolo
 @titel Satzklammer und Mittelfeld (TeKaMoLo)
 @tr Cümle kıskacı ve orta alan: fiilin iki parçası, zaman – sebep – tarz – yer sırası
 @stufe A2–B1
 @kapitel A2 · B1 tekrar ?
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
-@voraus v2-satzbau
+@voraus verbstellung
 @etiket kelime sırası
 @kurz Çekimli fiil 2. yerde, ikinci parça (mastar, Partizip, ön ek) EN SONDA. Arada genelde Te – Ka – Mo – Lo: wann – warum – wie – wo / wohin. İki zamir: önce Akkusativ (es ihm).
 

@@ -1,0 +1,136 @@
+# Gramer konusu: Edatlı fiiller (warten auf, sich freuen über …) ve da(r)- / wo(r)-. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id praep-verben
+@titel Verben mit Präpositionen
+@tr Edatlı fiiller: warten auf, sich freuen über … ve darauf / worauf / auf wen
+@stufe B1
+@kapitel B1 K6
+@goethe 2 | Schreiben 1-2-3 · Sprechen 2-3 · Lesen
+@voraus reflexiv, praep-dat-akk
+@kontrast reflexiv
+@etiket edat
+@kurz Edat fiilin parçası, fiille birlikte ezberle: warten auf + A, teilnehmen an + D. Şey için da(r)- / wo(r)- (darauf, worauf); kişi için edat + zamir (auf ihn, auf wen).
+
+@erklaerung
+Bazı fiiller nesnesini bir edatla alır: warten auf (beklemek), denken an (düşünmek), teilnehmen an (katılmak). Edat fiilin parçasıdır; anlamdan tahmin edilmez, fiille birlikte ezberlenir (kelime listesindeki gibi: warten auf + A).
+
+1. Türkçedeki ek yol göstermez: "seni bekliyorum" (-i) → Ich warte auf dich · "sınava katılmak" (-e) → an der Prüfung teilnehmen · "köpekten korkmak" (-den) → Angst vor dem Hund haben.
+2. Hâli de edat belirler: auf, über, um, für bu fiillerde neredeyse hep Akkusativ; mit, von, nach, zu, bei hep Dativ. an ve vor fiile bakar: denken an + A, teilnehmen an + D, Angst haben vor + D.
+3. Şeyden söz ederken zamir yerine da + edat: darauf, dafür, damit. Edat sesliyle başlıyorsa araya r girer: dar-auf, dar-an, dar-über. Soru: wo(r) + edat: Worauf wartest du?
+4. Kişi için edat + zamir ya da soru kelimesi: Ich warte auf ihn. Auf wen wartest du? Mit wem sprichst du? (darauf / worauf değil).
+5. Nesne bütün bir cümleyse: darauf, dass … ya da darauf, … zu …: Ich freue mich darauf, dich zu sehen.
+6. sich freuen auf = gelecekteki bir şeyi dört gözle beklemek; sich freuen über = olmuş bir şeye sevinmek.
+
+Konuşmada "Auf was wartest du?" ya da "Da freu ich mich drauf" duyulur; yazılı sınavda worauf / darauf yaz.
+Sınavda: Schreiben'de "Ich freue mich auf …", "Ich interessiere mich für …", "Ich möchte an … teilnehmen", "Ich habe mich über … geärgert" neredeyse her e-postada gerekir.
+@ende
+
+@tabelle Edat ve hâl (sık B1 fiilleri)
+edat | hâl | fiiller
+auf | Akkusativ | warten auf, sich freuen auf, achten auf, sich vorbereiten auf, sich verlassen auf
+über | Akkusativ | sich freuen über, sich ärgern über, sprechen über, sich beschweren über
+für | Akkusativ | sich interessieren für, sich entscheiden für, sich anmelden für
+um | Akkusativ | sich kümmern um, sich bewerben um
+an | Akkusativ | denken an, sich erinnern an, sich gewöhnen an
+an | Dativ | teilnehmen an, arbeiten an
+mit | Dativ | sprechen mit, telefonieren mit, rechnen mit
+von | Dativ | abhängen von, träumen von, sich erholen von
+vor | Dativ | Angst haben vor, sich fürchten vor
+nach | Dativ | fragen nach, sich erkundigen nach, suchen nach
+@ende
+
+@tabelle Şey mi kişi mi?
+edat | şey (cevap) | şey (soru) | kişi (cevap) | kişi (soru)
+auf | darauf | worauf | auf ihn / auf sie | auf wen
+an | daran | woran | an ihn / an sie | an wen
+über | darüber | worüber | über ihn / über sie | über wen
+für | dafür | wofür | für ihn / für sie | für wen
+mit | damit | womit | mit ihm / mit ihr | mit wem
+von | davon | wovon | von ihm / von ihr | von wem
+@ende
+
+@beispiel Ich warte schon seit einer Stunde auf dich. | Bir saattir seni bekliyorum.
+@beispiel Ich interessiere mich für Kunst. – Wirklich? Dafür interessiere ich mich auch. | Sanatla ilgileniyorum. – Gerçekten mi? Ben de (onunla) ilgileniyorum.
+@beispiel Worüber habt ihr gesprochen? – Über die Prüfung. | Ne hakkında konuştunuz? – Sınav hakkında.
+@beispiel Ich freue mich darauf, dich in Bremen zu sehen. | Seni Bremen'de görmeyi dört gözle bekliyorum.
+
+@teil edat | Doğru edat: fiille birlikte ezberle | edat
+wahl | 1 | Ich warte schon seit zwanzig Minuten ___ den Bus. | auf | auf / für / an | Yirmi dakikadır otobüsü bekliyorum. | warten auf + Akkusativ. Türkçedeki "-i beklemek" Almancada edatla kurulur: auf den Bus. | warten auf; der Bus
+luecke | 1 | Tuna interessiert sich sehr ___ moderne Kunst. | für | für / an / mit | Tuna modern sanatla çok ilgileniyor. | sich interessieren für + Akkusativ. Türkçedeki "-le" ekini mit diye çevirme. | sich interessieren für; die Kunst; modern
+luecke | 2 | Ich nehme im Juni ___ der B1-Prüfung teil. | an | | Haziranda B1 sınavına giriyorum. | teilnehmen an + Dativ: an der Prüfung. Türkçede "-e katılmak", Almancada edat an. | teilnehmen an; die Prüfung
+fehler | 2 | Ich denke oft zu meiner Familie in der Türkei. | Ich denke oft an meine Familie in der Türkei. | zu meiner Familie | Türkiye'deki ailemi sık sık düşünüyorum. | denken an + Akkusativ: an meine Familie. Türkçedeki "-i düşünmek" edatı göstermez; edatı fiille birlikte ezberle. | denken an; die Familie
+luecke | 2 | Ob wir grillen, hängt ___ Wetter ab. (von + dem) | vom | | Mangal yapıp yapmayacağımız havaya bağlı. | abhängen von + Dativ: von dem Wetter = vom Wetter. Türkçede "-e bağlı", Almancada von. | abhängen von; das Wetter; grillen
+luecke | 2 | Viele Fahrgäste beschweren sich ___ die Verspätungen der Bahn. | über | | Birçok yolcu trenlerin rötarlarından şikâyet ediyor. | sich beschweren über + Akkusativ (konu). Kime şikâyet: bei + Dativ (bei der Bahn). | sich beschweren über; die Verspätung; die Bahn
+luecke | 2 | Ich habe mich gestern bei der Behörde ___ den Öffnungszeiten erkundigt. | nach | | Dün daireye çalışma saatlerini sordum. | sich erkundigen nach + Dativ: bir bilgiyi sormak (fragen nach gibi). | sich erkundigen nach; die Behörde
+ceviri | 2 | Yarın kursta seni bekleyeceğim. | Ich warte morgen im Kurs auf dich. / Morgen warte ich im Kurs auf dich. / Im Kurs warte ich morgen auf dich. / Ich werde morgen im Kurs auf dich warten. / Morgen werde ich im Kurs auf dich warten. | | - | warten auf + Akkusativ: auf dich (dir değil). Yakın gelecek için Präsens yeterli. | warten auf; der Kurs
+ceviri | 2 | Kursa kaydoldun mu? | Hast du dich für den Kurs angemeldet? / Hast du dich zum Kurs angemeldet? / Hast du dich schon für den Kurs angemeldet? / Hast du dich schon zum Kurs angemeldet? | | - | sich anmelden für + Akkusativ (ya da zu + Dativ: zum Kurs). Dönüşlü zamir dich unutulmaz. | sich anmelden für; der Kurs
+dinle | 2 | Ich bereite mich gerade auf die Prüfung vor. | Ich bereite mich gerade auf die Prüfung vor. | | Şu an sınava hazırlanıyorum. | sich vorbereiten auf + Akkusativ: auf die Prüfung; ayrılan ön ek vor en sonda. | sich vorbereiten auf; die Prüfung
+eslestir | 1 | warten ;; teilnehmen ;; sich fürchten ;; sich kümmern ;; träumen | auf + Akkusativ ;; an + Dativ ;; vor + Dativ ;; um + Akkusativ ;; von + Dativ | | - | Edat fiilin parçasıdır, hâli de onunla gelir: warten auf, teilnehmen an, sich fürchten vor, sich kümmern um, träumen von. | warten auf; teilnehmen an; sich fürchten vor; sich kümmern um; träumen von
+kategori | 1 | Welche Präposition: auf oder an? | auf: warten, achten, sich konzentrieren, verzichten ;; an: denken, teilnehmen, sich erinnern, sich gewöhnen | | - | auf: warten auf, achten auf, sich konzentrieren auf, verzichten auf. an: denken an, teilnehmen an, sich erinnern an, sich gewöhnen an. | warten auf; achten auf; sich konzentrieren auf; verzichten auf; denken an; teilnehmen an; sich erinnern an; sich gewöhnen an
+ordnen | 2 | kannst / du / bitte / auf / meine Tasche / aufpassen | Kannst du bitte auf meine Tasche aufpassen? | | Lütfen çantama göz kulak olur musun? | aufpassen auf + Akkusativ: auf meine Tasche. Modal fiilli soruda mastar (aufpassen) en sonda. | aufpassen auf; die Tasche
+text | 2 | Liebes Tagebuch, morgen habe ich ein Vorstellungsgespräch. Ich habe mich gut ___ die Firma informiert. Ich achte besonders ___ meine Aussprache. Hoffentlich denke ich ___ alle wichtigen Unterlagen! | über ; auf ; an | | Sevgili günlük, yarın bir iş görüşmem var. Firma hakkında iyice bilgi edindim. Özellikle telaffuzuma dikkat ediyorum. Umarım bütün önemli belgeleri unutmam! | sich informieren über, achten auf, denken an: üçü de Akkusativ alır. denken an burada "unutmamak, aklında tutmak" demek. | sich informieren über; achten auf; denken an; das Vorstellungsgespräch; die Firma; die Aussprache; die Unterlagen
+umform | 2 | Ich bewerbe mich um eine Stelle als Krankenpfleger. → Perfekt | Ich habe mich um eine Stelle als Krankenpfleger beworben. | | Hasta bakıcı olarak bir iş için başvurdum. | sich bewerben um + Akkusativ; Perfekt: haben + beworben en sonda, edatlı kısım ortada kalır. | sich bewerben um; die Stelle; der Krankenpfleger
+ordnen | 2 | ich / kann / mich / immer / auf / meinen Bruder / verlassen | Ich kann mich immer auf meinen Bruder verlassen. / Auf meinen Bruder kann ich mich immer verlassen. / Ich kann mich auf meinen Bruder immer verlassen. | | Erkek kardeşime her zaman güvenebilirim. | sich verlassen auf + Akkusativ: auf meinen Bruder. Modal fiil 2. yerde, mastar en sonda. | sich verlassen auf; der Bruder
+wahl | 2 | Wir haben im Kurs lange ___ das Thema Toleranz diskutiert. | über | über / von / auf | Kursta tolerans konusunu uzun uzun tartıştık. | diskutieren über + Akkusativ (sprechen über, reden über gibi): bir konu hakkında. | diskutieren über; das Thema; die Toleranz
+
+@teil kasus | Edattan sonra hâl: Akkusativ mi Dativ mi? | hâl
+luecke | 2 | Ich erinnere mich gern an ___ ersten Tag in Bremen. (der) | den | | Bremen'deki ilk günümü severek hatırlıyorum. | sich erinnern an + Akkusativ: an den ersten Tag. Edatlı fiilde hâli "wo?" sorusu değil, fiil belirler. | sich erinnern an; der Tag, -e
+wahl | 2 | Wir arbeiten gerade ___ neuen Projekt. | an einem | an einem / an ein / auf einem | Şu an yeni bir proje üzerinde çalışıyoruz. | arbeiten an + Dativ: an einem Projekt. Aynı an, denken an'da Akkusativ alır. | arbeiten an; das Projekt
+fehler | 2 | Ich freue mich sehr über dem Geschenk. | Ich freue mich sehr über das Geschenk. | über dem Geschenk | Hediyeye çok sevindim. | Edatlı fiillerde über hep Akkusativ alır: über das Geschenk. | sich freuen über; das Geschenk
+luecke | 2 | Morgen spreche ich mit ___ Lehrerin über ___ Test. (die · der) | der ; den | | Yarın öğretmenle sınav hakkında konuşacağım. | mit hep Dativ (mit der Lehrerin); sprechen über + Akkusativ (über den Test). | sprechen mit; sprechen über; die Lehrerin, -nen; der Test
+kategori | 2 | Akkusativ oder Dativ? | Akkusativ: warten auf, denken an, sich kümmern um, sich freuen über ;; Dativ: teilnehmen an, träumen von, sich fürchten vor, leiden unter | | - | auf, über, um bu fiillerde hep Akkusativ; von hep Dativ. an fiile bakar: denken an + A, teilnehmen an + D; vor ve unter bu fiillerde Dativ. | warten auf; denken an; sich kümmern um; sich freuen über; teilnehmen an; träumen von; sich fürchten vor; leiden unter
+ordnen | 2 | mein Bruder / leidet / seit Wochen / unter / starken Kopfschmerzen | Mein Bruder leidet seit Wochen unter starken Kopfschmerzen. / Seit Wochen leidet mein Bruder unter starken Kopfschmerzen. | | Erkek kardeşim haftalardır şiddetli baş ağrısı çekiyor. | leiden unter + Dativ: unter starken Kopfschmerzen (çoğul Dativ, sıfat -en). | leiden unter; der Bruder
+ceviri | 2 | Yarın geziye katılamam. | Ich kann morgen nicht am Ausflug teilnehmen. / Morgen kann ich nicht am Ausflug teilnehmen. / Ich kann morgen nicht an dem Ausflug teilnehmen. / Morgen kann ich nicht an dem Ausflug teilnehmen. | | - | teilnehmen an + Dativ: an dem Ausflug = am Ausflug. Modal fiilde mastar (teilnehmen) bitişik ve en sonda. | teilnehmen an; der Ausflug
+ceviri | 3 | Yeni işime çabuk alıştım. | Ich habe mich schnell an meine neue Arbeit gewöhnt. / An meine neue Arbeit habe ich mich schnell gewöhnt. / Ich habe mich schnell an meine neue Stelle gewöhnt. / An meine neue Stelle habe ich mich schnell gewöhnt. / Ich habe mich schnell an meinen neuen Job gewöhnt. / An meinen neuen Job habe ich mich schnell gewöhnt. | | - | sich gewöhnen an + Akkusativ: an meine neue Arbeit. Dönüşlü fiil Perfekt'te haben alır. | sich gewöhnen an; die Arbeit; die Stelle
+dinle | 2 | Wir haben gestern lange über den Film gesprochen. | Wir haben gestern lange über den Film gesprochen. | | Dün film hakkında uzun uzun konuştuk. | sprechen über + Akkusativ: über den Film (dem değil). | sprechen über; der Film
+text | 2 | Liebe Frau Weber, vielen Dank für ___ (Ihr) Einladung! Ich freue mich schon sehr auf ___ (das) Fest. Leider kann ich nicht an ___ (die) Vorbereitung teilnehmen, weil ich arbeiten muss. | Ihre ; das ; der | | Sevgili Weber Hanım, davetiniz için çok teşekkürler! Şenliği şimdiden dört gözle bekliyorum. Maalesef hazırlığa katılamıyorum, çünkü çalışmam gerekiyor. | für + Akkusativ: Ihre Einladung. sich freuen auf + Akkusativ: das Fest. teilnehmen an + Dativ: an der Vorbereitung. | die Einladung; sich freuen auf; das Fest; teilnehmen an; die Vorbereitung
+luecke | 3 | Die Zeitung berichtet ___ ___ Streik bei der Bahn. (der) | über ; den | | Gazete demiryolundaki grev hakkında haber veriyor. | berichten über + Akkusativ: über den Streik. | berichten über; die Zeitung; der Streik; die Bahn
+fehler | 3 | Ich habe lange von einem eigenen Café geträumt. | Ich habe lange von einem eigenen Café geträumt. | - | Uzun zaman kendi kafemi açmayı hayal ettim. | Hata yok: träumen von + Dativ: von einem eigenen Café (das Café → einem). | träumen von; das Café
+luecke | 2 | Meine Oma erholt sich langsam von ___ Operation. (die) | der | | Büyükannem ameliyattan sonra yavaş yavaş kendine geliyor. | sich erholen von + Dativ: von der Operation. | sich erholen von; die Oma; die Operation
+
+@teil da | da(r)- + edat: şey için zamir | edat
+luecke | 1 | Freust du dich auf den Urlaub? – Ja, ich freue mich sehr ___. | darauf | darauf / dafür / daran | Tatili dört gözle bekliyor musun? – Evet, çok bekliyorum. | auf den Urlaub → darauf: da + edat. Edat sesliyle başlarsa araya r girer (dar-auf). | sich freuen auf; der Urlaub
+luecke | 2 | Interessierst du dich für Politik? – Nein, ich interessiere mich nicht ___. | dafür | | Siyasetle ilgileniyor musun? – Hayır, ilgilenmiyorum. | für Politik → dafür: für ünsüzle başlar, r gerekmez. | sich interessieren für; die Politik
+luecke | 2 | Hast du an den Termin beim Arzt gedacht? – Oh nein, ___ habe ich gar nicht gedacht! | Daran | | Doktor randevusunu unutmadın, değil mi? – Eyvah, hiç aklıma gelmedi! | an den Termin → daran (an sesliyle başlar: dar-an). Cümle başında da durabilir; fiil yine 2. yerde. | denken an; der Termin; der Arzt
+fehler | 2 | Das Konzert war toll. Wir sprechen heute noch über es. | Das Konzert war toll. Wir sprechen heute noch darüber. | über es | Konser harikaydı. Bugün hâlâ ondan bahsediyoruz. | Şey için edat + es kullanılmaz: über es → darüber. | sprechen über; das Konzert; toll
+umform | 2 | Ich habe mich sehr über die Nachricht gefreut. → Darüber … | Darüber habe ich mich sehr gefreut. | | Habere çok sevindim. | über die Nachricht → darüber. Başa geçince fiil yine 2. yerde: habe ich mich. | sich freuen über; die Nachricht
+umform | 3 | Ich warte darauf. Du rufst mich zurück. → dass | Ich warte darauf, dass du mich zurückrufst. | | Beni geri aramanı bekliyorum. | Edatlı fiilin nesnesi bir cümleyse: darauf + virgül + dass; ayrılabilen fiil yan cümlede bitişik ve en sonda (zurückrufst). | warten auf
+ordnen | 3 | ich / freue / mich / darauf / dich / bald / wiederzusehen | Ich freue mich darauf, dich bald wiederzusehen. | | Seni yakında yeniden görmeyi dört gözle bekliyorum. | Nesne bir zu-mastar: darauf + virgül + zu-mastar (wiederzusehen) en sonda. | sich freuen auf
+ceviri | 3 | Bunu hiç düşünmedim. | Daran habe ich nie gedacht. / Ich habe nie daran gedacht. / Daran habe ich gar nicht gedacht. / Ich habe gar nicht daran gedacht. / Daran habe ich noch nie gedacht. / Ich habe noch nie daran gedacht. / Darüber habe ich nie nachgedacht. / Ich habe nie darüber nachgedacht. / Darüber habe ich noch nie nachgedacht. / Ich habe noch nie darüber nachgedacht. | | - | "bunu" bir şey → daran (denken an) ya da darüber (nachdenken über); edattan sonra das yerine da(r)- gelir. | denken an; nachdenken über
+dinle | 2 | Damit habe ich nicht gerechnet. | Damit habe ich nicht gerechnet. | | Bunu beklemiyordum. | rechnen mit → damit (mit ünsüzle başlar, r yok). Sık kullanılan kalıp: bir şeye şaşırınca. | rechnen mit
+eslestir | 2 | auf den Bus ;; an die Prüfung ;; für Musik ;; mit dem Auto ;; über das Geschenk | darauf ;; daran ;; dafür ;; damit ;; darüber | | - | da + edat; edat sesliyle başlarsa araya r: dar-auf, dar-an, dar-über. Ünsüzle: da-für, da-mit. | der Bus; die Prüfung; die Musik; das Auto; das Geschenk
+text | 2 | Hallo Lena! Ich habe mich schon um die Getränke gekümmert. Kümmerst du dich ___ das Essen? Und denk bitte ___, Paul einzuladen. Er freut sich bestimmt ___. | um ; daran ; darüber / darauf | | Selam Lena! İçecekleri ben hallettim. Sen de yemekle ilgilenir misin? Bir de Paul'ü davet etmeyi unutma lütfen. Kesin çok sevinir. | sich kümmern um + Akkusativ. denken an + zu-mastar → daran. sich freuen über / auf + şey → darüber / darauf. | sich kümmern um; denken an; einladen zu; sich freuen über; das Getränk; das Essen
+luecke | 2 | Beschäftigst du dich mit Kunstgeschichte? – Ja, ich beschäftige mich seit Jahren ___. | damit | | Sanat tarihiyle uğraşıyor musun? – Evet, yıllardır onunla uğraşıyorum. | sich beschäftigen mit + şey → damit. Kişi olsaydı: mit ihm / mit ihr. | sich beschäftigen mit
+ordnen | 2 | wir / haben / uns / gestern / darüber / unterhalten | Wir haben uns gestern darüber unterhalten. / Gestern haben wir uns darüber unterhalten. / Darüber haben wir uns gestern unterhalten. / Wir haben uns darüber gestern unterhalten. | | Dün bunun hakkında sohbet ettik. | sich unterhalten über → darüber. Partizip (unterhalten) en sonda; ayrılamayan fiil, ge- almaz. | sich unterhalten über
+
+@teil wo | Soru: wo(r)- + edat ve edat + wen / wem | edat
+wahl | 1 | ___ wartest du? – Auf den Bus. | Worauf | Worauf / Auf wen / Wofür | Ne bekliyorsun? – Otobüsü. | Cevap bir şey (der Bus) → wo + r + auf = Worauf. Kişi olsaydı: Auf wen? | warten auf; der Bus
+wahl | 1 | ___ wartest du? – Auf meine Schwester. | Auf wen | Worauf / Auf wen / Auf wem | Kimi bekliyorsun? – Kız kardeşimi. | Cevap kişi → edat + soru zamiri: auf + Akkusativ = Auf wen? Worauf yalnız şeyler için. | warten auf; die Schwester
+luecke | 2 | ___ interessierst du dich? – Für Fotografie. | Wofür | | Neyle ilgileniyorsun? – Fotoğrafçılıkla. | şey + für → Wofür (für ünsüzle başlar, r yok). | sich interessieren für; die Fotografie
+luecke | 2 | Mit ___ hast du gestern so lange telefoniert? – Mit meinem Vater. | wem | | Dün kiminle o kadar uzun telefonda konuştun? – Babamla. | Kişi + mit (Dativ) → mit wem. Şey olsaydı: womit. | telefonieren mit; der Vater
+luecke | 2 | ___ denkst du gerade? – An meine Prüfung morgen. | Woran | | Şu an ne düşünüyorsun? – Yarınki sınavımı. | an + şey → wo + r + an = Woran. | denken an; die Prüfung
+umform | 2 | Er ärgert sich über den Lärm. → Worüber … | Worüber ärgert er sich? | | Neye sinirleniyor? | über den Lärm (şey) → Worüber. Soru kelimesinden sonra fiil, sonra özne ve zamir. | sich ärgern über; der Lärm
+umform | 2 | Sie wartet auf ihren Freund. → Auf wen … | Auf wen wartet sie? | | Kimi bekliyor? | ihren Freund bir kişi → auf wen (Akkusativ); worauf olmaz. | warten auf; der Freund
+umform | 3 | Wofür interessiert sich Herr Kaya? → indirekt | Können Sie mir sagen, wofür sich Herr Kaya interessiert? / Können Sie mir sagen, wofür Herr Kaya sich interessiert? / Wissen Sie, wofür sich Herr Kaya interessiert? / Wissen Sie, wofür Herr Kaya sich interessiert? | | Bay Kaya'nın neyle ilgilendiğini söyleyebilir misiniz? | Dolaylı soruda wofür yan cümle açar: çekimli fiil (interessiert) en sonda. | sich interessieren für
+fehler | 2 | Auf was freust du dich am meisten? | Worauf freust du dich am meisten? | Auf was | En çok neyi dört gözle bekliyorsun? | Konuşmada "auf was" duyulur; yazıda şey için wo(r) + edat: Worauf. | sich freuen auf
+fehler | 1 | Mit wem hast du dich gestern getroffen? | Mit wem hast du dich gestern getroffen? | - | Dün kiminle buluştun? | Hata yok: kişi için edat + soru zamiri: mit wem (Dativ). | sich treffen mit
+ordnen | 2 | worüber / habt / ihr / heute / im Kurs / gesprochen | Worüber habt ihr heute im Kurs gesprochen? / Worüber habt ihr im Kurs heute gesprochen? | | Bugün kursta ne hakkında konuştunuz? | Soru kelimesi (worüber) başta, çekimli fiil 2. yerde, Partizip en sonda. | sprechen über; der Kurs
+ceviri | 2 | Ne hakkında konuştunuz? | Worüber habt ihr gesprochen? / Worüber haben Sie gesprochen? / Worüber habt ihr geredet? / Worüber haben Sie geredet? / Worüber habt ihr euch unterhalten? / Worüber haben Sie sich unterhalten? | | - | "ne hakkında" = über + şey → worüber. "Über was" konuşma dilidir. | sprechen über; reden über; sich unterhalten über
+ceviri | 2 | Kiminle kavga ettin? | Mit wem hast du dich gestritten? / Mit wem hast du gestritten? | | - | Kişi + mit → mit wem (Dativ). Partizip: gestritten (gestreitet değil). | sich streiten mit
+dinle | 2 | Worüber habt ihr euch gestern unterhalten? | Worüber habt ihr euch gestern unterhalten? | | Dün ne hakkında sohbet ettiniz? | sich unterhalten über → soru: wo + r + über = worüber. | sich unterhalten über
+text | 2 | – Hallo! ___ sprecht ihr gerade? – Über das Wochenende. – Und ___ wartet ihr hier? – Auf Mehmet, er kommt gleich. – ___ freut ihr euch am meisten? – Auf das Konzert am Samstag! | Worüber ; auf wen ; Worauf | | – Selam! Şu an ne hakkında konuşuyorsunuz? – Hafta sonu hakkında. – Peki burada kimi bekliyorsunuz? – Mehmet'i, birazdan gelir. – En çok neyi dört gözle bekliyorsunuz? – Cumartesiki konseri! | Şey için wo(r)- (worüber, worauf), kişi için edat + wen (auf wen). | sprechen über; warten auf; sich freuen auf; das Wochenende, -n; das Konzert
+
+@teil kontrast | Şey mi kişi mi? · sich freuen auf / über | edat
+wahl | 2 | Ich habe lange nichts von Ayşe gehört. Ich denke oft ___. | an sie | an sie / daran / an ihr | Uzun zamandır Ayşe'den haber almadım. Onu sık sık düşünüyorum. | Kişi → edat + zamir: an sie (Akkusativ). daran yalnız şeyler için. | denken an
+luecke | 2 | Kennst du Herrn Bauer? – Ja, ich habe gestern lange mit ___ gesprochen. | ihm | | Bay Bauer'i tanıyor musun? – Evet, dün onunla uzun uzun konuştum. | Kişi → mit + Dativ zamir: mit ihm. damit yalnız şeyler için. | sprechen mit
+luecke | 3 | Wartest du auf Jonas? – Ja, ich warte schon lange ___. – Und auf seine Antwort? – Ja, ich warte auch ___. | auf ihn ; darauf | | Jonas'ı mı bekliyorsun? – Evet, uzun zamandır onu bekliyorum. – Ya cevabını? – Evet, onu da bekliyorum. | Kişi (Jonas) → auf ihn; şey (die Antwort) → darauf. | warten auf; die Antwort
+wahl | 1 | Morgen kommt meine Schwester. Ich freue mich schon ___ ihren Besuch. | auf | auf / über | Yarın kız kardeşim geliyor. Ziyaretini şimdiden dört gözle bekliyorum. | Ziyaret henüz olmadı (morgen) → sich freuen auf. über olmuş bir şeye sevinmektir. | sich freuen auf; der Besuch
+wahl | 1 | Danke für die Blumen! Ich freue mich sehr ___. | darüber | darüber / darauf | Çiçekler için teşekkürler! Çok sevindim. | Çiçekler şimdi burada (olmuş bir şey) → sich freuen über: darüber. darauf gelecekteki bir şey için. | sich freuen über; die Blume
+eslestir | 2 | Worauf wartest du? ;; Auf wen wartest du? ;; Woran denkst du? ;; An wen denkst du? | Auf den Zug. ;; Auf meine Freundin. ;; An die Prüfung. ;; An meine Mutter. | | - | wo(r)- soruları şeyler için (der Zug, die Prüfung); edat + wen kişiler için (die Freundin, die Mutter). | warten auf; denken an; der Zug; die Prüfung; die Freundin, -nen; die Mutter
+fehler | 3 | Mein Opa ist krank. Ich kümmere mich jeden Tag darum. | Mein Opa ist krank. Ich kümmere mich jeden Tag um ihn. | darum | Dedem hasta. Her gün onunla ilgileniyorum. | Kişi (mein Opa) → um + zamir: um ihn. darum yalnız şeyler için. | sich kümmern um; der Opa
+fehler | 2 | Ich habe deine E-Mail bekommen und sofort darauf geantwortet. | Ich habe deine E-Mail bekommen und sofort darauf geantwortet. | - | E-postanı aldım ve hemen cevap verdim. | Hata yok: antworten auf + Akkusativ; şey (die E-Mail) → darauf. | antworten auf; die E-Mail, -s
+ceviri | 3 | Ona güvenebilirsin. | Du kannst dich auf ihn verlassen. / Du kannst dich auf sie verlassen. / Auf ihn kannst du dich verlassen. / Auf sie kannst du dich verlassen. | | - | Kişi → auf + zamir (ihn / sie); darauf yalnız şeyler için. sich verlassen auf + Akkusativ. | sich verlassen auf
+dinle | 1 | Ich freue mich schon auf die Ferien. | Ich freue mich schon auf die Ferien. | | Tatili şimdiden dört gözle bekliyorum. | Tatil henüz gelmedi → sich freuen auf (über değil). | sich freuen auf; die Ferien
+kategori | 2 | Für eine Sache oder für eine Person? | şey için: darauf, woran, dafür, womit ;; kişi için: auf ihn, an wen, für sie, mit wem | | - | da(r)- / wo(r)- yalnız şeyler için; kişiler için edat + zamir (auf ihn) ya da edat + wen / wem. |
+luecke | 2 | Erzähl mal von deinen Eltern! – Gern, aber ich habe dir doch schon viel von ___ erzählt. | ihnen | | Bana annenle babandan bahset! – Seve seve, ama sana onlardan zaten çok bahsettim. | Kişiler (die Eltern) → von + Dativ zamir: von ihnen. davon şeyler için. | erzählen von; die Eltern
