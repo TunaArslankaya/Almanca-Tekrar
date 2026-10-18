@@ -2675,3 +2675,8 @@ n0433 | die Geduld | Mit kleinen Kindern braucht man viel Geduld. | Küçük ço
 n1422 | das Ziel | Unser Ziel ist es, bis zum Sommer B1 zu schaffen. | Hedefimiz yaza kadar B1'i geçmek.
 n0244 | die Diskussion | Nach dem Vortrag gab es eine lange Diskussion über das Thema. | Sunumdan sonra konu üzerine uzun bir tartışma oldu.
 n0973 | der Regen | Wegen des starken Regens ist das Spiel ausgefallen. | Şiddetli yağmur yüzünden maç iptal oldu.
+n0019 | der Alltag | Im Alltag habe ich wenig Zeit für Sport. | Gündelik hayatta spora pek vaktim yok.
+n0448 | die Gemeinschaft | In unserer Gemeinschaft helfen sich alle gegenseitig. | Topluluğumuzda herkes birbirine yardım eder.
+n0870 | das Opfer | Man sollte dem Opfer nicht die Schuld geben. | Mağdura suçu yüklememek gerekir.
+n1285 | der Unterschied | Zwischen den beiden Wörtern gibt es einen großen Unterschied. | İki kelime arasında büyük bir fark var.
+n0463 | die Gesellschaft | Die Gesellschaft verändert sich schnell. | Toplum hızla değişiyor.

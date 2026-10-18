@@ -255,3 +255,9 @@ Son incelenen log satırı: 2026-10-16 22:51:20 (tur akis).
 - Değişiklik (`Kern.kota`): genç freni yalnız birikme varsa 2'ye kısar; birikme 0 ise en çok 4; bonus turda birikme yoksa genç sayısına bakılmaz (+2, en çok +4). "+3 yeni" teklifi birikme yoksa günde 3 kez (`gs4().ekYeniTeklif` sayaç). test_kern 387.
 - 17.10 12:55–13:01 (64 satır, 52 cevap, 3 tam tur + 2 boş): yazarak yanlışlar: gebrachen → gebracht (ikinci kez), anwiesig → anwesend, anwiesend → allerdings (önceki kelimeyle karıştı); dikte: "wir sollen" → "wir sollten" + virgül. Artikel 7 yanlış, 5'i "der" varsayımı: Kunst, Rezept, Diskussion (leech), Geduld, Ziel, Sonderangebot (seçmelide), Regen (die → der, leech). 11 düzeltme `feedback.js`, kancalar n0244 / n0973, 14 cümle (treffen, gleichzeitig, anwesend, allerdings, beide, Geduld, Ziel, Diskussion, Regen) + gloss.
 - Not: 12 cevap/dk tempo (sek 1–5); seçmelide hızlı. Son incelenen log satırı: 2026-10-17 13:01:26 (prod w0011).
+
+**2026-10-18 (gece işi, otomatik)**
+- 17.10 13:01'den sonra yeni cevap yok (yalnız aynı oturumun kapanış satırları 13:01:31–46); düzeltme/kanca gerekmedi.
+- En yeni DW metni (Schuluniform) zaten işlenmişti; metinden kalan B1 isimleri için 5 çeviri cümlesi + gloss: Alltag, Gemeinschaft, Opfer, Unterschied, Gesellschaft.
+- Build/test: `tools/build.py`, `test_grammatik`, `stichprobe 1` geçti.
+Son incelenen log satırı: 2026-10-17 13:01:46 (tur akis).
