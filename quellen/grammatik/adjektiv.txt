@@ -119,7 +119,7 @@ text | 2 | Liebe Ayşe, ich habe endlich eine ___ (schön) Wohnung gefunden! Sie
 
 @teil ohne
 ceviri | 2 | Taze ekmek çok lezzetli. | Frisches Brot ist sehr lecker. / Frisches Brot schmeckt sehr gut. / Frisches Brot schmeckt sehr lecker. | | - | Artikel yok: das Brot → sıfat das'ın sonunu alır: frisches Brot. | das Brot; frisch; lecker
-ceviri | 3 | Soğuk kahveyi sevmem. | Ich mag keinen kalten Kaffee. / Kalten Kaffee mag ich nicht. / Ich mag kalten Kaffee nicht. | | - | der Kaffee, Akkusativ: artikelsiz kalten Kaffee, kein ile keinen kalten Kaffee; ikisinde de -en. | der Kaffee; kalt
+ceviri | 3 | Soğuk kahve sevmem. | Ich mag keinen kalten Kaffee. / Kalten Kaffee mag ich nicht. / Ich mag kalten Kaffee nicht. | | - | der Kaffee, Akkusativ: artikelsiz kalten Kaffee, kein ile keinen kalten Kaffee; ikisinde de -en. | der Kaffee; kalt
 eslestir | 1 | ___ Kaffee schmeckt mir nicht. ;; Ich trinke gern ___ Milch. ;; ___ Obst ist gesund. ;; Bei ___ Wetter gehe ich spazieren. | Kalter ;; kalte ;; Frisches ;; schönem | | - | Artikel yoksa sıfat artikelin sonunu alır: der → kalter, die → kalte, das → frisches, dem → schönem. | der Kaffee; die Milch; das Obst; das Wetter
 text | 3 | Für den Kuchen brauchst du ___ (frisch) Eier, ___ (warm) Milch und ___ (weich) Butter. Am besten schmeckt er mit ___ (heiß) Kaffee. | frische ; warme ; weiche ; heißem | | Kek için taze yumurta, ılık süt ve yumuşak tereyağı lazım. En güzel sıcak kahveyle olur. | Artikelsiz Akkusativ: frische (çoğul), warme / weiche (dişil); mit + Dativ eril → heißem. | der Kuchen; das Ei; die Milch; die Butter; heiß
 

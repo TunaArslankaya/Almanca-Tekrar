@@ -81,3 +81,56 @@ umform | 3 | Mach das Fenster auf! → Konjunktiv II | Könntest du das Fenster 
 luecke | 2 | ___ mir bald zurück! (schreiben · du) | Schreib / Schreibe | | Bana yakında cevap yaz! | du-emri: Schreib! E-postanın sonundaki tipik kapanış. | schreiben
 ordnen | 2 | nimm / doch / einfach / den Bus | Nimm doch einfach den Bus! | | Otobüse binsene! | Öneri: emir + doch einfach; nehmen → Nimm! | nehmen; der Bus
 
+
+# Yeni türler (ceviri, text, eslestir, kategori, dinle) ve yeni teil'ler (wir, kontrast). '@teil <kod>' yalnız kodla daha önce tanımlanmış teil'e döner.
+@teil du
+ceviri | 2 | Bana kitabı ver lütfen! | Gib mir bitte das Buch! / Gib mir das Buch, bitte! / Bitte gib mir das Buch! / Gib mir das Buch bitte! | | - | geben → du gibst → Gib! (e → i). Emirde du söylenmez. | geben; das Buch
+dinle | 1 | Iss nicht so schnell! | Iss nicht so schnell! | | Bu kadar hızlı yeme! | essen → du isst → Iss! (e → i). | essen; schnell
+luecke | 2 | ___ bitte lauter, ich verstehe dich nicht! (sprechen · du) | Sprich | | Lütfen daha yüksek sesle konuş, seni anlamıyorum! | sprechen → du sprichst → Sprich! (e → i). | laut; verstehen
+eslestir | 1 | nehmen ;; fahren ;; lesen ;; arbeiten | Nimm! ;; Fahr! ;; Lies! ;; Arbeite! | | - | du-emri: e → i / ie değişir (Nimm, Lies), a → ä değişmez (Fahr), kök -t ile bitince -e (Arbeite). | nehmen; fahren; lesen; arbeiten
+fehler | 1 | Vergiss deinen Schlüssel nicht! | Vergiss deinen Schlüssel nicht! | - | Anahtarını unutma! | Hata yok: vergessen → du vergisst → Vergiss! (e → i). | vergessen; der Schlüssel
+fehler | 3 | Liest den Text noch einmal! | Lies den Text noch einmal! | Liest | Metni bir kez daha oku! | du liest → -st düşer → Lies! "Liest" emir değil, du / er biçimidir. | lesen; der Text
+kategori | 2 | Ändert sich der Vokal im du-Imperativ? | ändert sich: nehmen, lesen, helfen, essen ;; bleibt: fahren, schlafen, laufen, kommen | | Ünlü du-emrinde değişir mi? | e → i / ie emirde de değişir: Nimm! Lies! Hilf! Iss! a → ä ve au → äu değişmez: Fahr! Schlaf! Lauf! | nehmen; lesen; helfen; essen; fahren; schlafen; laufen; kommen
+text | 3 | Omas Rezept: ___ (schneiden) die Zwiebeln klein und ___ (braten) sie in Öl. Dann ___ (geben) die Tomaten dazu und ___ (lassen) alles zehn Minuten kochen. | Schneide / Schneid ; brate / brat ; gib ; lass | | Büyükannemin tarifi: Soğanları ince doğra ve yağda kavur. Sonra domatesleri ekle ve her şeyi on dakika pişir. | du-emri: Schneide (kök -d → -e), brat (a → ä yok), gib (e → i), lass. | schneiden; braten; die Zwiebel; die Tomate; geben; lassen
+
+@teil ihr
+luecke | 2 | Kinder, ___ eure Jacken an, es ist kalt! (anziehen · ihr) | zieht | | Çocuklar, ceketlerinizi giyin, hava soğuk! | ihr-emri = ihr-biçimi: ihr zieht → Zieht … an! ihr düşer, an sona. | anziehen; die Jacke
+ceviri | 3 | (İki arkadaşına) Gelecek hafta bizi ziyaret edin! | Besucht uns nächste Woche! / Besucht uns doch nächste Woche! / Besucht uns bitte nächste Woche! / Besucht uns in der nächsten Woche! / Kommt uns nächste Woche besuchen! | | - | Birden çok arkadaşa ihr-emri: ihr besucht → Besucht! ihr söylenmez. | besuchen
+dinle | 2 | Nehmt eure Regenschirme mit! | Nehmt eure Regenschirme mit! | | Şemsiyelerinizi yanınıza alın! | ihr-emri: Nehmt (ihr-biçiminde e → i değişimi yok); mit en sonda. | nehmen
+umform | 2 | Ihr helft eurer Mutter in der Küche. → Imperativ (ihr) | Helft eurer Mutter in der Küche! | | Annenize mutfakta yardım edin! | ihr-biçimi aynen kalır, ihr düşer: Helft! (Hilf = du). | helfen; die Mutter; die Küche
+text | 2 | Die Lehrerin zur Klasse: ___ (öffnen) bitte eure Bücher auf Seite 20 und ___ (lesen) den Text. Danach ___ (sein) bitte leise und ___ (machen) die Übung allein. | Öffnet ; lest ; seid ; macht | | Öğretmen sınıfa: Lütfen kitaplarınızı 20. sayfada açın ve metni okuyun. Sonra lütfen sessiz olun ve alıştırmayı tek başınıza yapın. | ihr-emri = ihr-biçimi: öffnet, lest (e → ie yok), seid, macht. | öffnen; das Buch; die Seite; der Text; leise; die Übung
+
+@teil sie
+ceviri | 2 | (Resmî) Lütfen burada bekleyin! | Warten Sie bitte hier! / Bitte warten Sie hier! / Warten Sie hier, bitte! / Warten Sie hier bitte! | | - | Sie-emri: mastar + Sie: Warten Sie! | warten auf
+luecke | 2 | ___ Sie bitte langsamer! Ich lerne noch Deutsch. (sprechen) | Sprechen | | Lütfen daha yavaş konuşun! Hâlâ Almanca öğreniyorum. | Sie-emrinde ünlü değişmez: mastar + Sie: Sprechen Sie! (Sprich = du). | langsam; lernen
+dinle | 2 | Bringen Sie bitte Ihren Pass mit! | Bringen Sie bitte Ihren Pass mit! | | Lütfen pasaportunuzu yanınızda getirin! | Sie-emri: mastar + Sie, mit en sonda; Ihren büyük harfle (Sie'nin iyeliği). | der Pass
+wahl | 2 | Bei der Ausländerbehörde: ___ hier, bitte! | Unterschreiben Sie | Unterschreiben Sie / Unterschreib / Unterschreibt | Yabancılar dairesinde: Lütfen buraya imzalayın! | Memur yabancıya resmî konuşur → Sie-emri: Unterschreiben Sie! (unterschreiben ayrılmaz). | unterschreiben
+text | 3 | Guten Tag, Herr Aydın. ___ (hereinkommen) Sie bitte herein und ___ (sich setzen) Sie sich! ___ (geben) Sie mir bitte Ihre Versichertenkarte. | Kommen ; setzen ; Geben | | İyi günler Bay Aydın. Lütfen içeri gelin ve oturun! Sigorta kartınızı bana verin lütfen. | Sie-emri: mastar + Sie. hereinkommen → Kommen Sie … herein! Dönüşlü: Setzen Sie sich! | sich setzen; geben; die Versichertenkarte
+fehler | 1 | Kommen Sie bitte morgen wieder! | Kommen Sie bitte morgen wieder! | - | Lütfen yarın tekrar gelin! | Hata yok: Sie-emri: mastar + Sie: Kommen Sie! | kommen
+
+@teil trennbar
+ceviri | 2 | Lütfen beni istasyondan al! | Hol mich bitte vom Bahnhof ab! / Bitte hol mich vom Bahnhof ab! / Hol mich vom Bahnhof ab, bitte! / Hol mich bitte am Bahnhof ab! / Hole mich bitte vom Bahnhof ab! / Bitte hole mich vom Bahnhof ab! | | - | abholen: Hol … ab! Ön ek (ab) en sonda. | abholen; der Bahnhof
+text | 2 | Hallo Jonas, ich bin bis Sonntag bei meinen Eltern. ___ (gießen) bitte die Blumen und ___ (aufräumen) die Küche ___! Und ___ (vergessen) nicht: Am Montag kommt der Vermieter. Danke! Lena | Gieß / Gieße ; räum / räume ; auf ; vergiss | | Merhaba Jonas, pazara kadar annemlerin yanındayım. Lütfen çiçekleri sula ve mutfağı topla! Ve unutma: Pazartesi ev sahibi geliyor. Teşekkürler! Lena | du-emri: Gieß, räum … auf (ön ek sona), vergiss (e → i). | gießen; die Blume; aufräumen; die Küche; vergessen; der Vermieter
+umform | 3 | Sie melden sich bis Freitag beim Bürgeramt an. → Imperativ (Sie) | Melden Sie sich bis Freitag beim Bürgeramt an! / Melden Sie sich bitte bis Freitag beim Bürgeramt an! / Bitte melden Sie sich bis Freitag beim Bürgeramt an! | | Cuma gününe kadar nüfus dairesine kaydınızı yaptırın! | sich anmelden: fiil + Sie + sich, ön ek (an) en sonda. | sich anmelden
+ordnen | 1 | mach / bitte / den Fernseher / aus | Mach bitte den Fernseher aus! / Mach den Fernseher bitte aus! / Bitte mach den Fernseher aus! | | Lütfen televizyonu kapat! | ausmachen: Mach … aus! Ön ek en sonda. | ausmachen; der Fernseher
+dinle | 3 | Zieht euch warm an, draußen schneit es! | Zieht euch warm an, draußen schneit es! | | Sıkı giyinin, dışarıda kar yağıyor! | ihr-emri + dönüşlü: Zieht euch … an! Zamir euch kalır, an sona. | sich anziehen; warm; schneien
+ceviri | 3 | (Resmî) Lütfen sınavdan önce cep telefonunuzu kapatın! | Schalten Sie bitte vor der Prüfung Ihr Handy aus! / Bitte schalten Sie vor der Prüfung Ihr Handy aus! / Schalten Sie vor der Prüfung bitte Ihr Handy aus! / Schalten Sie vor der Prüfung Ihr Handy aus! / Schalten Sie bitte Ihr Handy vor der Prüfung aus! / Machen Sie bitte vor der Prüfung Ihr Handy aus! / Bitte machen Sie vor der Prüfung Ihr Handy aus! / Machen Sie vor der Prüfung bitte Ihr Handy aus! | | - | ausschalten / ausmachen: Schalten Sie … aus! Ön ek en sonda; Ihr büyük harfle. | die Prüfung; das Handy; ausmachen
+
+@teil hoeflich
+luecke | 2 | ___ doch mal mit ins Kino! (mitkommen · du) | Komm | | Bir ara sen de sinemaya gelsene! | doch mal emri yumuşatır, davet gibi duyulur. mitkommen: Komm … mit! | das Kino
+umform | 3 | Gib mir das Salz! → Konjunktiv II | Könntest du mir das Salz geben? / Würdest du mir das Salz geben? / Könntest du mir bitte das Salz geben? / Würdest du mir bitte das Salz geben? | | Tuzu bana verir misin? | Emri kibar ricaya çevir: Könntest / Würdest du + mastar (geben) en sonda. | geben; das Salz
+ceviri | 2 | Kendine iyi bak! | Pass auf dich auf! / Pass gut auf dich auf! | | - | aufpassen auf: Pass … auf! "auf dich" edat + Akkusativ, sondaki auf ön ek. Mektup ve mesaj kapanışında sık. | aufpassen auf
+
+@teil wir | Birlikte öneri: Gehen wir! · Lass uns … ! | kelime sırası
+wahl | 1 | Es ist so schön heute. ___ an den See fahren! | Lass uns | Lass uns / Lassen uns / Lass wir | Bugün hava çok güzel. Hadi göle gidelim! | Arkadaşa birlikte öneri: Lass uns + mastar (sonda). "Lassen uns" ve "Lass wir" yok. | der See; fahren
+luecke | 2 | Wir haben noch Zeit. ___ wir doch einen Kaffee! (trinken) | Trinken | | Daha vaktimiz var. Hadi bir kahve içelim! | wir-emri: fiil (mastar biçimi) başta + wir: Trinken wir …! | trinken; der Kaffee
+umform | 3 | Wir gehen heute Abend tanzen. → Lass uns … | Lass uns heute Abend tanzen gehen! | | Hadi bu akşam dansa gidelim! | Lass uns başta, fiil grubu (tanzen gehen) en sonda. | tanzen
+ordnen | 2 | lass / uns / am Wochenende / zusammen / kochen | Lass uns am Wochenende zusammen kochen! / Lass uns zusammen am Wochenende kochen! | | Hadi hafta sonu birlikte yemek yapalım! | Lass uns başta, mastar (kochen) en sonda. | kochen; zusammen; das Wochenende, -n
+ceviri | 3 | Hadi sınava birlikte çalışalım! | Lass uns zusammen für die Prüfung lernen! / Lass uns für die Prüfung zusammen lernen! / Lernen wir zusammen für die Prüfung! / Lernen wir für die Prüfung zusammen! / Lasst uns zusammen für die Prüfung lernen! / Lasst uns für die Prüfung zusammen lernen! | | - | Birlikte öneri: Lass uns + mastar (sonda) ya da fiil başta + wir: Lernen wir …! | lernen; die Prüfung; zusammen
+fehler | 2 | Lass uns gehen morgen ins Kino! | Lass uns morgen ins Kino gehen! | gehen morgen ins Kino | Hadi yarın sinemaya gidelim! | Lass uns'tan sonra mastar (gehen) en sona gider. | das Kino
+
+@teil kontrast | du · ihr · Sie · wir: kime konuşuyorum? | artikel/çekim
+eslestir | 1 | bir arkadaşına ;; iki arkadaşına ;; öğretmenine (resmî) ;; arkadaşına birlikte yapmayı önerirken | Warte auf mich! ;; Wartet auf mich! ;; Warten Sie auf mich! ;; Lass uns warten! | | - | du → Warte! (kök -t → -e), ihr → Wartet!, Sie → Warten Sie!, birlikte öneri → Lass uns …! | warten auf
+eslestir | 1 | du ;; ihr ;; Sie | Sei pünktlich! ;; Seid pünktlich! ;; Seien Sie pünktlich! | | - | sein düzensiz: Sei! (du), Seid! (ihr), Seien Sie! (Sie). | pünktlich
+kategori | 1 | Zu wem spricht man? | du: Komm mit!, Hilf mir!, Sei ruhig! ;; ihr: Kommt mit!, Helft mir!, Seid ruhig! ;; Sie: Kommen Sie mit!, Helfen Sie mir! | | - | du: kök, ek yok · ihr: ihr-biçimi (-t) · Sie: mastar + Sie. | helfen; ruhig
+wahl | 1 | Die Mutter sagt zu ihren zwei Kindern: ___ bitte eure Hausaufgaben! | Macht | Macht / Mach / Machen Sie | Anne iki çocuğuna: Lütfen ödevlerinizi yapın! | İki çocuk + eure → ihr-emri: Macht! (Mach = tek kişi, Machen Sie = resmî). | die Hausaufgabe
