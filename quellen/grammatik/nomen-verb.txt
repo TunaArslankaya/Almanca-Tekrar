@@ -1,0 +1,131 @@
+# Gramer konusu: Nomen-Verb-Verbindungen (isim + sabit fiil). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: umform'da "→ Ich habe eine …" gibi hedef (büyük harf + …) = "… ile başlayarak yeniden yaz" (fiil yerine kalıp).
+@id nomen-verb
+@titel Nomen-Verb-Verbindungen
+@tr Kalıplaşmış isim + fiil: eine Entscheidung treffen, eine Frage stellen, Rücksicht nehmen auf …
+@stufe B1
+@kapitel B1 ?
+@goethe 2 | Schreiben 2-3 · Lesen · Sprechen 3
+@voraus praep-verben
+@kontrast praep-verben
+@etiket kelime yanlış
+@kurz İsim fiilini kendisi seçer: eine Entscheidung treffen, eine Frage stellen, eine Pause machen, Rücksicht nehmen auf + Akk. Türkçedeki "vermek / sormak"ı çevirme (karar vermek ≠ geben).
+
+@erklaerung
+Almancada bazı isimler belli bir fiille kalıplaşır (die Nomen-Verb-Verbindung). Anlamı isim taşır, fiil neredeyse "boş"tur. Bu yüzden fiili Türkçeden çeviremezsin: karar vermek = eine Entscheidung treffen ("geben" değil), soru sormak = eine Frage stellen ("fragen" değil), mola vermek = eine Pause machen, fotoğraf çekmek = ein Foto machen.
+
+1. treffen / stellen: eine Entscheidung treffen, eine Frage stellen, einen Antrag stellen (auf + Akk).
+2. machen / nehmen / geben: einen Vorschlag machen, sich Sorgen machen (um), Platz nehmen, Abschied nehmen (von), Bescheid geben / sagen, sich Mühe geben.
+3. Edat ve hâl kalıba aittir, ezberlenir: Rücksicht nehmen auf + Akk, Angst haben vor + Dat, Interesse haben an + Dat, Kritik üben an + Dat, Wert legen auf + Akk.
+4. Sabit kalıplar (çoğu artikelsiz): in Frage kommen, zur Verfügung stehen / stellen, in Kontakt bleiben, zu Ende gehen, eine Rolle spielen.
+5. Tek fiille kalıp arasında hâl değişebilir: Ich frage den Lehrer (Akk) ama Ich stelle dem Lehrer eine Frage (Dat). Ich informiere die Chefin (Akk) ama Ich gebe der Chefin Bescheid (Dat).
+
+Sınavda: Schreiben 2–3'te (resmî e-posta, forum yazısı) "eine Entscheidung treffen", "eine Rolle spielen", "Bescheid geben" metni B1 düzeyine çıkarır; Lesen'de (Behörde mektubu, haber) tanıman yeter.
+Konuşma dili: arkadaşla kısa fiil daha doğal (Ich entscheide mich morgen. Sag Bescheid!). "Das kommt nicht in Frage!" ise günlük konuşmada çok sık: "olmaz, asla".
+@ende
+
+@tabelle Fiile göre kalıplar
+fiil | kalıp | Türkçe | tek fiille
+treffen | eine Entscheidung treffen | karar vermek | sich entscheiden
+stellen | eine Frage stellen | soru sormak | fragen
+stellen | einen Antrag stellen (auf + Akk) | başvuru yapmak | beantragen
+machen | einen Vorschlag machen | öneride bulunmak | vorschlagen
+machen | sich Sorgen machen (um + Akk) | endişelenmek | -
+nehmen | Platz nehmen | oturmak (resmî) | sich setzen
+nehmen | Rücksicht nehmen (auf + Akk) | -e saygı göstermek, -i düşünmek | -
+geben | Bescheid geben / sagen | haber vermek | informieren
+geben | sich Mühe geben | çaba göstermek | sich bemühen
+üben | Kritik üben (an + Dat) | eleştirmek | kritisieren
+@ende
+
+@tabelle Sabit kalıplar
+kalıp | Türkçe | örnek
+in Frage kommen | söz konusu olmak | Das kommt nicht in Frage!
+zur Verfügung stehen | kullanıma hazır olmak | Der Raum steht uns zur Verfügung.
+zur Verfügung stellen | sağlamak, kullanıma vermek | Die Firma stellt mir einen Laptop zur Verfügung.
+in Kontakt bleiben (mit + Dat) | iletişimi koparmamak | Lass uns in Kontakt bleiben!
+zu Ende gehen | bitmek, sona ermek | Der Kurs geht bald zu Ende.
+eine Rolle spielen | önemli olmak, rol oynamak | Geld spielt keine Rolle.
+@ende
+
+@beispiel Ich habe eine wichtige Entscheidung getroffen. | Önemli bir karar verdim.
+@beispiel Darf ich Ihnen eine Frage stellen? | Size bir soru sorabilir miyim?
+@beispiel Sag mir bitte Bescheid, wenn du ankommst. | Varınca bana haber ver lütfen.
+@beispiel Im Bus sollte man Rücksicht auf ältere Menschen nehmen. | Otobüste yaşlıları düşünmek (onlara saygı göstermek) gerekir.
+@beispiel Ein Umzug nach München kommt für mich nicht in Frage. | Münih'e taşınmak benim için söz konusu değil.
+
+@teil treffen-stellen | treffen / stellen: Entscheidung, Frage, Antrag | kelime yanlış
+wahl | 1 | Nach langem Nachdenken hat Tuna endlich eine Entscheidung ___. | getroffen | getroffen / gegeben / gemacht | Uzun düşündükten sonra Tuna sonunda bir karar verdi. | Türkçede karar "verilir", Almancada "getroffen" olur: eine Entscheidung treffen. geben ve machen bu kalıpta yanlış. | die Entscheidung; treffen
+luecke | 2 | Ich habe bei der Ausländerbehörde einen ___ auf eine Aufenthaltserlaubnis gestellt. | Antrag | | Yabancılar dairesine oturma izni için başvuru yaptım. | einen Antrag stellen (auf + Akk) = başvuru yapmak; der Antrag. | der Antrag; stellen
+luecke | 1 | Darf ich Ihnen eine Frage ___? | stellen | | Size bir soru sorabilir miyim? | Soru "gestellt" olur: eine Frage stellen. "eine Frage fragen" denmez. | die Frage; stellen
+luecke | 2 | Wann ___ du endlich deine Entscheidung? (treffen) | triffst | | Kararını sonunda ne zaman vereceksin? | treffen düzensiz: ich treffe, du triffst, er trifft. | die Entscheidung; treffen
+fehler | 1 | Ich muss bis Freitag eine Entscheidung geben. | Ich muss bis Freitag eine Entscheidung treffen. | geben | Cumaya kadar bir karar vermem gerekiyor. | "Karar vermek" kelime kelime çevrilmez: eine Entscheidung treffen. | die Entscheidung; treffen
+fehler | 2 | Der Student hat dem Professor eine Frage gefragt. | Der Student hat dem Professor eine Frage gestellt. | gefragt | Öğrenci profesöre bir soru sordu. | İsimle: eine Frage stellen. fragen isimsiz kullanılır: Er hat den Professor gefragt. | die Frage; stellen
+umform | 3 | Ich möchte ein Stipendium beantragen. → Ich möchte einen … | Ich möchte einen Antrag auf ein Stipendium stellen. | | Burs için başvurmak istiyorum. | beantragen = einen Antrag stellen; neye başvurduğun auf + Akk ile gelir. | beantragen; der Antrag; stellen
+ordnen | 2 | wir / müssen / bis morgen / eine Entscheidung / treffen | Wir müssen bis morgen eine Entscheidung treffen. / Bis morgen müssen wir eine Entscheidung treffen. | | Yarına kadar bir karar vermemiz gerekiyor. | Modal fiil 2. yerde, treffen en sonda; kalıbın ismi fiilin hemen önünde durur. | die Entscheidung; treffen; müssen
+ceviri | 2 | Frau Becker'e bir soru sormak istiyorum. | Ich möchte Frau Becker eine Frage stellen. / Ich will Frau Becker eine Frage stellen. / Ich würde Frau Becker gern eine Frage stellen. / Ich möchte Frau Becker etwas fragen. / Ich will Frau Becker etwas fragen. | | - | eine Frage stellen + Dativ (Frau Becker = ona); fragen ise Akkusativ: Frau Becker etwas fragen. | die Frage; stellen
+dinle | 2 | Hast du den Antrag auf Wohngeld schon gestellt? | Hast du den Antrag auf Wohngeld schon gestellt? | | Konut yardımı başvurusunu yaptın mı? | einen Antrag stellen → Perfekt: hat … gestellt. | der Antrag; stellen
+text | 2 | Hallo Elif, ich habe endlich eine Entscheidung ___: Ab Oktober studiere ich in Bremen! Gestern habe ich beim Studierendenwerk einen ___ auf einen Wohnheimplatz gestellt. Wenn du noch ___ hast, stell sie mir einfach! | getroffen / gefällt ; Antrag ; Fragen | | Merhaba Elif, sonunda bir karar verdim: Ekim'den itibaren Bremen'de okuyorum! Dün Studierendenwerk'e yurtta bir yer için başvuru yaptım. Hâlâ soruların varsa bana sorman yeter! | eine Entscheidung treffen · einen Antrag stellen · Fragen stellen: üç kalıp da sabit fiille. | die Entscheidung; der Antrag; die Frage; studieren
+
+@teil machen-nehmen-geben | machen / nehmen / geben: Pause, Platz, Bescheid … | kelime yanlış
+wahl | 1 | Wir arbeiten seit drei Stunden. Lass uns eine Pause ___! | machen | machen / geben / nehmen | Üç saattir çalışıyoruz. Hadi mola verelim! | Türkçede mola "verilir", Almancada eine Pause machen. | die Pause; machen
+wahl | 1 | Bitte ___ Sie Platz, Frau Yılmaz. Der Arzt kommt gleich. | nehmen | nehmen / geben / setzen | Lütfen oturun, Yılmaz Hanım. Doktor birazdan geliyor. | Platz nehmen = (kibar) oturmak. sich setzen de olur ama isimsiz: Setzen Sie sich. | der Platz; nehmen
+luecke | 2 | Kannst du mir ___ sagen, ob du morgen mitkommst? | Bescheid | | Yarın gelip gelmeyeceğini bana haber verebilir misin? | Bescheid sagen / geben = haber vermek; der Bescheid burada artikelsiz. | der Bescheid
+luecke | 2 | Meine Mutter ___ sich immer Sorgen um mich. (machen) | macht | | Annem hep benim için endişelenir. | sich Sorgen machen um + Akk: dönüşlü zamir (sich) ve um unutulmaz. | die Sorge; machen
+luecke | 2 | Ich habe mir bei den Hausaufgaben viel ___ gegeben. | Mühe | | Ödevlerde çok çaba gösterdim. | sich (Dativ) Mühe geben = çaba göstermek, emek vermek. | die Mühe; die Hausaufgabe
+luecke | 2 | Mein Kollege hat in der Besprechung einen guten Vorschlag ___. (machen · Perfekt) | gemacht | | İş arkadaşım toplantıda iyi bir öneride bulundu. | einen Vorschlag machen = vorschlagen (öneride bulunmak). | der Vorschlag; der Kollege; machen
+fehler | 1 | Kannst du bitte ein Foto von uns ziehen? | Kannst du bitte ein Foto von uns machen? | ziehen | Bizim bir fotoğrafımızı çeker misin lütfen? | Fotoğraf "çekmek" ziehen değil: ein Foto machen. | das Foto; machen
+fehler | 2 | Wir haben in Deutschland viele gute Erfahrungen gemacht. | Wir haben in Deutschland viele gute Erfahrungen gemacht. | - | Almanya'da çok iyi deneyimler edindik. | Hata yok: Erfahrungen machen = deneyim edinmek. | die Erfahrung; machen
+fehler | 2 | Am Bahnhof habe ich Abschied von meiner Familie gegeben. | Am Bahnhof habe ich Abschied von meiner Familie genommen. | gegeben | İstasyonda ailemle vedalaştım. | Abschied nehmen von + Dat = veda etmek (sich verabschieden). | der Abschied; nehmen
+kategori | 1 | Welches Verb passt? | machen: eine Pause, einen Vorschlag, ein Foto ;; nehmen: Rücksicht, Abschied, ein Taxi ;; geben: Bescheid, eine Antwort | | - | Türkçedeki fiili aktarma: mola vermek = eine Pause machen, veda etmek = Abschied nehmen, haber vermek = Bescheid geben. | machen; nehmen; geben
+eslestir | 1 | karar vermek ;; soru sormak ;; mola vermek ;; veda etmek ;; haber vermek | eine Entscheidung treffen ;; eine Frage stellen ;; eine Pause machen ;; Abschied nehmen ;; Bescheid geben | | - | Türkçede hepsi "vermek / sormak" ama Almancada isim fiilini kendisi seçer. | die Entscheidung; die Frage; die Pause; der Abschied; der Bescheid
+ordnen | 2 | ich / habe / mir / bei der Bewerbung / viel Mühe / gegeben | Ich habe mir bei der Bewerbung viel Mühe gegeben. / Bei der Bewerbung habe ich mir viel Mühe gegeben. | | Başvuruya çok emek verdim. | sich Mühe geben: zamir (mir) fiile yakın, Partizip (gegeben) en sonda. | die Mühe; die Bewerbung
+ceviri | 2 | Benim için endişelenme, iyiyim. | Mach dir keine Sorgen um mich, mir geht es gut. / Mach dir keine Sorgen um mich, es geht mir gut. / Mach dir keine Sorgen, mir geht es gut. / Mach dir keine Sorgen, es geht mir gut. | | - | sich Sorgen machen um + Akk; emir kipinde dönüşlü zamir Dativ: Mach dir keine Sorgen. | die Sorge; machen
+ceviri | 3 | Varınca bana haber ver! | Sag mir Bescheid, wenn du ankommst! / Gib mir Bescheid, wenn du ankommst! / Sag mir Bescheid, wenn du angekommen bist! / Gib mir Bescheid, wenn du angekommen bist! / Sag mir Bescheid, wenn du da bist! / Gib mir Bescheid, wenn du da bist! / Wenn du ankommst, sag mir Bescheid! / Wenn du angekommen bist, sag mir Bescheid! | | - | Bescheid sagen / geben + Dativ (mir). wenn-yan cümlesinde fiil sonda. | der Bescheid; ankommen
+dinle | 1 | Mach dir keine Sorgen, wir finden eine Lösung. | Mach dir keine Sorgen, wir finden eine Lösung. | | Endişelenme, bir çözüm buluruz. | sich Sorgen machen, eine Lösung finden: ikisi de sık kalıp. | die Sorge; die Lösung; finden
+
+@teil praep | Kalıbın edatı ve hâli: Rücksicht auf, Angst vor, Interesse an … | edat
+wahl | 1 | Im Zug sollte man Rücksicht ___ die anderen Fahrgäste nehmen. | auf | auf / an / für | Trende diğer yolcuları düşünmek gerekir. | Rücksicht nehmen auf + Akkusativ (die anderen Fahrgäste). | die Rücksicht; nehmen
+luecke | 2 | Viele Menschen haben Angst ___ der Zukunft. | vor | | Birçok insan gelecekten korkuyor. | Angst haben vor + Dativ; Türkçedeki "-den"i von ile aktarma. | die Angst; die Zukunft
+luecke | 2 | Lena hat heute keine Lust ___ Sport, sie bleibt lieber zu Hause. | auf | | Lena'nın bugün spora hiç hevesi yok, evde kalmayı tercih ediyor. | Lust haben auf + Akkusativ. | die Lust; der Sport
+luecke | 2 | Unsere Firma legt viel Wert ___ Pünktlichkeit. | auf | | Şirketimiz dakikliğe çok önem veriyor. | Wert legen auf + Akk = -e önem vermek (Türkçedeki "vermek" burada legen). | der Wert; die Firma
+luecke | 3 | Viele Studierende üben Kritik ___ ___ hohen Mieten in Bremen. | an ; den | | Birçok öğrenci Bremen'deki yüksek kiraları eleştiriyor. | Kritik üben an + Dativ: an den hohen Mieten (çoğul Dativ). | die Kritik; die Miete
+fehler | 3 | Wir haben großes Interesse für das Projekt. | Wir haben großes Interesse an dem Projekt. / Wir haben großes Interesse am Projekt. | für | Projeye büyük ilgi duyuyoruz. | Interesse haben an + Dat; für yalnız fiille: sich interessieren für. | das Interesse; das Projekt
+fehler | 2 | Bitte nehmen Sie Rücksicht auf die Nachbarn und seien Sie nach 22 Uhr leise. | Bitte nehmen Sie Rücksicht auf die Nachbarn und seien Sie nach 22 Uhr leise. | - | Lütfen komşuları düşünün ve saat 22'den sonra sessiz olun. | Hata yok: Rücksicht nehmen auf + Akk (die Nachbarn). | die Rücksicht; der Nachbar; leise
+umform | 3 | Viele Bürger kritisieren die neuen Regeln. → Viele Bürger üben … | Viele Bürger üben Kritik an den neuen Regeln. | | Birçok vatandaş yeni kuralları eleştiriyor. | kritisieren + Akk → Kritik üben an + Dativ: die neuen Regeln → an den neuen Regeln. | kritisieren; die Kritik; die Regel
+ordnen | 3 | ich / schreibe / Ihnen / weil / ich / großes Interesse / an / der Stelle / habe | Ich schreibe Ihnen, weil ich großes Interesse an der Stelle habe. / Weil ich großes Interesse an der Stelle habe, schreibe ich Ihnen. | | Size yazıyorum, çünkü bu işe büyük ilgi duyuyorum. | Interesse haben an + Dat; weil'den sonra çekimli fiil (habe) sonda. Başvuru mektubunda klasik cümle. | das Interesse; die Stelle
+ceviri | 2 | Sanata büyük ilgim var. | Ich habe großes Interesse an Kunst. / Ich habe ein großes Interesse an Kunst. / Ich habe großes Interesse an der Kunst. / Ich interessiere mich sehr für Kunst. | | - | Kalıpla: Interesse haben an + Dat. Fiille: sich interessieren für + Akk. Edat değişir! | das Interesse; die Kunst; sich interessieren für
+dinle | 1 | Hast du Angst vor der Prüfung? | Hast du Angst vor der Prüfung? | | Sınavdan korkuyor musun? | Angst haben vor + Dativ: vor der Prüfung. | die Angst; die Prüfung
+eslestir | 2 | Angst haben ;; Rücksicht nehmen ;; Kritik üben ;; Abschied nehmen | vor der Prüfung ;; auf die Nachbarn ;; an der Regierung ;; von meinen Freunden | | - | vor + Dat · auf + Akk · an + Dat · von + Dat: edat kalıbın parçası, Türkçeden tahmin edilmez. | die Angst; die Rücksicht; die Kritik; der Abschied
+text | 3 | Sehr geehrte Frau Krüger, ich habe großes Interesse ___ der Stelle als Verkäuferin. Ich habe schon zwei Jahre Erfahrung ___ Verkauf und lege viel Wert ___ Teamarbeit. Für ein Gespräch stehe ich Ihnen gern zur ___. | an ; im ; auf ; Verfügung | | Sayın Krüger Hanım, satış elemanı pozisyonuna büyük ilgi duyuyorum. Satışta iki yıllık deneyimim var ve ekip çalışmasına çok önem veriyorum. Bir görüşme için memnuniyetle hazırım. | Interesse an + Dat · Erfahrung im (in dem) Verkauf · Wert legen auf + Akk · zur Verfügung stehen. | das Interesse; die Stelle; die Erfahrung; der Wert
+
+@teil fest | Sabit kalıplar: in Frage kommen, zur Verfügung stehen, zu Ende gehen, eine Rolle spielen | edat
+wahl | 1 | Ein Umzug nach München? Das kommt für mich nicht in ___! Die Mieten sind viel zu hoch. | Frage | Frage / Ordnung / Kontakt | Münih'e taşınmak mı? Benim için söz konusu bile değil! Kiralar çok yüksek. | nicht in Frage kommen = söz konusu olmamak, kesinlikle olmaz. | der Umzug; die Miete; die Frage
+wahl | 1 | Welcher Satz ist richtig? | Das spielt keine Rolle. | Das spielt keine Rolle. / Das macht keine Rolle. / Das gibt keine Rolle. | Fark etmez, önemli değil. | eine Rolle spielen (Türkçedeki gibi "rol oynamak"); keine Rolle spielen = önemli olmamak. | die Rolle; spielen
+luecke | 2 | In der Bibliothek ___ den Studierenden zwanzig Computer zur Verfügung. | stehen | | Kütüphanede öğrencilerin kullanabileceği yirmi bilgisayar var. | zur Verfügung stehen = kullanıma hazır olmak; özne çoğul (zwanzig Computer) → stehen. | die Bibliothek
+luecke | 3 | Die Firma ___ mir für die Arbeit einen Laptop zur Verfügung. | stellt | | Şirket iş için bana bir dizüstü bilgisayar veriyor. | zur Verfügung stellen = sağlamak (biri bir şeyi veriyor); zur Verfügung stehen = hazırda bulunmak. | die Firma; stellen
+luecke | 1 | Der Deutschkurs geht leider bald zu ___. | Ende | | Almanca kursu maalesef yakında bitiyor. | zu Ende gehen = bitmek; kalıpta artikel yok: zu Ende. | der Kurs
+fehler | 2 | Der Raum steht uns bis 18 Uhr zu Verfügung. | Der Raum steht uns bis 18 Uhr zur Verfügung. | zu Verfügung | Oda saat 18'e kadar bizim kullanımımızda. | Kalıp hep zur (zu + der) Verfügung: die Verfügung dişil. | der Raum
+ordnen | 2 | das / kommt / für mich / leider / nicht / in Frage | Das kommt für mich leider nicht in Frage. / Leider kommt das für mich nicht in Frage. / Das kommt leider für mich nicht in Frage. / Für mich kommt das leider nicht in Frage. | | Bu maalesef benim için söz konusu değil. | in Frage kommen: "in Frage" fiilin tamamlayıcısı gibi en sonda durur, nicht hemen önünde. | die Frage
+ceviri | 3 | Kararımda para önemli bir rol oynamadı. | Geld hat bei meiner Entscheidung keine wichtige Rolle gespielt. / Das Geld hat bei meiner Entscheidung keine wichtige Rolle gespielt. / Bei meiner Entscheidung hat Geld keine wichtige Rolle gespielt. / Bei meiner Entscheidung hat das Geld keine wichtige Rolle gespielt. / Geld hat bei meiner Entscheidung keine große Rolle gespielt. / Das Geld hat bei meiner Entscheidung keine große Rolle gespielt. / Bei meiner Entscheidung hat Geld keine große Rolle gespielt. / Bei meiner Entscheidung hat das Geld keine große Rolle gespielt. / Geld spielte bei meiner Entscheidung keine wichtige Rolle. / Geld spielte bei meiner Entscheidung keine große Rolle. | | - | eine Rolle spielen; olumsuzda keine Rolle (nicht değil, çünkü isim). | die Rolle; die Entscheidung; das Geld
+ceviri | 2 | Bu iş benim için söz konusu değil. | Diese Stelle kommt für mich nicht in Frage. / Diese Arbeit kommt für mich nicht in Frage. / Dieser Job kommt für mich nicht in Frage. / Für mich kommt diese Stelle nicht in Frage. / Für mich kommt diese Arbeit nicht in Frage. / Für mich kommt dieser Job nicht in Frage. / Diese Stelle kommt für mich nicht infrage. / Diese Arbeit kommt für mich nicht infrage. / Dieser Job kommt für mich nicht infrage. | | - | nicht in Frage kommen (yazımı infrage de olur) = söz konusu olmamak. | die Stelle; die Frage
+dinle | 2 | Die Ferien gehen leider schon zu Ende. | Die Ferien gehen leider schon zu Ende. | | Tatil maalesef şimdiden bitiyor. | die Ferien çoğul → gehen; zu Ende gehen = bitmek. | die Ferien
+eslestir | 1 | Das kommt nicht ;; Der Raum steht uns ;; Der Kurs geht bald ;; Das Geld spielt | in Frage. ;; zur Verfügung. ;; zu Ende. ;; keine Rolle. | | - | Sabit kalıplar: in Frage kommen · zur Verfügung stehen · zu Ende gehen · eine Rolle spielen. | die Frage; die Rolle
+text | 2 | Liebe Frau Becker, leider geht unser Kurs bald zu ___. Für die Prüfungsvorbereitung steht uns ab Montag Raum 204 zur ___. Ein Termin am Samstag kommt für mich leider nicht in ___. Ich möchte aber gern mit Ihnen in ___ bleiben. | Ende ; Verfügung ; Frage ; Kontakt | | Sevgili Becker Hanım, kursumuz maalesef yakında bitiyor. Sınava hazırlık için pazartesiden itibaren 204 numaralı oda bizim kullanımımızda. Cumartesi günü bir randevu benim için maalesef mümkün değil. Ama sizinle iletişimi koparmak istemem. | zu Ende gehen · zur Verfügung stehen · in Frage kommen · in Kontakt bleiben: hepsi sabit, isim artikelsiz ya da zur. | der Kurs; der Termin; der Kontakt
+
+@teil kontrast | Tek fiil mi, kalıp mı? Hâl ve edat değişir | hâl
+wahl | 2 | Ich möchte ___ eine Frage stellen. | dem Lehrer | dem Lehrer / den Lehrer / mit dem Lehrer | Öğretmene bir soru sormak istiyorum. | eine Frage stellen: soru kime? → Dativ (dem Lehrer). | die Frage; der Lehrer
+wahl | 2 | Ich möchte ___ etwas fragen. | den Lehrer | den Lehrer / dem Lehrer / zum Lehrer | Öğretmene bir şey sormak istiyorum. | fragen + Akkusativ: jemanden fragen (Türkçede "-e" olsa da). Kalıpta ise Dativ: dem Lehrer eine Frage stellen. | fragen; der Lehrer
+luecke | 2 | Wir haben uns ___ eine kleinere Wohnung entschieden. | für | | Daha küçük bir dairede karar kıldık. | Fiille: sich entscheiden für + Akk. İsimle: eine Entscheidung treffen. | sich entscheiden für; die Wohnung
+umform | 2 | Darf ich Sie etwas fragen? → Darf ich Ihnen … | Darf ich Ihnen eine Frage stellen? | | Size bir şey sorabilir miyim? | fragen + Akk (Sie) → eine Frage stellen + Dat (Ihnen). | fragen; die Frage; stellen
+umform | 3 | Hast du dich schon entschieden? → Hast du schon … | Hast du schon eine Entscheidung getroffen? | | Kararını verdin mi? | sich entscheiden → eine Entscheidung treffen; dönüşlü zamir (dich) kalıpta düşer. | sich entscheiden für; die Entscheidung; treffen
+umform | 3 | Die Firma informiert die Bewerber nächste Woche. → Die Firma gibt … | Die Firma gibt den Bewerbern nächste Woche Bescheid. / Die Firma gibt nächste Woche den Bewerbern Bescheid. | | Şirket adaylara haftaya haber verecek. | informieren + Akk (die Bewerber) → Bescheid geben + Dat (den Bewerbern, çoğul Dativ -n). | der Bescheid; geben; die Firma
+fehler | 3 | Ich habe meine Nachbarin eine Frage gestellt. | Ich habe meiner Nachbarin eine Frage gestellt. | meine Nachbarin | Komşuma bir soru sordum. | eine Frage stellen + Dativ: meiner Nachbarin. (Ama: Ich habe meine Nachbarin gefragt.) | die Frage; stellen
+ordnen | 3 | können / Sie / mir / Bescheid / geben / ob / der Termin / passt | Können Sie mir Bescheid geben, ob der Termin passt? | | Randevunun uyup uymadığını bana bildirebilir misiniz? | Bescheid geben + Dativ (mir); ob-yan cümlesinde fiil (passt) sonda. | der Bescheid; geben; der Termin; passen
+kategori | 2 | Die Person steht im …? (jemanden / jemandem) | Akkusativ: fragen, informieren, kritisieren ;; Dativ: eine Frage stellen, Bescheid geben, einen Vorschlag machen | | - | Tek fiillerde kişi Akkusativ (den Lehrer fragen); kalıpta isim zaten Akkusativ olduğu için kişi Dativ olur (dem Lehrer eine Frage stellen). | fragen; kritisieren; der Bescheid; der Vorschlag
+ceviri | 3 | Ev sahibime bir soru sordum. | Ich habe meinem Vermieter eine Frage gestellt. / Ich habe meiner Vermieterin eine Frage gestellt. / Ich habe meinen Vermieter etwas gefragt. / Ich habe meine Vermieterin etwas gefragt. | | - | Kalıpla Dativ (meinem Vermieter eine Frage stellen), fiille Akkusativ (meinen Vermieter etwas fragen). | der Vermieter; die Frage; stellen
+ceviri | 2 | Henüz bir karar vermedim. | Ich habe noch keine Entscheidung getroffen. / Ich habe mich noch nicht entschieden. / Ich habe noch nicht entschieden. | | - | İsimle olumsuz: keine Entscheidung treffen. Fiille: sich noch nicht entschieden haben. | die Entscheidung; treffen; sich entscheiden für
+dinle | 3 | Ich habe der Ärztin eine Frage gestellt. | Ich habe der Ärztin eine Frage gestellt. | | Doktora bir soru sordum. | eine Frage stellen + Dativ: der Ärztin (die değil). | die Frage; stellen
+text | 3 | Gestern habe ich ___ (mein Chef) gefragt, ob ich im August Urlaub nehmen kann. Er hat ___ (das Team) noch keinen Bescheid gegeben. Ich habe mich noch nicht ___ (entscheiden), wohin ich fahre. Vielleicht kann mir meine Freundin einen Vorschlag ___. | meinen Chef ; dem Team ; entschieden ; machen | | Dün şefime ağustosta izin alıp alamayacağımı sordum. Ekibe henüz haber vermedi. Nereye gideceğime henüz karar vermedim. Belki kız arkadaşım bana bir öneride bulunabilir. | fragen + Akk (meinen Chef) · Bescheid geben + Dat (dem Team) · sich entscheiden → entschieden · einen Vorschlag machen. | fragen; der Bescheid; der Vorschlag; der Urlaub
