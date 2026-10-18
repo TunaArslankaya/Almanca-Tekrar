@@ -7,7 +7,7 @@
 @stufe A1–A2 · B1 tekrar
 @kapitel A1–A2 · tekrar
 @goethe 2 | Schreiben 1 · Sprechen 3 · Hören / Lesen (talimatlar)
-@voraus v2-satzbau
+@voraus verbstellung
 @kontrast konjunktiv2
 @etiket artikel/çekim
 @kurz du: kök, ek yok, du yok (Komm! Nimm! Fahr!) · ihr: ihr-biçimi, ihr yok (Kommt!) · Sie: mastar + Sie (Kommen Sie!) · sein: Sei! Seid! Seien Sie! Ayrılabilen ön ek sona: Ruf mich an!
