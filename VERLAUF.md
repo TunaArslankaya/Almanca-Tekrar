@@ -268,6 +268,7 @@ Son incelenen log satırı: 2026-10-17 13:01:46 (tur akis).
 - Artikel: dünkü aynı 6 kelime yine yanlış (Sonderangebot, Ziel, Kunst, Rezept, Diskussion, Geduld); Ziel leech → kanca. Seçmelide die Wert, Erziehung bilmiyorum.
 - Süre sorusu: vadeli az (bugün 2; yarın 55, 5. gün 33): tur kısa çünkü tekrar bitti, kota 4 + bonus/teklifle 15 yeni açıldı. 8 düzeltme, 13 cümle + gloss.
 Son incelenen log satırı: 2026-10-18 11:31:35 (erk n0322).
+(geri bildirim, otomatik) 2026-10-18 12:00: 1 düzeltme, son satır 2026-10-18 11:58:42
 
 **2026-10-18 (Tuna: gramer "yavan" + akşam tekrarı)**
 - Gramer: 29 → 44 konu, 839 → ~2900 alıştırma. Yeni konular: Perfekt, Modalverben, trennbare Verben, Wechselpräpositionen, Präp. + Dat/Akk, lokale / temporale Präp., Verben mit Präpositionen, Verben mit Dativ, Nomen-Verb-Verbindungen, Partizip als Adjektiv, Konjunktiv II Vergangenheit, Artikelwörter, statt/ohne … zu, Verbstellung. Eski konuların hepsi ~57–90 alıştırmaya çıktı.
