@@ -71,7 +71,7 @@ fehler | 3 | Sei Sie bitte ruhig! | Seien Sie bitte ruhig! | Sei Sie | Lütfen s
 luecke | 1 | ___ bitte auf, es ist schon sieben Uhr! (aufstehen · du) | Steh | Steh / Aufsteh / Stehst | Kalk lütfen, saat yedi oldu bile! | Ayrılabilen fiilin du-emri: kök başta (Steh), ön ek (auf) en sonda: Steh auf! | aufstehen
 luecke | 2 | ___ dich bitte! Der Zug fährt gleich ab. (sich beeilen · du) | Beeil / Beeile | | Acele et lütfen! Tren birazdan kalkıyor. | Dönüşlü zamir emirde de kalır: Beeil dich! | sich beeilen; der Zug
 ordnen | 2 | setzen / Sie / sich / bitte | Setzen Sie sich bitte! / Bitte setzen Sie sich! | | Lütfen oturun! | Sie-emri: fiil + Sie + dönüşlü zamir (sich). | sich setzen
-luecke | 3 | ___ das Licht ___, wenn du gehst! (ausmachen · du) | Mach / Mache ; aus | | Giderken ışığı kapat! | Ayrılabilen fiilde ön ek (aus) en sona: Mach … aus! | das Licht; ausmachen
+luecke | 3 | ___ das Licht ___, wenn du gehst! (ausmachen · du) | Mach ; aus / Mache ; aus | | Giderken ışığı kapat! | Ayrılabilen fiilde ön ek (aus) en sona: Mach … aus! | das Licht; ausmachen
 umform | 3 | Du rufst mich an, wenn du in Bremen bist. → Imperativ (du) | Ruf mich an, wenn du in Bremen bist! / Rufe mich an, wenn du in Bremen bist! | | Bremen'e varınca beni ara! | du ve -st düşer: Ruf …! ön ek (an) ana cümlenin sonunda kalır. | anrufen
 ordnen | 3 | zieh / dir / eine warme Jacke / an | Zieh dir eine warme Jacke an! | | Kalın bir ceket giy! | Dönüşlü zamir Dativ (dir), çünkü Akkusativ nesne (eine Jacke) var; an en sonda. | sich anziehen; die Jacke; warm
 
