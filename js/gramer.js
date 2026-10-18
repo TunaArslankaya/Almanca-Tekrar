@@ -19,7 +19,9 @@
     [/^(danach|dann|deshalb|trotzdem|vorher|außerdem|sonst)$/i, h => `„${h}“ ile ikinci cümleyi bağla`],
     [/^(Wegen|Trotz|Während) /i, h => `„${h.replace(/ …$/, '')}“ ile başla (Genitiv)`],
     [/^(.+?) …$/, h => `„${h.replace(/ …$/, '')}“ ile başlayarak yeniden kur`]];
-  const umformYonerge = hedef => { for (const [re, f] of UMFORM_TR) { const m = hedef.match(re); if (m) return f(hedef, m); } return `hedef: ${hedef}`; };
+  const umformYonerge = hedef => { for (const [re, f] of UMFORM_TR) { const m = hedef.match(re); if (m) return f(hedef, m); } // Türkçe yazılmış yönerge (ile yaz, kullan, yap, …) olduğu gibi; yalnız Almanca kalıp kalan hedef "… ile yeniden yaz"
+    if (/[çğıöşü]|\b(ile|yaz|kullan|yap|etmeden|yerine|cümle)\b/i.test(hedef)) return hedef.charAt(0).toUpperCase() + hedef.slice(1);
+    return `„${hedef}“ ile yeniden yaz`; };
 
   // ---------- durum ----------
   const st = () => (S.gram = S.gram || { konu: {}, ghost: {} });
