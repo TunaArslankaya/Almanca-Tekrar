@@ -129,6 +129,10 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
   // gün sayacı normal sayılır
   const sayilan = cevap.filter(e => !e.notiz.split(' | ').includes('sayılmadı')).length;
   if (B.n1 - A.n0 !== sayilan) hata(`gün sayacı ${A.n0} → ${B.n1}, sayılan akşam cevabı ${sayilan}`);
+  // bir akşamda en çok 15 öğe: kalan adaylar + sorulanlar ≤ 15 (birikme akşamı sonsuz tura çevirmez)
+  const kalan = await p.evaluate(() => window.__tekrar.aksamDurum().adaylar.map(x => x.id));
+  if (kalan.length + gorulen.size > 15) hata(`akşam 15 öğeyi aştı: sorulan ${gorulen.size} + kalan ${kalan.length}`);
+  if (kalan.some(id => gorulen.has(id))) hata('bu akşam sorulan öğe yine aday');
   // Bugün: kart ✓ yapıldı
   await anaya(p);
   const kart2 = await kartVar(p);

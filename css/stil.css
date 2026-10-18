@@ -1036,3 +1036,6 @@ body.calis-modu .yenile-cubuk { display: none; }
 .ikinci-is { display: grid; gap: .4rem; margin-top: .8rem; }
 .ikinci-is .ii-ust { color: var(--muted); font-size: .8rem; letter-spacing: .03em; }
 .ikinci-is .is-kart.yapildi { opacity: .75; }
+/* gramer: kelime çipleri satıra sığsın (çip ortadan bölünmesin, karttan taşmasın) */
+.g-woerter { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-top: 1rem; }
+.g-woerter .chip { max-width: 100%; overflow-wrap: anywhere; }

@@ -397,7 +397,8 @@
       if (notizEt(e, AKSAM_ET)) haric.add(id);
       else if (e.ergebnis === 'falsch' || e.ergebnis === 'fast') yanlis.add(id);
     });
-    const adaylar = Kern.aksamAdaylar(S, t, { yanlis, haric, filtre: id => gueltig(id + ':x') });
+    // bir akşamda en çok 15 öğe (sorulanlar dahil): R < 0,9 birikmesi akşamı bitmeyen tura çevirmesin
+    const adaylar = Kern.aksamAdaylar(S, t, { yanlis, haric, filtre: id => gueltig(id + ':x'), max: Kern.AKSAM.MAX - haric.size });
     const yapildi = bugunLog.some(e => e.modus === 'tur' && e.id === 'aksam');
     const zaman = Kern.aksamUygun(ilk, t, Kern.AKSAM.MIN);   // saat koşulu (aday sayısından bağımsız)
     return { ilk, adaylar, yanlis, yapildi, zaman, goster: zaman && (yapildi || adaylar.length >= Kern.AKSAM.MIN) };

@@ -382,7 +382,8 @@
     return ilk === Infinity ? null : ilk;
   }
   // adaylar (öncelik): 1) bugün tanıtılan (yeni / yarım) 2) bugün yanlış ya da fast (opts.yanlis: log'dan; hafızada lastG ≤ 2 ve bugün yazılmış)
-  // 3) R(şimdi) < 0,9 (vadesi gelmemiş olsa da). Grup içinde R artan. opts: { yanlis: Set|Array, haric: Set|Array (bu akşam sorulanlar), filtre, max }
+  // 3) R(şimdi) < 0,9 (vadesi gelmemiş olsa da). Grup içinde R artan. opts: { yanlis: Set|Array, haric: Set|Array (bu akşam sorulanlar), filtre,
+  // max (varsayılan 15; uygulama 15 − bu akşam sorulan verir: akşam bir kez 15 öğe, birikme akşamı sonsuz tura çevirmesin) }
   function aksamAdaylar(S, t, opts) {
     opts = opts || {};
     const g = gun4(t), yanlis = new Set(opts.yanlis || []), haric = new Set(opts.haric || []), out = [];
@@ -398,7 +399,7 @@
       out.push({ id, neden, R: r });
     });
     const sira = { yeni: 0, yanlis: 1, dusukR: 2 };
-    return out.sort((a, b) => sira[a.neden] - sira[b.neden] || a.R - b.R).slice(0, opts.max || AKSAM.MAX);
+    return out.sort((a, b) => sira[a.neden] - sira[b.neden] || a.R - b.R).slice(0, Math.max(0, opts.max != null ? opts.max : AKSAM.MAX));
   }
   // kart koşulu: ilk cevap öğrenme gününde 13:00'ten önce, üzerinden ≥ 8 saat geçmiş, aday ≥ 3
   function aksamUygun(ilk, t, adaySay) {

@@ -601,6 +601,8 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   ok(!K.aksamAdaylar(S, aksam, { yanlis: ['v1'], haric: ['n1'] }).some(x => x.id === 'n1'), 'akşam: bu akşam sorulan hariç');
   const cok = {}; for (let i = 0; i < 30; i++) cok['n' + (700 + i)] = { tanit: sabah, yeni4: g };
   eq(K.aksamAdaylar(yeniS(cok), aksam).length, 15, 'akşam: en çok 15 aday');
+  eq(K.aksamAdaylar(yeniS(cok), aksam, { max: 3 }).length, 3, 'akşam: max (15 − bu akşam sorulan)');
+  eq(K.aksamAdaylar(yeniS(cok), aksam, { max: 0 }).length, 0, 'akşam: max 0 → aday yok');
   // kart koşulu
   ok(K.aksamUygun(sabah, aksam, 4), 'koşul: 08:00 ilk cevap, 18:30, 4 aday → kart');
   ok(!K.aksamUygun(sabah, new Date(2026, 9, 15, 15, 59).getTime(), 4), 'koşul: 8 saat dolmadı → yok');

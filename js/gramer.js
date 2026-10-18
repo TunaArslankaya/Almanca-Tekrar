@@ -202,6 +202,8 @@
   const el = () => api.kart();
   const esc = s => api.esc(s == null ? '' : String(s));
   const de = s => api.deHTML(s == null ? '' : String(s));
+  // "-e mi -en mi?": ek başındaki tire satır sonunda kopmasın (bölünmez tire)
+  const tire = s => String(s == null ? '' : s).replace(/(^|[\s(/„"])-(?=\p{L})/gu, '$1\u2011');
   const karistir = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 
   function render() {
@@ -268,7 +270,7 @@
     let govde = '';
     if (u.tur === 'wahl' || (u.tur === 'luecke' && u.opt)) {
       if (!q.opts) q.opts = karistir(u.opt);
-      govde = `<div class="soru g-soru">${de(u.soru)}</div>${ipucu}<div class="mc${q.opts.every(o => o.length < 14) ? ' kisa' : ''}">${q.opts.map(o => `<button class="mc-opt" data-g="sec" data-v="${esc(o)}" type="button">${de(o)}</button>`).join('')}</div>`;
+      govde = `<div class="soru g-soru">${de(tire(u.soru))}</div>${ipucu}<div class="mc${q.opts.every(o => o.length < 14) ? ' kisa' : ''}">${q.opts.map(o => `<button class="mc-opt" data-g="sec" data-v="${esc(o)}" type="button">${de(o)}</button>`).join('')}</div>`;
     } else if (u.tur === 'luecke') {
       const n = (u.soru.match(/___/g) || []).length; let i = 0;
       const html = esc(u.soru).replace(/___/g, () => `<input class="g-inp" data-i="${i++}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="boşluk ${i}">`);
@@ -307,7 +309,7 @@
       if (!q.ogeler) { q.ogeler = karistir(u.gruplar.flatMap((g2, gi) => g2.oge.map(o => ({ o, gi })))); q.kat = {}; }
       const aktif = q.ogeler.findIndex((_, k) => q.kat[k] == null);
       const rows = q.ogeler.map((x, k) => `<div class="g-kat-oge${q.kat[k] != null ? ' atandi' : ''}${aktif === k ? ' aktif' : ''}" data-k="${k}"><span class="g-kat-ad">${de(x.o)}</span><span class="g-kat-btns">${u.gruplar.map((g2, gi) => `<button class="btn mini g-kat-btn${q.kat[k] === gi ? ' an' : ''}" data-g="kat" data-k="${k}" data-gi="${gi}" type="button">${hover && aktif === k ? `<kbd>${gi + 1}</kbd> ` : ''}${esc(g2.ad)}</button>`).join('')}</span></div>`).join('');
-      govde = `<div class="soru g-soru">${de(u.soru)}</div>${ipucu}<div class="g-kat">${rows}</div>
+      govde = `<div class="soru g-soru">${de(tire(u.soru))}</div>${ipucu}<div class="g-kat">${rows}</div>
         <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${aktif === -1 ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button></div>`;
     } else if (u.tur === 'dinle') {
       govde = `<div class="soluk g-yonerge">Dinle, duyduğun cümleyi yaz</div><div class="sira g-dinle"><button class="btn buyuk ana" data-g="dinle" type="button">🔊 Dinle</button><button class="btn mini" data-g="dinle" data-hiz="yavas" type="button">🐢 yavaş</button></div>${ipucu}
