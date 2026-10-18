@@ -31,6 +31,7 @@
   seri (`seriSay`, `seriBakim`: dondurucu `S.seri.frz` her 7 günde +1, en çok 2; dün kaçtıysa bugün 2 turla onarım), puan (`xpEkle`, `S.xpToplam`, `tage[gün].xp`;
   emeğe göre: tanıma 5, yazma 10, cümle/çekim 15, liste kalemi 2, okuma 25, yazma 50; ara verip dönünce ilk tur ×2), efektler (`ton`, `titret`, `konfeti`, kombo),
   günlük hedef = `S.ayar4.turHedef` (varsayılan 2; Tuna 15.10: önce az, rutin oturunca artırılır; `ayar4.rutin` bir kez uygular, `ayar4.secildi` elle seçim) × tur boyu (`gunHedef`; Ayarlar'da 2–5 tur), günü kurtarma = `MIN_TAG` (10) cevap.
+  Günün ikinci işi (`ikinciIs`): yalnız günlük hedef bitince Bugün'de, isteğe bağlı: vadeli gramer konusu, yoksa gün gün gramer / okuma / yazma (yazma haftada bir); yapıldıysa ✓.
   Gezinti (v5): Bugün · Kelimeler (`#/liste`, seviye sekmeleri, satıra dokununca alt sayfa) · İlerleme (`#/gecmis`: seri takvimi, seviyeler, artikel aynası, biçim başına başarı, B1 yolu) · Diğer (`#/diger`: yan bölümler, Serbest pratik, Zayıflar `#/zayif`, Geçmiş `#/kayit`, Ayarlar `#/ayar`). Tur içinde tost yok (kuyruk tur sonunda); Devam tek bileşen `.devam-btn` (`devamBtn`).
   Görünüm adresi `#/liste` (öğe kimliğiyle çakışmasın). Testte başlatma: `window.__tekrar.starte(mod, boyu)`; `__tekrar.Kern`, `__tekrar.saat(ms)` (zaman kaydırma), `__tekrar.ot` (oturum).
   Kayıt / inceleme: `node tools/film.js <klasör> mobil|masaustu <adım> <doğruluk> <gün>` her adımın ekran görüntüsünü ve durumunu kaydeder (adımlar `tests/surucu.js` ortak sürücüsüyle).

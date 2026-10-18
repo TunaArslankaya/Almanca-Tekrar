@@ -997,3 +997,8 @@ body.calis-modu .yenile-cubuk { display: none; }
 .gun-tablo th { color: var(--muted); font-weight: 600; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
 .gun-tablo th:first-child, .gun-tablo td:first-child { text-align: left; }
 .gun-tablo tr.bugun td { font-weight: 700; }
+
+/* günün ikinci işi (hedef bitince) */
+.ikinci-is { display: grid; gap: .4rem; margin-top: .8rem; }
+.ikinci-is .ii-ust { color: var(--muted); font-size: .8rem; letter-spacing: .03em; }
+.ikinci-is .is-kart.yapildi { opacity: .75; }

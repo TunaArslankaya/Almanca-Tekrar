@@ -3757,6 +3757,23 @@
     }
     return out.length ? out.join('') : '<tr><td colspan="6" class="soluk">henüz yok</td></tr>';
   }
+  // günün ikinci işi: yalnız günlük hedef bittikten sonra görünür (isteğe bağlı; Tuna 18.10: önceden görünürse başlangıç eşiği büyür)
+  // sıra: vadeli gramer konusu → gün gün dönüşümlü gramer / okuma / yazma (yazma haftada bir); bugün yapıldıysa ✓
+  function ikinciIs() {
+    const Gr = window.Gramer, bugunYapti = m => bugunM(m).n > 0 || S.log.some(e => e.zeit && e.zeit.startsWith(tag()) && e.modus === (m === 'gram' ? 'gram' : m === 'yazma' ? 'text' : 'lesen'));
+    const hafta = zeitStr(now() - 7 * DAY), yazdi = S.log.some(e => e.modus === 'text' && e.zeit >= hafta);
+    const grVadeli = Gr && Gr.GR ? Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } }) : [];
+    let is;
+    if (grVadeli.length) { const k = Gr.GR[grVadeli[0]].kopf || {}; is = { m: 'gram', ikon: '📐', b: 'Gramer tekrarı', alt: `${k.titel || ''}${grVadeli.length > 1 ? ` + ${grVadeli.length - 1} konu` : ''} · ~5 dk` }; }
+    else {
+      const sec = [{ m: 'gram', ikon: '📐', b: 'Gramer: yeni konu', alt: 'kısa kural + alıştırma · ~5 dk' }, { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW metni, dinleyerek · ~8 dk' }]
+        .concat(yazdi ? [] : [{ m: 'yazma', ikon: '✍️', b: 'Yazma', alt: 'kısa görev, Claude gece düzeltir · ~15 dk' }]);
+      is = sec[Math.floor(now() / DAY) % sec.length];
+    }
+    const yapti = bugunYapti(is.m);
+    return `<div class="ikinci-is"><div class="ii-ust">İstersen günün ikinci işi</div>
+      <button class="is-kart${yapti ? ' yapildi' : ''}" data-modus="${is.m}" type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
+  }
   function renderAna() {
     const el = $('#ana'); if (!el) return;
     const d = bugun(), b = turBoyu(), turHedef = turHedefi(), yapildi = turYapildi(), tamam = d.n >= ziel('akis');
@@ -3827,6 +3844,7 @@
           ${toparlanma}
         </div>
       </div>
+      ${tamam && !ilkGun ? ikinciIs() : ''}
       ${bugunKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
