@@ -13,16 +13,16 @@
 @kurz um + saat, am + gün / gün bölümü / tarih, im + ay / mevsim. vor = önce, in = (şimdiden) sonra, seit = -den beri (hâlâ sürüyor, Präsens), ab = -den itibaren, für = planlanan süre. vor / seit / in + Dativ: vor zwei Jahren.
 
 @erklaerung
-Türkçe zamanı çoğu kez ekle söyler: saat sekizde, pazartesi, mayısta, iki yıl önce, iki hafta sonra, üç aydır. Almanca her birine ayrı bir edat ister; hangisi geleceği zamanın türüne bağlıdır.
+Türkçe zamanı çoğu kez ekle söyler (saat sekizde, mayısta, iki yıl önce, üç aydır). Almanca her biri için ayrı bir edat ister.
 
-1. um + saat: um acht Uhr. am + gün, gün bölümü, tarih: am Montag, am Wochenende, am Abend, am 3. Mai. İstisna: in der Nacht. im + ay, mevsim: im Mai, im Winter. Yıl edatsız ya da im Jahr: 2019 · im Jahr 2019 ("in 2019" İngilizceden aktarmadır).
-2. vor + Dativ = önce: vor zwei Jahren. in + Dativ = şimdiden sonra, gelecekte: in zwei Wochen. Türkçedeki "sonra"yı nach ile çevirmek en sık hatadır; nach zwei Wochen yalnız geçmişi anlatırken doğru: Nach zwei Wochen hatte ich ein Zimmer.
-3. seit + Dativ = -den beri, "-dır": iş hâlâ sürüyor, fiil Präsens: Ich wohne seit drei Monaten in Bremen. Bitmiş tek olay için vor: Ich bin vor drei Monaten gekommen.
-4. ab = -den itibaren: ab Montag. bis = -e kadar: bis Freitag, bis zum Abend. von … bis: von neun bis fünf, vom 1. bis zum 5. Mai.
-5. für + Akkusativ = planlanan süre: für zwei Wochen nach Spanien. über + Akkusativ = boyunca: über Weihnachten. innerhalb / während + Genitiv: innerhalb einer Woche (bir hafta içinde), während des Kurses.
-6. Edatsız Akkusativ: jeden Tag, nächste Woche, letzten Sommer.
+1. um + saat: um acht Uhr. am + gün, gün bölümü, tarih: am Montag, am Abend, am 3. Mai (istisna: in der Nacht). im + ay, mevsim: im Mai, im Winter. Yıl edatsız ya da im Jahr: 2019 ("in 2019" İngilizceden aktarma).
+2. vor + Dativ = önce: vor zwei Jahren. in + Dativ = şimdiden sonra: in zwei Wochen. Türkçedeki "sonra"yı nach ile çevirmek en sık hata; nach zwei Wochen yalnız geçmişi anlatırken doğru.
+3. seit + Dativ = "-den beri, -dır": iş hâlâ sürüyor, fiil Präsens: Ich wohne seit drei Monaten hier. Bitmiş tek olay için vor: Ich bin vor drei Monaten gekommen.
+4. ab = -den itibaren: ab Montag. bis = -e kadar: bis Freitag, bis zum Abend. von … bis: von neun bis fünf.
+5. für + Akkusativ = planlanan süre: für zwei Wochen. über = boyunca: über Weihnachten. innerhalb / während + Genitiv: innerhalb einer Woche, während des Kurses.
+6. Edatsız Akkusativ: jeden Tag, nächste Woche.
 
-Sınavda: Schreiben 1'de randevu ve plan, Sprechen 2'de "ne zamandır" sorusu hep bu edatlarla. Konuşmada "Ich komme Montag" (am'sız) duyulur; yazıda am Montag yaz.
+Sınavda: Schreiben 1'de randevu, Sprechen'de "ne zamandır" hep bu edatlarla. Konuşmada "Ich komme Montag" (am'sız) duyulur; yazıda am Montag yaz.
 @ende
 
 @tabelle Zaman noktası: hangi edat?
@@ -84,7 +84,7 @@ wahl | 1 | ___ morgen mache ich jeden Tag Sport. | Ab | Ab / Seit / Vor | Yarın
 luecke | 2 | Ich lerne ___ drei Monaten jeden Tag mit einer App Deutsch. (-den beri) | seit | | Üç aydır her gün bir uygulamayla Almanca çalışıyorum. | Geçmişte başladı, hâlâ sürüyor → seit + Dativ, fiil Präsens (lerne). | lernen
 luecke | 2 | Kannst du mir die Hausaufgabe ___ Freitag schicken? (-e kadar) | bis | | Ödevi bana cumaya kadar gönderebilir misin? | Son tarih → bis Freitag (artikelsiz). Artikelle bis zum: bis zum Wochenende. | die Hausaufgabe; schicken
 luecke | 2 | Die Bibliothek ist montags ___ 8 ___ 20 Uhr geöffnet. | von ; bis | | Kütüphane pazartesileri 8'den 20'ye kadar açık. | Başlangıç ve bitiş → von … bis. | die Bibliothek
-luecke | 3 | Meine Ferien gehen vom 1. August ___ 15. August. | bis zum | | Tatilim 1 Ağustos'tan 15 Ağustos'a kadar. | Tarihle: vom (von dem) … bis zum (bis zu dem) …; tarih önünde artikel olduğu için bis zum. | die Ferien
+luecke | 3 | Meine Ferien gehen vom 1. August ___ 15. August. | bis zum / bis | | Tatilim 1 Ağustos'tan 15 Ağustos'a kadar. | Tarihle: vom (von dem) … bis zum (bis zu dem) …; vom ile simetrik olan bis zum, kısaca bis 15. August da olur. | die Ferien
 fehler | 3 | Ab drei Monaten wohne ich in Bremen. | Seit drei Monaten wohne ich in Bremen. / Ich wohne seit drei Monaten in Bremen. | Ab | Üç aydır Bremen'de oturuyorum. | Geçmişte başlamış, hâlâ süren iş → seit. ab bir başlangıcı ileriye doğru verir: ab Montag. | wohnen
 fehler | 2 | Der Supermarkt hat von Montag bis Samstag geöffnet. | Der Supermarkt hat von Montag bis Samstag geöffnet. | - | Süpermarket pazartesiden cumartesiye kadar açık. | Hata yok: von … bis gün adlarıyla artikelsiz kullanılır. | der Supermarkt
 ordnen | 2 | ich / spiele / seit einem Jahr / im Verein / Fußball | Ich spiele seit einem Jahr im Verein Fußball. / Seit einem Jahr spiele ich im Verein Fußball. / Im Verein spiele ich seit einem Jahr Fußball. / Ich spiele seit einem Jahr Fußball im Verein. | | Bir yıldır bir kulüpte futbol oynuyorum. | seit einem Jahr (Dativ) + Präsens: hâlâ oynuyor. Zaman öne gelirse fiil yine 2. yerde. | der Verein; der Fußball; spielen
@@ -94,7 +94,7 @@ dinle | 2 | Seit einem Monat wohne ich in einer WG. | Seit einem Monat wohne ich
 
 @teil dauer | für, über, innerhalb, während: süre | edat
 wahl | 1 | Wir fahren im Sommer ___ zwei Wochen ans Meer. | für | für / seit / vor | Yazın iki haftalığına denize gidiyoruz. | Planlanan süre → für + Akkusativ. seit ve vor geçmişe bakar. | das Meer
-luecke | 1 | ___ Weihnachten bleibt die Uni zwei Wochen geschlossen. | Über | Über / Seit / Vor | Noel boyunca üniversite iki hafta kapalı kalıyor. | Bayram / tatil boyunca → über Weihnachten. | die Uni, -s
+luecke | 2 | Ich bleibe ___ Weihnachten in Bremen, die Flüge sind zu teuer. (boyunca) | über | | Noel boyunca Bremen'de kalıyorum, uçak biletleri çok pahalı. | Bayram / tatil boyunca → über + Akkusativ: über Weihnachten, übers Wochenende. | teuer
 luecke | 2 | Sie müssen die Miete ___ einer Woche bezahlen. (… içinde, Genitiv) | innerhalb | | Kirayı bir hafta içinde ödemeniz gerekiyor. | Bir sürenin içinde, en geç sonunda → innerhalb + Genitiv: innerhalb einer Woche. | die Miete; bezahlen
 luecke | 3 | Während ___ Fahrt habe ich ein Buch gelesen. (die Fahrt) | der | | Yolculuk sırasında bir kitap okudum. | während + Genitiv; dişil isimde Genitiv artikeli der: während der Fahrt. | das Buch; lesen
 fehler | 3 | Innerhalb einem Monat habe ich ein Zimmer gefunden. | Innerhalb eines Monats habe ich ein Zimmer gefunden. / Innerhalb von einem Monat habe ich ein Zimmer gefunden. | einem Monat | Bir ay içinde bir oda buldum. | innerhalb Genitiv ister: eines Monats; von ile söylersen Dativ: innerhalb von einem Monat. | der Monat, -e; finden
@@ -136,7 +136,7 @@ text | 2 | Hallo zusammen! Unser WG-Treffen ist ___ Mittwoch ___ halb acht in de
 text | 2 | Liebe Ayşe, ich bin jetzt ___ drei Monaten in Bremen. ___ zwei Wochen habe ich endlich ein Zimmer gefunden. ___ einem Monat beginnt mein Kurs an der Uni. Besuch mich doch ___ Mai! | seit ; Vor ; In ; im | | Sevgili Ayşe, üç aydır Bremen'deyim. İki hafta önce sonunda bir oda buldum. Bir ay sonra üniversitedeki kursum başlıyor. Mayısta beni ziyarete gel! | Hâlâ süren → seit; bitmiş olay → vor; şimdiden sonra → in; ay → im. | endlich; finden
 
 @teil dauer
-text | 2 | Sehr geehrter Herr Yılmaz, bitte schicken Sie uns die Unterlagen ___ (Genitiv) einer Woche. Unser Büro ist ___ Montag ___ Freitag geöffnet. ___ (Genitiv) der Ferien ist das Büro geschlossen. | innerhalb ; von ; bis ; Während | | Sayın Bay Yılmaz, belgeleri bize bir hafta içinde gönderin lütfen. Ofisimiz pazartesiden cumaya kadar açık. Tatil süresince ofis kapalı. | innerhalb / während + Genitiv; başlangıç ve bitiş → von … bis. | die Unterlagen; das Büro; schicken
+text | 2 | Sehr geehrter Herr Yılmaz, bitte schicken Sie uns die Unterlagen ___ (… içinde) einer Woche. Unser Büro ist ___ Montag ___ Freitag geöffnet. ___ (süresince) der Ferien ist das Büro geschlossen. | innerhalb ; von ; bis ; Während | | Sayın Bay Yılmaz, belgeleri bize bir hafta içinde gönderin lütfen. Ofisimiz pazartesiden cumaya kadar açık. Tatil süresince ofis kapalı. | innerhalb / während + Genitiv; başlangıç ve bitiş → von … bis. | die Unterlagen; das Büro; schicken
 
 @teil kontrast
-text | 3 | Ich heiße Emre und komme aus der Türkei. Ich bin ___ zwei Jahren nach Deutschland gekommen. ___ einem Jahr wohne ich in Bremen. ___ drei Monaten mache ich die B1-Prüfung. ___ dem Sommer möchte ich an der Uni studieren. | vor ; Seit ; In ; Ab / Nach | | Adım Emre, Türkiyeliyim. İki yıl önce Almanya'ya geldim. Bir yıldır Bremen'de oturuyorum. Üç ay sonra B1 sınavına gireceğim. Yazdan itibaren üniversitede okumak istiyorum. | Bitmiş olay → vor; süren durum → seit; şimdiden sonra → in; başlangıç → ab (nach dem Sommer da olur). | studieren; die Prüfung
+text | 3 | Ich heiße Emre und komme aus der Türkei. Ich bin ___ zwei Jahren nach Deutschland gekommen. ___ einem Jahr wohne ich in Bremen. ___ drei Monaten mache ich die B1-Prüfung. ___ nächstem Sommer möchte ich an der Uni studieren. | vor ; Seit ; In ; Ab | | Adım Emre, Türkiyeliyim. İki yıl önce Almanya'ya geldim. Bir yıldır Bremen'de oturuyorum. Üç ay sonra B1 sınavına gireceğim. Gelecek yazdan itibaren üniversitede okumak istiyorum. | Bitmiş olay → vor; süren durum → seit; şimdiden sonra → in; gelecekte başlangıç → ab. | studieren; die Prüfung

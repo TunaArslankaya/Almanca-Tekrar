@@ -1,0 +1,147 @@
+# Gramer konusu: Wechselpräpositionen (wo? Dativ / wohin? Akkusativ). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# umform hedefi "… ile başlayan cümle" biçiminde: "Jetzt bin ich …" → uygulama "„Jetzt bin ich“ ile başlayarak yeniden kur" der.
+@id wechselpraep
+@titel Wechselpräpositionen: wo? oder wohin?
+@tr İki hâlli edatlar: nerede? → Dativ, nereye? → Akkusativ (legen / liegen, stellen / stehen)
+@stufe A2
+@kapitel A2 · B1 tekrar ?
+@goethe 3 | Sprechen 1-3 (yer, buluşma) · Schreiben 1-2 (yol / oda tarifi)
+@voraus praep-dat-akk
+@kontrast lokal-praep, praep-dat-akk
+@etiket hâl
+@kurz in, an, auf, über, unter, vor, hinter, neben, zwischen: wo? (-de) → Dativ (im Kino), wohin? (-e) → Akkusativ (ins Kino). legen / stellen / setzen + Akk, liegen / stehen / sitzen + Dat.
+
+@erklaerung
+Dokuz edat iki hâl alabilir: in, an, auf, über, unter, vor, hinter, neben, zwischen (die Wechselpräposition). Hangisi olacağını soru belirler:
+
+1. wo? (nerede?) → Dativ: Ich bin im Kino. Das Handy liegt auf dem Tisch.
+2. wohin? (nereye?) → Akkusativ: Ich gehe ins Kino. Ich lege das Handy auf den Tisch.
+
+Türkçeyle kolay bağ: -de / -da = Dativ, -e / -a = Akkusativ (sinemada → im Kino, sinemaya → ins Kino). Dikkat: Türkçedeki "-e hâli"ne dilbilgisinde "datif" denir; Almancada bu işi Akkusativ yapar, adına aldanma.
+
+3. Fiil çiftleri: legen, stellen, setzen, hängen (bir şeyi koymak, asmak) + Akkusativ; liegen, stehen, sitzen, hängen (bir yerde durmak) + Dativ. Koyan fiiller düzenli (legte, hat gelegt), duran fiiller düzensiz (lag, stand, saß, hing).
+4. Kaynaşma: in + das = ins, in + dem = im, an + dem = am, an + das = ans, auf + das = aufs.
+5. Tuzaklar: ankommen Türkçede "-e varmak" ama Dativ ister: am Bahnhof ankommen. Bir yerin içinde dolaşmak da wo? sorusudur: Wir laufen im Park. Zaman anlamında an, in, vor hep Dativ: am Montag, vor dem Kurs.
+
+Sınavda: Sprechen'de buluşma yeri ("Treffen wir uns vor dem Kino?"), Schreiben'de oda ve yol tarifi. Konuşmada en sık duyulan hata: "Ich lege das Buch auf dem Tisch."
+@ende
+
+@tabelle wo? (Dativ) · wohin? (Akkusativ)
+edat | wo? + Dativ | wohin? + Akkusativ | Türkçe
+in | Ich bin im Kino. | Ich gehe ins Kino. | sinemada / sinemaya
+an | Das Bild hängt an der Wand. | Ich hänge das Bild an die Wand. | duvarda / duvara
+auf | Das Handy liegt auf dem Tisch. | Ich lege das Handy auf den Tisch. | masanın üstünde / üstüne
+unter | Die Tasche steht unter dem Stuhl. | Ich stelle die Tasche unter den Stuhl. | sandalyenin altında / altına
+über | Die Lampe hängt über dem Sofa. | Ich hänge die Lampe über das Sofa. | kanepenin üstünde / üstüne
+vor | Wir warten vor dem Kino. | Ich stelle das Fahrrad vor das Haus. | önünde / önüne
+hinter | Der Garten liegt hinter dem Haus. | Die Kinder laufen hinter das Haus. | arkasında / arkasına
+neben | Der Stuhl steht neben dem Bett. | Ich stelle den Stuhl neben das Bett. | yanında / yanına
+zwischen | Die Lampe steht zwischen dem Sofa und dem Regal. | Ich stelle die Lampe zwischen das Sofa und das Regal. | arasında / arasına
+@ende
+
+@tabelle Artikel: Dativ ve Akkusativ
+cins | wo? Dativ | wohin? Akkusativ
+eril (der Tisch) | auf dem / einem / meinem Tisch | auf den / einen / meinen Tisch
+nötr (das Bett) | auf dem / einem Bett | auf das (aufs) / ein Bett
+dişil (die Wand) | an der / einer Wand | an die / eine Wand
+çoğul (die Stühle) | auf den Stühlen | auf die Stühle
+@ende
+
+@tabelle Fiil çiftleri
+wohin? + Akk (koymak) | geçmiş | wo? + Dat (durmak) | geçmiş
+legen (yatırarak koymak) | legte / hat gelegt | liegen (yatay durmak) | lag
+stellen (dik koymak) | stellte / hat gestellt | stehen (dik durmak) | stand
+setzen / sich setzen (oturtmak / oturmak) | setzte / hat gesetzt | sitzen (oturuyor olmak) | saß
+hängen (asmak) | hängte / hat gehängt | hängen (asılı olmak) | hing
+stecken (sokmak) | steckte / hat gesteckt | stecken (içinde olmak) | steckte
+@ende
+
+@beispiel Ich lege den Schlüssel auf den Tisch. Jetzt liegt er auf dem Tisch. | Anahtarı masaya koyuyorum. Şimdi masanın üstünde duruyor.
+@beispiel Heute Abend gehen wir ins Kino. | Bu akşam sinemaya gidiyoruz.
+@beispiel Ich warte vor der Bibliothek auf dich. | Seni kütüphanenin önünde bekliyorum.
+@beispiel Wir sind gestern um zehn Uhr in Bremen angekommen. | Dün saat onda Bremen'e vardık.
+
+@teil wo-dat | wo? → Dativ (yer, durum) | hâl
+wahl | 1 | Wo ist Tuna? – Er sitzt ___ Bibliothek und lernt. | in der | in der / in die | Tuna nerede? – Kütüphanede oturmuş ders çalışıyor. | Soru wo? ve fiil sitzen (bir yerde olmak) → Dativ: die Bibliothek → in der Bibliothek. | die Bibliothek; sitzen
+luecke | 1 | Die Milch steht ___ Kühlschrank. | im | im / in den | Süt buzdolabında. | stehen = bir yerde durmak (wo?) → Dativ: in + dem = im. in den Kühlschrank "buzdolabına" demektir. | die Milch; der Kühlschrank; stehen
+luecke | 2 | Wir treffen uns um acht vor ___ Kino. (das Kino) | dem | | Saat sekizde sinemanın önünde buluşuyoruz. | Buluşma bir yerde olur (wo?) → Dativ; das Kino → vor dem Kino. | treffen; das Kino
+luecke | 2 | Das Bild hängt über ___ Sofa. (das Sofa) | dem | | Resim kanepenin üstünde asılı. | hängen burada "asılı olmak" (wo?) → Dativ: über dem Sofa. | das Bild; das Sofa; hängen
+luecke | 2 | Der Schlüssel liegt unter ___ Teppich. (der Teppich) | dem | | Anahtar halının altında. | liegen = bir yerde durmak → Dativ; eril der → dem: unter dem Teppich. | der Schlüssel; der Teppich; liegen
+fehler | 2 | Ich habe den ganzen Tag in die Bibliothek gelernt. | Ich habe den ganzen Tag in der Bibliothek gelernt. | in die Bibliothek | Bütün gün kütüphanede ders çalıştım. | Ders çalışmak bir yerde olur, yön yok (wo?) → Dativ: in der Bibliothek. | die Bibliothek; lernen
+ordnen | 3 | meine Eltern / wohnen / in einer / kleinen Wohnung / neben dem Bahnhof | Meine Eltern wohnen in einer kleinen Wohnung neben dem Bahnhof. / Meine Eltern wohnen neben dem Bahnhof in einer kleinen Wohnung. / Neben dem Bahnhof wohnen meine Eltern in einer kleinen Wohnung. | | Annemle babam istasyonun yanında küçük bir dairede oturuyor. | wohnen bir yerde olmaktır → iki edat da Dativ: in einer Wohnung, neben dem Bahnhof. | wohnen; die Wohnung; der Bahnhof
+ordnen | 2 | Tuna / sitzt / am Abend / im Café | Tuna sitzt am Abend im Café. / Am Abend sitzt Tuna im Café. / Im Café sitzt Tuna am Abend. | | Tuna akşamları kafede oturuyor. | sitzen + Dativ: im Café (in + dem). Zaman (am Abend) de Dativ. | sitzen; das Café
+dinle | 2 | Die Kinder spielen im Garten hinter dem Haus. | Die Kinder spielen im Garten hinter dem Haus. | | Çocuklar evin arkasındaki bahçede oynuyor. | Oyun bir yerde oynanır (wo?) → iki edat da Dativ: im Garten, hinter dem Haus. | spielen; der Garten; das Kind
+ceviri | 2 | Seni kütüphanenin önünde bekliyorum. | Ich warte vor der Bibliothek auf dich. / Ich warte auf dich vor der Bibliothek. / Vor der Bibliothek warte ich auf dich. | | - | Beklemek bir yerde olur (wo?) → vor + Dativ: vor der Bibliothek. "Seni" = auf dich (warten auf). | warten auf; die Bibliothek
+ceviri | 2 | Kedi yatağın altında uyuyor. | Die Katze schläft unter dem Bett. | | - | Uyumak bir yerde olur (wo?) → unter + Dativ: das Bett → unter dem Bett. | schlafen; das Bett
+
+@teil wohin-akk | wohin? → Akkusativ (yön, koyma) | hâl
+wahl | 1 | Wohin gehst du? – Ich gehe ___ Mensa, ich habe Hunger. | in die | in die / in der | Nereye gidiyorsun? – Yemekhaneye, acıktım. | Soru wohin? (nereye?) → Akkusativ: die Mensa → in die Mensa. | die Mensa; der Hunger; gehen
+luecke | 1 | Heute Abend gehen wir ___ Theater. | ins | ins / im | Bu akşam tiyatroya gidiyoruz. | gehen + yön (nereye?) → Akkusativ: in + das = ins. im Theater "tiyatroda" demektir. | das Theater; gehen
+luecke | 2 | Stell die Flaschen bitte in ___ Kühlschrank! (der Kühlschrank) | den | | Şişeleri lütfen buzdolabına koy! | stellen = bir şeyi bir yere koymak (wohin?) → Akkusativ; eril der → den. | stellen; die Flasche; der Kühlschrank
+luecke | 2 | Ich habe meine Jacke auf ___ Stuhl gelegt. (der Stuhl) | den | | Ceketimi sandalyenin üstüne koydum. | legen = koymak (wohin?) → Akkusativ: auf den Stuhl. Perfekt olması hâli değiştirmez. | legen; die Jacke; der Stuhl
+luecke | 2 | Kannst du das Plakat ___ hängen? (an · die Tür) | an die Tür | | Afişi kapıya asabilir misin? | hängen burada "asmak" (wohin?) → Akkusativ; dişil die değişmez: an die Tür. | das Plakat; die Tür; hängen
+fehler | 2 | Ich fahre morgen mit dem Zug in der Stadt. | Ich fahre morgen mit dem Zug in die Stadt. | in der Stadt | Yarın trenle şehre gidiyorum. | fahren + hedef (nereye?) → Akkusativ: in die Stadt. in der Stadt "şehirde" demektir. | fahren; die Stadt; der Zug
+ordnen | 2 | wir / fahren / im Sommer / an die Nordsee | Wir fahren im Sommer an die Nordsee. / Im Sommer fahren wir an die Nordsee. | | Yazın Kuzey Denizi'ne gidiyoruz. | Denize, göle gitmek: an + Akkusativ (an die Nordsee). Zaman im Sommer ise Dativ. | fahren
+umform | 3 | Das Fahrrad steht im Keller. → Ich stelle das Fahrrad … | Ich stelle das Fahrrad in den Keller. | | Bisikleti bodruma koyuyorum. | stehen (wo?, Dativ: im Keller) → stellen (wohin?, Akkusativ): in den Keller. | das Fahrrad; der Keller; stellen; stehen
+ceviri | 2 | Telefonu masaya koydum. | Ich habe das Handy auf den Tisch gelegt. / Ich habe mein Handy auf den Tisch gelegt. / Ich habe das Telefon auf den Tisch gelegt. / Ich legte das Handy auf den Tisch. | | - | Masaya = wohin? → Akkusativ: auf den Tisch. Telefon yatırılarak konur: legen. | legen; das Handy; der Tisch
+dinle | 2 | Ich stelle die Blumen auf den Tisch. | Ich stelle die Blumen auf den Tisch. | | Çiçekleri masaya koyuyorum. | stellen (wohin?) → Akkusativ: auf den Tisch. Kulak: den (Akk) / dem (Dat). | stellen; die Blume; der Tisch
+
+@teil verben | legen / liegen, stellen / stehen, setzen / sitzen, hängen | hâl
+wahl | 1 | Dein Handy ___ auf dem Sofa. | liegt | liegt / legt | Telefonun kanepenin üstünde. | auf dem Sofa = Dativ (wo?) → durum fiili: liegen. legen birinin bir şeyi koymasıdır. | liegen; das Handy; das Sofa
+wahl | 1 | Ich ___ die Vase auf das Regal. | stelle | stelle / stehe | Vazoyu rafa koyuyorum. | Biri bir şeyi bir yere koyuyor ve auf das Regal Akkusativ → stellen. stehen nesne almaz. | stellen; die Vase; das Regal
+luecke | 2 | Unsere Katze ___ den ganzen Tag auf dem Sofa. (legen / liegen) | liegt | | Kedimiz bütün gün kanepede yatıyor. | Kedi bir yerde duruyor, nesne yok; auf dem Sofa Dativ → liegen: liegt. | liegen; das Sofa
+luecke | 2 | Bitte ___ Sie sich auf diesen Stuhl. (setzen / sitzen) | setzen | | Lütfen bu sandalyeye oturun. | sich setzen = oturmak (hareket, wohin?) + Akkusativ (diesen Stuhl). sitzen ise oturuyor olmaktır. | sich setzen; der Stuhl
+luecke | 3 | Gestern ___ der Schlüssel noch an der Tür. (hängen · Präteritum) | hing | | Dün anahtar hâlâ kapıda asılıydı. | an der Tür = Dativ (wo?) → "asılı olmak" anlamında hängen düzensiz: hing. hängte "astı" demektir. | der Schlüssel; die Tür; hängen
+luecke | 3 | Ich ___ das Bild gestern an die Wand ___. (hängen · Perfekt) | habe ; gehängt | | Resmi dün duvara astım. | an die Wand = Akkusativ → "asmak" anlamında hängen düzenli: habe gehängt. | das Bild; die Wand; hängen
+fehler | 2 | Ich liege das Buch auf den Tisch. | Ich lege das Buch auf den Tisch. | liege | Kitabı masaya koyuyorum. | Nesne (das Buch) ve Akkusativ (auf den Tisch) var → koyma fiili legen: ich lege. ich liege "yatıyorum" demektir. | legen; liegen; das Buch
+fehler | 2 | Der Koffer steht schon im Flur. | Der Koffer steht schon im Flur. | - | Bavul zaten koridorda duruyor. | Hata yok: stehen (bir yerde durmak) + Dativ: im Flur (in + dem). | der Koffer; der Flur; stehen
+umform | 3 | Ich habe die Teller ins Regal gestellt. → Jetzt stehen die Teller … | Jetzt stehen die Teller im Regal. | | Tabakları rafa koydum. Şimdi tabaklar rafta duruyor. | stellen + Akk (ins Regal) → stehen + Dat: im Regal. | der Teller; das Regal; stellen; stehen
+umform | 3 | Das Kind sitzt auf dem Stuhl. → Die Mutter setzt das Kind … | Die Mutter setzt das Kind auf den Stuhl. | | Anne çocuğu sandalyeye oturtuyor. | sitzen + Dativ (auf dem Stuhl) → setzen + Akkusativ (auf den Stuhl). | setzen; sitzen; der Stuhl; das Kind
+eslestir | 1 | legen ;; liegen ;; stellen ;; stehen ;; hängen (hängte) | bir şeyi yatırarak koymak ;; yatay durmak ;; bir şeyi dik koymak ;; dik durmak ;; bir şeyi asmak | | - | Koyma fiilleri (legen, stellen, hängte) nesne alır ve wohin? + Akkusativ ister; durma fiilleri (liegen, stehen) wo? + Dativ. | legen; liegen; stellen; stehen; hängen
+kategori | 1 | wo? oder wohin? Welches Verb passt? | wo? + Dativ: liegen, stehen, sitzen, wohnen ;; wohin? + Akkusativ: legen, stellen, setzen, fahren | | Hangi fiil nerede? sorusuyla, hangisi nereye? sorusuyla gider? | Bir yerde olma fiilleri (liegen, stehen, sitzen, wohnen) Dativ; koyma ve yön fiilleri (legen, stellen, setzen, fahren) Akkusativ. | liegen; stehen; sitzen; wohnen; legen; stellen; setzen; fahren
+dinle | 2 | Der Mantel hing an der Garderobe. | Der Mantel hing an der Garderobe. | | Palto portmantoda asılıydı. | Asılı olmak (wo?) → Dativ (an der Garderobe); bu anlamda hängen düzensiz: hing. | der Mantel; die Garderobe; hängen
+text | 2 | Wir ziehen um! Die Kisten ___ (stehen / stellen) schon im Flur. Ich ___ (legen / liegen) gerade die Bücher in die Kisten. Mein Bruder ___ (setzen / sitzen) auf dem Sofa und hilft wie immer nicht. | stehen ; lege ; sitzt | | Taşınıyoruz! Koliler şimdiden koridorda duruyor. Ben şu an kitapları kolilere koyuyorum. Kardeşim kanepede oturuyor ve her zamanki gibi yardım etmiyor. | im Flur, auf dem Sofa = Dativ → durma fiilleri (stehen, sitzt). Bücher in die Kisten = nesne + Akkusativ → koyma fiili (lege). | umziehen; die Kiste; das Buch; der Flur; das Sofa
+ceviri | 3 | Anahtarı cebime koydum. | Ich habe den Schlüssel in meine Tasche gesteckt. / Ich habe den Schlüssel in die Tasche gesteckt. / Ich habe den Schlüssel in meine Hosentasche gesteckt. / Ich habe den Schlüssel in meine Tasche getan. / Ich habe den Schlüssel in die Tasche getan. / Ich steckte den Schlüssel in meine Tasche. | | - | Cebe = wohin? → in + Akkusativ: in meine Tasche. Bir şeyi içine sokmak: stecken (gesteckt). | stecken; der Schlüssel; die Tasche
+ordnen | 2 | die Katze / liegt / schon wieder / auf meinem Bett | Die Katze liegt schon wieder auf meinem Bett. / Schon wieder liegt die Katze auf meinem Bett. / Auf meinem Bett liegt schon wieder die Katze. | | Kedi yine benim yatağımda yatıyor. | liegen (durum) + Dativ: auf meinem Bett (das Bett → meinem). | liegen; das Bett
+
+@teil kontraktion | ins, im, am, ans, aufs | artikel/çekim
+luecke | 1 | Am Wochenende fahren wir ___ Land zu meiner Oma. | aufs | aufs / auf dem | Hafta sonu kırsala, büyükanneme gidiyoruz. | Yön var (nereye?) → Akkusativ: auf + das = aufs Land. auf dem Land "kırsalda" demektir. | das Land; die Oma; fahren
+luecke | 2 | Nach der Arbeit gehe ich ___ Studio. (in · das Studio) | ins | | İşten sonra stüdyoya gidiyorum. | gehen + yön → Akkusativ: in + das = ins. | das Studio; gehen
+luecke | 2 | Wir treffen uns ___ Bahnhof. (an · der Bahnhof) | am | | İstasyonda buluşuyoruz. | Buluşma yeri (wo?) → Dativ: an + dem = am Bahnhof. | treffen; der Bahnhof
+luecke | 2 | Häng den Zettel bitte ___ Kühlschrank! (an · der Kühlschrank) | an den | | Notu lütfen buzdolabına as! | hängen (asmak) + Akkusativ; eril den kaynaşmaz: an den Kühlschrank. Yalnız das (ans) ve dem (am) kaynaşır. | der Zettel; der Kühlschrank; hängen
+eslestir | 1 | in + das ;; in + dem ;; an + dem ;; an + das ;; auf + das | ins ;; im ;; am ;; ans ;; aufs | | - | -s ile biten kaynaşma Akkusativ'dir (das: ins, ans, aufs), -m ile biten Dativ (dem: im, am). | in; an; auf
+fehler | 2 | Wir waren gestern ins Kino. | Wir waren gestern im Kino. | ins Kino | Dün sinemadaydık. | sein ile yön olmaz, bir yerde olma var (wo?) → Dativ: im Kino. ins Kino gehen ise "sinemaya gitmek". | das Kino
+fehler | 1 | Im Sommer fahren wir ans Meer. | Im Sommer fahren wir ans Meer. | - | Yazın denize gidiyoruz. | Hata yok: fahren + yön → Akkusativ: an + das = ans Meer. im Sommer zaman olduğu için Dativ. | das Meer; fahren
+dinle | 2 | Nach dem Kurs gehe ich noch kurz ins Büro. | Nach dem Kurs gehe ich noch kurz ins Büro. | | Kurstan sonra bir de kısaca büroya uğruyorum. | gehen + yön → in + das = ins Büro. ins (Akk) ile im (Dat) kulakta s / m sesiyle ayrılır. | das Büro; der Kurs; gehen
+ceviri | 2 | Bu akşam sinemaya gidiyoruz. | Heute Abend gehen wir ins Kino. / Wir gehen heute Abend ins Kino. | | - | Sinemaya = wohin? → Akkusativ: in + das = ins Kino. | das Kino; gehen
+text | 2 | Heute war ich ___ (in · die Ausländerbehörde) Ausländerbehörde. Ich habe eine Stunde ___ (in · der Warteraum) Warteraum gewartet. Danach bin ich ___ (in · das Café) Café gegangen und habe einen Tee getrunken. | in der ; im ; ins | | Bugün yabancılar dairesindeydim. Bir saat bekleme salonunda bekledim. Sonra kafeye gittim ve bir çay içtim. | Bir yerde olmak / beklemek → Dativ (in der, im); gitmek → Akkusativ (ins = in das). | der Raum; das Café; der Tee
+
+@teil praep | in, an, auf, über, unter, vor, hinter, neben, zwischen: anlam | edat
+wahl | 1 | Die Lampe hängt ___ dem Tisch. | über | über / unter / in | Lamba masanın üstünde asılı. | Lamba tavandan sarkar, masaya değmez → über (üstünde, değmeden). | die Lampe; der Tisch; über
+wahl | 1 | Ich sitze im Kino ___ einem großen Mann und sehe nichts. | hinter | hinter / vor / neben | Sinemada uzun boylu bir adamın arkasında oturuyorum ve hiçbir şey göremiyorum. | Hiçbir şey göremiyorum → adam önümde, ben arkasındayım: hinter. | hinter; sitzen; das Kino
+wahl | 2 | Ich hänge den Kalender ___ die Wand. | an | an / auf / in | Takvimi duvara asıyorum. | Dikey bir yüzeye değmek → an (an die Wand). auf yatay yüzeyin üstüdür (auf den Tisch). | der Kalender; die Wand; hängen
+luecke | 2 | Die Apotheke ist ___ der Post und dem Supermarkt. (arasında) | zwischen | | Eczane postaneyle süpermarketin arasında. | İki şeyin arası: zwischen; yer bildirdiği için Dativ (der Post, dem Supermarkt). | zwischen; die Apotheke; die Post; der Supermarkt
+luecke | 2 | Das Fahrrad steht ___ dem Haus, direkt neben der Tür. (önünde) | vor | | Bisiklet evin önünde, kapının hemen yanında duruyor. | Önünde: vor + Dativ (wo?): vor dem Haus. | vor; das Fahrrad
+kategori | 2 | an oder auf? (wo?) | an: die Wand, die Tür, das Fenster, die Tafel ;; auf: der Tisch, der Boden, das Dach, der Balkon | | an mı, auf mu? (nerede?) | Dikey yüzey ya da kenar → an (an der Wand, am Fenster). Yatay yüzeyin üstü → auf (auf dem Tisch, auf dem Balkon). | die Wand; die Tür; das Fenster; die Tafel; der Tisch; der Boden; das Dach; der Balkon
+eslestir | 1 | über ;; unter ;; vor ;; hinter ;; zwischen | üstünde (değmeden) ;; altında ;; önünde ;; arkasında ;; arasında | | - | Bu edatlar wo? sorusunda Dativ, wohin? sorusunda Akkusativ alır; anlamları değişmez. | über; unter; vor; hinter; zwischen
+ceviri | 2 | Eczane postanenin yanında. | Die Apotheke ist neben der Post. / Die Apotheke liegt neben der Post. / Die Apotheke befindet sich neben der Post. | | - | Yanında = neben; yer bildirir (wo?) → Dativ: die Post → neben der Post. | neben; die Apotheke; die Post
+text | 3 | Im Museum hängt ein großes Gemälde an ___ Wand (die Wand). Ich habe mich auf ___ Bank (die Bank) davor gesetzt und lange geschaut. Zu Hause habe ich eine Postkarte von dem Bild über ___ Schreibtisch (der Schreibtisch) gehängt. | der ; die ; den | | Müzede bir duvarda büyük bir tablo asılı. Önündeki banka oturdum ve uzun uzun baktım. Evde resmin kartpostalını çalışma masamın üstüne astım. | hängt (asılı) → Dativ: an der Wand. sich setzen ve gehängt (asmak) → Akkusativ: auf die Bank, über den Schreibtisch. | das Museum; das Gemälde; die Wand; die Bank; sich setzen; hängen
+
+@teil kontrast | wo? / wohin? karışık · ankommen · zaman | hâl
+wahl | 3 | Der Zug kommt um 14 Uhr ___ Hauptbahnhof an. | am | am / an den | Tren saat 14'te ana istasyona varıyor. | ankommen hareketin bittiği yeri söyler (wo?) → Dativ: am Hauptbahnhof. Türkçedeki "-e varmak" yanıltır. | ankommen; der Hauptbahnhof; der Zug
+wahl | 3 | Jeden Morgen jogge ich ___ Park. Ich laufe dort immer drei Runden. | im | im / in den | Her sabah parkta koşuyorum. Orada hep üç tur atıyorum. | Koşu var ama parkın içinde kalıyor (wo?) → Dativ: im Park. in den Park "parka (girmek)" demek olurdu. | der Park; die Runde; laufen
+luecke | 2 | Ich stelle das Fahrrad in ___ Garage. Jetzt steht es in ___ Garage. (die Garage) | die ; der | | Bisikleti garaja koyuyorum. Şimdi garajda duruyor. | stellen (wohin?) → Akkusativ: in die Garage. stehen (wo?) → Dativ: in der Garage. | das Fahrrad; die Garage; stellen; stehen
+luecke | 3 | Vor ___ Kurs trinke ich immer einen Kaffee. (der Kurs) | dem | | Kurstan önce hep bir kahve içerim. | Zaman anlamında (wann?) vor hep Dativ: vor dem Kurs. Yön yok. | der Kurs; der Kaffee; trinken
+fehler | 3 | Ich bin gestern spät an den Bahnhof angekommen. | Ich bin gestern spät am Bahnhof angekommen. | an den Bahnhof | Dün istasyona geç vardım. | ankommen Dativ ister (varılan yer = bulunulan yer): am Bahnhof. Türkçedeki "-e" yanıltıcı. | ankommen; der Bahnhof
+fehler | 2 | In der Pause gehen wir oft in die Mensa. | In der Pause gehen wir oft in die Mensa. | - | Teneffüste sık sık yemekhaneye gidiyoruz. | Hata yok: zaman (in der Pause) Dativ, gitmek (in die Mensa) Akkusativ. | die Pause; die Mensa; gehen
+ordnen | 3 | ich / habe / den Koffer / unter / das Bett / gestellt | Ich habe den Koffer unter das Bett gestellt. / Den Koffer habe ich unter das Bett gestellt. / Unter das Bett habe ich den Koffer gestellt. | | Bavulu yatağın altına koydum. | stellen (wohin?) → Akkusativ: unter das Bett. Perfekt'te Partizip (gestellt) en sonda. | der Koffer; das Bett; stellen
+umform | 3 | Ich gehe in die Küche. → Jetzt bin ich … | Jetzt bin ich in der Küche. | | Mutfağa gidiyorum. Şimdi mutfaktayım. | gehen + yön → Akkusativ (in die Küche); sein + yer → Dativ (in der Küche). | die Küche; gehen
+umform | 3 | Ich hänge die Jacke an die Garderobe. → Die Jacke … | Die Jacke hängt an der Garderobe. | | Ceketi portmantoya asıyorum. Ceket portmantoda asılı. | Asmak (wohin?) Akkusativ: an die Garderobe; asılı olmak (wo?) Dativ: an der Garderobe. | die Jacke; die Garderobe; hängen
+ceviri | 3 | Ceketini sandalyenin üstüne koyma, dolaba as! | Leg deine Jacke nicht auf den Stuhl, häng sie in den Schrank! / Leg deine Jacke nicht auf den Stuhl, sondern häng sie in den Schrank! / Leg die Jacke nicht auf den Stuhl, häng sie in den Schrank! / Leg die Jacke nicht auf den Stuhl, sondern häng sie in den Schrank! | | - | Üstüne, dolaba = wohin? → Akkusativ: auf den Stuhl, in den Schrank (der Schrank). Koymak legen, asmak hängen. | legen; hängen; die Jacke; der Stuhl
+ceviri | 2 | Dün saat onda Bremen'e vardık. | Wir sind gestern um zehn Uhr in Bremen angekommen. / Wir sind gestern um zehn in Bremen angekommen. / Gestern sind wir um zehn Uhr in Bremen angekommen. / Gestern sind wir um zehn in Bremen angekommen. / Wir sind gestern um 10 Uhr in Bremen angekommen. / Gestern sind wir um 10 Uhr in Bremen angekommen. | | - | ankommen "-e varmak" ama Dativ (wo?) ister: in Bremen ankommen. Perfekt sein ile. | ankommen
+eslestir | 1 | ins Kino gehen ;; im Kino sein ;; an die Wand hängen ;; an der Wand hängen | sinemaya gitmek ;; sinemada olmak ;; duvara asmak ;; duvarda asılı olmak | | - | -e / -a (nereye?) = Akkusativ: ins, an die. -de / -da (nerede?) = Dativ: im, an der. | das Kino; die Wand; hängen
+kategori | 2 | Dativ oder Akkusativ? | Dativ (wo?): im Büro arbeiten, auf dem Sofa sitzen, am Bahnhof ankommen, vor dem Kurs ;; Akkusativ (wohin?): ins Büro gehen, sich aufs Sofa setzen, an die Wand hängen | | Dativ mı, Akkusativ mı? | Yer, durum ve zaman (arbeiten, sitzen, ankommen, vor dem Kurs) → Dativ. Yön ve koyma (gehen, sich setzen, hängen) → Akkusativ. | arbeiten; sitzen; ankommen; sich setzen
+text | 2 | Hallo Jonas, ich habe deinen Schlüssel gefunden! Er lag unter ___ Sofa (das Sofa). Ich habe ihn auf ___ Küchentisch (der Küchentisch) gelegt. Deine Jacke hängt jetzt an ___ Garderobe (die Garderobe). Bis später, Tuna | dem ; den ; der | | Selam Jonas, anahtarını buldum! Kanepenin altındaydı. Onu mutfak masasının üstüne koydum. Ceketin şimdi portmantoda asılı. Görüşürüz, Tuna | lag, hängt (durum) → Dativ: unter dem Sofa, an der Garderobe. gelegt (koymak) → Akkusativ: auf den Küchentisch. | der Schlüssel; das Sofa; die Jacke; die Garderobe
+dinle | 2 | Wir treffen uns vor dem Kino und gehen dann ins Restaurant. | Wir treffen uns vor dem Kino und gehen dann ins Restaurant. | | Sinemanın önünde buluşup sonra restorana gidiyoruz. | Buluşma yeri Dativ (vor dem Kino), gidilen yer Akkusativ (ins Restaurant). | treffen; das Kino; das Restaurant

@@ -1,0 +1,122 @@
+# Gramer konusu: hâli sabit edatlar (Dativ / Akkusativ). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id praep-dat-akk
+@titel Präpositionen mit Dativ und mit Akkusativ
+@tr Hâli sabit edatlar: aus, bei, mit, nach, seit, von, zu (+ Dativ) · durch, für, gegen, ohne, um (+ Akkusativ)
+@stufe A2 · B1 tekrar
+@kapitel A2 · B1 tekrar
+@goethe 3 | Schreiben 1-2-3 · Sprechen 1-3 · Lesen
+@voraus artikelwoerter
+@kontrast wechselpraep, lokal-praep
+@etiket hâl
+@kurz Dativ: aus, bei, mit, nach, seit, von, zu, gegenüber (mit dem Bus, zur Uni, beim Arzt) · Akkusativ: durch, für, gegen, ohne, um, bis (für den Kurs, ohne mich). Hâli anlam değil, edat belirler.
+
+@erklaerung
+Bu edatlardan sonra hâl hep aynıdır; "nerede / nereye" sorusu hâli değiştirmez (Wechselpräpositionen'den farkı bu).
+
+1. Dativ: aus, bei, mit, nach, seit, von, zu, gegenüber. Artikel: dem / der / dem, çoğulda den + isme -n: mit dem Bus, mit der Bahn, seit einem Jahr, mit den Kindern.
+2. Akkusativ: durch, für, gegen, ohne, um (bir de bis). Yalnız eril artikel değişir: für den Kurs; dişil, nötr ve çoğul aynı kalır: für die Prüfung, ohne das Handy.
+3. Kaynaşma: zu dem → zum, zu der → zur, bei dem → beim, von dem → vom. Günlük dilde hep kısa biçim: zum Arzt, zur Uni, beim Bäcker, vom Bahnhof.
+4. Zamirle: mit mir, bei dir, zu ihm, mit Ihnen (Dativ) · für mich, ohne dich, gegen ihn (Akkusativ).
+5. bis çoğu zaman ikinci bir edatla gelir, hâli o edat belirler: bis zum Bahnhof (Dativ).
+
+Türkçede hâli ek gösterir ve anlamdan gelir: "arkadaşımla", "arkadaşım için". Almancada hâli edat belirler: mit → Dativ, für → Akkusativ. Türkçe ekten tahmin etme, edatı ezberle. Türkçede artikel olmadığı için "zu Arzt", "mit Bus" hatası çok sık: edattan sonra artikel unutulmaz.
+
+Sınavda: e-postanın başında "Vielen Dank für deine Nachricht", sonunda "Bei Fragen …", ulaşımda "mit dem Zug". Konuşmada "mit'm Bus" duyulur; yazıda tam biçim: mit dem Bus.
+@ende
+
+@tabelle Edattan sonra artikel
+edat | der | die | das | çoğul
+mit (Dativ) | mit dem / einem Bus | mit der / einer Bahn | mit dem / einem Auto | mit den Kindern
+für (Akkusativ) | für den / einen Kurs | für die / eine Prüfung | für das / ein Kind | für die Kinder
+@ende
+
+@tabelle Kaynaşma ve zamirler
+kaynaşma | zamir (Dativ) | zamir (Akkusativ)
+zu dem → zum Arzt | mit mir / dir | für mich / dich
+zu der → zur Post | mit ihm / ihr | für ihn / sie
+bei dem → beim Bäcker | mit uns / euch | für uns / euch
+von dem → vom Bahnhof | mit ihnen / Ihnen | für sie / Sie
+@ende
+
+@beispiel Ich fahre jeden Tag mit dem Fahrrad zur Uni. | Her gün bisikletle üniversiteye gidiyorum.
+@beispiel Seit einem Jahr wohne ich mit zwei Freunden in Bremen. | Bir yıldır iki arkadaşımla Bremen'de oturuyorum.
+@beispiel Das Geschenk ist für dich, nicht für deinen Bruder. | Hediye senin için, kardeşin için değil.
+@beispiel Nach dem Kurs gehe ich ohne meine Freundin zum Bäcker. | Kurstan sonra kız arkadaşım olmadan fırına gidiyorum.
+
+@teil dat | Dativ: aus, bei, mit, nach, seit, von, zu, gegenüber | hâl
+wahl | 1 | Ich fahre jeden Tag mit ___ Bus zur Uni. | dem | dem / den / der | Her gün otobüsle üniversiteye gidiyorum. | mit hep Dativ ister: der Bus → mit dem Bus. den Akkusativ olurdu. | der Bus; fahren
+luecke | 1 | Ich wohne seit ___ Jahr in Bremen. (ein) | einem | einem / ein / einen | Bir yıldır Bremen'de oturuyorum. | seit + Dativ: das Jahr → seit einem Jahr. seit'le Präsens kullanılır (wohne), Perfekt değil. | das Jahr, -e; wohnen
+luecke | 2 | Kommst du heute Abend mit ___ Freundin? (dein) | deiner | | Bu akşam kız arkadaşınla mı geliyorsun? | mit + Dativ: die Freundin → deiner Freundin. Dişilde Dativ eki -er. | die Freundin, -nen
+luecke | 2 | Nach ___ Arbeit gehe ich noch einkaufen. (die) | der | | İşten sonra bir de alışverişe gidiyorum. | nach + Dativ: die Arbeit → nach der Arbeit. nach hiçbir zaman Akkusativ almaz. | die Arbeit; einkaufen
+luecke | 2 | Am Wochenende spiele ich mit ___ im Park. (die Kinder) | den Kindern | | Hafta sonu parkta çocuklarla oynuyorum. | Dativ çoğulda artikel den, isim de -n alır: mit den Kindern. | das Kind; das Wochenende, -n; der Park
+luecke | 2 | Gegenüber ___ Bahnhof gibt es eine Apotheke. (der) | dem | | İstasyonun karşısında bir eczane var. | gegenüber + Dativ: der Bahnhof → gegenüber dem Bahnhof (dem Bahnhof gegenüber da olur). | der Bahnhof; die Apotheke
+luecke | 3 | Meine Mitbewohnerin kommt aus ___ Türkei, ihr Freund aus ___ USA. (die · die USA) | der ; den | | Ev arkadaşım Türkiye'den, erkek arkadaşı ABD'den. | aus + Dativ: die Türkei → aus der Türkei, die USA (çoğul) → aus den USA. Çoğu ülke artikelsizdir: aus Deutschland. | der Freund
+fehler | 2 | Ich komme gerade von die Ärztin. | Ich komme gerade von der Ärztin. | von die | Doktordan şimdi geliyorum. | von + Dativ: die Ärztin → von der Ärztin. Dişil isimde Dativ artikeli der. | die Ärztin
+ordnen | 2 | ich / gehe / heute / mit meinem Bruder / ins Kino | Ich gehe heute mit meinem Bruder ins Kino. / Heute gehe ich mit meinem Bruder ins Kino. / Mit meinem Bruder gehe ich heute ins Kino. / Ich gehe mit meinem Bruder heute ins Kino. / Ins Kino gehe ich heute mit meinem Bruder. | | Bugün erkek kardeşimle sinemaya gidiyorum. | mit + Dativ: der Bruder → mit meinem Bruder. (ins = in das, nereye?) | der Bruder; das Kino
+ceviri | 2 | Kurstan sonra arkadaşlarımla kafeye gidiyorum. | Nach dem Kurs gehe ich mit meinen Freunden ins Café. / Ich gehe nach dem Kurs mit meinen Freunden ins Café. / Mit meinen Freunden gehe ich nach dem Kurs ins Café. / Nach dem Kurs gehe ich mit meinen Freundinnen ins Café. / Ich gehe nach dem Kurs mit meinen Freundinnen ins Café. / Nach dem Kurs gehe ich mit meinen Freunden in ein Café. / Ich gehe nach dem Kurs mit meinen Freunden in ein Café. | | - | nach + Dativ (dem Kurs), mit + Dativ çoğul (meinen Freunden, -n). | der Kurs; der Freund; das Café
+dinle | 2 | Seit zwei Wochen fahre ich mit dem Fahrrad zur Arbeit. | Seit zwei Wochen fahre ich mit dem Fahrrad zur Arbeit. | | İki haftadır işe bisikletle gidiyorum. | seit, mit, zu → Dativ: seit zwei Wochen, mit dem Fahrrad, zur (zu der) Arbeit. | die Woche, -n; das Fahrrad; die Arbeit
+text | 2 | Hallo Ayşe, ich bin gerade bei ___ (mein) Eltern in Izmir. Morgen fahre ich mit ___ (der) Zug nach Ankara. Nächste Woche komme ich zurück, dann bringe ich dir etwas aus ___ (die) Türkei mit. | meinen ; dem ; der | | Merhaba Ayşe, şu an İzmir'de annemlerin yanındayım. Yarın trenle Ankara'ya gidiyorum. Haftaya dönüyorum, o zaman sana Türkiye'den bir şey getiririm. | bei, mit, aus → Dativ: meinen Eltern (çoğul), dem Zug, der Türkei. | die Eltern; der Zug
+eslestir | 1 | Ich fahre mit ;; Ich komme gerade vom ;; Ich wohne seit ;; Nach dem Essen | dem Zug nach Hamburg. ;; Arzt und bin müde. ;; drei Monaten in Bremen. ;; trinken wir einen Tee. | | - | mit, von, seit, nach hep Dativ: dem Zug, vom (von dem) Arzt, drei Monaten (çoğul -n), dem Essen. | der Zug; der Arzt; das Essen
+fehler | 3 | Seit drei Jahre lerne ich Deutsch. | Seit drei Jahren lerne ich Deutsch. | Jahre | Üç yıldır Almanca öğreniyorum. | seit + Dativ; Dativ çoğulda isim -n alır: drei Jahren. | das Jahr, -e; lernen
+ordnen | 3 | gegenüber / wohnt / der Post / meine Ärztin | Meine Ärztin wohnt gegenüber der Post. / Gegenüber der Post wohnt meine Ärztin. / Meine Ärztin wohnt der Post gegenüber. | | Doktorum postanenin karşısında oturuyor. | gegenüber + Dativ: die Post → der Post. gegenüber isimden önce de sonra da gelebilir. | die Ärztin; die Post; wohnen
+umform | 3 | Ich bin vor zwei Jahren nach Bremen gekommen. Ich wohne immer noch hier. → Seit … | Seit zwei Jahren wohne ich in Bremen. / Seit zwei Jahren wohne ich hier. / Seit zwei Jahren wohne ich schon in Bremen. / Seit zwei Jahren wohne ich schon hier. | | İki yıldır Bremen'de oturuyorum. | seit + Dativ çoğul: zwei Jahren (-n). Hâlâ süren durum → Präsens (wohne); öbek başta → fiil hemen arkadan. | das Jahr, -e; wohnen
+umform | 2 | Der Kurs ist zu Ende. Dann gehen wir in die Mensa. → Nach … | Nach dem Kurs gehen wir in die Mensa. | | Kurstan sonra yemekhaneye gidiyoruz. | nach + Dativ: der Kurs → nach dem Kurs. Öbek başta → fiil hemen arkadan: gehen wir. | der Kurs; die Mensa
+
+@teil akk | Akkusativ: durch, für, gegen, ohne, um, bis | hâl
+wahl | 1 | Das Geschenk ist für ___ Vater. | meinen | meinen / meinem / mein | Hediye babam için. | für + Akkusativ: der Vater → für meinen Vater. meinem Dativ olurdu. | das Geschenk; der Vater
+luecke | 1 | Ohne ___ Brille kann ich nicht lesen. (mein) | meine | meine / meiner / meinen | Gözlüğüm olmadan okuyamam. | ohne + Akkusativ; die Brille dişil, Akkusativ'de değişmez: meine Brille. | die Brille; lesen
+luecke | 2 | Wir laufen jeden Morgen durch ___ Park. (der) | den | | Her sabah parkın içinden koşuyoruz. | durch + Akkusativ: der Park → durch den Park. Türkçede "-in içinden" ama hâl Akkusativ. | der Park; laufen
+luecke | 2 | Ich bin gegen ___ Plan, er ist zu teuer. (dein) | deinen | | Planına karşıyım, çok pahalı. | gegen + Akkusativ: der Plan → gegen deinen Plan. | der Plan; teuer
+luecke | 2 | Der Kurs ist von Montag ___ Freitag, immer um neun Uhr. | bis | | Kurs pazartesiden cumaya kadar, hep saat dokuzda. | von … bis = -den … -e kadar. bis artikelsiz zaman ifadesiyle tek başına gelir. | der Kurs
+wahl | 2 | Der Zug fährt ___ einen langen Tunnel. | durch | durch / mit / bei | Tren uzun bir tünelden geçiyor. | einen → Akkusativ; "içinden geçmek" → durch. mit ve bei Dativ ister (einem). | der Zug; fahren
+fehler | 2 | Vielen Dank für deinem Brief! | Vielen Dank für deinen Brief! | deinem | Mektubun için çok teşekkürler! | für hep Akkusativ: der Brief → für deinen Brief. Sınavda e-postanın ilk cümlesi. | der Brief
+fehler | 1 | Wir sitzen alle um den Tisch und essen. | Wir sitzen alle um den Tisch und essen. | - | Hepimiz masanın etrafında oturup yemek yiyoruz. | Hata yok: um + Akkusativ: der Tisch → um den Tisch. | der Tisch; sitzen
+ordnen | 2 | der Bus / fährt / durch die Stadt / bis zum Bahnhof | Der Bus fährt durch die Stadt bis zum Bahnhof. / Durch die Stadt fährt der Bus bis zum Bahnhof. / Bis zum Bahnhof fährt der Bus durch die Stadt. | | Otobüs şehrin içinden istasyona kadar gidiyor. | durch + Akkusativ (die Stadt). bis'in arkasında ikinci edat varsa hâli o belirler: bis zum (zu dem) Bahnhof → Dativ. | der Bus; die Stadt; der Bahnhof
+ceviri | 2 | Sütsüz kahve içiyorum. | Ich trinke Kaffee ohne Milch. / Ich trinke meinen Kaffee ohne Milch. / Ich trinke den Kaffee ohne Milch. | | - | Türkçe "-sız" eki → ohne + Akkusativ. Artikelsiz isim (Milch) değişmez. | der Kaffee; die Milch; trinken
+ceviri | 3 | Bu otobüs üniversiteye kadar gidiyor mu? | Fährt dieser Bus bis zur Uni? / Fährt dieser Bus bis zur Universität? / Fährt der Bus bis zur Uni? / Fährt der Bus bis zur Universität? | | - | bis + zu: hâli ikinci edat belirler: bis zur (zu der) Uni → Dativ. | der Bus; die Universität; fahren
+dinle | 2 | Ich habe ein Geschenk für den Lehrer gekauft. | Ich habe ein Geschenk für den Lehrer gekauft. | | Öğretmen için bir hediye aldım. | für + Akkusativ: für den (dem değil) Lehrer. Kulak ipucu: -n mi -m mi? | das Geschenk; der Lehrer; kaufen
+umform | 3 | Ich gehe heute ins Kino. Mein Freund kommt nicht mit. → Ohne … | Ohne meinen Freund gehe ich heute ins Kino. | | Bugün arkadaşım olmadan sinemaya gidiyorum. | ohne + Akkusativ: der Freund → ohne meinen Freund. Öbek başta → fiil hemen arkadan: gehe ich. | der Freund; das Kino
+umform | 2 | Ich kaufe Blumen. Sie sind für meine Mutter. → Für … | Für meine Mutter kaufe ich Blumen. / Für meine Mutter kaufe ich die Blumen. | | Annem için çiçek alıyorum. | für + Akkusativ: die Mutter → für meine Mutter (dişil değişmez). Öbek başta → fiil hemen arkadan: kaufe ich. | die Blume; die Mutter; kaufen
+
+@teil kurz | Kaynaşma: zum, zur, beim, vom | artikel/çekim
+wahl | 1 | Ich muss heute noch ___ Bank. | zur | zur / zum / zu | Bugün bir de bankaya gitmem lazım. | die Bank dişil: zu der → zur. zum yalnız der / das isimlerde. | die Bank
+luecke | 1 | Ich gehe morgen ___ Arzt. (zu · der Arzt) | zum | | Yarın doktora gidiyorum. | zu + dem → zum. Türkçe "-e" ekine bakıp Akkusativ düşünme: zu hep Dativ. | der Arzt
+luecke | 2 | Wir treffen uns ___ Bäcker an der Ecke. (bei · der Bäcker) | beim | | Köşedeki fırının önünde buluşuyoruz. | bei + dem → beim. Kişinin ya da dükkânın yanında: beim Bäcker, beim Arzt. | treffen; die Ecke
+luecke | 2 | Wann kommst du ___ Training zurück? (von · das Training) | vom | | Antrenmandan ne zaman dönüyorsun? | von + dem → vom. das Training nötr, Dativ'de dem. | das Training
+fehler | 2 | Ich fahre morgen zum Universität. | Ich fahre morgen zur Universität. | zum Universität | Yarın üniversiteye gidiyorum. | die Universität dişil: zu der → zur. zum yalnız der / das isimlerde. | die Universität; fahren
+fehler | 2 | Beim Frühstück lese ich immer die Nachrichten. | Beim Frühstück lese ich immer die Nachrichten. | - | Kahvaltıda hep haberleri okurum. | Hata yok: bei + dem (das Frühstück) → beim. | das Frühstück; die Nachricht; lesen
+umform | 3 | Meine Tante hat Geburtstag. Ich schenke ihr Blumen. → Zum … | Zum Geburtstag schenke ich meiner Tante Blumen. / Zum Geburtstag schenke ich ihr Blumen. | | Teyzeme doğum gününde çiçek hediye ediyorum. | zu + dem (der Geburtstag) → zum Geburtstag. Öbek başta → fiil hemen arkadan: schenke ich. | die Tante; der Geburtstag; schenken; die Blume
+umform | 3 | Ich arbeite. Dabei höre ich immer Musik. → Bei … | Bei der Arbeit höre ich immer Musik. / Beim Arbeiten höre ich immer Musik. | | Çalışırken hep müzik dinlerim. | bei + Dativ: bei der Arbeit. Mastardan isim (das Arbeiten) olursa bei + dem → beim Arbeiten. | die Arbeit; die Musik; hören
+ceviri | 2 | Bugün fırına ve postaneye gitmem gerekiyor. | Ich muss heute zum Bäcker und zur Post. / Ich muss heute zum Bäcker und zur Post gehen. / Heute muss ich zum Bäcker und zur Post. / Heute muss ich zum Bäcker und zur Post gehen. / Ich muss heute zur Bäckerei und zur Post gehen. / Heute muss ich zur Bäckerei und zur Post gehen. | | - | Kişiye / dükkâna gitmek: zu + Dativ. der Bäcker → zum, die Post → zur. | die Bäckerei; die Post
+dinle | 2 | Ich hole dich um sechs Uhr vom Bahnhof ab. | Ich hole dich um sechs Uhr vom Bahnhof ab. | | Seni saat altıda istasyondan alırım. | von + dem (der Bahnhof) → vom. Kulakta tek kelime: vom. | abholen; der Bahnhof
+kategori | 1 | zum oder zur? | zum: Arzt, Bahnhof, Training, Supermarkt ;; zur: Post, Bank, Uni, Apotheke | | - | zum = zu dem (der / das isim), zur = zu der (die isim): der Arzt, das Training · die Post, die Apotheke. | der Arzt; der Bahnhof; das Training; der Supermarkt; die Post; die Bank; die Apotheke
+
+@teil pron | Zamirle: mit mir, für dich, bei ihnen | hâl
+wahl | 1 | Kannst du morgen mit ___ zum Arzt kommen? Ich habe Angst. | mir | mir / mich / ich | Yarın benimle doktora gelebilir misin? Korkuyorum. | mit + Dativ → mir (benimle). mich Akkusativ'dir: für mich. | der Arzt; die Angst
+luecke | 2 | Das Paket ist nicht für mich, es ist für ___. (du) | dich | | Paket benim için değil, senin için. | für + Akkusativ: du → dich. dir Dativ olurdu (mit dir). | das Paket
+luecke | 2 | Meine Eltern wohnen in Izmir. Im Sommer bin ich immer bei ___. (sie · çoğul) | ihnen | | Annemler İzmir'de oturuyor. Yazın hep onların yanındayım. | bei + Dativ: sie (çoğul) → ihnen. | die Eltern
+luecke | 3 | Herr Weber, kann ich nach dem Kurs kurz mit ___ sprechen? (Sie) | Ihnen | | Weber Bey, kurstan sonra sizinle kısaca konuşabilir miyim? | mit + Dativ: Sie (resmî) → Ihnen, büyük harfle. "mit Sie" en sık hata. | sprechen mit; der Kurs
+fehler | 2 | Ich habe ein Geschenk für dir gekauft. | Ich habe ein Geschenk für dich gekauft. | dir | Senin için bir hediye aldım. | für + Akkusativ: du → dich. dir Dativ'dir: mit dir. | das Geschenk; kaufen
+fehler | 3 | Ohne ihm schaffe ich das nicht. | Ohne ihn schaffe ich das nicht. | ihm | Onsuz bunu başaramam. | ohne + Akkusativ: er → ihn. ihm Dativ olurdu (mit ihm). | schaffen
+ordnen | 2 | ohne dich / gehe / ich / nicht / ins Kino | Ohne dich gehe ich nicht ins Kino. / Ich gehe nicht ohne dich ins Kino. / Ich gehe ohne dich nicht ins Kino. / Ins Kino gehe ich nicht ohne dich. | | Sensiz sinemaya gitmem. | ohne + Akkusativ: du → dich. | das Kino
+ceviri | 3 | Bu hediye senin için değil, annem için. | Dieses Geschenk ist nicht für dich, sondern für meine Mutter. / Das Geschenk ist nicht für dich, sondern für meine Mutter. / Dieses Geschenk ist nicht für dich, es ist für meine Mutter. / Das Geschenk ist nicht für dich, es ist für meine Mutter. | | - | für + Akkusativ: du → dich, die Mutter → meine Mutter (değişmez). "… değil, …" → nicht …, sondern … | das Geschenk; die Mutter
+eslestir | 1 | mit (du) ;; für (du) ;; mit (er) ;; für (er) ;; bei (wir) | dir ;; dich ;; ihm ;; ihn ;; uns | | - | mit / bei → Dativ (dir, ihm, uns), für → Akkusativ (dich, ihn). wir'de ikisi de uns. |
+dinle | 2 | Ohne ihn macht die Party keinen Spaß. | Ohne ihn macht die Party keinen Spaß. | | Onsuz parti eğlenceli değil. | ohne + Akkusativ: er → ihn (ihm değil). Kulak ipucu: -n. | die Party; der Spaß
+
+@teil kontrast | Dativ mı Akkusativ mı? (mit ↔ ohne, zu ↔ für) | hâl
+wahl | 2 | Ich fahre ___ meinen Kollegen nach Hamburg, er ist krank. | ohne | ohne / mit / bei | İş arkadaşım olmadan Hamburg'a gidiyorum, o hasta. | meinen → Akkusativ; anlam da "hasta, gelemiyor" → ohne. mit / bei Dativ ister (meinem). | der Kollege; krank
+wahl | 2 | Welcher Satz ist richtig? | Ich lerne mit meinem Freund für die Prüfung. | Ich lerne mit meinem Freund für die Prüfung. / Ich lerne mit meinen Freund für die Prüfung. / Ich lerne mit meinem Freund für der Prüfung. | Arkadaşımla sınava çalışıyorum. | mit → Dativ (meinem Freund), für → Akkusativ (die Prüfung, değişmez). | der Freund; die Prüfung; lernen
+luecke | 2 | Ich danke dir für ___ Hilfe und für ___ Rat. (dein · dein) | deine ; deinen | | Yardımın ve tavsiyen için sana teşekkür ederim. | für + Akkusativ: die Hilfe → deine, der Rat → deinen. dir edattan değil, fiilden gelir (danken + Dativ). | danken; die Hilfe; der Rat
+luecke | 3 | Seit ___ Umzug gehe ich jeden Morgen durch ___ Park zur Arbeit. (der Umzug · der Park) | dem ; den | | Taşındığımdan beri her sabah parkın içinden işe yürüyorum. | seit → Dativ (dem Umzug), durch → Akkusativ (den Park). İkisi de der ama hâli edat belirliyor. | der Umzug; der Park; die Arbeit
+fehler | 2 | Ich fahre mit meinen Kollegen zur Arbeit. | Ich fahre mit meinen Kollegen zur Arbeit. | - | İş arkadaşlarımla işe gidiyorum. | Hata yok: Kollegen burada çoğul; Dativ çoğulda iyelik meinen: mit meinen Kollegen. | der Kollege; die Arbeit
+ordnen | 2 | wir / fahren / am Samstag / ohne unsere Kinder / zu meinen Eltern | Wir fahren am Samstag ohne unsere Kinder zu meinen Eltern. / Am Samstag fahren wir ohne unsere Kinder zu meinen Eltern. / Ohne unsere Kinder fahren wir am Samstag zu meinen Eltern. / Wir fahren ohne unsere Kinder am Samstag zu meinen Eltern. / Zu meinen Eltern fahren wir am Samstag ohne unsere Kinder. | | Cumartesi çocuklarımız olmadan annemlere gidiyoruz. | ohne → Akkusativ (unsere Kinder), zu → Dativ (meinen Eltern). Çoğulda Akkusativ -e, Dativ -en. | das Kind; die Eltern; fahren
+ceviri | 3 | Erkek kardeşimle annem için bir pasta yaptık. | Ich habe mit meinem Bruder einen Kuchen für meine Mutter gebacken. / Ich habe mit meinem Bruder für meine Mutter einen Kuchen gebacken. / Mit meinem Bruder habe ich einen Kuchen für meine Mutter gebacken. / Mit meinem Bruder habe ich für meine Mutter einen Kuchen gebacken. / Für meine Mutter habe ich mit meinem Bruder einen Kuchen gebacken. / Mein Bruder und ich haben einen Kuchen für meine Mutter gebacken. / Mein Bruder und ich haben für meine Mutter einen Kuchen gebacken. / Ich habe mit meinem Bruder eine Torte für meine Mutter gebacken. / Mein Bruder und ich haben eine Torte für meine Mutter gebacken. | | - | mit → Dativ (meinem Bruder), für → Akkusativ (meine Mutter). | der Bruder; der Kuchen; die Mutter; backen
+ceviri | 2 | Seni saat sekize doğru istasyondan alırım. | Ich hole dich gegen acht Uhr vom Bahnhof ab. / Gegen acht Uhr hole ich dich vom Bahnhof ab. / Ich hole dich gegen acht vom Bahnhof ab. / Gegen acht hole ich dich vom Bahnhof ab. | | - | "doğru" (yaklaşık) → gegen (Akkusativ); um acht Uhr = tam sekizde. vom = von dem (Dativ). | abholen; der Bahnhof
+text | 2 | Liebe Frau Schulz, vielen Dank für ___ (Ihr) E-Mail. Leider muss ich am Montag mit ___ (mein) Sohn zum Arzt. Kann ich am Mittwoch nach ___ (die) Arbeit kommen? Viele Grüße, Mehmet Kaya | Ihre ; meinem ; der | | Sevgili Bayan Schulz, e-postanız için çok teşekkürler. Maalesef pazartesi oğlumla doktora gitmem gerekiyor. Çarşamba işten sonra gelebilir miyim? Selamlar, Mehmet Kaya | für → Akkusativ (die E-Mail → Ihre), mit → Dativ (der Sohn → meinem), nach → Dativ (die Arbeit → der). | die E-Mail, -s; der Sohn; die Arbeit
+text | 2 | Hallo Leute, ich bin bis Sonntag bei ___ (mein) Eltern. Bitte gießt für ___ (ich) die Blumen! Der Schlüssel für ___ (der) Keller liegt auf dem Tisch. Ich komme am Sonntagabend mit ___ (der) Zug zurück. | meinen ; mich ; den ; dem | | Merhaba arkadaşlar, pazara kadar annemlerin yanındayım. Lütfen benim için çiçekleri sulayın! Bodrumun anahtarı masanın üstünde. Pazar akşamı trenle dönüyorum. | bei / mit → Dativ (meinen Eltern, dem Zug); für → Akkusativ (mich, den Keller). | die Eltern; gießen; die Blume; der Schlüssel; der Keller; der Zug
+text | 3 | Ärztin: Seit wann haben Sie die Schmerzen? – Patient: Seit ___ (eine) Woche. Ich kann ohne ___ (eine) Tablette nicht schlafen. – Ärztin: Kommen Sie nach ___ (das) Wochenende noch einmal zu ___ (ich). | einer ; eine ; dem ; mir | | Doktor: Ağrılarınız ne zamandan beri var? – Hasta: Bir haftadır. Hap almadan uyuyamıyorum. – Doktor: Hafta sonundan sonra bana bir kez daha gelin. | seit / nach / zu → Dativ (einer Woche, dem Wochenende, mir); ohne → Akkusativ (eine Tablette, dişil değişmez). | der Schmerz; die Woche, -n; die Tablette; das Wochenende, -n; schlafen
+dinle | 3 | Wir sind nach dem Essen durch die Altstadt gelaufen. | Wir sind nach dem Essen durch die Altstadt gelaufen. | | Yemekten sonra eski şehrin içinden yürüdük. | nach → Dativ (dem Essen), durch → Akkusativ (die Altstadt). | das Essen; laufen
+eslestir | 2 | mit + der Zug ;; für + der Kurs ;; mit + die Bahn ;; ohne + das Handy ;; seit + die Ferien | dem Zug ;; den Kurs ;; der Bahn ;; das Handy ;; den Ferien | | - | Dativ: dem / der / dem / den (+n). Akkusativ'de yalnız der → den değişir; die / das aynı kalır. | der Zug; der Kurs; die Bahn; das Handy; die Ferien
+kategori | 1 | Dativ oder Akkusativ? | Dativ: mit, bei, seit, von ;; Akkusativ: für, ohne, durch, gegen | | - | Dativ: aus, bei, mit, nach, seit, von, zu, gegenüber. Akkusativ: durch, für, gegen, ohne, um. |

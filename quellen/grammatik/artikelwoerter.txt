@@ -1,0 +1,133 @@
+# Gramer konusu: artikel sözcükleri (dieser, jeder, welcher, mancher, alle, beide), iyelik (mein … Ihr) ve zamir olarak (meiner, diesen). Biçim: FORMAT.md.
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Not: FORMAT.md umform tablosunda olmayan hedefler (uygulamadaki yönerge önerisi):
+#   "alle" → "alle ile çoğul yap" · "beide" → "beide ile yaz" · "Sie" → "resmi hitapla (Sie) yaz" · "ohne Nomen" → "ismi tekrar etmeden yaz"
+@id artikelwoerter
+@titel Artikelwörter: dieser, jeder, alle, beide, Possessivartikel
+@tr Artikel sözcükleri: dieser, jeder, welcher, alle, beide; iyelik (mein, sein, ihr, Ihr) ve zamir olarak (meiner, diesen)
+@stufe A2–B1
+@kapitel A2 · B1 tekrar ?
+@goethe 2 | Schreiben 1-2-3 (resmi e-posta: Ihr / Ihnen) · Sprechen 1-2 · Lesen
+@kontrast pronomen, adjektiv
+@etiket artikel/çekim
+@kurz dieser / jeder / welcher = der'in son harfi (den → diesen, dem → diesem). mein / sein / ihr / Ihr = ein gibi (meinen, meinem). Sahibi erkek ya da das → sein-, kadın ya da çoğul → ihr-. Ihnen = size (isimsiz), Ihr- + isim = sizin.
+
+@erklaerung
+Artikel sözcükleri (die Artikelwörter) der ya da ein'in yerini alır ve onlar gibi çekilir. Türkçede "bu, her, hangi, benim" hiç ek almaz; Almancada sonları ismin cinsiyetine ve hâline göre değişir.
+
+1. der gibi: dieser (bu), jeder (her), welcher? (hangi), manche (bazı). Son harf der / die / das'ınkiyle aynı: den → diesen, dem → diesem, die → diese, das → dieses. jeder yalnız tekil: jeden Tag, jede Woche, jedes Jahr. Çoğulda alle: alle Kinder.
+2. alle (bütün) ve beide (iki … de) çoğuldur: mit allen Freunden, meine beiden Brüder. alles = "her şey" (tekil).
+3. ein gibi: kein ve iyelikler mein, dein, sein, ihr, unser, euer, Ihr: meinen Bruder, mit meiner Schwester. euer ek alınca e düşer: eure.
+4. "Onun" Almancada iki türlü: sahibi erkek ya da das → sein-, sahibi kadın ya da çoğul → ihr-. Ek ise sahip olunan ismin cinsiyetine göre: Tuna und seine Mutter, Lara und ihr Vater.
+5. Resmi Sie → Ihr (büyük harf): Ihr Name, Ihre Adresse. Ihnen (size) zamirdir, arkasında isim olmaz: Ich danke Ihnen. Tipik hata: "Ich muss Ihren widersprechen" → Ihnen.
+6. İsim düşerse der'in sonu görünür: Ist das dein Schlüssel? – Ja, das ist meiner. Welchen nimmst du? – Diesen.
+
+Sınavda: resmi e-postada Ihr / Ihre / Ihnen büyük harfle yazılır; küçük ihr "onun (kadın), onların" ya da "siz (çoğul)".
+@ende
+
+@tabelle der gibi: dieser · jeder · welcher
+hâl | eril | dişil | nötr | çoğul
+Nominativ | dieser (der) | diese (die) | dieses (das) | diese · alle (die)
+Akkusativ | diesen (den) | diese (die) | dieses (das) | diese · alle (die)
+Dativ | diesem (dem) | dieser (der) | diesem (dem) | diesen · allen (den)
+@ende
+
+@tabelle ein gibi: iyelik
+kişi | iyelik | Akkusativ eril | Dativ eril / nötr | Dativ dişil | çoğul (Nom / Akk)
+ich | mein | meinen | meinem | meiner | meine
+du | dein | deinen | deinem | deiner | deine
+er / es | sein | seinen | seinem | seiner | seine
+sie (kadın) | ihr | ihren | ihrem | ihrer | ihre
+wir | unser | unseren | unserem | unserer | unsere
+ihr (siz, çoğul) | euer | euren | eurem | eurer | eure
+sie (onlar) · Sie | ihr · Ihr | ihren · Ihren | ihrem · Ihrem | ihrer · Ihrer | ihre · Ihre
+@ende
+
+@tabelle Ihnen mi Ihr- mi?
+sözcük | nedir? | örnek
+Ihnen | zamir (Dativ: size), arkasında isim yok | Ich danke Ihnen. · Kann ich Ihnen helfen?
+Ihr / Ihre / Ihren / Ihrem | iyelik (sizin), arkasında isim var | Wie ist Ihr Name? · Ich habe Ihre E-Mail gelesen.
+ihr (küçük) | onun (kadın) / onların | Lara ruft ihre Mutter an.
+@ende
+
+@beispiel Ich gehe jeden Tag zum Deutschkurs. | Her gün Almanca kursuna gidiyorum.
+@beispiel Welches Buch liest du gerade? – Dieses hier. | Şu an hangi kitabı okuyorsun? – Bunu.
+@beispiel Lara besucht ihren Vater, Tuna besucht seine Mutter. | Lara babasını, Tuna annesini ziyaret ediyor.
+@beispiel Meine beiden Brüder wohnen in Ankara. | İki erkek kardeşim de Ankara'da oturuyor.
+@beispiel Vielen Dank für Ihre E-Mail. Ich antworte Ihnen morgen. | E-postanız için çok teşekkürler. Size yarın cevap vereceğim.
+
+@teil dieser | dieser / jeder / welcher / manche: der'in son harfi | artikel/çekim
+wahl | 1 | Ich gehe ___ Tag zum Deutschkurs. | jeden | jeden / jede / alle | Her gün Almanca kursuna gidiyorum. | der Tag → Akkusativ den Tag → jeden Tag (zaman bildiren Akkusativ). alle çoğul ister: alle Tage. | der Tag, -e; der Kurs
+luecke | 1 | ___ Bus fährt zum Hauptbahnhof? | Welcher | Welcher / Welchen / Welches | Hangi otobüs ana istasyona gidiyor? | der Bus burada özne (Nominativ): der → welcher, der'in son harfi r. | der Bus; der Hauptbahnhof
+luecke | 2 | Mit ___ Zug fährst du nach Hamburg? (welcher) | welchem | | Hamburg'a hangi trenle gidiyorsun? | mit + Dativ: dem Zug → welchem Zug (dem'in son harfi m). | der Zug
+luecke | 2 | ___ Woche habe ich einen Termin bei der Ausländerbehörde. (dieser) | Diese | | Bu hafta yabancılar dairesinde randevum var. | die Woche → diese Woche: dişilde son harf e. | die Woche, -n; der Termin
+luecke | 2 | Ich habe ___ Wochenende leider keine Zeit. (dieser) | dieses | | Bu hafta sonu maalesef vaktim yok. | das Wochenende → dieses Wochenende: das'ın son harfi s. | das Wochenende, -n; die Zeit
+luecke | 2 | In ___ Kurs sind alle sehr nett. (dieser) | diesem | | Bu kurstaki herkes çok cana yakın. | in + Dativ (wo?): dem Kurs → diesem Kurs. | der Kurs; nett
+fehler | 2 | Jeder Studenten muss sich bis Freitag anmelden. | Jeder Student muss sich bis Freitag anmelden. / Alle Studenten müssen sich bis Freitag anmelden. | Studenten | Her öğrenci cumaya kadar kaydolmalı. | jeder yalnız tekil isimle kullanılır: jeder Student. Çoğulda alle Studenten ve fiil de çoğul: müssen. | der Student; sich anmelden
+wahl | 2 | ___ Leute sagen, dass Bremen zu windig ist. | Manche | Manche / Mancher / Jeder | Bazı insanlar Bremen'in fazla rüzgârlı olduğunu söylüyor. | die Leute çoğul → manche (bazı). jeder ve mancher tekil isim ister. | die Leute; windig; manche
+ordnen | 2 | ich / rufe / meine Mutter / jeden Abend / an | Ich rufe meine Mutter jeden Abend an. / Ich rufe jeden Abend meine Mutter an. / Jeden Abend rufe ich meine Mutter an. | | Annemi her akşam ararım. | jeden Abend (der Abend, Akkusativ) zaman bildirir; anrufen'in ön eki an en sonda. | anrufen; die Mutter; der Abend, -e
+umform | 3 | Jeder Teilnehmer bekommt ein Zertifikat. → alle | Alle Teilnehmer bekommen ein Zertifikat. | | Bütün katılımcılar bir sertifika alıyor. | jeder + tekil → alle + çoğul; fiil de çoğul olur: bekommen. | der Teilnehmer; das Zertifikat; bekommen
+dinle | 2 | Welchen Film wollen wir heute Abend sehen? | Welchen Film wollen wir heute Abend sehen? | | Bu akşam hangi filmi izleyelim? | der Film nesne (Akkusativ): den → welchen. Sondaki -en'i dinle. | der Film; sehen
+ceviri | 2 | Her sabah bu otobüse biniyorum. | Ich nehme jeden Morgen diesen Bus. / Jeden Morgen nehme ich diesen Bus. / Ich nehme diesen Bus jeden Morgen. / Ich fahre jeden Morgen mit diesem Bus. / Jeden Morgen fahre ich mit diesem Bus. / Ich steige jeden Morgen in diesen Bus ein. / Jeden Morgen steige ich in diesen Bus ein. | | - | jeden Morgen ve diesen Bus: den → -en (Akkusativ). mit ile Dativ: mit diesem Bus. | der Bus; der Morgen, -; einsteigen
+text | 2 | Hallo Ece, ___ (welcher) Kurs besuchst du im Winter? Ich gehe jetzt ___ (jeder) Tag zur Uni, und ___ (dieser) Woche schreibe ich eine Prüfung. Am Freitag treffe ich ___ (mein) Freunde aus dem Kurs. | Welchen ; jeden ; diese ; meine | | Merhaba Ece, kışın hangi kursa gidiyorsun? Ben artık her gün üniversiteye gidiyorum ve bu hafta bir sınava giriyorum. Cuma günü kurstaki arkadaşlarımla buluşuyorum. | welchen Kurs, jeden Tag: den → -en (Akkusativ). die Woche → diese Woche. die Freunde çoğul → meine Freunde. | der Kurs; die Prüfung; treffen; der Freund
+kategori | 1 | Wie wird das Wort dekliniert? | wie der: dieser, jeder, welcher, manche ;; wie ein: mein, kein, unser, euer | | - | der grubu Nominativ erilde de ek alır (dieser Mann). ein grubu Nominativ eril ve nötrde eksizdir (mein Mann, mein Kind). |
+eslestir | 1 | der Tag ;; die Woche ;; das Jahr ;; die Tage | jeden Tag ;; jede Woche ;; jedes Jahr ;; alle Tage | | - | jeder der'in son harfini alır (Akkusativ): den → jeden, die → jede, das → jedes. Çoğulda jeder olmaz, alle gelir. | der Tag, -e; die Woche, -n; das Jahr, -e
+
+@teil alle-beide | alle / beide / alles: çoğul ve "her şey" | artikel/çekim
+wahl | 1 | ___ Kinder spielen im Garten. | Alle | Alle / Jedes / Alles | Bütün çocuklar bahçede oynuyor. | Kinder çoğul, fiil de çoğul (spielen) → alle. jedes tekil ister (jedes Kind spielt); alles = her şey. | das Kind; der Garten; spielen
+luecke | 1 | Ist ___ in Ordnung? | alles | alles / alle / jedes | Her şey yolunda mı? | Fiil tekil (ist) ve arkada isim yok → alles = her şey. alle çoğuldur (alle sind …). | die Ordnung
+luecke | 2 | Ich habe mit ___ Kollegen gesprochen. (alle) | allen | | Bütün iş arkadaşlarıyla konuştum. | mit + Dativ çoğul: den Kollegen → allen Kollegen (den'in son harfi n). | der Kollege; sprechen mit
+luecke | 3 | Meine ___ Schwestern wohnen in Izmir. (beide) | beiden | | İki kız kardeşim de İzmir'de oturuyor. | İyelikten (meine) sonra beide sıfat gibi -en alır: meine beiden Schwestern. | die Schwester; wohnen
+wahl | 2 | Hast du Tom und Lara eingeladen? – Ja, ich habe ___ eingeladen. | beide | beide / beides / beiden | Tom'u ve Lara'yı davet ettin mi? – Evet, ikisini de davet ettim. | İki kişi, Akkusativ → beide. beides yalnız iki şey için (Ich nehme beides); beiden Dativ ya da artikelden sonra. | einladen zu; beide
+fehler | 2 | Alle Student muss einen Ausweis haben. | Jeder Student muss einen Ausweis haben. / Alle Studenten müssen einen Ausweis haben. | Alle Student muss | Her öğrencinin bir kimlik kartı olmalı. | alle çoğul ister: alle Studenten müssen. Tekille jeder: jeder Student muss. | der Student; der Ausweis
+ordnen | 3 | wir / haben / alle / die Prüfung / bestanden | Wir haben alle die Prüfung bestanden. / Wir alle haben die Prüfung bestanden. / Wir haben die Prüfung alle bestanden. | | Hepimiz sınavı geçtik. | alle burada "hepimiz" demek; özneyle (wir) birlikte ya da fiilden sonra durabilir. | die Prüfung; bestehen
+umform | 3 | Ich nehme den roten Pullover und den blauen Pullover. → beide | Ich nehme beide Pullover. / Ich nehme beide. | | İki kazağı da alıyorum. | Aynı isimden iki tane → beide + çoğul (der Pullover, çoğulu die Pullover). İsim tekrar etmeden: Ich nehme beide. | der Pullover; nehmen; beide
+dinle | 2 | Ich habe mit allen Nachbarn gesprochen. | Ich habe mit allen Nachbarn gesprochen. | | Bütün komşularla konuştum. | mit + Dativ çoğul: allen Nachbarn (alle → allen). | der Nachbar; sprechen mit
+ceviri | 2 | İki erkek kardeşim de Berlin'de oturuyor. | Meine beiden Brüder wohnen in Berlin. / Meine Brüder wohnen beide in Berlin. | | - | meine beiden Brüder: iyelikten sonra beide -en alır. Fiil çoğul: wohnen. | der Bruder; wohnen; beide
+text | 2 | Liebe Kursteilnehmer, morgen machen wir einen Ausflug. ___ (bütün) Teilnehmer treffen sich um 9 Uhr am Bahnhof. Bitte bringt ___ (euer) Fahrkarten mit. Wir fahren mit ___ (beide) Gruppen zusammen. | Alle ; eure / euere ; beiden | | Sevgili kurs katılımcıları, yarın bir geziye çıkıyoruz. Bütün katılımcılar saat 9'da istasyonda buluşuyor. Lütfen biletlerinizi yanınıza alın. İki grupla birlikte gidiyoruz. | alle → çoğul fiil (treffen sich). euer ek alınca e düşer: eure. mit + Dativ çoğul: beiden Gruppen. | der Ausflug; der Teilnehmer; die Fahrkarte; die Gruppe
+
+@teil possessiv | mein, dein, sein, ihr, unser, euer, Ihr: ein gibi çekilir | artikel/çekim
+wahl | 1 | Ich suche ___ Schlüssel. Hast du ihn gesehen? | meinen | meinen / meine / meinem | Anahtarımı arıyorum. Gördün mü? | ihn → tek bir anahtar, der Schlüssel eril; suchen + Akkusativ → meinen. | der Schlüssel; suchen
+luecke | 1 | Wir fahren mit ___ Auto nach Hamburg. | unserem | unserem / unseren / unser | Arabamızla Hamburg'a gidiyoruz. | mit + Dativ, das Auto → dem Auto → unserem Auto. | das Auto
+luecke | 2 | Kennst du schon ___ neue Mitbewohnerin? (mein) | meine | | Yeni ev arkadaşımı tanıyor musun? | die Mitbewohnerin dişil, Akkusativ → meine (die → meine). | kennen; neu
+luecke | 2 | Ich wohne bei ___ Tante in Bremen. (mein) | meiner | | Bremen'de teyzemin yanında oturuyorum. | bei + Dativ, die Tante → der Tante → meiner Tante. | die Tante; wohnen
+luecke | 2 | Wo sind ___ Hausaufgaben, Kinder? (euer) | eure / euere | | Çocuklar, ödevleriniz nerede? | euer ek alınca ortadaki e çoğunlukla düşer: eure Hausaufgaben. | die Hausaufgabe
+fehler | 2 | Ich habe gestern mit meinem Schwester telefoniert. | Ich habe gestern mit meiner Schwester telefoniert. | meinem | Dün kız kardeşimle telefonda konuştum. | die Schwester dişil; mit + Dativ dişil → meiner (der'in son harfi r). | die Schwester; telefonieren mit
+fehler | 1 | Unser Lehrer erklärt die Grammatik sehr gut. | Unser Lehrer erklärt die Grammatik sehr gut. | - | Öğretmenimiz dilbilgisini çok iyi anlatıyor. | Hata yok: der Lehrer özne (Nominativ) → unser, ek yok. | der Lehrer; erklären; die Grammatik, -en
+ordnen | 2 | ich / habe / meinem Bruder / ein Buch / geschenkt | Ich habe meinem Bruder ein Buch geschenkt. / Meinem Bruder habe ich ein Buch geschenkt. / Ein Buch habe ich meinem Bruder geschenkt. | | Erkek kardeşime bir kitap hediye ettim. | schenken: kime? Dativ (meinem Bruder), ne? Akkusativ (ein Buch). İki isimde Dativ önce. | der Bruder; das Buch; schenken
+ordnen | 2 | ich / habe / Ihre Nachricht / leider / nicht / bekommen | Ich habe Ihre Nachricht leider nicht bekommen. / Leider habe ich Ihre Nachricht nicht bekommen. / Ihre Nachricht habe ich leider nicht bekommen. | | Mesajınızı maalesef almadım. | Resmi Sie → Ihre (büyük harf); die Nachricht Akkusativ → Ihre. | die Nachricht; bekommen; leider
+umform | 3 | Hast du deinen Pass und deine Anmeldung dabei? → Sie | Haben Sie Ihren Pass und Ihre Anmeldung dabei? | | Pasaportunuz ve ikamet kaydınız yanınızda mı? | Resmi hitapta du → Sie, dein → Ihr (büyük harf); ekler aynı kalır: deinen → Ihren, deine → Ihre. | der Pass; die Anmeldung; dabei
+dinle | 2 | Wir treffen uns mit unseren Freunden im Park. | Wir treffen uns mit unseren Freunden im Park. | | Parkta arkadaşlarımızla buluşuyoruz. | mit + Dativ çoğul: unseren Freunden (iyelik -en, isim -n). | der Freund; der Park; treffen
+ceviri | 3 | Annemle babamı her hafta sonu ziyaret ediyorum. | Ich besuche meine Eltern jedes Wochenende. / Ich besuche jedes Wochenende meine Eltern. / Jedes Wochenende besuche ich meine Eltern. / Ich besuche meine Eltern an jedem Wochenende. / Ich besuche an jedem Wochenende meine Eltern. / An jedem Wochenende besuche ich meine Eltern. | | - | die Eltern çoğul → meine Eltern. das Wochenende → jedes Wochenende ya da an jedem Wochenende. | die Eltern; besuchen; das Wochenende, -n
+ceviri | 3 | Adresinizi bana yazabilir misiniz? | Können Sie mir Ihre Adresse aufschreiben? / Können Sie mir Ihre Adresse schreiben? / Könnten Sie mir Ihre Adresse aufschreiben? / Könnten Sie mir Ihre Adresse schreiben? | | - | Resmi siz → Ihre (büyük harf; die Adresse). Zamir mir isimden önce gelir. | die Adresse; schreiben
+
+@teil zamir | İsim düşünce: meiner, deins, diesen, jeder | artikel/çekim
+wahl | 1 | Ist das dein Schirm? – Ja, das ist ___. | meiner | meiner / mein / meine | Bu senin şemsiyen mi? – Evet, benimki. | der Schirm eril; isim düşünce der'in sonu gelir: meiner. mein yalnız ismin önünde. | der Schirm
+luecke | 2 | Ist das deine Jacke? – Nein, das ist nicht ___. (mein) | meine | | Bu senin ceketin mi? – Hayır, benimki değil. | die Jacke dişil → meine (ismin önündekiyle aynı biçim). | die Jacke
+luecke | 3 | Wem gehört das Handy? – Ich glaube, das ist ___. (sein) | seins / seines | | Telefon kimin? – Sanırım onun (Tuna'nın). | das Handy nötr; isim düşünce -s gelir: seins (yazıda seines de doğru). | das Handy; gehören; glauben
+wahl | 2 | Welchen Pullover nimmst du, den roten oder den blauen? – ___ hier, den blauen. | Diesen | Diesen / Dieser / Dieses | Hangi kazağı alıyorsun, kırmızıyı mı maviyi mi? – Bunu, maviyi. | nehmen + Akkusativ, der Pullover → den → diesen. | der Pullover; nehmen
+luecke | 2 | Ich habe meinen Kuli vergessen. Kannst du mir ___ leihen? (dein) | deinen | | Tükenmez kalemimi unuttum. Bana seninkini ödünç verebilir misin? | der Kuli eril, Akkusativ → deinen; isim düşse de -en kalır. | der Kuli; leihen; vergessen
+fehler | 2 | Mein Laptop ist kaputt. Kann ich dein benutzen? | Mein Laptop ist kaputt. Kann ich deinen benutzen? | dein benutzen | Laptopum bozuk. Seninkini kullanabilir miyim? | İsim düşünce iyelik ekini göstermeli: der Laptop, Akkusativ → deinen. | benutzen; kaputt
+ordnen | 2 | jeder / kann / bei uns / mitmachen | Jeder kann bei uns mitmachen. / Bei uns kann jeder mitmachen. | | Bizde herkes katılabilir. | jeder tek başına "herkes" demek; fiil tekil (kann). | jeder
+umform | 2 | Das ist mein Fahrrad. → ohne Nomen | Das ist meins. / Das ist meines. | | Bu benimki. | das Fahrrad nötr: isim düşünce mein → meins (meines). | das Fahrrad
+ceviri | 3 | Bu benim çantam değil, benimki siyah. | Das ist nicht meine Tasche, meine ist schwarz. / Das ist nicht meine Tasche. Meine ist schwarz. / Das ist nicht meine Tasche, meine Tasche ist schwarz. | | - | İsmi tekrar etmemek için iyelik tek başına: meine (die Tasche). | die Tasche
+dinle | 2 | Mein Fahrrad ist kaputt, kann ich deins nehmen? | Mein Fahrrad ist kaputt, kann ich deins nehmen? / Mein Fahrrad ist kaputt, kann ich deines nehmen? | | Bisikletim bozuk, seninkini alabilir miyim? | das Fahrrad nötr → isim düşünce deins (deines). | das Fahrrad; kaputt
+eslestir | 1 | Ist das dein Schlüssel? ;; Ist das deine Tasche? ;; Ist das dein Handy? ;; Sind das deine Schuhe? | Ja, das ist meiner. ;; Ja, das ist meine. ;; Ja, das ist meins. ;; Ja, das sind meine. | | - | İsim düşünce son: der → meiner, die → meine, das → meins; çoğulda meine, fiil sind. | der Schlüssel; die Tasche; das Handy; der Schuh
+
+@teil kontrast | sein- mi ihr- mi? · Ihnen mi Ihr- mi? | artikel/çekim
+wahl | 1 | Lara ruft ___ Bruder an. | ihren | ihren / seinen / ihr | Lara erkek kardeşini arıyor. | Sahibi Lara (kadın) → ihr-; der Bruder Akkusativ → ihren. sein- yalnız sahibi erkekse. | anrufen; der Bruder
+wahl | 1 | Tuna besucht ___ Oma in Istanbul. | seine | seine / ihre / sein | Tuna İstanbul'daki büyükannesini ziyaret ediyor. | Sahibi Tuna (erkek) → sein-; die Oma dişil → seine. Türkçe "-si" ikisini de karşılar, Almancada sahibe bak. | besuchen; die Oma
+luecke | 1 | Kann ich ___ helfen? (Sie) | Ihnen | Ihnen / Ihren / Ihr | Size yardım edebilir miyim? | helfen + Dativ; arkasında isim yok → zamir Ihnen. Ihren ancak bir isimle: Ihren Koffer. | helfen
+fehler | 3 | Da muss ich Ihren widersprechen. | Da muss ich Ihnen widersprechen. | Ihren | Burada size itiraz etmek zorundayım. | widersprechen + Dativ zamiri: Ihnen (size). Ihren iyeliktir, arkasından isim ister: Ihren Vorschlag. | widersprechen; der Vorschlag
+fehler | 3 | Meine Nachbarin geht jeden Abend mit seinem Hund spazieren. | Meine Nachbarin geht jeden Abend mit ihrem Hund spazieren. | seinem | Komşum (kadın) her akşam köpeğini gezdiriyor. | Sahibi die Nachbarin (kadın) → ihr-; mit + Dativ, der Hund → ihrem. | die Nachbarin; der Hund, -e; spazieren gehen
+fehler | 1 | Die Studenten zeigen ihre Ausweise. | Die Studenten zeigen ihre Ausweise. | - | Öğrenciler kimlik kartlarını gösteriyor. | Hata yok: sahibi çoğul (die Studenten) → ihr-; die Ausweise çoğul → ihre. | der Student; der Ausweis; zeigen
+luecke | 2 | Das Kind sucht ___ Mutter. (sein · ihr) | seine | | Çocuk annesini arıyor. | das Kind dilbilgisinde nötr → sein- (çocuk kız olsa da). die Mutter → seine. | das Kind; die Mutter; suchen
+eslestir | 2 | Kann ich ;; Wie ist ;; Vielen Dank für ;; Ich wünsche | Ihnen helfen? ;; Ihr Name? ;; Ihren Brief. ;; Ihnen alles Gute. | | - | Ihnen = size (arkasında isim yok). Ihr Name: Nominativ eril. für + Akkusativ: Ihren Brief. | helfen; der Name; der Brief; wünschen
+dinle | 2 | Lara hat ihren Schlüssel im Büro vergessen. | Lara hat ihren Schlüssel im Büro vergessen. | | Lara anahtarını ofiste unutmuş. | Sahibi Lara (kadın) → ihr-; der Schlüssel Akkusativ → ihren. | der Schlüssel; das Büro; vergessen
+ceviri | 3 | Ece ve kocası çocuklarıyla Bremen'e taşındı. | Ece und ihr Mann sind mit ihren Kindern nach Bremen gezogen. / Ece und ihr Mann sind mit ihren Kindern nach Bremen umgezogen. | | - | Sahibi Ece (kadın) → ihr Mann. Sahibi çoğul (Ece ve kocası) → ihren Kindern (mit + Dativ çoğul). | der Mann; das Kind; umziehen
+ceviri | 2 | Size yarın cevap veririm. | Ich antworte Ihnen morgen. / Morgen antworte ich Ihnen. / Ich werde Ihnen morgen antworten. / Morgen werde ich Ihnen antworten. | | - | antworten + Dativ: Ihnen (size), arkasında isim yok. Ihren yanlış olur. | antworten
+umform | 3 | Ich danke dir für deine Hilfe. → Sie | Ich danke Ihnen für Ihre Hilfe. | | Yardımınız için size teşekkür ederim. | dir (zamir) → Ihnen; deine (iyelik, die Hilfe) → Ihre. Zamirle iyeliği karıştırma. | danken; die Hilfe
+kategori | 1 | Welches Possessivwort passt zu diesem Besitzer? | sein-: Tuna, das Kind, der Lehrer, mein Bruder ;; ihr-: Lara, die Kinder, die Lehrerin, meine Eltern | | - | Sahibi erkek ya da nötr → sein-; sahibi kadın ya da çoğul → ihr-. das Kind nötr, die Kinder çoğul. |
+text | 3 | – Entschuldigung, ist das ___ (Sie) Tasche? – Nein, ___ (mein) ist blau. Vielleicht gehört sie der Frau dort drüben. Die Frau ist sehr froh: Sie hat ___ (ihr) Tasche schon lange gesucht. | Ihre ; meine ; ihre | | – Affedersiniz, bu sizin çantanız mı? – Hayır, benimki mavi. Belki şuradaki kadınındır. Kadın çok seviniyor: çantasını uzun zamandır arıyormuş. | Resmi Sie → Ihre Tasche. İsim düşünce meine (die Tasche). Sahibi kadın → ihre Tasche. | die Tasche; gehören; fragen
+text | 3 | Liebe Frau Weber, vielen Dank für ___ (Ihr) E-Mail. Leider kann ich am Montag nicht kommen, weil ___ (mein) Sohn krank ist. Kann ich ___ (Sie) einen neuen Termin vorschlagen? | Ihre ; mein ; Ihnen | | Sevgili Weber Hanım, e-postanız için çok teşekkürler. Maalesef pazartesi gelemiyorum, çünkü oğlum hasta. Size yeni bir randevu önerebilir miyim? | für + Akkusativ: Ihre E-Mail (die). der Sohn özne → mein. Ihnen = size (Dativ zamiri, arkasında isim yok). | die E-Mail, -s; der Sohn; der Termin; vorschlagen
