@@ -72,7 +72,9 @@ function logDenetle(ad, log, o) {
   // aynı gün aynı hafızaya ikinci cevap: yazılmaz (hafıza:yazılmadı ya da not:-); yukarıdaki yazım sayımı hafıza başına denetler
   const ikinciCevap = cevap.filter(e => /\| (ikinci|tekrar:)/.test(e.notiz));
   ikinciCevap.forEach(e => { if (/\| ikinci/.test(e.notiz) && !/hafıza:yazılmadı/.test(e.notiz)) hata(ad, `ikinci hatırlamada hafıza:yazılmadı yok: ${e.id}`); });
-  if (o.gercek && !cevap.some(e => /hafıza:yazılmadı/.test(e.notiz))) hata(ad, 'hiç hafıza:yazılmadı satırı yok');
+  // aynı gün aynı öğeye ikinci cevap olduysa en az biri hafıza:yazılmadı olmalı (tek turda yanlış / yeni çıkmazsa ikinci cevap hiç olmayabilir)
+  const gorulen = new Set(), ikinciVar = cevap.some(e => { const k = e.zeit.slice(0, 10) + '|' + e.id.split(':')[0]; if (gorulen.has(k)) return true; gorulen.add(k); return false; });
+  if (o.gercek && ikinciVar && !cevap.some(e => /hafıza:yazılmadı|not:-/.test(e.notiz))) hata(ad, 'aynı gün ikinci cevap var ama hiç hafıza:yazılmadı satırı yok');
   return { cevap: cevap.length, tanit, mini, ikinci, tur: turlar.length };
 }
 

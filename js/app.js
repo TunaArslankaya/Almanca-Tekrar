@@ -3604,7 +3604,7 @@
       <div class="ts-rozet ${o >= 85 && sebep !== 'leer' ? 'altin' : ''}" aria-hidden="true">${sebep === 'leer' ? '☕' : o >= 85 ? '🏆' : o >= 60 ? '💪' : '🌱'}</div>
       <div class="ts-baslik">${baslik}</div>
       ${hatirlat}
-      ${aksamTur ? `<div class="soluk">${sebep === 'leer' ? 'Sabah öğrendiklerini bir kez daha hatırladın; uykuda yerine oturur.' : `${aksamKalan ? `${aksamKalan} kelime daha var.` : 'Sabah öğrendiklerini bir kez daha hatırladın.'}`} Yarın sabah görüşürüz.</div>`
+      ${aksamTur ? `<div class="soluk">${sebep === 'leer' ? 'Sabah öğrendiklerini bir kez daha hatırladın; uykuda yerine oturur.' : aksamKalan ? `${aksamKalan} kelime daha var: istersen bir tur daha, istersen yarın.` : 'Sabah öğrendiklerini bir kez daha hatırladın. Yarın sabah görüşürüz.'}</div>`
         : sebep === 'leer' ? `<div class="soluk">Şu an sırası gelen tekrar yok.${teklif ? ' İstersen 3 yeni kelime daha öğren.' : ' Yarın yenileri gelir.'}</div>` : ''}
       <div class="ts-istat" style="grid-template-columns:repeat(3,1fr)">
         <div><b>${tu.n}</b><span>cevap</span></div>

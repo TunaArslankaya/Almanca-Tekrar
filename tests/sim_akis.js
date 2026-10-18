@@ -121,11 +121,17 @@ async function simule(p, o) {
   console.log(`ortalama vadeli: ${v.map(x => x.toFixed(1)).join(' ')}`);
   // Ölçütler birikme yüksekken (başlangıç > denge) anlamlı; denge ≈ 2,5 × günlük cevap (K=36 → 90): düşük başlangıçta vadeli dengeye kadar çıkabilir
   const denge = 2.5 * K, tavan = Math.max(v[0], denge);
+  // başlangıç durumunun günlük yükü (anlam hafızası; aralık ≈ 1,9 × S, en çok 60 gün): yük > K ise günde K cevapla vadeli dengeye inemez,
+  // o zaman ölçüt "büyümüyor": 2. haftada son gün ≤ 1,1 × 8. gün (gerçek kayıt 18.10: 202 öğe, yük ≈ 40 > 36)
+  const yuk = Object.values(JSON.parse(Z).items || {}).reduce((a, x) => a + (x.m && x.m.S ? 1 / Math.min(60, Math.max(1, 1.9 * x.m.S)) : 0), 0);
+  const asiri = yuk > K;
+  console.log(`başlangıç günlük yükü ≈ ${yuk.toFixed(1)} (K=${K})${asiri ? ': kapasite aşılıyor, büyüme ölçütü' : ''}`);
+  if (asiri && v.length >= 14 && v[13] > 1.1 * v[7]) fehler.push(`ortalama: yük > K iken 2. haftada büyüme: 8. gün ${v[7].toFixed(1)} → 14. gün ${v[13].toFixed(1)}`);
   if (v.length >= 7 && v[0] > denge && v[6] > 0.8 * v[0]) fehler.push(`ortalama: 7. gün vadeli ${v[6].toFixed(1)} > 0,8 × ${v[0].toFixed(1)}`);
   // yankı dalgası: ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte döner (+15–25, sonra iner); büyüme sayılmaz.
   // Büyüme ölçütü: ikinci haftanın (8–14. gün) ortalaması başlangıcı aşmasın, son gün başlangıcı aşmasın
-  if (v.length >= 14 && ort(v.slice(7, 14)) > tavan) fehler.push(`ortalama: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > tavan ${tavan.toFixed(0)}`);
-  if (v.length >= 14 && v[13] > tavan) fehler.push(`ortalama: 14. gün vadeli ${v[13].toFixed(1)} > tavan ${tavan.toFixed(0)}`);
+  if (!asiri && v.length >= 14 && ort(v.slice(7, 14)) > tavan) fehler.push(`ortalama: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > tavan ${tavan.toFixed(0)}`);
+  if (!asiri && v.length >= 14 && v[13] > tavan) fehler.push(`ortalama: 14. gün vadeli ${v[13].toFixed(1)} > tavan ${tavan.toFixed(0)}`);
   if (p.hatalar.length) fehler.push('sayfa hataları: ' + p.hatalar.join(' | '));
   await b.close();
   if (fehler.length) { console.log('HATA:\n  ' + fehler.join('\n  ')); process.exit(1); }
