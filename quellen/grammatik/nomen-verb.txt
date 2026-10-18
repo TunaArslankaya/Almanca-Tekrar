@@ -132,4 +132,4 @@ text | 3 | Gestern habe ich ___ (mein Chef) gefragt, ob ich im August Urlaub neh
 
 # --- denetim 18.10: kaldırılan satırın yerine (Interesse für da kullanılır, hata sayılamaz) ---
 @teil praep
-fehler | 2 | Viele Kinder haben Angst von großen Hunden. | Viele Kinder haben Angst vor großen Hunden. | von | Birçok çocuk büyük köpeklerden korkar. | Angst haben vor + Dativ; Türkçedeki "-den"i von ile aktarma. | die Angst; das Kind; der Hund
+fehler | 2 | Viele Kinder haben Angst von großen Hunden. | Viele Kinder haben Angst vor großen Hunden. | von | Birçok çocuk büyük köpeklerden korkar. | Angst haben vor + Dativ; Türkçedeki "-den"i von ile aktarma. | die Angst; das Kind
