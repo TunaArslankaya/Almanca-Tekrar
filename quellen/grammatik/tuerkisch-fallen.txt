@@ -60,7 +60,7 @@ ordnen | 2 | am Samstag / wir / fahren / nach Bremen / mit dem Zug | Am Samstag 
 wahl | 1 | Kannst du ___ helfen? | mir | mir / mich / ich | Bana yardım edebilir misin? | helfen hep Dativ alır: mir. Türkçedeki "bana" burada tesadüfen uyar, ama "jemandem helfen" diye ezberle. | helfen
 wahl | 1 | Ich frage ___, ob er Zeit hat. | ihn | ihn / ihm / er | Ona vakti olup olmadığını soruyorum. | fragen + Akkusativ: ihn. Türkçe "ona sormak" (-e) yanıltır; Almancada kişi Akkusativ'tir. | fragen
 luecke | 2 | Ich danke ___ für die Einladung. (Sie) | Ihnen | | Davet için size teşekkür ederim. | danken + Dativ: Ihnen (büyük harf: resmî siz). "Ich danke Sie" en sık hatalardan. | danken; die Einladung
-luecke | 2 | Wir gratulieren ___ zum Geburtstag. (du) | dir | | Doğum gününü kutlarız. | gratulieren + Dativ: dir. Türkçe "seni kutlamak" (-i) yanıltır. | gratulieren; der Geburtstag
+luecke | 2 | Wir gratulieren ___ zum Geburtstag. (du) | dir | | Doğum gününü kutlarız. | gratulieren + Dativ: dir. Türkçe "seni kutlamak" (-i) yanıltır. | gratulieren zu; der Geburtstag
 luecke | 2 | Das neue Handy gefällt ___ sehr gut. (ich) | mir | | Yeni telefon çok hoşuma gidiyor. | gefallen: hoşa giden şey özne, kişi Dativ (mir). "Ich gefalle das Handy" olmaz. | gefallen; das Handy
 fehler | 2 | Ich habe dir gestern angerufen. | Ich habe dich gestern angerufen. | dir | Dün seni aradım. | anrufen + Akkusativ: dich. "jemanden anrufen" (Türkçedeki -i ile aynı). | anrufen
 fehler | 3 | Kannst du mich bitte das Buch geben? | Kannst du mir bitte das Buch geben? | mich | Bana kitabı verir misin? | geben: kime? (Dativ: mir) + neyi? (Akkusativ: das Buch). Kişi Dativ, nesne Akkusativ. | geben; das Buch
@@ -69,10 +69,10 @@ umform | 3 | Ich helfe meiner Schwester. → Perfekt | Ich habe meiner Schwester
 @teil v2 | Fiil 2. yerde; yan cümlede sonda | kelime sırası
 wahl | 1 | Welcher Satz ist richtig? | Heute lerne ich Deutsch. | Heute lerne ich Deutsch. / Heute ich lerne Deutsch. / Heute ich Deutsch lerne. | Bugün Almanca çalışıyorum. | Ana cümlede çekimli fiil hep 2. yerde: Heute (1) lerne (2) ich … Türkçedeki "bugün ben çalışıyorum" sırası Almancada yanlış. | lernen
 ordnen | 2 | nächste Woche / ich / habe / eine Prüfung | Nächste Woche habe ich eine Prüfung. / Ich habe nächste Woche eine Prüfung. | | Gelecek hafta sınavım var. | Zaman öne gelince özne fiilin arkasına geçer (inversion): Nächste Woche habe ich … | die Prüfung
-fehler | 2 | Am Montag ich gehe zum Deutschkurs. | Am Montag gehe ich zum Deutschkurs. | ich gehe | Pazartesi Almanca kursuna gidiyorum. | "Am Montag" 1. yerdeyse fiil hemen arkasına: gehe ich. En sık Türk hatası. | der Deutschkurs
+fehler | 2 | Am Montag ich gehe zum Deutschkurs. | Am Montag gehe ich zum Deutschkurs. | ich gehe | Pazartesi Almanca kursuna gidiyorum. | "Am Montag" 1. yerdeyse fiil hemen arkasına: gehe ich. En sık Türk hatası. | 
 luecke | 2 | Ich bleibe zu Hause, weil ich ___. (krank sein) | krank bin | | Evde kalıyorum, çünkü hastayım. | weil yan cümle açar: çekimli fiil en sona (bin). Türkçedeki "hastayım" sondaki fiil gibi düşün. | krank
 fehler | 2 | Ich weiß, dass du hast morgen keine Zeit. | Ich weiß, dass du morgen keine Zeit hast. | du hast | Yarın vaktin olmadığını biliyorum. | dass'tan sonra çekimli fiil en sonda: … keine Zeit hast. | wissen; die Zeit
-umform | 3 | Ich habe Kopfschmerzen. Ich gehe nicht zur Arbeit. → weil | Ich gehe nicht zur Arbeit, weil ich Kopfschmerzen habe. | | Başım ağrıyor. İşe gitmiyorum. → Başım ağrıdığı için işe gitmiyorum. | Sebep weil ile yan cümleye girer, fiil (habe) sona. "weil ich habe Kopfschmerzen" konuşma dilidir, sınavda hata. | die Kopfschmerzen; die Arbeit
+umform | 3 | Ich habe Kopfschmerzen. Ich gehe nicht zur Arbeit. → weil | Ich gehe nicht zur Arbeit, weil ich Kopfschmerzen habe. | | Başım ağrıyor. İşe gitmiyorum. → Başım ağrıdığı için işe gitmiyorum. | Sebep weil ile yan cümleye girer, fiil (habe) sona. "weil ich habe Kopfschmerzen" konuşma dilidir, sınavda hata. | die Arbeit
 ordnen | 3 | wenn / ich / Zeit / habe / ich / dich / besuche | Wenn ich Zeit habe, besuche ich dich. / Ich besuche dich, wenn ich Zeit habe. | | Vaktim olursa seni ziyaret ederim. | Yan cümle başa gelirse ana cümle fiille başlar: …, besuche ich dich (fiil, virgül, fiil). | besuchen; die Zeit
 
 @teil hilfsverb | Perfekt: haben mı sein mi? | yardımcı fiil
@@ -89,4 +89,4 @@ fehler | 1 | Morgen fahre Ich nach Hamburg. | Morgen fahre ich nach Hamburg. | I
 luecke | 2 | Ich erinnere ___ nicht an seinen Namen. (sich erinnern) | mich | | Adını hatırlamıyorum. | Dönüşlü zamir unutulmaz: ich erinnere mich. Türkçede karşılığı yok, o yüzden düşer. | sich erinnern an; der Name
 luecke | 2 | In Bremen gibt es ___ schönen Park. (ein) | einen | | Bremen'de güzel bir park var. | es gibt + Akkusativ: einen Park. "Es gibt ein Park" sık hata. | der Park
 wahl | 1 | Wie alt bist du? – Ich ___ 22 Jahre alt. | bin | bin / habe / werde | Kaç yaşındasın? – 22 yaşındayım. | Yaş sein ile söylenir: Ich bin 22 (Jahre alt). "Ich habe 22 Jahre" Türkçe/İspanyolca kalıbı, Almancada yanlış. | alt
-fehler | 2 | Ich freue mich auf das Wochenende. | Ich freue mich auf das Wochenende. | - | Hafta sonunu dört gözle bekliyorum. | Cümle doğru: sich freuen auf + Akkusativ, dönüşlü zamir yerinde. | sich freuen auf; das Wochenende
+fehler | 2 | Ich freue mich auf das Wochenende. | Ich freue mich auf das Wochenende. | - | Hafta sonunu dört gözle bekliyorum. | Cümle doğru: sich freuen auf + Akkusativ, dönüşlü zamir yerinde. | sich freuen auf

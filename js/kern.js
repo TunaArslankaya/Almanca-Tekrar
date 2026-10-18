@@ -126,19 +126,32 @@
   }
 
   // günde tek kalıcı yazım: her hafıza (m, art, kok) öğrenme gününün ilk değerlendirilen cevabıyla güncellenir
-  // opts: { ipucu, b, yeniGun } → { yazildi, m:{R, S}, a, k, seviyeOnce, seviyeSonra }
+  // opts: { ipucu, b, yeniGun, aksam, aksamYanlis } → { yazildi, aksam, m:{R, S}, a, k, seviyeOnce, seviyeSonra }
+  // Akşam istisnası (opts.aksam): bugün tanıtılan ya da bugün yanlış / fast cevaplanan öğede (hafıza lastG ≤ 2 ve bugün yazılmış,
+  // ya da uygulamanın log'dan bildirdiği opts.aksamYanlis) m ve art hafızası bugün yazılmış olsa da akşam BİR kez daha yazılır
+  // (öğrenme adımı: vade en geç ertesi gün 04:00). Kök hafızası ve diğer öğeler kurala bağlı kalır.
+  function aksamHakki(S, id, t, opts) {
+    const it = S.items[id], g = gun4(t);
+    if (!it) return false;
+    if (it.tanit && gun4(it.tanit) === g) return true;
+    if (opts && opts.aksamYanlis) return true;
+    return [it.m, it.art].some(h => h && h.S && h.gun === g && (h.lastG || 3) <= 2);
+  }
   function uygula(S, id, not, t, opts) {
     opts = opts || {};
     const it = S.items[id] = S.items[id] || { seit: t };
-    const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, seviyeOnce: seviye(it, id) };
+    const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, aksam: false, seviyeOnce: seviye(it, id) };
     const yeniGun = opts.yeniGun != null ? opts.yeniGun : !!(it.tanit && gun4(it.tanit) === g);
-    const yaz = (h, not_, c, pkSay) => {
+    const aksam = !!opts.aksam && aksamHakki(S, id, t, opts);
+    const yaz = (h, not_, c, pkSay, aksamOk) => {
       const once = R(h, t);
-      if (h && h.gun === g) return { h, r: { R: once, S: h.S, yazildi: false } };
-      const n = guncelle(h, not_, t, ret, c, { yeniGun, pkSay });
+      const ist = aksamOk && h && h.S && h.gun === g && h.aksam !== g;
+      if (h && h.gun === g && !ist) return { h, r: { R: once, S: h.S, yazildi: false } };
+      const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || ist, pkSay });
       n.gun = g;
+      if (ist) { n.aksam = g; out.aksam = true; }
       out.yazildi = true;
-      return { h: n, r: { R: once, S: n.S, yazildi: true } };
+      return { h: n, r: { R: once, S: n.S, yazildi: true, aksam: !!ist } };
     };
     if (not.m != null) {
       let x;
@@ -147,12 +160,12 @@
         const f = FSRS.review({}, 4, t, ret);
         x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g }), r: { R: 0, S: f.S, yazildi: true } };
         out.yazildi = true;
-      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu);
+      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu, aksam);
       it.m = x.h; out.m = x.r;
       if (x.r.yazildi) { delete it.m.dogrula; delete it.yarim; }
       if (opts.b) it.m.b = opts.b;
     }
-    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca); it.art = x.h; out.a = x.r; }
+    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksam); it.art = x.h; out.a = x.r; }
     if (not.k != null) {
       const bs = C.base(id), kk = S.kok = S.kok || {};
       const x = yaz(kk[bs] && kk[bs].S ? kk[bs] : null, not.k, not.ck);
@@ -354,6 +367,64 @@
     return { ids: sec, yoklama };
   }
 
+  // ================= Akşam tekrarı =================
+  // Sabah çalışıp akşam unuttuğunu hisseden öğrenci için: yeni ve yanlış yapılan öğelerde aynı gün ikinci hatırlama + uykudan önce tekrar.
+  // Oturmuş (bugün doğru bilinen, R ≥ 0,9) öğeleri 12 saat sonra yeniden sormak boşa: girmez.
+  const AKSAM = { MAX: 15, MIN: 3, SAAT_SINIR: 13, ARA_SAAT: 8, YAZ0: 0.75 };
+  // bugünün (öğrenme günü) ilk cevabı, hafızadan: bugün yazılmış m / art'ın last'ı (günde tek yazımda last = o günün ilk cevabı;
+  // akşam yazımı last'ı değiştirir, o yüzden akşam yazılmış hafıza sayılmaz) ve bugünkü tanıtımlar. Uygulama log'la birlikte min alır.
+  function ilkCevap(S, t) {
+    const g = gun4(t); let ilk = Infinity;
+    Object.values(S.items || {}).forEach(it => {
+      [it.m, it.art].forEach(h => { if (h && h.S && h.gun === g && h.aksam !== g && h.last < ilk) ilk = h.last; });
+      if (it.tanit && gun4(it.tanit) === g && it.tanit < ilk) ilk = it.tanit;
+    });
+    return ilk === Infinity ? null : ilk;
+  }
+  // adaylar (öncelik): 1) bugün tanıtılan (yeni / yarım) 2) bugün yanlış ya da fast (opts.yanlis: log'dan; hafızada lastG ≤ 2 ve bugün yazılmış)
+  // 3) R(şimdi) < 0,9 (vadesi gelmemiş olsa da). Grup içinde R artan. opts: { yanlis: Set|Array, haric: Set|Array (bu akşam sorulanlar), filtre, max }
+  function aksamAdaylar(S, t, opts) {
+    opts = opts || {};
+    const g = gun4(t), yanlis = new Set(opts.yanlis || []), haric = new Set(opts.haric || []), out = [];
+    Object.entries(S.items || {}).forEach(([id, it]) => {
+      if (C.kind(id) === 'p' || haric.has(id) || (opts.filtre && !opts.filtre(id))) return;
+      const h = it.m && it.m.S ? it.m : null, r = h ? R(h, t) : 0;
+      let neden = null;
+      if (it.tanit && gun4(it.tanit) === g) neden = 'yeni';
+      else if (!h) return;   // anlam hafızası yok (A1 düğmesi: yalnız artikel): akşam turu anlam sorar
+      else if (yanlis.has(id) || [it.m, it.art].some(x => x && x.S && x.gun === g && (x.lastG || 3) <= 2)) neden = 'yanlis';
+      else if (h && r < 0.9) neden = 'dusukR';
+      if (!neden) return;
+      out.push({ id, neden, R: r });
+    });
+    const sira = { yeni: 0, yanlis: 1, dusukR: 2 };
+    return out.sort((a, b) => sira[a.neden] - sira[b.neden] || a.R - b.R).slice(0, opts.max || AKSAM.MAX);
+  }
+  // kart koşulu: ilk cevap öğrenme gününde 13:00'ten önce, üzerinden ≥ 8 saat geçmiş, aday ≥ 3
+  function aksamUygun(ilk, t, adaySay) {
+    if (ilk == null || gun4(ilk) !== gun4(t)) return false;
+    if (new Date(ilk).getHours() >= AKSAM.SAAT_SINIR || ilk < gunBas4(t)) return false;
+    return t - ilk >= AKSAM.ARA_SAAT * SAAT && adaySay >= AKSAM.MIN;
+  }
+  // akşam turunda seçim (sec, o.aksam = aday kimlikleri sırayla): kuyruk (yanlış → yeniden) → sıradaki sorulmamış aday
+  // (yeni öğrenilende çoğunlukla yaz0, yoksa normal merdiven) → bekleyen kuyruk → bitti (teklif yok: akşam yeni kelime yok)
+  function aksamSec(S, o, t, rnd, kuyrukSec) {
+    const gecmis = o.gecmis || [], sorulan = new Set(gecmis.map(x => x.id)), sonBicim = gecmis.map(x => x.bicim), g = gun4(t);
+    for (const id of o.aksam) {
+      if (sorulan.has(id) || (o.filtre && !o.filtre(id))) continue;
+      const it = S.items[id]; if (!it) continue;
+      const yeni = !!(it.tanit && gun4(it.tanit) === g), r = R(it.m, t);
+      if (yeni && !o.klavyesiz && rnd() < AKSAM.YAZ0) return { tur: 'm', kaynak: 'aksam', id, b: 2, bicim: 'yaz0', uretec: null, R: r };
+      const bs = basamak(it, { id, t, klavyesiz: o.klavyesiz }, rnd);
+      const bc = bicimSec(it, bs.b, { id, t }, rnd, sonBicim) || bicimSec(it, bs.b, { id, t }, rnd, []);
+      if (bc) return { tur: 'm', kaynak: 'aksam', id, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, R: r };
+    }
+    const son1 = gecmis.length ? gecmis[gecmis.length - 1].id : null;
+    const bek = (o.kuyruk || []).filter(k => (!o.filtre || o.filtre(k.id)) && k.id !== son1).sort((a, b) => a.at - b.at)[0];
+    if (bek) return kuyrukSec(bek);
+    return { tur: 'bitti', kaynak: 'bitti', teklif: null };
+  }
+
   // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
   // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
   const ARA = 8, ART_TUR = 3;
@@ -375,6 +446,7 @@
     };
     const kq = (o.kuyruk || []).filter(k => k.at <= adim && (!o.filtre || o.filtre(k.id))).sort((a, b) => a.at - b.at)[0];   // en erken sırası gelen
     if (kq) return kuyrukSec(kq);
+    if (o.aksam) return aksamSec(S, o, t, rnd, kuyrukSec);
     const kt = kota(durum, t);
     const partiAc = () => {
       // §5.2: yarımlar kotaya sayılmaz; partide kotanın yanında en çok 1 (25'likte 2) yarım, günde en çok 3.
@@ -807,6 +879,7 @@
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
+    AKSAM, ilkCevap, aksamAdaylar, aksamUygun, aksamHakki,
     goc, tageGoc, tageTuret, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin,
   };
   return api;
