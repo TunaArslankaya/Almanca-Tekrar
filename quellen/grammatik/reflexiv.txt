@@ -93,7 +93,7 @@ wahl | 1 | Welcher Satz bedeutet „Arabamı yıkıyorum“? | Ich wasche mein A
 # Yeni türler (ceviri, text, eslestir, kategori, dinle) ve ek alıştırmalar. '@teil <kod>' yalnız kodla daha önce tanımlanmış teil'e döner.
 @teil akk
 luecke | 1 | Setz ___ doch! Der Kaffee ist gleich fertig. (du) | dich | | Otursana! Kahve birazdan hazır. | du'ya emir kipinde de zamir kalır: Setz dich! sich setzen = oturmak (oturma hareketi). | sich setzen; der Kaffee
-eslestir | 1 | Ich freue ;; Du freust ;; Mein Vater freut ;; Wir freuen ;; Ihr freut | mich ;; dich ;; sich ;; uns ;; euch | | - | Zamir özneye uyar: ich → mich, du → dich, er → sich, wir → uns, ihr → euch. | sich freuen über; der Vater
+eslestir | 1 | Ich beeile ;; Du beeilst ;; Mein Vater beeilt ;; Wir beeilen ;; Ihr beeilt | mich ;; dich ;; sich ;; uns ;; euch | | - | Zamir özneye uyar: ich → mich, du → dich, er → sich, wir → uns, ihr → euch. | sich beeilen; der Vater
 dinle | 2 | Ihr müsst euch beeilen, der Zug fährt gleich ab. | Ihr müsst euch beeilen, der Zug fährt gleich ab. | | Acele etmeniz lazım, tren birazdan kalkıyor. | ihr → euch; zamir çekimli fiilin (müsst) hemen arkasında, mastar (beeilen) en sonda. | sich beeilen; der Zug; abfahren
 ceviri | 2 | Bugün kendimi çok yorgun hissediyorum. | Ich fühle mich heute sehr müde. / Heute fühle ich mich sehr müde. | | - | sich fühlen dönüşlüdür: mich çekimli fiilin arkasında. heute başa gelirse: fühle ich mich. | sich fühlen; müde
 wahl | 1 | Herr Yılmaz, setzen Sie ___ bitte! | sich | sich / Sie / Ihnen | Bay Yılmaz, lütfen oturun! | Nezaket hitabı Sie'de de dönüşlü zamir sich (küçük harf); Sie ya da Ihnen olmaz. | sich setzen

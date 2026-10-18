@@ -7,7 +7,7 @@
 @stufe A2–B1
 @kapitel B1 K6 ?
 @goethe 1 | Schreiben 1-2 (Pläne, Versprechen) · Sprechen 3
-@voraus v2-satzbau
+@voraus verbstellung
 @kontrast passiv, konjunktiv2
 @etiket zaman
 @kurz werden (2. yerde) + mastar (en sonda): Ich werde dich anrufen. Gelecek çoğu zaman Präsens + zaman zarfıyla da söylenir; Futur söz, tahmin ve "herhalde" (wohl) için.

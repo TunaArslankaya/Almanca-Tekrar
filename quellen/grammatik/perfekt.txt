@@ -9,7 +9,7 @@
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2
 @kontrast praeteritum, plusquamperfekt
 @etiket yardımcı fiil
-@kurz haben / sein 2. yerde, Partizip II en sonda. Hareket (A → B), durum değişimi, bleiben, passieren → sein; gerisi haben. be- / ver- / er- / -ieren: ge- yok.
+@kurz haben / sein 2. yerde, Partizip II en sonda. Yer değiştiren hareket (A → B), durum değişimi, bleiben, passieren → sein; gerisi haben. be- / ver- / er- / -ieren: ge- yok.
 
 @erklaerung
 Perfekt konuşmada ve arkadaşa yazılan e-postada kullanılan geçmiş zamandır; Türkçedeki "-di"nin çoğu buna karşılık gelir: Dün sinemaya gittim → Gestern bin ich ins Kino gegangen. Türkçede fiil tek kelime ve sonda; Almancada iki parça var: çekimli haben / sein 2. yerde, anlamı taşıyan Partizip II cümlenin en sonunda (die Satzklammer).
@@ -139,3 +139,7 @@ dinle | 2 | Ich hatte keine Zeit, deshalb bin ich zu Hause geblieben. | Ich hatt
 text | 3 | Liebes Tagebuch, heute ___ (sein) ein schrecklicher Tag. Ich ___ (haben) Kopfschmerzen und ___ (können) nicht zur Uni gehen. Dann ___ ich den ganzen Tag ___ (schlafen). | war ; hatte ; konnte ; habe ; geschlafen | | Sevgili günlük, bugün berbat bir gündü. Başım ağrıyordu ve üniversiteye gidemedim. Sonra bütün gün uyudum. | sein, haben, können → Präteritum (war, hatte, konnte); öteki fiiller Perfekt: habe … geschlafen. | schlafen; die Uni, -s
 kategori | 2 | Was sagt man im Gespräch meistens? | meistens Präteritum: war, hatte, musste, konnte ;; meistens Perfekt: bin gegangen, habe gegessen, habe gesehen, ist passiert | | - | Konuşmada sein, haben ve modal fiiller Präteritum; öteki fiillerin çoğu Perfekt. |
 eslestir | 1 | Gestern war ich ;; Gestern hatte ich ;; Gestern konnte ich | krank. ;; keine Zeit. ;; nicht kommen. | | - | sein → war + sıfat (krank); haben → hatte + isim (keine Zeit); können → konnte + mastar (kommen). | krank; die Zeit; kommen
+
+# Denetim (18.10): fahren + Akkusativ nesne → haben.
+@teil hilfsverb
+luecke | 2 | Ich ___ meinen Vater mit dem Auto zum Arzt ___. (fahren) | habe ; gefahren | | Babamı arabayla doktora götürdüm. | fahren'in burada nesnesi var (meinen Vater, Akkusativ) → haben. Nesnesiz yolculukta sein: Ich bin zum Arzt gefahren. | fahren; der Vater; der Arzt; das Auto
