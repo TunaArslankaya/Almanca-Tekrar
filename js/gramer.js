@@ -163,7 +163,9 @@
       return { urteil, tags: [], antwort: parcalar.join(' ; '), detay };
     }
     if (T === 'ordnen' || T === 'umform' || T === 'ceviri') {
-      const antwort = String(giris || ''), r = cumlePruef(antwort, u.cevap);
+      // ordnen'de parçalar boşlukla birleşir, virgül girilemez: virgül iki tarafta da yok sayılır (eskiden virgüllü her ordnen cevabı yanlış çıkıyordu)
+      const antwort = String(giris || ''), virgulsuz = x => x.replace(/\s*,\s*/g, ' ').replace(/\s+/g, ' ').trim();
+      const r = T === 'ordnen' ? cumlePruef(virgulsuz(antwort), u.cevap.map(virgulsuz)) : cumlePruef(antwort, u.cevap);
       if (T === 'ordnen' && r.urteil === 'fast' && r.tags.every(t => t === 'groß/klein')) r.urteil = 'richtig';
       return { urteil: r.urteil, tags: r.tags, antwort };
     }

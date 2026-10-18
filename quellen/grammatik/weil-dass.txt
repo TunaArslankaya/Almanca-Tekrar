@@ -7,7 +7,7 @@
 @stufe A2–B1
 @kapitel A2 giriş · B1 K1–4 tekrar ?
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2
-@voraus v2-satzbau
+@voraus verbstellung
 @kontrast konnektoren-deshalb-trotzdem
 @etiket kelime sırası
 @kurz weil / da / dass → çekimli fiil en sona. Yan cümle öndeyse ana cümle fiille başlar: fiil, fiil.
