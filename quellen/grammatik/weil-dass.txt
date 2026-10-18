@@ -101,3 +101,23 @@ umform | 3 | Du hast die Prüfung bestanden. Das freut mich sehr. → dass | Es 
 @teil dass-das | dass (bağlaç) · das (artikel / ilgi zamiri) | bağlaç
 luecke | 1 | Das Buch, ___ du mir geschenkt hast, ist sehr spannend. | das | dass / das | Bana hediye ettiğin kitap çok heyecanlı. | Buradaki das, das Buch'u gösterir (hangi kitap?): ilgi zamiri, tek s. dass ise "-dığını" demektir ve bir isme bağlanmaz. | das Buch; schenken; spannend
 fehler | 2 | Ich hoffe, das du morgen Zeit hast. | Ich hoffe, dass du morgen Zeit hast. | das | Umarım yarın vaktin vardır. | hoffen + yan cümle: bağlaç iki s ile yazılır (dass). das yalnız artikel ya da ilgi zamiri. | hoffen auf; die Zeit
+
+# Yeni türler (ceviri, text, eslestir, kategori, dinle). '@teil <kod>' yalnız kodla daha önce tanımlanmış teil'e döner.
+@teil v-end
+ceviri | 2 | Bugün evde kalıyorum, çünkü hastayım. | Ich bleibe heute zu Hause, weil ich krank bin. / Heute bleibe ich zu Hause, weil ich krank bin. / Weil ich krank bin, bleibe ich heute zu Hause. / Ich bleibe heute zu Hause, da ich krank bin. / Da ich krank bin, bleibe ich heute zu Hause. | | - | weil / da: çekimli fiil en sonda (krank bin). Yan cümle başta ise ana cümle fiille başlar: bleibe ich. | bleiben; krank
+
+@teil modal
+text | 2 | Ich lerne jeden Tag Deutsch, weil ich im Herbst an der Uni ___ (studieren · wollen). Mein Lehrer sagt, dass mein Deutsch schon viel besser ___ (werden · Perfekt). Ich hoffe, dass ich die Prüfung ___ (bestehen). | studieren will ; geworden ist ; bestehe / bestehen werde | | Her gün Almanca çalışıyorum, çünkü sonbaharda üniversitede okumak istiyorum. Öğretmenim Almancamın şimdiden çok daha iyi olduğunu söylüyor. Umarım sınavı geçerim. | Yan cümlede fiil grubu sona gider, çekimli fiil en sonda: studieren will · geworden ist · bestehe. | studieren; bestehen; die Prüfung; hoffen auf
+
+@teil kontrast
+eslestir | 2 | Ich gehe heute nicht zur Arbeit, weil ;; Ich gehe heute nicht zur Arbeit, denn ;; Ich habe hohes Fieber, deshalb | ich hohes Fieber habe. ;; ich habe hohes Fieber. ;; gehe ich heute nicht zur Arbeit. | | - | weil → fiil sonda (Fieber habe). denn → sıra değişmez (ich habe). deshalb 1. yeri doldurur → hemen fiil (gehe ich). | das Fieber; die Arbeit
+kategori | 2 | Wo steht das Verb nach diesem Wort? | Verb am Ende: weil, dass, da ;; Verb direkt danach: deshalb, deswegen ;; Subjekt + Verb: denn, aber | | Bu kelimeden sonra fiil nerede durur? | weil / dass / da yan cümle açar: fiil sona. deshalb / deswegen 1. yeri doldurur: hemen fiil. denn / aber yer tutmaz: önce özne, sonra fiil. |
+
+@teil perfekt
+dinle | 2 | Ich bin müde, weil ich gestern lange gearbeitet habe. | Ich bin müde, weil ich gestern lange gearbeitet habe. | | Yorgunum, çünkü dün uzun süre çalıştım. | Perfekt yan cümlede: Partizip (gearbeitet) + çekimli yardımcı fiil (habe) en sonda. | müde; arbeiten
+
+@teil dass-ausdruck
+ceviri | 3 | Sınavı geçmene çok sevindim. | Ich freue mich sehr, dass du die Prüfung bestanden hast. / Es freut mich sehr, dass du die Prüfung bestanden hast. / Ich habe mich sehr gefreut, dass du die Prüfung bestanden hast. / Dass du die Prüfung bestanden hast, freut mich sehr. | | - | dass-yan cümlesinde Perfekt: Partizip + yardımcı fiil en sonda (bestanden hast). | sich freuen über; bestehen; die Prüfung
+
+@teil dass-das
+dinle | 2 | Ich hoffe, dass das Wetter morgen schön ist. | Ich hoffe, dass das Wetter morgen schön ist. | | Umarım yarın hava güzel olur. | hoffen + dass (bağlaç, iki s); das Wetter'deki das artikeldir. Çekimli fiil en sonda: schön ist. | hoffen auf; das Wetter; schön

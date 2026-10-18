@@ -132,6 +132,107 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   eq(L('wartn auf', 'warten auf').tip, 'yazim', 'kalıpta tek yazım');
 }
 
+// Gramer bölümü: yeni alıştırma türleri (ceviri, text, eslestir, kategori, dinle) — derleme + kontrol (js/gramer.js Gramer.pruef)
+{
+  const fs = require('fs'), path = require('path'), os = require('os'), cp = require('child_process');
+  const ROOT = path.join(__dirname, '..');
+  global.window = global.window || {};
+  window.G = G;
+  eval(fs.readFileSync(ROOT + '/daten/grammatik.js', 'utf8'));
+  eval(fs.readFileSync(ROOT + '/js/gramer.js', 'utf8'));
+  const Gr = window.Gramer, durum = {};
+  let saat = Date.UTC(2026, 9, 18, 10);
+  Gr.init({ S: () => durum, G, now: () => saat, soruSayisi: () => 0 });
+  const W = window.GRAMMATIK['weil-dass'], U = n => W.uebungen.find(u => u.n === n);
+  const bul = tur => W.uebungen.find(u => u.tur === tur && !u.aus);
+  // derleme
+  const tx = bul('text'), es = bul('eslestir'), kt = bul('kategori'), cv = bul('ceviri'), dn = bul('dinle');
+  eq(!!(tx && es && kt && cv && dn), true, 'weil-dass: her yeni türden örnek var');
+  eq(tx.parcalar.length, (tx.soru.match(/___/g) || []).length, 'text: parça sayısı = boşluk sayısı');
+  eq(JSON.stringify(tx.parcalar[2]), JSON.stringify(['bestehe', 'bestehen werde']), 'text: parçada alternatifler');
+  eq(tx.cevap[0], 'studieren will ; geworden ist ; bestehe', 'text: cevap[0] = ilk alternatifler');
+  eq(es.sol.length === es.sag.length && es.sol.length >= 3, true, 'eslestir: sol = sağ');
+  eq(es.sag[1], 'ich habe hohes Fieber.', 'eslestir: sağ öğe ayrıştırma');
+  eq(kt.gruplar.map(g => g.ad + ':' + g.oge.length).join(' '), 'Verb am Ende:3 Verb direkt danach:2 Subjekt + Verb:2', 'kategori: gruplar');
+  eq(cv.tr, '-', 'ceviri: Türkçe alanı -');
+  eq(U(33).teil, 'v-end', '@teil yeniden açma: v-end');
+  eq(U(39).teil, 'dass-das', '@teil yeniden açma: dass-das');
+  // ceviri (umform gibi)
+  eq(Gr.pruef(cv, 'Weil ich krank bin, bleibe ich heute zu Hause.').urteil, 'richtig', 'ceviri: alternatif doğru');
+  eq(Gr.pruef(cv, 'ich bleibe heute zu Hause, weil ich krank bin').urteil, 'richtig', 'ceviri: nokta / baş harf');
+  eq(Gr.pruef(cv, 'Ich bleibe heute zu Hause, weil ich bin krank.').urteil, 'falsch', 'ceviri: weil + V2 yanlış');
+  eq(Gr.pruef(cv, 'Ich bleibe heute zu Hause, weil ich krank bin.').antwort, 'Ich bleibe heute zu Hause, weil ich krank bin.', 'ceviri: antwort');
+  // text
+  const T = a => Gr.pruef(tx, a);
+  eq(T(['studieren will', 'geworden ist', 'bestehe']).urteil, 'richtig', 'text: hepsi doğru');
+  eq(T(['studieren will', 'geworden ist', 'bestehen werde']).urteil, 'richtig', 'text: alternatif');
+  eq(T(['studieren will', 'geworden ist', 'bestehen']).urteil, 'fast', 'text: 2/3 doğru → fast');
+  eq(T(['will studieren', 'ist geworden', 'bestehe']).urteil, 'falsch', 'text: 1/3 doğru → falsch');
+  eq(T(['studieren will', 'geworden ist', 'bestehe']).antwort, 'studieren will ; geworden ist ; bestehe', 'text: antwort ; ile');
+  eq(T(['studieren will', 'geworden ist', 'bestehe']).detay.join(','), 'richtig,richtig,richtig', 'text: detay');
+  // eslestir: giris[i] = sol i'ye eşlenen sağ öğenin sırası
+  eq(Gr.pruef(es, [0, 1, 2]).urteil, 'richtig', 'eslestir: hepsi doğru');
+  eq(Gr.pruef(es, [1, 0, 2]).urteil, 'fast', 'eslestir: bir karışıklık → fast');
+  eq(Gr.pruef(es, [1, 2, 0]).urteil, 'falsch', 'eslestir: üç yanlış → falsch');
+  eq(Gr.pruef(es, [1, 0, 2]).antwort.split(' ;; ')[0], 'Ich gehe heute nicht zur Arbeit, weil → ich habe hohes Fieber.', 'eslestir: antwort eşler');
+  eq(Gr.loesung(es).split(' ;; ')[2], 'Ich habe hohes Fieber, deshalb → gehe ich heute nicht zur Arbeit.', 'eslestir: loesung');
+  // kategori: { öğe: grup sırası }
+  const kDogru = {}; kt.gruplar.forEach((g, gi) => g.oge.forEach(o => { kDogru[o] = gi; }));
+  eq(Gr.pruef(kt, kDogru).urteil, 'richtig', 'kategori: hepsi doğru');
+  eq(Gr.pruef(kt, Object.assign({}, kDogru, { denn: 0 })).urteil, 'fast', 'kategori: bir yanlış → fast');
+  eq(Gr.pruef(kt, Object.assign({}, kDogru, { denn: 0, deshalb: 0 })).urteil, 'falsch', 'kategori: iki yanlış → falsch');
+  eq(Gr.pruef(kt, kDogru).antwort, kt.cevap[0], 'kategori: antwort cevapla aynı biçimde');
+  // dinle: noktalama / büyük harf yok sayılır; tek harf yazım fast; dass/das gibi kısa kelime yanlış
+  const dn2 = U(39), dn1 = U(37);
+  eq(Gr.pruef(dn2, 'ich hoffe dass das wetter morgen schön ist').urteil, 'richtig', 'dinle: noktalama ve harf büyüklüğü');
+  eq(Gr.pruef(dn2, 'Ich hoffe, das das Wetter morgen schön ist.').urteil, 'falsch', 'dinle: das/dass yanlış');
+  eq(Gr.pruef(dn2, 'Ich hoffe, dass das Wetter morgen schon ist.').urteil, 'fast', 'dinle: umlaut fast');
+  eq(Gr.pruef(dn1, 'Ich bin müde, weil ich gestern lange gearbetet habe').urteil, 'fast', 'dinle: uzun kelimede tek harf → fast');
+  eq(Gr.pruef(dn1, 'Ich bin müde, weil ich gestern lange gearbeitet hab').urteil, 'falsch', 'dinle: hab/habe çekim → falsch');
+  eq(Gr.pruef(dn1, 'Ich bin müde, weil ich habe gestern lange gearbeitet').urteil, 'falsch', 'dinle: kelime sırası → falsch');
+  // sınıflandırma ve set seçimi
+  eq(['ceviri', 'text', 'dinle', 'umform', 'ordnen', 'fehler'].every(t => Gr.yazarak({ tur: t })), true, 'yazarak türler');
+  eq(['eslestir', 'kategori', 'wahl'].some(t => Gr.yazarak({ tur: t })) || Gr.yazarak({ tur: 'luecke', opt: ['a', 'b'] }), false, 'seçmeli türler');
+  durum.gram = { konu: { 'weil-dass': { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 1 } }, ghost: {} };
+  let ihlal = 0, dinleVar = false;
+  for (let i = 0; i < 300; i++) {
+    const set = Gr.tekrarSeti('weil-dass'), turler = set.map(u => u.tur);
+    if (new Set(turler).size !== turler.length || !set.some(Gr.yazarak) || turler.filter(t => t === 'eslestir' || t === 'kategori').length > 1) ihlal++;
+    if (turler.includes('dinle')) dinleVar = true;
+    const gs = Gr.girisSeti('weil-dass');
+    if (gs.filter(u => u.tur === 'eslestir' || u.tur === 'kategori').length > 1) ihlal++;
+  }
+  eq(ihlal, 0, 'tekrar / giriş seti: farklı türler, en az biri yazarak, eslestir + kategori ≤ 1');
+  eq(dinleVar, false, 'ses yoksa dinle seçilmez');
+  // build denetimi (quellen/grammatik/pruef_grammatik.py): geçerli dosya + hatalı satırlar
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gr-')), dosya = path.join(dir, 'test-konu.txt');
+  const KOPF = '@id test-konu\n@titel Test\n@tr Test\n@stufe B1\n@goethe 1 | Lesen\n@kurz kısa\n@erklaerung\nmetin\n@ende\n@teil a | A | bağlaç\n@teil b | B | bağlaç\n';
+  const pruefe = satirlar => { fs.writeFileSync(dosya, KOPF + satirlar.join('\n') + '\n'); const r = cp.spawnSync('python3', ['-I', ROOT + '/quellen/grammatik/pruef_grammatik.py', dosya, ROOT], { encoding: 'utf8' }); return { kod: r.status, cikti: r.stdout + r.stderr }; };
+  const iyi = [
+    '@teil a',
+    'ceviri | 2 | Hastayım. | Ich bin krank. | | - | açıklama | ',
+    'text | 2 | Ich ___ (sein) krank, weil ich Fieber ___ (haben). | bin ; habe | | Hastayım. | açıklama | ',
+    'eslestir | 1 | a ;; b ;; c | x ;; y ;; z | | - | açıklama | ',
+    'kategori | 1 | Dativ oder Akkusativ? | Dativ: mit, bei ;; Akkusativ: für, ohne | | - | açıklama | ',
+    'dinle | 2 | Ich bin krank. | Ich bin krank. | | Hastayım. | açıklama | ',
+  ];
+  let r0 = pruefe(iyi);
+  eq(r0.kod, 0, 'denetim: geçerli dosya (' + r0.cikti.split('\n').filter(x => x.startsWith('HATA')).join(' / ') + ')');
+  const hata = (satir, beklenen, m) => { const r = pruefe(['@teil b', satir]); eq(r.kod === 1 && r.cikti.includes(beklenen), true, 'denetim: ' + m + ' → ' + r.cikti.split('\n').filter(x => x.startsWith('HATA')).join(' / ')); };
+  hata('text | 2 | Ich ___ krank. | bin ; habe | | - | a | ', "1 boşluk ama cevapta 2 parça", 'text boşluk ≠ parça');
+  hata('eslestir | 1 | a ;; b ;; c | x ;; y | | - | a | ', 'sol 3, sağ 2', 'eslestir sol ≠ sağ');
+  hata('eslestir | 1 | a ;; b | x ;; y | | - | a | ', '3–5 eş', 'eslestir 2 eş');
+  hata('kategori | 1 | ? | Dativ: mit, bei, aus | | - | a | ', '2–3 grup', 'kategori tek grup');
+  hata('kategori | 1 | ? | Dativ: mit, bei ;; Akkusativ: mit, für | | - | a | ', 'aynı öğe iki kez', 'kategori öğe tekrarı');
+  hata('kategori | 1 | ? | Dativ: mit ;; Akkusativ: | | - | a | ', 'en az 1 öğesi', 'kategori boş grup');
+  hata('ceviri | 2 | Hastayım. |  | | - | a | ', 'boş olamaz', 'ceviri boş cevap');
+  hata('dinle | 2 | Ich bin krank. | Du bist krank. | | - | a | ', 'cevaplardan biri', 'dinle soru ≠ cevap');
+  hata('ceviri | 2 | Hastayım. | Ich bin krank. | x | - | a | ', '5. alan boş', 'ceviri 5. alan dolu');
+  const r1 = pruefe(['@teil yok', 'ceviri | 2 | Hastayım. | Ich bin krank. | | - | a | ']);
+  eq(r1.kod === 1 && r1.cikti.includes('tanımsız'), true, 'denetim: tanımsız teil yeniden açılamaz');
+  fs.rmSync(dir, { recursive: true, force: true });
+}
+
 // FSRS
 let c = FSRS.review({}, 3, 0);
 eq(Math.round(c.S * 100) / 100, 2.31, 'S0 good');

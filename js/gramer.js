@@ -7,7 +7,9 @@
   const GR = root.GRAMMATIK || {};
   let api = null, S = null;
   const DAY = 86400000;
-  const TUR_AD = { luecke: 'boşluk', wahl: 'seçmeli', ordnen: 'cümle diz', fehler: 'hatayı bul', umform: 'dönüştür' };
+  const TUR_AD = { luecke: 'boşluk', wahl: 'seçmeli', ordnen: 'cümle diz', fehler: 'hatayı bul', umform: 'dönüştür', ceviri: 'çeviri', text: 'metin', eslestir: 'eşleştir', kategori: 'grupla', dinle: 'dinle-yaz' };
+  // eslestir / kategori seçmeli sayılır; bir sette bunlardan en çok 1
+  const SECMELI_EK = new Set(['eslestir', 'kategori']);
   const UMFORM_TR = [[/^(weil|dass|obwohl|wenn|als|damit|ob|nachdem|bevor|während|seit|bis|so dass|falls|trotzdem|deshalb|denn)$/i, h => `„${h}“ ile birleştir`],
     [/^um … zu$|^um \.\.\. zu$/i, () => '„um … zu“ ile birleştir'], [/^Passiv$/i, () => 'Passiv yap'], [/^Perfekt$/i, () => 'Perfekt yap'], [/^Präteritum$/i, () => 'Präteritum yap'],
     [/^Plusquamperfekt$/i, () => 'Plusquamperfekt yap'], [/^Futur( I)?$/i, () => 'Futur I yap'], [/^indirekt$/i, () => 'dolaylı soru yap (Können Sie mir sagen, …?)'],
@@ -37,9 +39,13 @@
   const buHafta = () => Object.values(st().konu).filter(k => k.acildi && now() - k.acildi < 7 * DAY).length;
 
   // ---------- alıştırma seçimi ----------
-  const uebungen = id => (GR[id].uebungen || []).filter(u => !u.aus && u.teil);
+  const sesVar = () => typeof root.speechSynthesis !== 'undefined';
+  const uebungen = id => (GR[id].uebungen || []).filter(u => !u.aus && u.teil && (u.tur !== 'dinle' || sesVar()));
   const teilBasari = (id, kod) => { const t = konuSt(id).teil[kod] || { d: 0, y: 0 }; return (t.d + 1) / (t.d + t.y + 2); };
-  const yazarak = u => u.tur === 'umform' || u.tur === 'ordnen' || (u.tur === 'luecke' && !u.opt) || u.tur === 'fehler';
+  // yazarak üretilen türler (hayalette 'fast' da açılır; tekrar setinde en az biri)
+  const YAZARAK = new Set(['umform', 'ordnen', 'fehler', 'ceviri', 'text', 'dinle']);
+  const yazarak = u => YAZARAK.has(u.tur) || (u.tur === 'luecke' && !u.opt);
+  const ekSecmeliVar = turler => [...turler].some(t => SECMELI_EK.has(t));
   function secUebung(id, aday, kullanilan) {
     const g = konuSt(id).gesehen;
     const c = aday.filter(u => !kullanilan.has(u.n));
@@ -52,12 +58,14 @@
   function girisSeti(id) {
     const all = uebungen(id), out = [], used = new Set(), teils = new Set();
     [1, 1, 2, 2, 3].forEach(z => {
-      let aday = all.filter(u => u.z === z && !teils.has(u.teil)); if (!aday.length) aday = all.filter(u => u.z === z); if (!aday.length) aday = all;
+      const ekOk = u => !(SECMELI_EK.has(u.tur) && ekSecmeliVar(out.map(x => x.tur)));
+      let aday = all.filter(u => u.z === z && !teils.has(u.teil) && ekOk(u)); if (!aday.length) aday = all.filter(u => u.z === z && ekOk(u)); if (!aday.length) aday = all.filter(ekOk); if (!aday.length) aday = all;
       const u = secUebung(id, aday, used); if (u) { out.push(u); used.add(u.n); teils.add(u.teil); }
     });
     return out;
   }
-  // tekrar seti: 3 alıştırma — en zayıf teil, en eski teil, rastgele; zorluk kararlılığa göre; üç farklı tür, en az biri yazarak, wahl en çok 1
+  // tekrar seti: 3 alıştırma — en zayıf teil, en eski teil, rastgele; zorluk kararlılığa göre; üç farklı tür, en az biri yazarak
+  // (ceviri / dinle / text / umform / ordnen / fehler / seçeneksiz luecke), eslestir + kategori en çok 1
   function tekrarSeti(id) {
     const all = uebungen(id), ks = konuSt(id), Sg = kararlilik(id);
     const teile = Object.keys(GR[id].teile || {}).filter(k => all.some(u => u.teil === k));
@@ -69,11 +77,17 @@
     const zorluk = Sg < 4 ? [[1, 2], [2], [1, 2]] : Sg < 21 ? [[2, 3], [3], [2, 3]] : [[3], [3], [2, 3]];
     const out = [], used = new Set(), turler = new Set();
     [zayif, eski, rast].filter(Boolean).forEach((kod, i) => {
-      let aday = all.filter(u => u.teil === kod && zorluk[i].includes(u.z) && !turler.has(u.tur) && !(u.tur === 'wahl' && turler.has('wahl')));
-      if (!aday.length) aday = all.filter(u => u.teil === kod && !turler.has(u.tur)); if (!aday.length) aday = all.filter(u => u.teil === kod); if (!aday.length) aday = all;
+      const ekOk = u => !(SECMELI_EK.has(u.tur) && ekSecmeliVar(turler));
+      let aday = all.filter(u => u.teil === kod && zorluk[i].includes(u.z) && !turler.has(u.tur) && ekOk(u));
+      if (!aday.length) aday = all.filter(u => u.teil === kod && !turler.has(u.tur) && ekOk(u));
+      if (!aday.length) aday = all.filter(u => !turler.has(u.tur) && ekOk(u) && !used.has(u.n));   // tür farkı teil'den önce gelir
+      if (!aday.length) aday = all.filter(u => u.teil === kod && ekOk(u)); if (!aday.length) aday = all.filter(u => u.teil === kod); if (!aday.length) aday = all;
       const u = secUebung(id, aday, used); if (u) { out.push(u); used.add(u.n); turler.add(u.tur); }
     });
-    if (out.length && !out.some(yazarak)) { const y = secUebung(id, all.filter(u => yazarak(u) && !used.has(u.n)), used); if (y) out[out.length - 1] = y; }
+    if (out.length && !out.some(yazarak)) {
+      const diger = new Set(out.slice(0, -1).map(u => u.tur)), yz = all.filter(u => yazarak(u) && !used.has(u.n));
+      const y = secUebung(id, yz.filter(u => !diger.has(u.tur)).length ? yz.filter(u => !diger.has(u.tur)) : yz, used); if (y) out[out.length - 1] = y;
+    }
     return out;
   }
   function ghostUebung(id, kod, ausser) {
@@ -97,10 +111,74 @@
     for (const h of hedefler) { if (fold(u) === fold(norm(h))) return 'fast'; }
     return 'falsch';
   }
+  const Gx = () => (api && api.G) || root.G;
   function cumlePruef(giris, alts) {
-    const r = api.G.pruefen(giris, alts[0], alts.slice(1));
+    const r = Gx().pruefen(giris, alts[0], alts.slice(1));
     return { urteil: r.urteil, tags: r.tags || [], diff: r.diff };
   }
+  function lev(a, b) {
+    const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+    for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return d[a.length][b.length];
+  }
+  // dinle: noktalama ve büyük/küçük harf yok sayılır; umlaut/ß yazımı ya da uzun kelimede (≥ 5 harf, son iki harf aynı = çekim değil) tek harf → fast
+  const dinleNorm = s => String(s || '').replace(/[.,!?;:„“”"«»–]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  function dinlePruef(giris, alts) {
+    const u = dinleNorm(giris), hs = alts.map(dinleNorm);
+    if (hs.includes(u)) return { urteil: 'richtig', tags: [] };
+    for (const h of hs) if (fold(u).replace(/\s+/g, ' ') === fold(h).replace(/\s+/g, ' ')) return { urteil: 'fast', tags: ['umlaut/ß'] };
+    const ut = u.split(' ');
+    for (const h of hs) {
+      const ht = h.split(' ');
+      if (ht.length !== ut.length) continue;
+      const fark = ht.map((t, i) => [ut[i], t]).filter(([x, t]) => x !== t);
+      if (fark.length === 1) { const [x, t] = fark[0]; if (t.length >= 5 && lev(x, t) === 1 && x.slice(-2) === t.slice(-2)) return { urteil: 'fast', tags: ['yazım'] }; }
+    }
+    const r = Gx().pruefen(u, hs[0], hs.slice(1));
+    const tags = (r.tags || []).filter(t => t !== 'yazım' && t !== 'groß/klein');
+    return { urteil: 'falsch', tags: tags.length ? tags : ['farklı'] };
+  }
+  // tek giriş noktası (DOM'suz; testten çağrılır). giris türüne göre:
+  // wahl / seçenekli luecke: seçilen metin · luecke / text: boşluk girişleri dizisi · ordnen / umform / ceviri / dinle: cümle
+  // eslestir: dizi, giris[i] = sol i'ye eşlenen sağ öğenin dosyadaki sırası (null = eşlenmedi) · kategori: { öğe: grup sırası }
+  function pruef(u, giris) {
+    const T = u.tur;
+    if (T === 'wahl' || (T === 'luecke' && u.opt)) return { urteil: u.cevap.includes(giris) ? 'richtig' : 'falsch', tags: [], antwort: String(giris == null ? '' : giris) };
+    if (T === 'luecke' || T === 'text') {
+      const parcalar = (giris || []).map(x => (x == null ? '' : String(x)).trim());
+      const hedef = T === 'text' ? u.parcalar : parcalar.map((_, i) => u.cevap.map(c => c.split(' ; ')[i] || ''));
+      const detay = parcalar.map((p, i) => parcaPruef(p, hedef[i] || []));
+      const n = (hedef || []).length || 1;
+      const urteil = detay.length === n && detay.every(x => x === 'richtig') ? 'richtig'
+        : T === 'luecke' ? (detay.every(x => x !== 'falsch') ? 'fast' : 'falsch')
+        : detay.filter(x => x !== 'falsch').length / n >= 0.5 ? 'fast' : 'falsch';
+      return { urteil, tags: [], antwort: parcalar.join(' ; '), detay };
+    }
+    if (T === 'ordnen' || T === 'umform' || T === 'ceviri') {
+      const antwort = String(giris || ''), r = cumlePruef(antwort, u.cevap);
+      if (T === 'ordnen' && r.urteil === 'fast' && r.tags.every(t => t === 'groß/klein')) r.urteil = 'richtig';
+      return { urteil: r.urteil, tags: r.tags, antwort };
+    }
+    if (T === 'dinle') { const r = dinlePruef(giris, u.cevap); return { urteil: r.urteil, tags: r.tags, antwort: String(giris || '') }; }
+    if (T === 'eslestir') {
+      const g = giris || [], detay = u.sol.map((_, i) => g[i] === i), yanlis = detay.filter(x => !x).length;
+      // bir karışıklık (iki eşin yer değiştirmesi = 2 yanlış eş) küçük hata
+      return { urteil: yanlis === 0 ? 'richtig' : yanlis <= 2 ? 'fast' : 'falsch', tags: [], detay,
+        antwort: u.sol.map((s, i) => `${s} → ${g[i] != null && u.sag[g[i]] != null ? u.sag[g[i]] : '—'}`).join(' ;; ') };
+    }
+    if (T === 'kategori') {
+      const g = giris || {}, hepsi = u.gruplar.flatMap((gr, gi) => gr.oge.map(o => ({ o, gi })));
+      const yanlis = hepsi.filter(x => g[x.o] !== x.gi).length;
+      return { urteil: yanlis === 0 ? 'richtig' : yanlis === 1 ? 'fast' : 'falsch', tags: [], detay: hepsi.map(x => g[x.o] === x.gi),
+        antwort: u.gruplar.map((gr, gi) => `${gr.ad}: ${hepsi.filter(x => g[x.o] === gi).map(x => x.o).join(', ')}`).join(' ;; ') };
+    }
+    return { urteil: 'falsch', tags: [], antwort: String(giris || '') };
+  }
+  // log'daki loesung: antwort ile aynı biçimde
+  const loesung = u => u.tur === 'eslestir' ? u.sol.map((s, i) => `${s} → ${u.sag[i]}`).join(' ;; ') : u.cevap[0];
+  // text: boşlukları doldurulmuş düz metin (ses ve düzeltme için)
+  const textDolu = (u, f) => { let i = 0; return u.soru.replace(/___(\s*\([^)]*\))?/g, () => f(u.parcalar[i++] || [''])); };
 
   // ---------- oturum ----------
   let ses = null;  // { ekran: 'liste'|'tanit'|'ueb', id, set: [...], i, art: 'giris'|'tekrar'|'ghost'|'kontrast', erg: [], q }
@@ -167,7 +245,9 @@
     if (!ses.q || ses.q.n !== u.n || ses.q.id !== ses.id) ses.q = { n: u.n, id: ses.id, start: now(), ipucu: false, secim: [], adim: 1, done: false, ok: null };
     const q = ses.q, teil = (g.teile || {})[u.teil] || { name: u.teil };
     const ust = `<div class="tur"><span class="yeni">gramer · ${esc(TUR_AD[u.tur] || u.tur)}</span><span>${esc(g.kopf.titel)} · ${esc(teil.name)} · ${ses.i + 1}/${ses.set.length}${ses.art === 'ghost' ? ' · hayalet' : ''}</span></div>`;
-    const ipucu = u.z === 1 || q.ipucu ? `<div class="soluk g-tr">${esc(u.tr)}</div>` : `<div class="soluk"><button class="btn mini" data-g="ipucu" type="button">Türkçesi (ipucu)</button></div>`;
+    const trVar = u.tr && u.tr !== '-';
+    const ipucu = !trVar ? '' : u.z === 1 || q.ipucu ? `<div class="soluk g-tr">${esc(u.tr)}</div>` : `<div class="soluk"><button class="btn mini" data-g="ipucu" type="button">Türkçesi (ipucu)</button></div>`;
+    const hover = api.odakla && api.odakla();
     const woerter = (u.woerter || []).filter(w => api.kelimeAnlam && !api.kelimeGesehen(w)).map(w => `<span class="chip" title="${esc(api.kelimeAnlam(w) || '')}">${esc(w)}${api.kelimeAnlam(w) ? ' = ' + esc(api.kelimeAnlam(w)) : ''}</span>`).join('');
     let govde = '';
     if (u.tur === 'wahl' || (u.tur === 'luecke' && u.opt)) {
@@ -193,28 +273,52 @@
     } else if (u.tur === 'umform') {
       const [kaynak, hedef] = u.soru.split(' → ');
       govde = `<div class="soru g-soru">${de(kaynak)}</div><div class="kural">${esc(umformYonerge((hedef || '').trim()))}</div>${ipucu}<div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="yeni cümle"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button><button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button></div>`;
+    } else if (u.tur === 'ceviri') {
+      govde = `<div class="soluk g-yonerge">Almancası</div><div class="soru g-soru g-ceviri">${esc(u.soru)}</div>${ipucu}<div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Almanca cümle" lang="de"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button><button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button></div>`;
+    } else if (u.tur === 'text') {
+      let i = 0;
+      const html = esc(u.soru).replace(/___(\s*\(([^)]*)\))?/g, (m, p, ip) => { const k = i++; return `<span class="g-bos"><input class="g-inp" data-i="${k}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" lang="de" aria-label="boşluk ${k + 1}">${ip ? `<span class="g-ip">(${ip})</span>` : ''}</span>`; });
+      govde = `<div class="soluk g-yonerge">Metindeki boşlukları doldur</div><div class="soru g-soru g-luecke g-text">${html}</div>${ipucu}<div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button><button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button></div>`;
+    } else if (u.tur === 'eslestir') {
+      if (!q.sagSira) { q.sagSira = karistir(u.sag.map((_, j) => j)); q.es = {}; q.solSec = 0; }
+      const solOf = j => { const k = Object.keys(q.es).find(i => q.es[i] === j); return k == null ? null : +k; };
+      const tam = Object.keys(q.es).length === u.sol.length;
+      const sol = u.sol.map((t, i) => `<button class="g-es g-es-sol${q.solSec === i && !tam ? ' secili' : ''}${q.es[i] != null ? ' eslendi' : ''}" data-g="es-sol" data-i="${i}" type="button"><span class="g-no">${i + 1}</span><span class="g-es-t">${de(t)}</span></button>`).join('');
+      const sag = q.sagSira.map((j, k) => { const s0 = solOf(j); return `<button class="g-es g-es-sag${s0 != null ? ' eslendi' : ''}" data-g="es-sag" data-j="${j}" type="button">${s0 != null ? `<span class="g-no">${s0 + 1}</span>` : hover ? `<kbd class="g-kbd">${k + 1}</kbd>` : ''}<span class="g-es-t">${de(u.sag[j])}</span></button>`; }).join('');
+      govde = `<div class="soru g-soru">Eşleştir</div><p class="aciklama">Soldakine, sonra sağdaki eşine dokun. Eşi bozmak için yeniden dokun.</p>${ipucu}<div class="g-esle"><div class="g-kol">${sol}</div><div class="g-kol">${sag}</div></div>
+        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${tam ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button></div>`;
+    } else if (u.tur === 'kategori') {
+      if (!q.ogeler) { q.ogeler = karistir(u.gruplar.flatMap((g2, gi) => g2.oge.map(o => ({ o, gi })))); q.kat = {}; }
+      const aktif = q.ogeler.findIndex((_, k) => q.kat[k] == null);
+      const rows = q.ogeler.map((x, k) => `<div class="g-kat-oge${q.kat[k] != null ? ' atandi' : ''}${aktif === k ? ' aktif' : ''}" data-k="${k}"><span class="g-kat-ad">${de(x.o)}</span><span class="g-kat-btns">${u.gruplar.map((g2, gi) => `<button class="btn mini g-kat-btn${q.kat[k] === gi ? ' an' : ''}" data-g="kat" data-k="${k}" data-gi="${gi}" type="button">${hover && aktif === k ? `<kbd>${gi + 1}</kbd> ` : ''}${esc(g2.ad)}</button>`).join('')}</span></div>`).join('');
+      govde = `<div class="soru g-soru">${de(u.soru)}</div>${ipucu}<div class="g-kat">${rows}</div>
+        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${aktif === -1 ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button></div>`;
+    } else if (u.tur === 'dinle') {
+      govde = `<div class="soluk g-yonerge">Dinle, duyduğun cümleyi yaz</div><div class="sira g-dinle"><button class="btn buyuk ana" data-g="dinle" type="button">🔊 Dinle</button><button class="btn mini" data-g="dinle" data-hiz="yavas" type="button">🐢 yavaş</button></div>${ipucu}
+        <div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="duyduğun cümle" lang="de"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button><button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button></div>`;
+      // ilk gösterimde bir kez kendiliğinden oku (tarayıcı izni: kullanıcı sayfaya dokunduysa)
+      if (!q.caldi && root.navigator && root.navigator.userActivation && root.navigator.userActivation.hasBeenActive) { q.caldi = true; api.later(() => { if (ses && ses.q === q && !q.done) api.sprich(u.soru); }, 250); }
     }
     el().innerHTML = ust + govde + (woerter ? `<div class="soluk g-woerter">kelimeler: ${woerter}</div>` : '') + '<div id="g-sonuc"></div>';
     api.tastatur && api.tastatur();
     const inp = el().querySelector('.g-inp'); if (inp && api.odakla()) inp.focus();
   }
   // ---- değerlendirme ----
+  // ekrandan / oturumdan türün girişini topla (pruef'in beklediği biçimde)
+  function girisTopla(u, q, giris) {
+    if ((u.tur === 'luecke' && !u.opt) || u.tur === 'text') return Array.from(el().querySelectorAll('.g-inp')).map(i => i.value);
+    if (u.tur === 'ordnen') return q.secim.map(i => q.parcalar[i]).join(' ');
+    if (u.tur === 'eslestir') return u.sol.map((_, i) => (q.es && q.es[i] != null ? q.es[i] : null));
+    if (u.tur === 'kategori') { const o = {}; (q.ogeler || []).forEach((x, k) => { if (q.kat[k] != null) o[x.o] = q.kat[k]; }); return o; }
+    return giris;
+  }
   function cevapla(giris, bilmiyorum) {
     const q = ses.q, u = ses.set[ses.i], g = GR[ses.id];
     if (q.done) return;
     let urteil = 'falsch', tags = [], antwort = giris == null ? '' : String(giris);
-    if (bilmiyorum) { tags = ['bilmiyorum']; }
-    else if (u.tur === 'wahl' || (u.tur === 'luecke' && u.opt)) urteil = u.cevap.some(c => c === antwort) ? 'richtig' : 'falsch';
-    else if (u.tur === 'luecke') {
-      const parcalar = Array.from(el().querySelectorAll('.g-inp')).map(i => i.value);
-      antwort = parcalar.join(' ; ');
-      const sonuc = parcalar.map((p, i) => parcaPruef(p, u.cevap.map(c => c.split(' ; ')[i] || '')));
-      urteil = sonuc.every(x => x === 'richtig') ? 'richtig' : sonuc.every(x => x !== 'falsch') ? 'fast' : 'falsch';
-    } else if (u.tur === 'ordnen') {
-      antwort = q.secim.map(i => q.parcalar[i]).join(' ');
-      const r = cumlePruef(antwort, u.cevap); urteil = r.urteil; tags = r.tags;
-      if (urteil === 'fast' && tags.every(t => t === 'groß/klein')) urteil = 'richtig';
-    } else if (u.tur === 'fehler') {
+    q.detay = null;
+    if (bilmiyorum) { tags = ['bilmiyorum']; antwort = ''; }
+    else if (u.tur === 'fehler') {
       if (q.adim === 1) {
         const hataVar = u.hata && u.hata !== '-';
         const tok = q.tok != null ? u.soru.split(/(\s+)/)[q.tok] : null;
@@ -224,21 +328,29 @@
         if (ok && hataVar && u.z >= 3) { q.adim = 2; q.tok1 = tok; return renderUebung(); }   // z3: doğrusunu da yaz
         urteil = ok ? 'richtig' : 'falsch'; if (!ok) tags = [ (g.teile[u.teil] || {}).etiket || g.kopf.etiket || 'dilbilgisi' ];
       } else { const r = cumlePruef(antwort, u.cevap); urteil = r.urteil; tags = r.tags; antwort = (q.tok1 || '') + ' → ' + antwort; }
-    } else if (u.tur === 'umform') { const r = cumlePruef(antwort, u.cevap); urteil = r.urteil; tags = r.tags; }
+    } else { const r = pruef(u, girisTopla(u, q, antwort)); urteil = r.urteil; tags = r.tags; antwort = r.antwort; q.detay = r.detay || null; }
     q.done = true; q.urteil = urteil; q.antwort = antwort; q.tags = tags; q.sek = Math.round((now() - q.start) / 1000);
     q.oneri = urteil === 'richtig' ? 3 : urteil === 'fast' ? 2 : 1;
-    const serbest = (u.tur === 'umform' || u.tur === 'ordnen') && urteil !== 'richtig';   // alternatif sıralama olabilir: kendi notunu verebilir
+    const serbest = (u.tur === 'umform' || u.tur === 'ordnen' || u.tur === 'ceviri') && urteil !== 'richtig';   // alternatif sıralama / çeviri olabilir: kendi notunu verebilir
     const baslik = { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[urteil];
     el().querySelectorAll('.mc-opt').forEach(b => { b.disabled = true; if (u.cevap.includes(b.dataset.v)) b.classList.add('dogru'); else if (b.dataset.v === antwort) b.classList.add('yanlis'); });
-    el().querySelectorAll('.g-inp').forEach(i => { i.readOnly = true; });
+    el().querySelectorAll('.g-inp').forEach((inp, i) => { inp.readOnly = true; if (q.detay && !bilmiyorum && typeof q.detay[i] === 'string') inp.classList.add(q.detay[i] === 'richtig' ? 'dogru' : q.detay[i] === 'fast' ? 'yakin' : 'yanlis'); });
+    if (u.tur === 'eslestir') el().querySelectorAll('.g-es').forEach(b => { b.disabled = true; if (b.dataset.i != null && q.detay) b.classList.add(q.detay[+b.dataset.i] ? 'dogru' : 'yanlis'); });
+    if (u.tur === 'kategori') el().querySelectorAll('.g-kat-oge').forEach(r => { const x = q.ogeler[+r.dataset.k]; r.classList.add(q.kat[+r.dataset.k] === x.gi ? 'dogru' : 'yanlis'); r.querySelectorAll('button').forEach(b => { b.disabled = true; if (+b.dataset.gi === x.gi) b.classList.add('hedef'); }); });
     const dogru = u.tur === 'fehler' && q.adim === 1 ? (u.hata === '-' ? 'Cümle doğru: ' + u.soru : `${u.hata} → ${u.cevap[0]}`) : u.cevap[0];
+    const dogruHTML = u.tur === 'text' ? (() => { let i = 0; const seg = u.soru.split(/___(?:\s*\([^)]*\))?/); return seg.map((x, k) => de(x) + (k < seg.length - 1 ? `<b>${esc((u.parcalar[i++] || [''])[0])}</b>` : '')).join(''); })() : null;
     const alt = u.cevap.length > 1 && !(u.tur === 'fehler' && q.adim === 1) ? `<div class="soluk">başka doğru: ${u.cevap.slice(1).map(de).join(' · ')}</div>` : '';
+    const sesMetin = u.tur === 'text' ? textDolu(u, p => p[0]) : SECMELI_EK.has(u.tur) ? '' : u.cevap[0];
+    const dogruGoster = u.tur === 'text' ? dogruHTML
+      : u.tur === 'eslestir' ? u.sol.map((s0, i) => `${de(s0)} → <b>${de(u.sag[i])}</b>`).join('<br>')
+      : u.tur === 'kategori' ? u.gruplar.map(g2 => `<b>${esc(g2.ad)}</b>: ${g2.oge.map(de).join(', ')}`).join('<br>')
+      : de(dogru);
     el().querySelector('#g-sonuc').innerHTML = `<div class="sonuc ${urteil}"><div class="baslik">${baslik}${tags.length ? `<span class="etiketler">${tags.map(t => `<span class="etiket">${esc(t)}</span>`).join('')}</span>` : ''}</div>
-      ${urteil !== 'richtig' ? `<div class="satir"><span class="et">senin</span><span class="deger fark">${esc(antwort) || '—'}</span></div>` : ''}
-      <div class="satir"><span class="et">doğru</span><span class="deger">${de(dogru)} <button class="ses-mini" data-g="ses" data-metin="${esc(u.tur === 'fehler' && q.adim === 1 ? u.cevap[0] : u.cevap[0])}" type="button" aria-label="dinle">🔊</button></span></div>${alt}
+      ${urteil !== 'richtig' ? `<div class="satir"><span class="et">senin</span><span class="deger fark">${esc(antwort).replace(/ ;; /g, '<br>') || '—'}</span></div>` : ''}
+      <div class="satir"><span class="et">doğru</span><span class="deger">${dogruGoster}${sesMetin ? ` <button class="ses-mini" data-g="ses" data-metin="${esc(sesMetin)}" type="button" aria-label="dinle">🔊</button>` : ''}</span></div>${alt}
       <div class="satir"><span class="et">neden</span><span class="deger">${de(u.aciklama)}</span></div>
       ${urteil === 'falsch' ? `<div class="kural">${de(g.kopf.kurz)}</div>` : ''}
-      ${!(u.z === 1 || q.ipucu) ? `<div class="soluk">${esc(u.tr)}</div>` : ''}
+      ${!(u.z === 1 || q.ipucu) && u.tr && u.tr !== '-' ? `<div class="soluk">${esc(u.tr)}</div>` : ''}
       ${serbest ? `<div class="notlar"><button class="btn ana devam-btn" data-g="not" data-n="${q.oneri}" type="button">Devam <kbd>Enter</kbd></button>${[1, 2, 3].filter(n => n !== q.oneri).map(n => `<button class="btn mini n${n}" data-g="not" data-n="${n}" type="button"><kbd>${n}</kbd> ${['', 'yanlış say', 'küçük hata say', 'aslında doğru'][n]}</button>`).join('')}</div>`
         : `<button class="btn ana devam-btn${urteil === 'richtig' ? ' otomatik' : ''}" data-g="not" data-n="${q.oneri}" type="button">${urteil === 'richtig' ? '<span class="dolum" style="animation-duration:1.4s"></span>' : ''}Devam <kbd>Enter</kbd></button>`}</div>`;
     api.fx && api.fx(urteil);
@@ -259,13 +371,13 @@
       const h = gh[key];
       if (h) { if (n === 3) { h.dogru = (h.dogru || 0) + 1; if (h.dogru >= 2) delete gh[key]; else { h.adim = Math.min(3, h.adim + 1); h.due = now() + (h.adim === 2 ? DAY : 3 * DAY); } }
         else { h.dogru = 0; h.deneme = (h.deneme || 0) + 1; h.adim = 1; h.due = now() + 5 * 60000; h.q = api.soruSayisi(); if (h.deneme >= 4) { api.leech && api.leech('g:' + key, g.kopf.titel + ' / ' + ((g.teile[u.teil] || {}).name || u.teil)); delete gh[key]; } } }
-    } else if (n === 1 || (n === 2 && yazarak(u))) {
+    } else if (ses.art !== 'deneme' && (n === 1 || (n === 2 && yazarak(u)))) {
       if (!gh[key]) { if (Object.keys(gh).length >= 6) { const eski = Object.keys(gh).sort((a, b) => gh[a].due - gh[b].due)[0]; delete gh[eski]; }
         gh[key] = { adim: 1, due: now() + 5 * 60000, q: api.soruSayisi(), son: u.n, dogru: 0, deneme: 0 }; }
     }
     const notiz = [`tür:${u.tur}`, `z:${u.z}`].concat(n !== 3 && (g.teile[u.teil] || {}).etiket ? [(g.teile[u.teil] || {}).etiket] : [], q.tags.filter(x => x !== 'bilmiyorum' && x !== (g.teile[u.teil] || {}).etiket), q.tags.includes('bilmiyorum') ? ['bilmiyorum'] : [],
       ses.art === 'ghost' ? ['ghost:' + ((gh[key] || {}).adim || 0)] : [], q.ipucu ? ['ipucu:1'] : [], q.oneri !== n ? [`öneri:${['', 'falsch', 'fast', 'richtig'][q.oneri]}`] : [], [`sek:${q.sek}`]);
-    api.logEintrag({ modus: 'gram', id: `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: u.cevap[0], notiz: notiz.join(' | ') });
+    api.logEintrag({ modus: 'gram', id: `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: notiz.join(' | ') });
     api.heuteM('gram').n++; api.heuteM('gram')[urteil] = (api.heuteM('gram')[urteil] || 0) + 1;
     api.xpEkle(n === 3 ? (u.z >= 3 ? 15 : 10) : n === 2 ? 5 : 0);
     api.sayac && api.sayac(urteil);
@@ -277,7 +389,7 @@
     const g = GR[ses.id], ks = konuSt(ses.id), t = now();
     const puan = ses.erg.reduce((a, e) => a + (e.not === 3 ? 1 : e.not === 2 ? 0.5 : 0), 0), n = ses.erg.length;
     const oran = n ? puan / n : 0;
-    const setNot = ses.art === 'ghost' ? null : oran >= 0.8 ? 3 : oran >= 0.5 ? 2 : 1;
+    const setNot = ses.art === 'ghost' || ses.art === 'deneme' ? null : oran >= 0.8 ? 3 : oran >= 0.5 ? 2 : 1;
     if (setNot) {
       const alt = ks.karte && ks.karte.S ? ks.karte : {};
       ks.karte = api.FSRS.review(alt, setNot, t, api.ret());
@@ -328,16 +440,38 @@
     else if (a === 'geri-son') { ses.q.secim.pop(); renderUebung(); }
     else if (a === 'tok') { ses.q.tok = +b.dataset.i; cevapla('tok'); }
     else if (a === 'hata-yok') cevapla('-');
+    else if (a === 'dinle') { const u = ses.set[ses.i]; api.sprich(u.soru, b.dataset.hiz === 'yavas' ? 0.65 : 0.9); const i = el().querySelector('#cevap'); if (i && api.odakla()) i.focus(); }
+    else if (a === 'es-sol') esSol(+b.dataset.i);
+    else if (a === 'es-sag') esSag(+b.dataset.j);
+    else if (a === 'kat') { if (!ses.q.done) { ses.q.kat[+b.dataset.k] = +b.dataset.gi; renderUebung(); } }
     else if (a === 'not') notla(+b.dataset.n);
     else return false;
     return true;
+  }
+  // eslestir: sola dokun → seç (eşliyse eşi boz); sağa dokun → seçili solla eşle (eşliyse eşi boz). Sonraki eşsiz sol kendiliğinden seçilir.
+  const sonrakiSol = (u, q) => { const i = u.sol.findIndex((_, k) => q.es[k] == null); return i === -1 ? null : i; };
+  function esSol(i) {
+    const q = ses.q, u = ses.set[ses.i]; if (!q || q.done) return;
+    if (q.es[i] != null) delete q.es[i];
+    q.solSec = i; renderUebung();
+  }
+  function esSag(j) {
+    const q = ses.q, u = ses.set[ses.i]; if (!q || q.done) return;
+    const k = Object.keys(q.es).find(i => q.es[i] === j);
+    if (k != null) { delete q.es[k]; q.solSec = +k; return renderUebung(); }
+    if (q.solSec == null || q.es[q.solSec] != null) q.solSec = sonrakiSol(u, q);
+    if (q.solSec == null) return;
+    q.es[q.solSec] = j; q.solSec = sonrakiSol(u, q); renderUebung();
   }
   function kontrol() {
     const q = ses.q, u = ses.set[ses.i];
     if (!q || q.done) return;
     if (u.tur === 'ordnen') { if (q.secim.length === q.parcalar.length) cevapla(); return; }
+    if (u.tur === 'eslestir') { if (Object.keys(q.es || {}).length === u.sol.length) cevapla(); return; }
+    if (u.tur === 'kategori') { if (q.ogeler && q.ogeler.every((_, k) => q.kat[k] != null)) cevapla(); return; }
     const inp = el().querySelector('.g-tam') || el().querySelector('.g-inp');
-    if (u.tur === 'luecke') { if (Array.from(el().querySelectorAll('.g-inp')).some(i => i.value.trim())) cevapla(''); return; }
+    if (u.tur === 'luecke' || u.tur === 'text') { if (Array.from(el().querySelectorAll('.g-inp')).some(i => i.value.trim())) cevapla(''); return; }
+    if (u.tur === 'ceviri' || u.tur === 'dinle') { if (inp && inp.value.trim()) cevapla(inp.value.trim()); return; }
     if (inp) cevapla(inp.value.trim());
   }
   function tus(e) {
@@ -345,7 +479,23 @@
     if (e.key === 'Enter') {
       if (ses.ekran === 'tanit') { e.preventDefault(); klick({ target: el().querySelector('[data-g="giris-basla"], [data-g="liste"]') }); return true; }
       if (ses.ekran === 'son') { e.preventDefault(); const b = el().querySelector('.ts-btns .btn.ana'); if (b) klick({ target: b }); return true; }
-      if (ses.ekran === 'ueb') { e.preventDefault(); if (ses.q && ses.q.done) notla(ses.q.oneri); else kontrol(); return true; }
+      if (ses.ekran === 'ueb') {
+        e.preventDefault();
+        if (ses.q && ses.q.done) { notla(ses.q.oneri); return true; }
+        // text: odaktaki boşluktan sonra boş kutu varsa ona geç, yoksa kontrol
+        const u = ses.set[ses.i];
+        if (u && u.tur === 'text' && e.target && e.target.classList && e.target.classList.contains('g-inp')) {
+          const ins = Array.from(el().querySelectorAll('.g-inp')), i = ins.indexOf(e.target), bos = ins.slice(i + 1).find(x => !x.value.trim());
+          if (bos) { bos.focus(); return true; }
+        }
+        kontrol(); return true;
+      }
+    }
+    // eslestir: rakam = sağdaki sıradaki öğe (seçili sol ile eşle); kategori: rakam = sıradaki öğenin grubu
+    if (ses.ekran === 'ueb' && ses.q && !ses.q.done && /^[1-9]$/.test(e.key) && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) {
+      const u = ses.set[ses.i], q = ses.q, k = +e.key - 1;
+      if (u.tur === 'eslestir' && q.sagSira && k < q.sagSira.length) { esSag(q.sagSira[k]); return true; }
+      if (u.tur === 'kategori' && q.ogeler && k < u.gruplar.length) { const a = q.ogeler.findIndex((_, i) => q.kat[i] == null); if (a !== -1) { q.kat[a] = k; renderUebung(); } return true; }
     }
     if (ses.ekran === 'ueb' && ses.q && ses.q.done && /^[123]$/.test(e.key) && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { notla(+e.key); return true; }
     return false;
@@ -396,5 +546,7 @@
   const ozet = () => ({ due: Object.keys(GR).filter(vadeli).length, acik: Object.keys(GR).filter(acik).length, ghost: hayaletHazir().length, toplam: Object.keys(GR).length });
   function init(a) { api = a; S = api.S(); }
   function yenile() { S = api.S(); }
-  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik };
+  // test / önizleme: belirli alıştırmaları sırayla göster (FSRS'e ve hayalete yazmaz, log'a yazar)
+  function dene(id, nler) { const set = (nler || []).map(n => (GR[id].uebungen || []).find(u => u.n === n)).filter(Boolean); baslatSet(id, 'deneme', set); }
+  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik, pruef, yazarak, loesung, tekrarSeti: id => tekrarSeti(id), girisSeti: id => girisSeti(id), dene };
 })(window);
