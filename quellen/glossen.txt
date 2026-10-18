@@ -4088,3 +4088,15 @@ In unserer Gemeinschaft helfen sich alle gegenseitig. | helfen = yardım etmek; 
 Man sollte dem Opfer nicht die Schuld geben. | die Schuld = suç; geben = vermek; sollte = -meli
 Zwischen den beiden Wörtern gibt es einen großen Unterschied. | zwischen = arasında; das Wort = kelime
 Die Gesellschaft verändert sich schnell. | sich verändern = değişmek; schnell = hızlı
+Aus einer kleinen Idee ist ein großes Projekt entstanden. | die Idee = fikir; das Projekt = proje
+Wie ist dieses Problem eigentlich entstanden? | eigentlich = aslında
+Nach dem Unfall konnte er den Arm nicht mehr bewegen. | der Unfall = kaza; der Arm = kol
+Der Arzt hat festgestellt, dass ich zu wenig Vitamin D habe. | zu wenig = çok az
+Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. | der Schlüssel = anahtar; weg sein = kaybolmuş olmak
+Ehrlichkeit ist für mich ein wichtiger Wert. | die Ehrlichkeit = dürüstlük
+Die Eltern sind für die Erziehung ihrer Kinder verantwortlich. | verantwortlich für = -den sorumlu
+In einer Gemeinschaft braucht man Toleranz gegenüber anderen Meinungen. | die Gemeinschaft = topluluk; gegenüber = -e karşı; die Meinung = fikir
+Viele Menschen demonstrieren für mehr Gerechtigkeit. | demonstrieren = gösteri yapmak
+Die Gleichberechtigung von Frauen und Männern steht im Grundgesetz. | das Grundgesetz = (Alman) anayasası
+Nach dem Hochwasser haben die Nachbarn große Solidarität gezeigt. | das Hochwasser = sel, taşkın; der Nachbar = komşu; zeigen = göstermek
+Die Würde des Menschen ist unantastbar. | unantastbar = dokunulmaz

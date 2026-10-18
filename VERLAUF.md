@@ -261,3 +261,10 @@ Son incelenen log satırı: 2026-10-16 22:51:20 (tur akis).
 - En yeni DW metni (Schuluniform) zaten işlenmişti; metinden kalan B1 isimleri için 5 çeviri cümlesi + gloss: Alltag, Gemeinschaft, Opfer, Unterschied, Gesellschaft.
 - Build/test: `tools/build.py`, `test_grammatik`, `stichprobe 1` geçti.
 Son incelenen log satırı: 2026-10-17 13:01:46 (tur akis).
+
+**2026-10-18 (Tuna: bugünkü alıştırma + "günde 6–7 dk az değil mi?")**
+- 11:23–11:31: 60 cevap, 6 tur (2 tam, 4'ü "şimdilik bu kadar": vadeli bitti). 17 tanıtım (Ünite 4 / K10 Werte açılmış: Toleranz, Fairness, Ehrlichkeit, Gerechtigkeit, Gleichberechtigung, Hilfsbereitschaft, Zivilcourage, Solidarität, Würde, Vorurteil; + fahren, entstehen, bewegen, Wert, Erziehung), yoklamada bildi: bereit, der Respekt. Ayarlar: turHedef 4, ret 0,90.
+- Yazarak: Tolerans → Toleranz, Gedichkeit → Gerechtigkeit, Gleichbereitschaft → Gleichberechtigung, Soliderität → Solidarität, die Würde → der Wert (aynı partide karıştı), worden → geworden (werden tam fiil), metin boşluğu festgestellt (boş), dikte yalnız noktalama.
+- Artikel: dünkü aynı 6 kelime yine yanlış (Sonderangebot, Ziel, Kunst, Rezept, Diskussion, Geduld); Ziel leech → kanca. Seçmelide die Wert, Erziehung bilmiyorum.
+- Süre sorusu: vadeli az (bugün 2; yarın 55, 5. gün 33): tur kısa çünkü tekrar bitti, kota 4 + bonus/teklifle 15 yeni açıldı. 8 düzeltme, 13 cümle + gloss.
+Son incelenen log satırı: 2026-10-18 11:31:35 (erk n0322).

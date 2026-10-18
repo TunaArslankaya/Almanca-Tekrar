@@ -1124,3 +1124,8 @@ v571 | Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. 
 v587 | Der Chef verlängert den Vertrag um ein Jahr. | Patron sözleşmeyi bir yıl uzatıyor.
 v527 | Ich treffe meinen Bruder heute Abend in der Stadt. | Bu akşam erkek kardeşimle şehir merkezinde buluşuyorum.
 v527 | Gestern habe ich zufällig meine alte Lehrerin getroffen. | Dün eski (kadın) öğretmenime tesadüfen rastladım.
+v211 | Aus einer kleinen Idee ist ein großes Projekt entstanden. | Küçük bir fikirden büyük bir proje ortaya çıktı.
+v211 | Wie ist dieses Problem eigentlich entstanden? | Bu sorun aslında nasıl ortaya çıktı?
+v140 | Nach dem Unfall konnte er den Arm nicht mehr bewegen. | Kazadan sonra kolunu artık oynatamadı.
+v256 | Der Arzt hat festgestellt, dass ich zu wenig Vitamin D habe. | Doktor bende çok az D vitamini olduğunu tespit etti.
+v256 | Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. | Evde anahtarımın kaybolduğunu fark ettim.

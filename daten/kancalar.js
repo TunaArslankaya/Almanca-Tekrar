@@ -28,4 +28,5 @@ window.KANCA = {
   v592: "sich verletzen → 'lezyon' (yara) sesi: ver-LEZ-yon; ver- ile ge- almaz: Partizip verletzt = er/du verletzt (Pass auf, dass du dich nicht verletzt!); organ varsa mir: Ich habe mir den Arm verletzt",
   n0244: "die Diskussion → -tion/-sion ile bitenler die (die Information, die Situation; tek istisna das Stadion); kırmızı (die) masa başında kızışan 'diskusyon'",
   n0973: "der Regen → yağış ve rüzgâr der: der Regen, der Schnee, der Wind, der Sturm, der Nebel (ama das Wetter, die Wolke); mavi (der) yağmurluklu adam yağmurda",
+  n1422: "das Ziel → 'ziyl' sesi 'cetvel' değil, okçunun yeşil (das) hedef tahtası; Ziel–Spiel–Ende hep das: das Ziel, das Spiel, das Ende",
 };

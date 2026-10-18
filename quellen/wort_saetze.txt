@@ -2680,3 +2680,11 @@ n0448 | die Gemeinschaft | In unserer Gemeinschaft helfen sich alle gegenseitig.
 n0870 | das Opfer | Man sollte dem Opfer nicht die Schuld geben. | Mağdura suçu yüklememek gerekir.
 n1285 | der Unterschied | Zwischen den beiden Wörtern gibt es einen großen Unterschied. | İki kelime arasında büyük bir fark var.
 n0463 | die Gesellschaft | Die Gesellschaft verändert sich schnell. | Toplum hızla değişiyor.
+n1372 | der Wert | Ehrlichkeit ist für mich ein wichtiger Wert. | Dürüstlük benim için önemli bir değer.
+n0322 | die Erziehung | Die Eltern sind für die Erziehung ihrer Kinder verantwortlich. | Anne babalar çocuklarının terbiyesinden sorumludur.
+x1547 | die Toleranz | In einer Gemeinschaft braucht man Toleranz gegenüber anderen Meinungen. | Bir toplulukta başka fikirlere karşı hoşgörü gerekir.
+x1550 | die Gerechtigkeit | Viele Menschen demonstrieren für mehr Gerechtigkeit. | Birçok insan daha fazla adalet için gösteri yapıyor.
+x1551 | die Gleichberechtigung | Die Gleichberechtigung von Frauen und Männern steht im Grundgesetz. | Kadın ve erkek eşitliği Anayasa'da yazılıdır.
+x1554 | die Solidarität | Nach dem Hochwasser haben die Nachbarn große Solidarität gezeigt. | Selden sonra komşular büyük dayanışma gösterdi.
+x1555 | die Würde | Die Würde des Menschen ist unantastbar. | İnsan onuru dokunulmazdır.
+x1557 | das Vorurteil | Das ist doch nur ein Vorurteil! | Bu sadece bir önyargı!
