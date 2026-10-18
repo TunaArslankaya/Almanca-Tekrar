@@ -1962,3 +1962,33 @@
 2026-10-18 11:23:40;erk;w0051:erk;beide;Beide Projekte konnten trotz des Widerstands nicht gestoppt werden.;her ikisi;richtig;her ikisi;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:5.2 | ısınma | sek:2
 2026-10-18 11:23:44;erk;w0026:erk;anwesend;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | ısınma | sek:3
 2026-10-18 11:23:48;yeni;v243;fahren;tanıtım;;neu;(araçla) gitmek;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:3
+2026-10-18 11:23:57;bed;v243:bed;fahren;(araçla) gitmek;fahren;richtig;fahren;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-18 11:24:01;stamm;v527:stamm;treffen;Gestern habe ich zufällig meinen Lehrer _____.;getroffen;richtig;getroffen;basamak:K | bicim:kokSatz | not:k3 | R:0.97 | S:5.7 | kök:treffen | sek:4
+2026-10-18 11:24:06;prod;w0213:prod;gleichzeitig;aynı anda;gleichzeitig;richtig;gleichzeitig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.95 | S:5.2 | sek:5 | ipucu:0
+2026-10-18 11:24:09;bed;v169:bed;donnern;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:sec | not:m3 | R:0.58 | S:0.1 | kurtarma | sek:2
+2026-10-18 11:24:12;abr;v243:abr;fahren;(araçla) gitmek;fahren;richtig;fahren;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-18 11:25:03;akt;diktat:n0972;dinle–yaz;In unserem Sprachkurs gibt es eine Regel: Wir sprechen nur Deutsch.;In unserem Sprachkurs gibt es eine Regel, wir sprechen nur Deutsch!;fast;In unserem Sprachkurs gibt es eine Regel: Wir sprechen nur Deutsch.;büyük/küçük harf ya da umlaut
+2026-10-18 11:25:22;art;n1094:art;das Sonderangebot;Sonderangebot;der;falsch;das Sonderangebot;basamak:A | bicim:artikel | not:a1 | R:0.87 | S:0.2 | artikel der → das | sek:2
+2026-10-18 11:25:25;bed;v425:bed;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit;basamak:B1 | bicim:sec | not:m3 | R:0.85 | S:2.0 | sek:3
+2026-10-18 11:25:29;prod;w0056:prod;bereit;hazır;bereit;richtig;bereit;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
+2026-10-18 11:25:29;yeni;w0056;bereit;yoklama;bereit;bekannt;hazır;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-10-18 11:25:29;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:82 | dk:2 | yeni:1 | seviye+:4 | tekrar:8
+2026-10-18 11:25:37;bed;v527:bed;treffen;(biriyle) buluşmak, karşılaşmak;treffen;richtig;treffen;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | ısınma | sek:3
+2026-10-18 11:25:41;erk;n0432:erk;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.84 | S:0.9 | ısınma | sek:4
+2026-10-18 11:25:53;erk;n1028:erk;der Schatten;Sie sorgen für Schatten und kühlen die Umgebung durch verdunstetes Wasser.;gölge;richtig;gölge;basamak:B1 | bicim:metinde | not:m3 | R:0.84 | S:4.6 | ısınma | sek:10
+2026-10-18 11:26:00;yeni;v211;entstehen;tanıtım;;neu;oluşmak, ortaya çıkmak;basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-10-18 11:26:03;yeni;v140;bewegen;tanıtım;;neu;hareket ettirmek;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-18 11:26:09;bed;v140:bed;bewegen;hareket ettirmek;bewegen;richtig;bewegen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-18 11:26:13;bed;v211:bed;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:26:17;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:1.3 | sek:3
+2026-10-18 11:26:21;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;basamak:B1 | bicim:sec | not:m3 | R:0.84 | S:2.7 | sek:3
+2026-10-18 11:26:26;abr;v140:abr;bewegen;hareket ettirmek;bewegen;richtig;bewegen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-10-18 11:26:31;abr;v211:abr;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-10-18 11:26:43;luecke;v564:satz;untersuchen;In der Forschung _____ man seit Jahren Kinder, die auf dem Land groß werden.;untersucht;richtig;untersucht;basamak:B3 | bicim:metin | not:m3 | R:0.83 | S:12.3 | kaynak:dw79213126
+2026-10-18 11:26:43;luecke;v256:satz;feststellen;Dabei hat man _____: Sie haben bestimmte Krankheiten seltener als Stadtkinder.;;falsch;festgestellt;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.7 | kaynak:dw79213126 | bilmiyorum
+2026-10-18 11:26:43;akt;luecke:dw79213126;metinde boşluk;In der Forschung untersucht man seit Jahren Kinder, die auf dem Land groß werden. Dabei hat man festgestellt: Sie haben bestimmte Krankheiten seltener als Stadtkinder. Dabei spielen Mikroorganismen eine wichtige Rolle.;untersucht / ;falsch;untersucht / festgestellt;puan:1/2 | boşluk:2
+2026-10-18 11:26:53;wort;n0991:wort;der Respekt;saygı;der Respekt;richtig;der Respekt;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:6 | ipucu:2
+2026-10-18 11:26:53;yeni;n0991;der Respekt;yoklama;der Respekt;bekannt;saygı;basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-10-18 11:26:53;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:77 | dk:1 | yeni:2 | seviye+:4 | tekrar:7
+2026-10-18 11:27:05;bed;v447:bed;scheinen;scheinen;parlamak;richtig;(güneş) parlamak;basamak:B1 | bicim:anla | not:m3 | R:0.83 | S:4.9 | ısınma | sek:5
+2026-10-18 11:27:10;erk;n0520:erk;der Hausmeister;kapıcı, apartman görevlisi;der Hausmeister;richtig;der Hausmeister;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:3.6 | ısınma | sek:3
