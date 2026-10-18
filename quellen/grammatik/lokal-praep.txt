@@ -25,7 +25,7 @@ zu, bei, von, aus, nach hep Dativ alır; in, an, auf yönde Akkusativ, yerde Dat
 
 Tuzak: "doktora gidiyorum" → Ich gehe zum Arzt ("in den Arzt" değil); "annemlerdeyim" → Ich bin bei meinen Eltern ("zu" değil); "teyzemden geliyorum" → von meiner Tante ("aus" değil). Konuşma dilinde "Ich bin auf der Arbeit" çok duyulur; yazıda "bei der Arbeit" ya da "im Büro" daha güvenli.
 
-Sınavda: Schreiben'de tatil, taşınma, buluşma yeri anlatırken; Sprechen Teil 3'te "Wo treffen wir uns?" planlarken her cümlede gerekir.
+Sınavda: Schreiben'de tatil, taşınma, buluşma yeri anlatırken; Sprechen Teil 1'de "Wo treffen wir uns?" diye birlikte plan yaparken her cümlede gerekir.
 @ende
 
 @tabelle Wohin? – Wo? – Woher?

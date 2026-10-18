@@ -1,0 +1,153 @@
+# Gramer konusu: ayrılabilen ve ayrılmayan fiiller. Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id trennbar
+@titel Trennbare und untrennbare Verben
+@tr Ayrılabilen fiiller (anrufen → ruft … an) ve ayrılmayan ön ekler (be-, ver-, er- …)
+@stufe A1–A2
+@kapitel A1–A2 · B1 tekrar
+@goethe 2 | Hören (anlam son kelimede) · Schreiben 1-2 · Sprechen 1-2
+@voraus verbstellung
+@kontrast perfekt
+@etiket kelime sırası
+@kurz Ana cümlede ön ek en sona: Ich rufe dich an. Modal fiille, yan cümlede, Perfekt'te ve zu ile bitişik: anrufen · …, dass ich anrufe · angerufen · anzurufen. be-, ver-, er-, ent-, emp-, zer-, ge-, miss- hiç ayrılmaz, Perfekt'te ge- almaz.
+
+@erklaerung
+Ayrılabilen fiil (das trennbare Verb) iki parçadır: vurgulu bir ön ek (an, auf, aus, ein, mit, zu, ab, vor, zurück, fern …) + fiil. Ön ek anlamı değiştirir: stehen → aufstehen (kalkmak), kommen → ankommen (varmak).
+
+1. Ana cümlede çekimli fiil 2. yerde (soru ve emirde başta), ön ek EN SONDA: Ich rufe dich heute Abend an. · Ruf mich an!
+2. Modal fiil ya da werden varsa mastar bitişik ve sonda: Ich muss früh aufstehen.
+3. Yan cümlede fiil bitişik ve sonda: …, weil der Kurs um neun anfängt.
+4. Perfekt'te ge- ön ekle fiilin arasına girer: angerufen, aufgestanden. zu da araya girer, tek kelime yazılır: Ich habe keine Lust, früh aufzustehen.
+5. be-, ver-, er-, ent-, emp-, zer-, ge-, miss- vurgusuzdur: hiç ayrılmaz, Perfekt'te ge- almaz (besucht, verstanden, erklärt), zu önünde ayrı kalır (zu besuchen).
+6. um-, über-, unter-, durch- iki türlü olabilir. Temel kural: vurgu ön ekteyse ayrılır (umziehen → zieht um, umgezogen), fiildeyse ayrılmaz (übersetzen → übersetzt, unterschreiben → unterschrieben). wiederholen (tekrarlamak) de ayrılmaz.
+
+Türkçede böyle bir bölünme yok. En sık hatalar: ön eki unutmak (✗ Ich rufe dich heute Abend.), yan cümlede ayırmak (✗ weil der Kurs fängt an), ge-'yi başa koymak (✗ geeinladen, ✗ gebesucht).
+Sınavda: Hören'de anlam son kelimede değişir (Mach die Tür auf / zu!): cümleyi sonuna kadar dinle. Schreiben'de randevu ve plan cümleleri hep bu fiillerle: Ich hole dich ab. Ich rufe Sie an.
+@ende
+
+@tabelle anrufen cümlede
+yapı | örnek | ön ek
+Präsens (ana cümle) | Ich rufe dich heute an. | ayrı, en sonda
+soru / emir | Rufst du mich an? · Ruf mich an! | ayrı, en sonda
+modal fiil / Futur | Ich muss dich anrufen. | bitişik mastar, sonda
+yan cümle | …, dass ich dich anrufe. | bitişik, en sonda
+Perfekt | Ich habe dich angerufen. | ge ortada
+zu + mastar | Vergiss nicht, mich anzurufen. | zu ortada
+@ende
+
+@tabelle Ayrılır mı?
+ön ek | Präsens | Perfekt | zu + mastar
+an, auf, aus, ein, mit, zu, ab, vor, zurück | er steht auf | aufgestanden | aufzustehen
+be-, ver-, er-, ent-, emp-, zer-, ge-, miss- | er versteht | verstanden | zu verstehen
+um- (vurgu ön ekte) | er zieht um | umgezogen | umzuziehen
+über-, unter- (vurgu fiilde) | er übersetzt | übersetzt | zu übersetzen
+@ende
+
+@beispiel Der Zug kommt um 18 Uhr in Bremen an. | Tren saat 18'de Bremen'e varıyor.
+@beispiel Kannst du mich vom Bahnhof abholen? | Beni istasyondan alabilir misin?
+@beispiel Ich habe dich gestern dreimal angerufen. | Seni dün üç kez aradım.
+@beispiel Ich habe keine Lust, so früh aufzustehen. | Bu kadar erken kalkmaya hiç hevesim yok.
+@beispiel Ich habe die Aufgabe nicht verstanden. | Ödevi anlamadım.
+
+@teil haupt | Ana cümle, soru, emir: ön ek en sonda | kelime sırası
+wahl | 1 | Der Zug ___ um 18 Uhr in Bremen an. | kommt | kommt / ankommt / kommen | Tren saat 18'de Bremen'e varıyor. | Ana cümlede çekimli fiil (kommt) 2. yerde, ön ek (an) en sonda. ankommt biçimi yalnız yan cümlede olur. | ankommen; der Zug
+wahl | 1 | Hier ist es so kalt! Mach bitte das Fenster ___. | zu | zu / auf / an | Burası çok soğuk! Lütfen pencereyi kapat. | Anlam son kelimede: zumachen = kapatmak, aufmachen = açmak. Soğuk olduğu için zu. | zumachen; das Fenster; kalt
+luecke | 1 | Wann ___ der Kurs ___? (anfangen) | fängt ; an | | Kurs ne zaman başlıyor? | W-sorusunda çekimli fiil 2. yerde (fängt), ön ek (an) en sonda. anfangen'de a → ä olur: er fängt. | anfangen mit; der Kurs
+luecke | 2 | Ich ___ dich heute Abend ___. (anrufen) | rufe ; an / werde ; anrufen | | Seni bu akşam ararım. | Ana cümlede rufe 2. yerde, ön ek an en sonda. Futur'da ise mastar bitişik: werde … anrufen. | anrufen
+luecke | 2 | ___ Sie bitte in Hannover ___! (umsteigen) | Steigen ; um | | Lütfen Hannover'da aktarma yapın! | Sie ile emirde fiil başta, ön ek (um) en sonda: Steigen Sie … um! | umsteigen
+fehler | 1 | Ich anrufe dich morgen. | Ich rufe dich morgen an. / Morgen rufe ich dich an. | anrufe | Seni yarın ararım. | Ana cümlede ayrılabilen fiil bölünür: rufe 2. yerde, an en sonda. | anrufen; morgen
+fehler | 2 | Wir kaufen am Samstag im Supermarkt ein. | Wir kaufen am Samstag im Supermarkt ein. | - | Cumartesi süpermarkette alışveriş yapıyoruz. | Hata yok: kaufen 2. yerde, ön ek ein en sonda. | einkaufen; der Supermarkt
+fehler | 2 | Mein Mitbewohner räumt nie die Küche. | Mein Mitbewohner räumt nie die Küche auf. | räumt nie die Küche | Ev arkadaşım mutfağı hiç toplamıyor. | Ön ek (auf) unutulmuş: aufräumen ana cümlede räumt … auf olur. Ön ek olmadan anlam eksik kalır. | aufräumen; die Küche
+ordnen | 2 | ich / stehe / jeden Tag / um sechs Uhr / auf | Ich stehe jeden Tag um sechs Uhr auf. / Jeden Tag stehe ich um sechs Uhr auf. / Um sechs Uhr stehe ich jeden Tag auf. / Ich stehe um sechs Uhr jeden Tag auf. | | Her gün saat altıda kalkıyorum. | Çekimli fiil (stehe) 2. yerde, ön ek (auf) en sonda; aradaki zaman bilgileri yer değiştirebilir. | aufstehen
+ordnen | 2 | er / sieht / am Abend / nicht / fern | Er sieht am Abend nicht fern. / Am Abend sieht er nicht fern. | | Akşamları televizyon izlemiyor. | nicht ön ekin hemen önüne gelir; ön ek (fern) cümlenin son kelimesi. | fernsehen
+dinle | 1 | Wann kommt dein Zug in Bremen an? | Wann kommt dein Zug in Bremen an? | | Trenin Bremen'e ne zaman varıyor? | Ön ek (an) son kelime: "varmak" anlamı cümlenin sonunda tamamlanır. | ankommen; der Zug
+ceviri | 2 | Akşam yemeğine arkadaşlarımı davet ediyorum. | Ich lade meine Freunde zum Abendessen ein. / Zum Abendessen lade ich meine Freunde ein. / Ich lade meine Freundinnen zum Abendessen ein. / Zum Abendessen lade ich meine Freundinnen ein. | | - | einladen: lade 2. yerde, ein en sonda; davet edilen şey zu + Dativ (zum Abendessen). | einladen zu; der Freund
+ceviri | 1 | Lütfen kapıyı kapat! | Mach bitte die Tür zu! / Mach die Tür bitte zu! / Bitte mach die Tür zu! / Schließ bitte die Tür! / Schließ die Tür bitte! / Bitte schließ die Tür! | | - | Emirde fiil başta, ön ek (zu) en sonda: Mach … zu! | zumachen; die Tür
+ceviri | 2 | Ödevi ne zaman teslim ediyorsun? | Wann gibst du die Hausaufgabe ab? / Wann gibst du die Hausaufgaben ab? | | - | abgeben: W-sorusunda gibst 2. yerde, ab en sonda. | abgeben; die Hausaufgabe
+umform | 3 | Der Zug ist pünktlich angekommen. → Präteritum | Der Zug kam pünktlich an. | | Tren zamanında vardı. | Präteritum'da da ana cümlede ön ek ayrılır: kam … an. | ankommen; pünktlich; der Zug
+umform | 3 | Wir haben am Samstag zusammen eingekauft. → Präteritum | Wir kauften am Samstag zusammen ein. / Am Samstag kauften wir zusammen ein. | | Cumartesi birlikte alışveriş yaptık. | Präteritum ana cümlede: kauften 2. yerde, ein en sonda. | einkaufen; zusammen
+text | 2 | Hallo Jonas, mein Zug ___ um 18 Uhr in Bremen ___. (ankommen) Kannst du mich vom Bahnhof ___? (abholen) Ich habe dich schon zweimal ___. (anrufen) Bis später! | kommt ; an ; abholen ; angerufen | | Selam Jonas, trenim saat 18'de Bremen'e varıyor. Beni istasyondan alabilir misin? Seni zaten iki kez aradım. Görüşürüz! | Ana cümlede ön ek sonda (kommt … an); modal fiille mastar bitişik (abholen); Perfekt'te ge ortada (angerufen). | ankommen; abholen; anrufen; der Bahnhof
+
+@teil bitisik | Modal fiil, Futur ve yan cümle: bitişik, sonda | kelime sırası
+wahl | 1 | Ich muss morgen sehr früh ___. | aufstehen | aufstehen / aufzustehen / stehe auf | Yarın çok erken kalkmam gerekiyor. | Modal fiilden (muss) sonra zu'suz mastar gelir, bitişik ve en sonda: aufstehen. | aufstehen; früh
+luecke | 2 | Ich weiß nicht, wann der Unterricht ___. (anfangen) | anfängt | | Dersin ne zaman başladığını bilmiyorum. | Yan cümlede ayrılabilen fiil bitişik ve en sonda: anfängt. | anfangen mit; der Unterricht
+luecke | 2 | Kannst du mich morgen vom Bahnhof ___? (abholen) | abholen | | Beni yarın istasyondan alabilir misin? | Modal fiille (kannst) mastar bitişik ve en sonda: abholen. | abholen; der Bahnhof
+luecke | 2 | Wenn du in Bremen ___, ruf mich bitte an. (ankommen) | ankommst | | Bremen'e varınca lütfen beni ara. | wenn-cümlesinde fiil bitişik ve sonda (ankommst); ana cümlede yine ayrılır (ruf … an). | ankommen
+fehler | 2 | Ich muss heute noch das Formular füllen aus. | Ich muss heute noch das Formular ausfüllen. | füllen aus | Bugün daha formu doldurmam gerekiyor. | Modal fiille ayrılabilen fiil bölünmez: ausfüllen bitişik ve en sonda. | ausfüllen; das Formular
+fehler | 2 | Sie sagt, dass sie heute Abend nicht mitkommt. | Sie sagt, dass sie heute Abend nicht mitkommt. | - | Bu akşam bizimle gelmeyeceğini söylüyor. | Hata yok: dass-cümlesinde mitkommt bitişik ve en sonda. |
+fehler | 3 | Weißt du, ob der Bus pünktlich kommt an? | Weißt du, ob der Bus pünktlich ankommt? | kommt an | Otobüs zamanında varıyor mu, biliyor musun? | ob-cümlesinde fiil bölünmez ve en sona gider: ankommt. | ankommen; pünktlich; der Bus
+ordnen | 2 | ich / weiß / nicht / wann / der Film / anfängt | Ich weiß nicht, wann der Film anfängt. | | Filmin ne zaman başladığını bilmiyorum. | Dolaylı soruda fiil sonda ve bitişik: anfängt. | anfangen mit; der Film
+ordnen | 3 | ich / rufe / dich / an / wenn / ich / ankomme | Ich rufe dich an, wenn ich ankomme. / Wenn ich ankomme, rufe ich dich an. | | Varınca seni ararım. | Ana cümlede ayrılır (rufe … an), wenn-cümlesinde bitişik (ankomme). Yan cümle başa gelirse ana cümle fiille başlar. | anrufen; ankommen
+umform | 2 | Wann fängt die Prüfung an? → indirekt | Können Sie mir sagen, wann die Prüfung anfängt? / Wissen Sie, wann die Prüfung anfängt? / Kannst du mir sagen, wann die Prüfung anfängt? / Weißt du, wann die Prüfung anfängt? | | Sınavın ne zaman başladığını söyleyebilir misiniz? | Dolaylı soruda fiil sona gider ve bitişik yazılır: anfängt. | anfangen mit; die Prüfung
+umform | 3 | Der Supermarkt macht um 20 Uhr zu. Ich muss mich beeilen. → weil | Ich muss mich beeilen, weil der Supermarkt um 20 Uhr zumacht. / Weil der Supermarkt um 20 Uhr zumacht, muss ich mich beeilen. | | Acele etmem lazım, çünkü süpermarket saat 20'de kapanıyor. | weil-cümlesinde zumacht bitişik ve en sonda. | zumachen; sich beeilen; der Supermarkt
+dinle | 1 | Kannst du bitte das Fenster zumachen? | Kannst du bitte das Fenster zumachen? | | Pencereyi kapatabilir misin lütfen? | Modal fiille ön ek ayrılmaz: zumachen tek kelime, en sonda. | zumachen; das Fenster
+ceviri | 2 | Yarın beni arayabilir misin? | Kannst du mich morgen anrufen? / Könntest du mich morgen anrufen? | | - | Modal fiil (kannst) 2. yerde değil başta (soru); anrufen bitişik ve en sonda. | anrufen; morgen
+ceviri | 3 | Kursun ne zaman başladığını bilmiyorum. | Ich weiß nicht, wann der Kurs anfängt. / Ich weiß nicht, wann der Kurs beginnt. | | - | Dolaylı soruda fiil sonda; ayrılabilen anfangen bitişik: anfängt. beginnen zaten ayrılmaz. | anfangen mit; der Kurs
+eslestir | 2 | Der Zug fährt um acht ;; Ich habe keine Lust, so früh ;; Kannst du mich morgen ;; Ich weiß nicht, wann der Kurs | ab. ;; aufzustehen. ;; anrufen? ;; anfängt. | | - | Ana cümlede ön ek tek başına sonda (fährt … ab); zu ile aufzustehen; modal fiille anrufen; yan cümlede anfängt. | abfahren; aufstehen; anrufen; anfangen mit
+
+@teil perfekt | Perfekt: ge- ortada (angerufen, aufgestanden) | artikel/çekim
+luecke | 1 | Ich habe dich gestern dreimal ___. (anrufen) | angerufen | | Seni dün üç kez aradım. | Perfekt'te ge- ön ekle fiilin arasına girer: an-ge-rufen. | anrufen; gestern
+luecke | 2 | Wir ___ am Samstag im Supermarkt ___. (einkaufen · Perfekt) | haben ; eingekauft | | Cumartesi süpermarkette alışveriş yaptık. | einkaufen haben alır; ge- ortada: ein-ge-kauft. | einkaufen; der Supermarkt
+luecke | 3 | Heute bin ich müde, weil ich um fünf Uhr ___ ___. (aufstehen · Perfekt) | aufgestanden ; bin | | Bugün yorgunum, çünkü saat beşte kalktım. | aufstehen durum değişimi → sein; yan cümlede önce Partizip (aufgestanden), en sonda bin. | aufstehen; müde
+wahl | 1 | Gestern Abend haben wir lange ___. | ferngesehen | ferngesehen / gefernsehen / fernsehen | Dün akşam uzun süre televizyon izledik. | fernsehen'de ge ortaya girer: fern-ge-sehen. | fernsehen; lange
+wahl | 2 | Der Zug ___ pünktlich angekommen. | ist | ist / hat | Tren zamanında vardı. | ankommen bir yer değiştirme fiili → sein: ist angekommen. | ankommen; pünktlich; der Zug
+fehler | 2 | Ich habe gestern mein Zimmer aufräumt. | Ich habe gestern mein Zimmer aufgeräumt. / Gestern habe ich mein Zimmer aufgeräumt. | aufräumt | Dün odamı topladım. | Partizip'te ge- eksik: auf-ge-räumt. | aufräumen; das Zimmer; gestern
+fehler | 2 | Wir haben unsere Nachbarn zum Essen geeinladen. | Wir haben unsere Nachbarn zum Essen eingeladen. | geeinladen | Komşularımızı yemeğe davet ettik. | ge- başa değil, ön ekle fiilin arasına girer: ein-ge-laden. | einladen zu; der Nachbar; das Essen
+fehler | 2 | Bist du gestern Abend noch ausgegangen? | Bist du gestern Abend noch ausgegangen? | - | Dün akşam bir de dışarı çıktın mı? | Hata yok: ausgehen hareket fiili → sein; ge- ortada: aus-ge-gangen. | ausgehen; gestern
+ordnen | 2 | ich / habe / meine Mutter / vom Flughafen / abgeholt | Ich habe meine Mutter vom Flughafen abgeholt. / Meine Mutter habe ich vom Flughafen abgeholt. / Vom Flughafen habe ich meine Mutter abgeholt. | | Annemi havalimanından aldım. | habe 2. yerde, Partizip (abgeholt) en sonda; ge- ortada: ab-ge-holt. | abholen; die Mutter; der Flughafen
+umform | 2 | Ich räume heute mein Zimmer auf. → Perfekt | Ich habe heute mein Zimmer aufgeräumt. / Heute habe ich mein Zimmer aufgeräumt. | | Bugün odamı topladım. | haben 2. yerde, Partizip en sonda: auf-ge-räumt. | aufräumen; das Zimmer
+umform | 3 | Der Kurs fängt um neun Uhr an. → Perfekt | Der Kurs hat um neun Uhr angefangen. / Um neun Uhr hat der Kurs angefangen. | | Kurs saat dokuzda başladı. | anfangen haben alır; ge- ortada ve fiil düzensiz: an-ge-fangen. | anfangen mit; der Kurs
+kategori | 1 | Perfekt: ist oder hat? | ist: aufgestanden, angekommen, eingeschlafen, eingestiegen ;; hat: angerufen, aufgeräumt, eingeladen, ferngesehen | | - | Yer ya da durum değişimi (kalkmak, varmak, uykuya dalmak, binmek) sein alır; diğerleri haben. | aufstehen; ankommen; einsteigen; anrufen; aufräumen; fernsehen
+eslestir | 1 | anrufen ;; aufstehen ;; einladen ;; mitbringen ;; fernsehen | angerufen ;; aufgestanden ;; eingeladen ;; mitgebracht ;; ferngesehen | | - | Ön ekin arkasına fiilin normal Partizip'i gelir: gerufen → angerufen, gebracht → mitgebracht. | anrufen; aufstehen; fernsehen
+dinle | 2 | Um wie viel Uhr bist du heute aufgestanden? | Um wie viel Uhr bist du heute aufgestanden? | | Bugün saat kaçta kalktın? | aufstehen sein alır; Partizip'te ge- ortada duyulur: auf-ge-standen. | aufstehen
+ceviri | 2 | Dün akşam hemen uykuya daldım. | Ich bin gestern Abend sofort eingeschlafen. / Gestern Abend bin ich sofort eingeschlafen. | | - | einschlafen durum değişimi → sein; ge- ortada: ein-ge-schlafen. | sofort; gestern
+text | 2 | Gestern war ein langer Tag. Ich bin um sechs Uhr ___ (aufstehen) und habe vor dem Kurs noch ___ (einkaufen). Am Abend habe ich zwei Freunde ___ (einladen), und wir haben zusammen ___ (fernsehen). | aufgestanden ; eingekauft ; eingeladen ; ferngesehen | | Dün uzun bir gündü. Saat altıda kalktım ve kurstan önce bir de alışveriş yaptım. Akşam iki arkadaşımı davet ettim ve birlikte televizyon izledik. | Dört Partizip'te de ge- ön ekle fiilin arasında: auf-ge-standen, ein-ge-kauft, ein-ge-laden, fern-ge-sehen. | aufstehen; einkaufen; fernsehen
+
+@teil zu | zu + mastar: zu ortada (anzurufen) | kelime sırası
+wahl | 1 | Ich habe keine Lust, so früh ___. | aufzustehen | aufzustehen / zu aufstehen / aufstehen | Bu kadar erken kalkmaya hiç hevesim yok. | Lust haben + zu-mastar; ayrılabilen fiilde zu ortaya girer, tek kelime: auf-zu-stehen. | aufstehen; die Lust
+luecke | 2 | Vergiss nicht, mich morgen ___! (anrufen) | anzurufen | | Beni yarın aramayı unutma! | zu ön ekle fiilin arasına girer, tek kelime: an-zu-rufen. | anrufen; vergessen
+luecke | 2 | Es ist wichtig, das Formular vollständig ___. (ausfüllen) | auszufüllen | | Formu eksiksiz doldurmak önemli. | Es ist wichtig + zu-mastar; aus-zu-füllen bitişik yazılır. | ausfüllen; das Formular; wichtig
+luecke | 3 | Ich versuche, jeden Tag die Wörter zu ___ und weniger ___. (wiederholen ; fernsehen) | wiederholen ; fernzusehen | | Her gün kelimeleri tekrar etmeye ve daha az televizyon izlemeye çalışıyorum. | wiederholen ayrılmaz, zu önünde ayrı kalır: zu wiederholen. fernsehen ayrılır, zu ortaya girer: fernzusehen. | versuchen; wiederholen; fernsehen; das Wort
+fehler | 2 | Ich muss morgen früh aufzustehen. | Ich muss morgen früh aufstehen. / Morgen früh muss ich aufstehen. | aufzustehen | Yarın sabah erken kalkmam lazım. | Modal fiilden (muss) sonra zu gelmez: aufstehen. | aufstehen; früh
+fehler | 2 | Hast du Lust, heute Abend mit uns auszugehen? | Hast du Lust, heute Abend mit uns auszugehen? | - | Bu akşam bizimle dışarı çıkmak ister misin? | Hata yok: zu ön ekle fiilin arasında, tek kelime: aus-zu-gehen. | ausgehen; die Lust
+fehler | 3 | Er hat vergessen, die Heizung zu ausmachen. | Er hat vergessen, die Heizung auszumachen. | zu ausmachen | Kaloriferi kapatmayı unuttu. | Ayrılabilen fiilde zu ayrı yazılmaz, ön ekle fiilin arasına girer: aus-zu-machen. | ausmachen; die Heizung; vergessen
+ordnen | 3 | ich / habe / heute / keine Zeit / mein Zimmer / aufzuräumen | Ich habe heute keine Zeit, mein Zimmer aufzuräumen. / Heute habe ich keine Zeit, mein Zimmer aufzuräumen. | | Bugün odamı toplamaya vaktim yok. | zu-mastar cümlenin sonunda, tek kelime: auf-zu-räumen. | aufräumen; das Zimmer; die Zeit
+umform | 3 | Ich fahre zum Bahnhof. Ich will meine Schwester abholen. → um … zu | Ich fahre zum Bahnhof, um meine Schwester abzuholen. / Um meine Schwester abzuholen, fahre ich zum Bahnhof. | | Kız kardeşimi almak için istasyona gidiyorum. | um … zu'da ayrılabilen fiil: ab-zu-holen, tek kelime ve en sonda. | abholen; der Bahnhof; die Schwester
+umform | 3 | Ich stehe früh auf. Ich will den Zug nicht verpassen. → um … zu | Ich stehe früh auf, um den Zug nicht zu verpassen. / Um den Zug nicht zu verpassen, stehe ich früh auf. | | Treni kaçırmamak için erken kalkıyorum. | verpassen ayrılmaz (ver-): zu önünde ayrı, zu verpassen. aufstehen ana cümlede ayrılır: stehe … auf. | aufstehen; verpassen; der Zug; früh
+dinle | 2 | Ich habe keine Lust, heute einzukaufen. | Ich habe keine Lust, heute einzukaufen. | | Bugün alışveriş yapmaya hiç hevesim yok. | einzukaufen tek kelime duyulur: ein-zu-kaufen. | einkaufen; die Lust
+ceviri | 3 | Seni istasyondan almayı unuttum. | Ich habe vergessen, dich vom Bahnhof abzuholen. / Ich habe vergessen, dich am Bahnhof abzuholen. | | - | vergessen + zu-mastar; zu ortada: ab-zu-holen. | abholen; vergessen; der Bahnhof
+text | 2 | Liebe Frau Weber, ich habe leider vergessen, mich für die Prüfung ___. (anmelden) Ist es noch möglich, das Formular morgen ___? (abgeben) Und können Sie mir sagen, wann die Prüfung ___? (anfangen) Viele Grüße, Tuna | anzumelden ; abzugeben ; anfängt | | Sayın Weber Hanım, ne yazık ki sınava kaydolmayı unuttum. Formu yarın teslim etmek hâlâ mümkün mü? Bir de sınavın ne zaman başladığını söyleyebilir misiniz? Saygılarımla, Tuna | zu-mastarda zu ortada (anzumelden, abzugeben); dolaylı soruda fiil bitişik ve sonda (anfängt). | sich anmelden für; abgeben; anfangen mit; die Prüfung; das Formular
+
+@teil untrennbar | Ayrılmayan ön ekler: be-, ver-, er-, ent-, emp- … | artikel/çekim
+wahl | 1 | Welcher Satz ist richtig? | Ich verstehe die Frage nicht. | Ich verstehe die Frage nicht. / Ich stehe die Frage nicht ver. / Ich habe die Frage nicht geverstanden. | Soruyu anlamıyorum. | ver- ayrılmaz: verstehe bütün olarak 2. yerde. Perfekt'te de ge- almaz: verstanden. | verstehen; die Frage
+luecke | 1 | Ich habe die Aufgabe leider nicht ___. (verstehen) | verstanden | | Ödevi maalesef anlamadım. | ver- ile başlayan fiil ge- almaz: verstanden. | verstehen; die Aufgabe; leider
+luecke | 2 | Letztes Wochenende haben wir meine Großeltern ___. (besuchen) | besucht | | Geçen hafta sonu büyükannemle büyükbabamı ziyaret ettik. | be- ayrılmaz ve Perfekt'te ge- almaz: besucht (✗ gebesucht). | besuchen; das Wochenende, -n
+luecke | 2 | Die Lehrerin hat uns die Regel noch einmal ___. (erklären) | erklärt | | Öğretmen kuralı bize bir kez daha açıkladı. | er- ayrılmaz, ge- almaz: erklärt. | erklären; die Lehrerin, -nen; die Regel
+luecke | 3 | Ich habe mich gestern in der Stadt ___. (sich verlaufen · Perfekt) | verlaufen | | Dün şehirde yolumu kaybettim. | ver- ge- almaz; laufen düzensiz olduğu için Partizip -en ile biter: verlaufen (✗ verlauft). | sich verlaufen; die Stadt
+fehler | 1 | Ich habe gestern mein Handy geverloren. | Ich habe gestern mein Handy verloren. / Gestern habe ich mein Handy verloren. | geverloren | Dün telefonumu kaybettim. | ver- ile başlayan fiil Perfekt'te ge- almaz: verloren. | verlieren; das Handy; gestern
+fehler | 2 | Wir bekommen morgen Besuch. | Wir bekommen morgen Besuch. | - | Yarın misafirimiz geliyor. | Hata yok: be- ayrılmaz, bekommen bütün olarak 2. yerde. | bekommen; der Besuch; morgen
+fehler | 3 | Der Arzt hat mir dieses Medikament geempfohlen. | Der Arzt hat mir dieses Medikament empfohlen. | geempfohlen | Doktor bana bu ilacı tavsiye etti. | emp- ayrılmaz ve ge- almaz: empfohlen. | empfehlen; der Arzt; das Medikament
+ordnen | 2 | ich / habe / die Frage / leider / nicht / verstanden | Ich habe die Frage leider nicht verstanden. / Leider habe ich die Frage nicht verstanden. / Die Frage habe ich leider nicht verstanden. | | Soruyu maalesef anlamadım. | ver- ayrılmaz: verstanden tek parça, en sonda; ge- yok. | verstehen; die Frage; leider
+umform | 2 | Ich bezahle die Rechnung online. → Perfekt | Ich habe die Rechnung online bezahlt. | | Faturayı internetten ödedim. | be- ayrılmaz ve ge- almaz: bezahlt (✗ gebezahlt). | bezahlen; die Rechnung
+eslestir | 1 | aufstehen ;; verstehen ;; bestehen ;; entstehen | (yataktan) kalkmak ;; anlamak ;; (sınavı) geçmek ;; oluşmak, ortaya çıkmak | | - | Ön ek anlamı değiştirir. auf- ayrılır (Ich stehe auf), ver- / be- / ent- ayrılmaz (Ich verstehe). | aufstehen; verstehen; bestehen; entstehen
+dinle | 1 | Hast du die Hausaufgabe verstanden? | Hast du die Hausaufgabe verstanden? | | Ödevi anladın mı? | verstanden: ver- ile başlayan fiilde ge- duyulmaz. | verstehen; die Hausaufgabe
+ceviri | 2 | Bu kelimeyi anlamadım. | Ich habe dieses Wort nicht verstanden. / Dieses Wort habe ich nicht verstanden. / Ich verstehe dieses Wort nicht. / Ich habe das Wort nicht verstanden. / Das Wort habe ich nicht verstanden. / Ich verstehe das Wort nicht. | | - | ver- ayrılmaz ve Perfekt'te ge- almaz: verstanden. | verstehen; das Wort
+
+@teil kontrast | Ayrılır mı, ayrılmaz mı? (um-, über-, unter-, wieder-) | kelime sırası
+wahl | 2 | Welcher Satz ist richtig? | Ich übersetze den Brief ins Deutsche. | Ich übersetze den Brief ins Deutsche. / Ich setze den Brief ins Deutsche über. / Ich habe den Brief ins Deutsche übergesetzt. | Mektubu Almancaya çeviriyorum. | übersetzen (dil çevirmek) ayrılmaz, vurgu fiilde: übersetze; Perfekt'te übersetzt. | übersetzen; der Brief
+wahl | 2 | Meine Schwester ist im Mai nach Köln ___. | umgezogen | umgezogen / umzogen / geumzogen | Kız kardeşim mayısta Köln'e taşındı. | umziehen (taşınmak) ayrılır, vurgu um'da: ge- ortaya girer, um-ge-zogen. | umziehen; die Schwester
+wahl | 3 | Die Lehrerin hat den Satz dreimal ___. | wiederholt | wiederholt / wiedergeholt / gewiederholt | Öğretmen cümleyi üç kez tekrarladı. | wiederholen (tekrarlamak) ayrılmaz, vurgu fiilde (wieder-HO-len): ge- almaz. | wiederholen; die Lehrerin, -nen; der Satz
+luecke | 2 | Hast du den Mietvertrag schon ___? (unterschreiben) | unterschrieben | | Kira sözleşmesini imzaladın mı? | unterschreiben ayrılmaz: unterschrieben (✗ untergeschrieben). | unterschreiben; der Vertrag
+luecke | 2 | In Hannover sind wir in den ICE ___. (umsteigen · Perfekt) | umgestiegen | | Hannover'da ICE'a aktarma yaptık. | umsteigen ayrılır: ge- ortada, um-ge-stiegen; yer değiştirme → sein. | umsteigen
+luecke | 3 | Sie ___ ihre Freundin am Bahnhof ___ und ___ sie lange. (abholen ; umarmen) | holt ; ab ; umarmt | | Arkadaşını istasyondan alıyor ve ona uzun uzun sarılıyor. | abholen ayrılır (holt … ab); umarmen ayrılmaz, vurgu fiilde: umarmt. | abholen; umarmen; der Bahnhof; die Freundin, -nen
+fehler | 3 | Ich habe dir das Geld schon übergewiesen. | Ich habe dir das Geld schon überwiesen. | übergewiesen | Parayı sana çoktan havale ettim. | überweisen ayrılmaz ve ge- almaz; weisen düzensiz: überwiesen. | überweisen; das Geld
+fehler | 2 | Wir haben im Urlaub in einem kleinen Hotel übergenachtet. | Wir haben im Urlaub in einem kleinen Hotel übernachtet. | übergenachtet | Tatilde küçük bir otelde geceledik. | übernachten ayrılmaz, vurgu fiilde: ge- araya girmez, übernachtet. | übernachten; der Urlaub; das Hotel
+ordnen | 3 | wir / sind / in Hannover / umgestiegen / und / haben / dort / übernachtet | Wir sind in Hannover umgestiegen und haben dort übernachtet. / In Hannover sind wir umgestiegen und haben dort übernachtet. | | Hannover'da aktarma yaptık ve orada geceledik. | umsteigen ayrılır (um-ge-stiegen, sein); übernachten ayrılmaz (übernachtet, haben). | umsteigen; übernachten
+umform | 3 | Wir übernachten bei Freunden in Hamburg. → Perfekt | Wir haben bei Freunden in Hamburg übernachtet. / In Hamburg haben wir bei Freunden übernachtet. | | Hamburg'da arkadaşlarımızda kaldık. | über- burada vurgusuz, ayrılmaz: ge- yok, übernachtet. | übernachten; der Freund
+kategori | 1 | Ayrılır mı, ayrılmaz mı? | ayrılır: anrufen, einkaufen, zuhören, umziehen ;; ayrılmaz: besuchen, verstehen, erklären, übersetzen | | - | Vurgulu ön ek (an, ein, zu, um) ayrılır; be-, ver-, er- hiç ayrılmaz; übersetzen'de vurgu fiilde. | anrufen; einkaufen; zuhören; umziehen; besuchen; verstehen; erklären; übersetzen
+kategori | 2 | Partizip II: ge- ortada mı, ge- yok mu? | ge- ortada: anrufen, einkaufen, mitbringen, umsteigen ;; ge- yok: besuchen, vorbereiten, unterschreiben, wiederholen | | - | Ayrılabilen fiilde ge- ortaya girer (angerufen, umgestiegen); ayrılmayan ön ek varsa ge- yok (besucht, unterschrieben, wiederholt). vorbereiten'de vor ayrılır ama be- yüzünden ge- yok: vorbereitet. | anrufen; einkaufen; umsteigen; besuchen; vorbereiten; unterschreiben; wiederholen
+eslestir | 1 | ankommen ;; mitkommen ;; bekommen ;; zurückkommen | varmak ;; birlikte gelmek ;; almak, elde etmek ;; geri dönmek | | - | Aynı kök, farklı ön ek, farklı anlam. an-, mit-, zurück- ayrılır (Ich komme mit); be- ayrılmaz (Ich bekomme). | ankommen; bekommen
+dinle | 2 | Wir sind letztes Jahr nach Bremen umgezogen. | Wir sind letztes Jahr nach Bremen umgezogen. | | Geçen yıl Bremen'e taşındık. | umziehen ayrılır: ge- ortada duyulur, um-ge-zogen. | umziehen
+ceviri | 3 | Sözleşmeyi henüz imzalamadım. | Ich habe den Vertrag noch nicht unterschrieben. / Den Vertrag habe ich noch nicht unterschrieben. | | - | unterschreiben ayrılmaz, vurgu fiilde: Partizip'te ge- yok, unterschrieben. | unterschreiben; der Vertrag
+text | 2 | Letzte Woche habe ich meine Tante in Hamburg ___ (besuchen). In Hannover bin ich ___ (umsteigen), aber ich habe den Anschluss ___ (verpassen). Zum Glück hat meine Tante mich trotzdem vom Bahnhof ___ (abholen). | besucht ; umgestiegen ; verpasst ; abgeholt | | Geçen hafta Hamburg'daki teyzemi ziyaret ettim. Hannover'da aktarma yaptım ama bağlantı trenini kaçırdım. Neyse ki teyzem beni yine de istasyondan aldı. | be- / ver- ge- almaz (besucht, verpasst); ayrılabilen fiilde ge- ortada (umgestiegen, abgeholt). | besuchen; umsteigen; verpassen; abholen; die Tante; der Anschluss
