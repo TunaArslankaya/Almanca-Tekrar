@@ -121,3 +121,41 @@ ceviri | 3 | Sınavı geçmene çok sevindim. | Ich freue mich sehr, dass du die
 
 @teil dass-das
 dinle | 2 | Ich hoffe, dass das Wetter morgen schön ist. | Ich hoffe, dass das Wetter morgen schön ist. | | Umarım yarın hava güzel olur. | hoffen + dass (bağlaç, iki s); das Wetter'deki das artikeldir. Çekimli fiil en sonda: schön ist. | hoffen auf; das Wetter; schön
+
+# 18.10 genişletme: her teil'e yeni türler ve eski türlere ek.
+@teil modal
+ceviri | 2 | Bugün spora gelemiyorum, çünkü doktora gitmem lazım. | Ich kann heute nicht zum Sport kommen, weil ich zum Arzt gehen muss. / Heute kann ich nicht zum Sport kommen, weil ich zum Arzt gehen muss. / Weil ich zum Arzt gehen muss, kann ich heute nicht zum Sport kommen. / Ich kann heute nicht zum Sport kommen, da ich zum Arzt gehen muss. / Da ich zum Arzt gehen muss, kann ich heute nicht zum Sport kommen. / Ich kann heute nicht zum Sport kommen, weil ich zum Arzt muss. / Ich kann heute nicht zum Sport kommen, denn ich muss zum Arzt gehen. / Ich kann heute nicht zum Sport kommen, denn ich muss zum Arzt. | | - | weil-yan cümlesinde önce mastar (gehen), en sonda çekimli modal (muss). denn ile sıra değişmez: denn ich muss zum Arzt gehen. | der Sport; der Arzt; müssen; können
+fehler | 2 | Ich weiß, dass du kannst sehr gut kochen. | Ich weiß, dass du sehr gut kochen kannst. | kannst sehr gut kochen | Çok iyi yemek yapabildiğini biliyorum. | dass-yan cümlesinde çekimli modal (kannst) en sona, mastardan (kochen) sonra gider. | wissen; kochen; können
+
+@teil trennbar
+ceviri | 2 | Kursun yarın daha erken başladığını biliyor musun? | Weißt du, dass der Kurs morgen früher anfängt? / Weißt du, dass der Kurs morgen früher beginnt? | | - | dass-yan cümlesinde ayrılabilen fiil bitişik ve en sonda: anfängt (fängt … an değil). | wissen; der Kurs; anfangen mit; früh
+dinle | 2 | Sie sagt, dass sie heute Abend mit Freunden ausgeht. | Sie sagt, dass sie heute Abend mit Freunden ausgeht. | | Bu akşam arkadaşlarıyla dışarı çıkacağını söylüyor. | ausgehen yan cümlede ayrılmaz: … ausgeht en sonda. Ana cümlede olsa: Sie geht heute Abend aus. | sagen; ausgehen; der Freund
+luecke | 2 | Meine Mitbewohnerin hat geschrieben, dass sie erst am Sonntag ___. (zurückkommen) | zurückkommt | | Ev arkadaşım ancak pazar günü döneceğini yazdı. | Yan cümlede ayrılabilen fiil bitişik yazılır ve sona gider: zurückkommt. | schreiben
+fehler | 1 | Er sagt, dass er jeden Tag um sechs Uhr aufsteht. | Er sagt, dass er jeden Tag um sechs Uhr aufsteht. | - | Her gün saat altıda kalktığını söylüyor. | Hata yok: dass-yan cümlesinde ayrılabilen fiil bitişik ve en sonda (aufsteht). | sagen; aufstehen
+
+@teil reflexiv
+ceviri | 3 | Kursa kaydolduğunu biliyorum. | Ich weiß, dass du dich für den Kurs angemeldet hast. / Ich weiß, dass du dich zum Kurs angemeldet hast. / Ich weiß, dass du dich für den Kurs eingeschrieben hast. | | - | dass + özne (du) + dönüşlü zamir (dich) + … + Partizip (angemeldet) + çekimli yardımcı fiil (hast) en sonda. | wissen; sich anmelden für; der Kurs
+text | 2 | Hallo Jonas, ich komme heute später nach Hause, weil ich nach dem Kurs noch ___ (einkaufen · müssen). Ich habe gehört, dass du ___ (sich erkälten · Perfekt). Weil du krank ___ (sein), koche ich heute für uns beide. | einkaufen muss ; dich erkältet hast ; bist | | Merhaba Jonas, bugün eve daha geç geleceğim, çünkü kurstan sonra bir de alışveriş yapmam lazım. Üşüttüğünü duydum. Hasta olduğun için bugün ikimize de ben yemek yapıyorum. | Yan cümlede fiil grubu sona: einkaufen muss; dönüşlü zamir öznenin arkasında: dass du dich erkältet hast; weil du krank bist. | einkaufen; sich erkälten; krank; kochen
+fehler | 1 | Ich bin froh, dass du dich so schnell erholt hast. | Ich bin froh, dass du dich so schnell erholt hast. | - | Bu kadar çabuk iyileşmene sevindim. | Hata yok: dönüşlü zamir (dich) öznenin hemen arkasında, Perfekt'te yardımcı fiil (hast) en sonda. | froh; sich erholen von
+
+@teil vorn
+ceviri | 2 | Hava güzel olduğu için parkta öğle yemeği yiyoruz. | Weil das Wetter schön ist, essen wir im Park zu Mittag. / Da das Wetter schön ist, essen wir im Park zu Mittag. / Wir essen im Park zu Mittag, weil das Wetter schön ist. / Wir essen im Park zu Mittag, da das Wetter schön ist. | | - | Yan cümle başta ise ana cümle çekimli fiille başlar: …, essen wir … (fiil, virgül, fiil). | das Wetter; schön; der Park; essen
+dinle | 2 | Weil es heute regnet, nehme ich den Bus. | Weil es heute regnet, nehme ich den Bus. | | Bugün yağmur yağdığı için otobüse biniyorum. | Yan cümle (… regnet) başta → ana cümle fiille başlar: nehme ich. | regnen; nehmen; der Bus
+eslestir | 2 | Weil ich müde bin, ;; Ich bin müde, denn ;; Ich bin müde, weil | gehe ich früh ins Bett. ;; ich habe schlecht geschlafen. ;; ich schlecht geschlafen habe. | | - | Weil-yan cümlesi başta → ana cümle fiille başlar (gehe ich). denn → sıra değişmez (ich habe). weil → fiil en sonda (geschlafen habe). | müde; schlafen
+luecke | 2 | Weil der Unterricht heute ausfällt, ___ wir ins Café. (gehen) | gehen | | Bugün ders olmadığı için kafeye gidiyoruz. | Yan cümle başta → ana cümlede önce çekimli fiil (gehen), sonra özne (wir). | der Unterricht; ausfallen; das Café
+
+@teil perfekt
+eslestir | 2 | Ich komme zu spät, weil ich den Bus ;; Ich bleibe zu Hause, weil ich krank ;; Ich habe keine Zeit, weil ich heute arbeiten | verpasst habe. ;; bin. ;; muss. | | - | Yan cümlenin sonu fiil grubudur: Perfekt (verpasst habe), sein (krank bin), modal (arbeiten muss). | verpassen; der Bus; krank; arbeiten
+
+@teil da
+text | 2 | Liebe Frau Weber, leider kann ich morgen nicht zum Kurs kommen, weil ich einen Termin bei der Ausländerbehörde ___ (haben). Da der Termin schon um acht Uhr ___ (anfangen), schaffe ich es nicht. Ich hoffe, dass Sie mir die Hausaufgaben per E-Mail ___ (schicken · können). | habe ; anfängt ; schicken können | | Sevgili Weber Hanım, maalesef yarın kursa gelemiyorum, çünkü yabancılar dairesinde randevum var. Randevu saat sekizde başladığı için yetişemem. Umarım ödevleri bana e-postayla gönderebilirsiniz. | weil / da / dass → çekimli fiil en sonda: habe, anfängt (ayrılmaz), schicken können (önce mastar). | der Termin; die Behörde; anfangen mit; die Hausaufgabe; schicken
+
+@teil dass-ausdruck
+ceviri | 3 | Bence her gün biraz Almanca konuşmalısın. | Ich finde, dass du jeden Tag ein bisschen Deutsch sprechen solltest. / Ich denke, dass du jeden Tag ein bisschen Deutsch sprechen solltest. / Ich glaube, dass du jeden Tag ein bisschen Deutsch sprechen solltest. / Ich finde, du solltest jeden Tag ein bisschen Deutsch sprechen. / Meiner Meinung nach solltest du jeden Tag ein bisschen Deutsch sprechen. | | - | Görüş + dass: çekimli modal (solltest) en sonda. dass'sız da olur, o zaman fiil 2. yerde: Ich finde, du solltest … | finden; denken; glauben; sollen
+
+@teil dass-das
+text | 2 | Ich habe ein Buch gekauft, ___ sehr spannend ist. Ich glaube, ___ es dir auch gefällt, und ich weiß, ___ du gern Krimis liest. | das ; dass ; dass | | Çok heyecanlı bir kitap aldım. Senin de beğeneceğini düşünüyorum, polisiye okumayı sevdiğini de biliyorum. | das, das Buch'a bağlanır (ilgi zamiri, tek s). glauben / wissen + yan cümle → dass (iki s). | das Buch; spannend; glauben; wissen; lesen
+luecke | 1 | Hast du gehört, ___ das Wetter am Wochenende schlecht wird? | dass | dass / das | Hafta sonu havanın kötü olacağını duydun mu? | hören + yan cümle → dass (bağlaç). Arkadaki das, das Wetter'in artikelidir. | das Wetter; schlecht
+
+@teil kontrast
+kategori | 2 | Hauptsatz oder Nebensatz? | Nebensatz (Verb am Ende): weil ich krank bin, dass du kommst, da es regnet ;; Hauptsatz (Verb an 2. Stelle): denn ich bin krank, deshalb bleibe ich hier, aber ich habe keine Zeit | | Ana cümle mi, yan cümle mi? | weil / dass / da yan cümle açar, fiil sona gider. denn / aber yer tutmaz; deshalb 1. yeri doldurur. Üçünde de fiil 2. yerde. | krank; regnen
