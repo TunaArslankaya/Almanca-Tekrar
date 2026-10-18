@@ -2022,3 +2022,25 @@
 2026-10-18 11:29:36;stamm;v643:stamm;werden;Warum fährst du so schnell? Bist du verrückt _____?!;worden;falsch;geworden;basamak:K | bicim:kokSatz | not:k1 | R:0.54 | S:0.1 | kök:werden | Partizip: geworden | sek:8
 2026-10-18 11:29:36;tur;akis;Çalış;;;leer;;cevap:2 | doğru:1 | küçük:0 | yanlış:1 | puan:8 | dk:1 | yeni:0 | seviye+:0 | tekrar:2
 2026-10-18 11:29:43;yeni;x1551;die Gleichberechtigung;tanıtım;;neu;eşit haklılık (kadın–erkek eşitliği);basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-10-18 11:29:46;yeni;x1552;die Hilfsbereitschaft;tanıtım;;neu;yardımseverlik;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-18 11:29:49;yeni;x1553;die Zivilcourage;tanıtım;;neu;sivil cesaret;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-18 11:29:52;erk;x1553:erk;die Zivilcourage;sivil cesaret;die Zivilcourage;richtig;die Zivilcourage;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:29:58;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:5
+2026-10-18 11:30:02;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:30:08;wort;x1553:wort;die Zivilcourage;sivil cesaret;die Zivilcourage;richtig;die Zivilcourage;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-10-18 11:30:24;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichbereitschaft;falsch;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kelime yanlış | sek:12 | ipucu:0
+2026-10-18 11:30:38;wort;x1552:wort;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:13 | ipucu:0
+2026-10-18 11:30:42;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-18 11:30:42;tur;akis;Çalış;;;leer;;cevap:7 | doğru:6 | küçük:0 | yanlış:1 | puan:42 | dk:1 | yeni:3 | seviye+:0 | tekrar:1
+2026-10-18 11:30:52;yeni;x1554;die Solidarität;tanıtım;;neu;dayanışma;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-18 11:30:55;yeni;x1555;die Würde;tanıtım;;neu;onur, (insan) haysiyeti;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-18 11:30:57;yeni;n1372;der Wert;tanıtım;;neu;değer;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-18 11:31:00;erk;x1554:erk;die Solidarität;dayanışma;die Solidarität;richtig;die Solidarität;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:31:05;erk;n1372:erk;der Wert;değer;die Wert;fast;der Wert;basamak:B1 | bicim:sec | not:m3,a1 | R:0.00 | S:2.3 | parti | artikel die → der | sek:4
+2026-10-18 11:31:08;erk;x1555:erk;die Würde;onur, (insan) haysiyeti;die Würde;richtig;die Würde;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-18 11:31:19;wort;x1554:wort;die Solidarität;dayanışma;die Soliderität;fast;die Solidarität;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:9 | ipucu:0
+2026-10-18 11:31:22;wort;n1372:wort;der Wert;değer;die Würde;falsch;der Wert;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kelime yanlış | sek:2 | ipucu:0
+2026-10-18 11:31:25;wort;x1555:wort;die Würde;onur, (insan) haysiyeti;die Würde;richtig;die Würde;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-18 11:31:29;yeni;n0322;die Erziehung;tanıtım;;neu;eğitim, terbiye;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-10-18 11:31:32;yeni;x1557;das Vorurteil;tanıtım;;neu;önyargı;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-18 11:31:35;erk;n0322:erk;die Erziehung;eğitim, terbiye;;falsch;die Erziehung;basamak:B1 | bicim:sec | not:m1 | R:0.00 | S:0.2 | parti | sek:3 | bilmiyorum
