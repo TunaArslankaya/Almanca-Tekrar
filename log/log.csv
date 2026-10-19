@@ -2060,3 +2060,16 @@
 2026-10-18 22:20:40;abr;v140:abr;bewegen;hareket ettirmek;bewegen;richtig;bewegen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:3.8 | akşam | sek:3 | ipucu:0
 2026-10-18 22:20:43;abr;v211:abr;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:3.8 | akşam | sek:4 | ipucu:0
 2026-10-18 22:20:48;erk;n0322:erk;die Erziehung;eğitim, terbiye;die Erziehung;richtig;die Erziehung;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.1 | tekrar:1 | akşam | sek:4
+2026-10-18 22:20:55;wort;x1547:wort;die Toleranz;hoşgörü;die Teasdadsa;falsch;die Toleranz;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.5 | akşam | kelime yanlış | sek:6 | ipucu:0
+2026-10-18 22:21:00;wort;x1549:wort;die Ehrlichkeit;dürüstlük;Entstehen;falsch;die Ehrlichkeit;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.5 | akşam | kelime yanlış | sek:5 | ipucu:0
+2026-10-18 22:21:10;wort;x1548:wort;die Fairness;hakkaniyet, fair play;die Fariness;falsch;die Fairness;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.5 | akşam | kelime yanlış | sek:4 | ipucu:0
+2026-10-18 22:21:20;wort;x1550:wort;die Gerechtigkeit;adalet;der Gerichtketi?;falsch;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.5 | akşam | kelime yanlış | sek:9 | ipucu:0
+2026-10-18 22:21:26;wort;x1553:wort;die Zivilcourage;sivil cesaret;die Zivilcourage;richtig;die Zivilcourage;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.97 | S:3.8 | akşam | sek:6 | ipucu:0
+2026-10-18 22:21:30;erk;x1549:erk;die Ehrlichkeit;dürüstlük;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.5 | tekrar:1 | akşam | sek:4
+2026-10-18 22:21:35;erk;x1547:erk;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B1 | bicim:sec | not:a1 | R:1.00 | S:0.5 | tekrar:1 | akşam | artikel der → die | sek:3
+2026-10-18 22:21:38;erk;x1548:erk;die Fairness;hakkaniyet, fair play;die Fairness;richtig;die Fairness;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.5 | tekrar:1 | akşam | sek:3
+2026-10-18 22:21:42;erk;x1550:erk;die Gerechtigkeit;adalet;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.5 | tekrar:1 | akşam | sek:3
+2026-10-18 22:21:42;tur;aksam;Akşam tekrarı;;;bitti;;cevap:15 | doğru:8 | küçük:2 | yanlış:5 | puan:76 | dk:1 | yeni:0 | seviye+:4 | tekrar:15
+2026-10-19 07:16:44;bed;v243:bed;fahren;fahren;gitmek;richtig;(araçla) gitmek;basamak:B1 | bicim:anla | not:m3 | R:0.99 | S:5.0 | ısınma | sek:10
+2026-10-19 07:16:49;bed;v211:bed;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B1 | bicim:sec | not:m3 | R:0.99 | S:4.3 | ısınma | sek:4
+2026-10-19 07:16:53;bed;v140:bed;bewegen;hareket ettirmek;bewegen;richtig;bewegen;basamak:B1 | bicim:sec | not:m3 | R:0.99 | S:4.3 | ısınma | sek:3
