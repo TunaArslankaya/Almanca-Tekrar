@@ -2102,3 +2102,15 @@
 2026-10-19 07:21:01;erk;n0746:erk;die Luft;Bei der Entladung wird die Luft so heiß, dass sie sich wie bei einer Explosion plötzlich ausdehnt.;hava;richtig;hava;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:3.7 | ısınma | sek:2
 2026-10-19 07:21:06;erk;w0119:erk;eher;Das Klima hingegen besagt, ob es an einem Ort normalerweise eher warm oder eher kalt ist, im Durchschnitt vieler Jahre.;daha çok, daha ziyade;richtig;daha çok, daha ziyade;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:11.7 | ısınma | sek:3
 2026-10-19 07:21:08;art;n1179:art;die Tablette;Tablette;die;richtig;die Tablette;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:32.6 | sek:1
+2026-10-19 07:21:47;prod;w0169:prod;flexibel;esnek;;falsch;flexibel;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.5 | sek:38 | ipucu:2 | bilmiyorum
+2026-10-19 07:21:53;wort;n0596:wort;die Karriere;kariyer;die Karierre;falsch;die Karriere;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.5 | kelime yanlış | sek:5 | ipucu:2
+2026-10-19 07:21:57;erk;n0293:erk;die Energie;enerji;die Energie;richtig;die Energie;basamak:B1 | bicim:sec | not:m3,a3 | R:0.84 | S:20.4 | kapı:7g | sek:3
+2026-10-19 07:21:59;art;n0055:art;die Apotheke;Apotheke;die;richtig;die Apotheke;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:32.6 | sek:1
+2026-10-19 07:22:01;erk;w0169:erk;flexibel;esnek;flexibel;richtig;flexibel;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-19 07:22:04;erk;n0596:erk;die Karriere;Nach einer langen politischen Karriere sagt er nun: „Für mich gibt es […] nichts Wichtigeres als meine Familie.“;kariyer;richtig;kariyer;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-19 07:22:11;prod;w0118:prod;ebenfalls;aynı şekilde, keza;beide;falsch;ebenfalls;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.5 | farklı | sek:4 | ipucu:2
+2026-10-19 07:22:18;wort;n0297:wort;die Entscheidung;karar;die ;falsch;die Entscheidung;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.5 | kelime yanlış | sek:4 | ipucu:2
+2026-10-19 07:22:21;erk;w0186:erk;geehrt;sayın (Sehr geehrte …);geehrt;richtig;geehrt;basamak:B1 | bicim:sec | not:m3 | R:0.84 | S:20.4 | kapı:7g | sek:3
+2026-10-19 07:22:26;erk;w0118:erk;ebenfalls;Ein Hahn mit Trinkwasser sowie ein Spülbecken mit einem Ablauf für das Schmutzwasser gehören ebenfalls dazu.;aynı şekilde, keza;richtig;aynı şekilde, keza;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:4
+2026-10-19 07:22:29;erk;n0297:erk;die Entscheidung;karar;die Entscheidung;richtig;die Entscheidung;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.5 | tekrar:1 | sek:3
+2026-10-19 07:22:29;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:61 | dk:2 | yeni:0 | seviye+:4 | tekrar:15
