@@ -2170,3 +2170,11 @@
 2026-10-19 22:06:44;bed;v620:bed;verzichten auf;verzichten auf;vazgeçmek;richtig;(bir şeyden) vazgeçmek;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:0.8 | sek:3
 2026-10-19 22:06:44;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:3 | yanlış:1 | puan:73 | dk:1 | yeni:3 | seviye+:0 | tekrar:6
 2026-10-19 22:06:56;wort;x1556:wort;die Bildung;eğitim, öğrenim;die Bildung;richtig;die Bildung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.3 | akşam | sek:7 | ipucu:0
+2026-10-19 22:07:00;abr;v242:abr;essen;yemek;das Essen;falsch;essen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.96 | S:0.6 | akşam | sek:3 | ipucu:0
+2026-10-19 22:07:05;wort;n0795:wort;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:1.00 | S:2.4 | akşam | sek:4 | ipucu:0
+2026-10-19 22:07:10;wort;x1558:wort;das Zusammenleben;birlikte yaşam;das Zusammenleben;richtig;das Zusammenleben;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:1.00 | S:2.4 | akşam | sek:5 | ipucu:0
+2026-10-19 22:07:15;wort;x1559:wort;der Umgang;"(biriyle) ilişki; (bir şeyle) başa çıkma";der Umgang;richtig;der Umgang;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:1.00 | S:2.4 | akşam | sek:4 | ipucu:0
+2026-10-19 22:07:18;nsatz;n0691:nsatz;die Kunst;Musik ist eine _____ mit Tönen.;Kunst;richtig;Kunst;basamak:B3 | bicim:bos0 | not:m3 | R:0.88 | S:31.3 | akşam | kapı:14g | sek:2 | ipucu:0
+2026-10-19 22:07:21;bed;v242:bed;essen;essen;yemek;richtig;yemek;basamak:B1 | bicim:anla | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | akşam | sek:3
+2026-10-19 22:07:38;nsatz;x1460:nsatz;das Missverständnis;in den 1990er-Jahren „I’ve Got the Power“ sangen, verstanden manche Deutsche tatsächlich „Agathe Bauer“ und hatten sehr viel Spaß mit dem _____.;Missverstädiss;falsch;Missverständnis;basamak:B2 | bicim:bos0 | not:m1 | R:0.88 | S:1.4 | akşam | artikel / ek | sek:13 | ipucu:0
+2026-10-19 22:07:43;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.89 | S:0.8 | akşam | artikel der → das | sek:4
