@@ -2178,3 +2178,9 @@
 2026-10-19 22:07:21;bed;v242:bed;essen;essen;yemek;richtig;yemek;basamak:B1 | bicim:anla | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | akşam | sek:3
 2026-10-19 22:07:38;nsatz;x1460:nsatz;das Missverständnis;in den 1990er-Jahren „I’ve Got the Power“ sangen, verstanden manche Deutsche tatsächlich „Agathe Bauer“ und hatten sehr viel Spaß mit dem _____.;Missverstädiss;falsch;Missverständnis;basamak:B2 | bicim:bos0 | not:m1 | R:0.88 | S:1.4 | akşam | artikel / ek | sek:13 | ipucu:0
 2026-10-19 22:07:43;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.89 | S:0.8 | akşam | artikel der → das | sek:4
+2026-10-19 22:07:54;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:0.9 | akşam | sek:10
+2026-10-19 22:07:59;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:0.9 | akşam | sek:4
+2026-10-19 22:08:03;erk;x1547:erk;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B1 | bicim:sec | not:m3,a1 | R:0.91 | S:1.1 | akşam | artikel der → die | sek:3
+2026-10-19 22:08:06;erk;w0169:erk;flexibel;esnek;flexibel;richtig;flexibel;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:1.9 | akşam | sek:2
+2026-10-19 22:08:09;erk;x1460:erk;das Missverständnis;in den 1990er-Jahren „I’ve Got the Power“ sangen, verstanden manche Deutsche tatsächlich „Agathe Bauer“ und hatten sehr viel Spaß mit dem Missverständnis.;yanlış anlaşılma;richtig;yanlış anlaşılma;basamak:B1 | bicim:metinde | not:m3 | R:1.00 | S:1.4 | tekrar:1 | akşam | sek:2
+2026-10-19 22:08:09;tur;aksam;Akşam tekrarı;;;bitti;;cevap:14 | doğru:10 | küçük:2 | yanlış:2 | puan:91 | dk:1 | yeni:0 | seviye+:4 | tekrar:14
