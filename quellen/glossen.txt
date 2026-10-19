@@ -4100,3 +4100,13 @@ Viele Menschen demonstrieren für mehr Gerechtigkeit. | demonstrieren = gösteri
 Die Gleichberechtigung von Frauen und Männern steht im Grundgesetz. | das Grundgesetz = (Alman) anayasası
 Nach dem Hochwasser haben die Nachbarn große Solidarität gezeigt. | das Hochwasser = sel, taşkın; der Nachbar = komşu; zeigen = göstermek
 Die Würde des Menschen ist unantastbar. | unantastbar = dokunulmaz
+Ehrlichkeit ist mir in einer Freundschaft sehr wichtig. | die Freundschaft = arkadaşlık
+Im Sport ist Fairness wichtiger als der Sieg. | der Sport = spor; der Sieg = zafer
+Nach dem Unfall war die Hilfsbereitschaft der Nachbarn groß. | der Unfall = kaza; der Nachbar = komşu
+Mit Zivilcourage hat sie dem Opfer geholfen. | das Opfer = mağdur
+Toleranz bedeutet, andere Meinungen zu respektieren. | bedeuten = demek olmak; die Meinung = fikir; respektieren = saygı göstermek
+Sie hat für ihre Karriere viele Jahre im Ausland gearbeitet. | das Ausland = yurt dışı
+Die Entscheidung ist mir nicht leichtgefallen. | leichtfallen = kolay gelmek
+Ich suche einen Job mit flexiblen Arbeitszeiten. | der Job = iş; die Arbeitszeit = çalışma saati
+Der Kurs ist teuer, und die Bücher kosten ebenfalls viel Geld. | teuer = pahalı; das Geld = para
+Das Rezept für den Kuchen habe ich von meiner Oma. | der Kuchen = kek, pasta; die Oma = nine

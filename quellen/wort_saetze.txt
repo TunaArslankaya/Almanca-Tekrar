@@ -2688,3 +2688,13 @@ x1551 | die Gleichberechtigung | Die Gleichberechtigung von Frauen und Männern 
 x1554 | die Solidarität | Nach dem Hochwasser haben die Nachbarn große Solidarität gezeigt. | Selden sonra komşular büyük dayanışma gösterdi.
 x1555 | die Würde | Die Würde des Menschen ist unantastbar. | İnsan onuru dokunulmazdır.
 x1557 | das Vorurteil | Das ist doch nur ein Vorurteil! | Bu sadece bir önyargı!
+x1549 | die Ehrlichkeit | Ehrlichkeit ist mir in einer Freundschaft sehr wichtig. | Bir arkadaşlıkta dürüstlük benim için çok önemli.
+x1548 | die Fairness | Im Sport ist Fairness wichtiger als der Sieg. | Sporda fair play zaferden daha önemlidir.
+x1552 | die Hilfsbereitschaft | Nach dem Unfall war die Hilfsbereitschaft der Nachbarn groß. | Kazadan sonra komşuların yardımseverliği büyüktü.
+x1553 | die Zivilcourage | Mit Zivilcourage hat sie dem Opfer geholfen. | Sivil cesaretle mağdura yardım etti.
+x1547 | die Toleranz | Toleranz bedeutet, andere Meinungen zu respektieren. | Hoşgörü, başka fikirlere saygı göstermek demektir.
+n0596 | die Karriere | Sie hat für ihre Karriere viele Jahre im Ausland gearbeitet. | Kariyeri için yıllarca yurt dışında çalıştı.
+n0297 | die Entscheidung | Die Entscheidung ist mir nicht leichtgefallen. | Karar vermek bana kolay gelmedi.
+w0169 | flexibel | Ich suche einen Job mit flexiblen Arbeitszeiten. | Esnek çalışma saatleri olan bir iş arıyorum.
+w0118 | ebenfalls | Der Kurs ist teuer, und die Bücher kosten ebenfalls viel Geld. | Kurs pahalı, kitaplar da çok para tutuyor.
+n0994 | das Rezept | Das Rezept für den Kuchen habe ich von meiner Oma. | Kek tarifini ananemden aldım.

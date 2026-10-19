@@ -277,3 +277,9 @@ Son incelenen log satırı: 2026-10-18 11:31:35 (erk n0322).
 - Akşam tekrarı: ilk cevap 13:00'ten önce ve üzerinden ≥ 8 saat geçtiyse Bugün'de isteğe bağlı kart; bugün yeni / yanlış / R < 0,9 öğeler, akşam en çok 15. Bugün yeni ya da yanlış olanın hafızası akşam bir kez daha yazılır (öğrenme adımı). Test: `tests/e2e_aksam.js`.
 - Simülasyon (gerçek kayıt, 202 öğe, günlük yük ≈ 40): günde 48+ cevapta birikme iner; 36'da ~100'de sabit; yalnız hedef (24 cevap) yapılırsa 2. haftada %14 büyür, yeni kelime günde 2'ye kısılır. `sim_akis` ölçütü: yük > K ise "büyümüyor" ölçütü.
 - Açık: FORMAT'taki "wegen + Dativ = fast" motorda uygulanmıyor (tam yanlış sayılıyor).
+
+**2026-10-19 (gece işi, otomatik)**
+- 18.10 11:58'den sonra: akşam tekrarı (22:20, 15 cevap) + 19.10 sabah 3 tur (07:16–07:22, 39 cevap). Yazarak yanlışlar: Toleranz, Ehrlichkeit, Fairness, Gerechtigkeit (akşam, harf karışması / önceki kelimeyle karışma), Hilfsbereitschaft, Gleichberechtigung (bilmiyorum), Vorurteil (bilmiyorum), Erziehung (bilmiyorum), flexibel (bilmiyorum), ebenfalls (beide ile karıştı), Karriere, Entscheidung (yalnız "die"). Artikel: Vorurteil, Toleranz (der → die/das), Rezept (die → das, üç gündür). Dikte atlandı ("Ich kann nicht hören"). `yeni;bekannt` yok.
+- 16 düzeltme `feedback.js`'e (seçmeli artikel yanlışları toplu: Vorurteil, Toleranz). DW "Schuluniform" metni zaten işlenmişti, kalan B1 kelime yok; bunun yerine takılan 10 kelimeye çeviri cümlesi + gloss (Ehrlichkeit, Fairness, Hilfsbereitschaft, Zivilcourage, Toleranz, Karriere, Entscheidung, flexibel, ebenfalls, Rezept). -ung/-keit/-schaft hep die kuralı düzeltmelerde vurgulandı.
+- Build/test: tools/build.py, test_grammatik, stichprobe 1 geçti.
+Son incelenen log satırı: 2026-10-19 07:22:29 (tur akis).
