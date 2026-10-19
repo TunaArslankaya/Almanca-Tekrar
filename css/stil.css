@@ -585,7 +585,7 @@ details.daha[open] > summary { margin-bottom: .6rem; }
   #kart > #sonuc > .sonuc { max-height: 58vh; overflow-y: auto; border-radius: 20px 20px 16px 16px; box-shadow: 0 -8px 30px rgba(0, 0, 0, .18); border: 1px solid var(--line); padding: 1rem 1rem 1.1rem; }
   #kart > #sonuc > .sonuc.richtig { background: color-mix(in srgb, var(--ok-soft) 92%, var(--surface)); }
   #kart:has(#sonuc:not(:empty)) { padding-bottom: 46vh; }
-  .notlar .btn.mini { flex: 1 1 0; justify-content: center; min-height: 40px; }
+  .notlar .btn.mini { flex: 1 1 0; justify-content: center; min-height: var(--hedef); }
 }
 
 .kart.cevaplandi .cevap .btn, .kart.cevaplandi [data-act="weiss-nicht"], .kart.cevaplandi [data-act="mc-weiss-nicht"] { display: none; }

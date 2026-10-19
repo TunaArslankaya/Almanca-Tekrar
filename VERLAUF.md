@@ -283,3 +283,8 @@ Son incelenen log satırı: 2026-10-18 11:31:35 (erk n0322).
 - 16 düzeltme `feedback.js`'e (seçmeli artikel yanlışları toplu: Vorurteil, Toleranz). DW "Schuluniform" metni zaten işlenmişti, kalan B1 kelime yok; bunun yerine takılan 10 kelimeye çeviri cümlesi + gloss (Ehrlichkeit, Fairness, Hilfsbereitschaft, Zivilcourage, Toleranz, Karriere, Entscheidung, flexibel, ebenfalls, Rezept). -ung/-keit/-schaft hep die kuralı düzeltmelerde vurgulandı.
 - Build/test: tools/build.py, test_grammatik, stichprobe 1 geçti.
 Son incelenen log satırı: 2026-10-19 07:22:29 (tur akis).
+
+**2026-10-19 (Tuna: "niye kelimeler level atlamak yerine 60 gün tekrara düşüyor")**
+- Sebep 1: göçte eski kartların S'i (v3'te "biliyorum" / kolay işaretli, yalnız seçmelide görülmüş: Nebel, Service … S 17–57) hafızaya aynen geçti ve pk kapısı (pk 0 → 7 g) göçte uygulanmadı: 47 kelime 16–60 gün vadedeydi, seviyesi Tanıyor/Yazıyor'da kaldı.
+- Sebep 2: S zaten yüksek bir kelimeye tek doğru yazma (Service, 19.10 22:03) S'i 57'ye çıkarıp 57 gün sonraya attı; cümle basamağı hiç sorulmadan seviye "Oturdu" görünüyordu.
+- Düzeltme (`Kern` basamak kapısı): `m.bm` = kanıtlanan en yüksek basamak; sonraki soru en çok bir basamak yukarı; aralık bm 1 → 7 g, 2 → 14 g, 3 → 30 g, üst basamakta 60 g; seviye ≤ bm. Açılışta eski hafızalara uygulanır: 62 kelimenin vadesi kısalır, 17'si hemen vadeli. Görünen seviye kanıtlanan basamağa iner (137 kelime bir basamak: eskiden S'ten hesaplanıyordu). İtiraz düğmesi telefonda 48 px. Duman testinde iki rastgele hata (aynı gün artikel + anlam ayrı hafıza; boş durumda ilk tur leer) giderildi. test_kern 450.

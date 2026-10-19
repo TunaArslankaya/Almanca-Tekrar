@@ -161,8 +161,16 @@
         x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g }), r: { R: 0, S: f.S, yazildi: true } };
         out.yazildi = true;
       } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu, aksam);
+      const hOnce = it.m;
       it.m = x.h; out.m = x.r;
-      if (x.r.yazildi) { delete it.m.dogrula; delete it.yarim; }
+      if (x.r.yazildi) {
+        delete it.m.dogrula; delete it.yarim;
+        // basamak kapısı: doğru ve ipucusuz cevap bm'yi o basamağa çıkarır; vade bm aralığını aşmaz
+        const h = it.m;
+        if (h.bm == null) h.bm = hOnce && hOnce.S ? bmBaslat(hOnce) : 0;
+        if (not.m >= 3 && opts.b && !opts.ipucu) h.bm = Math.max(h.bm, opts.b);
+        if (not.m >= 2 && h.S) h.due = Math.max(t, Math.min(h.due, h.last + bmAralik(h, id) * DAY));
+      }
       if (opts.b) it.m.b = opts.b;
     }
     if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksam); it.art = x.h; out.a = x.r; }
@@ -189,6 +197,8 @@
     // "Yazıyor" en az iki değerlendirilmiş cevaptan sonra (tanıtım + tek seçmeli kelimeyi yazıyor yapmasın)
     if (sv === 2 && h.reps != null && h.reps < 2 && !(h.lastG >= 3 && pk >= 1)) sv = 1;
     if (id && C) { try { const k = C.kind(id); if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) sv = Math.min(sv, 3); } catch (e) { /* bilinmeyen öğe */ } }
+    // seviye kanıtlanan basamağı aşmaz (bm 2 = yazdı → en çok Yazıyor); en üst basamağına çıkmış öğe S'e göre Oturdu / Usta olur
+    if (h.bm != null && h.bm < ustBasamak(id)) sv = Math.min(sv, Math.max(1, h.bm));
     return sv;
   };
   // bag: { id, t, isinma, momentum, kurtarma, klavyesiz } → { b, yenidenTanit }
@@ -198,6 +208,7 @@
     let b = S < 2 ? 1 : S < 7 ? 2 : S < 21 ? 3 : 4;
     if (pk === 0) b = Math.min(b, 2); else if (pk === 1) b = Math.min(b, 3);
     if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) b = Math.min(b, 3);
+    if (h.S && h.bm != null) b = Math.min(b, h.bm + 1);   // basamak kapısı: en çok bir basamak yukarı
     const yenidenTanit = !!(h.S && r < 0.35);
     if (bag.kurtarma || r < 0.5) b = 1;
     if (bag.isinma || bag.momentum || h.dogrula) b -= 1;
@@ -272,12 +283,39 @@
     return !!once && gunFark(g, once) >= 3;
   }
   // §5.2 kota. durum: { S, kap (günlük hedef, cevap), bonus (bugünkü bonus tur), donus, uniteKalan {kalan, gun} }
-  // Mevcut hafızalarda MAX_ARALIK'tan uzun aralık varsa (eski %85 hesabı) vadeyi last + 60 güne çeker; idempotent, her açılışta ucuz
+  // Basamak kapısı (19.10, Tuna: "kelimeler seviye atlamak yerine 60 gün tekrara düşüyor"): anlam hafızasında bm = doğru (ipucusuz)
+  // cevaplanan en yüksek basamak. Aralık bm'ye göre sınırlı (B1 7 g, B2 14 g, B3 30 g, öğenin en üst basamağına ulaştıysa 60 g) ve sonraki
+  // soru en çok bir basamak yukarıdan gelir: tek doğru yazma / eski "biliyorum" işareti kelimeyi 2 ay ortadan kaldırmaz, önce cümleye çıkar.
+  const BM_ARALIK = [7, 7, 14, 30, MAX_ARALIK];
+  // öğenin çıkabileceği en üst basamak: tier-3 isim / diğer (ünite dışı) ve Goethe boşluğu / cümlesi olmayan öğe 3, cümlesi hiç olmayan 2
+  function ustBasamak(id) {
+    if (!id || !C) return 4;
+    try {
+      const k = C.kind(id);
+      if (C.cumleVar && !C.cumleVar(id)) return 2;
+      if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) return 3;
+      if (C.lueckeVar && !C.lueckeVar(id)) return 3;
+    } catch (e) { /* bilinmeyen öğe */ }
+    return 4;
+  }
+  // bm'si olmayan (göçten ya da bu kuraldan önce yazılmış) hafıza: pk 0 → 1, pk ≥ 1 → 2; son cevap doğruysa o basamak
+  const bmBaslat = h => Math.max((h.pk || 0) === 0 ? 1 : 2, h.b && h.lastG >= 3 ? h.b : 0);
+  const bmAralik = (h, id) => (h.bm || 1) >= ustBasamak(id) ? MAX_ARALIK : BM_ARALIK[Math.max(1, h.bm || 1)];
+  // Mevcut hafızalarda MAX_ARALIK'tan uzun aralık varsa (eski %85 hesabı) vadeyi last + 60 güne çeker; anlam hafızasında pk kapısını
+  // (pk 0 → 7 g, pk 1 → 14 g: göçte uygulanmamıştı) ve basamak kapısını (bm) da uygular; idempotent, her açılışta ucuz
   function aralikKisalt(S, t) {
-    let n = 0; const kes = h => { if (h && h.S && h.due && h.last && h.due - h.last > MAX_ARALIK * DAY) { h.due = Math.max(h.last + MAX_ARALIK * DAY, t); n++; } };
-    Object.values(S.items || {}).forEach(it => { kes(it.m); kes(it.art); });
-    Object.values(S.kok || {}).forEach(kes);
-    Object.values(S.pakete || {}).forEach(p => kes(p.m));
+    let n = 0; const kes = (h, gun) => { if (h && h.S && h.due && h.last && h.due - h.last > gun * DAY) { h.due = Math.max(h.last + gun * DAY, t); n++; } };
+    Object.entries(S.items || {}).forEach(([id, it]) => {
+      const h = it.m;
+      if (h && h.S) {
+        if (h.bm == null) h.bm = bmBaslat(h);
+        const pk = h.pk || 0;
+        kes(h, Math.min(MAX_ARALIK, pk === 0 ? 7 : pk === 1 ? 14 : MAX_ARALIK, bmAralik(h, id)));
+      }
+      kes(it.art, MAX_ARALIK);
+    });
+    Object.values(S.kok || {}).forEach(h => kes(h, MAX_ARALIK));
+    Object.values(S.pakete || {}).forEach(p => kes(p.m, MAX_ARALIK));
     return n;
   }
 
@@ -874,7 +912,7 @@
     return r === Infinity ? null : r;
   }
 
-  const api = { aralikKisalt, MAX_ARALIK,
+  const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, ARA,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,

@@ -354,6 +354,7 @@
     goetheLuecke: id => !!(vById[id] && vById[id].lueckenListe.length),
     lueckeVar: id => satzPool(id).own.some(x => x.tr && wortLuecke(id, x.de)),
     kontextVar: id => kontextSaetze(id).length > 0,
+    cumleVar: id => { const p = satzPool(id); return p.own.length + p.extra.length > 0 || !!(vById[id] && vById[id].lueckenListe.length); },
     LEX: { has: w => lexSet().has(String(w).toLowerCase()) } });
 
   // vadeli hafızalar (Kern.vadeliler): m, yalnız art, kök; isteğe bağlı öğe filtresi

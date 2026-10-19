@@ -81,6 +81,7 @@
   6) vadeliler R azalan (aynı öğe ≥ 8 soru arayla; artikel flaşı turda ≤ 3; kök turda 1, günde 4, yeni kök günde 2) 7) vadeli yoksa parti, yoksa "şimdilik bu kadar" + günde bir "+3 yeni".
   En uzun tekrar aralığı 60 gün (`Kern.MAX_ARALIK`; açılışta `aralikKisalt` eski uzun vadeleri çeker; %85 hedefte FSRS aralığı ≈ 1,9 × S olduğundan 94 güne çıkıyordu).
   Merdiven (`Kern.basamak`): S < 2 seç, < 7 yaz, < 21 cümlede boşluk, üstü tam cümle; erken üretim kapısı pk 0 → ≤ B2 ve aralık ≤ 7 g, pk 1 → ≤ B3 ve ≤ 14 g; tier-3 isim / diğer (ünite dışı) ≤ B3; A1 anlam sorulmaz.
+  Basamak kapısı (19.10): `m.bm` = ipucusuz doğru cevaplanan en yüksek basamak; sonraki soru ≤ bm + 1, aralık bm 1 → 7 g, 2 → 14 g, 3 → 30 g, öğenin üst basamağında (`Kern.ustBasamak`: tier-3 / Goethe boşluğu yok 3, cümlesi yok 2) 60 g; seviye ≤ bm. bm'siz eski hafıza açılışta `aralikKisalt` ile başlatılır (pk 0 → 1, pk ≥ 1 → 2, son doğru basamak).
   Not (`Kern.notVer`): doğru 3 (biçim ofseti: seçmeli büyüme az), yazım / mastar eki / yavaş 3 (+0,7), umlaut / hâl / çekim 2, edat / sich / yanlış 1; isimde anlam ve artikel ayrı (kelime ✓ artikel ✗ = m3 a1).
   Yazım hoşgörüsü (`G.pruefen(…, {lemma:true})`): ae/oe/ue/ss tam doğru; lemma ≥ 5 harf + lev 1, ≥ 10 harf + lev ≤ 2 ve yazılan sözlükte başka kelime değilse (liegen/legen, Stadt/Staat ayrışır).
   Günde tek kalıcı yazım (öğrenme günü 04:00'te başlar). Yeni kota (`Kern.kota`): günde 6 (Ayarlar 4/6/8); birikme ya da çok genç kelime varken 2–4, göçten sonraki ilk 3 gün 2, hedeften sonraki bonus turda +2;

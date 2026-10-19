@@ -249,10 +249,36 @@ NT.forEach(([ad, girdi, bekl]) => {
 {
   const u = K.guncelle({ S: 400, D: 5, last: T - 30 * DAY, reps: 9, lapses: 0, pk: 2 }, 3, T, 0.85, 0);
   eq(Math.round((u.due - T) / DAY) <= K.MAX_ARALIK, true, 'aralık en çok MAX_ARALIK (60) gün');
-  const Sx = yeniS({ n1: { m: { S: 50, D: 5, last: T - 2 * DAY, due: T + 94 * DAY, reps: 2, lapses: 0 } }, n2: { m: { S: 10, D: 5, last: T - DAY, due: T + 15 * DAY, reps: 2, lapses: 0 } } });
+  const Sx = yeniS({ n1: { m: { S: 50, D: 5, last: T - 2 * DAY, due: T + 94 * DAY, reps: 2, lapses: 0, pk: 2, bm: 4 } }, n2: { m: { S: 10, D: 5, last: T - DAY, due: T + 15 * DAY, reps: 2, lapses: 0, pk: 2, bm: 4 } } });
   eq(K.aralikKisalt(Sx, T), 1, 'aralikKisalt: yalnız uzun olan çekilir');
   eq(Math.round((Sx.items.n1.m.due - T) / DAY), 58, 'aralikKisalt: due = last + 60 gün');
   eq(K.aralikKisalt(Sx, T), 0, 'aralikKisalt idempotent');
+}
+
+// ---------- basamak kapısı (19.10: "seviye atlamak yerine 60 gün tekrara düşüyor") ----------
+{
+  // göçten gelen, yalnız seçmelide görülmüş (pk 0) S 50 → 60 gün vade: pk kapısı 7 gün
+  const Sg = yeniS({ n1: { m: { S: 50, D: 1, last: T - 4 * DAY, due: T + 56 * DAY, reps: 2, lapses: 0, lastG: 3, pk: 0 } },
+    n2: { m: { S: 57, D: 1, last: T - DAY, due: T + 56 * DAY, reps: 2, lapses: 0, lastG: 3, pk: 2, b: 2 } } });
+  K.aralikKisalt(Sg, T);
+  eq(Math.round((Sg.items.n1.m.due - T) / DAY), 3, 'göç: pk 0 → last + 7 gün');
+  eq(Sg.items.n1.m.bm, 1, 'göç: pk 0 → bm 1');
+  eq(Sg.items.n2.m.bm, 2, 'eski: son doğru cevap B2 → bm 2');
+  eq(Math.round((Sg.items.n2.m.due - T) / DAY), 13, 'eski: bm 2 → last + 14 gün (57 değil)');
+  eq(K.seviye(Sg.items.n2, 'n2'), 2, 'seviye bm\'yi aşmaz: S 57 ama yalnız yazdı → Yazıyor');
+  ok(K.basamak(Sg.items.n2, { id: 'n2', t: Sg.items.n2.m.due }, () => 0.9).b <= 3, 'sonraki soru en çok bir basamak yukarı (B3)');
+  // yeni yazım: B2'de doğru → aralık ≤ 14; B3'te doğru → bm 3, aralık ≤ 30
+  const Su = yeniS({ n3: { m: { S: 20, D: 2, last: T - 20 * DAY, due: T, reps: 3, lapses: 0, lastG: 3, pk: 2, bm: 2, gun: '2026-09-25' } } });
+  K.uygula(Su, 'n3', K.notVer({ bicim: 'yaz', tip: 'dogru' }), T, { b: 2 });
+  ok(Su.items.n3.m.due - T <= 14 * DAY + 1000, 'B2 doğru: aralık ≤ 14 gün');
+  eq(Su.items.n3.m.bm, 2, 'B2 doğru: bm 2 kalır');
+  const Sv = yeniS({ n3: { m: { S: 20, D: 2, last: T - 20 * DAY, due: T, reps: 3, lapses: 0, lastG: 3, pk: 2, bm: 2, gun: '2026-09-25' } } });
+  K.uygula(Sv, 'n3', K.notVer({ bicim: 'bos', tip: 'dogru' }), T, { b: 3 });
+  eq(Sv.items.n3.m.bm, 3, 'B3 doğru: bm 3 (seviye atladı)');
+  ok(Sv.items.n3.m.due - T > 14 * DAY && Sv.items.n3.m.due - T <= 30 * DAY + 1000, 'B3 doğru: 14 < aralık ≤ 30 gün');
+  const Sw = yeniS({ n3: { m: { S: 20, D: 2, last: T - 20 * DAY, due: T, reps: 3, lapses: 0, lastG: 3, pk: 2, bm: 2, gun: '2026-09-25' } } });
+  K.uygula(Sw, 'n3', K.notVer({ bicim: 'bos', tip: 'dogru' }), T, { b: 3, ipucu: true });
+  eq(Sw.items.n3.m.bm, 2, 'ipuçlu doğru bm\'yi çıkarmaz');
 }
 
 // ---------- §5.2 kota ----------

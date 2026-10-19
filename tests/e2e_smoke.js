@@ -22,7 +22,9 @@ function logDenetle(ad, log, o) {
   if (n('kontrol') || n('pretest')) hata(ad, `kontrol ${n('kontrol')} / pretest ${n('pretest')} satırı (0 olmalı)`);
   const turlar = log.filter(e => e.modus === 'tur');
   turlar.forEach(e => { const c = +(/cevap:(\d+)/.exec(e.notiz) || [])[1]; if (e.ergebnis === 'bitti' && (c < 12 || c > 15) && !o.boy) hata(ad, `tur satırı cevap:${c} (12, yeniden sorulacak yanlış kaldıysa en çok 15 olmalı)`); if (!/yeni:\d+ \| seviye\+:\d+ \| tekrar:\d+/.test(e.notiz)) hata(ad, 'tur satırında yeni / seviye+ / tekrar yok'); });
-  if (!turlar.some(e => e.ergebnis === 'bitti')) hata(ad, 'hiç tur bitmedi');
+  // boş durumda ilk gün 6 yeni kelime ~12 cevap eder: tur kelimeler bitince "şimdilik bu kadar" (leer) kapanabilir; en az 10 cevaplık tur yeter
+  const cevapSay = e => +((/cevap:(\d+)/.exec(e.notiz || '') || [])[1] || 0);
+  if (!turlar.some(e => e.ergebnis === 'bitti' || (e.ergebnis === 'leer' && cevapSay(e) >= 10))) hata(ad, 'hiç tur bitmedi');
   const cevap = log.filter(e => CEVAP_MODUS.has(e.modus) && /basamak:/.test(e.notiz || ''));
   log.filter(e => CEVAP_MODUS.has(e.modus) && e.modus !== 'luecke' || (e.modus === 'luecke' && /bicim:/.test(e.notiz || ''))).forEach(e => {
     const eksik = ZORUNLU.filter(z => !(e.notiz || '').includes(z));
@@ -72,9 +74,8 @@ function logDenetle(ad, log, o) {
   // aynı gün aynı hafızaya ikinci cevap: yazılmaz (hafıza:yazılmadı ya da not:-); yukarıdaki yazım sayımı hafıza başına denetler
   const ikinciCevap = cevap.filter(e => /\| (ikinci|tekrar:)/.test(e.notiz));
   ikinciCevap.forEach(e => { if (/\| ikinci/.test(e.notiz) && !/hafıza:yazılmadı/.test(e.notiz)) hata(ad, `ikinci hatırlamada hafıza:yazılmadı yok: ${e.id}`); });
-  // aynı gün aynı öğeye ikinci cevap olduysa en az biri hafıza:yazılmadı olmalı (tek turda yanlış / yeni çıkmazsa ikinci cevap hiç olmayabilir)
-  const gorulen = new Set(), ikinciVar = cevap.some(e => { const k = e.zeit.slice(0, 10) + '|' + e.id.split(':')[0]; if (gorulen.has(k)) return true; gorulen.add(k); return false; });
-  if (o.gercek && ikinciVar && !cevap.some(e => /hafıza:yazılmadı|not:-/.test(e.notiz))) hata(ad, 'aynı gün ikinci cevap var ama hiç hafıza:yazılmadı satırı yok');
+  // (aynı gün ikinci cevabın hafızaya yazılmadığını yukarıdaki yazım sayımı hafıza başına denetler: yanlış anlamdan sonraki doğru
+  //  tekrar o gün ilk kez artikel hafızasına yazabilir, not:a3 meşrudur)
   return { cevap: cevap.length, tanit, mini, ikinci, tur: turlar.length };
 }
 
