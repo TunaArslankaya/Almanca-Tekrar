@@ -2140,3 +2140,33 @@
 2026-10-19 22:04:22;bed;v184:bed;sich einigen auf;(bir şeyde) anlaşmak, uzlaşmak;sich einigen auf;richtig;sich einigen auf;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:1.3 | sek:4
 2026-10-19 22:04:25;erk;w0344:erk;nass;ıslak;nass;richtig;nass;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:2.0 | sek:2
 2026-10-19 22:04:25;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:56 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-19 22:05:02;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:m3 | R:0.81 | S:1.8 | ısınma | sek:3
+2026-10-19 22:05:05;erk;n1044:erk;der Schmerz;ağrı;der Schmerz;richtig;der Schmerz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.81 | S:1.8 | ısınma | sek:3
+2026-10-19 22:05:09;erk;n0248:erk;der Donner;Der Donner kommt erst später bei einem an.;gök gürültüsü;richtig;gök gürültüsü;basamak:B1 | bicim:metinde | not:m3 | R:0.81 | S:2.0 | ısınma | sek:3
+2026-10-19 22:05:11;art;n0617:art;die Kindheit;Kindheit;die;richtig;die Kindheit;basamak:A | bicim:artikel | not:a3 | R:0.82 | S:11.8 | sek:1
+2026-10-19 22:05:14;erk;n0790:erk;die Miete;kira;die Miete;richtig;die Miete;basamak:B1 | bicim:sec | not:m3,a3 | R:0.80 | S:2.6 | sek:2
+2026-10-19 22:05:21;stamm;v148:stamm;bleiben;bleiben — Perfekt;gebliebt;falsch;geblieben;basamak:K | bicim:kokSatz | not:k1 | R:0.80 | S:0.3 | kök:bleiben | Partizip: geblieben | sek:6
+2026-10-19 22:05:23;art;n0937:art;das Projekt;Projekt;das;richtig;das Projekt;basamak:A | bicim:artikel | not:a3 | R:0.80 | S:1.8 | sek:2
+2026-10-19 22:05:27;bed;v117:bed;berichten über;Dafür haben die Mädchen eine Petition gestartet: Mehr als 27.000 Menschen haben bereits unterschrieben, die Zeitung „The Times“ berichtete.;haber vermek, anlatmak;richtig;(bir şey hakkında) haber vermek, anlatmak;basamak:B1 | bicim:metinde | not:m3 | R:0.79 | S:1.7 | sek:3
+2026-10-19 22:05:30;bed;v063:bed;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über;basamak:B1 | bicim:sec | not:m3 | R:0.79 | S:2.0 | sek:3
+2026-10-19 22:05:35;erk;n1375:erk;der Wetterbericht;hava raporu;der Wetterbericht;richtig;der Wetterbericht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.79 | S:1.3 | sek:5
+2026-10-19 22:05:39;art;n1422:art;das Ziel;Ziel;das;richtig;das Ziel;basamak:A | bicim:artikel | not:a3 | R:0.61 | S:0.3 | sek:3
+2026-10-19 22:05:41;erk;w0172:erk;frech;arsız, şımarık;frech;richtig;frech;basamak:B1 | bicim:sec | not:m3 | R:0.76 | S:0.5 | sek:2
+2026-10-19 22:05:42;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:58 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
+2026-10-19 22:05:47;erk;n0972:erk;die Regel;Bei uns Menschen liegt die normale Körpertemperatur in aller Regel nicht über 37 Grad Celsius.;kural;richtig;kural;basamak:B1 | bicim:metinde | not:m3 | R:0.74 | S:1.4 | ısınma | sek:3
+2026-10-19 22:05:52;erk;n1094:erk;das Sonderangebot;özel indirim;der Sonderangebot;fast;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a1 | R:0.74 | S:0.8 | ısınma | artikel der → das | sek:3
+2026-10-19 22:05:55;erk;n0948:erk;die Quittung;makbuz, fiş;die Quittung;richtig;die Quittung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.74 | S:0.8 | ısınma | sek:3
+2026-10-19 22:05:58;yeni;n0795;die Minderheit;tanıtım;;neu;azınlık;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-19 22:06:00;yeni;x1558;das Zusammenleben;tanıtım;;neu;birlikte yaşam;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-19 22:06:03;yeni;x1559;der Umgang;tanıtım;;neu;"(biriyle) ilişki; (bir şeyle) başa çıkma";basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-19 22:06:06;erk;n0795:erk;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-19 22:06:10;erk;x1558:erk;das Zusammenleben;birlikte yaşam;das Zusammenleben;richtig;das Zusammenleben;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-19 22:06:14;erk;x1559:erk;der Umgang;(biriyle) ilişki;das Umgang;fast;der Umgang;basamak:B1 | bicim:sec | not:m3,a1 | R:0.00 | S:2.3 | parti | artikel das → der | sek:2
+2026-10-19 22:06:21;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebracht;richtig;gebracht;basamak:K | bicim:kokSatz | not:k3 | R:0.78 | S:1.0 | kök:bringen | sek:7
+2026-10-19 22:06:28;wort;n0795:wort;die Minderheit;azınlık;die Mindheit;fast;die Minderheit;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:5 | ipucu:0
+2026-10-19 22:06:35;wort;x1558:wort;das Zusammenleben;birlikte yaşam;das Zusammenleben;richtig;das Zusammenleben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:6 | ipucu:0
+2026-10-19 22:06:38;wort;x1559:wort;der Umgang;"(biriyle) ilişki; (bir şeyle) başa çıkma";der Umgang;richtig;der Umgang;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-19 22:06:41;art;n0691:art;die Kunst;Kunst;der;falsch;die Kunst;basamak:A | bicim:artikel | not:a1 | R:0.59 | S:0.0 | artikel der → die | sek:2
+2026-10-19 22:06:44;bed;v620:bed;verzichten auf;verzichten auf;vazgeçmek;richtig;(bir şeyden) vazgeçmek;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:0.8 | sek:3
+2026-10-19 22:06:44;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:3 | yanlış:1 | puan:73 | dk:1 | yeni:3 | seviye+:0 | tekrar:6
+2026-10-19 22:06:56;wort;x1556:wort;die Bildung;eğitim, öğrenim;die Bildung;richtig;die Bildung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.3 | akşam | sek:7 | ipucu:0
