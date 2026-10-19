@@ -2081,3 +2081,10 @@
 2026-10-19 07:17:23;wort;x1557:wort;das Vorurteil;önyargı;;falsch;das Vorurteil;basamak:B2 | bicim:yaz0 | not:m1 | R:0.98 | S:0.5 | sek:6 | ipucu:0 | bilmiyorum
 2026-10-19 07:17:28;wort;x1556:wort;die Bildung;eğitim, öğrenim;die Bildung;richtig;die Bildung;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
 2026-10-19 07:17:32;abr;v242:abr;essen;yemek;Essen;richtig;essen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-10-19 07:18:14;akt;diktat:n0047;dinle–yaz;Den Antrag müssen Sie bis Ende des Monats abgeben.;Ich kann nicht hören;falsch;Den Antrag müssen Sie bis Ende des Monats abgeben.;
+2026-10-19 07:18:32;wort;x1555:wort;die Würde;onur, (insan) haysiyeti;die Würde;richtig;die Würde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.95 | S:4.9 | sek:12 | ipucu:0
+2026-10-19 07:18:38;erk;x1557:erk;das Vorurteil;önyargı;das Vorurteil;richtig;das Vorurteil;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.5 | tekrar:1 | sek:4
+2026-10-19 07:18:38;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:74 | dk:2 | yeni:2 | seviye+:1 | tekrar:7
+2026-10-19 07:18:48;erk;n1372:erk;der Wert;değer;der Wert;richtig;der Wert;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:3.3 | ısınma | sek:4
+2026-10-19 07:18:53;erk;x1554:erk;die Solidarität;dayanışma;die Solidarität;richtig;die Solidarität;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:3.3 | ısınma | sek:3
+2026-10-19 07:19:00;bed;v256:bed;feststellen;Einen deutlichen Zeitverlust kann ich persönlich nicht feststellen.;tespit etmek;richtig;tespit etmek;basamak:B1 | bicim:metinde | not:m3 | R:0.89 | S:1.3 | ısınma | sek:7
