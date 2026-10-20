@@ -2191,3 +2191,24 @@
 2026-10-20 08:30:30;yeni;n0448;die Gemeinschaft;tanıtım;;neu;topluluk;basamak:B0 | bicim:tanit | not:- | parti | sek:3
 2026-10-20 08:30:33;bed;v346:bed;kommen;gelmek;kommen;richtig;kommen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-20 08:30:36;erk;n0448:erk;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-20 08:30:45;wort;n0795:wort;die Minderheit;azınlık;die Meistenschaft;falsch;die Minderheit;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.6 | kelime yanlış | sek:8 | ipucu:0
+2026-10-20 08:30:47;art;n0432:art;das Gedicht;Gedicht;das;richtig;das Gedicht;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:2.8 | sek:2
+2026-10-20 08:30:50;abr;v346:abr;kommen;gelmek;kommen;richtig;kommen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-20 08:31:02;wort;n0448:wort;die Gemeinschaft;topluluk;die Gemeischaft;fast;die Gemeinschaft;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:6 | ipucu:0
+2026-10-20 08:31:05;erk;n0795:erk;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:3
+2026-10-20 08:31:08;erk;w0169:erk;flexibel;esnek;flexibel;richtig;flexibel;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.1 | sek:2
+2026-10-20 08:31:10;art;n1094:art;das Sonderangebot;Sonderangebot;das;richtig;das Sonderangebot;basamak:A | bicim:artikel | not:a3 | R:0.78 | S:0.3 | sek:2
+2026-10-20 08:31:10;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:63 | dk:1 | yeni:2 | seviye+:1 | tekrar:8
+2026-10-20 08:31:13;erk;w0170:erk;fließend;akıcı;fließend;richtig;fließend;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:1.8 | ısınma | sek:2
+2026-10-20 08:31:19;erk;x1460:erk;das Missverständnis;yanlış anlaşılma;das Missverständnis;richtig;das Missverständnis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.7 | ısınma | sek:5
+2026-10-20 08:31:24;erk;n0297:erk;die Entscheidung;Viele hatten kein Verständnis für seine Entscheidung.;karar;richtig;karar;basamak:B1 | bicim:metinde | not:m3 | R:0.92 | S:2.9 | ısınma | sek:5
+2026-10-20 08:31:27;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.66 | S:0.1 | sek:2
+2026-10-20 08:31:32;erk;x1547:erk;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B1 | bicim:sec | not:m3,a1 | R:0.95 | S:1.3 | artikel der → die | sek:4
+2026-10-20 08:31:35;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.94 | S:1.1 | sek:3
+2026-10-20 08:31:37;art;n0994:art;das Rezept;Rezept;der;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.56 | S:0.0 | artikel der → das | sek:1
+2026-10-20 08:31:40;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.94 | S:1.1 | sek:3
+2026-10-20 08:31:45;akt;diktat:x1550;dinle–yaz;Viele Menschen demonstrieren für mehr Gerechtigkeit.;bilmiyom;falsch;Viele Menschen demonstrieren für mehr Gerechtigkeit.;
+2026-10-20 08:31:49;art;n0244:art;die Diskussion;Diskussion;das;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.54 | S:0.0 | artikel das → die | sek:2
+2026-10-20 08:31:52;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.94 | S:1.1 | artikel der → das | sek:3
+2026-10-20 08:31:55;erk;w0118:erk;ebenfalls;Ein Hahn mit Trinkwasser sowie ein Spülbecken mit einem Ablauf für das Schmutzwasser gehören ebenfalls dazu.;aynı şekilde, keza;richtig;aynı şekilde, keza;basamak:B1 | bicim:metinde | not:m3 | R:0.92 | S:2.9 | sek:2
+2026-10-20 08:31:55;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:2 | yanlış:3 | puan:45 | dk:1 | yeni:0 | seviye+:2 | tekrar:11
