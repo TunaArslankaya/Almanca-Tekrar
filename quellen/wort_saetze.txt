@@ -2698,3 +2698,12 @@ n0297 | die Entscheidung | Die Entscheidung ist mir nicht leichtgefallen. | Kara
 w0169 | flexibel | Ich suche einen Job mit flexiblen Arbeitszeiten. | Esnek çalışma saatleri olan bir iş arıyorum.
 w0118 | ebenfalls | Der Kurs ist teuer, und die Bücher kosten ebenfalls viel Geld. | Kurs pahalı, kitaplar da çok para tutuyor.
 n0994 | das Rezept | Das Rezept für den Kuchen habe ich von meiner Oma. | Kek tarifini ananemden aldım.
+x1558 | das Zusammenleben | Das Zusammenleben in der WG funktioniert gut. | Ortak evde birlikte yaşam iyi gidiyor.
+x1558 | das Zusammenleben | Für das Zusammenleben brauchen wir klare Regeln. | Birlikte yaşamak için net kurallara ihtiyacımız var.
+x1559 | der Umgang | Der Umgang mit meinen Nachbarn ist freundlich. | Komşularımla ilişkim dostane.
+x1559 | der Umgang | Der Umgang mit Geld ist nicht einfach. | Parayla başa çıkmak kolay değil.
+n0795 | die Minderheit | In der Klasse bin ich in der Minderheit. | Sınıfta azınlıktayım.
+n0795 | die Minderheit | Eine Minderheit der Schüler fährt mit dem Fahrrad. | Öğrencilerin bir azınlığı bisikletle gidiyor.
+n0448 | die Gemeinschaft | Die Gemeinschaft im Dorf ist sehr stark. | Köydeki topluluk bağı çok güçlü.
+n0448 | die Gemeinschaft | Wir leben in einer Gemeinschaft mit vielen Kulturen. | Birçok kültürün olduğu bir toplulukta yaşıyoruz.
+n0691 | die Kunst | Meine Schwester interessiert sich für Kunst. | Kız kardeşim sanatla ilgileniyor.

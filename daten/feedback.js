@@ -254,4 +254,12 @@ window.FEEDBACK = [
   { zeit: '2026-10-19 07:22', id: 'w0118:prod', antwort: 'beide', richtig: 'ebenfalls', urteil: 'falsch', text: 'ebenfalls = aynı şekilde, keza ("Danke, ebenfalls!" = size de). beide = ikisi de, farklı kelime.' },
   { zeit: '2026-10-19 07:22', id: 'n0297:wort', antwort: 'die', richtig: 'die Entscheidung', urteil: 'falsch', text: 'Sadece artikel yazdın; kelime: die Entscheidung = karar (entscheiden = karar vermek). -ung hep die.' },
   { zeit: '2026-10-19 07:18', id: 'diktat:n0047', antwort: 'Ich kann nicht hören', richtig: 'Den Antrag müssen Sie bis Ende des Monats abgeben.', urteil: 'falsch', text: 'Dikte atlandı. Cümle: Antrag (başvuru, dilekçe) abgeben = teslim etmek; bis Ende des Monats = ay sonuna kadar.' },
+  { zeit: '2026-10-19 22:06', id: 'n0795:wort', antwort: 'die Mindheit', richtig: 'die Minderheit', urteil: 'fast', text: 'Minderheit = minder (az) + heit: Min-der-heit. Ortadaki "der" düştü. -heit hep die.' },
+  { zeit: '2026-10-19 22:07', id: 'v242:abr', antwort: 'das Essen', richtig: 'essen (Akk)', urteil: 'falsch', text: 'Fiil sorulmuştu: essen (+ Akkusativ) = yemek. das Essen isim (yemek/öğün), fiil küçük harf.' },
+  { zeit: '2026-10-19 22:07', id: 'x1460:nsatz', antwort: 'Missverstädiss', richtig: 'Missverständnis', urteil: 'falsch', text: 'Missverständnis = miss + verständ + nis: Miss-ver-ständ-nis. -nis çoğunlukla das.' },
+  { zeit: '2026-10-19 22:03', id: 'w0170:prod', antwort: 'Fleßig', richtig: 'fließend', urteil: 'falsch', text: 'fließend = akıcı (fließen = akmak). "fleißig" (çalışkan) ile karıştı: fließ-end ≠ fleiß-ig.' },
+  { zeit: '2026-10-19 22:05', id: 'v148:stamm', antwort: 'gebliebt', richtig: 'geblieben', urteil: 'falsch', text: 'bleiben düzensiz: bleiben – blieb – ist geblieben (-en biter, -t değil).' },
+  { zeit: '2026-10-20 08:30', id: 'n0795:wort', antwort: 'die Meistenschaft', richtig: 'die Minderheit', urteil: 'falsch', text: 'Minderheit = azınlık (minder = daha az). Çoğunluk = die Mehrheit.' },
+  { zeit: '2026-10-20 08:31', id: 'n0448:wort', antwort: 'die Gemeischaft', richtig: 'die Gemeinschaft', urteil: 'fast', text: 'Gemeinschaft: gemein-schaft, "n" düştü. -schaft hep die.' },
+  { zeit: '2026-10-20 08:31', id: 'diktat:x1550', antwort: 'bilmiyom', richtig: 'Viele Menschen demonstrieren für mehr Gerechtigkeit.', urteil: 'falsch', text: 'Dikte: demonstrieren für = ... için gösteri yapmak; mehr Gerechtigkeit = daha fazla adalet. -keit hep die.' },
 ];

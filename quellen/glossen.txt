@@ -4110,3 +4110,12 @@ Die Entscheidung ist mir nicht leichtgefallen. | leichtfallen = kolay gelmek
 Ich suche einen Job mit flexiblen Arbeitszeiten. | der Job = iş; die Arbeitszeit = çalışma saati
 Der Kurs ist teuer, und die Bücher kosten ebenfalls viel Geld. | teuer = pahalı; das Geld = para
 Das Rezept für den Kuchen habe ich von meiner Oma. | der Kuchen = kek, pasta; die Oma = nine
+Das Zusammenleben in der WG funktioniert gut. | die WG = ortak ev; funktionieren = işlemek
+Für das Zusammenleben brauchen wir klare Regeln. | brauchen = ihtiyacı olmak; klar = net; die Regel = kural
+Der Umgang mit meinen Nachbarn ist freundlich. | der Nachbar = komşu; freundlich = dostane
+Der Umgang mit Geld ist nicht einfach. | das Geld = para; einfach = kolay
+In der Klasse bin ich in der Minderheit. | die Klasse = sınıf
+Eine Minderheit der Schüler fährt mit dem Fahrrad. | der Schüler = öğrenci; das Fahrrad = bisiklet
+Die Gemeinschaft im Dorf ist sehr stark. | das Dorf = köy; stark = güçlü
+Wir leben in einer Gemeinschaft mit vielen Kulturen. | leben = yaşamak; die Kultur = kültür
+Meine Schwester interessiert sich für Kunst. | die Schwester = kız kardeş; sich interessieren für = ilgilenmek
