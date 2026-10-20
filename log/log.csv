@@ -2184,3 +2184,10 @@
 2026-10-19 22:08:06;erk;w0169:erk;flexibel;esnek;flexibel;richtig;flexibel;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:1.9 | akşam | sek:2
 2026-10-19 22:08:09;erk;x1460:erk;das Missverständnis;in den 1990er-Jahren „I’ve Got the Power“ sangen, verstanden manche Deutsche tatsächlich „Agathe Bauer“ und hatten sehr viel Spaß mit dem Missverständnis.;yanlış anlaşılma;richtig;yanlış anlaşılma;basamak:B1 | bicim:metinde | not:m3 | R:1.00 | S:1.4 | tekrar:1 | akşam | sek:2
 2026-10-19 22:08:09;tur;aksam;Akşam tekrarı;;;bitti;;cevap:14 | doğru:10 | küçük:2 | yanlış:2 | puan:91 | dk:1 | yeni:0 | seviye+:4 | tekrar:14
+2026-10-20 08:30:20;erk;x1556:erk;die Bildung;eğitim, öğrenim;die Bildung;richtig;die Bildung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.99 | S:4.8 | ısınma | sek:3
+2026-10-20 08:30:23;erk;x1559:erk;der Umgang;Ein sorgfältiger Umgang mit Abfall hat viel mit Umweltschutz zu tun.;ilişki;richtig;(biriyle) ilişki;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:3.8 | ısınma | sek:3
+2026-10-20 08:30:26;erk;x1558:erk;das Zusammenleben;birlikte yaşam;das Zusammenleben;richtig;das Zusammenleben;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:2.9 | ısınma | sek:2
+2026-10-20 08:30:27;yeni;v346;kommen;tanıtım;;neu;gelmek;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:1
+2026-10-20 08:30:30;yeni;n0448;die Gemeinschaft;tanıtım;;neu;topluluk;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-20 08:30:33;bed;v346:bed;kommen;gelmek;kommen;richtig;kommen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-20 08:30:36;erk;n0448:erk;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
