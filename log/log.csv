@@ -2278,3 +2278,9 @@
 2026-10-21 21:18:38;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak;sich reagieren auf;falsch;sich wundern über (über + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.85 | S:1.2 | sek:5 | ipucu:2
 2026-10-21 21:18:44;erk;x1484:erk;der Kommilitone;sınıf arkadaşı (üniversite);der Kommilitone;richtig;der Kommilitone;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:6.4 | sek:5
 2026-10-21 21:18:47;art;n1082:art;der Service;Service;das;falsch;der Service;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:0.4 | artikel das → der | sek:2
+2026-10-21 21:18:52;abr;v605:abr;verschreiben;(birine ilaç) yazmak;verschreiben;richtig;verschreiben (Dat, Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.85 | S:29.9 | kapı:14g | sek:5 | ipucu:2
+2026-10-21 21:18:57;wort;n0047:wort;der Antrag;başvuru, dilekçe;der Vertrag;falsch;der Antrag;basamak:B2 | bicim:yaz | not:m1 | R:0.85 | S:1.2 | kelime yanlış | sek:3 | ipucu:2
+2026-10-21 21:19:00;bed;v654:bed;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.2 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-21 21:19:02;erk;n0047:erk;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:2
+2026-10-21 21:19:02;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:0 | yanlış:5 | puan:72 | dk:1 | yeni:0 | seviye+:3 | tekrar:15
+2026-10-21 21:19:49;gram;g:adjektiv:60;adjektiv/kontrast;Verkaufe ein ___ (gebraucht) Fahrrad mit ___ (neu) Reifen. Das ___ (alt) Licht funktioniert leider nicht. Preis: 80 Euro.;"gebrahute ; neuen ; alte";fast;"gebrauchtes ; neuen ; alte";tür:text | z:3 | artikel/çekim | ghost:1 | sek:34
