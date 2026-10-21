@@ -2248,3 +2248,33 @@
 2026-10-21 21:16:48;satz;v149:satz;blitzen;Draußen _____ es, bleib lieber im Haus.;donnert;falsch;blitzt;basamak:B3 | bicim:bos | not:m1 | R:0.88 | S:1.6 | farklı | sek:9 | ipucu:1
 2026-10-21 21:16:52;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.88 | S:1.7 | sek:4
 2026-10-21 21:16:55;bed;v278:bed;sich fürchten vor;(bir şeyden) korkmak;sich fürchten vor;richtig;sich fürchten vor;basamak:B1 | bicim:sec | not:m3 | R:0.62 | S:0.4 | kurtarma | sek:2
+2026-10-21 21:16:57;art;n0121:art;das Bargeld;Bargeld;der;falsch;das Bargeld;basamak:A | bicim:artikel | not:a1 | R:0.83 | S:0.6 | artikel der → das | sek:1
+2026-10-21 21:17:01;abr;v149:abr;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-21 21:17:04;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.88 | S:1.7 | sek:3
+2026-10-21 21:17:06;art;n0449:art;das Gemüse;Gemüse;das;richtig;das Gemüse;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:5.9 | sek:1
+2026-10-21 21:17:09;erk;n0972:erk;die Regel;kural;der Regel;fast;die Regel;basamak:B1 | bicim:sec | not:m3,a1 | R:0.87 | S:1.9 | artikel der → die | sek:2
+2026-10-21 21:17:09;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:2 | yanlış:3 | puan:51 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
+2026-10-21 21:17:16;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.87 | S:1.7 | ısınma | artikel der → das | sek:4
+2026-10-21 21:17:19;erk;n0244:erk;die Diskussion;Bei Diskussionen über Künstliche Intelligenz (KI) geht es meist um ihre Gefahren und darum, wie sie unseren Alltag beeinflusst.;tartışma;richtig;tartışma;basamak:B1 | bicim:metinde | not:m3 | R:0.87 | S:34.1 | ısınma | kapı:7g | sek:3
+2026-10-21 21:17:24;erk;n1422:erk;das Ziel;hedef;das Ziel;richtig;das Ziel;basamak:B1 | bicim:sec | not:m3,a3 | R:0.87 | S:18.1 | ısınma | kapı:7g | sek:4
+2026-10-21 21:17:26;art;n0746:art;die Luft;Luft;die;richtig;die Luft;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:3.9 | sek:1
+2026-10-21 21:17:30;bed;v184:bed;sich einigen auf;(bir şeyde) anlaşmak, uzlaşmak;sich einigen auf;richtig;sich einigen auf;basamak:B1 | bicim:sec | not:m3 | R:0.87 | S:1.8 | sek:4
+2026-10-21 21:17:38;prod;w0164:prod;fett;yağlı;;falsch;fett;basamak:B2 | bicim:yaz | not:m1 | R:0.87 | S:1.5 | sek:5 | ipucu:2 | bilmiyorum
+2026-10-21 21:17:41;erk;w0165:erk;feucht;nemli;glatt;falsch;feucht;basamak:B1 | bicim:sec | not:m1 | R:0.62 | S:0.1 | kurtarma | sek:2
+2026-10-21 21:17:44;erk;w0100:erk;digital;dijital;digital;richtig;digital;basamak:B1 | bicim:sec | not:m3 | R:0.87 | S:18.1 | kapı:7g | sek:2
+2026-10-21 21:17:46;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.66 | S:0.3 | sek:1
+2026-10-21 21:17:50;erk;n1375:erk;der Wetterbericht;hava raporu;die Wetterbericht;fast;der Wetterbericht;basamak:B1 | bicim:sec | not:m3,a1 | R:0.87 | S:1.7 | artikel die → der | sek:3
+2026-10-21 21:17:54;erk;w0165:erk;feucht;nemli;feucht;richtig;feucht;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-21 21:17:56;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-21 21:17:56;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:2 | yanlış:2 | puan:49 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
+2026-10-21 21:18:03;erk;x1478:erk;das Frühjahr;ilkbahar;das Frühjahr;richtig;das Frühjahr;basamak:B1 | bicim:sec | not:m3,a3 | R:0.86 | S:15.6 | ısınma | kapı:7g | sek:3
+2026-10-21 21:18:06;erk;n0596:erk;die Karriere;Müssen sie sich also zwischen Karriere und Kindern entscheiden?;kariyer;richtig;kariyer;basamak:B1 | bicim:metinde | not:m3 | R:0.86 | S:4.2 | ısınma | sek:3
+2026-10-21 21:18:09;bed;v425:bed;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit;basamak:B1 | bicim:sec | not:m3 | R:0.86 | S:2.4 | ısınma | sek:3
+2026-10-21 21:18:13;art;n0244:art;die Diskussion;Diskussion;das;falsch;die Diskussion;basamak:A | bicim:artikel | not:a1 | R:0.53 | S:0.0 | artikel das → die | sek:2
+2026-10-21 21:18:18;erk;n0432:erk;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.86 | S:1.4 | sek:4
+2026-10-21 21:18:25;nsatz;w0199:nsatz;gerecht;Die Arbeit muss _____ verteilt werden.;gerecht;richtig;gerecht;basamak:B2 | bicim:bos0 | not:m3 | R:0.86 | S:15.4 | kapı:7g | sek:7 | ipucu:0
+2026-10-21 21:18:30;bed;v590:bed;sich verlaufen;sich verlaufen;yolunu kaybetmek;richtig;(yürürken) yolunu kaybetmek;basamak:B1 | bicim:anla | not:m3 | R:0.62 | S:0.8 | kurtarma | sek:4
+2026-10-21 21:18:32;art;n0994:art;das Rezept;Rezept;der;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.50 | S:0.0 | artikel der → das | sek:2
+2026-10-21 21:18:38;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak;sich reagieren auf;falsch;sich wundern über (über + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.85 | S:1.2 | sek:5 | ipucu:2
+2026-10-21 21:18:44;erk;x1484:erk;der Kommilitone;sınıf arkadaşı (üniversite);der Kommilitone;richtig;der Kommilitone;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:6.4 | sek:5
+2026-10-21 21:18:47;art;n1082:art;der Service;Service;das;falsch;der Service;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:0.4 | artikel das → der | sek:2
