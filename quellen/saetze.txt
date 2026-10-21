@@ -1129,3 +1129,5 @@ v211 | Wie ist dieses Problem eigentlich entstanden? | Bu sorun aslında nasıl 
 v140 | Nach dem Unfall konnte er den Arm nicht mehr bewegen. | Kazadan sonra kolunu artık oynatamadı.
 v256 | Der Arzt hat festgestellt, dass ich zu wenig Vitamin D habe. | Doktor bende çok az D vitamini olduğunu tespit etti.
 v256 | Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. | Evde anahtarımın kaybolduğunu fark ettim.
+v565 | Falsche Entsorgung verursacht große Probleme für die Umwelt. | Yanlış atık bertarafı çevre için büyük sorunlara yol açar.
+v237 | Man kann kaputte Geräte nicht immer leicht ersetzen. | Bozuk cihazları her zaman kolayca değiştiremezsiniz.

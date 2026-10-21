@@ -293,3 +293,7 @@ Son incelenen log satırı: 2026-10-19 07:22:29 (tur akis).
 - 19.10 22:00 akşam tekrarı + 20.10 08:30 tur. Yazarak yanlışlar: Minderheit (Mindheit, sonra Meistenschaft), Missverständnis (harf düşmesi), fließend (fleißig ile karıştı), essen (das Essen yazdı), bleiben Partizip (gebliebt), Gemeischaft; dikte "bilmiyom". Artikel flaşı: Kunst, Rezept, Diskussion, Missverständnis yanlış; seçmelide yine der Toleranz / der Vorurteil / der Gedicht / der Sonderangebot / das Umgang (-ung/-keit/-schaft → die; Vorurteil/Gedicht/Sonderangebot → das).
 - Yoklamada bilip sonra yanlış: yok. 8 düzeltme `feedback.js`'e. DW metni yeni değil (Schuluniform işlenmişti): bunun yerine takılan kelimelere 9 çeviri cümlesi + gloss (Zusammenleben, Umgang, Minderheit, Gemeinschaft, Kunst).
 Son incelenen log satırı: 2026-10-20 08:31:55 (tur akis).
+
+**2026-10-21 (gece işi, otomatik)**
+- 20.10 08:31'den sonra yeni log satırı yok; yalnız günün içeriği. DW "Fast-Tech und das Problem mit dem Müll" sözlüğünden Goethe B1 kelimeleri: Gerät, Schaden, Reparatur, Umwelt, Qualität, Energie, verursachen, ersetzen → 9 çeviri cümlesi + gloss.
+Son incelenen log satırı: 2026-10-20 08:31:55 (tur akis).

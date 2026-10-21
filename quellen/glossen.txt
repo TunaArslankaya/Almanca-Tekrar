@@ -4119,3 +4119,12 @@ Eine Minderheit der Schüler fährt mit dem Fahrrad. | der Schüler = öğrenci;
 Die Gemeinschaft im Dorf ist sehr stark. | das Dorf = köy; stark = güçlü
 Wir leben in einer Gemeinschaft mit vielen Kulturen. | leben = yaşamak; die Kultur = kültür
 Meine Schwester interessiert sich für Kunst. | die Schwester = kız kardeş; sich interessieren für = ilgilenmek
+Das Gerät ist nach zwei Monaten kaputt gegangen. | kaputt gehen = bozulmak; der Monat = ay
+Ich habe das alte Gerät zur Sammelstelle gebracht. | die Sammelstelle = toplama noktası; alt = eski
+Der Schaden für die Umwelt ist groß. | groß = büyük
+Eine Reparatur lohnt sich bei diesem Handy nicht mehr. | sich lohnen = değmek; das Handy = cep telefonu
+Plastik ist schlecht für die Umwelt. | das Plastik = plastik
+Billige Geräte haben oft eine schlechte Qualität. | billig = ucuz; schlecht = kötü
+Für das Recycling braucht man auch viel Energie. | das Recycling = geri dönüşüm; brauchen = gerek duymak
+Falsche Entsorgung verursacht große Probleme für die Umwelt. | falsch = yanlış; die Entsorgung = atık bertarafı; das Problem = sorun
+Man kann kaputte Geräte nicht immer leicht ersetzen. | kaputt = bozuk; das Gerät = cihaz; leicht = kolay

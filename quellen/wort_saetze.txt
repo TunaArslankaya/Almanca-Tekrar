@@ -2707,3 +2707,10 @@ n0795 | die Minderheit | Eine Minderheit der Schüler fährt mit dem Fahrrad. | 
 n0448 | die Gemeinschaft | Die Gemeinschaft im Dorf ist sehr stark. | Köydeki topluluk bağı çok güçlü.
 n0448 | die Gemeinschaft | Wir leben in einer Gemeinschaft mit vielen Kulturen. | Birçok kültürün olduğu bir toplulukta yaşıyoruz.
 n0691 | die Kunst | Meine Schwester interessiert sich für Kunst. | Kız kardeşim sanatla ilgileniyor.
+n0452 | das Gerät | Das Gerät ist nach zwei Monaten kaputt gegangen. | Cihaz iki ay sonra bozuldu.
+n0452 | das Gerät | Ich habe das alte Gerät zur Sammelstelle gebracht. | Eski cihazı toplama noktasına götürdüm.
+n1026 | der Schaden | Der Schaden für die Umwelt ist groß. | Çevreye verilen zarar büyük.
+n0987 | die Reparatur | Eine Reparatur lohnt sich bei diesem Handy nicht mehr. | Bu telefonda artık tamir etmek değmez.
+n1272 | die Umwelt | Plastik ist schlecht für die Umwelt. | Plastik çevre için kötüdür.
+n0947 | die Qualität | Billige Geräte haben oft eine schlechte Qualität. | Ucuz cihazların kalitesi çoğu zaman kötüdür.
+n0293 | die Energie | Für das Recycling braucht man auch viel Energie. | Geri dönüşüm için de çok enerji gerekir.
