@@ -297,3 +297,8 @@ Son incelenen log satırı: 2026-10-20 08:31:55 (tur akis).
 **2026-10-21 (gece işi, otomatik)**
 - 20.10 08:31'den sonra yeni log satırı yok; yalnız günün içeriği. DW "Fast-Tech und das Problem mit dem Müll" sözlüğünden Goethe B1 kelimeleri: Gerät, Schaden, Reparatur, Umwelt, Qualität, Energie, verursachen, ersetzen → 9 çeviri cümlesi + gloss.
 Son incelenen log satırı: 2026-10-20 08:31:55 (tur akis).
+
+**2026-10-22 (gece işi, otomatik)**
+- 21.10 21:13–21:19 arası 5 tur (~63 cevap) + 1 gramer. Yazarak yanlışlar: Wettbewerb (die), vorschlagen → empfehlen, anwesend → allerdings, blitzen boşluğuna donnert, sich wundern über → sich reagieren auf, Antrag → Vertrag, adjektiv: gebrahute. Dikte Erziehung: Erzihung / ihre kinder / verantworlich. Bilmiyorum: Bedürfnis, drüben, fett. Seçmelide: Toleranz ve Vorurteil yine yanlış artikel, Gymnastik, Regel, Wetterbericht artikel karışıklığı, feucht ↔ glatt. Artikel flaşı: Rezept (der), Diskussion (das), Missverständnis (die; `leech`), Bargeld, Service yanlış. Yoklamada bilip sonra yanlış: yok.
+- 11 düzeltme `feedback.js`'e. DW metni yeni değil (Fast-Tech işlenmişti): bunun yerine takılanlara 6 cümle + gloss (Bedürfnis ×3, Missverständnis, Gymnastik, Wettbewerb). Build / test_grammatik / stichprobe 1 geçti.
+Son incelenen log satırı: 2026-10-21 21:19:49 (gram g:adjektiv:60).

@@ -4128,3 +4128,9 @@ Billige Geräte haben oft eine schlechte Qualität. | billig = ucuz; schlecht = 
 Für das Recycling braucht man auch viel Energie. | das Recycling = geri dönüşüm; brauchen = gerek duymak
 Falsche Entsorgung verursacht große Probleme für die Umwelt. | falsch = yanlış; die Entsorgung = atık bertarafı; das Problem = sorun
 Man kann kaputte Geräte nicht immer leicht ersetzen. | kaputt = bozuk; das Gerät = cihaz; leicht = kolay
+Jeder Mensch hat das Bedürfnis nach Sicherheit. | jeder = her; der Mensch = insan; die Sicherheit = güvenlik
+Ein Baby kann seine Bedürfnisse nicht selbst erfüllen. | das Baby = bebek; selbst = kendi başına; erfüllen = karşılamak
+Ich habe das Bedürfnis, nach der Arbeit allein zu sein. | die Arbeit = iş; allein = yalnız
+Entschuldigung, das ist ein Missverständnis. | die Entschuldigung = özür
+Nach dem Aufstehen mache ich zehn Minuten Gymnastik. | das Aufstehen = kalkma; die Minute = dakika
+Der Wettbewerb beginnt um 15 Uhr in der Turnhalle. | beginnen = başlamak; die Turnhalle = spor salonu; die Uhr = saat

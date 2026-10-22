@@ -2714,3 +2714,9 @@ n0987 | die Reparatur | Eine Reparatur lohnt sich bei diesem Handy nicht mehr. |
 n1272 | die Umwelt | Plastik ist schlecht für die Umwelt. | Plastik çevre için kötüdür.
 n0947 | die Qualität | Billige Geräte haben oft eine schlechte Qualität. | Ucuz cihazların kalitesi çoğu zaman kötüdür.
 n0293 | die Energie | Für das Recycling braucht man auch viel Energie. | Geri dönüşüm için de çok enerji gerekir.
+x1560 | das Bedürfnis | Jeder Mensch hat das Bedürfnis nach Sicherheit. | Her insanın güvenlik ihtiyacı vardır.
+x1560 | das Bedürfnis | Ein Baby kann seine Bedürfnisse nicht selbst erfüllen. | Bir bebek ihtiyaçlarını kendi başına karşılayamaz.
+x1560 | das Bedürfnis | Ich habe das Bedürfnis, nach der Arbeit allein zu sein. | İşten sonra yalnız kalmaya ihtiyaç duyuyorum.
+x1460 | das Missverständnis | Entschuldigung, das ist ein Missverständnis. | Özür dilerim, bu bir yanlış anlaşılma.
+n0496 | die Gymnastik | Nach dem Aufstehen mache ich zehn Minuten Gymnastik. | Kalktıktan sonra on dakika jimnastik yapıyorum.
+n1373 | der Wettbewerb | Der Wettbewerb beginnt um 15 Uhr in der Turnhalle. | Yarışma saat 15'te spor salonunda başlıyor.
