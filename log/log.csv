@@ -2291,3 +2291,33 @@
 2026-10-22 19:10:36;yeni;x1561;die Not;tanıtım;;neu;"sıkıntı, darlık; acil durum";basamak:B0 | bicim:tanit | not:- | parti | sek:4
 2026-10-22 19:10:38;erk;x1561:erk;die Not;sıkıntı, darlık;die Not;richtig;die Not;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-22 19:10:41;bed;v610:bed;verstehen;anlamak;verstehen;richtig;verstehen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-22 19:10:46;prod;w0325:prod;mild;"ılık; yumuşak";nass;falsch;mild;basamak:B2 | bicim:yaz | not:m1 | R:0.98 | S:2.8 | farklı | sek:5 | ipucu:2
+2026-10-22 19:10:53;bed;v177:bed;sich eignen für;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:sec | not:m3 | R:0.62 | S:0.5 | kurtarma | sek:7
+2026-10-22 19:10:56;wort;x1561:wort;die Not;"sıkıntı, darlık; acil durum";die Not;richtig;die Not;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-22 19:10:58;abr;v610:abr;verstehen;anlamak;verstehen;richtig;verstehen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-22 19:11:28;akt;diktat:w0117;dinle–yaz;Ich habe eben mit meiner Mutter telefoniert.;Ich habe ihm mit meiner Mutter telefoniert;fast;Ich habe eben mit meiner Mutter telefoniert.;bir kelime farklı
+2026-10-22 19:11:34;erk;w0325:erk;mild;ılık;mild;richtig;mild;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.8 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-22 19:11:39;wort;n1392:wort;die Wolke;bulut;die Wolke;richtig;die Wolke;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.98 | S:78.9 | kapı:14g | sek:5 | ipucu:2
+2026-10-22 19:11:39;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:73 | dk:1 | yeni:2 | seviye+:1 | tekrar:7
+2026-10-22 19:11:43;bed;v347:bed;können;-ebilmek;können;richtig;können;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | ısınma | sek:2
+2026-10-22 19:11:46;erk;x1560:erk;das Bedürfnis;Deswegen wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;ihtiyaç;richtig;ihtiyaç;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:5.2 | ısınma | sek:2
+2026-10-22 19:11:48;erk;n1207:erk;die Temperatur;Er entsteht in den Wolken, wenn es sehr kalt ist und die Temperatur mindestens 12 Grad Celsius unter Null liegt.;sıcaklık;richtig;sıcaklık;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:28.6 | ısınma | kapı:7g | sek:2
+2026-10-22 19:11:50;art;n0384:art;das Formular;Formular;das;richtig;das Formular;basamak:A | bicim:artikel | not:a3 | R:0.94 | S:29.5 | sek:1
+2026-10-22 19:11:53;wort;n1095:wort;die Sonne;güneş;die Sonne;richtig;die Sonne;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.95 | S:35.4 | kapı:14g | sek:3 | ipucu:2
+2026-10-22 19:12:10;stamm;v672:stamm;zustimmen;zustimmen — Präsens (er/sie), Perfekt;er hat zustimmt ;falsch;stimmt zu, hat zugestimmt;basamak:K | bicim:kok | not:k1 | R:0.94 | S:1.6 | kök:stimmen | Präsens (er/sie): stimmt zu, Perfekt: hat zugestimmt | sek:15
+2026-10-22 19:12:15;bed;v466:bed;schweigen;susmak;schweigen;richtig;schweigen;basamak:B1 | bicim:sec | not:m3 | R:0.63 | S:0.6 | kurtarma | sek:4
+2026-10-22 19:12:17;art;n0602:art;die Kasse;Kasse;die;richtig;die Kasse;basamak:A | bicim:artikel | not:a3 | R:0.93 | S:27.2 | sek:1
+2026-10-22 19:12:19;bed;v626:bed;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:2.3 | sek:2
+2026-10-22 19:12:28;nsatz;n0155:nsatz;die Bestätigung;Ich warte noch auf die _____ von der Universität.;Bestätigung;richtig;Bestätigung;basamak:B2 | bicim:bos0 | not:m3 | R:0.94 | S:29.5 | kapı:7g | sek:9 | ipucu:0
+2026-10-22 19:12:30;art;x1560:art;das Bedürfnis;Bedürfnis;das;richtig;das Bedürfnis;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:5.2 | sek:1
+2026-10-22 19:12:33;nsatz;n0957:nsatz;der Rat;Hier trifft sich der Stadtrat oder _____, das heißt die Volksvertretung der Stadt.;Rat;richtig;Rat;basamak:B2 | bicim:bos0 | not:m3 | R:0.93 | S:30.4 | kapı:7g | sek:3 | ipucu:0
+2026-10-22 19:12:33;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:83 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
+2026-10-22 19:12:37;erk;n0587:erk;die Kälte;soğuk;die Kälte;richtig;die Kälte;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:19.2 | ısınma | kapı:7g | sek:3
+2026-10-22 19:12:39;erk;n0629:erk;das Klima;Das Klima hängt stark von der Nähe zum Äquator ab.;iklim;richtig;iklim;basamak:B1 | bicim:metinde | not:m3 | R:0.93 | S:30.4 | ısınma | kapı:7g | sek:2
+2026-10-22 19:12:42;erk;w0109:erk;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.9 | ısınma | sek:2
+2026-10-22 19:12:44;art;n0155:art;die Bestätigung;Bestätigung;die;richtig;die Bestätigung;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:50.7 | sek:1
+2026-10-22 19:12:53;stamm;v347:stamm;können;können — Präsens (er/sie), Präteritum;konnte;falsch;kann, konnte;basamak:K | bicim:kok | not:k1 | R:0.94 | S:1.5 | kök:können | Präsens (er/sie): kann, Präteritum: konnte | sek:9
+2026-10-22 19:12:56;bed;v149:bed;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:2.0 | sek:3
+2026-10-22 19:12:59;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:m3 | R:0.64 | S:0.7 | kurtarma | sek:2
+2026-10-22 19:13:01;art;n0972:art;die Regel;Regel;der;falsch;die Regel;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:0.2 | artikel der → die | sek:1
+2026-10-22 19:13:10;luecke;n1374:nsatz;das Wetter;Zum _____ gehören Wind, Stürme, Regen, Schnee und manches mehr.;Wetter;richtig;Wetter;basamak:B3 | bicim:metin | not:m3 | R:0.92 | S:26.6 | kapı:14g | kaynak:k0
