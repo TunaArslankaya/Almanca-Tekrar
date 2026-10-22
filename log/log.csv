@@ -2321,3 +2321,29 @@
 2026-10-22 19:12:59;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:m3 | R:0.64 | S:0.7 | kurtarma | sek:2
 2026-10-22 19:13:01;art;n0972:art;die Regel;Regel;der;falsch;die Regel;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:0.2 | artikel der → die | sek:1
 2026-10-22 19:13:10;luecke;n1374:nsatz;das Wetter;Zum _____ gehören Wind, Stürme, Regen, Schnee und manches mehr.;Wetter;richtig;Wetter;basamak:B3 | bicim:metin | not:m3 | R:0.92 | S:26.6 | kapı:14g | kaynak:k0
+2026-10-22 19:13:10;luecke;n1379:nsatz;der Wind;Zum Wetter gehören _____, Stürme, Regen, Schnee und manches mehr.;Wind;richtig;Wind;basamak:B3 | bicim:metin | not:m3 | R:0.92 | S:26.6 | kapı:14g | kaynak:k0
+2026-10-22 19:13:10;akt;luecke:k0;metinde boşluk;Zum Wetter gehören Wind, Stürme, Regen, Schnee und manches mehr. Das alles kommt durch die Sonne zustande. Die Hitze der Sonne über dem Meer sorgt dafür, dass Wasser verdunstet und die Feuchtigkeit in die Luft aufsteigt. Daraus werden später Wolken.;Wetter / Wind;richtig;Wetter / Wind;puan:2/2 | boşluk:2
+2026-10-22 19:13:13;art;n0313:art;die Erlaubnis;Erlaubnis;das;falsch;die Erlaubnis;basamak:A | bicim:artikel | not:a1 | R:0.87 | S:0.5 | artikel das → die | sek:2
+2026-10-22 19:13:16;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.9 | sek:2
+2026-10-22 19:13:16;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:60 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
+2026-10-22 19:13:21;bed;v654:bed;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:1.5 | ısınma | sek:3
+2026-10-22 19:13:24;erk;n1038:erk;der Schirm;şemsiye;der Schirm;richtig;der Schirm;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:13.5 | ısınma | kapı:7g | sek:3
+2026-10-22 19:13:27;bed;v423:bed;reagieren auf;Viele Menschen reagieren zum Beispiel kritisch auf die geplanten Reformen der Regierung bei der Kranken- oder Rentenversicherung, deren Kosten stark gestiegen sind.;tepki vermek;richtig;(bir şeye) tepki vermek;basamak:B1 | bicim:metinde | not:m3 | R:0.90 | S:18.0 | ısınma | kapı:7g | sek:3
+2026-10-22 19:13:29;art;n1374:art;das Wetter;Wetter;der;falsch;das Wetter;basamak:A | bicim:artikel | not:a1 | R:0.97 | S:2.3 | artikel der → das | sek:1
+2026-10-22 19:13:32;nsatz;w0560:nsatz;windig;Es ist heute sehr _____.;windig;richtig;windig;basamak:B2 | bicim:bos0 | not:m3 | R:0.92 | S:20.1 | kapı:7g | sek:2 | ipucu:0
+2026-10-22 19:13:34;erk;n0047:erk;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:1.5 | sek:2
+2026-10-22 19:13:36;art;n0629:art;das Klima;Klima;das;richtig;das Klima;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:7.0 | sek:1
+2026-10-22 19:13:42;prod;w0108:prod;drinnen;içeride;drünnen;fast;drinnen;basamak:B2 | bicim:yaz | not:m3 | R:0.91 | S:13.1 | kısmi | yazım | sek:4 | ipucu:2
+2026-10-22 19:13:50;satz;v127:satz;besichtigen;Wann können wir die Wohnung _____?;besichtigen;richtig;besichtigen;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:15.0 | kapı:7g | sek:8 | ipucu:0
+2026-10-22 19:13:52;art;n1240:art;das Training;Training;das;richtig;das Training;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:6.8 | sek:1
+2026-10-22 19:14:01;nsatz;x1554:nsatz;die Solidarität;Nach dem Hochwasser haben die Nachbarn große _____ gezeigt.;Solidarität;richtig;Solidarität;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:11.7 | kapı:7g | sek:8 | ipucu:0
+2026-10-22 19:14:05;nsatz;n1372:nsatz;der Wert;Ehrlichkeit ist für mich ein wichtiger _____.;Wert;richtig;Wert;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:11.7 | kapı:7g | sek:4 | ipucu:0
+2026-10-22 19:14:05;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:97 | dk:1 | yeni:0 | seviye+:4 | tekrar:12
+2026-10-22 19:14:16;erk;n1389:erk;der Wohnsitz;ikametgâh;der Wohnsitz;richtig;der Wohnsitz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:12.4 | ısınma | kapı:7g | sek:4
+2026-10-22 19:14:20;erk;n0137:erk;die Behörde;resmî kurum;der Behörde;fast;die Behörde;basamak:B1 | bicim:sec | not:m3,a1 | R:0.90 | S:12.4 | ısınma | kapı:7g | artikel der → die | sek:3
+2026-10-22 19:14:23;erk;w0026:erk;anwesend;Der damalige CDU/CSU-Fraktionschef Jens Spahn war bei diesem Parteitag anwesend.;orada bulunan, hazır;richtig;orada bulunan, hazır;basamak:B1 | bicim:metinde | not:m3 | R:0.89 | S:1.9 | ısınma | sek:3
+2026-10-22 19:14:25;art;n0926:art;die Praxis;Praxis;das;falsch;die Praxis;basamak:A | bicim:artikel | not:a1 | R:0.85 | S:0.5 | artikel das → die | sek:2
+2026-10-22 19:14:30;stamm;v629:stamm;sich(D) vorstellen;So schwierig habe ich mir die Arbeit nicht _____.;vorstellt;fast;vorgestellt;basamak:K | bicim:kokSatz | not:k2 | R:0.89 | S:8.8 | kök:stellen | Partizip: vorgestellt | sek:4
+2026-10-22 19:14:34;prod;w0169:prod;flexibel;esnek;flexibel;richtig;flexibel;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:4.9 | sek:4 | ipucu:0
+2026-10-22 19:14:37;art;n0524:art;die Heimat;Heimat;das;falsch;die Heimat;basamak:A | bicim:artikel | not:a1 | R:0.85 | S:0.8 | artikel das → die | sek:2
+2026-10-22 19:14:37;leech;n0524;die Heimat;memleket, vatan;;takiliyor;;günler:2026-10-03,2026-10-06,2026-10-22
