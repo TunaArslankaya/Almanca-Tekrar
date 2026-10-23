@@ -2720,3 +2720,11 @@ x1560 | das Bedürfnis | Ich habe das Bedürfnis, nach der Arbeit allein zu sein
 x1460 | das Missverständnis | Entschuldigung, das ist ein Missverständnis. | Özür dilerim, bu bir yanlış anlaşılma.
 n0496 | die Gymnastik | Nach dem Aufstehen mache ich zehn Minuten Gymnastik. | Kalktıktan sonra on dakika jimnastik yapıyorum.
 n1373 | der Wettbewerb | Der Wettbewerb beginnt um 15 Uhr in der Turnhalle. | Yarışma saat 15'te spor salonunda başlıyor.
+n0524 | die Heimat | Meine Heimat ist die Türkei, aber jetzt wohne ich in Bremen. | Memleketim Türkiye, ama şimdi Bremen'de oturuyorum.
+n0524 | die Heimat | Ich vermisse meine Heimat und meine Familie. | Memleketimi ve ailemi özlüyorum.
+n0313 | die Erlaubnis | Ohne die Erlaubnis meines Vaters darf ich nicht fahren. | Babamın izni olmadan gidemem.
+n0926 | die Praxis | Die Praxis von Dr. Müller ist am Montag geschlossen. | Dr. Müller'in muayenehanesi pazartesi kapalı.
+n0137 | die Behörde | Diese Behörde ist für Ausländer zuständig. | Bu resmî kurum yabancılardan sorumlu.
+n1374 | das Wetter | Das Wetter ist heute schön, deshalb gehen wir spazieren. | Bugün hava güzel, bu yüzden yürüyüşe çıkıyoruz.
+w0325 | mild | Der Winter in Bremen ist meistens mild. | Bremen'de kış çoğunlukla ılıktır.
+w0108 | drinnen | Es regnet, deshalb bleiben wir drinnen. | Yağmur yağıyor, bu yüzden içeride kalıyoruz.

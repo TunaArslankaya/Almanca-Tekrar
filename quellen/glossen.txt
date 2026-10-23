@@ -4134,3 +4134,14 @@ Ich habe das Bedürfnis, nach der Arbeit allein zu sein. | die Arbeit = iş; all
 Entschuldigung, das ist ein Missverständnis. | die Entschuldigung = özür
 Nach dem Aufstehen mache ich zehn Minuten Gymnastik. | das Aufstehen = kalkma; die Minute = dakika
 Der Wettbewerb beginnt um 15 Uhr in der Turnhalle. | beginnen = başlamak; die Turnhalle = spor salonu; die Uhr = saat
+Meine Heimat ist die Türkei, aber jetzt wohne ich in Bremen. | die Türkei = Türkiye
+Ich vermisse meine Heimat und meine Familie. | vermissen = özlemek; die Familie = aile
+Ohne die Erlaubnis meines Vaters darf ich nicht fahren. | ohne = -sız; der Vater = baba; fahren = gitmek (araçla)
+Die Praxis von Dr. Müller ist am Montag geschlossen. | geschlossen = kapalı; der Montag = pazartesi
+Diese Behörde ist für Ausländer zuständig. | der Ausländer = yabancı; zuständig = yetkili, sorumlu
+Das Wetter ist heute schön, deshalb gehen wir spazieren. | deshalb = bu yüzden; spazieren gehen = yürüyüşe çıkmak
+Der Winter in Bremen ist meistens mild. | der Winter = kış; meistens = çoğunlukla
+Es regnet, deshalb bleiben wir drinnen. | regnen = yağmur yağmak; bleiben = kalmak
+Ich stimme dir zu, das ist eine gute Idee. | die Idee = fikir
+Er hat meinem Vorschlag sofort zugestimmt. | der Vorschlag = öneri; sofort = hemen
+Das habe ich mir anders vorgestellt. | anders = farklı

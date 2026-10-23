@@ -1131,3 +1131,6 @@ v256 | Der Arzt hat festgestellt, dass ich zu wenig Vitamin D habe. | Doktor ben
 v256 | Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. | Evde anahtarımın kaybolduğunu fark ettim.
 v565 | Falsche Entsorgung verursacht große Probleme für die Umwelt. | Yanlış atık bertarafı çevre için büyük sorunlara yol açar.
 v237 | Man kann kaputte Geräte nicht immer leicht ersetzen. | Bozuk cihazları her zaman kolayca değiştiremezsiniz.
+v672 | Ich stimme dir zu, das ist eine gute Idee. | Sana katılıyorum, bu iyi bir fikir.
+v672 | Er hat meinem Vorschlag sofort zugestimmt. | Önerime hemen onay verdi.
+v629 | Das habe ich mir anders vorgestellt. | Bunu kendi kafamda farklı hayal etmiştim.

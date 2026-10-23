@@ -302,3 +302,8 @@ Son incelenen log satırı: 2026-10-20 08:31:55 (tur akis).
 - 21.10 21:13–21:19 arası 5 tur (~63 cevap) + 1 gramer. Yazarak yanlışlar: Wettbewerb (die), vorschlagen → empfehlen, anwesend → allerdings, blitzen boşluğuna donnert, sich wundern über → sich reagieren auf, Antrag → Vertrag, adjektiv: gebrahute. Dikte Erziehung: Erzihung / ihre kinder / verantworlich. Bilmiyorum: Bedürfnis, drüben, fett. Seçmelide: Toleranz ve Vorurteil yine yanlış artikel, Gymnastik, Regel, Wetterbericht artikel karışıklığı, feucht ↔ glatt. Artikel flaşı: Rezept (der), Diskussion (das), Missverständnis (die; `leech`), Bargeld, Service yanlış. Yoklamada bilip sonra yanlış: yok.
 - 11 düzeltme `feedback.js`'e. DW metni yeni değil (Fast-Tech işlenmişti): bunun yerine takılanlara 6 cümle + gloss (Bedürfnis ×3, Missverständnis, Gymnastik, Wettbewerb). Build / test_grammatik / stichprobe 1 geçti.
 Son incelenen log satırı: 2026-10-21 21:19:49 (gram g:adjektiv:60).
+
+**2026-10-23 (gece işi, otomatik)**
+- 22.10 19:10–19:14 arası 4 tur (~48 cevap). Yazarak yanlışlar: mild → nass, drinnen (drünnen), zustimmen kökü (zustimmt), können kökü (yalnız konnte), vorstellt (vorgestellt), dikte "ihm" (eben). Artikel flaşı yanlışları: Regel, Erlaubnis, Wetter, Praxis, Heimat (hepsi das/der → die; Heimat `leech`, 3. gün), Behörde (seçmelide der). Seçmeli artikelde yine -ung/-e/-ik/-is gibi die kalıpları karışıyor. `yeni;bekannt` yok.
+- 12 düzeltme `feedback.js`'e, Heimat'a kanca. DW metni yeni değil (Fast-Tech işlenmişti): takılanlara 11 çeviri cümlesi + gloss (Heimat ×2, Erlaubnis, Praxis, Behörde, Wetter, mild, drinnen, zustimmen ×2, vorstellen).
+Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
