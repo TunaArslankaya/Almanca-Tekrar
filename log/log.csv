@@ -2370,3 +2370,18 @@
 2026-10-24 10:24:18;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit d;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:3.3 | sek:6 | ipucu:0
 2026-10-24 10:24:21;bed;v242:bed;essen;essen;yemek;richtig;yemek;basamak:B1 | bicim:anla | not:m3 | R:0.71 | S:3.0 | kurtarma | sek:2
 2026-10-24 10:24:23;art;n0207:art;die Burg;Burg;der;falsch;die Burg;basamak:A | bicim:artikel | not:a1 | R:0.90 | S:0.9 | artikel der → die | sek:1
+2026-10-24 10:25:01;luecke;x1559:nsatz;der Umgang;Ein sorgfältiger _____ mit Abfall hat viel mit Umweltschutz zu tun.;soll;falsch;Umgang;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.9 | kaynak:k8
+2026-10-24 10:25:01;luecke;v211:satz;entstehen;Am besten versucht man so einzukaufen, dass möglichst wenig Abfall _____.;;falsch;entsteht;basamak:B3 | bicim:metin | not:m1 | R:0.89 | S:0.9 | kaynak:k8 | bilmiyorum
+2026-10-24 10:25:01;akt;luecke:k8;metinde boşluk;Ein sorgfältiger Umgang mit Abfall hat viel mit Umweltschutz zu tun. Am besten versucht man so einzukaufen, dass möglichst wenig Abfall entsteht.;soll / ;falsch;Umgang / entsteht;puan:0/2 | boşluk:2
+2026-10-24 10:25:08;art;x1554:art;die Solidarität;Solidarität;das;falsch;die Solidarität;basamak:A | bicim:artikel | not:a1 | R:0.90 | S:1.0 | artikel das → die | sek:3
+2026-10-24 10:25:11;erk;n0047:erk;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:1.9 | sek:3
+2026-10-24 10:25:11;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:1 | yanlış:5 | puan:51 | dk:2 | yeni:0 | seviye+:0 | tekrar:12
+2026-10-24 10:25:19;erk;n0914:erk;die Politik;siyaset;der Politik;fast;die Politik;basamak:B1 | bicim:sec | not:m3,a1 | R:0.89 | S:6.0 | ısınma | artikel der → die | sek:4
+2026-10-24 10:25:22;erk;w0213:erk;gleichzeitig;Gleichzeitig wissen sie aber, dass der Fall politisch heikel ist.;aynı anda;richtig;aynı anda;basamak:B1 | bicim:metinde | not:m3 | R:0.89 | S:18.1 | ısınma | kapı:7g | sek:2
+2026-10-24 10:25:24;erk;w0051:erk;beide;her ikisi;beide;richtig;beide;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:10.1 | ısınma | kapı:7g | sek:2
+2026-10-24 10:25:26;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:1.5 | sek:1
+2026-10-24 10:25:32;stamm;v672:stamm;zustimmen;Meine Eltern haben meinem Vorschlag sofort _____.;zugestimmt;richtig;zugestimmt;basamak:K | bicim:kokSatz | not:k3 | R:0.90 | S:3.8 | kök:stimmen | sek:5
+2026-10-24 10:25:36;prod;w0011:prod;allerdings;ancak, gerçi;anwesend;falsch;allerdings;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:1.0 | farklı | sek:3 | ipucu:2
+2026-10-24 10:25:39;erk;n0795:erk;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:3
+2026-10-24 10:25:42;art;n0137:art;die Behörde;Behörde;die;richtig;die Behörde;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:1.6 | sek:3
+2026-10-24 10:25:47;abr;v140:abr;bewegen;hareket ettirmek;bewegen;richtig;bewegen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:22.4 | kapı:14g | sek:4 | ipucu:2
