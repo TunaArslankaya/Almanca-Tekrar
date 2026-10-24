@@ -5,7 +5,7 @@ A2 → B1 için yerel çalışma uygulaması. Kelimeler Goethe-Zertifikat B1 lis
 
 ## Kullanım (site)
 
-Uygulama GitHub Pages'ta: **https://mahmutarsla.github.io/Almanca-Tekrar/** — Claude pushlayınca kendiliğinden güncellenir.
+Uygulama GitHub Pages'ta: **https://tunaarslankaya.github.io/Almanca-Tekrar/** — Claude pushlayınca kendiliğinden güncellenir.
 Ayarlar → **GitHub'a otomatik kayıt**'a bir kez anahtar girersen cevaplar ve ilerleme repoya yazılır;
 sonra Claude'a "sonuçlarıma bak" demen yeter (push yok, telefonda da çalışır).
 

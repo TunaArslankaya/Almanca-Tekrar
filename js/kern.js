@@ -304,7 +304,7 @@
   // Mevcut hafızalarda MAX_ARALIK'tan uzun aralık varsa (eski %85 hesabı) vadeyi last + 60 güne çeker; anlam hafızasında pk kapısını
   // (pk 0 → 7 g, pk 1 → 14 g: göçte uygulanmamıştı) ve basamak kapısını (bm) da uygular; idempotent, her açılışta ucuz
   function aralikKisalt(S, t) {
-    let n = 0; const kes = (h, gun) => { if (h && h.S && h.due && h.last && h.due - h.last > gun * DAY) { h.due = Math.max(h.last + gun * DAY, t); n++; } };
+    let n = 0; const kes = (h, gun) => { if (!(h && h.S && h.due && h.last)) return; const yeni = Math.max(h.last + gun * DAY, t); if (h.due - h.last > gun * DAY && h.due > yeni) { h.due = yeni; n++; } };   // zaten vadeliyse dokunmaz (her açılışta yeniden yazmasın)
     Object.entries(S.items || {}).forEach(([id, it]) => {
       const h = it.m;
       if (h && h.S) {

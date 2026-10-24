@@ -67,6 +67,9 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: ${{ steps.istem.outputs.metin }}
+          # 24.10: GitHub kullanıcı adı mahmutarsla → TunaArslankaya oldu; zamanlanmış iş eski adla tetiklenince eylem
+          # adı GitHub'da bulamayıp "bot" sanıyor ve duruyordu. Yalnız bu eski ad (aynı hesap) izinli.
+          allowed_bots: "mahmutarsla"
           claude_args: |
             --max-turns 120
             --allowedTools "Read,Edit,Write,Glob,Grep,Bash(python3:*),Bash(node:*),Bash(git log:*),Bash(git diff:*),Bash(git status:*),Bash(ls:*),Bash(cat:*),Bash(head:*),Bash(tail:*),Bash(wc:*),Bash(grep:*)"

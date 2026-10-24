@@ -1561,23 +1561,26 @@
   function almancaSes() {
     if (_ses) return _ses;
     const vs = (window.speechSynthesis ? speechSynthesis.getVoices() : []).filter(v => /^de/i.test(v.lang));
-    const puan = v => (/natural|neural|online|premium|enhanced|siri|google/i.test(v.name) ? 10 : 0) + (/de-DE/i.test(v.lang) ? 2 : 0) + (v.localService ? 0 : 1);
+    // cihazdaki (yerel) ses önce: internetten gelen sesler (Google Deutsch, "Online (Natural)") geç başlıyor, bir sonraki soruya kayıyordu (24.10)
+    const puan = v => (v.localService ? 20 : 0) + (/natural|neural|premium|enhanced|siri/i.test(v.name) ? 5 : 0) + (/de-DE/i.test(v.lang) ? 2 : 0);
     _ses = vs.sort((a, b) => puan(b) - puan(a))[0] || null;
     return _ses;
   }
   try { if (window.speechSynthesis) speechSynthesis.addEventListener('voiceschanged', () => { _ses = null; }); } catch (e) { /* yok */ }
-  const sesKes = () => { try { if (window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)) speechSynthesis.cancel(); } catch (e) { /* yok */ } };
+  // koşulsuz kes: internetten gelen ses henüz başlamadıysa speaking/pending false olabiliyor, sonra sonraki soruda çalıyordu
   let sesAktif = null;   // çalan / sıradaki okuma (kendiliğinden geçiş bitmesini bekler)
-  const sesCaliyor = () => { try { return !!(sesAktif && window.speechSynthesis && (speechSynthesis.speaking || speechSynthesis.pending)); } catch (e) { return false; } };
+  const sesKes = () => { sesAktif = null; try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) { /* yok */ } };
+  // çalıyor ya da sırada: speaking/pending'e güvenmez (geç başlayan seste ikisi de false olabiliyor); okuma bitene (onend) ya da 4 sn geçene dek
+  let sesBas = 0;
+  const sesCaliyor = () => !!sesAktif && now() - sesBas < 4000;
   function sprich(text, rate) {
     try {
       const u = new SpeechSynthesisUtterance(text); u.lang = 'de-DE'; u.rate = rate || 0.9;
       const v = almancaSes(); if (v) u.voice = v;
       u.onend = u.onerror = () => { if (sesAktif === u) sesAktif = null; };
-      const kesildi = speechSynthesis.speaking || speechSynthesis.pending;
-      sesKes(); sesAktif = u;
-      // Chrome: cancel()'ın hemen ardından speak() yeni sesi yutabiliyor → kesme olduysa kısa ara
-      if (kesildi) setTimeout(() => { if (sesAktif === u) speechSynthesis.speak(u); }, 60); else speechSynthesis.speak(u);
+      sesKes(); sesAktif = u; sesBas = now();
+      // Chrome: cancel()'ın hemen ardından speak() yeni sesi yutabiliyor → kısa ara; bu arada soru değiştiyse (sesKes) hiç çalmaz
+      setTimeout(() => { if (sesAktif === u) speechSynthesis.speak(u); }, 40);
     } catch (e) { flash('Bu tarayıcıda ses yok.'); }
   }
   const uLabel = it => it.de;
@@ -1931,7 +1934,9 @@
         if (i == null) return `<span class="lw">${esc(t.raw)}</span>`;
         const vor = t.raw.slice(0, t.raw.indexOf(t.c)), nach = t.raw.slice(t.raw.indexOf(t.c) + t.c.length);
         const w = q.werte ? q.werte[i] : '', b = q.blanks[i];
-        return `${esc(vor)}<input class="u-luecke${q.ok ? (q.ok[i] ? ' ok' : ' yanlis') : ''}" data-al="${i}" size="${Math.max(6, t.c.length + 1)}" placeholder="${esc(kurzTr(trOf(b.id)).slice(0, 18))}" title="${esc(kurzTr(trOf(b.id)))}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w || '')}"${q.ok ? ' disabled' : ''}>${q.ok && !q.ok[i] ? ` <b class="u-dogru">${esc(b.form)}</b>` : ''}${esc(nach)}`;
+        // ipucu (anlam) kutuya sığsın: ilk anlam, en çok 24 harf (kelime sınırında); kutu ipucu kadar geniş (eskiden 18 harfte kesilip kutu kelime boyunda kalıyordu)
+        const ip0 = kurzTr(trOf(b.id)).split(',')[0].trim(), ip = ip0.length <= 24 ? ip0 : ip0.slice(0, 24).replace(/\s+\S*$/, '') + '…';
+        return `${esc(vor)}<input class="u-luecke${q.ok ? (q.ok[i] ? ' ok' : ' yanlis') : ''}" data-al="${i}" size="${Math.max(6, t.c.length + 1, ip.length + 2)}" placeholder="${esc(ip)}" title="${esc(kurzTr(trOf(b.id)))}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w || '')}"${q.ok ? ' disabled' : ''}>${q.ok && !q.ok[i] ? ` <b class="u-dogru">${esc(b.form)}</b>` : ''}${esc(nach)}`;
       }).join(' ')).join(' ');
       ust += `<div class="soluk">${q.blanks.length} boşluk: daha önce öğrendiğin kelimeler, metindeki biçimiyle (soluk yazı = anlamı). Bilmediğin kelimeye bas, anlamı çıkar. · ${esc(T.quelle || '')}</div>
         <div class="soru">${esc(T.titel || '')}</div>
@@ -2598,10 +2603,10 @@
     panelGoster(sonucPanel(q, not, { weissNicht, secilen: weissNicht ? null : opt.t }));
   }
   const OTO_MS = 1000;   // doğru cevaptan sonra kendiliğinden geçiş (0,8–1,2 sn)
-  // kendiliğinden geçiş: kelimenin sesi hâlâ okunuyorsa bitmesini bekler (en çok 1,5 sn), sonraki soru sesi kesmesin
+  // kendiliğinden geçiş: kelimenin sesi hâlâ okunuyor ya da başlamadıysa bitmesini bekler (en çok 2,5 sn), sonraki soru sesi kesmesin
   function ilerleSesle() {
     const q = aktuell, t0 = now();
-    const dene = () => { if (aktuell !== q) return; if (sesCaliyor() && now() - t0 < 1500) later(dene, 100); else ilerle(); };
+    const dene = () => { if (aktuell !== q) return; if (sesCaliyor() && now() - t0 < 2500) later(dene, 100); else ilerle(); };
     dene();
   }
 
@@ -2926,7 +2931,8 @@
   document.addEventListener('visibilitychange', () => { if (document.hidden) { bekleyenKaydet(); dateiSchreiben(true); ghSync(true); } else bekleyenSil(); });
 
   // ---- GitHub'a doğrudan kayıt (site olarak açıldığında push gerekmez) ----
-  const GH = { repo: 'mahmutarsla/Almanca-Tekrar', branch: 'claude/chat-session-1vghmx' };
+  // depo sahibi site adresinden (sahip.github.io): GitHub kullanıcı adı değişince (24.10: mahmutarsla → TunaArslankaya) kendiliğinden doğru depo
+  const GH = { repo: (/\.github\.io$/i.test(location.hostname) ? location.hostname.split('.')[0] : 'TunaArslankaya') + '/Almanca-Tekrar', branch: 'claude/chat-session-1vghmx' };
   const ghToken = () => { try { return localStorage.getItem('almanca-tekrar-gh') || ''; } catch (e) { return ''; } };
   const b64enc = s => btoa(unescape(encodeURIComponent(s)));
   const b64dec = s => decodeURIComponent(escape(atob(s.replace(/\n/g, ''))));

@@ -307,3 +307,11 @@ Son incelenen log satırı: 2026-10-21 21:19:49 (gram g:adjektiv:60).
 - 22.10 19:10–19:14 arası 4 tur (~48 cevap). Yazarak yanlışlar: mild → nass, drinnen (drünnen), zustimmen kökü (zustimmt), können kökü (yalnız konnte), vorstellt (vorgestellt), dikte "ihm" (eben). Artikel flaşı yanlışları: Regel, Erlaubnis, Wetter, Praxis, Heimat (hepsi das/der → die; Heimat `leech`, 3. gün), Behörde (seçmelide der). Seçmeli artikelde yine -ung/-e/-ik/-is gibi die kalıpları karışıyor. `yeni;bekannt` yok.
 - 12 düzeltme `feedback.js`'e, Heimat'a kanca. DW metni yeni değil (Fast-Tech işlenmişti): takılanlara 11 çeviri cümlesi + gloss (Heimat ×2, Erlaubnis, Praxis, Behörde, Wetter, mild, drinnen, zustimmen ×2, vorstellen).
 Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
+
+**2026-10-24 (Tuna: "bir yerde hata aldım" + metin ipucu okunmuyor + ses kayıyor)**
+- Hata: 24.10 gece işi başarısız. GitHub kullanıcı adı mahmutarsla → TunaArslankaya oldu; zamanlanmış iş eski adla tetiklendi, claude-code-action adı GitHub'da bulamayıp "bot" saydı ve durdu ("actor not found"). `gece.yml`: `allowed_bots: "mahmutarsla"` (yalnız eski ad). Uygulamanın GitHub deposu artık site adresinden (`sahip.github.io`) türetiliyor; README adresi `tunaarslankaya.github.io`.
+- Metinde boşluk: anlam ipucu 18 harfte kesiliyor, kutu kelime boyunda kalıyordu ("(biriyle) il…"). İpucu ilk anlam, en çok 24 harf; kutu ipucu kadar geniş.
+- Ses: internetten gelen ses (Google Deutsch / Online Natural) seçiliyordu ve geç başlıyordu; soru değişince yalnız `speaking/pending` doğruysa kesiliyordu, başlamamış ses sonraki soruda çalıyordu (gecikmeli sahte ses motoruyla ölçüldü: eski kodda 16 okumanın 8'i başka soruda). Yerel ses önce, kesme koşulsuz, kendiliğinden geçiş başlamamış sesi de bekler (en çok 2,5 sn): yeni kodda başka soruda çalan 0.
+- `Kern.aralikKisalt`: zaten vadeli hafızanın vadesini her açılışta yeniden yazmıyor.
+- Log: 22.10 19:14'ten sonra cevap yok (23.10 çalışılmadı, seri dondurucusu kullanıldı; 24.10 açıldı, cevap yok).
+Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).

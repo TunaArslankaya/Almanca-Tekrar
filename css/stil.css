@@ -342,7 +342,7 @@ body.genis #v-calis { max-width: none; }
 .u-bar > div { height: 100%; background: var(--ok); }
 .u-satz { margin-top: .6rem; font-size: 1.1rem; line-height: 1.6; }
 .u-sort { flex-wrap: wrap; }
-.u-luecke { font: inherit; border: none; border-bottom: 2px solid var(--accent); background: var(--accent-soft); padding: 0 .2rem; min-width: 4ch; border-radius: 3px; color: inherit; }
+.u-luecke { font: inherit; border: none; border-bottom: 2px solid var(--accent); background: var(--accent-soft); padding: 0 .2rem; min-width: 4ch; max-width: 100%; border-radius: 3px; color: inherit; }
 .u-luecke.ok { border-color: var(--ok); background: var(--ok-soft); }
 .u-luecke.yanlis { border-color: var(--bad); background: var(--bad-soft); }
 .u-dogru { color: var(--ok); }
