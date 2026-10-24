@@ -2347,3 +2347,26 @@
 2026-10-22 19:14:34;prod;w0169:prod;flexibel;esnek;flexibel;richtig;flexibel;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:4.9 | sek:4 | ipucu:0
 2026-10-22 19:14:37;art;n0524:art;die Heimat;Heimat;das;falsch;die Heimat;basamak:A | bicim:artikel | not:a1 | R:0.85 | S:0.8 | artikel das → die | sek:2
 2026-10-22 19:14:37;leech;n0524;die Heimat;memleket, vatan;;takiliyor;;günler:2026-10-03,2026-10-06,2026-10-22
+2026-10-24 10:21:54;erk;w0325:erk;mild;ılık;mild;richtig;mild;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:3.5 | ısınma | sek:3
+2026-10-24 10:21:57;bed;v610:bed;verstehen;verstehen;açıklamak;falsch;anlamak;basamak:B1 | bicim:anla | not:m1 | R:0.92 | S:0.6 | ısınma | sek:2
+2026-10-24 10:22:01;erk;x1561:erk;die Not;sıkıntı, darlık;der Not;fast;die Not;basamak:B1 | bicim:sec | not:m3,a1 | R:0.92 | S:4.0 | ısınma | artikel der → die | sek:4
+2026-10-24 10:22:03;yeni;v157;bringen;tanıtım;;neu;(birine bir şey) getirmek;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-10-24 10:22:06;yeni;n0813;die Mühe;tanıtım;;neu;zahmet;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-24 10:22:09;bed;v157:bed;bringen;(birine bir şey) getirmek;bringen;richtig;bringen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-24 10:22:12;erk;n0813:erk;die Mühe;zahmet;die Mühe;richtig;die Mühe;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-24 10:22:14;art;n0051:art;die Anzeige;Anzeige;die;richtig;die Anzeige;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:60.2 | sek:1
+2026-10-24 10:22:18;bed;v610:bed;verstehen;anlamak;verstehen;richtig;verstehen;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-24 10:22:22;abr;v157:abr;bringen;(birine bir şey) getirmek;bringne;falsch;bringen (Dat, Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-24 10:22:27;wort;n0813:wort;die Mühe;zahmet;die Mühe;richtig;die Mühe;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-10-24 10:23:30;akt;diktat:n0994;dinle–yaz;Mit diesem Rezept bekommen Sie die Tabletten in jeder Apotheke.;Mit diesem Rezept bekommen Sie die Tabletten in jeder Apotheke.;richtig;Mit diesem Rezept bekommen Sie die Tabletten in jeder Apotheke.;
+2026-10-24 10:23:35;erk;w0172:erk;frech;arsız, şımarık;frech;richtig;frech;basamak:B1 | bicim:sec | not:m3 | R:0.70 | S:0.8 | kurtarma | sek:2
+2026-10-24 10:23:38;bed;v157:bed;bringen;(birine bir şey) getirmek;bringen;richtig;bringen;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-24 10:23:38;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:122 | dk:2 | yeni:2 | seviye+:0 | tekrar:7
+2026-10-24 10:23:42;bed;v243:bed;fahren;(araçla) gitmek;fahren;richtig;fahren;basamak:B1 | bicim:sec | not:m3 | R:0.90 | S:9.4 | ısınma | kapı:7g | sek:2
+2026-10-24 10:23:46;erk;x1553:erk;die Zivilcourage;sivil cesaret;die Zivilcourage;richtig;die Zivilcourage;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:9.4 | ısınma | kapı:7g | sek:3
+2026-10-24 10:23:52;erk;x1555:erk;die Würde;Würde man sich im Stand auf einen Fahrradsattel setzen, würde man umfallen.;onur, haysiyeti;richtig;onur, (insan) haysiyeti;basamak:B1 | bicim:metinde | not:m3 | R:0.90 | S:16.4 | ısınma | kapı:7g | sek:4
+2026-10-24 10:23:56;art;n1374:art;das Wetter;Wetter;der;falsch;das Wetter;basamak:A | bicim:artikel | not:a1 | R:0.92 | S:0.6 | artikel der → das | sek:3
+2026-10-24 10:24:11;stamm;v069:stamm;ausfüllen;ausfüllen — Präsens (er/sie), Perfekt;füllt aus, ausgefüllt;fast;füllt aus, hat ausgefüllt;basamak:K | bicim:kok | not:k2 | R:0.91 | S:15.8 | kök:füllen | Perfekt: hat ausgefüllt | sek:14
+2026-10-24 10:24:18;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit d;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:3.3 | sek:6 | ipucu:0
+2026-10-24 10:24:21;bed;v242:bed;essen;essen;yemek;richtig;yemek;basamak:B1 | bicim:anla | not:m3 | R:0.71 | S:3.0 | kurtarma | sek:2
+2026-10-24 10:24:23;art;n0207:art;die Burg;Burg;der;falsch;die Burg;basamak:A | bicim:artikel | not:a1 | R:0.90 | S:0.9 | artikel der → die | sek:1
