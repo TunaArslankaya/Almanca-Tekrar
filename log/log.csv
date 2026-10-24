@@ -2385,3 +2385,23 @@
 2026-10-24 10:25:39;erk;n0795:erk;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:3
 2026-10-24 10:25:42;art;n0137:art;die Behörde;Behörde;die;richtig;die Behörde;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:1.6 | sek:3
 2026-10-24 10:25:47;abr;v140:abr;bewegen;hareket ettirmek;bewegen;richtig;bewegen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:22.4 | kapı:14g | sek:4 | ipucu:2
+2026-10-24 10:26:09;satz;v447:satz;scheinen;Mein Kollege _____ krank zu sein. Er war heute nicht im Büro.;scheint;richtig;scheint;basamak:B2 | bicim:bos0 | not:m3 | R:0.89 | S:8.8 | kapı:7g | sek:22 | ipucu:0
+2026-10-24 10:26:12;erk;w0011:erk;allerdings;Allerdings ist nicht jeder Ort eine Stadt.;ancak, gerçi;richtig;ancak, gerçi;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-24 10:26:15;art;n1320:art;die Versichertenkarte;Versichertenkarte;die;richtig;die Versichertenkarte;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:22.2 | sek:1
+2026-10-24 10:26:15;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:80 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
+2026-10-24 10:26:20;bed;v672:bed;zustimmen;(birine) katılmak, onaylamak;zustimmen;richtig;zustimmen;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:13.0 | ısınma | kapı:7g | sek:2
+2026-10-24 10:26:25;wort;n0037:wort;die Anmeldung;"kayıt; resepsiyon";die Anmeldung;richtig;die Anmeldung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.88 | S:42.8 | ısınma | sek:5 | ipucu:2
+2026-10-24 10:26:30;abr;v646:abr;widersprechen;(birine) itiraz etmek, karşı çıkmak;Widersprechen;richtig;widersprechen (Dat);basamak:B2 | bicim:yaz | not:m3 | R:0.88 | S:34.2 | ısınma | sek:5 | ipucu:2
+2026-10-24 10:26:34;art;n1088:art;die Situation;Situation;der;falsch;die Situation;basamak:A | bicim:artikel | not:a1 | R:0.83 | S:0.9 | artikel der → die | sek:3
+2026-10-24 10:26:34;leech;n1088;die Situation;durum;;takiliyor;;günler:2026-10-03,2026-10-09,2026-10-24
+2026-10-24 10:26:39;stamm;v347:stamm;können;können — Präteritum;konnte;richtig;konnte;basamak:K | bicim:kokSatz | not:k3 | R:0.90 | S:3.0 | kök:können | sek:5
+2026-10-24 10:26:49;nsatz;w0599:nsatz;eingespannt sein;Ich bin diese Woche sehr _____, wir können uns erst am Sonntag sehen.;einspanned sein;falsch;eingespannt;basamak:B2 | bicim:bos0 | not:m1 | R:0.88 | S:1.1 | ek | sek:9 | ipucu:0
+2026-10-24 10:26:49;leech;w0599;eingespannt sein;çok meşgul olmak (iş yüzünden);;takiliyor;;günler:2026-10-08,2026-10-09,2026-10-24
+2026-10-24 10:26:53;erk;x1550:erk;die Gerechtigkeit;adalet;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.73 | S:1.9 | kurtarma | sek:4
+2026-10-24 10:26:55;art;n1422:art;das Ziel;Ziel;das;richtig;das Ziel;basamak:A | bicim:artikel | not:a3 | R:0.80 | S:1.6 | sek:2
+2026-10-24 10:27:01;luecke;n0536:nsatz;der Himmel;Ein Gewitter ist etwas, das am _____ passiert.;Himmel;richtig;Himmel;basamak:B3 | bicim:metin | not:m3 | R:0.88 | S:11.6 | kaynak:k2
+2026-10-24 10:27:01;luecke;n0746:nsatz;die Luft;Wenn die _____ elektrisch aufgeladen ist, kommt es zu einer plötzlichen Entladung: Ein Blitz sucht sich den Weg zum Erdboden.;Luft;richtig;Luft;basamak:B3 | bicim:metin | not:m3 | R:0.88 | S:11.6 | kaynak:k2
+2026-10-24 10:27:01;akt;luecke:k2;metinde boşluk;Ein Gewitter ist etwas, das am Himmel passiert. Wenn die Luft elektrisch aufgeladen ist, kommt es zu einer plötzlichen Entladung: Ein Blitz sucht sich den Weg zum Erdboden. Dabei entsteht ein lauter Knall, der Donner.;Himmel / Luft;richtig;Himmel / Luft;puan:2/2 | boşluk:2
+2026-10-24 10:27:04;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-24 10:27:07;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.72 | S:0.8 | sek:2
+2026-10-24 10:27:07;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:84 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
