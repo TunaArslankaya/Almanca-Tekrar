@@ -313,5 +313,6 @@ Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
 - Metinde boşluk: anlam ipucu 18 harfte kesiliyor, kutu kelime boyunda kalıyordu ("(biriyle) il…"). İpucu ilk anlam, en çok 24 harf; kutu ipucu kadar geniş.
 - Ses: internetten gelen ses (Google Deutsch / Online Natural) seçiliyordu ve geç başlıyordu; soru değişince yalnız `speaking/pending` doğruysa kesiliyordu, başlamamış ses sonraki soruda çalıyordu (gecikmeli sahte ses motoruyla ölçüldü: eski kodda 16 okumanın 8'i başka soruda). Yerel ses önce, kesme koşulsuz, kendiliğinden geçiş başlamamış sesi de bekler (en çok 2,5 sn): yeni kodda başka soruda çalan 0.
 - `Kern.aralikKisalt`: zaten vadeli hafızanın vadesini her açılışta yeniden yazmıyor.
+- Simülasyon (gerçek kayıt): 118 vadeli, günlük yük ≈ 37; günde 36 cevapla ~120'de sabit, 60 cevapla 2 haftada ~64. `sim_akis`: yük > K iken 7. gün düşüş ölçütü de uygulanmaz (yalnız büyümeme).
 - Log: 22.10 19:14'ten sonra cevap yok (23.10 çalışılmadı, seri dondurucusu kullanıldı; 24.10 açıldı, cevap yok).
 Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).

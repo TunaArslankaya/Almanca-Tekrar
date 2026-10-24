@@ -126,8 +126,9 @@ async function simule(p, o) {
   const yuk = Object.values(JSON.parse(Z).items || {}).reduce((a, x) => a + (x.m && x.m.S ? 1 / Math.min(60, Math.max(1, 1.9 * x.m.S)) : 0), 0);
   const asiri = yuk > K;
   console.log(`başlangıç günlük yükü ≈ ${yuk.toFixed(1)} (K=${K})${asiri ? ': kapasite aşılıyor, büyüme ölçütü' : ''}`);
+  // birikme inmeli (7. gün ≤ 0,8 × başlangıç): yalnız günlük yük kapasitenin altındayken anlamlı
+  if (!asiri && v.length >= 7 && v[0] > denge && v[6] > 0.8 * v[0]) fehler.push(`ortalama: 7. gün vadeli ${v[6].toFixed(1)} > 0,8 × ${v[0].toFixed(1)}`);
   if (asiri && v.length >= 14 && v[13] > 1.1 * v[7]) fehler.push(`ortalama: yük > K iken 2. haftada büyüme: 8. gün ${v[7].toFixed(1)} → 14. gün ${v[13].toFixed(1)}`);
-  if (v.length >= 7 && v[0] > denge && v[6] > 0.8 * v[0]) fehler.push(`ortalama: 7. gün vadeli ${v[6].toFixed(1)} > 0,8 × ${v[0].toFixed(1)}`);
   // yankı dalgası: ilk günlerde cevaplanan kartlar 8–12 gün sonra birlikte döner (+15–25, sonra iner); büyüme sayılmaz.
   // Büyüme ölçütü: ikinci haftanın (8–14. gün) ortalaması başlangıcı aşmasın, son gün başlangıcı aşmasın
   if (!asiri && v.length >= 14 && ort(v.slice(7, 14)) > tavan) fehler.push(`ortalama: 2. hafta ortalama vadeli ${ort(v.slice(7, 14)).toFixed(0)} > tavan ${tavan.toFixed(0)}`);
