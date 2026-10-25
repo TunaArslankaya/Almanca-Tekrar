@@ -1134,3 +1134,9 @@ v237 | Man kann kaputte Geräte nicht immer leicht ersetzen. | Bozuk cihazları 
 v672 | Ich stimme dir zu, das ist eine gute Idee. | Sana katılıyorum, bu iyi bir fikir.
 v672 | Er hat meinem Vorschlag sofort zugestimmt. | Önerime hemen onay verdi.
 v629 | Das habe ich mir anders vorgestellt. | Bunu kendi kafamda farklı hayal etmiştim.
+v142 | Das müssen Sie erst beweisen. | Bunu önce sizin kanıtlamanız gerek.
+v142 | Kannst du beweisen, dass du das Geld bezahlt hast? | Parayı ödediğini kanıtlayabilir misin?
+v691 | Wir müssen herausfinden, wer den Fehler gemacht hat. | Hatayı kimin yaptığını bulmamız gerek.
+v691 | Ich habe herausgefunden, dass der Laden sonntags geöffnet ist. | Dükkânın pazar günleri açık olduğunu öğrendim.
+v550 | Er kann gut mit Kindern umgehen. | Çocuklarla iyi başa çıkar.
+v550 | Wie geht man mit so einem Problem um? | Böyle bir sorunla nasıl başa çıkılır?

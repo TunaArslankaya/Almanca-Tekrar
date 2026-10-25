@@ -308,6 +308,11 @@ Son incelenen log satırı: 2026-10-21 21:19:49 (gram g:adjektiv:60).
 - 12 düzeltme `feedback.js`'e, Heimat'a kanca. DW metni yeni değil (Fast-Tech işlenmişti): takılanlara 11 çeviri cümlesi + gloss (Heimat ×2, Erlaubnis, Praxis, Behörde, Wetter, mild, drinnen, zustimmen ×2, vorstellen).
 Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
 
+**2026-10-25 (gece işi, otomatik)**
+- 22.10 19:14 sonrası: 24.10 sabah turu + 25.10 09:24–09:37 (~3 tur). Yazarak yanlışlar: bringne, einspanned, Semestar / Semester↔Seminar karışıklığı, Traning, Wetervorhersage, Qlique; boş/bilmiyorum: Referat, Tüte, Fall, ebenfalls, beweisen. Benzer/zıt karışıklıklar: trocken↔feucht, entlang↔während, Donner↔donnern, Wettervorhersage↔Wetterbericht. Artikel: Roman (das), Vertrag (die). Metinde boşluk 0/2 (Umgang, entsteht). Tablette cümlede çoğul unutuldu. Leech: Situation, eingespannt sein, Wetter, Tablette, Donner, beweisen (6 kanca). Yoklamada bilip sonra yanlış: yok.
+- 30 düzeltme `feedback.js`'e, 16 çeviri cümlesi + gloss (Referat, Tüte, Fall ×2, Gefahr, Donner, Situation, Tablette, eingespannt ×2, beweisen ×2, herausfinden ×2, umgehen mit ×2). DW "Kühlschrank / Bedrohung" metni yeni: Gefahr, herausfinden, umgehen mit işlendi.
+Son incelenen log satırı: 2026-10-25 09:37:12 (tur akis).
+
 **2026-10-24 (Tuna: "bir yerde hata aldım" + metin ipucu okunmuyor + ses kayıyor)**
 - Hata: 24.10 gece işi başarısız. GitHub kullanıcı adı mahmutarsla → TunaArslankaya oldu; zamanlanmış iş eski adla tetiklendi, claude-code-action adı GitHub'da bulamayıp "bot" saydı ve durdu ("actor not found"). `gece.yml`: `allowed_bots: "mahmutarsla"` (yalnız eski ad). Uygulamanın GitHub deposu artık site adresinden (`sahip.github.io`) türetiliyor; README adresi `tunaarslankaya.github.io`.
 - Metinde boşluk: anlam ipucu 18 harfte kesiliyor, kutu kelime boyunda kalıyordu ("(biriyle) il…"). İpucu ilk anlam, en çok 24 harf; kutu ipucu kadar geniş.

@@ -2851,5 +2851,103 @@
   ],
   "url": "https://learngerman.dw.com/de/fast-tech-und-das-problem-mit-dem-müll/l-79711839",
   "audio": "https://radiodownloaddw-a.akamaihd.net/Events/dwelle/dira/mp3/deutschkurse/topthema/A89F8611_2.mp3"
+ },
+ {
+  "id": "79729627",
+  "quelle": "DW Top-Thema",
+  "titel": "Wenn der Kühlschrank zur Bedrohung wird",
+  "text": "Wenn der Kühlschrank zur Bedrohung wird\nOb Saugroboter, Kühlschrank oder Fernseher: Haushaltsgeräte lassen sich heute mühelos per Smartphone bedienen. Das macht den Alltag deutlich bequemer. Doch was passiert, wenn KI-Würmer das System angreifen?\nDer Fernseher verbindet sich automatisch mit dem Lieblings-Streamingdienst, der Kühlschrank meldet über das Smartphone, welche Lebensmittel fehlen. Allein in Deutschland nutzt etwa die Hälfte aller Haushalte Smart-Home-Anwendungen, die mit dem Internet verbunden sind. Nun warnt das KI-Unternehmen Anthropic davor, dass solche Geräte in Zukunft leicht mit KI-Viren infiziert werden könnten. Diese würden sich dann selbstständig von einem Gerät auf das nächste kopieren.\nSolche „Würmer“, also Computerviren, die sich von einem Rechner auf den nächsten übertragen, gibt es schon seit Jahrzehnten. Bisher nutzen sie bekannte Schwachstellen, um ein System zu infizieren. Ihre Übertragung kann unterbrochen werden, indem man die Schwachstelle behebt. KI-Würmer dagegen wären deutlich schädlicher. Sie können selbst herausfinden, wie sie verschiedene Schutzmaßnahmen umgehen, statt nur die bekannte Schwachstelle zu nutzen. Außerdem kann eine KI verschiedene Geräte zu einem großen Netzwerk verbinden, das sich nur schwer komplett abschalten lässt.\nWie schlimm die Folgen eines digitalen Angriffs auf vernetzte Systeme sein können, zeigt ein Vorfall in Frankreich. Hier manipulierten die Angreifer in mehreren Supermärkten Kühlsysteme, sodass die Temperaturen auf bis zu 50 Grad Celsius stiegen. Die Lebensmittel verdarben, teilweise kam es auch zu Bränden und technischen Schäden.\nNoch ist nicht klar, wer die Angreifer waren. Es gibt auch keine Beweise dafür, dass für den Angriff ein KI-Wurm genutzt wurde. Aber die neuesten Untersuchungen von Anthropic zeigen, wie sehr KI die Entwicklung von Schadsoftware erleichtern könnte. Frankreichs Behörde für digitale Sicherheit empfahl daher allen Firmen, ihre vernetzten Geräte regelmäßig zu aktualisieren und unnötige Internetzugänge lieber zu deaktivieren. Darüber sollte man auch im Privathaushalt nachdenken – damit der Kühlschrank nicht irgendwann zur Bedrohung wird.",
+  "glossar": [
+   {
+    "de": "Bedrohung, -en (f.)",
+    "erkl": "die Gefahr; das Risiko"
+   },
+   {
+    "de": "Saugroboter, - (m.)",
+    "erkl": "ein automatischer Staubsauger, der digital funktioniert"
+   },
+   {
+    "de": "KI",
+    "erkl": "Abkürzung für: künstliche Intelligenz"
+   },
+   {
+    "de": "Wurm, Würmer (m.)",
+    "erkl": "hier: ein Computervirus, der von Rechner zu Rechner springt"
+   },
+   {
+    "de": "etwas an|greifen",
+    "erkl": "hier: versuchen, etwas zu zerstören (Substantiv: der Angriff)"
+   },
+   {
+    "de": "Streamingdienst, -e (m.)",
+    "erkl": "eine Online-Plattform, auf der man Videos sehen kann"
+   },
+   {
+    "de": "Smart-Home-Anwendung, -en (f.)",
+    "erkl": "ein Haushaltsgerät, das online ist"
+   },
+   {
+    "de": "etwas infizieren",
+    "erkl": "hier: einen Computervirus weitergeben"
+   },
+   {
+    "de": "sich übertragen",
+    "erkl": "sich verbreiten"
+   },
+   {
+    "de": "Schwachstelle, -n (f.)",
+    "erkl": "hier: ein Teil eines Systems, das angreifbar oder unsicher ist"
+   },
+   {
+    "de": "etwas beheben",
+    "erkl": "hier: einen Fehler korrigieren"
+   },
+   {
+    "de": "etwas heraus|finden",
+    "erkl": "etwas entdecken; etwas feststellen"
+   },
+   {
+    "de": "Schutzmaßnahme, -n (f.)",
+    "erkl": "eine Handlung, um jemanden/etwas zu schützen"
+   },
+   {
+    "de": "etwas umgehen",
+    "erkl": "hier: einen Trick benutzen, damit eine Regel nicht wirkt"
+   },
+   {
+    "de": "vernetzt",
+    "erkl": "so, dass mehrere Dinge verbunden sind"
+   },
+   {
+    "de": "Vorfall, -fälle (m.)",
+    "erkl": "etwas (oft Negatives oder Unerwartetes), das passiert ist"
+   },
+   {
+    "de": "etwas manipulieren",
+    "erkl": "hier: etwas verändern; etwas beeinflussen"
+   },
+   {
+    "de": "verderben",
+    "erkl": "schlecht werden"
+   },
+   {
+    "de": "Brand, Brände (m.)",
+    "erkl": "ein Feuer, das etwas zerstört"
+   },
+   {
+    "de": "Schadsoftware (f., nur Singular)",
+    "erkl": "bösartige Programme, die Computern schaden"
+   },
+   {
+    "de": "etwas aktualisieren",
+    "erkl": "dafür sorgen, dass etwas aktuell ist"
+   },
+   {
+    "de": "etwas deaktivieren",
+    "erkl": "etwas abschalten, sodass man es nicht mehr nutzen kann"
+   }
+  ],
+  "url": "https://learngerman.dw.com/de/wenn-der-kühlschrank-zur-bedrohung-wird/l-79729627",
+  "audio": "https://radiodownloaddw-a.akamaihd.net/Events/dwelle/dira/mp3/deutschkurse/topthema/03CC9651_2.mp3"
  }
 ]

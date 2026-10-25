@@ -2728,3 +2728,13 @@ n0137 | die Behörde | Diese Behörde ist für Ausländer zuständig. | Bu resm�
 n1374 | das Wetter | Das Wetter ist heute schön, deshalb gehen wir spazieren. | Bugün hava güzel, bu yüzden yürüyüşe çıkıyoruz.
 w0325 | mild | Der Winter in Bremen ist meistens mild. | Bremen'de kış çoğunlukla ılıktır.
 w0108 | drinnen | Es regnet, deshalb bleiben wir drinnen. | Yağmur yağıyor, bu yüzden içeride kalıyoruz.
+n0434 | die Gefahr | Der Hund ist keine Gefahr für die Kinder. | Köpek çocuklar için tehlike değil.
+n0248 | der Donner | Der laute Donner hat die Kinder erschreckt. | Yüksek gök gürültüsü çocukları korkuttu.
+n0969 | das Referat | Ich muss bis Freitag ein Referat über Umweltschutz vorbereiten. | Cuma'ya kadar çevre koruma hakkında bir sunum hazırlamam gerek.
+n1254 | die Tüte | Die Tüte ist gerissen, und alle Äpfel liegen auf dem Boden. | Poşet yırtıldı ve bütün elmalar yerde.
+n1088 | die Situation | In dieser Situation kann ich dir leider nicht helfen. | Bu durumda sana maalesef yardım edemem.
+n1179 | die Tablette | Vergessen Sie nicht, die Tabletten regelmäßig zu nehmen. | Tabletleri düzenli almayı unutmayın.
+n0341 | der Fall | In diesem Fall brauchen Sie einen Termin. | Bu durumda randevuya ihtiyacınız var.
+n0341 | der Fall | Für den Fall, dass es regnet, nehme ich einen Schirm mit. | Yağmur yağarsa diye şemsiye alıyorum.
+w0599 | eingespannt sein | Ich bin gerade sehr eingespannt, ich rufe dich später an. | Şu an çok meşgulüm, seni sonra ararım.
+w0599 | eingespannt sein | Wegen des Projekts sind alle im Team stark eingespannt. | Proje yüzünden ekipteki herkes çok yoğun.

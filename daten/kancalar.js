@@ -29,5 +29,11 @@ window.KANCA = {
   n0244: "die Diskussion → -tion/-sion ile bitenler die (die Information, die Situation; tek istisna das Stadion); kırmızı (die) masa başında kızışan 'diskusyon'",
   n0973: "der Regen → yağış ve rüzgâr der: der Regen, der Schnee, der Wind, der Sturm, der Nebel (ama das Wetter, die Wolke); mavi (der) yağmurluklu adam yağmurda",
   n0524: "die Heimat → 'haymat' sesi: memlekette annem 'hay mat!' diye kırmızı (die) bir halıyla karşılıyor; memleket = die Heimat, anne gibi die",
+  n1088: "die Situation → -tion hep die (die Situation, die Information, die Diskussion; tek istisna das Stadion); Türkçe 'situasyon' gibi, kırmızı (die) masada zor bir durum",
+  n1179: "die Tablette → Türkçe 'tablet' gibi, -e ile biten die; kırmızı (die) kutuda tabletler; çoğul Tabletten (-n)",
+  n1374: "das Wetter → 'vetır': 'hava vetır vetır' diye esiyor; hava durumu hep das (yeşil gökyüzü): das Wetter ama der Regen, der Wind",
+  n0248: "der Donner → 'donar': gök gürleyince donarsın; mavi (der) gökyüzü gürler; Donnerstag = perşembe (Thor'un günü), fiil donnern",
+  w0599: "eingespannt sein → 'ayn-şpannt': arabaya koşulmuş at (einspannen = koşmak); işe koşulmuş = çok meşgul",
+  v142: "beweisen → 'bevayzın' ~ 'beni vay!': hâkim 'vay!' der kanıtı görünce; der Beweis = kanıt; Perfekt hat bewiesen (ge- yok)",
   n1422: "das Ziel → 'ziyl' sesi 'cetvel' değil, okçunun yeşil (das) hedef tahtası; Ziel–Spiel–Ende hep das: das Ziel, das Spiel, das Ende",
 };
