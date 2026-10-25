@@ -2506,3 +2506,33 @@
 2026-10-25 09:32:55;leech;n1179;die Tablette;tablet (ilaç);;takiliyor;;günler:2026-10-03,2026-10-08,2026-10-25
 2026-10-25 09:32:59;bed;v111:bed;sich bemühen um;sich bemühen um;çabalamak;richtig;(bir şey için) çabalamak;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:5.9 | kurtarma | sek:3
 2026-10-25 09:33:03;nsatz;n1077:nsatz;das Seminar;Ich möchte dieses _____ unbedingt besuchen.;Semester;falsch;Seminar;basamak:B3 | bicim:bos0 | not:m1 | R:0.85 | S:1.5 | artikel / ek | sek:3 | ipucu:0
+2026-10-25 09:33:08;nsatz;n1240:nsatz;das Training;Für den Verlust von Gegenständen, die nicht für das _____ benötigt werden, übernimmt das Studio keine Haftung.;Traning;fast;Training;basamak:B3 | bicim:bos0 | not:m3 | R:0.85 | S:23.9 | kısmi | kapı:14g | yazım | sek:4 | ipucu:0
+2026-10-25 09:33:12;wort;n0926:wort;die Praxis;muayenehane;die Praxis;richtig;die Praxis;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.85 | S:56.4 | sek:3 | ipucu:2
+2026-10-25 09:33:18;nsatz;n1376:nsatz;die Wettervorhersage;Hast du heute schon die _____ gelesen?;Wetterbericht;falsch;Wettervorhersage;basamak:B3 | bicim:bos0 | not:m1 | R:0.85 | S:1.5 | artikel / ek | sek:4 | ipucu:0
+2026-10-25 09:33:23;wort;n1179:wort;die Tablette;tablet (ilaç);die Tablette;richtig;die Tablette;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.5 | tekrar:1 | sek:5 | ipucu:0
+2026-10-25 09:33:27;nsatz;n0313:nsatz;die Erlaubnis;Zum Beispiel darf man nur dann als Arzt arbeiten, wenn man eine _____ dafür hat.;Erlaubnis;richtig;Erlaubnis;basamak:B3 | bicim:bos0 | not:m3 | R:0.85 | S:38.7 | kapı:14g | sek:3 | ipucu:0
+2026-10-25 09:33:31;wort;n1077:wort;das Seminar;seminer;Semestar;falsch;das Seminar;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | kelime yanlış | sek:3 | ipucu:0
+2026-10-25 09:33:38;wort;n1376:wort;die Wettervorhersage;hava tahmini;die Wetervorhersage;fast;die Wettervorhersage;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.5 | tekrar:1 | kısmi | yazım | sek:6 | ipucu:0
+2026-10-25 09:33:38;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:106 | dk:1 | yeni:0 | seviye+:3 | tekrar:15
+2026-10-25 09:34:09;prod;w0479:prod;trocken;kuru;feucht;falsch;trocken;basamak:B2 | bicim:yaz | not:m1 | R:0.85 | S:1.5 | ısınma | farklı | sek:4 | ipucu:2
+2026-10-25 09:34:14;bed;v184:bed;sich einigen auf;Das Regenwasser wird zu Grundwasser unter der Erde, und an einigen Orten bilden sich Quellen.;anlaşmak, uzlaşmak;richtig;(bir şeyde) anlaşmak, uzlaşmak;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:3.6 | ısınma | sek:5
+2026-10-25 09:34:18;erk;n1375:erk;der Wetterbericht;hava raporu;der Wetterbericht;richtig;der Wetterbericht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:2.4 | ısınma | sek:4
+2026-10-25 09:34:22;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:2.9 | sek:3
+2026-10-25 09:34:24;art;n1077:art;das Seminar;Seminar;das;richtig;das Seminar;basamak:A | bicim:artikel | not:a3 | R:0.82 | S:7.8 | sek:2
+2026-10-25 09:34:29;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:2.9 | sek:4
+2026-10-25 09:34:31;erk;w0479:erk;trocken;kuru;trocken;richtig;trocken;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-25 09:34:33;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.76 | S:1.1 | sek:1
+2026-10-25 09:34:35;erk;w0566:erk;bewölkt;bulutlu;bewölkt;richtig;bewölkt;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:2.7 | kurtarma | sek:2
+2026-10-25 09:34:39;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.84 | S:2.9 | artikel der → das | sek:3
+2026-10-25 09:34:41;art;n0972:art;die Regel;Regel;die;richtig;die Regel;basamak:A | bicim:artikel | not:a3 | R:0.69 | S:0.7 | sek:2
+2026-10-25 09:34:45;wort;n0790:wort;die Miete;kira;die Miete;richtig;die Miete;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.84 | S:7.0 | sek:3 | ipucu:0
+2026-10-25 09:34:45;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:60 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
+2026-10-25 09:34:50;erk;n0682:erk;die Kritik;Doch die Bundesregierung hat die Reform trotz der Kritik beschlossen.;eleştiri;richtig;eleştiri;basamak:B1 | bicim:metinde | not:m3 | R:0.84 | S:8.2 | ısınma | sek:2
+2026-10-25 09:34:53;erk;n1279:erk;die Universität;üniversite;die Universität;richtig;die Universität;basamak:B1 | bicim:sec | not:m3,a3 | R:0.84 | S:8.8 | ısınma | kapı:7g | sek:3
+2026-10-25 09:34:56;erk;n0121:erk;das Bargeld;Unter Geld versteht man vor allem Bargeld: Münzen und Geldscheine.;nakit;richtig;nakit;basamak:B1 | bicim:metinde | not:m3 | R:0.84 | S:15.9 | ısınma | kapı:7g | sek:2
+2026-10-25 09:34:57;art;n1379:art;der Wind;Wind;der;richtig;der Wind;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:9.8 | sek:1
+2026-10-25 09:35:00;abr;v643:abr;werden;olmak (… hâline gelmek);werden;richtig;werden;basamak:B2 | bicim:yaz0 | not:m3 | R:0.84 | S:19.1 | kapı:7g | sek:2 | ipucu:0
+2026-10-25 09:35:12;wort;n0341:wort;der Fall;durum, vaka;;falsch;der Fall;basamak:B2 | bicim:yaz0 | not:m1 | R:0.84 | S:0.9 | sek:11 | ipucu:0 | bilmiyorum
+2026-10-25 09:35:14;erk;n0286:erk;das Eis;buz;das Eis;richtig;das Eis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.74 | S:2.7 | kurtarma | sek:2
+2026-10-25 09:35:31;nsatz;x1503:nsatz;die Erwartung;Meine Eltern haben hohe _____ an mich.;Er;falsch;Erwartungen;basamak:B2 | bicim:bos0 | not:m1 | R:0.83 | S:1.0 | farklı | sek:16 | ipucu:0
+2026-10-25 09:35:33;art;n1048:art;der Schnee;Schnee;der;richtig;der Schnee;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:14.4 | sek:2
