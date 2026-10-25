@@ -2457,3 +2457,22 @@
 2026-10-25 09:26:44;wort;n1286:wort;die Unterschrift;imza;die Unterschrift;richtig;die Unterschrift;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.87 | S:57.4 | ısınma | sek:5 | ipucu:2
 2026-10-25 09:26:47;wort;n0869:wort;die Operation;ameliyat;die Operation;richtig;die Operation;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.87 | S:57.4 | ısınma | sek:3 | ipucu:2
 2026-10-25 09:26:50;art;n0994:art;das Rezept;Rezept;das;richtig;das Rezept;basamak:A | bicim:artikel | not:a3 | R:0.43 | S:0.1 | sek:2
+2026-10-25 09:27:22;wort;n0969:wort;das Referat;sunum ödevi;;falsch;das Referat;basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:1.2 | sek:30 | ipucu:2 | bilmiyorum
+2026-10-25 09:27:24;bed;v610:bed;verstehen;Andere haben einfach nur Spaß daran – vor allem, weil sie den Text nicht verstehen.;anlamak;richtig;anlamak;basamak:B1 | bicim:metinde | not:m3 | R:0.86 | S:1.7 | sek:2
+2026-10-25 09:27:27;erk;n0948:erk;die Quittung;makbuz, fiş;die Quittung;richtig;die Quittung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:2
+2026-10-25 09:27:29;art;n0111:art;der Balkon;Balkon;der;richtig;der Balkon;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:62.0 | sek:1
+2026-10-25 09:27:33;bed;v654:bed;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über;basamak:B1 | bicim:sec | not:m3 | R:0.86 | S:2.2 | sek:3
+2026-10-25 09:27:43;prod;w0118:prod;ebenfalls;aynı şekilde, keza;;falsch;ebenfalls;basamak:B2 | bicim:yaz0 | not:m1 | R:0.86 | S:0.7 | sek:10 | ipucu:0 | bilmiyorum
+2026-10-25 09:27:46;erk;n0969:erk;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:2
+2026-10-25 09:27:50;art;n0536:art;der Himmel;Himmel;die;falsch;der Himmel;basamak:A | bicim:artikel | not:a1 | R:0.94 | S:1.7 | artikel die → der | sek:3
+2026-10-25 09:27:57;wort;n0297:wort;die Entscheidung;karar;die Entscheidung;richtig;die Entscheidung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:7.7 | kapı:7g | sek:7 | ipucu:0
+2026-10-25 09:27:59;erk;w0118:erk;ebenfalls;aynı şekilde, keza;ebenfalls;richtig;ebenfalls;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.7 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-25 09:28:00;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:11 | küçük:0 | yanlış:3 | puan:75 | dk:1 | yeni:0 | seviye+:0 | tekrar:14
+2026-10-25 09:28:04;erk;x1558:erk;das Zusammenleben;birlikte yaşam;das Zusammenleben;richtig;das Zusammenleben;basamak:B1 | bicim:sec | not:m3,a3 | R:0.86 | S:6.9 | ısınma | sek:3
+2026-10-25 09:28:06;erk;n0169:erk;die Bibliothek;kütüphane;die Bibliothek;richtig;die Bibliothek;basamak:B1 | bicim:sec | not:m3,a3 | R:0.86 | S:12.6 | ısınma | kapı:7g | sek:2
+2026-10-25 09:28:11;bed;v030:bed;sich anmelden für;sich anmelden für;kaydolmak;richtig;(bir şeye) kaydolmak;basamak:B1 | bicim:anla | not:m3 | R:0.86 | S:23.9 | ısınma | kapı:7g | sek:4
+2026-10-25 09:28:14;art;n1173:art;der Supermarkt;Supermarkt;der;richtig;der Supermarkt;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:31.4 | sek:3
+2026-10-25 09:28:20;nsatz;x1483:nsatz;der Dozent;Der _____ erklärt die Aufgabe noch einmal.;Dozent;richtig;Dozent;basamak:B2 | bicim:bos0 | not:m3 | R:0.86 | S:23.9 | kapı:7g | sek:5 | ipucu:0
+2026-10-25 09:28:24;nsatz;n1076:nsatz;das Semester;Sie studiert im dritten _____ Informatik.;Semestar;falsch;Semester;basamak:B2 | bicim:bos0 | not:m1 | R:0.86 | S:1.1 | artikel / ek | sek:4 | ipucu:0
+2026-10-25 09:28:27;erk;n1094:erk;das Sonderangebot;özel indirim;das Sonderangebot;richtig;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:3
+2026-10-25 09:28:32;art;n0844:art;der Nebel;Nebel;der;richtig;der Nebel;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:3.3 | sek:4
