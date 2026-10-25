@@ -2476,3 +2476,33 @@
 2026-10-25 09:28:24;nsatz;n1076:nsatz;das Semester;Sie studiert im dritten _____ Informatik.;Semestar;falsch;Semester;basamak:B2 | bicim:bos0 | not:m1 | R:0.86 | S:1.1 | artikel / ek | sek:4 | ipucu:0
 2026-10-25 09:28:27;erk;n1094:erk;das Sonderangebot;özel indirim;das Sonderangebot;richtig;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:3
 2026-10-25 09:28:32;art;n0844:art;der Nebel;Nebel;der;richtig;der Nebel;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:3.3 | sek:4
+2026-10-25 09:31:01;wort;n1254:wort;die Tüte;poşet;;falsch;die Tüte;basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:1.1 | sek:148 | ipucu:2 | bilmiyorum
+2026-10-25 09:31:04;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.1 | tekrar:1 | sek:3
+2026-10-25 09:31:09;wort;x1556:wort;die Bildung;eğitim, öğrenim;die Bildung;richtig;die Bildung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:23.1 | kapı:14g | sek:5 | ipucu:2
+2026-10-25 09:31:22;wort;n1003:wort;der Roman;roman;das Roman;fast;der Roman;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.86 | S:53.7 | artikel das → der | sek:11 | ipucu:2
+2026-10-25 09:31:24;art;x1483:art;der Dozent;Dozent;der;richtig;der Dozent;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:31.4 | sek:2
+2026-10-25 09:31:27;erk;n1254:erk;die Tüte;poşet;die Tüte;richtig;die Tüte;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.1 | tekrar:1 | sek:2
+2026-10-25 09:31:27;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:11 | küçük:1 | yanlış:2 | puan:81 | dk:3 | yeni:0 | seviye+:2 | tekrar:14
+2026-10-25 09:31:39;prod;w0138:prod;entlang;boyunca (die Straße entlang);während;falsch;entlang;basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:1.5 | ısınma | farklı | sek:8 | ipucu:2
+2026-10-25 09:31:45;prod;w0139:prod;entschlossen;kararlı;entschlossen;richtig;entschlossen;basamak:B2 | bicim:yaz | not:m3 | R:0.86 | S:53.8 | ısınma | sek:6 | ipucu:2
+2026-10-25 09:31:49;erk;x1547:erk;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B1 | bicim:sec | not:m3,a1 | R:0.86 | S:3.1 | ısınma | artikel der → die | sek:3
+2026-10-25 09:31:57;luecke;v119:satz;sich beruhigen;Ich kann Sie _____. Ihrem Sohn ist nichts passiert.;beruhigen;richtig;beruhigen;basamak:B3 | bicim:bos0 | not:m3 | R:0.86 | S:36.9 | kapı:14g | sek:8 | ipucu:0
+2026-10-25 09:31:59;art;n1373:art;der Wettbewerb;Wettbewerb;der;richtig;der Wettbewerb;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:5.0 | sek:2
+2026-10-25 09:32:02;erk;w0138:erk;entlang;Im Mittelalter gab es viele Restaurants entlang der Pilgerwege.;boyunca;richtig;boyunca (die Straße entlang);basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-25 09:32:05;bed;v620:bed;verzichten auf;verzichten auf;vazgeçmek;richtig;(bir şeyden) vazgeçmek;basamak:B1 | bicim:anla | not:m3 | R:0.73 | S:1.8 | kurtarma | sek:2
+2026-10-25 09:32:08;abr;v534:abr;tun;yapmak;tun;richtig;tun (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.85 | S:28.2 | kapı:14g | sek:3 | ipucu:2
+2026-10-25 09:32:13;luecke;n0972:nsatz;die Regel;Bei uns Menschen liegt die normale Körpertemperatur in aller _____ nicht über 37 Grad Celsius.;Regel;richtig;Regel;basamak:B3 | bicim:metin | not:m3 | R:0.85 | S:4.9 | kaynak:k28
+2026-10-25 09:32:13;luecke;n0361:nsatz;das Fieber;Liegt sie über 38 Grad, dann sprechen Ärzte von _____.;Fieber;richtig;Fieber;basamak:B3 | bicim:metin | not:m3 | R:0.85 | S:56.4 | kaynak:k28
+2026-10-25 09:32:13;akt;luecke:k28;metinde boşluk;Bei uns Menschen liegt die normale Körpertemperatur in aller Regel nicht über 37 Grad Celsius. Liegt sie über 38 Grad, dann sprechen Ärzte von Fieber.;Regel / Fieber;richtig;Regel / Fieber;puan:2/2 | boşluk:2
+2026-10-25 09:32:25;wort;n1325:wort;der Vertrag;sözleşme;die Vertrag;fast;der Vertrag;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.85 | S:56.3 | artikel die → der | sek:10 | ipucu:2
+2026-10-25 09:32:32;nsatz;n1048:nsatz;der Schnee;Im Februar gibt es oft viel _____.;Schnee;richtig;Schnee;basamak:B3 | bicim:bos0 | not:m3 | R:0.85 | S:38.6 | kapı:14g | sek:7 | ipucu:0
+2026-10-25 09:32:32;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:96 | dk:1 | yeni:0 | seviye+:5 | tekrar:12
+2026-10-25 09:32:40;wort;n0753:wort;die Mahnung;ihtar (ödeme);die Mahnung;richtig;die Mahnung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.85 | S:56.3 | ısınma | sek:5 | ipucu:2
+2026-10-25 09:32:43;wort;n1211:wort;der Termin;randevu;der termin;richtig;der Termin;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.85 | S:56.3 | ısınma | sek:2 | ipucu:2
+2026-10-25 09:32:46;erk;n0520:erk;der Hausmeister;kapıcı, apartman görevlisi;der Hausmeister;richtig;der Hausmeister;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:5.9 | ısınma | sek:3
+2026-10-25 09:32:49;art;n0361:art;das Fieber;Fieber;das;richtig;das Fieber;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:13.7 | sek:3
+2026-10-25 09:32:52;wort;n0941:wort;die Prüfung;sınav;die Prüfung;richtig;die Prüfung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.85 | S:56.3 | sek:3 | ipucu:2
+2026-10-25 09:32:55;nsatz;n1179:nsatz;die Tablette;Die _____ liegen im Badezimmer.;die Tablette;falsch;Tabletten;basamak:B3 | bicim:bos0 | not:m1 | R:0.85 | S:1.5 | artikel / ek | sek:3 | ipucu:0
+2026-10-25 09:32:55;leech;n1179;die Tablette;tablet (ilaç);;takiliyor;;günler:2026-10-03,2026-10-08,2026-10-25
+2026-10-25 09:32:59;bed;v111:bed;sich bemühen um;sich bemühen um;çabalamak;richtig;(bir şey için) çabalamak;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:5.9 | kurtarma | sek:3
+2026-10-25 09:33:03;nsatz;n1077:nsatz;das Seminar;Ich möchte dieses _____ unbedingt besuchen.;Semester;falsch;Seminar;basamak:B3 | bicim:bos0 | not:m1 | R:0.85 | S:1.5 | artikel / ek | sek:3 | ipucu:0
