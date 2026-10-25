@@ -2444,3 +2444,16 @@
 2026-10-25 09:25:34;bed;v149:bed;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:3.0 | ısınma | sek:4
 2026-10-25 09:25:37;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.65 | S:0.1 | artikel das → die | sek:2
 2026-10-25 09:25:42;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:3.0 | sek:5
+2026-10-25 09:25:50;erk;w0109:erk;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:2.6 | sek:8
+2026-10-25 09:26:19;art;n0433:art;die Geduld;Geduld;der;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.65 | S:0.1 | artikel der → die | sek:28
+2026-10-25 09:26:22;erk;x1549:erk;die Ehrlichkeit;dürüstlük;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.71 | S:2.0 | kurtarma | sek:2
+2026-10-25 09:26:29;luecke;v069:satz;ausfüllen;Für die Kontoeröffnung musste ich einen Antrag _____ und meinen Pass zeigen.;ausfüllen;richtig;ausfüllen;basamak:B3 | bicim:metin | not:m3 | R:0.87 | S:58.3 | kaynak:u6:t0
+2026-10-25 09:26:29;luecke;n0889:nsatz;der Pass;Für die Kontoeröffnung musste ich einen Antrag ausfüllen und meinen _____ zeigen.;Pass;richtig;Pass;basamak:B3 | bicim:metin | not:m3 | R:0.87 | S:57.5 | kaynak:u6:t0
+2026-10-25 09:26:29;akt;luecke:u6:t0;metinde boşluk;Als ich nach Bremen kam, brauchte ich zuerst ein Konto. Für die Kontoeröffnung musste ich einen Antrag ausfüllen und meinen Pass zeigen.;ausfüllen / Pass;richtig;ausfüllen / Pass;puan:2/2 | boşluk:2
+2026-10-25 09:26:32;art;n0244:art;die Diskussion;Diskussion;die;richtig;die Diskussion;basamak:A | bicim:artikel | not:a3 | R:0.44 | S:0.1 | sek:2
+2026-10-25 09:26:35;erk;w0026:erk;anwesend;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:2.9 | sek:2
+2026-10-25 09:26:35;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:62 | dk:1 | yeni:0 | seviye+:3 | tekrar:12
+2026-10-25 09:26:39;erk;n1028:erk;der Schatten;gölge;der Schatten;richtig;der Schatten;basamak:B1 | bicim:sec | not:m3,a3 | R:0.87 | S:7.0 | ısınma | sek:3
+2026-10-25 09:26:44;wort;n1286:wort;die Unterschrift;imza;die Unterschrift;richtig;die Unterschrift;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.87 | S:57.4 | ısınma | sek:5 | ipucu:2
+2026-10-25 09:26:47;wort;n0869:wort;die Operation;ameliyat;die Operation;richtig;die Operation;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.87 | S:57.4 | ısınma | sek:3 | ipucu:2
+2026-10-25 09:26:50;art;n0994:art;das Rezept;Rezept;das;richtig;das Rezept;basamak:A | bicim:artikel | not:a3 | R:0.43 | S:0.1 | sek:2
