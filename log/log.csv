@@ -2414,3 +2414,33 @@
 2026-10-25 09:23:22;bed;v148:bed;bleiben;kalmak;bleiben;richtig;bleiben;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-25 09:23:25;art;n0914:art;die Politik;Politik;der;falsch;die Politik;basamak:A | bicim:artikel | not:a1 | R:0.93 | S:0.4 | artikel der → die | sek:2
 2026-10-25 09:23:28;erk;w0165:erk;feucht;nemli;trocken;falsch;feucht;basamak:B1 | bicim:sec | not:m1 | R:0.59 | S:0.1 | kurtarma | sek:3
+2026-10-25 09:23:34;prod;w0636:prod;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-10-25 09:23:36;abr;v148:abr;bleiben;kalmak;bleiben;richtig;bleiben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-25 09:24:07;akt;diktat:w0171;dinle–yaz;Beantworten Sie bitte die folgenden Fragen.;Beantworten Sie bitte die folgenden Frage;fast;Beantworten Sie bitte die folgenden Fragen.;yazım: Beantworten Sie bitte die folgenden Fragen.
+2026-10-25 09:24:11;art;x1554:art;die Solidarität;Solidarität;die;richtig;die Solidarität;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:2.2 | sek:2
+2026-10-25 09:24:14;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:m3 | R:0.91 | S:1.6 | sek:3
+2026-10-25 09:24:18;erk;w0165:erk;feucht;nemli;nass;falsch;feucht;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-25 09:24:20;art;n0207:art;die Burg;Burg;der;falsch;die Burg;basamak:A | bicim:artikel | not:a1 | R:0.89 | S:0.3 | artikel der → die | sek:1
+2026-10-25 09:24:24;erk;w0165:erk;feucht;nemli;feucht;richtig;feucht;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.1 | tekrar:2 | hafıza:yazılmadı | sek:4
+2026-10-25 09:24:24;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:70 | dk:1 | yeni:2 | seviye+:0 | tekrar:10
+2026-10-25 09:24:29;erk;w0011:erk;allerdings;ancak, gerçi;allerdings;richtig;allerdings;basamak:B1 | bicim:sec | not:m3 | R:0.91 | S:1.5 | ısınma | sek:2
+2026-10-25 09:24:32;erk;n0381:erk;die Forderung;talep;die Forderung;richtig;die Forderung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:12.3 | ısınma | kapı:7g | sek:2
+2026-10-25 09:24:34;bed;v211:bed;entstehen;entstehen;oluşmak, ortaya çıkmak;richtig;oluşmak, ortaya çıkmak;basamak:B1 | bicim:anla | not:m3 | R:0.90 | S:2.1 | ısınma | sek:2
+2026-10-25 09:24:37;art;n1088:art;die Situation;Situation;das;falsch;die Situation;basamak:A | bicim:artikel | not:a1 | R:0.89 | S:0.3 | artikel das → die | sek:2
+2026-10-25 09:24:44;wort;x1501:wort;die Clique;klik, arkadaş grubu;die Qlique;fast;die Clique;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:17.3 | kısmi | kapı:14g | yazım | sek:5 | ipucu:2
+2026-10-25 09:24:51;abr;v626:abr;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen (Dat, Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:4.9 | sek:7 | ipucu:0
+2026-10-25 09:24:56;erk;x1548:erk;die Fairness;hakkaniyet, fair play;die Fairness;richtig;die Fairness;basamak:B1 | bicim:sec | not:m3,a3 | R:0.71 | S:2.0 | kurtarma | sek:4
+2026-10-25 09:24:58;art;x1561:art;die Not;Not;der;falsch;die Not;basamak:A | bicim:artikel | not:a1 | R:0.86 | S:0.2 | artikel der → die | sek:1
+2026-10-25 09:25:05;erk;x1559:erk;der Umgang;Ein sorgfältiger Umgang mit Abfall hat viel mit Umweltschutz zu tun.;merdiven;falsch;(biriyle) ilişki;basamak:B1 | bicim:metinde | not:m1 | R:0.89 | S:0.3 | sek:5
+2026-10-25 09:25:07;bed;v089:bed;beantragen;Wer auf der Flucht ist und in einem anderen Land bleiben will, muss dort Asyl beantragen.;başvurmak;richtig;(resmî bir şey için) başvurmak;basamak:B1 | bicim:metinde | not:m3 | R:0.89 | S:12.5 | kapı:7g | sek:2
+2026-10-25 09:25:09;art;n1374:art;das Wetter;Wetter;der;falsch;das Wetter;basamak:A | bicim:artikel | not:a1 | R:0.86 | S:0.2 | artikel der → das | sek:1
+2026-10-25 09:25:09;leech;n1374;das Wetter;hava (durumu);;takiliyor;;günler:2026-10-22,2026-10-24,2026-10-25
+2026-10-25 09:25:13;stamm;v527:stamm;treffen;Ich habe Petra zufällig in der Stadt _____.;getroffen;richtig;getroffen;basamak:K | bicim:kokSatz | not:k3 | R:0.89 | S:11.5 | kök:treffen | sek:4
+2026-10-25 09:25:17;abr;v197:abr;einziehen;(yeni eve) taşınmak;einziehen;richtig;einziehen;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:17.2 | kapı:14g | sek:3 | ipucu:2
+2026-10-25 09:25:21;erk;x1559:erk;der Umgang;(biriyle) ilişki;der Umgang;richtig;der Umgang;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:4
+2026-10-25 09:25:21;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:9 | küçük:1 | yanlış:4 | puan:75 | dk:1 | yeni:0 | seviye+:2 | tekrar:14
+2026-10-25 09:25:26;bed;v545:bed;übertreiben;übertreiben;abartmak;richtig;abartmak;basamak:B1 | bicim:anla | not:m3 | R:0.89 | S:12.4 | ısınma | kapı:7g | sek:3
+2026-10-25 09:25:29;bed;v509:bed;sich streiten mit;(biriyle) kavga etmek, tartışmak;sich streiten mit;richtig;sich streiten mit;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:11.1 | ısınma | kapı:7g | sek:3
+2026-10-25 09:25:34;bed;v149:bed;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:3.0 | ısınma | sek:4
+2026-10-25 09:25:37;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.65 | S:0.1 | artikel das → die | sek:2
+2026-10-25 09:25:42;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:m3 | R:0.88 | S:3.0 | sek:5
