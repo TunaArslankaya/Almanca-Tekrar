@@ -2536,3 +2536,25 @@
 2026-10-25 09:35:14;erk;n0286:erk;das Eis;buz;das Eis;richtig;das Eis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.74 | S:2.7 | kurtarma | sek:2
 2026-10-25 09:35:31;nsatz;x1503:nsatz;die Erwartung;Meine Eltern haben hohe _____ an mich.;Er;falsch;Erwartungen;basamak:B2 | bicim:bos0 | not:m1 | R:0.83 | S:1.0 | farklı | sek:16 | ipucu:0
 2026-10-25 09:35:33;art;n1048:art;der Schnee;Schnee;der;richtig;der Schnee;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:14.4 | sek:2
+2026-10-25 09:35:35;erk;n0341:erk;der Fall;durum, vaka;der Fall;richtig;der Fall;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.9 | tekrar:1 | sek:2
+2026-10-25 09:35:39;erk;n0432:erk;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:1.8 | sek:3
+2026-10-25 09:35:47;abr;v420:abr;sich rasieren;tıraş olmak;sich rasieren;richtig;sich rasieren;basamak:B2 | bicim:yaz | not:m3 | R:0.83 | S:64.8 | sek:8 | ipucu:2
+2026-10-25 09:35:50;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.0 | tekrar:1 | sek:3
+2026-10-25 09:35:50;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:11 | küçük:0 | yanlış:2 | puan:70 | dk:1 | yeni:0 | seviye+:0 | tekrar:13
+2026-10-25 09:35:56;erk;n0937:erk;das Projekt;proje;das Projekt;richtig;das Projekt;basamak:B1 | bicim:sec | not:m3,a3 | R:0.83 | S:22.1 | ısınma | kapı:7g | sek:3
+2026-10-25 09:35:59;bed;v173:bed;dürfen;Eine Stadt hat ziemlich viele Einwohner, und die Einwohner dürfen vieles selbst bestimmen, was in der Stadt passiert.;-ebilmek;richtig;-ebilmek (izinli olmak);basamak:B1 | bicim:metinde | not:m3 | R:0.82 | S:17.0 | ısınma | kapı:7g | sek:3
+2026-10-25 09:36:05;bed;v584:bed;verhindern;engellemek, önlemek;verhindern;richtig;verhindern;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:7.9 | ısınma | kapı:7g | sek:4
+2026-10-25 09:36:33;stamm;v420:stamm;sich rasieren;rasieren — Präsens (er/sie), Perfekt;sich rasiere, er hat sich rasiert;fast;rasiert sich, hat sich rasiert;basamak:K | bicim:kok | not:k2 | R:0.83 | S:42.3 | kök:rasieren | Präsens (er/sie): rasiert sich | sek:28
+2026-10-25 09:36:37;wort;n0248:wort;der Donner;gök gürültüsü;donnern;falsch;der Donner;basamak:B2 | bicim:yaz0 | not:m1 | R:0.82 | S:0.6 | kelime yanlış | sek:3 | ipucu:0
+2026-10-25 09:36:37;leech;n0248;der Donner;gök gürültüsü;;takiliyor;;günler:2026-10-03,2026-10-15,2026-10-25
+2026-10-25 09:36:39;prod;w0344:prod;nass;ıslak;nass;richtig;nass;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:3.5 | sek:2 | ipucu:0
+2026-10-25 09:36:42;erk;w0229:erk;heiß;sıcak;heiß;richtig;heiß;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:2.8 | kurtarma | sek:2
+2026-10-25 09:36:45;nsatz;n0055:nsatz;die Apotheke;Ist hier in der Nähe eine _____?;Apotheke;richtig;Apotheke;basamak:B2 | bicim:bos0 | not:m3 | R:0.82 | S:10.3 | kapı:7g | sek:3 | ipucu:0
+2026-10-25 09:36:56;abr;v142:abr;beweisen;kanıtlamak;;falsch;beweisen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.82 | S:0.9 | sek:10 | ipucu:0 | bilmiyorum
+2026-10-25 09:36:56;leech;v142;beweisen;kanıtlamak;;takiliyor;;günler:2026-10-08,2026-10-13,2026-10-25
+2026-10-25 09:37:00;erk;n0248:erk;der Donner;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:3
+2026-10-25 09:37:03;bed;v063:bed;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:4.0 | sek:3
+2026-10-25 09:37:06;erk;x1460:erk;das Missverständnis;in den 1990er-Jahren „I’ve Got the Power“ sangen, verstanden manche Deutsche tatsächlich „Agathe Bauer“ und hatten sehr viel Spaß mit dem Missverständnis.;yanlış anlaşılma;richtig;yanlış anlaşılma;basamak:B1 | bicim:metinde | not:m3 | R:0.81 | S:5.9 | sek:2
+2026-10-25 09:37:08;erk;w0170:erk;fließend;akıcı;fließend;richtig;fließend;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:3.4 | sek:2
+2026-10-25 09:37:12;bed;v142:bed;beweisen;beweisen;kanıtlamak;richtig;kanıtlamak;basamak:B1 | bicim:anla | not:- | R:1.00 | S:0.9 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-25 09:37:12;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:11 | küçük:1 | yanlış:2 | puan:83 | dk:1 | yeni:0 | seviye+:2 | tekrar:14
