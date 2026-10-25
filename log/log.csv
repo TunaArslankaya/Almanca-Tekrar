@@ -2562,3 +2562,33 @@
 2026-10-25 22:49:49;abr;v148:abr;bleiben;kalmak;bleiben;richtig;bleiben;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.2 | akşam | sek:3 | ipucu:0
 2026-10-25 22:49:53;erk;w0165:erk;feucht;nemli;feucht;richtig;feucht;basamak:B1 | bicim:sec | not:m3 | R:0.72 | S:0.1 | akşam | sek:4
 2026-10-25 22:49:58;erk;x1559:erk;der Umgang;(biriyle) ilişki;der Umgang;richtig;der Umgang;basamak:B1 | bicim:sec | not:m3,a3 | R:0.85 | S:0.4 | akşam | sek:4
+2026-10-25 22:50:03;wort;n0207:wort;die Burg;kale, şato;die Burg;richtig;die Burg;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:30.4 | akşam | kapı:14g | sek:5 | ipucu:2
+2026-10-25 22:50:07;erk;n0248:erk;der Donner;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:0.7 | akşam | sek:3
+2026-10-25 22:50:09;erk;w0118:erk;ebenfalls;Die Wirtschaft leidet ebenfalls unter der Situation: So dürfen Frachtschiffe bei so geringen Pegelständen nur mit stark reduzierter Fracht oder gar nicht mehr fahren.;aynı şekilde, keza;richtig;aynı şekilde, keza;basamak:B1 | bicim:metinde | not:m3 | R:0.92 | S:1.1 | akşam | sek:2
+2026-10-25 22:50:13;bed;v142:bed;beweisen;kanıtlamak;beweisen;richtig;beweisen;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.1 | akşam | sek:3
+2026-10-25 22:50:17;erk;n0341:erk;der Fall;Gleichzeitig wissen sie aber, dass der Fall politisch heikel ist.;durum, vaka;richtig;durum, vaka;basamak:B1 | bicim:metinde | not:m3 | R:0.93 | S:1.7 | akşam | sek:3
+2026-10-25 22:50:20;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:1.2 | akşam | sek:3
+2026-10-25 22:50:22;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:m3,a3 | R:0.94 | S:1.4 | akşam | sek:2
+2026-10-25 22:50:25;erk;n1254:erk;die Tüte;poşet;die Tüte;richtig;die Tüte;basamak:B1 | bicim:sec | not:m3,a3 | R:0.94 | S:1.4 | akşam | sek:3
+2026-10-25 22:50:25;tur;aksam;Akşam tekrarı;;;bitti;;cevap:12 | doğru:12 | küçük:0 | yanlış:0 | puan:75 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-25 22:50:31;erk;n0969:erk;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B1 | bicim:sec | not:m3,a3 | R:0.94 | S:1.5 | akşam | sek:3
+2026-10-25 22:50:35;wort;n1088:wort;die Situation;durum;die Situaiton;falsch;die Situation;basamak:B2 | bicim:yaz | not:m1 | R:0.94 | S:1.6 | akşam | kelime yanlış | sek:4 | ipucu:2
+2026-10-25 22:50:42;wort;x1561:wort;die Not;"sıkıntı, darlık; acil durum";der Not;fast;die Not;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.95 | S:8.3 | akşam | kapı:7g | artikel der → die | sek:5 | ipucu:0
+2026-10-25 22:50:46;erk;n1088:erk;die Situation;durum;die Situation;richtig;die Situation;basamak:B1 | bicim:sec | not:m3,a3 | R:1.00 | S:1.6 | tekrar:1 | akşam | sek:4
+2026-10-25 22:50:46;tur;aksam;Akşam tekrarı;;;leer;;cevap:4 | doğru:2 | küçük:1 | yanlış:1 | puan:18 | dk:1 | yeni:0 | seviye+:0 | tekrar:4
+2026-10-25 22:51:48;bed;v232:bed;erleichtern;kolaylaştırmak;erleichtern;richtig;erleichtern;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:17.4 | ısınma | kapı:7g | sek:2
+2026-10-25 22:51:50;bed;v347:bed;können;Beim Starkregen kann es Überschwemmungen oder Erdrutsche geben.;-ebilmek;richtig;-ebilmek;basamak:B1 | bicim:metinde | not:m3 | R:0.91 | S:11.1 | ısınma | kapı:7g | sek:2
+2026-10-25 22:51:53;erk;n0596:erk;die Karriere;kariyer;die Karriere;richtig;die Karriere;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:5.9 | ısınma | sek:2
+2026-10-25 22:51:54;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:2.1 | sek:1
+2026-10-25 22:51:59;prod;w0209:prod;glatt;"kaygan; pürüzsüz";nass;falsch;glatt;basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:0.8 | farklı | sek:4 | ipucu:2
+2026-10-25 22:52:02;erk;n0795:erk;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:2.1 | sek:2
+2026-10-25 22:52:05;bed;v169:bed;donnern;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:sec | not:m3 | R:0.64 | S:0.4 | kurtarma | sek:2
+2026-10-25 22:52:07;art;n0746:art;die Luft;Luft;die;richtig;die Luft;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:6.2 | sek:2
+2026-10-25 22:52:12;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:4
+2026-10-25 22:52:14;erk;w0172:erk;frech;arsız, şımarık;frech;richtig;frech;basamak:B1 | bicim:sec | not:m3 | R:0.85 | S:1.0 | sek:2
+2026-10-25 22:52:16;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:1.2 | sek:1
+2026-10-25 22:52:20;erk;w0117:erk;eben;„Betroffene können oft gar nicht genau sagen, was das konkrete Problem ist, und man sieht es ihnen eben auch nicht an“, sagt Rebecca Lefèvre.;karşıda, öte tarafta;falsch;az önce;basamak:B1 | bicim:metinde | not:m1 | R:0.80 | S:0.6 | sek:3
+2026-10-25 22:52:36;erk;n1044:erk;der Schmerz;Wer zum Beispiel ADHS oder chronische Schmerzen hat oder unter einer psychischen Erkrankung leidet, ist von den vielen Reizen beim Einkaufen schnell überfordert.;ağrı;richtig;ağrı;basamak:B1 | bicim:metinde | not:m3 | R:0.80 | S:7.3 | sek:15
+2026-10-25 22:52:40;stamm;v173:stamm;dürfen;dürfen — Präteritum;dark;falsch;durfte;basamak:K | bicim:kokSatz | not:k1 | R:0.80 | S:0.7 | kök:dürfen | Präteritum: durfte | sek:4
+2026-10-25 22:52:44;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4
+2026-10-25 22:52:45;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:0 | yanlış:3 | puan:66 | dk:1 | yeni:0 | seviye+:0 | tekrar:15
