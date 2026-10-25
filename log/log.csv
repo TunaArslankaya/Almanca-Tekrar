@@ -2405,3 +2405,12 @@
 2026-10-24 10:27:04;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:3
 2026-10-24 10:27:07;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.72 | S:0.8 | sek:2
 2026-10-24 10:27:07;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:84 | dk:1 | yeni:0 | seviye+:2 | tekrar:12
+2026-10-25 09:23:08;erk;n0813:erk;die Mühe;zahmet;die Mühe;richtig;die Mühe;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:3.4 | ısınma | sek:3
+2026-10-25 09:23:11;bed;v157:bed;bringen;bringen;getirmek;richtig;(birine bir şey) getirmek;basamak:B1 | bicim:anla | not:m3 | R:0.95 | S:5.3 | ısınma | sek:2
+2026-10-25 09:23:14;bed;v262:bed;folgen;(birini) takip etmek;folgen;richtig;folgen;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:18.8 | ısınma | kapı:7g | sek:2
+2026-10-25 09:23:15;yeni;v148;bleiben;tanıtım;;neu;kalmak;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:1
+2026-10-25 09:23:18;yeni;w0636;sich Mühe geben;tanıtım;;neu;çaba göstermek;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-25 09:23:20;erk;w0636:erk;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-25 09:23:22;bed;v148:bed;bleiben;kalmak;bleiben;richtig;bleiben;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-25 09:23:25;art;n0914:art;die Politik;Politik;der;falsch;die Politik;basamak:A | bicim:artikel | not:a1 | R:0.93 | S:0.4 | artikel der → die | sek:2
+2026-10-25 09:23:28;erk;w0165:erk;feucht;nemli;trocken;falsch;feucht;basamak:B1 | bicim:sec | not:m1 | R:0.59 | S:0.1 | kurtarma | sek:3
