@@ -2592,3 +2592,33 @@
 2026-10-25 22:52:40;stamm;v173:stamm;dürfen;dürfen — Präteritum;dark;falsch;durfte;basamak:K | bicim:kokSatz | not:k1 | R:0.80 | S:0.7 | kök:dürfen | Präteritum: durfte | sek:4
 2026-10-25 22:52:44;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4
 2026-10-25 22:52:45;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:0 | yanlış:3 | puan:66 | dk:1 | yeni:0 | seviye+:0 | tekrar:15
+2026-10-26 11:20:25;bed;v148:bed;bleiben;bleiben;kalmak;richtig;kalmak;basamak:B1 | bicim:anla | not:m3 | R:0.98 | S:5.8 | ısınma | sek:2
+2026-10-26 11:20:27;erk;w0636:erk;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B1 | bicim:sec | not:m3 | R:0.98 | S:4.8 | ısınma | sek:2
+2026-10-26 11:20:36;erk;n0341:erk;der Fall;durum, vaka;der Fall;richtig;der Fall;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:2.0 | ısınma | sek:8
+2026-10-26 11:20:39;yeni;n0384;das Formular;tanıtım;;neu;form;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:3
+2026-10-26 11:20:41;yeni;n0552;der Humor;tanıtım;;neu;mizah;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-26 11:20:43;erk;n0552:erk;der Humor;mizah;der Humor;richtig;der Humor;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-26 11:20:46;erk;n0384:erk;das Formular;form;das Formular;richtig;das Formular;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-26 11:20:48;art;n0055:art;die Apotheke;Apotheke;die;richtig;die Apotheke;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:47.9 | sek:1
+2026-10-26 11:20:53;erk;n0322:erk;die Erziehung;eğitim, terbiye;die Erziehung;richtig;die Erziehung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.66 | S:0.8 | kurtarma | sek:4
+2026-10-26 11:20:59;wort;n0552:wort;der Humor;mizah;das Humor;fast;der Humor;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | artikel das → der | sek:5 | ipucu:0
+2026-10-26 11:21:04;wort;n0384:wort;das Formular;form;das Formular;richtig;das Formular;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-10-26 11:21:57;akt;diktat:v142;dinle–yaz;Wir können beweisen, dass Sie bei Rot über die Ampel gefahren sind.;Wir können beweisen, dass Sie bei Rot über die Ampel gefahren sind. ;richtig;Wir können beweisen, dass Sie bei Rot über die Ampel gefahren sind.;
+2026-10-26 11:22:01;erk;n1088:erk;die Situation;durum;die Situation;richtig;die Situation;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.9 | sek:3
+2026-10-26 11:22:09;prod;w0186:prod;geehrt;sayın (Sehr geehrte …);Geehr;fast;geehrt;basamak:B2 | bicim:yaz | not:m3 | R:0.96 | S:34.9 | kısmi | kapı:14g | yazım | sek:6 | ipucu:2
+2026-10-26 11:22:09;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:2 | yanlış:0 | puan:72 | dk:2 | yeni:2 | seviye+:1 | tekrar:7
+2026-10-26 11:22:13;erk;n0293:erk;die Energie;Das Restaurant ist also ein Ort, an dem man etwas isst, um Energie zu tanken.;enerji;richtig;enerji;basamak:B1 | bicim:metinde | not:m3 | R:0.96 | S:38.1 | ısınma | kapı:7g | sek:2
+2026-10-26 11:22:15;erk;n0969:erk;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.7 | ısınma | sek:2
+2026-10-26 11:22:18;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:1.7 | ısınma | sek:2
+2026-10-26 11:22:21;erk;w0118:erk;ebenfalls;Denn sie stammen nicht von einem Menschen, sondern ebenfalls von einer KI.;aynı şekilde, keza;richtig;aynı şekilde, keza;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:1.5 | sek:2
+2026-10-26 11:22:23;erk;n1254:erk;die Tüte;poşet;die Tüte;richtig;die Tüte;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:1.7 | sek:2
+2026-10-26 11:22:25;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:1.4 | sek:2
+2026-10-26 11:22:29;bed;v278:bed;sich fürchten vor;Man sagt dann auch: Man fürchtet sich vor diesen Dingen.;korkmak;richtig;(bir şeyden) korkmak;basamak:B1 | bicim:metinde | not:m3 | R:0.69 | S:1.3 | kurtarma | sek:3
+2026-10-26 11:22:33;bed;v142:bed;beweisen;kanıtlamak;beweisen;richtig;beweisen;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:1.2 | sek:3
+2026-10-26 11:22:34;art;n0293:art;die Energie;Energie;die;richtig;die Energie;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:57.0 | sek:1
+2026-10-26 11:22:40;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.0 | sek:6
+2026-10-26 11:22:43;erk;w0479:erk;trocken;kuru;trocken;richtig;trocken;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:2.1 | sek:2
+2026-10-26 11:22:45;art;n0207:art;die Burg;Burg;die;richtig;die Burg;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:0.8 | sek:2
+2026-10-26 11:22:46;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:12 | küçük:0 | yanlış:0 | puan:60 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-26 11:22:50;erk;n1376:erk;die Wettervorhersage;hava tahmini;die Wettervorhersage;richtig;die Wettervorhersage;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | ısınma | sek:2
+2026-10-26 11:22:53;erk;n1077:erk;das Seminar;seminer;das Seminar;richtig;das Seminar;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | ısınma | sek:3
