@@ -1561,7 +1561,7 @@ n1312 | der Verlag | Von welchem Verlag ist dieses Buch? | Bu kitap hangi yayın
 n1313 | die Verletzung | Keine Angst. Die Verletzung ist nicht so schlimm. | Korkma. Yara o kadar kötü değil.
 n1314 | der Verlierer | Sie ist eine gute Verliererin. | O iyi bir kaybeden.
 n1315 | der Verlust | Der Verlust meiner Uhr ärgert mich sehr. | Saatimi kaybetmek beni çok kızdırıyor.
-n1316 | der Vermieter | Unsere Vermieterin ist eine sehr nette, ältere Frau. | Ev sahibimiz çok kibar, yaşlıca bir kadın.
+n1316 | der Vermieter | Unser Vermieter ist ein sehr netter, älterer Mann. | Ev sahibimiz çok kibar, yaşlıca bir adam.
 n1317 | die Vermietung | Mit der Vermietung von Wohnungen kann man viel Geld verdienen. | Ev kiraya vererek çok para kazanılabilir.
 n1318 | die Vermittlung | Du suchst ein Zimmer? Dann frag bei der Vermittlung am Bahnhof nach. | Oda mı arıyorsun? O zaman istasyondaki emlak bürosuna sor.
 n1318 | die Vermittlung | Rufen Sie die Vermittlung an und fragen Sie nach der Telefonnummer von Herrn Fischer. | Santrali arayın ve Bay Fischer'in telefon numarasını sorun.
@@ -2581,7 +2581,7 @@ n0037 | die Anmeldung | Die Anmeldung für den Kurs ist bis Montag möglich. | K
 n0928 | der Preis | Der Preis für das Ticket ist zu hoch. | Biletin fiyatı çok yüksek.
 n1211 | der Termin | Ich habe morgen um zehn Uhr einen Termin beim Arzt. || Morgen habe ich um zehn Uhr einen Termin beim Arzt. | Yarın saat onda doktorda randevum var.
 n1211 | der Termin | Können wir den Termin auf Freitag verschieben? | Randevuyu cumaya erteleyebilir miyiz?
-n1211 | der Termin | Beim Bürgeramt bekommt man nur schwer einen Termin. || Man bekommt beim Bürgeramt nur schwer einen Termin. | Vatandaşlık dairesinden zor randevu alınıyor.
+n1211 | der Termin | Beim Bürgeramt bekommt man nur schwer einen Termin. || Man bekommt beim Bürgeramt nur schwer einen Termin. | Nüfus müdürlüğünden zor randevu alınıyor.
 x1478 | das Frühjahr | Im Frühjahr wollen wir umziehen. || Wir wollen im Frühjahr umziehen. | İlkbaharda taşınmak istiyoruz.
 x1478 | das Frühjahr | Das Frühjahr war dieses Jahr sehr kalt. || Dieses Jahr war das Frühjahr sehr kalt. | Bu yıl ilkbahar çok soğuktu.
 x1478 | das Frühjahr | Die Wohnung ist erst im Frühjahr fertig. || Die Wohnung wird erst im Frühjahr fertig. | Daire ancak ilkbaharda hazır olacak.
@@ -2816,13 +2816,13 @@ w0171 | folgend | Am folgenden Morgen habe ich sofort die Ausländerbehörde ang
 n0925 | die Präsentation | Für meine Präsentation im Seminar habe ich drei Tage lang Informationen gesammelt. | Seminerdeki sunumum için üç gün boyunca bilgi topladım.
 n0937 | das Projekt | In unserem Projekt untersuchen wir, wie Studenten in Bremen wohnen. | Projemizde Bremen'deki öğrencilerin nasıl oturduğunu inceliyoruz.
 n0047 | der Antrag | Mein Antrag auf Wohngeld wurde abgelehnt, weil ich die Unterlagen zu spät abgegeben habe. | Belgeleri çok geç teslim ettiğim için kira yardımı başvurum reddedildi.
-n0037 | die Anmeldung | Nach der Anmeldung beim Bürgeramt bekommt man eine Bestätigung über den Wohnsitz. | Vatandaşlık dairesindeki kayıttan sonra ikametgâh hakkında bir onay belgesi alınır.
+n0037 | die Anmeldung | Nach der Anmeldung beim Bürgeramt bekommt man eine Bestätigung über den Wohnsitz. | Nüfus müdürlüğündeki kayıttan sonra ikametgâh hakkında bir onay belgesi alınır.
 n0025 | das Amt | Auf dem Amt musste ich über eine Stunde warten, bis ich drankam. | Resmî dairede sıra bana gelene kadar bir saatten fazla beklemem gerekti.
 n0384 | das Formular | Wenn Sie das Formular nicht verstehen, hilft Ihnen die Kollegin am Schalter. | Formu anlamazsanız gişedeki (kadın) görevli size yardım eder.
 n0889 | der Pass | Ich habe gemerkt, dass mein Pass abgelaufen ist, als ich das Visum beantragen wollte. | Vize başvurusu yapmak istediğimde pasaportumun süresinin dolduğunu fark ettim.
 n1286 | die Unterschrift | Der Antrag ist ohne Ihre Unterschrift leider nicht gültig. | Başvuru imzanız olmadan maalesef geçerli değil.
 n0155 | die Bestätigung | Ich brauche eine Bestätigung von der Uni, dass ich im Vorbereitungsstudium eingeschrieben bin. | Hazırlık programına kayıtlı olduğuma dair üniversiteden bir onay belgesine ihtiyacım var.
-n1389 | der Wohnsitz | Innerhalb von zwei Wochen muss man seinen neuen Wohnsitz beim Bürgeramt anmelden. | Yeni ikametgâhı iki hafta içinde vatandaşlık dairesine bildirmek gerekir.
+n1389 | der Wohnsitz | Innerhalb von zwei Wochen muss man seinen neuen Wohnsitz beim Bürgeramt anmelden. | Yeni ikametgâhı iki hafta içinde nüfus müdürlüğüne bildirmek gerekir.
 n0137 | die Behörde | Bei deutschen Behörden braucht man für fast alles einen Termin und viele Unterlagen. | Alman resmî kurumlarında neredeyse her şey için randevu ve çok sayıda belge gerekir.
 x1479 | die Aussage | Nach dem Unfall musste ich bei der Polizei eine Aussage machen. || Ich musste nach dem Unfall bei der Polizei eine Aussage machen. | Kazadan sonra polise ifade vermem gerekti.
 n1076 | das Semester | Im ersten Semester habe ich mich oft einsam gefühlt, aber jetzt habe ich viele Freunde. | İlk dönemde kendimi sık sık yalnız hissettim ama şimdi çok arkadaşım var.

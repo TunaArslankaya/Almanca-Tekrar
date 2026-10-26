@@ -518,7 +518,10 @@
         if (g.urteil === 'fast') g.tags.push('zarf yeri');
       }
     } else {
-      const r = kontrol(g.antwort, hedefler, g.hedef ? { hedefKelime: g.hedef } : {});
+      // hedef kelimenin biçimi alternatifte farklı olabilir (geregnet / regnete): her hedef kendi biçimiyle denenir, en iyisi alınır
+      const sira = { richtig: 2, fast: 1, falsch: 0 }, bicim = h => { try { const lk = api.wortLuecke(g.id, h); return lk ? lk.answer : g.hedef; } catch (e) { return g.hedef; } };
+      const r = hedefler.map(h => kontrol(g.antwort, [h], g.hedef ? { hedefKelime: bicim(h) || g.hedef } : {}))
+        .reduce((a, b) => !a || (sira[b.urteil] || 0) > (sira[a.urteil] || 0) || ((sira[b.urteil] || 0) === (sira[a.urteil] || 0) && (b.skor || 0) > (a.skor || 0)) ? b : a, null);
       g.r = r; g.urteil = r.urteil; g.tags = (r.tags || []).slice();
     }
     if (g.ipucu && !g.tags.includes('ipucu')) g.tags.push('ipucu');

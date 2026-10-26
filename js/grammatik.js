@@ -761,6 +761,8 @@
   const CK_DET = /^(der|die|das|den|dem|des|(k?ein|mein|dein|sein|ihr|unser|eur|euer)(e|en|em|er|es)?|dies(e|er|es|en|em)|jed(e|er|es|en|em)|welch(e|er|es|en|em))$/;
   const CK_REFL = new Set(['sich', 'mich', 'dich', 'uns', 'euch', 'mir', 'dir']);
   const CK_PRON = { ich: 1, mich: 1, mir: 1, du: 2, dich: 2, dir: 2, er: 3, ihn: 3, ihm: 3, wir: 4, uns: 4, euch: 5, ihnen: 6 };
+  // eksikse affedilmeyen kelimeler (26.10 denetim): özne zamiri ve anlamı değiştiren parçacıklar
+  const CK_AGIR = new Set(['ich', 'du', 'er', 'sie', 'es', 'wir', 'ihr', 'man', 'nur', 'sonst', 'auch', 'noch', 'immer', 'erst', 'schon']);
   const CK_NEG = new Set(['nicht', 'kein', 'keine', 'keinen', 'keinem', 'keiner', 'keines', 'nie', 'niemals', 'nichts', 'niemand']);
   const CK_SUB = new Set('weil dass ob obwohl wenn nachdem bevor damit falls sobald sodass seitdem waehrend als bis da'.split(' '));
   const CK_W = new Set('wann wo warum wie was wer wen wem wessen woher wohin wieso weshalb welche welcher welches welchen welchem'.split(' '));
@@ -804,7 +806,8 @@
     if (ua === ub && !a.kay && !b.kay) return ['yazim', 2, 'umlaut'];   // umlaut yerine düz ünlü (fur → für, Madchen): klavye hatası sayılır, küçük hata
     if (CK_NEG.has(x) !== CK_NEG.has(y)) return null;   // kein / nicht ↔ ein: anlam değişir
     if (CK_DET.test(x) && CK_DET.test(y)) return ['cekim', 4, 'artikel/çekim'];
-    if ((CK_REFL.has(x) && CK_REFL.has(y)) || (CK_PRON[x] && CK_PRON[x] === CK_PRON[y])) return ['cekim', 4, 'artikel/çekim'];
+    if (CK_REFL.has(x) && CK_REFL.has(y)) return ['cekim', 4, 'dönüşlü zamir'];   // mir ↔ mich: CLAUDE.md'ye göre falsch (aşağıda)
+    if (CK_PRON[x] && CK_PRON[x] === CK_PRON[y]) return ['cekim', 4, 'artikel/çekim'];
     const ix = CK_IRR[x], iy = CK_IRR[y];
     if (ix && iy) {
       if (ix === iy) return ['cekim', 4, 'artikel/çekim'];
@@ -990,7 +993,9 @@
     hl.forEach(h => {
       const T = ckTok(h), y = ckYapi(T, opts);
       S = ckTok(giris, new Set(T.filter(t => CK_KAYP[t.k]).map(t => t.k)));
-      if (dene(T, y, h).it.some(x => x.t === 'yer')) ckVaryant(T, y).forEach(V => dene(V, ckYapi(V, opts), ckYaz(V, h)));
+      // soru, emir ve 'bitte' cümlelerinde başka diziliş anlamı değiştirir (Er hat wie …? / Sie füllen bitte …): varyant üretilmez
+      const sabit = /[?!]\s*$/.test(h) || /\bbitte\b/i.test(h) || /^\s*(wer|wen|wem|wessen|was|wie|wo|wann|warum|wohin|woher|welche[rnms]?|wieso|weshalb|womit|worüber|wofür)\b/i.test(h);
+      if (dene(T, y, h).it.some(x => x.t === 'yer') && !sabit) ckVaryant(T, y).forEach(V => dene(V, ckYapi(V, opts), ckYaz(V, h)));
     });
     const r = en, tags = r.tags, hata = r.ana.length + r.kucuk > 0;
     const yalnizSira = hata && !r.ana.length && r.it.every(x => x.t === 'ok' || (x.t === 'yer' && x.rel[0] === 'ok'));
@@ -1001,9 +1006,10 @@
     else {
       // tek büyük hata yalnız uzun cümlede, eksik / fazla tek kelimeyse affedilir (olumsuzluk, fiil, edat, dönüşlü zamir hariç)
       const x = r.ana[0], k = x.t === 'eksik' ? r.T[x.ti].k : x.si != null ? r.S[x.si].k : '';
-      const agir = x.t === 'yanlis' || CK_NEG.has(k) || CK_PRAEP.has(k) || CK_KAYP[k] || CK_REFL.has(k) || CK_IRR[k] || (x.t === 'eksik' && r.fiilAday.has(x.ti));
+      const agir = x.t === 'yanlis' || CK_AGIR.has(k) || CK_NEG.has(k) || CK_PRAEP.has(k) || CK_KAYP[k] || CK_REFL.has(k) || CK_IRR[k] || (x.t === 'eksik' && r.fiilAday.has(x.ti));
       urteil = r.ana.length === 1 && !agir && r.T.length >= 6 && r.skor >= 0.8 ? 'fast' : 'falsch';
     }
+    if (tags.has('dönüşlü zamir')) urteil = 'falsch';
     if (opts.hedefKelime && !ckHedefVar(opts.hedefKelime, r)) { urteil = 'falsch'; tags.add('hedef kelime'); }
     const SIRA = ['yazım', 'umlaut', 'kaynaştırma', 'artikel/çekim', 'yardımcı fiil', 'edat', 'dönüşlü zamir', 'fiil yeri', 'kelime sırası', 'eksik kelime', 'fazla kelime', 'yanlış kelime', 'hedef kelime', 'farklı cümle', 'büyük/küçük harf'];
     if (r.skor < 0.4 && urteil === 'falsch') { const hk = tags.has('hedef kelime'); tags.clear(); tags.add('farklı cümle'); if (hk) tags.add('hedef kelime'); }

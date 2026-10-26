@@ -1109,7 +1109,7 @@ v111 | Er hat sich lange um einen Studienplatz bemüht. | Uzun süre bir üniver
 v063 | Ich rege mich über die Kälte im Büro auf. | Ofisteki soğuğa sinirleniyorum.
 v142 | Mit dem Foto kann ich beweisen, dass ich dort war. || Ich kann mit dem Foto beweisen, dass ich dort war. | Fotoğrafla orada olduğumu kanıtlayabilirim.
 v545 | Du übertreibst, das Bild war gar nicht so teuer! | Abartıyorsun, resim hiç de o kadar pahalı değildi!
-v466 | Im Museum muss man nicht schweigen, aber man sollte leise sprechen. | Müzede susmak gerekmez ama alçak sesle konuşmak gerekir.
+v466 | Im Museum muss man nicht schweigen, aber man sollte leise sprechen. | Müzede susmak gerekmez ama alçak sesle konuşulmalı.
 v620 | Wegen der Kälte verzichten wir auf den Ausflug. || Wir verzichten wegen der Kälte auf den Ausflug. | Soğuk yüzünden geziden vazgeçiyoruz.
 v509 | Die Nachbarn haben sich gestern wegen der Miete gestritten. | Komşular dün kira yüzünden tartıştı.
 v262 | Der Hund ist mir bis zur Haustür gefolgt. | Köpek beni ev kapısına kadar takip etti.
@@ -1181,7 +1181,7 @@ v157 | Kannst du mir bitte die Unterlagen bringen, die ich auf dem Tisch vergess
 v148 | Nach dem Vorbereitungsstudium möchte ich in Bremen bleiben und Informatik studieren. | Hazırlık programından sonra Bremen'de kalıp bilgisayar bilimi okumak istiyorum.
 v425 | Ich hatte nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. || Ich habe nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. | Bremen'de ev aramanın bu kadar zor olacağını beklemiyordum.
 v423 | Mein Vermieter hat auf meine E-Mail wegen der kaputten Heizung noch nicht reagiert. || Mein Vermieter hat noch nicht auf meine E-Mail wegen der kaputten Heizung reagiert. | Ev sahibim bozuk kalorifer yüzünden attığım e-postaya henüz dönüş yapmadı.
-v069 | Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. || Man muss für die Anmeldung beim Bürgeramt ein langes Formular ausfüllen. | Vatandaşlık dairesine kayıt için uzun bir form doldurmak gerekiyor.
+v069 | Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. || Man muss für die Anmeldung beim Bürgeramt ein langes Formular ausfüllen. | Nüfus müdürlüğüne kayıt için uzun bir form doldurmak gerekiyor.
 v089 | Ich habe bei der Ausländerbehörde eine Aufenthaltserlaubnis für das Studium beantragt. || Ich habe eine Aufenthaltserlaubnis für das Studium bei der Ausländerbehörde beantragt. | Yabancılar Dairesi'ne öğrenim için oturma izni başvurusunda bulundum.
 v420 | Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. || Ich habe mich gründlich rasiert, weil ich heute ein Vorstellungsgespräch habe. | Bugün bir iş görüşmem olduğu için güzelce tıraş oldum.
 v592 | Beim Fußballspielen hat sich mein Mitbewohner am Knie verletzt. || Mein Mitbewohner hat sich beim Fußballspielen am Knie verletzt. | Ev arkadaşım futbol oynarken dizinden yaralandı.

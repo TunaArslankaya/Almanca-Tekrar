@@ -255,6 +255,19 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(K.aralikKisalt(Sx, T), 0, 'aralikKisalt idempotent');
 }
 
+// ---------- 26.10 denetim: seviye yalnız tam doğru, ipucusuz, itirazsız cevapla ----------
+{
+  const yeni = () => yeniS({ n3: { m: { S: 20, D: 2, last: T - 20 * DAY, due: T, reps: 3, lapses: 0, lastG: 3, pk: 2, bm: 1, gun: '2026-09-25' } } });
+  const S1 = yeni(); K.uygula(S1, 'n3', K.notVer({ bicim: 'yaz', tip: 'yazim' }), T, { b: 2 });
+  eq(S1.items.n3.m.bm, 1, 'yazım hatalı (fast) cevap seviye atlatmaz');
+  const S2 = yeni(); K.uygula(S2, 'n3', K.notVer({ bicim: 'yaz', tip: 'dogru' }), T, { b: 2, itiraz: true });
+  eq(S2.items.n3.m.bm, 1, 'itirazla kazanılan cevap seviye atlatmaz');
+  const S3 = yeni(); K.uygula(S3, 'n3', K.notVer({ bicim: 'yaz', tip: 'dogru' }), T, { b: 2 });
+  eq(S3.items.n3.m.bm, 2, 'tam doğru cevap seviye atlatır');
+  const ny = K.notVer({ bicim: 'cumle', tip: 'cumleYapi', etiketler: ['fiil yeri'] });
+  eq(ny.m, 2, 'fiil yeri / kelime sırası: anlam notu 2'); eq(ny.ergebnis, 'fast', 'fiil yeri: fast');
+}
+
 // ---------- basamak kapısı (19.10: "seviye atlamak yerine 60 gün tekrara düşüyor") ----------
 {
   // göçten gelen, yalnız seçmelide görülmüş (pk 0) S 50 → 60 gün vade: pk kapısı 7 gün

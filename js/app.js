@@ -454,7 +454,7 @@
   // sel (Kern.sec) = { tur, id, b (basamak), bicim, uretec, kaynak, neden, deneme, R } → soru; biçim üreticiye bağlanır (§3)
   // ipucu seviyesi (lv): yaz0 / bos0 → 0 (baş harf + uzunluk / fiil verilir), bos → 1, yaz / cumle → 2
   const IPUCU = { yaz0: 0, yaz: 2, bos0: 0, bos: 1, cumle: 2 };
-  // zor soru (Kern sel.zor): ipucusuz biçim; üretim sırasında yardım (glossen, dönüşlü zamir notu, kelime bankası) gösterilmez
+  // zor soru (Kern sel.zor): ipucusuz biçim; yardım (dönüşlü zamir notu, kelime bankası) gösterilmez; glossen (hedef dışı kelimeler) görünür
   let zorAktif = false;
   function frage(sel) {
     zorAktif = !!(sel && sel.zor);
@@ -1016,7 +1016,8 @@
     const r = hedefler.map((h, i) => G.cumleKontrol(inp, [h], { hedefKelime: (hfListe && hfListe[i]) || hf || '', fiil: fiil || undefined }) || {})
       .reduce((a, b) => !a || (sira[b.urteil] || 0) > (sira[a.urteil] || 0) || ((sira[b.urteil] || 0) === (sira[a.urteil] || 0) && (b.skor || 0) > (a.skor || 0)) ? b : a, null) || {};
     const urteil = ['richtig', 'fast', 'falsch'].includes(r.urteil) ? r.urteil : 'falsch', enYakin = r.enYakin || hedefler[0];
-    return { urteil, tip: urteil === 'richtig' ? 'dogru' : urteil === 'fast' ? 'cumleFast' : 'cumleYanlis', tags: (r.tags || []).slice(), diff: r.diff || [], cumle: true, enYakin, skor: r.skor, ziel: enYakin };
+    const yapi = (r.tags || []).some(t => t === 'fiil yeri' || t === 'kelime sırası');
+    return { urteil, tip: urteil === 'richtig' ? 'dogru' : urteil === 'fast' ? (yapi ? 'cumleYapi' : 'cumleFast') : 'cumleYanlis', tags: (r.tags || []).slice(), diff: r.diff || [], cumle: true, enYakin, skor: r.skor, ziel: enYakin };
   }
   // tam cümle sorusunun ortak alanları (fiil / isim / diğer kelime / dönüşlü)
   function tamCumle(id, x, modus) {
@@ -2895,7 +2896,7 @@
     let out = { yazildi: false };
     const aksam = session.modus === 'aksam' && !opt.yan;
     const ist = aksam && aksamIst(id);
-    if (yazilabilir) out = Kern.uygula(S, id, not, t, { b: sel.b, ipucu: (q.ipucu || 0) > 0, aksam: ist, aksamYanlis: ist });
+    if (yazilabilir) out = Kern.uygula(S, id, not, t, { b: sel.b, ipucu: (q.ipucu || 0) > 0, itiraz: !!q.itiraz, aksam: ist, aksamYanlis: ist });
     const it = S.items[id];
     const uretec = q.typ === 'ndek' || q.typ === 'refl' ? q.typ : null;
     const golge = (tur, h, x) => { if (x && x.yazildi && h) Kern.golge(S, id, tur, h, t); };

@@ -2741,7 +2741,7 @@ Von welchem Verlag ist dieses Buch? | -
 Keine Angst. Die Verletzung ist nicht so schlimm. | die Angst = korku; schlimm = kötü, ciddi
 Sie ist eine gute Verliererin. | -
 Der Verlust meiner Uhr ärgert mich sehr. | die Uhr = saat; ärgern = kızdırmak
-Unsere Vermieterin ist eine sehr nette, ältere Frau. | nett = kibar, hoş; älter = yaşlıca
+Unser Vermieter ist ein sehr netter, älterer Mann. | nett = kibar, hoş; älter = yaşlıca
 Mit der Vermietung von Wohnungen kann man viel Geld verdienen. | die Wohnung = daire, ev; verdienen = kazanmak
 Du suchst ein Zimmer? Dann frag bei der Vermittlung am Bahnhof nach. | nachfragen = sormak, danışmak; der Bahnhof = tren istasyonu
 Rufen Sie die Vermittlung an und fragen Sie nach der Telefonnummer von Herrn Fischer. | anrufen = aramak; fragen nach = sormak
@@ -3961,7 +3961,7 @@ Der Preis für das Ticket ist zu hoch. | das Ticket = bilet
 Mein Vater regt sich über die hohen Preise auf. | die Preise = fiyatlar
 Ich habe morgen um zehn Uhr einen Termin beim Arzt. | -
 Können wir den Termin auf Freitag verschieben? | verschieben = ertelemek
-Beim Bürgeramt bekommt man nur schwer einen Termin. | das Bürgeramt = vatandaşlık dairesi; schwer = zor
+Beim Bürgeramt bekommt man nur schwer einen Termin. | das Bürgeramt = belediyenin vatandaş bürosu (nüfus / adres kaydı); schwer = zor
 Im Frühjahr wollen wir umziehen. | umziehen = taşınmak
 Das Frühjahr war dieses Jahr sehr kalt. | -
 Die Wohnung ist erst im Frühjahr fertig. | erst = ancak; fertig = hazır
@@ -4206,7 +4206,7 @@ Kannst du mir bitte die Unterlagen bringen, die ich auf dem Tisch vergessen habe
 Nach dem Vorbereitungsstudium möchte ich in Bremen bleiben und Informatik studieren. | das Vorbereitungsstudium = üniversite hazırlık programı; die Informatik = bilgisayar bilimi
 Ich hatte nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. | die Wohnungssuche = ev arama; schwierig = zor
 Mein Vermieter hat auf meine E-Mail wegen der kaputten Heizung noch nicht reagiert. | der Vermieter = ev sahibi; kaputt = bozuk; die Heizung = kalorifer
-Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. | die Anmeldung = kayıt; das Bürgeramt = vatandaşlık dairesi; das Formular = form
+Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. | die Anmeldung = kayıt; das Bürgeramt = belediyenin vatandaş bürosu (nüfus / adres kaydı); das Formular = form
 Ich habe bei der Ausländerbehörde eine Aufenthaltserlaubnis für das Studium beantragt. | die Ausländerbehörde = Yabancılar Dairesi; die Aufenthaltserlaubnis = oturma izni
 Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. | das Vorstellungsgespräch = iş görüşmesi; gründlich = iyice
 Beim Fußballspielen hat sich mein Mitbewohner am Knie verletzt. | das Knie = diz; der Mitbewohner = ev arkadaşı
@@ -4301,13 +4301,13 @@ Am folgenden Morgen habe ich sofort die Ausländerbehörde angerufen. | anrufen 
 Für meine Präsentation im Seminar habe ich drei Tage lang Informationen gesammelt. | sammeln = toplamak; die Information = bilgi
 In unserem Projekt untersuchen wir, wie Studenten in Bremen wohnen. | untersuchen = incelemek
 Mein Antrag auf Wohngeld wurde abgelehnt, weil ich die Unterlagen zu spät abgegeben habe. | das Wohngeld = kira yardımı; ablehnen = reddetmek; die Unterlagen = belgeler; abgeben = teslim etmek
-Nach der Anmeldung beim Bürgeramt bekommt man eine Bestätigung über den Wohnsitz. | das Bürgeramt = vatandaşlık dairesi; die Bestätigung = onay belgesi; der Wohnsitz = ikametgâh
+Nach der Anmeldung beim Bürgeramt bekommt man eine Bestätigung über den Wohnsitz. | das Bürgeramt = belediyenin vatandaş bürosu (nüfus / adres kaydı); die Bestätigung = onay belgesi; der Wohnsitz = ikametgâh
 Auf dem Amt musste ich über eine Stunde warten, bis ich drankam. | drankommen = sırası gelmek; bis = -ene kadar
 Wenn Sie das Formular nicht verstehen, hilft Ihnen die Kollegin am Schalter. | der Schalter = gişe; die Kollegin = (kadın) görevli, meslektaş
 Ich habe gemerkt, dass mein Pass abgelaufen ist, als ich das Visum beantragen wollte. | merken = fark etmek; ablaufen = süresi dolmak; beantragen = başvurmak
 Der Antrag ist ohne Ihre Unterschrift leider nicht gültig. | gültig = geçerli; der Antrag = başvuru
 Ich brauche eine Bestätigung von der Uni, dass ich im Vorbereitungsstudium eingeschrieben bin. | eingeschrieben sein = kayıtlı olmak; das Vorbereitungsstudium = hazırlık programı
-Innerhalb von zwei Wochen muss man seinen neuen Wohnsitz beim Bürgeramt anmelden. | innerhalb = içinde; anmelden = kaydettirmek, bildirmek; das Bürgeramt = vatandaşlık dairesi
+Innerhalb von zwei Wochen muss man seinen neuen Wohnsitz beim Bürgeramt anmelden. | innerhalb = içinde; anmelden = kaydettirmek, bildirmek; das Bürgeramt = belediyenin vatandaş bürosu (nüfus / adres kaydı)
 Bei deutschen Behörden braucht man für fast alles einen Termin und viele Unterlagen. | die Unterlagen = belgeler
 Nach dem Unfall musste ich bei der Polizei eine Aussage machen. | der Unfall = kaza
 Im ersten Semester habe ich mich oft einsam gefühlt, aber jetzt habe ich viele Freunde. | sich fühlen = hissetmek; einsam = yalnız

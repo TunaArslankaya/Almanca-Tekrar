@@ -127,6 +127,7 @@
       case 'donuslu': et.unshift('dönüşlü'); return r(1, null, 'falsch');
       case 'cekim': if (!et.length) et.push('çekim'); return r(2, null, 'fast', s.kokYanlis ? { k: 1 } : null);
       case 'cumleFast': return r(3, null, 'fast');
+      case 'cumleYapi': return r(2, null, 'fast');   // fiil yeri / kelime sırası: kelimeler doğru ama yapı yanlış (26.10 denetim: m3 doğruyla aynıydı)
       case 'cumleYanlis': return r(1, null, 'falsch');
       case 'bos': case 'goster': case 'bilmiyorum': et.push('bilmiyorum'); return r(1, null, 'falsch');
       default: return r(1, null, 'falsch');   // yanlış: isim yanlışsa artikel güncellenmez
@@ -178,7 +179,8 @@
         // basamak kapısı: doğru ve ipucusuz cevap bm'yi o basamağa çıkarır; vade bm aralığını aşmaz
         const h = it.m;
         if (h.bm == null) h.bm = hOnce && hOnce.S ? bmBaslat(hOnce) : 0;
-        if (not.m >= 3 && opts.b && !opts.ipucu) h.bm = Math.max(h.bm, opts.b);
+        // seviye yalnız tam doğru, ipucusuz ve itirazsız cevapla (26.10: yazım hatalı / küçük hatalı ya da itirazla kazanılan cevap seviye atlatmaz)
+        if (not.m >= 3 && not.ergebnis === 'richtig' && opts.b && !opts.ipucu && !opts.itiraz) h.bm = Math.max(h.bm, opts.b);
         // art arda doğru kalıcı yazım (zor soru kapısı): doğru ve ipucusuz +1, yanlış / fast (not < 3) 0, ipuçlu doğru değiştirmez
         h.ds = not.m < 3 ? 0 : opts.ipucu ? dsOf(hOnce) : dsOf(hOnce) + 1;
         if (not.m >= 2 && h.S) h.due = Math.max(t, Math.min(h.due, h.last + bmAralik(h, id) * DAY));
