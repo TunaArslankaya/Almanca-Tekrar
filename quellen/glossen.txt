@@ -4161,3 +4161,10 @@ Wir müssen herausfinden, wer den Fehler gemacht hat. | der Fehler = hata
 Ich habe herausgefunden, dass der Laden sonntags geöffnet ist. | der Laden = dükkân; geöffnet = açık; sonntags = pazar günleri
 Er kann gut mit Kindern umgehen. | gut = iyi
 Wie geht man mit so einem Problem um? | man = insan (genel özne); das Problem = sorun
+In dieser Situation kann ich dir leider nicht helfen. | leider = maalesef; helfen = yardım etmek
+Die Situation im Zug war am Montag sehr schwierig. | der Zug = tren; schwierig = zor
+In der Not helfen sich Nachbarn oft gegenseitig. | der Nachbar = komşu; gegenseitig = karşılıklı; oft = sık sık
+Vorsicht, die Straße ist im Winter oft glatt! | die Vorsicht = dikkat; die Straße = yol; der Winter = kış
+Ihre Haut ist ganz glatt und weich. | die Haut = cilt; weich = yumuşak
+Früher durfte man hier nicht rauchen. | früher = eskiden; rauchen = sigara içmek
+Als Kind durfte ich nie lange fernsehen. | das Kind = çocuk; nie = hiç; lange = uzun süre; fernsehen = televizyon izlemek

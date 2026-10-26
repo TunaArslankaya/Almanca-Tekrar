@@ -2738,3 +2738,8 @@ n0341 | der Fall | In diesem Fall brauchen Sie einen Termin. | Bu durumda randev
 n0341 | der Fall | Für den Fall, dass es regnet, nehme ich einen Schirm mit. | Yağmur yağarsa diye şemsiye alıyorum.
 w0599 | eingespannt sein | Ich bin gerade sehr eingespannt, ich rufe dich später an. | Şu an çok meşgulüm, seni sonra ararım.
 w0599 | eingespannt sein | Wegen des Projekts sind alle im Team stark eingespannt. | Proje yüzünden ekipteki herkes çok yoğun.
+n1088 | die Situation | In dieser Situation kann ich dir leider nicht helfen. | Bu durumda sana maalesef yardım edemem.
+n1088 | die Situation | Die Situation im Zug war am Montag sehr schwierig. | Pazartesi günü trendeki durum çok zordu.
+x1561 | die Not | In der Not helfen sich Nachbarn oft gegenseitig. | Sıkıntıda komşular çoğu zaman birbirine yardım eder.
+w0209 | glatt | Vorsicht, die Straße ist im Winter oft glatt! | Dikkat, yol kışın sık sık kaygan olur!
+w0209 | glatt | Ihre Haut ist ganz glatt und weich. | Cildi tamamen pürüzsüz ve yumuşak.

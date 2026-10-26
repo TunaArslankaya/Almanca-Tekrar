@@ -312,4 +312,9 @@ window.FEEDBACK = [
   { zeit: '2026-10-25 09:36', id: 'v420:stamm', antwort: 'sich rasiere, er hat sich rasiert', richtig: 'rasiert sich, hat sich rasiert', urteil: 'fast', text: 'er/sie-Präsens: er rasiert sich (sich sonra); Perfekt: hat sich rasiert.' },
   { zeit: '2026-10-25 09:36', id: 'n0248:wort', antwort: 'donnern', richtig: 'der Donner', urteil: 'falsch', text: 'der Donner = gök gürültüsü (isim); donnern = gürlemek (fiil). Üçüncü kez takıldı: kancaya bak.' },
   { zeit: '2026-10-25 09:36', id: 'v142:abr', antwort: '(boş)', richtig: 'beweisen (Akk)', urteil: 'falsch', text: 'beweisen = kanıtlamak; Akkusativ alır: etwas beweisen. Üçüncü kez takıldı: kancaya bak.' },
+  { zeit: '2026-10-25 22:50', id: 'n1088:wort', antwort: 'die Situaiton', richtig: 'die Situation', urteil: 'fast', text: 'Yazım: Situation. die Situation = durum; -ion sonlu isimler hep die.' },
+  { zeit: '2026-10-25 22:50', id: 'x1561:wort', antwort: 'der Not', richtig: 'die Not', urteil: 'fast', text: 'die Not = sıkıntı, darlık. Artikel: die. Kalıp: in Not sein.' },
+  { zeit: '2026-10-25 22:51', id: 'w0209:prod', antwort: 'nass', richtig: 'glatt', urteil: 'falsch', text: 'glatt = kaygan, pürüzsüz; nass = ıslak. Buzlu yol: Die Straße ist glatt.' },
+  { zeit: '2026-10-25 22:52', id: 'w0117:erk', antwort: 'az önce', richtig: 'karşıda, öte tarafta', urteil: 'falsch', text: 'Burada eben = işte/zaten (vurgu): man sieht es ihnen eben nicht an. Karışıklık: drüben (karşıda) ↔ eben.' },
+  { zeit: '2026-10-25 22:52', id: 'v173:stamm', antwort: 'dark', richtig: 'durfte', urteil: 'falsch', text: 'dürfen — Präteritum: er durfte (ü → u, -te eki).' },
 ];

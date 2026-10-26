@@ -328,3 +328,8 @@ Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
 - Akşam istisnası: akşam ilk kez sorulup yanlış yapılan öğenin aynı turdaki yeniden sorusu ikinci kez yazıyordu (e2e_aksam yakaladı); istisna artık yalnız ≥ 4 saat önce yazılmış hafızaya.
 - `sim_akis` yük tahmini artikel hafızasını da sayar (anlam+artikel ≈ 58/gün; yalnız anlamla 33 görünüp ölçüt yanlış kalıyordu).
 - Kota freni (Tuna: "günde 120 cevap veririm, 2 yeni az"): kapasite artık günlük hedef (24) değil, son 7 günde çalışılan günlerin cevap ortalaması (≥ hedef, ≤ 150). Bugün: 2 → 4 (+ bonus turlarda 2–4). Simülasyon günde 120 cevapla: günde 4–9 yeni, vadeli 89 → ~35.
+
+**2026-10-26 (gece işi, otomatik)**
+- 25.10 akşam 22:49–22:52: akşam tekrarı (12 cevap, hepsi doğru) + kısa tur (15 cevap, 3 yanlış). Yazarak yanlışlar: Situaiton (yazım), der Not → die Not, glatt → nass, dürfen Präteritum "dark" (durfte). Metinde eben ↔ drüben karışıklığı. Yoklamada bilip sonra yanlış: yok. Leech yok.
+- 5 düzeltme `feedback.js`'e. DW metni yeni değil (Kühlschrank işlenmişti; sözlüğündeki kelimeler Goethe listesinde yok): takılanlara 7 çeviri cümlesi + gloss (Situation ×2, Not, glatt ×2, dürfen ×2).
+Son incelenen log satırı: 2026-10-25 22:52:45 (tur akis).
