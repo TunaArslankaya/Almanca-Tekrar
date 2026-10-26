@@ -374,12 +374,20 @@
   function morgen(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + 1); return d.getTime(); }
   // öğrenme günü sayaçları (04:00'te değişir): metin / dikte / kök / yoklama / ek yeni teklifi / bonus tur
   const gs4 = () => { const g = Kern.gun4(now()); if (!S.gs4 || S.gs4.g !== g) S.gs4 = { g, metin: 0, diktat: 0, kok: 0, kokYeni: 0, yoklama: 0, ekYeni: 0, ekYeniTeklif: false, bonus: 0 }; return S.gs4; };
-  // kota (Kern.kota): günlük hedef × ret ağırlığı; bonus turlar; dönüş turu; ünite hızlandırma (Ayarlar, varsayılan kapalı)
+  // kota (Kern.kota): kapasite (hedef ya da son 7 günün temposu) × ret ağırlığı; bonus turlar; dönüş turu; ünite hızlandırma (Ayarlar, varsayılan kapalı)
   function durum4() {
     const gs = gs4(), U = uAktivler()[0];
     let uniteKalan = null;
     if (U && S.ayar4.uniteHizli && S.ayar4.uniteHizli[U.id] && U.bis) uniteKalan = { kalan: uniteSira().filter(id => !S.items[id]).length, gun: Math.max(1, Math.round((new Date(U.bis + 'T23:59:59') - new Date(now())) / DAY)) };
-    return { S, kap: gunHedef(), bonus: gs.bonus, donus: !!(session.ot && session.ot.donus), ekYeni: gs.ekYeni, gunSay: gs, uniteKalan };
+    return { S, kap: kapasite(), bonus: gs.bonus, donus: !!(session.ot && session.ot.donus), ekYeni: gs.ekYeni, gunSay: gs, uniteKalan };
+  }
+  // kota kapasitesi: günlük hedef ya da son 7 günde çalışılan günlerin cevap ortalaması (büyük olan, en çok 150).
+  // 26.10, Tuna: "günde 120 cevap veririm"; hedef 24'e göre fren birikmede yeni kelimeyi günlerce 2'de tutuyordu
+  function kapasite() {
+    const bugun = Kern.gun4(now()), gunler = [];
+    for (let i = 1; i <= 7; i++) { const g = Kern.gun4(now() - i * DAY); const n = (S.tage[g] && S.tage[g].n) || 0; if (n > 0 && g !== bugun) gunler.push(n); }
+    const tempo = gunler.length ? gunler.reduce((a, b) => a + b, 0) / gunler.length : 0;
+    return Math.round(Math.max(gunHedef(), Math.min(150, tempo)));
   }
   const kota = () => Kern.kota(durum4(), now());
   // ---- akşam tekrarı (Kern.aksamAdaylar / aksamUygun): bugün ilk cevap 13:00'ten önce, ≥ 8 saat geçti, aday ≥ 3 ----

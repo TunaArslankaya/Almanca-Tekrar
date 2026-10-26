@@ -327,3 +327,4 @@ Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
 - Basamak eşiklerini düşürme denendi, Tuna istemedi ("aşırı kolay yapma"): geri alındı. Yalnız ısınma günün ilk turuna indi (Tuna onayıyla).
 - Akşam istisnası: akşam ilk kez sorulup yanlış yapılan öğenin aynı turdaki yeniden sorusu ikinci kez yazıyordu (e2e_aksam yakaladı); istisna artık yalnız ≥ 4 saat önce yazılmış hafızaya.
 - `sim_akis` yük tahmini artikel hafızasını da sayar (anlam+artikel ≈ 58/gün; yalnız anlamla 33 görünüp ölçüt yanlış kalıyordu).
+- Kota freni (Tuna: "günde 120 cevap veririm, 2 yeni az"): kapasite artık günlük hedef (24) değil, son 7 günde çalışılan günlerin cevap ortalaması (≥ hedef, ≤ 150). Bugün: 2 → 4 (+ bonus turlarda 2–4). Simülasyon günde 120 cevapla: günde 4–9 yeni, vadeli 89 → ~35.
