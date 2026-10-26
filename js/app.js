@@ -1008,9 +1008,9 @@
   // tam cümle kontrolü: G.cumleKontrol (asıl çeviri + kabul edilen alternatifler x.alts; kelime kelime fark, Türkçe etiketler);
   // yoksa eski G.pruefen yolu (geçiş). Not: richtig → dogru, fast → cumleFast (m3), falsch → cumleYanlis (m1)
   const hedefListe = x => [x.de].concat((x.alts || []).filter(a => a && a !== x.de));
-  function cumlePruef(inp, hedefler, hf) {
+  function cumlePruef(inp, hedefler, hf, fiil) {
     if (typeof G.cumleKontrol !== 'function') return G.pruefen(inp, hedefler[0], hedefler.slice(1));
-    const r = G.cumleKontrol(inp, hedefler, { hedefKelime: hf || '' }) || {};
+    const r = G.cumleKontrol(inp, hedefler, { hedefKelime: hf || '', fiil: fiil || undefined }) || {};   // fiil: fiil yeri / dönüşlü zamir etiketleri daha isabetli
     const urteil = ['richtig', 'fast', 'falsch'].includes(r.urteil) ? r.urteil : 'falsch', enYakin = r.enYakin || hedefler[0];
     return { urteil, tip: urteil === 'richtig' ? 'dogru' : urteil === 'fast' ? 'cumleFast' : 'cumleYanlis', tags: (r.tags || []).slice(), diff: r.diff || [], cumle: true, enYakin, skor: r.skor, ziel: enYakin };
   }
@@ -1018,7 +1018,7 @@
   function tamCumle(id, x, modus) {
     const hedefler = hedefListe(x), hf = hedefForm(id, x.de);
     return { ziel: x.de, hedefler, input: true, placeholder: 'Almanca cümle', kontext: x.de, modus, voll: true, lvGercek: 2, hedefForm: hf, cumleYardim: !zorAktif,
-      pruef: inp => cumlePruef(inp, hedefler, hf), loesungHTML: () => deHTML(x.de), frageText: x.tr };
+      pruef: inp => cumlePruef(inp, hedefler, hf, vById[id]), loesungHTML: () => deHTML(x.de), frageText: x.tr };
   }
 
   function frageUebersetzen(v, lv, ue) {

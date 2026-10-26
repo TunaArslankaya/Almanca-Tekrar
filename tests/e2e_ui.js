@@ -173,7 +173,8 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     if (!(await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'cumle', zor: true }), id))) hata('cümle', `zor soru açılmadı (${id})`);
     const z = await c.evaluate(() => ({ rozet: !!document.querySelector('.zor-rozet'), yardim: !!document.querySelector('[data-act="cumle-yardim"]'), gloss: /Yardım:/.test(document.querySelector('.q-ust').innerText), voll: !!window.__tekrar.aktuell.voll }));
     if (!z.voll) hata('cümle', 'zor cümle sorusu tam cümle değil');
-    if (!z.rozet || z.yardim || z.gloss) hata('cümle', `zor soru: rozet ${z.rozet}, yardım düğmesi ${z.yardim}, glossen ${z.gloss}`);
+    // zor soruda hedef kelimeye ipucu yok (rozet, yardım düğmesi yok); diğer bilinmeyen kelimelerin anlamı (glossen) görünür (26.10 karar)
+    if (!z.rozet || z.yardim) hata('cümle', `zor soru: rozet ${z.rozet}, yardım düğmesi ${z.yardim}`);
     await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'cumle' }), id); await c.waitForTimeout(100);
     await c.click('[data-act="cumle-yardim"]'); await c.click('[data-act="cumle-yardim"]'); await c.waitForTimeout(100);
     const y = await c.evaluate(() => { const a = window.__tekrar.aktuell; return { cip: document.querySelectorAll('.kb-chip').length, kelime: a.ziel.split(/\s+/).length, lv: a.ipucuLv, ip: a.ipucu, deger: document.querySelector('#cevap').value }; });
