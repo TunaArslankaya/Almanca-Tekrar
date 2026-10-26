@@ -943,7 +943,7 @@
   const gutBekannt = id => !!S.items[id] && (!!S.items[id].a1 || ((S.items[id].m || {}).S || 0) >= 10);
   function hilfeHTML(de, zielId) {
     const g = GLOSSEN[de];
-    if (!g || zorAktif) return '';
+    if (!g) return '';   // zor soruda da: hedef kelime zaten süzülüyor, diğer bilinmeyen kelimeler yüzünden zor puan kaybolmasın
     const teile = g.split(/\s*;\s*/).map(x => x.split(/\s*=\s*/)).filter(x => x.length === 2).filter(([d]) => {
       const id = lemmaIdx().get(d.trim());
       return id !== zielId && !(id && gutBekannt(id));
