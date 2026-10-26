@@ -2622,3 +2622,33 @@
 2026-10-26 11:22:46;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:12 | küçük:0 | yanlış:0 | puan:60 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
 2026-10-26 11:22:50;erk;n1376:erk;die Wettervorhersage;hava tahmini;die Wettervorhersage;richtig;die Wettervorhersage;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | ısınma | sek:2
 2026-10-26 11:22:53;erk;n1077:erk;das Seminar;seminer;das Seminar;richtig;das Seminar;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | ısınma | sek:3
+2026-10-26 11:22:56;erk;w0138:erk;entlang;Im Mittelalter gab es viele Restaurants entlang der Pilgerwege.;boyunca;richtig;boyunca (die Straße entlang);basamak:B1 | bicim:metinde | not:m3 | R:0.92 | S:2.9 | ısınma | sek:2
+2026-10-26 11:22:58;art;n0926:art;die Praxis;Praxis;die;richtig;die Praxis;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:1.6 | sek:1
+2026-10-26 11:23:01;erk;n1179:erk;die Tablette;tablet (ilaç);die Tablette;richtig;die Tablette;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | sek:2
+2026-10-26 11:23:04;erk;w0011:erk;allerdings;Allerdings ist nicht jeder Ort eine Stadt.;aynı şekilde, keza;falsch;ancak, gerçi;basamak:B1 | bicim:metinde | not:m1 | R:0.92 | S:0.4 | sek:2
+2026-10-26 11:23:04;leech;w0011;allerdings;ancak, gerçi;;takiliyor;;günler:2026-10-17,2026-10-24,2026-10-26
+2026-10-26 11:23:07;bed;v125:bed;sich beschweren bei;sich beschweren bei;şikâyette bulunmak;richtig;(birine) şikâyette bulunmak;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:3.1 | kurtarma | sek:3
+2026-10-26 11:23:08;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:1.5 | sek:1
+2026-10-26 11:23:11;erk;n1094:erk;das Sonderangebot;özel indirim;das Sonderangebot;richtig;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:1.8 | sek:2
+2026-10-26 11:23:14;erk;n0948:erk;die Quittung;makbuz, fiş;die Quittung;richtig;die Quittung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:1.8 | sek:2
+2026-10-26 11:23:17;erk;w0011:erk;allerdings;ancak, gerçi;allerdings;richtig;allerdings;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-26 11:23:19;art;x1555:art;die Würde;Würde;die;richtig;die Würde;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:21.7 | sek:1
+2026-10-26 11:23:19;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:56 | dk:1 | yeni:0 | seviye+:5 | tekrar:12
+2026-10-26 11:23:25;erk;n0248:erk;der Donner;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:0.8 | ısınma | sek:3
+2026-10-26 11:23:28;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:m3 | R:0.91 | S:0.7 | ısınma | sek:2
+2026-10-26 11:23:30;erk;n0028:erk;die Änderung;Für die Bürgerinnen und Bürger könnte durch die Änderungen in Zukunft vieles teurer werden.;değişiklik;richtig;değişiklik;basamak:B1 | bicim:metinde | not:m3 | R:0.90 | S:22.2 | ısınma | kapı:7g | sek:2
+2026-10-26 11:23:32;art;n0137:art;die Behörde;Behörde;das;falsch;die Behörde;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:0.5 | artikel das → die | sek:2
+2026-10-26 11:23:41;stamm;v173:stamm;dürfen;dürfen — Präteritum;durfte;richtig;durfte;basamak:K | bicim:kokSatz | not:k3 | R:0.92 | S:1.2 | kök:dürfen | sek:9
+2026-10-26 11:23:50;wort;n1354:wort;die Wahrheit;gerçek;die Wahrheit;richtig;die Wahrheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:31.8 | kapı:14g | sek:8 | ipucu:2
+2026-10-26 11:23:52;erk;w0171:erk;folgend;aşağıdaki, sonraki;folgend;richtig;folgend;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:2.6 | kurtarma | sek:2
+2026-10-26 11:23:54;art;n1422:art;das Ziel;Ziel;das;richtig;das Ziel;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:2.4 | sek:1
+2026-10-26 11:23:58;erk;x1550:erk;die Gerechtigkeit;adalet;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:2.7 | sek:3
+2026-10-26 11:24:01;erk;n0047:erk;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:2.4 | sek:3
+2026-10-26 11:24:03;art;n0972:art;die Regel;Regel;der;falsch;die Regel;basamak:A | bicim:artikel | not:a1 | R:0.86 | S:0.2 | artikel der → die | sek:2
+2026-10-26 11:24:06;wort;n0025:wort;das Amt;resmî daire;das Amt;richtig;das Amt;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.89 | S:28.3 | kapı:14g | sek:2 | ipucu:2
+2026-10-26 11:24:06;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:72 | dk:1 | yeni:0 | seviye+:3 | tekrar:12
+2026-10-26 11:24:12;erk;x1559:erk;der Umgang;(biriyle) ilişki;der Umgang;richtig;der Umgang;basamak:B1 | bicim:sec | not:m3,a3 | R:0.88 | S:0.5 | ısınma | sek:3
+2026-10-26 11:24:15;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B1 | bicim:sec | not:m3 | R:0.79 | S:7.5 | ısınma | sek:2
+2026-10-26 11:24:19;bed;v117:bed;berichten über;Ein Reporter ist ein Journalist, der zu einem Ereignis oder Ort fährt, um darüber zu berichten.;haber vermek, anlatmak;richtig;(bir şey hakkında) haber vermek, anlatmak;basamak:B1 | bicim:metinde | not:m3 | R:0.79 | S:3.5 | ısınma | sek:3
+2026-10-26 11:24:20;art;n1390:art;die Wohnung;Wohnung;die;richtig;die Wohnung;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:43.3 | sek:1
+2026-10-26 11:24:31;stamm;v243:stamm;fahren;fahren — Präsens (er/sie), Präteritum, Perfekt;fahr, er ist gefahren;falsch;fährt, fuhr, ist gefahren;basamak:K | bicim:kok | not:k1 | R:0.85 | S:1.6 | kök:fahren | Präsens (er/sie): fährt, Präteritum: fuhr, Perfekt: ist gefahren | sek:9
