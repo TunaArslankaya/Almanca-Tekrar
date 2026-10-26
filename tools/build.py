@@ -584,6 +584,20 @@ dump("nomen.js", "NOMEN", {"liste": nomen, "personen": personen, "adjSache": adj
 dump("woerter.js", "WOERTER", woerter)
 dump("pakete.js", "PAKETE", pakete)
 
+# Almanca alanında " || " ile ayrılmış alternatifler: ilki asıl çeviri (de, glossen anahtarı), diğerleri kabul edilen çeviriler (alts)
+def satz_kayit(de_alani, tr, yer):
+    de, *alts = [x.strip() for x in de_alani.split("\x00")]
+    for a in alts:
+        if not a:
+            errors.append(f"{yer}: boş alternatif")
+        elif a == de:
+            errors.append(f"{yer}: alternatif asıl cümleyle aynı: {a}")
+    alts = [a for i, a in enumerate(alts) if a and a != de and a not in alts[:i]]
+    return {"de": de, "tr": tr, "alts": alts} if alts else {"de": de, "tr": tr}
+
+def satz_parca(line):
+    return [x.strip() for x in line.replace(" || ", "\x00").split("|")]
+
 # Çeviri cümleleri: fiil kimliği | Almanca | Türkçe  (Goethe örnekleri, elle çevrildi)
 saetze = {}
 vid_set = {v["id"] for v in verben}
@@ -593,7 +607,7 @@ if os.path.exists(sp):
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        parts = [x.strip() for x in line.split("|")]
+        parts = satz_parca(line)
         if len(parts) != 3 or not all(parts):
             errors.append(f"saetze.txt:{i}: biçim 'fiil | Almanca | Türkçe' olmalı")
             continue
@@ -601,7 +615,7 @@ if os.path.exists(sp):
         if vid not in vid_set:
             errors.append(f"saetze.txt:{i}: bilinmeyen fiil {vid}")
             continue
-        saetze.setdefault(vid, []).append({"de": de, "tr": tr})
+        saetze.setdefault(vid, []).append(satz_kayit(de, tr, f"saetze.txt:{i}"))
 dump("saetze.js", "SAETZE", saetze)
 
 # Dönüşlü fiil cümleleri (aynı biçim)
@@ -612,11 +626,11 @@ if os.path.exists(rp):
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        parts = [x.strip() for x in line.split("|")]
+        parts = satz_parca(line)
         if len(parts) != 3 or not all(parts) or parts[0] not in vid_set:
             errors.append(f"saetze_refl.txt:{i}: biçim ya da fiil hatalı")
             continue
-        saetze_refl.setdefault(parts[0], []).append({"de": parts[1], "tr": parts[2]})
+        saetze_refl.setdefault(parts[0], []).append(satz_kayit(parts[1], parts[2], f"saetze_refl.txt:{i}"))
 dump("saetze_refl.js", "SAETZE_REFL", saetze_refl)
 
 # Kelime cümleleri: öğe | hedef kelime | Almanca | Türkçe (isim ve diğer kelimeler; Goethe örnekleri)
@@ -628,11 +642,11 @@ if os.path.exists(np_):
         line = line.strip()
         if not line or line.startswith("#"):
             continue
-        parts = [x.strip() for x in line.split("|")]
+        parts = satz_parca(line)
         if len(parts) != 4 or not all(parts) or parts[0] not in w_ids:
             errors.append(f"wort_saetze.txt:{i}: biçim ya da öğe hatalı")
             continue
-        nsaetze.setdefault(parts[0], []).append({"de": parts[2], "tr": parts[3]})
+        nsaetze.setdefault(parts[0], []).append(satz_kayit(parts[2], parts[3], f"wort_saetze.txt:{i}"))
 dump("nsaetze.js", "NSAETZE", nsaetze)
 
 # Cümle sözlüğü: Almanca cümle | "die Regierung = hükümet; …" (tam cümle sorusunda bilinmeyen kelimelere yardım)
@@ -644,7 +658,7 @@ if os.path.exists(gp):
         if not line.strip() or line.startswith("#") or "|" not in line:
             continue
         de, g = line.rsplit("|", 1)
-        de, g = de.strip(), g.strip()
+        de, g = de.split(" || ")[0].strip(), g.strip()
         if g and g != "-":
             glossen[de] = g
 dump("glossen.js", "GLOSSEN", glossen)

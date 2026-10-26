@@ -70,7 +70,7 @@ v065 | Nächste Woche tritt in der Stadthalle eine berühmte Musikgruppe auf. | 
 v066 | Von dem Lärm bin ich aufgewacht. | Gürültüden uyandım.
 v067 | Kann ich das auf deinem Drucker ausdrucken? | Bunu senin yazıcında yazdırabilir miyim?
 v068 | Nächste Woche fällt der Kurs aus. | Gelecek hafta kurs yapılmıyor.
-v069 | Füllen Sie bitte dieses Formular aus! | Lütfen bu formu doldurun!
+v069 | Füllen Sie bitte dieses Formular aus! || Bitte füllen Sie dieses Formular aus! | Lütfen bu formu doldurun!
 v070 | Carola gibt viel Geld für ihr Hobby aus. | Carola hobisine çok para harcıyor.
 v071 | Plötzlich ist das Licht ausgegangen. | Birden ışık söndü.
 v071 | Gehen wir heute Abend aus? | Bu akşam dışarı çıkalım mı?
@@ -136,7 +136,7 @@ v121 | Womit haben Sie sich bei Ihrer Arbeit beschäftigt? | İşinizde neyle u�
 v122 | Wir haben beschlossen, uns ein kleineres Auto zu kaufen. | Kendimize daha küçük bir araba almaya karar verdik.
 v123 | Kannst du mir den Weg zum Flughafen beschreiben? | Bana havalimanına giden yolu tarif edebilir misin?
 v126 | Dieser Platz ist besetzt. | Bu yer dolu.
-v127 | Im Urlaub haben wir Schloss Schönbrunn besichtigt. | Tatilde Schönbrunn Sarayı'nı gezdik.
+v127 | Im Urlaub haben wir Schloss Schönbrunn besichtigt. || Wir haben im Urlaub Schloss Schönbrunn besichtigt. | Tatilde Schönbrunn Sarayı'nı gezdik.
 v128 | Besitzt Ihre Frau ein eigenes Auto? | Eşinizin kendine ait bir arabası var mı?
 v129 | Soll ich die Eintrittskarten besorgen? | Giriş biletlerini ben alayım mı?
 v130 | Wir müssen noch genau besprechen, wann wir losfahren und was wir mitnehmen. | Ne zaman yola çıkacağımızı ve yanımıza ne alacağımızı daha ayrıntılı konuşmamız lazım.
@@ -156,7 +156,7 @@ v142 | Wir können beweisen, dass Sie bei Rot über die Ampel gefahren sind. | K
 v143 | Ich habe mich um diese Stelle beworben. | Bu iş için başvurdum.
 v145 | Hast du die Rechnung schon bezahlt? | Faturayı ödedin mi?
 v146 | Er hat mir für den alten Wagen noch 800 Euro geboten. | Eski araba için bana yine de 800 Euro teklif etti.
-v148 | Ich bleibe heute zu Hause. | Bugün evde kalıyorum.
+v148 | Ich bleibe heute zu Hause. || Heute bleibe ich zu Hause. | Bugün evde kalıyorum.
 v148 | Im Juni und Juli bleibt unser Geschäft samstags geschlossen. | Haziran ve temmuzda dükkânımız cumartesileri kapalı kalır.
 v148 | Bleiben Sie bitte am Apparat. | Lütfen hattan ayrılmayın.
 v148 | Bleiben Sie doch sitzen! | Oturun, kalkmayın!
@@ -171,7 +171,7 @@ v153 | Ich habe für die Renovierung eine Woche gebraucht. | Tadilat bir haftam�
 v154 | Er hat sich beim Skifahren verletzt, sein Bein ist gebrochen. | Kayak yaparken yaralandı, bacağı kırıldı.
 v155 | Der Mann ist ganz plötzlich über die Straße gegangen. Ich musste stark bremsen. | Adam birdenbire karşıdan karşıya geçti. Sert fren yapmak zorunda kaldım.
 v156 | In diesem Haus hat es letztes Jahr gebrannt. | Bu evde geçen yıl yangın çıktı.
-v157 | Bringen Sie mir bitte ein Glas Tee! | Bana lütfen bir bardak çay getirin!
+v157 | Bringen Sie mir bitte ein Glas Tee! || Bitte bringen Sie mir ein Glas Tee! | Bana lütfen bir bardak çay getirin!
 v157 | Ich bringe dich nach Hause. | Seni eve bırakırım.
 v157 | Die Abendzeitung hat einen Bericht über den Unfall gebracht. | Akşam gazetesi kazayla ilgili bir haber yayımladı.
 v158 | Ich habe für morgen einen Flug nach Rom gebucht. | Yarın için Roma'ya bir uçuş rezervasyonu yaptım.
@@ -194,7 +194,7 @@ v172 | Sie brauchen nur auf den Knopf zu drücken. | Sadece düğmeye basmanız 
 v172 | Die neuen Schuhe drücken. | Yeni ayakkabılar sıkıyor.
 v172 | Wenn du hier drückst, geht die Tür auf. | Buraya bastığında kapı açılır.
 v173 | Dürfen wir heute länger fernsehen? | Bugün daha uzun televizyon izleyebilir miyiz?
-v173 | Sie dürfen hier nicht parken. | Burada park edemezsiniz.
+v173 | Sie dürfen hier nicht parken. || Hier dürfen Sie nicht parken. | Burada park edemezsiniz.
 v174 | Wenn Sie sich duschen wollen: Das Badezimmer ist dort hinten links. | Duş almak isterseniz: Banyo orada, arkada solda.
 v174 | Ich bade nicht so gern, ich dusche lieber. | Küvette yıkanmayı pek sevmem, duş almayı tercih ederim.
 v176 | Wollen wir Du zueinander sagen? Ja, wir können uns gern duzen? | Birbirimize sen diyelim mi? Evet, seve seve senli benli konuşabiliriz.
@@ -309,14 +309,14 @@ v268 | Hat jemand nach mir gefragt? | Beni soran oldu mu?
 v269 | Hat der Hund schon etwas zu fressen bekommen? | Köpeğe yiyecek bir şey verildi mi?
 v270 | Ich freue mich schon auf meinen nächsten Urlaub. | Bir sonraki tatilimi şimdiden dört gözle bekliyorum.
 v271 | Ich habe mich über Ihr Geschenk sehr gefreut. | Hediyenize çok sevindim.
-v272 | Wenn Sie frieren, mache ich das Fenster wieder zu. | Üşüyorsanız pencereyi tekrar kapatırım.
+v272 | Wenn Sie frieren, mache ich das Fenster wieder zu. || Wenn Sie frieren, schließe ich das Fenster wieder. | Üşüyorsanız pencereyi tekrar kapatırım.
 v273 | Haben Sie schon gefrühstückt? | Kahvaltı ettiniz mi?
 v274 | Wie fühlen Sie sich? - Danke, ich fühle mich wohl. | Nasılsınız? - Teşekkürler, kendimi iyi hissediyorum.
 v274 | Fühl mal, ob das Wasser nicht zu heiß ist. | Bir dokun bakalım, su çok sıcak değil mi?
 v276 | Der Lehrer führt seine Schüler durch das Museum. | Öğretmen öğrencilerini müzede gezdiriyor.
 v277 | Können Sie mir bitte mal zeigen, wie der Automat funktioniert? | Otomatın nasıl çalıştığını bana bir gösterebilir misiniz?
 v277 | Unsere Ehe funktioniert nicht mehr. | Evliliğimiz artık yürümüyor.
-v278 | Sie fürchtet sich vor Schlangen. | Yılanlardan korkuyor.
+v278 | Sie fürchtet sich vor Schlangen. || Er fürchtet sich vor Schlangen. | Yılanlardan korkuyor.
 v279 | Es ist im Zoo nicht erlaubt, die Tiere zu füttern. | Hayvanat bahçesinde hayvanları beslemek yasak.
 v280 | Ich kann Ihnen nicht garantieren, dass das Gerät nächste Woche fertig ist. | Cihazın gelecek hafta hazır olacağını size garanti edemem.
 v281 | Geben Sie mir bitte eine Quittung! | Lütfen bana bir makbuz verin!
@@ -356,7 +356,7 @@ v304 | Wir haben Hunger. | Açız.
 v304 | Heute habe ich keine Zeit. | Bugün vaktim yok.
 v304 | Wir haben ein neues Auto. | Yeni bir arabamız var.
 v304 | Kann ich bitte eine Suppe haben? | Bir çorba alabilir miyim lütfen?
-v305 | Bei Gewitter kann es auch hageln. | Fırtınada dolu da yağabilir.
+v305 | Bei Gewitter kann es auch hageln. || Bei einem Gewitter kann es auch hageln. | Fırtınada dolu da yağabilir.
 v306 | Kannst du mal kurz meine Handtasche halten? | Çantamı bir saniye tutabilir misin?
 v306 | Entschuldigung, hält dieser Zug auch in Darmstadt? | Affedersiniz, bu tren Darmstadt'ta da duruyor mu?
 v306 | Halten Sie bitte im Keller die Fenster geschlossen. | Lütfen bodrumdaki pencereleri kapalı tutun.
@@ -540,11 +540,11 @@ v421 | Ich möchte billig Urlaub machen. Was raten Sie mir? | Ucuza tatil yapmak
 v422 | Hier ist das Rauchen verboten! | Burada sigara içmek yasak!
 v422 | Stört es Sie, wenn ich rauche? | Sigara içersem sizi rahatsız eder mi?
 v424 | Diese Pläne sind nicht zu realisieren. | Bu planlar gerçekleştirilemez.
-v425 | Mit solchen Schwierigkeiten hatten wir nicht gerechnet. | Böyle zorluklar beklemiyorduk.
+v425 | Mit solchen Schwierigkeiten hatten wir nicht gerechnet. || Mit solchen Schwierigkeiten haben wir nicht gerechnet. | Böyle zorluklar beklemiyorduk.
 v426 | Worüber habt ihr gestern geredet? | Dün ne hakkında konuştunuz?
 v427 | Wir haben jetzt unsere Preise reduziert. | Fiyatlarımızı şimdi indirdik.
 v428 | Die Ampel ist kaputt. Ein Polizist regelt den Verkehr. | Trafik lambası bozuk. Trafiği bir polis yönetiyor.
-v429 | Es hat gestern den ganzen Tag geregnet. | Dün bütün gün yağmur yağdı.
+v429 | Es hat gestern den ganzen Tag geregnet. || Gestern hat es den ganzen Tag geregnet. || Gestern regnete es den ganzen Tag. | Dün bütün gün yağmur yağdı.
 v430 | Ich nehme nur eine Suppe. Das reicht mir. | Sadece bir çorba alıyorum. Bu bana yeter.
 v431 | Ich möchte diesen Anzug reinigen lassen. | Bu takım elbiseyi temizletmek istiyorum.
 v432 | Ich reise gern nach Spanien. | İspanya'ya seyahat etmeyi severim.
@@ -568,7 +568,7 @@ v443 | Kannst du mir helfen, die Party vorzubereiten? Ich schaffe das nicht alle
 v444 | Schalten Sie bitte das Licht aus, wenn Sie gehen. | Lütfen giderken ışığı kapatın.
 v445 | Wie alt ist der Chef? – Ich weiß nicht, ich schätze, um die Fünfzig. | Şef kaç yaşında? – Bilmiyorum, tahminimce elli civarında.
 v446 | Schau mal! Da vorne ist noch ein Platz frei. | Baksana! Şurada önde bir yer daha boş.
-v447 | Gestern hat es geregnet. Heute scheint wieder die Sonne. | Dün yağmur yağdı. Bugün yine güneş parlıyor.
+v447 | Gestern hat es geregnet. Heute scheint wieder die Sonne. || Gestern hat es geregnet. Heute scheint die Sonne wieder. | Dün yağmur yağdı. Bugün yine güneş parlıyor.
 v447 | Mein Kollege scheint krank zu sein. Er war heute nicht im Büro. | İş arkadaşım hasta gibi görünüyor. Bugün ofiste değildi.
 v448 | Wir wollen dir zum Geburtstag etwas schenken. | Doğum gününde sana bir şey hediye etmek istiyoruz.
 v449 | Ich habe meinen Freunden eine Einladung zur Hochzeit geschickt. | Arkadaşlarıma düğün davetiyesi gönderdim.
@@ -588,7 +588,7 @@ v456 | Hat es Ihnen geschmeckt? | Yemek hoşunuza gitti mi?
 v456 | Die Suppe schmeckt nach Knoblauch. | Çorbanın tadı sarımsak gibi.
 v457 | Du bist heute sehr schön geschminkt. | Bugün çok güzel makyaj yapmışsın.
 v458 | Die Fabrik verschmutzt den Fluss. | Fabrika nehri kirletiyor.
-v459 | Heute Nacht hat es geschneit. | Bu gece kar yağdı.
+v459 | Heute Nacht hat es geschneit. || Es hat heute Nacht geschneit. | Bu gece kar yağdı.
 v460 | Das Messer schneidet nicht. | Bıçak kesmiyor.
 v460 | Hast du ein Pflaster? Ich habe mich geschnitten. | Yara bandın var mı? Elimi kestim.
 v460 | Wann lässt du deine Haare schneiden? | Saçlarını ne zaman kestireceksin?
@@ -681,7 +681,7 @@ v524 | Wir trainieren einmal pro Woche im Sportverein. | Spor kulübünde haftad
 v525 | Wie willst du die Möbel denn transportieren? | Mobilyaları nasıl taşımak istiyorsun peki?
 v526 | Ich träume von einem großen Haus mit Garten. | Bahçeli büyük bir ev hayal ediyorum.
 v527 | Wir treffen uns immer freitags. | Her zaman cuma günleri buluşuyoruz.
-v527 | Ich habe Petra zufällig in der Stadt getroffen. | Petra'yla şehirde tesadüfen karşılaştım.
+v527 | Ich habe Petra zufällig in der Stadt getroffen. || Ich habe Petra in der Stadt zufällig getroffen. | Petra'yla şehirde tesadüfen karşılaştım.
 v529 | Welchen Sport treibst du? | Hangi sporu yapıyorsun?
 v531 | Ich bin in ein Stück Glas getreten. | Bir cam parçasına bastım.
 v532 | Trinken Sie einen Tee mit uns? | Bizimle bir çay içer misiniz?
@@ -713,10 +713,10 @@ v557 | Wir haben uns über das Fußballspiel unterhalten. | Futbol maçı hakkı
 v558 | Wollen wir heute Abend noch etwas unternehmen? | Bu akşam bir şeyler yapalım mı?
 v559 | Meine Frau unterrichtet Spanisch. | Karım İspanyolca öğretiyor.
 v560 | Ihr seid euch sehr ähnlich. Auf dem Foto kann man euch beide nicht unterscheiden. | Birbirinize çok benziyorsunuz. Fotoğrafta ikinizi ayırt etmek mümkün değil.
-v561 | Unterschreiben Sie bitte hier unten rechts. | Lütfen burayı, sağ alttan imzalayın.
+v561 | Unterschreiben Sie bitte hier unten rechts. || Bitte unterschreiben Sie hier unten rechts. | Lütfen burada, sağ altta imzalayın.
 v562 | Wir sollen alle wichtigen Wörter unterstreichen. | Bütün önemli kelimelerin altını çizmemiz gerekiyor.
 v563 | Sie unterstützen mich, wo sie nur können. | Ellerinden geldiğince bana destek oluyorlar.
-v564 | Sie sollten sich vom Arzt untersuchen lassen. | Kendinizi doktora muayene ettirmelisiniz.
+v564 | Sie sollten sich vom Arzt untersuchen lassen. || Sie sollten sich von einem Arzt untersuchen lassen. | Doktora muayene olmalısınız.
 v565 | Dieser Busfahrer verursachte den Unfall. | Kazaya bu otobüs şoförü sebep oldu.
 v566 | Wir haben uns mit Freunden verabredet. Wir wollen zusammen essen. | Arkadaşlarla sözleştik. Birlikte yemek yemek istiyoruz.
 v567 | Ich wurde von meinen Freunden sehr nett verabschiedet. | Arkadaşlarım beni çok güzel uğurladı.
@@ -760,13 +760,13 @@ v601 | Wer hat dir das Geheimnis verraten? | Sırrı sana kim söyledi?
 v602 | Frau Dr. Müller ist zurzeit verreist. | Dr. Müller Hanım şu anda seyahatte.
 v603 | Tut mir leid, ich habe die Anmeldefrist versäumt. | Kusura bakmayın, kayıt süresini kaçırdım.
 v604 | Leider muss ich den Termin verschieben. | Maalesef randevuyu ertelemem gerekiyor.
-v605 | Die Ärztin hat mir Tabletten verschrieben. | Doktor bana hap yazdı.
+v605 | Die Ärztin hat mir Tabletten verschrieben. || Der Arzt hat mir Tabletten verschrieben. | Doktor bana hap yazdı.
 v606 | Mein Ausweis ist verschwunden. Hast du ihn vielleicht gesehen? | Kimliğim kayboldu. Sen belki gördün mü?
 v607 | Wollen Sie Ihr Gepäck versichern? | Bagajınızı sigortalatmak ister misiniz?
 v608 | Meine Mutter hat mir versprochen, mich abzuholen. | Annem beni almaya geleceğine söz verdi.
 v609 | Ich habe das Geld hinter dem Regal versteckt. | Parayı rafın arkasına sakladım.
-v610 | Ich kann Sie kaum verstehen. Sprechen Sie bitte lauter. | Sizi zar zor duyuyorum. Lütfen daha yüksek sesle konuşun.
-v610 | Den Satz verstehe ich nicht. | Bu cümleyi anlamıyorum.
+v610 | Ich kann Sie kaum verstehen. Sprechen Sie bitte lauter. || Ich kann Sie kaum verstehen. Bitte sprechen Sie lauter. | Sizi zar zor anlayabiliyorum. Lütfen daha yüksek sesle konuşun.
+v610 | Den Satz verstehe ich nicht. || Ich verstehe den Satz nicht. || Ich verstehe diesen Satz nicht. || Diesen Satz verstehe ich nicht. | Bu cümleyi anlamıyorum.
 v610 | Ich verstehe nichts von Computern. | Bilgisayardan hiç anlamam.
 v610 | Unsere beiden Kinder verstehen sich sehr gut. | İki çocuğumuz birbiriyle çok iyi anlaşıyor.
 v612 | Haben Sie es schon mal mit diesem Mittel versucht? | Bu ilacı hiç denediniz mi?
@@ -779,7 +779,7 @@ v616 | Das Gericht hat den Täter zu einer Geldstrafe verurteilt. | Mahkeme fail
 v617 | Entschuldigen Sie, ich habe Sie mit jemandem verwechselt. | Affedersiniz, sizi birisiyle karıştırdım.
 v618 | Dieses Wort wird oft verwendet. | Bu kelime sık kullanılır.
 v619 | Das werde ich ihm nie verzeihen können. | Bunu ona asla affedemeyeceğim.
-v620 | Ich verzichte heute auf den Kaffee. | Bugün kahveden vazgeçiyorum.
+v620 | Ich verzichte heute auf den Kaffee. || Heute verzichte ich auf den Kaffee. | Bugün kahveden vazgeçiyorum.
 v621 | Am Sonntag machen wir ein kleines Fest. Ich muss noch viel dafür vorbereiten. | Pazar günü küçük bir kutlama yapıyoruz. Bunun için daha çok şey hazırlamam lazım.
 v622 | Ich muss mich auf meine Prüfung vorbereiten. | Sınavıma hazırlanmam lazım.
 v623 | Haben Sie morgen Abend schon etwas vor? | Yarın akşam bir planınız var mı?
@@ -847,26 +847,26 @@ v669 | Meine Eltern haben uns zum Essen eingeladen. Ich habe zugesagt. | Ailem b
 v670 | Können Sie das bitte noch einmal kurz zusammenfassen? | Bunu lütfen bir kez daha kısaca özetler misiniz?
 v671 | Willst du mitspielen? – Nein, ich schaue lieber nur zu. | Oynamak ister misin? – Hayır, sadece izlemeyi tercih ederim.
 v672 | Ich stimme dir in dieser Sache völlig zu. | Bu konuda sana tamamen katılıyorum.
-v673 | Ich zweifle nicht daran, dass Sie recht haben. | Haklı olduğunuzdan şüphem yok.
+v673 | Ich zweifle nicht daran, dass Sie recht haben. || Ich zweifele nicht daran, dass Sie recht haben. | Haklı olduğunuzdan şüphem yok.
 v674 | Bitte zwing mich nicht etwas zu essen. Ich bin wirklich nicht hungrig. | Lütfen beni bir şey yemeye zorlama. Gerçekten aç değilim.
 v646 | Ich muss dir leider widersprechen, das Training war nicht zu schwer. | Maalesef sana itiraz etmem lazım, antrenman çok zor değildi.
-v646 | Niemand hat dem Chef widersprochen, obwohl die Kritik unfair war. | Eleştiri haksız olduğu hâlde kimse şefe itiraz etmedi.
+v646 | Niemand hat dem Chef widersprochen, obwohl die Kritik unfair war. || Obwohl die Kritik unfair war, hat niemand dem Chef widersprochen. | Eleştiri haksız olduğu hâlde kimse şefe itiraz etmedi.
 v626 | Ich schlage vor, dass wir die Kosten teilen. | Masrafları paylaşmamızı öneriyorum.
-v626 | Der Trainer hat vorgeschlagen, dass wir zweimal pro Woche trainieren. | Antrenör haftada iki kez antrenman yapmamızı önerdi.
+v626 | Der Trainer hat vorgeschlagen, dass wir zweimal pro Woche trainieren. || Der Trainer hat vorgeschlagen, dass wir zweimal in der Woche trainieren. | Antrenör haftada iki kez antrenman yapmamızı önerdi.
 v626 | Was schlägst du bei diesem Wetter vor? | Bu havada ne önerirsin?
-v620 | Wegen der hohen Kosten verzichten wir dieses Jahr auf den Urlaub. | Yüksek masraflar yüzünden bu yıl tatilden vazgeçiyoruz.
-v620 | Bei diesem Regen verzichte ich auf den Ausflug. | Bu yağmurda geziden vazgeçiyorum.
-v620 | Sie hat auf ihre Karriere verzichtet, weil sie bei ihren Kindern bleiben wollte. | Çocuklarının yanında kalmak istediği için kariyerinden vazgeçti.
+v620 | Wegen der hohen Kosten verzichten wir dieses Jahr auf den Urlaub. || Dieses Jahr verzichten wir wegen der hohen Kosten auf den Urlaub. | Yüksek masraflar yüzünden bu yıl tatilden vazgeçiyoruz.
+v620 | Bei diesem Regen verzichte ich auf den Ausflug. || Ich verzichte bei diesem Regen auf den Ausflug. | Bu yağmurda geziden vazgeçiyorum.
+v620 | Sie hat auf ihre Karriere verzichtet, weil sie bei ihren Kindern bleiben wollte. || Weil sie bei ihren Kindern bleiben wollte, hat sie auf ihre Karriere verzichtet. | Çocuklarının yanında kalmak istediği için kariyerinden vazgeçti.
 v673 | Ich zweifle nicht an deiner Geduld. | Sabrından şüphe etmiyorum.
 v673 | Viele Leute zweifeln an der Wettervorhersage für das Wochenende. | Birçok kişi hafta sonu için hava tahmininden şüphe ediyor.
 v371 | Im Unterricht haben wir ein Gedicht über den Regen gelesen. | Derste yağmur hakkında bir şiir okuduk.
 v354 | Der Lehrer hat mein Referat kritisiert, aber die Kritik war fair. | Öğretmen sunumumu eleştirdi ama eleştiri adildi.
 v524 | Bei Nebel trainieren wir lieber in der Halle. | Sisli havada salonda antrenman yapmayı tercih ediyoruz.
-v605 | Der Arzt hat mir gegen das Fieber Tabletten verschrieben. | Doktor bana ateş için hap yazdı.
-v564 | Die Ärztin hat mich in ihrer Praxis gründlich untersucht. | Doktor beni muayenehanesinde iyice muayene etti.
-v117 | Im Seminar hat sie über ihre Heimat berichtet. | Seminerde memleketini anlattı.
+v605 | Der Arzt hat mir gegen das Fieber Tabletten verschrieben. || Der Arzt hat mir Tabletten gegen das Fieber verschrieben. || Die Ärztin hat mir gegen das Fieber Tabletten verschrieben. | Doktor bana ateş için hap yazdı.
+v564 | Die Ärztin hat mich in ihrer Praxis gründlich untersucht. || Der Arzt hat mich in seiner Praxis gründlich untersucht. || Die Ärztin untersuchte mich in ihrer Praxis gründlich. | Doktor beni muayenehanesinde iyice muayene etti.
+v117 | Im Seminar hat sie über ihre Heimat berichtet. || Im Seminar hat er über seine Heimat berichtet. || Sie hat im Seminar über ihre Heimat berichtet. | Seminerde memleketini anlattı.
 v626 | Der Hausmeister hat vorgeschlagen, dass wir den Keller zusammen aufräumen. | Kapıcı bodrumu birlikte toparlamamızı önerdi.
-v620 | Wegen der Schmerzen verzichte ich heute auf das Training. | Ağrılar yüzünden bugün antrenmandan vazgeçiyorum.
+v620 | Wegen der Schmerzen verzichte ich heute auf das Training. || Ich verzichte heute wegen der Schmerzen auf das Training. | Ağrılar yüzünden bugün antrenmandan vazgeçiyorum.
 v673 | Niemand zweifelt an ihrem Talent für die Kunst. | Kimse onun sanat yeteneğinden şüphe etmiyor.
 v029 | Ich habe mich für den Deutschkurs angemeldet. | Almanca kursuna kaydoldum.
 v029 | Wo kann man sich für die Prüfung anmelden? | Sınava nereden kaydolunabilir?
@@ -895,8 +895,8 @@ v091 | Er hat sich bei seiner Lehrerin bedankt. | Öğretmenine teşekkür etti.
 v098 | Wir beginnen jetzt mit dem Unterricht. | Şimdi derse başlıyoruz.
 v098 | Wann beginnst du mit der Arbeit? | İşe ne zaman başlıyorsun?
 v098 | Sie hat mit dem Studium begonnen. | Üniversite eğitimine başladı.
-v119 | Beruhigen Sie sich bitte! | Lütfen sakin olun!
-v119 | Nach dem Streit hat er sich schnell beruhigt. | Kavgadan sonra çabucak sakinleşti.
+v119 | Beruhigen Sie sich bitte! || Bitte beruhigen Sie sich! | Lütfen sakin olun!
+v119 | Nach dem Streit hat er sich schnell beruhigt. || Er hat sich nach dem Streit schnell beruhigt. || Nach dem Streit hat sie sich schnell beruhigt. | Kavgadan sonra çabucak sakinleşti.
 v119 | Das Baby beruhigt sich nicht. | Bebek sakinleşmiyor.
 v124 | Die Nachbarn beschweren sich über den Lärm. | Komşular gürültüden şikâyet ediyor.
 v124 | Ich möchte mich über das Essen beschweren. | Yemekten şikâyet etmek istiyorum.
@@ -973,8 +973,8 @@ v385 | Bitte melden Sie sich bei der Rezeption. | Lütfen resepsiyona başvurun.
 v394 | Ich muss über deinen Vorschlag nachdenken. | Önerin hakkında düşünmem lazım.
 v394 | Er denkt oft über seine Zukunft nach. | Sık sık geleceği hakkında düşünüyor.
 v394 | Denk mal darüber nach! | Bunu bir düşün!
-v423 | Wie hat er auf die Nachricht reagiert? | Habere nasıl tepki verdi?
-v423 | Sie hat auf meine E-Mail nicht reagiert. | E-postama tepki vermedi.
+v423 | Wie hat er auf die Nachricht reagiert? || Wie hat sie auf die Nachricht reagiert? | Habere nasıl tepki verdi?
+v423 | Sie hat auf meine E-Mail nicht reagiert. || Sie hat nicht auf meine E-Mail reagiert. || Er hat auf meine E-Mail nicht reagiert. | E-postama tepki vermedi.
 v423 | Der Lehrer reagiert ruhig auf die Frage. | Öğretmen soruya sakin bir şekilde tepki veriyor.
 v462 | Ich schreibe einen Brief an meine Oma. | Anneanneme bir mektup yazıyorum.
 v462 | Hast du schon an die Firma geschrieben? | Firmaya yazdın mı?
@@ -991,7 +991,7 @@ v487 | Sie spricht oft mit ihrer Mutter. | Annesiyle sık sık konuşuyor.
 v502 | Er ist an einem Herzinfarkt gestorben. | Kalp krizinden öldü.
 v502 | Früher sind viele Menschen an dieser Krankheit gestorben. | Eskiden birçok insan bu hastalıktan ölürdü.
 v502 | Ihr Großvater ist letztes Jahr gestorben. | Büyükbabası geçen yıl öldü.
-v509 | Ich streite mich oft mit meinem Bruder. | Erkek kardeşimle sık sık kavga ediyorum.
+v509 | Ich streite mich oft mit meinem Bruder. || Mit meinem Bruder streite ich mich oft. | Erkek kardeşimle sık sık kavga ediyorum.
 v509 | Warum habt ihr euch gestritten? | Neden kavga ettiniz?
 v509 | Sie streiten sich immer über Geld. | Hep para yüzünden tartışıyorlar.
 v513 | Ich suche nach meinem Schlüssel. | Anahtarımı arıyorum.
@@ -1008,7 +1008,7 @@ v530 | Ich trenne mich nicht gern von meinen alten Sachen. | Eski eşyalarımdan
 v530 | Nach zehn Jahren haben sie sich getrennt. | On yıl sonra ayrıldılar.
 v545 | Du übertreibst! | Abartıyorsun!
 v545 | Er übertreibt immer, wenn er etwas erzählt. | Bir şey anlatırken hep abartıyor.
-v545 | Ich glaube, sie hat ein bisschen übertrieben. | Bence biraz abarttı.
+v545 | Ich glaube, sie hat ein bisschen übertrieben. || Ich glaube, er hat ein bisschen übertrieben. | Bence biraz abarttı.
 v554 | Ich ziehe mich schnell um. | Hemen üstümü değiştiriyorum.
 v554 | Nach der Arbeit zieht er sich um. | İşten sonra üstünü değiştiriyor.
 v554 | Du musst dich für das Fest umziehen. | Kutlama için üstünü değiştirmen gerekiyor.
@@ -1022,7 +1022,7 @@ v579 | Man kann Bremen nicht mit Berlin vergleichen. | Bremen Berlin'le karşıl
 v579 | Ich vergleiche die Preise im Internet. | Fiyatları internette karşılaştırıyorum.
 v579 | Vergleich dich nicht immer mit anderen! | Kendini hep başkalarıyla karşılaştırma!
 v592 | Ich habe mich beim Kochen verletzt. | Yemek yaparken yaralandım.
-v592 | Bei dem Unfall hat sich niemand verletzt. | Kazada kimse yaralanmadı.
+v592 | Bei dem Unfall hat sich niemand verletzt. || Beim Unfall hat sich niemand verletzt. | Kazada kimse yaralanmadı.
 v592 | Pass auf, dass du dich nicht verletzt! | Dikkat et, yaralanma!
 v593 | Er hat sich in eine Kollegin verliebt. | Bir iş arkadaşına âşık oldu.
 v593 | Ich habe mich sofort in die Stadt verliebt. | Şehre hemen âşık oldum.
@@ -1033,7 +1033,7 @@ v611 | Verstehst du dich gut mit deinen Eltern? | Annenle babanla iyi anlaşıyo
 v628 | Darf ich mich vorstellen? Ich heiße Tuna. | Kendimi tanıtabilir miyim? Adım Tuna.
 v628 | Bitte stellen Sie sich kurz vor. | Lütfen kendinizi kısaca tanıtın.
 v628 | Im Kurs haben sich alle vorgestellt. | Kursta herkes kendini tanıttı.
-v629 | Ich kann mir das nicht vorstellen. | Bunu hayal edemiyorum.
+v629 | Ich kann mir das nicht vorstellen. || Das kann ich mir nicht vorstellen. | Bunu hayal edemiyorum.
 v629 | Stell dir vor, ich habe die Prüfung bestanden! | Düşünsene, sınavı geçtim!
 v633 | Ich habe dich vor ihm gewarnt. | Seni ona karşı uyarmıştım.
 v633 | Die Polizei warnt vor dem Sturm. | Polis fırtınaya karşı uyarıyor.
@@ -1041,12 +1041,12 @@ v633 | Der Arzt hat ihn vor dem Rauchen gewarnt. | Doktor onu sigara içmeye kar
 v636 | Ich wasche mich mit kaltem Wasser. | Soğuk suyla yıkanıyorum.
 v636 | Wasch dir die Hände vor dem Essen! | Yemekten önce ellerini yıka!
 v636 | Die Katze wäscht sich. | Kedi kendini temizliyor.
-v642 | Bitte wenden Sie sich an die Rezeption. | Lütfen resepsiyona başvurun.
+v642 | Bitte wenden Sie sich an die Rezeption. || Wenden Sie sich bitte an die Rezeption. | Lütfen resepsiyona başvurun.
 v642 | An wen kann ich mich wenden? | Kime başvurabilirim?
-v642 | Bei Fragen wenden Sie sich an Frau Müller. | Sorularınız için Bayan Müller'e başvurun.
-v654 | Ich wundere mich über sein Verhalten. | Davranışına şaşırıyorum.
-v654 | Sie hat sich über das Geschenk gewundert. | Hediyeye şaşırdı.
-v654 | Wundere dich nicht, wenn er nicht kommt. | Gelmezse şaşırma.
+v642 | Bei Fragen wenden Sie sich an Frau Müller. || Wenden Sie sich bei Fragen an Frau Müller. | Sorularınız için Bayan Müller'e başvurun.
+v654 | Ich wundere mich über sein Verhalten. || Ich wundere mich über ihr Verhalten. || Ich wundere mich über dein Verhalten. | Davranışına şaşırıyorum.
+v654 | Sie hat sich über das Geschenk gewundert. || Er hat sich über das Geschenk gewundert. | Hediyeye şaşırdı.
+v654 | Wundere dich nicht, wenn er nicht kommt. || Wundre dich nicht, wenn er nicht kommt. | Gelmezse şaşırma.
 v656 | Ich wünsche mir ein neues Fahrrad. | Yeni bir bisiklet istiyorum.
 v656 | Sie wünscht sich mehr Zeit für die Familie. | Ailesine daha çok zaman ayırmayı diliyor.
 v668 | Ich komme mit der neuen Software nicht zurecht. | Yeni yazılımla başa çıkamıyorum.
@@ -1054,91 +1054,151 @@ v668 | Kommst du mit deinem Mitbewohner gut zurecht? | Ev arkadaşınla iyi geç
 v668 | Sie kommt mit dem Geld gut zurecht. | Parayla iyi idare ediyor.
 v590 | Wir haben uns in der Altstadt verlaufen. | Eski şehirde yolumuzu kaybettik.
 v590 | Hast du dich schon wieder verlaufen? | Yine mi yolunu kaybettin?
-v425 | Mit so viel Regen habe ich nicht gerechnet. | Bu kadar yağmur beklemiyordum.
-v149 | Heute Nacht hat es stark geblitzt. | Bu gece çok şimşek çaktı.
-v626 | Sie hat einen Ausflug an den See vorgeschlagen. | Göle bir gezi önerdi.
+v425 | Mit so viel Regen habe ich nicht gerechnet. || Ich habe nicht mit so viel Regen gerechnet. | Bu kadar yağmur beklemiyordum.
+v149 | Heute Nacht hat es stark geblitzt. || Es hat heute Nacht stark geblitzt. | Bu gece çok şimşek çaktı.
+v626 | Sie hat einen Ausflug an den See vorgeschlagen. || Er hat einen Ausflug an den See vorgeschlagen. | Göle bir gezi önerdi.
 v646 | Ich muss dir leider widersprechen. | Maalesef sana itiraz etmem gerekiyor.
-v527 | Gestern habe ich zufällig meinen Lehrer getroffen. | Dün tesadüfen öğretmenime rastladım.
-v346 | Er ist zu spät zum Unterricht gekommen. | Derse geç geldi.
-v169 | In der Nacht hat es laut gedonnert. | Gece gök yüksek sesle gürledi.
-v169 | Wenn es donnert, hat mein Hund Angst. | Gök gürlediğinde köpeğim korkar.
-v305 | Im April hat es plötzlich gehagelt. | Nisanda birden dolu yağdı.
-v305 | Wenn es hagelt, bleiben wir lieber im Haus. | Dolu yağdığında evde kalmayı tercih ederiz.
-v459 | Im Januar schneit es in Bremen nur selten. | Ocakta Bremen'de nadiren kar yağar.
+v527 | Gestern habe ich zufällig meinen Lehrer getroffen. || Ich habe gestern zufällig meinen Lehrer getroffen. || Gestern habe ich zufällig meine Lehrerin getroffen. | Dün tesadüfen öğretmenime rastladım.
+v346 | Er ist zu spät zum Unterricht gekommen. || Sie ist zu spät zum Unterricht gekommen. | Derse geç geldi.
+v169 | In der Nacht hat es laut gedonnert. || Es hat in der Nacht laut gedonnert. | Gece gök yüksek sesle gürledi.
+v169 | Wenn es donnert, hat mein Hund Angst. || Mein Hund hat Angst, wenn es donnert. | Gök gürlediğinde köpeğim korkar.
+v305 | Im April hat es plötzlich gehagelt. || Es hat im April plötzlich gehagelt. | Nisanda birden dolu yağdı.
+v305 | Wenn es hagelt, bleiben wir lieber im Haus. || Wenn es hagelt, bleiben wir lieber zu Hause. | Dolu yağdığında evde kalmayı tercih ederiz.
+v459 | Im Januar schneit es in Bremen nur selten. || In Bremen schneit es im Januar nur selten. | Ocakta Bremen'de nadiren kar yağar.
 v459 | Es hat die ganze Nacht geschneit. | Bütün gece kar yağdı.
 v111 | Er bemüht sich um eine neue Stelle. | Yeni bir iş için çabalıyor.
 v111 | Wir haben uns sehr um eine Lösung bemüht. | Bir çözüm için çok çabaladık.
-v121 | In meiner Freizeit beschäftige ich mich gern mit Musik. | Boş zamanımda müzikle uğraşmayı severim.
-v121 | Mit diesem Thema haben wir uns lange beschäftigt. | Bu konuyla uzun süre uğraştık.
-v127 | Morgen besichtigen wir die Altstadt. | Yarın eski şehri geziyoruz.
+v121 | In meiner Freizeit beschäftige ich mich gern mit Musik. || Ich beschäftige mich in meiner Freizeit gern mit Musik. | Boş zamanımda müzikle uğraşmayı severim.
+v121 | Mit diesem Thema haben wir uns lange beschäftigt. || Wir haben uns lange mit diesem Thema beschäftigt. | Bu konuyla uzun süre uğraştık.
+v127 | Morgen besichtigen wir die Altstadt. || Wir besichtigen morgen die Altstadt. | Yarın eski şehri geziyoruz.
 v127 | Wann können wir die Wohnung besichtigen? | Daireyi ne zaman gezip görebiliriz?
 v561 | Hast du den Mietvertrag schon unterschrieben? | Kira sözleşmesini imzaladın mı?
-v561 | Bitte unterschreiben Sie das Formular. | Lütfen formu imzalayın.
-v197 | Wir ziehen am ersten Mai in die neue Wohnung ein. | Bir mayısta yeni daireye taşınıyoruz.
+v561 | Bitte unterschreiben Sie das Formular. || Unterschreiben Sie bitte das Formular. | Lütfen formu imzalayın.
+v197 | Wir ziehen am ersten Mai in die neue Wohnung ein. || Am ersten Mai ziehen wir in die neue Wohnung ein. | Bir mayısta yeni daireye taşınıyoruz.
 v197 | Wann bist du in die WG eingezogen? | WG'ye ne zaman taşındın?
 v069 | Ich habe den Fragebogen schon ausgefüllt. | Anketi zaten doldurdum.
 v069 | Füllst du das Formular für mich aus? | Formu benim için doldurur musun?
 v089 | Ich möchte eine Aufenthaltserlaubnis beantragen. | Oturma izni için başvurmak istiyorum.
 v089 | Wo kann man ein Visum beantragen? | Vize için nereye başvurulur?
 v030 | Hast du dich schon für den Sprachkurs angemeldet? | Dil kursuna kaydoldun mu?
-v030 | Ich melde mich heute für die Prüfung an. | Bugün sınava kaydoluyorum.
-v589 | Auf meinen Bruder kann ich mich immer verlassen. | Erkek kardeşime her zaman güvenebilirim.
+v030 | Ich melde mich heute für die Prüfung an. || Heute melde ich mich für die Prüfung an. | Bugün sınava kaydoluyorum.
+v589 | Auf meinen Bruder kann ich mich immer verlassen. || Ich kann mich immer auf meinen Bruder verlassen. | Erkek kardeşime her zaman güvenebilirim.
 v589 | Du kannst dich nicht immer auf andere verlassen. | Her zaman başkalarına güvenemezsin.
 v232 | Ein Wörterbuch erleichtert das Lesen. | Sözlük okumayı kolaylaştırır.
 v232 | Die neue App hat mir die Arbeit sehr erleichtert. | Yeni uygulama işimi çok kolaylaştırdı.
 v142 | Er konnte nicht beweisen, dass er zu Hause war. | Evde olduğunu kanıtlayamadı.
 v142 | Die Studie beweist, dass Sport gesund ist. | Araştırma sporun sağlıklı olduğunu kanıtlıyor.
 v466 | Warum schweigst du die ganze Zeit? | Neden hep susuyorsun?
-v466 | Er hat lange geschwiegen und dann die Wahrheit gesagt. | Uzun süre sustu, sonra gerçeği söyledi.
+v466 | Er hat lange geschwiegen und dann die Wahrheit gesagt. || Er schwieg lange und sagte dann die Wahrheit. | Uzun süre sustu, sonra gerçeği söyledi.
 v584 | Regelmäßiger Sport kann viele Krankheiten verhindern. | Düzenli spor birçok hastalığı önleyebilir.
 v584 | Die Polizei hat einen Unfall verhindert. | Polis bir kazayı önledi.
-v605 | Kann mir der Arzt etwas gegen den Husten verschreiben? | Doktor bana öksürüğe karşı bir şey yazabilir mi?
+v605 | Kann mir der Arzt etwas gegen den Husten verschreiben? || Kann der Arzt mir etwas gegen den Husten verschreiben? | Doktor bana öksürüğe karşı bir şey yazabilir mi?
 v272 | Ich friere, kannst du die Heizung anmachen? | Üşüyorum, kaloriferi açabilir misin?
 v447 | Die Sonne scheint, lass uns spazieren gehen. | Güneş parlıyor, hadi yürüyüşe çıkalım.
 v654 | Ich habe mich über den hohen Preis gewundert. | Yüksek fiyata şaşırdım.
-v125 | Wir haben uns beim Hausmeister über den Lärm beschwert. | Gürültüden kapıcıya şikâyet ettik.
+v125 | Wir haben uns beim Hausmeister über den Lärm beschwert. || Wir haben uns über den Lärm beim Hausmeister beschwert. | Gürültüden kapıcıya şikâyet ettik.
 v425 | Wir rechnen mit etwa fünfzig Gästen. | Yaklaşık elli misafir bekliyoruz.
-v509 | Ich habe mich gestern mit meinem Mitbewohner gestritten. | Dün ev arkadaşımla kavga ettim.
+v509 | Ich habe mich gestern mit meinem Mitbewohner gestritten. || Gestern habe ich mich mit meinem Mitbewohner gestritten. | Dün ev arkadaşımla kavga ettim.
 v278 | Mein kleiner Bruder fürchtet sich vor Hunden. | Küçük kardeşim köpeklerden korkuyor.
 v185 | Nach der Arbeit kaufe ich noch schnell ein. | İşten sonra hızlıca alışveriş yapıyorum.
 v063 | Mein Vater regt sich über die hohen Preise auf. | Babam yüksek fiyatlara sinirleniyor.
-v590 | Im Nebel haben wir uns auf dem Weg zur Burg verlaufen. | Sisin içinde kaleye giderken yolumuzu kaybettik.
-v119 | Mit etwas Geduld hat sich das Kind schnell beruhigt. | Biraz sabırla çocuk çabucak sakinleşti.
-v642 | Wenn Sie ein Problem haben, wenden Sie sich bitte an das Amt. | Bir sorununuz varsa lütfen kuruma başvurun.
+v590 | Im Nebel haben wir uns auf dem Weg zur Burg verlaufen. || Auf dem Weg zur Burg haben wir uns im Nebel verlaufen. | Sisin içinde kaleye giderken yolumuzu kaybettik.
+v119 | Mit etwas Geduld hat sich das Kind schnell beruhigt. || Das Kind hat sich mit etwas Geduld schnell beruhigt. | Biraz sabırla çocuk çabucak sakinleşti.
+v642 | Wenn Sie ein Problem haben, wenden Sie sich bitte an das Amt. || Wenn Sie ein Problem haben, wenden Sie sich bitte ans Amt. | Bir sorununuz varsa lütfen kuruma başvurun.
 v111 | Er hat sich lange um einen Studienplatz bemüht. | Uzun süre bir üniversite kontenjanı için uğraştı.
 v063 | Ich rege mich über die Kälte im Büro auf. | Ofisteki soğuğa sinirleniyorum.
-v142 | Der Arzt konnte die Krankheit mit einem Test beweisen. | Doktor hastalığı bir testle kanıtlayabildi.
-v545 | Du übertreibst, die Kunst war gar nicht so teuer! | Abartıyorsun, sanat eseri hiç de o kadar pahalı değildi!
-v466 | Im Museum muss man nicht schweigen, aber leise sprechen. | Müzede susmak gerekmez ama sessiz konuşmak gerekir.
-v620 | Wegen der Kälte verzichten wir auf den Ausflug. | Soğuk yüzünden geziden vazgeçiyoruz.
+v142 | Mit dem Foto kann ich beweisen, dass ich dort war. || Ich kann mit dem Foto beweisen, dass ich dort war. | Fotoğrafla orada olduğumu kanıtlayabilirim.
+v545 | Du übertreibst, das Bild war gar nicht so teuer! | Abartıyorsun, resim hiç de o kadar pahalı değildi!
+v466 | Im Museum muss man nicht schweigen, aber man sollte leise sprechen. | Müzede susmak gerekmez ama alçak sesle konuşmak gerekir.
+v620 | Wegen der Kälte verzichten wir auf den Ausflug. || Wir verzichten wegen der Kälte auf den Ausflug. | Soğuk yüzünden geziden vazgeçiyoruz.
 v509 | Die Nachbarn haben sich gestern wegen der Miete gestritten. | Komşular dün kira yüzünden tartıştı.
 v262 | Der Hund ist mir bis zur Haustür gefolgt. | Köpek beni ev kapısına kadar takip etti.
 v262 | Wir folgen dem Weg bis zum Fluss. | Nehre kadar yolu takip ediyoruz.
 v672 | Meine Eltern haben meinem Vorschlag sofort zugestimmt. | Annemle babam önerimi hemen onayladı.
 v626 | Mein Kollege hat mir ein besseres Programm vorgeschlagen. | İş arkadaşım bana daha iyi bir program önerdi.
 v169 | Es donnert schon, wir sollten schnell nach Hause gehen. | Gök gürlemeye başladı bile, hemen eve gitsek iyi olur.
-v149 | Draußen blitzt es, bleib lieber im Haus. | Dışarıda şimşek çakıyor, evde kalsan daha iyi.
+v149 | Draußen blitzt es, bleib lieber im Haus. || Es blitzt draußen, bleib lieber im Haus. || Draußen blitzt es, bleib lieber zu Hause. | Dışarıda şimşek çakıyor, evde kalsan daha iyi.
 v287 | Nach vielen Versuchen ist es ihm endlich gelungen, die Prüfung zu bestehen. | Çok denemeden sonra sonunda sınavı geçmeyi başardı.
 v027 | Es kommt auf das Wetter an, ob wir morgen grillen. | Yarın mangal yapıp yapmayacağımız havaya bağlı.
 v571 | Die Schule verbietet den Schülern, im Unterricht das Handy zu benutzen. | Okul, öğrencilerin derste cep telefonu kullanmasını yasaklıyor.
 v587 | Der Chef verlängert den Vertrag um ein Jahr. | Patron sözleşmeyi bir yıl uzatıyor.
-v527 | Ich treffe meinen Bruder heute Abend in der Stadt. | Bu akşam erkek kardeşimle şehir merkezinde buluşuyorum.
-v527 | Gestern habe ich zufällig meine alte Lehrerin getroffen. | Dün eski (kadın) öğretmenime tesadüfen rastladım.
+v527 | Ich treffe meinen Bruder heute Abend in der Stadt. || Heute Abend treffe ich meinen Bruder in der Stadt. | Bu akşam erkek kardeşimle şehir merkezinde buluşuyorum.
+v527 | Gestern habe ich zufällig meine alte Lehrerin getroffen. || Ich habe gestern zufällig meine alte Lehrerin getroffen. | Dün eski (kadın) öğretmenime tesadüfen rastladım.
 v211 | Aus einer kleinen Idee ist ein großes Projekt entstanden. | Küçük bir fikirden büyük bir proje ortaya çıktı.
 v211 | Wie ist dieses Problem eigentlich entstanden? | Bu sorun aslında nasıl ortaya çıktı?
 v140 | Nach dem Unfall konnte er den Arm nicht mehr bewegen. | Kazadan sonra kolunu artık oynatamadı.
 v256 | Der Arzt hat festgestellt, dass ich zu wenig Vitamin D habe. | Doktor bende çok az D vitamini olduğunu tespit etti.
-v256 | Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. | Evde anahtarımın kaybolduğunu fark ettim.
+v256 | Zu Hause habe ich festgestellt, dass mein Schlüssel weg ist. || Ich habe zu Hause festgestellt, dass mein Schlüssel weg ist. | Evde anahtarımın kaybolduğunu fark ettim.
 v565 | Falsche Entsorgung verursacht große Probleme für die Umwelt. | Yanlış atık bertarafı çevre için büyük sorunlara yol açar.
 v237 | Man kann kaputte Geräte nicht immer leicht ersetzen. | Bozuk cihazları her zaman kolayca değiştiremezsiniz.
 v672 | Ich stimme dir zu, das ist eine gute Idee. | Sana katılıyorum, bu iyi bir fikir.
-v672 | Er hat meinem Vorschlag sofort zugestimmt. | Önerime hemen onay verdi.
-v629 | Das habe ich mir anders vorgestellt. | Bunu kendi kafamda farklı hayal etmiştim.
+v672 | Er hat meinem Vorschlag sofort zugestimmt. || Sie hat meinem Vorschlag sofort zugestimmt. | Önerime hemen onay verdi.
+v629 | Das habe ich mir anders vorgestellt. || Ich habe mir das anders vorgestellt. | Bunu kendi kafamda farklı hayal etmiştim.
 v142 | Das müssen Sie erst beweisen. | Bunu önce sizin kanıtlamanız gerek.
 v142 | Kannst du beweisen, dass du das Geld bezahlt hast? | Parayı ödediğini kanıtlayabilir misin?
 v691 | Wir müssen herausfinden, wer den Fehler gemacht hat. | Hatayı kimin yaptığını bulmamız gerek.
 v691 | Ich habe herausgefunden, dass der Laden sonntags geöffnet ist. | Dükkânın pazar günleri açık olduğunu öğrendim.
 v550 | Er kann gut mit Kindern umgehen. | Çocuklarla iyi başa çıkar.
 v550 | Wie geht man mit so einem Problem um? | Böyle bir sorunla nasıl başa çıkılır?
-v173 | Früher durfte man hier nicht rauchen. | Eskiden burada sigara içmek yasaktı.
+v173 | Früher durfte man hier nicht rauchen. || Man durfte hier früher nicht rauchen. | Eskiden burada sigara içmek yasaktı.
 v173 | Als Kind durfte ich nie lange fernsehen. | Çocukken hiç uzun süre televizyon izlememe izin verilmezdi.
+
+v564 | Weil ich seit einer Woche Fieber habe, hat mich die Ärztin gründlich untersucht. || Die Ärztin hat mich gründlich untersucht, weil ich seit einer Woche Fieber habe. || Weil ich seit einer Woche Fieber habe, hat mich der Arzt gründlich untersucht. | Bir haftadır ateşim olduğu için doktor beni iyice muayene etti.
+v605 | Der Arzt hat mir ein Medikament verschrieben, das ich dreimal am Tag nehmen muss. || Die Ärztin hat mir ein Medikament verschrieben, das ich dreimal am Tag nehmen muss. | Doktor bana günde üç kez almam gereken bir ilaç yazdı.
+v272 | Obwohl die Heizung an ist, friere ich in meinem Zimmer im Studentenwohnheim. || Ich friere in meinem Zimmer im Studentenwohnheim, obwohl die Heizung an ist. | Kalorifer açık olduğu hâlde öğrenci yurdundaki odamda üşüyorum.
+v169 | Als es plötzlich laut donnerte, lief der Hund unter das Bett. || Als es plötzlich laut gedonnert hat, ist der Hund unter das Bett gelaufen. | Birden yüksek sesle gök gürlediğinde köpek yatağın altına koştu.
+v149 | Wenn es draußen blitzt, sollte man nicht unter einem Baum stehen. || Man sollte nicht unter einem Baum stehen, wenn es draußen blitzt. | Dışarıda şimşek çakarken insan ağaç altında durmamalı.
+v305 | Gestern hat es so stark gehagelt, dass wir nicht nach Hause fahren konnten. || Es hat gestern so stark gehagelt, dass wir nicht nach Hause fahren konnten. | Dün o kadar şiddetli dolu yağdı ki eve gidemedik.
+v447 | Der neue Mitbewohner scheint nett zu sein, aber er spricht wenig Deutsch. | Yeni ev arkadaşı iyi biri gibi görünüyor ama az Almanca konuşuyor.
+v429 | Weil es den ganzen Tag geregnet hat, haben wir in der WG Filme gesehen. || Wir haben in der WG Filme gesehen, weil es den ganzen Tag geregnet hat. | Bütün gün yağmur yağdığı için WG'de film izledik.
+v459 | Wenn es morgen schneit, fahre ich nicht mit dem Fahrrad zur Uni. || Ich fahre nicht mit dem Fahrrad zur Uni, wenn es morgen schneit. || Wenn es morgen schneit, fahre ich nicht mit dem Rad zur Uni. | Yarın kar yağarsa üniversiteye bisikletle gitmem.
+v629 | Ich kann mir gut vorstellen, nach dem Studium in Bremen zu arbeiten. | Üniversiteden sonra Bremen'de çalışmayı rahatlıkla hayal edebiliyorum.
+v119 | Vor der Prüfung war ich sehr nervös, aber dann habe ich mich beruhigt. || Vor der Prüfung war ich sehr nervös, aber dann beruhigte ich mich. | Sınavdan önce çok gergindim ama sonra sakinleştim.
+v654 | Ich habe mich gewundert, dass die Miete in Bremen so hoch ist. || Ich habe mich darüber gewundert, dass die Miete in Bremen so hoch ist. || Ich wunderte mich, dass die Miete in Bremen so hoch ist. | Bremen'de kiranın bu kadar yüksek olmasına şaşırdım.
+v642 | Wenn Sie Fragen zur Aufenthaltserlaubnis haben, wenden Sie sich bitte an die Ausländerbehörde. || Wenden Sie sich bitte an die Ausländerbehörde, wenn Sie Fragen zur Aufenthaltserlaubnis haben. | Oturma izniyle ilgili sorularınız varsa lütfen Yabancılar Dairesi'ne başvurun.
+v646 | Ich wollte meinem Dozenten nicht widersprechen, obwohl ich eine andere Meinung hatte. || Obwohl ich eine andere Meinung hatte, wollte ich meinem Dozenten nicht widersprechen. | Farklı bir fikrim olduğu hâlde öğretim görevlime itiraz etmek istemedim.
+v626 | Meine Mitbewohnerin hat vorgeschlagen, dass wir jeden Samstag zusammen die Küche putzen. || Mein Mitbewohner hat vorgeschlagen, dass wir jeden Samstag zusammen die Küche putzen. | Ev arkadaşım her cumartesi mutfağı birlikte temizlememizi önerdi.
+v672 | Alle in der WG haben zugestimmt, dass wir einen Putzplan machen. | WG'deki herkes bir temizlik planı yapmamızı onayladı.
+v620 | Um Geld zu sparen, verzichte ich diesen Monat auf das Essen im Restaurant. || Ich verzichte diesen Monat auf das Essen im Restaurant, um Geld zu sparen. | Para biriktirmek için bu ay restoranda yemekten vazgeçiyorum.
+v111 | Ich bemühe mich sehr, im Deutschkurs jeden Tag nur Deutsch zu sprechen. | Almanca kursunda her gün sadece Almanca konuşmak için çok çabalıyorum.
+v673 | Manchmal zweifle ich, ob ich die B1-Prüfung im Sommer schaffe. || Manchmal zweifele ich, ob ich die B1-Prüfung im Sommer schaffe. || Ich zweifle manchmal, ob ich die B1-Prüfung im Sommer schaffe. | Bazen yazın B1 sınavını geçip geçemeyeceğimden şüphe ediyorum.
+v117 | Im Seminar hat jeder Student über die Situation in seinem Heimatland berichtet. | Seminerde her öğrenci kendi ülkesindeki durumu anlattı.
+v121 | In meiner Hausarbeit beschäftige ich mich mit dem Klima in Norddeutschland. || Ich beschäftige mich in meiner Hausarbeit mit dem Klima in Norddeutschland. | Dönem ödevimde Kuzey Almanya'daki iklimle uğraşıyorum.
+v177 | Diese Wohnung eignet sich nicht für eine WG, weil sie nur zwei Zimmer hat. || Weil sie nur zwei Zimmer hat, eignet sich diese Wohnung nicht für eine WG. | Bu daire sadece iki odası olduğu için WG için uygun değil.
+v127 | Bevor wir den Mietvertrag unterschreiben, möchten wir die Wohnung noch einmal besichtigen. || Wir möchten die Wohnung noch einmal besichtigen, bevor wir den Mietvertrag unterschreiben. | Kira sözleşmesini imzalamadan önce daireyi bir kez daha görmek istiyoruz.
+v561 | Ich habe den Arbeitsvertrag erst unterschrieben, nachdem ich ihn genau gelesen hatte. | İş sözleşmesini ancak dikkatlice okuduktan sonra imzaladım.
+v197 | Als ich in die WG eingezogen bin, kannte ich noch niemanden in Bremen. || Als ich in die WG eingezogen bin, kannte ich in Bremen noch niemanden. | WG'ye taşındığımda Bremen'de henüz kimseyi tanımıyordum.
+v125 | Weil die Nachbarn jede Nacht laut sind, habe ich mich beim Vermieter beschwert. || Ich habe mich beim Vermieter beschwert, weil die Nachbarn jede Nacht laut sind. | Komşular her gece gürültü yaptığı için ev sahibine şikâyet ettim.
+v643 | Nach dem Studium möchte ich Ingenieur werden und in Deutschland arbeiten. || Ich möchte nach dem Studium Ingenieur werden und in Deutschland arbeiten. | Üniversiteden sonra mühendis olmak ve Almanya'da çalışmak istiyorum.
+v173 | Im Studentenwohnheim darf man nach 22 Uhr keine laute Musik hören. || Nach 22 Uhr darf man im Studentenwohnheim keine laute Musik hören. | Öğrenci yurdunda saat 22'den sonra yüksek sesle müzik dinlemek yasak.
+v527 | Gestern habe ich in der Mensa zufällig eine Kommilitonin aus meinem Deutschkurs getroffen. || Ich habe gestern in der Mensa zufällig eine Kommilitonin aus meinem Deutschkurs getroffen. | Dün yemekhanede Almanca kursumdan bir (kız) sınıf arkadaşıma tesadüfen rastladım.
+v243 | Wenn das Wetter schön ist, fahre ich mit dem Fahrrad an der Weser entlang zur Uni. || Ich fahre mit dem Fahrrad an der Weser entlang zur Uni, wenn das Wetter schön ist. | Hava güzel olduğunda Weser boyunca bisikletle üniversiteye giderim.
+v242 | Weil die Mensa am Wochenende geschlossen ist, esse ich samstags zu Hause. || Samstags esse ich zu Hause, weil die Mensa am Wochenende geschlossen ist. | Yemekhane hafta sonu kapalı olduğu için cumartesileri evde yemek yiyorum.
+v346 | Meine Eltern kommen im Dezember aus der Türkei, um mich in Bremen zu besuchen. || Im Dezember kommen meine Eltern aus der Türkei, um mich in Bremen zu besuchen. | Annemle babam beni Bremen'de ziyaret etmek için aralıkta Türkiye'den geliyor.
+v347 | Leider konnte ich gestern nicht zum Kurs kommen, weil ich krank war. || Ich konnte gestern leider nicht zum Kurs kommen, weil ich krank war. | Maalesef dün hasta olduğum için kursa gelemedim.
+v610 | Am Anfang habe ich den Dozenten kaum verstanden, weil er so schnell spricht. || Am Anfang verstand ich den Dozenten kaum, weil er so schnell spricht. | Başta öğretim görevlisini neredeyse hiç anlamıyordum, çünkü çok hızlı konuşuyor.
+v157 | Kannst du mir bitte die Unterlagen bringen, die ich auf dem Tisch vergessen habe? | Masada unuttuğum belgeleri bana getirebilir misin lütfen?
+v148 | Nach dem Vorbereitungsstudium möchte ich in Bremen bleiben und Informatik studieren. | Hazırlık programından sonra Bremen'de kalıp bilgisayar bilimi okumak istiyorum.
+v425 | Ich hatte nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. || Ich habe nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. | Bremen'de ev aramanın bu kadar zor olacağını beklemiyordum.
+v423 | Mein Vermieter hat auf meine E-Mail wegen der kaputten Heizung noch nicht reagiert. || Mein Vermieter hat noch nicht auf meine E-Mail wegen der kaputten Heizung reagiert. | Ev sahibim bozuk kalorifer yüzünden attığım e-postaya henüz dönüş yapmadı.
+v069 | Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. || Man muss für die Anmeldung beim Bürgeramt ein langes Formular ausfüllen. | Vatandaşlık dairesine kayıt için uzun bir form doldurmak gerekiyor.
+v089 | Ich habe bei der Ausländerbehörde eine Aufenthaltserlaubnis für das Studium beantragt. || Ich habe eine Aufenthaltserlaubnis für das Studium bei der Ausländerbehörde beantragt. | Yabancılar Dairesi'ne öğrenim için oturma izni başvurusunda bulundum.
+v420 | Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. || Ich habe mich gründlich rasiert, weil ich heute ein Vorstellungsgespräch habe. | Bugün bir iş görüşmem olduğu için güzelce tıraş oldum.
+v592 | Beim Fußballspielen hat sich mein Mitbewohner am Knie verletzt. || Mein Mitbewohner hat sich beim Fußballspielen am Knie verletzt. | Ev arkadaşım futbol oynarken dizinden yaralandı.
+v590 | Am ersten Tag habe ich mich auf dem Campus verlaufen und bin zu spät gekommen. || Ich habe mich am ersten Tag auf dem Campus verlaufen und bin zu spät gekommen. | İlk gün kampüste yolumu kaybettim ve geç kaldım.
+v509 | Meine Mitbewohner streiten sich oft darüber, wer den Müll rausbringen muss. | Ev arkadaşlarım çöpü kimin çıkaracağı konusunda sık sık tartışıyor.
+v030 | Bis Ende Oktober muss ich mich für die Sprachprüfung an der Uni anmelden. || Ich muss mich bis Ende Oktober für die Sprachprüfung an der Uni anmelden. | Ekim sonuna kadar üniversitedeki dil sınavına kaydolmam gerekiyor.
+v589 | Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit dem Rad. || Man kann sich morgens nicht auf den Bus verlassen, deshalb fahre ich mit dem Rad. || Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit dem Fahrrad. | Sabahları otobüse güvenilmez, bu yüzden bisikletle gidiyorum.
+v278 | Viele Studenten fürchten sich vor der mündlichen Prüfung, weil sie frei sprechen müssen. | Birçok öğrenci serbest konuşmak zorunda oldukları için sözlü sınavdan korkuyor.
+v256 | Erst an der Kasse habe ich festgestellt, dass ich mein Portemonnaie vergessen hatte. || Ich habe erst an der Kasse festgestellt, dass ich mein Portemonnaie vergessen hatte. || Erst an der Kasse habe ich festgestellt, dass ich mein Portemonnaie vergessen habe. | Cüzdanımı unuttuğumu ancak kasada fark ettim.
+v184 | Nach einer langen Diskussion haben wir uns auf einen gemeinsamen Termin geeinigt. || Wir haben uns nach einer langen Diskussion auf einen gemeinsamen Termin geeinigt. | Uzun bir tartışmadan sonra ortak bir tarihte anlaştık.
+v232 | Eine gute Wörterbuch-App erleichtert mir das Lesen von deutschen Texten. || Eine gute Wörterbuch-App erleichtert mir das Lesen deutscher Texte. | İyi bir sözlük uygulaması Almanca metin okumayı bana kolaylaştırıyor.
+v142 | Mit der Quittung kann ich beweisen, dass ich die Jacke hier gekauft habe. || Ich kann mit der Quittung beweisen, dass ich die Jacke hier gekauft habe. | Fişle ceketi burada satın aldığımı kanıtlayabilirim.
+v063 | Mein Mitbewohner regt sich auf, wenn jemand sein Essen aus dem Kühlschrank nimmt. || Wenn jemand sein Essen aus dem Kühlschrank nimmt, regt sich mein Mitbewohner auf. | Biri buzdolabından yemeğini alınca ev arkadaşım sinirleniyor.
+v466 | Als der Dozent nach unserer Meinung fragte, schwiegen alle im Seminar. || Als der Dozent nach unserer Meinung gefragt hat, haben alle im Seminar geschwiegen. | Öğretim görevlisi fikrimizi sorduğunda seminerdeki herkes sustu.
+v545 | Du übertreibst, wenn du sagst, dass das Essen in der Mensa schrecklich ist. || Wenn du sagst, dass das Essen in der Mensa schrecklich ist, übertreibst du. | Yemekhanedeki yemeğin berbat olduğunu söylüyorsan abartıyorsun.
+v584 | Wenn wir regelmäßig lüften, können wir Schimmel in der Wohnung verhindern. || Wir können Schimmel in der Wohnung verhindern, wenn wir regelmäßig lüften. | Düzenli havalandırırsak dairede küflenmeyi önleyebiliriz.
+v262 | Folgen Sie den Schildern, dann finden Sie das Büro der Ausländerbehörde. | Tabelaları takip edin, o zaman Yabancılar Dairesi'nin bürosunu bulursunuz.
+v211 | Durch das Missverständnis ist zwischen mir und meinem Mitbewohner ein Streit entstanden. || Wegen des Missverständnisses ist zwischen mir und meinem Mitbewohner ein Streit entstanden. | Yanlış anlaşılma yüzünden ev arkadaşımla aramda bir kavga çıktı.
+v140 | Nach dem langen Tag in der Bibliothek muss ich mich ein bisschen bewegen. | Kütüphanede geçen uzun günden sonra biraz hareket etmem gerekiyor.
+v534 | Was kann man tun, wenn der Vermieter die Kaution nicht zurückzahlt? | Ev sahibi depozitoyu geri ödemezse ne yapılabilir?

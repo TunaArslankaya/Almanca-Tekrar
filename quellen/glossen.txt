@@ -3997,9 +3997,9 @@ Mit etwas Geduld hat sich das Kind schnell beruhigt. | die Geduld = sabır; schn
 Wenn Sie ein Problem haben, wenden Sie sich bitte an das Amt. | das Problem = sorun; das Amt = kurum
 Er hat sich lange um einen Studienplatz bemüht. | der Studienplatz = üniversite kontenjanı
 Ich rege mich über die Kälte im Büro auf. | die Kälte = soğuk; das Büro = ofis
-Der Arzt konnte die Krankheit mit einem Test beweisen. | die Krankheit = hastalık; der Test = test
-Du übertreibst, die Kunst war gar nicht so teuer! | die Kunst = sanat; gar nicht = hiç değil
-Im Museum muss man nicht schweigen, aber leise sprechen. | das Museum = müze; leise = sessiz
+Mit dem Foto kann ich beweisen, dass ich dort war. | die Krankheit = hastalık; der Test = test
+Du übertreibst, das Bild war gar nicht so teuer! | die Kunst = sanat; gar nicht = hiç değil
+Im Museum muss man nicht schweigen, aber man sollte leise sprechen. | das Museum = müze; leise = sessiz
 Wegen der Kälte verzichten wir auf den Ausflug. | wegen = yüzünden; der Ausflug = gezi
 Die Nachbarn haben sich gestern wegen der Miete gestritten. | der Nachbar = komşu; die Miete = kira
 Das Zimmer ist eher klein, aber sehr hell. | hell = aydınlık
@@ -4168,3 +4168,218 @@ Vorsicht, die Straße ist im Winter oft glatt! | die Vorsicht = dikkat; die Stra
 Ihre Haut ist ganz glatt und weich. | die Haut = cilt; weich = yumuşak
 Früher durfte man hier nicht rauchen. | früher = eskiden; rauchen = sigara içmek
 Als Kind durfte ich nie lange fernsehen. | das Kind = çocuk; nie = hiç; lange = uzun süre; fernsehen = televizyon izlemek
+Weil ich seit einer Woche Fieber habe, hat mich die Ärztin gründlich untersucht. | seit = -den beri; das Fieber = ateş; gründlich = iyice; die Ärztin = (kadın) doktor
+Der Arzt hat mir ein Medikament verschrieben, das ich dreimal am Tag nehmen muss. | das Medikament = ilaç; dreimal = üç kez
+Obwohl die Heizung an ist, friere ich in meinem Zimmer im Studentenwohnheim. | obwohl = -diği hâlde; die Heizung = kalorifer; an sein = açık olmak; das Studentenwohnheim = öğrenci yurdu
+Als es plötzlich laut donnerte, lief der Hund unter das Bett. | plötzlich = birden; laut = yüksek sesle; laufen = koşmak; das Bett = yatak
+Wenn es draußen blitzt, sollte man nicht unter einem Baum stehen. | der Baum = ağaç; draußen = dışarıda; man = insan (genel özne)
+Gestern hat es so stark gehagelt, dass wir nicht nach Hause fahren konnten. | so … dass = o kadar … ki; stark = şiddetli
+Der neue Mitbewohner scheint nett zu sein, aber er spricht wenig Deutsch. | der Mitbewohner = ev arkadaşı; nett = hoş, iyi
+Weil es den ganzen Tag geregnet hat, haben wir in der WG Filme gesehen. | die WG = ortak öğrenci evi; ganz = bütün
+Wenn es morgen schneit, fahre ich nicht mit dem Fahrrad zur Uni. | das Fahrrad = bisiklet; die Uni = üniversite
+Ich kann mir gut vorstellen, nach dem Studium in Bremen zu arbeiten. | das Studium = üniversite öğrenimi; gut = rahatlıkla, iyi
+Vor der Prüfung war ich sehr nervös, aber dann habe ich mich beruhigt. | die Prüfung = sınav; nervös = gergin; dann = sonra
+Ich habe mich gewundert, dass die Miete in Bremen so hoch ist. | die Miete = kira; hoch = yüksek
+Wenn Sie Fragen zur Aufenthaltserlaubnis haben, wenden Sie sich bitte an die Ausländerbehörde. | die Aufenthaltserlaubnis = oturma izni; die Ausländerbehörde = Yabancılar Dairesi; die Frage = soru
+Ich wollte meinem Dozenten nicht widersprechen, obwohl ich eine andere Meinung hatte. | der Dozent = öğretim görevlisi; die Meinung = fikir; obwohl = -diği hâlde
+Meine Mitbewohnerin hat vorgeschlagen, dass wir jeden Samstag zusammen die Küche putzen. | die Mitbewohnerin = (kadın) ev arkadaşı; die Küche = mutfak; putzen = temizlemek; zusammen = birlikte
+Alle in der WG haben zugestimmt, dass wir einen Putzplan machen. | die WG = ortak öğrenci evi; der Putzplan = temizlik planı
+Um Geld zu sparen, verzichte ich diesen Monat auf das Essen im Restaurant. | sparen = biriktirmek, tasarruf etmek; um … zu = -mek için; der Monat = ay
+Ich bemühe mich sehr, im Deutschkurs jeden Tag nur Deutsch zu sprechen. | der Deutschkurs = Almanca kursu
+Manchmal zweifle ich, ob ich die B1-Prüfung im Sommer schaffe. | manchmal = bazen; schaffen = başarmak, geçmek; ob = -ip -mediğini
+Im Seminar hat jeder Student über die Situation in seinem Heimatland berichtet. | das Seminar = seminer; die Situation = durum; das Heimatland = memleket, anavatan
+In meiner Hausarbeit beschäftige ich mich mit dem Klima in Norddeutschland. | die Hausarbeit = dönem ödevi; das Klima = iklim
+Diese Wohnung eignet sich nicht für eine WG, weil sie nur zwei Zimmer hat. | die WG = ortak öğrenci evi; das Zimmer = oda
+Bevor wir den Mietvertrag unterschreiben, möchten wir die Wohnung noch einmal besichtigen. | der Mietvertrag = kira sözleşmesi; unterschreiben = imzalamak; bevor = -meden önce
+Ich habe den Arbeitsvertrag erst unterschrieben, nachdem ich ihn genau gelesen hatte. | der Arbeitsvertrag = iş sözleşmesi; genau = dikkatlice; nachdem = -dikten sonra; erst = ancak
+Als ich in die WG eingezogen bin, kannte ich noch niemanden in Bremen. | kennen = tanımak; niemand = hiç kimse
+Weil die Nachbarn jede Nacht laut sind, habe ich mich beim Vermieter beschwert. | der Nachbar = komşu; laut = gürültülü; der Vermieter = ev sahibi
+Nach dem Studium möchte ich Ingenieur werden und in Deutschland arbeiten. | der Ingenieur = mühendis; das Studium = üniversite öğrenimi
+Im Studentenwohnheim darf man nach 22 Uhr keine laute Musik hören. | das Studentenwohnheim = öğrenci yurdu; laut = yüksek sesli
+Gestern habe ich in der Mensa zufällig eine Kommilitonin aus meinem Deutschkurs getroffen. | die Mensa = üniversite yemekhanesi; zufällig = tesadüfen; die Kommilitonin = (kız) sınıf arkadaşı
+Wenn das Wetter schön ist, fahre ich mit dem Fahrrad an der Weser entlang zur Uni. | das Fahrrad = bisiklet; entlang = boyunca; die Uni = üniversite
+Weil die Mensa am Wochenende geschlossen ist, esse ich samstags zu Hause. | die Mensa = üniversite yemekhanesi; geschlossen = kapalı; samstags = cumartesileri
+Meine Eltern kommen im Dezember aus der Türkei, um mich in Bremen zu besuchen. | besuchen = ziyaret etmek; um … zu = -mek için
+Leider konnte ich gestern nicht zum Kurs kommen, weil ich krank war. | leider = maalesef; krank = hasta
+Am Anfang habe ich den Dozenten kaum verstanden, weil er so schnell spricht. | am Anfang = başta; kaum = neredeyse hiç; der Dozent = öğretim görevlisi
+Kannst du mir bitte die Unterlagen bringen, die ich auf dem Tisch vergessen habe? | die Unterlagen = belgeler; vergessen = unutmak; der Tisch = masa
+Nach dem Vorbereitungsstudium möchte ich in Bremen bleiben und Informatik studieren. | das Vorbereitungsstudium = üniversite hazırlık programı; die Informatik = bilgisayar bilimi
+Ich hatte nicht damit gerechnet, dass die Wohnungssuche in Bremen so schwierig ist. | die Wohnungssuche = ev arama; schwierig = zor
+Mein Vermieter hat auf meine E-Mail wegen der kaputten Heizung noch nicht reagiert. | der Vermieter = ev sahibi; kaputt = bozuk; die Heizung = kalorifer
+Für die Anmeldung beim Bürgeramt muss man ein langes Formular ausfüllen. | die Anmeldung = kayıt; das Bürgeramt = vatandaşlık dairesi; das Formular = form
+Ich habe bei der Ausländerbehörde eine Aufenthaltserlaubnis für das Studium beantragt. | die Ausländerbehörde = Yabancılar Dairesi; die Aufenthaltserlaubnis = oturma izni
+Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. | das Vorstellungsgespräch = iş görüşmesi; gründlich = iyice
+Beim Fußballspielen hat sich mein Mitbewohner am Knie verletzt. | das Knie = diz; der Mitbewohner = ev arkadaşı
+Am ersten Tag habe ich mich auf dem Campus verlaufen und bin zu spät gekommen. | der Campus = kampüs; zu spät = geç
+Meine Mitbewohner streiten sich oft darüber, wer den Müll rausbringen muss. | der Müll = çöp; rausbringen = dışarı çıkarmak; darüber = bu konuda
+Bis Ende Oktober muss ich mich für die Sprachprüfung an der Uni anmelden. | die Sprachprüfung = dil sınavı; Ende Oktober = ekim sonu
+Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit dem Rad. | deshalb = bu yüzden; das Rad = bisiklet
+Viele Studenten fürchten sich vor der mündlichen Prüfung, weil sie frei sprechen müssen. | mündlich = sözlü; frei sprechen = serbest konuşmak
+Erst an der Kasse habe ich festgestellt, dass ich mein Portemonnaie vergessen hatte. | die Kasse = kasa; das Portemonnaie = cüzdan; erst = ancak
+Nach einer langen Diskussion haben wir uns auf einen gemeinsamen Termin geeinigt. | die Diskussion = tartışma; gemeinsam = ortak; der Termin = randevu, tarih
+Eine gute Wörterbuch-App erleichtert mir das Lesen von deutschen Texten. | die App = uygulama; das Wörterbuch = sözlük; der Text = metin
+Mit der Quittung kann ich beweisen, dass ich die Jacke hier gekauft habe. | die Quittung = fiş, makbuz; die Jacke = ceket
+Mein Mitbewohner regt sich auf, wenn jemand sein Essen aus dem Kühlschrank nimmt. | der Kühlschrank = buzdolabı; jemand = biri
+Als der Dozent nach unserer Meinung fragte, schwiegen alle im Seminar. | der Dozent = öğretim görevlisi; die Meinung = fikir; fragen nach = sormak
+Du übertreibst, wenn du sagst, dass das Essen in der Mensa schrecklich ist. | die Mensa = üniversite yemekhanesi; schrecklich = berbat, korkunç
+Wenn wir regelmäßig lüften, können wir Schimmel in der Wohnung verhindern. | regelmäßig = düzenli; lüften = havalandırmak; der Schimmel = küf
+Folgen Sie den Schildern, dann finden Sie das Büro der Ausländerbehörde. | das Schild = tabela; die Ausländerbehörde = Yabancılar Dairesi
+Durch das Missverständnis ist zwischen mir und meinem Mitbewohner ein Streit entstanden. | das Missverständnis = yanlış anlaşılma; der Streit = kavga; durch = yüzünden
+Nach dem langen Tag in der Bibliothek muss ich mich ein bisschen bewegen. | die Bibliothek = kütüphane; ein bisschen = biraz
+Was kann man tun, wenn der Vermieter die Kaution nicht zurückzahlt? | die Kaution = depozito; zurückzahlen = geri ödemek; der Vermieter = ev sahibi
+Seit ich jeden Tag am Laptop sitze, habe ich oft Schmerzen im Nacken. | der Nacken = ense, boyun; der Laptop = dizüstü bilgisayar; seit = -den beri
+Die Praxis ist heute geschlossen, deshalb muss ich morgen noch einmal anrufen. | geschlossen = kapalı; anrufen = (telefonla) aramak; deshalb = bu yüzden
+Ich brauche dringend einen Termin bei der Ausländerbehörde, weil mein Visum bald abläuft. | dringend = acilen; die Ausländerbehörde = Yabancılar Dairesi; ablaufen = süresi dolmak; das Visum = vize
+Am Empfang hat man mich gefragt, ob ich meine Versichertenkarte dabeihabe. | der Empfang = danışma, resepsiyon; dabeihaben = yanında bulundurmak; ob = -ip -mediğini
+Der Arzt hat mir ein Rezept gegeben, das ich in der Apotheke einlösen kann. | die Apotheke = eczane; einlösen = (reçeteyi) kullanmak
+Am Sonntag ist nur eine Apotheke in der Nähe geöffnet, die Notdienst hat. | in der Nähe = yakında; geöffnet = açık; der Notdienst = nöbet (acil hizmet)
+Wenn die Schmerzen nicht besser werden, dürfen Sie noch eine Tablette nehmen. | der Schmerz = ağrı; besser werden = iyileşmek, hafiflemek
+Laut Wettervorhersage soll es morgen regnen, deshalb nehme ich einen Schirm mit. | laut = -e göre; der Schirm = şemsiye; mitnehmen = yanına almak
+Im Wetterbericht haben sie gesagt, dass es am Wochenende sehr windig wird. | windig = rüzgârlı
+Weil die Wohnung so feucht ist, gibt es im Bad schon Schimmel. | das Bad = banyo; der Schimmel = küf
+Ich bin die Kälte in Norddeutschland noch nicht gewohnt. | gewohnt sein = alışık olmak
+Im Sommer sitzen die Studenten gern im Schatten der Bäume vor der Bibliothek. | der Baum = ağaç; die Bibliothek = kütüphane
+Wegen des dichten Nebels ist mein Flug nach Istanbul zwei Stunden später gestartet. | dicht = yoğun; der Flug = uçuş; starten = kalkmak (uçak)
+Bei dieser Hitze kann ich mich in der Bibliothek kaum konzentrieren. | sich konzentrieren = konsantre olmak; kaum = neredeyse hiç
+In Bremen sind die Winter meistens mild, aber es regnet sehr oft. | meistens = çoğunlukla
+Wegen des Sturms sind heute viele Züge zwischen Bremen und Hamburg ausgefallen. | der Zug = tren; ausfallen = iptal olmak
+Fahr heute lieber mit dem Bus, die Radwege sind wegen des Eises sehr glatt. | der Radweg = bisiklet yolu; das Eis = buz; lieber = tercihen, daha iyi
+Im Winter liegt morgens oft Eis auf den Autos, deshalb muss ich früher aufstehen. | aufstehen = kalkmak; früher = daha erken
+Der Blitz hat in einen Baum im Bürgerpark eingeschlagen. | einschlagen = (yıldırım) düşmek; der Baum = ağaç
+Der Donner war so laut, dass das Baby in der Nachbarwohnung aufgewacht ist. | so … dass = o kadar … ki; aufwachen = uyanmak; die Nachbarwohnung = komşu daire
+Als wir gestern am Strand waren, hat es plötzlich ein starkes Gewitter gegeben. | der Strand = sahil, plaj; plötzlich = birden
+Ich habe meinen Schirm im Bus vergessen und bin ganz nass geworden. | vergessen = unutmak; nass werden = ıslanmak
+Öffne bitte das Fenster, hier im Zimmer ist die Luft ganz schlecht. | öffnen = açmak; das Fenster = pencere
+Im Winter ist die Luft in der Wohnung oft so trocken, dass ich Kopfschmerzen bekomme. | die Luft = hava; Kopfschmerzen bekommen = başı ağrımak
+Heute Nacht sinken die Temperaturen unter null Grad, also zieh dich warm an. | sinken = düşmek; unter null = sıfırın altı; sich warm anziehen = sıkı giyinmek
+Meine Schuhe sind vom Regen noch ganz nass, deshalb ziehe ich heute Stiefel an. | der Stiefel = bot, çizme; anziehen = giymek
+Abends wird es schon kühl, du solltest eine Jacke mitnehmen. | mitnehmen = yanına almak; die Jacke = ceket
+Im Frühjahr möchte ich mich an der Uni Bremen um einen Studienplatz bewerben. | sich bewerben um = başvurmak; der Studienplatz = üniversite kontenjanı
+Mit dem Fahrrad zu fahren ist schwer, wenn der Wind so stark ist. | stark = sert, güçlü; schwer = zor
+Obwohl das Wetter schlecht war, sind wir am Sonntag an die Nordsee gefahren. | obwohl = -diği hâlde; die Nordsee = Kuzey Denizi
+Als ich zum ersten Mal Schnee in Bremen gesehen habe, habe ich sofort Fotos gemacht. | zum ersten Mal = ilk kez; sofort = hemen
+Bei Regen fahre ich nicht mit dem Fahrrad, sondern nehme die Straßenbahn. | sondern = bilakis, onun yerine; die Straßenbahn = tramvay
+Ohne die Erlaubnis des Vermieters dürfen wir keine Haustiere in der Wohnung haben. | der Vermieter = ev sahibi; das Haustier = evcil hayvan
+Die Entscheidung, in Deutschland zu studieren, ist mir nicht leichtgefallen. | leichtfallen = kolay gelmek
+Nach dem Deutschkurs am Vormittag habe ich oft keine Energie mehr für die Uni. | der Vormittag = öğleden önce
+Das Verhalten meines Mitbewohners stört mich, weil er nie die Küche putzt. | stören = rahatsız etmek; der Mitbewohner = ev arkadaşı; nie = hiç
+Für ihre Karriere ist sie nach Deutschland gekommen, obwohl ihre Familie in der Türkei lebt. | obwohl = -diği hâlde
+Der Dozent hat meine Hausarbeit gelobt, aber auch etwas Kritik geübt. | loben = övmek; Kritik üben = eleştirmek; die Hausarbeit = dönem ödevi
+Die Kosten für Strom und Internet teilen wir in der WG durch vier. | der Strom = elektrik; teilen = bölmek, paylaşmak
+Die Bushaltestelle ist da drüben, direkt gegenüber vom Supermarkt. | die Bushaltestelle = otobüs durağı; gegenüber = karşısında
+In meiner Kindheit habe ich nie gedacht, dass ich einmal in Deutschland leben werde. | einmal = bir gün; nie = hiç
+Weil es draußen so kalt ist, machen wir die Party lieber drinnen. | draußen = dışarıda; lieber = tercihen
+Meine Lehrerin hat mir den Rat gegeben, früh mit der Wohnungssuche anzufangen. | die Wohnungssuche = ev arama; anfangen = başlamak
+Wegen einer Änderung im Stundenplan fällt mein Kurs am Mittwoch aus. | der Stundenplan = ders programı; ausfallen = iptal olmak
+Mein Nebenjob ist flexibel, deshalb kann ich am Vormittag zum Deutschkurs gehen. | der Nebenjob = yan iş; der Vormittag = öğleden önce
+In unserer WG gibt es die Regel, dass jeder sein Geschirr sofort abwäscht. | das Geschirr = bulaşık; abwaschen = (bulaşık) yıkamak
+Ich habe ihm nicht die Wahrheit gesagt, weil ich ihn nicht verletzen wollte. | verletzen = kırmak, incitmek
+Der Junge war so frech zu der Kassiererin, dass seine Mutter sich entschuldigt hat. | die Kassiererin = (kadın) kasiyer; sich entschuldigen = özür dilemek
+Im Deutschkurs mussten wir ein kurzes Gedicht auswendig lernen und vortragen. | auswendig lernen = ezberlemek; vortragen = (sesli) okumak, sunmak
+Beim Deutschlernen braucht man viel Geduld, weil man nicht sofort alles versteht. | sofort = hemen
+Eine Wohnung im Zentrum kostet fast doppelt so viel wie ein Zimmer im Wohnheim. | das Zentrum = merkez; das Wohnheim = yurt
+Mein Visum läuft im März ab, deshalb habe ich schon einen Termin gemacht. | ablaufen = süresi dolmak; der Termin = randevu
+Wenn im Wohnheim etwas kaputt ist, muss man dem Hausmeister eine E-Mail schreiben. | das Wohnheim = yurt; kaputt = bozuk
+Nach dem Umzug war in meinem Zimmer alles durcheinander, und ich habe nichts gefunden. | der Umzug = taşınma
+Obwohl ich mich in Bremen wohlfühle, vermisse ich manchmal meine Heimat. | sich wohlfühlen = kendini iyi hissetmek; vermissen = özlemek
+Jeden Morgen jogge ich die Weser entlang bis zur Uni. | joggen = koşu yapmak
+Studenten können am Mittwoch kostenlos ins Museum gehen und sich moderne Kunst ansehen. | kostenlos = ücretsiz; sich ansehen = bakmak, incelemek
+Ich möchte bis zum Ende des Jahres fließend Deutsch sprechen können. | das Ende = son
+Um meinen Wortschatz zu verbessern, lese ich jeden Abend ein paar Seiten in einem deutschen Roman. | der Wortschatz = kelime dağarcığı; verbessern = geliştirmek; die Seite = sayfa
+Im Seminar müssen wir jede Woche einen Text lesen und darüber diskutieren. | diskutieren = tartışmak; der Text = metin
+In so einer Situation sollte man ruhig bleiben und zuerst die Polizei anrufen. | ruhig = sakin; zuerst = önce
+Wir haben endlich eine Wohnung gefunden, die nicht zu weit von der Uni entfernt ist. | endlich = sonunda; entfernt = uzak
+Ich habe auf eine Anzeige für ein WG-Zimmer geantwortet, aber noch keine Antwort bekommen. | das WG-Zimmer = ortak evde oda; antworten = cevap vermek
+Das Zimmer ist klein, aber es hat einen Balkon mit Blick auf den Park. | der Blick = manzara, bakış
+Die Miete für mein WG-Zimmer beträgt 420 Euro im Monat, inklusive Nebenkosten. | betragen = tutmak (miktar); die Nebenkosten = yan giderler; inklusive = dahil
+Der Vermieter hat versprochen, dass er die kaputte Heizung bis Freitag reparieren lässt. | versprechen = söz vermek; reparieren lassen = tamir ettirmek; die Heizung = kalorifer
+Bevor Sie den Vertrag unterschreiben, sollten Sie alles genau lesen. | unterschreiben = imzalamak; genau = dikkatlice
+Der Service in diesem Café ist sehr freundlich, deshalb lerne ich oft hier. | freundlich = güler yüzlü
+Nach dem Gespräch mit meiner Familie war ich fest entschlossen, in Bremen zu studieren. | das Gespräch = konuşma, görüşme; fest = kesin
+Nach der Operation musste mein Vater zwei Wochen im Krankenhaus bleiben. | das Krankenhaus = hastane
+Am folgenden Morgen habe ich sofort die Ausländerbehörde angerufen. | anrufen = (telefonla) aramak; die Ausländerbehörde = Yabancılar Dairesi
+Für meine Präsentation im Seminar habe ich drei Tage lang Informationen gesammelt. | sammeln = toplamak; die Information = bilgi
+In unserem Projekt untersuchen wir, wie Studenten in Bremen wohnen. | untersuchen = incelemek
+Mein Antrag auf Wohngeld wurde abgelehnt, weil ich die Unterlagen zu spät abgegeben habe. | das Wohngeld = kira yardımı; ablehnen = reddetmek; die Unterlagen = belgeler; abgeben = teslim etmek
+Nach der Anmeldung beim Bürgeramt bekommt man eine Bestätigung über den Wohnsitz. | das Bürgeramt = vatandaşlık dairesi; die Bestätigung = onay belgesi; der Wohnsitz = ikametgâh
+Auf dem Amt musste ich über eine Stunde warten, bis ich drankam. | drankommen = sırası gelmek; bis = -ene kadar
+Wenn Sie das Formular nicht verstehen, hilft Ihnen die Kollegin am Schalter. | der Schalter = gişe; die Kollegin = (kadın) görevli, meslektaş
+Ich habe gemerkt, dass mein Pass abgelaufen ist, als ich das Visum beantragen wollte. | merken = fark etmek; ablaufen = süresi dolmak; beantragen = başvurmak
+Der Antrag ist ohne Ihre Unterschrift leider nicht gültig. | gültig = geçerli; der Antrag = başvuru
+Ich brauche eine Bestätigung von der Uni, dass ich im Vorbereitungsstudium eingeschrieben bin. | eingeschrieben sein = kayıtlı olmak; das Vorbereitungsstudium = hazırlık programı
+Innerhalb von zwei Wochen muss man seinen neuen Wohnsitz beim Bürgeramt anmelden. | innerhalb = içinde; anmelden = kaydettirmek, bildirmek; das Bürgeramt = vatandaşlık dairesi
+Bei deutschen Behörden braucht man für fast alles einen Termin und viele Unterlagen. | die Unterlagen = belgeler
+Nach dem Unfall musste ich bei der Polizei eine Aussage machen. | der Unfall = kaza
+Im ersten Semester habe ich mich oft einsam gefühlt, aber jetzt habe ich viele Freunde. | sich fühlen = hissetmek; einsam = yalnız
+An der Universität Bremen gibt es viele Angebote für internationale Studenten. | das Angebot = imkân, teklif; international = uluslararası
+Wenn ich etwas nicht verstehe, frage ich den Dozenten nach der Vorlesung. | die Vorlesung = (üniversitede) ders
+Mein erstes Referat auf Deutsch war schwierig, aber die Dozentin war sehr zufrieden. | zufrieden = memnun; die Dozentin = (kadın) öğretim görevlisi
+Ich lerne jeden Tag zwei Stunden, damit ich die Prüfung im Sommer bestehe. | damit = -sin diye; bestehen = (sınavı) geçmek
+Ein Kommilitone aus Syrien hat mir erklärt, wie die Ausleihe in der Bibliothek funktioniert. | erklären = açıklamak; die Ausleihe = ödünç verme; funktionieren = işlemek
+In der Mensa gibt es jeden Tag auch ein vegetarisches Gericht für drei Euro. | vegetarisch = vejetaryen; das Gericht = yemek
+Während der Prüfungszeit ist die Bibliothek bis Mitternacht geöffnet. | während = süresince; die Prüfungszeit = sınav dönemi; die Mitternacht = gece yarısı
+Ich kaufe Kaffee nur, wenn er im Sonderangebot ist, weil er sonst zu teuer ist. | sonst = aksi hâlde, yoksa
+In vielen kleinen Bäckereien kann man nur mit Bargeld bezahlen. | die Bäckerei = fırın
+Ich nehme immer eine Tüte aus Stoff mit, wenn ich einkaufen gehe. | der Stoff = kumaş; einkaufen = alışveriş yapmak
+Heben Sie die Quittung auf, falls Sie das Gerät später umtauschen möchten. | aufheben = saklamak; falls = -rsa diye; umtauschen = (ürünü) değiştirmek; das Gerät = cihaz
+Mit meiner Clique aus dem Deutschkurs gehe ich jeden Freitag ins Kino. | der Deutschkurs = Almanca kursu
+Weil ich die Stromrechnung vergessen habe, habe ich gestern eine Mahnung bekommen. | die Stromrechnung = elektrik faturası
+Meine Erwartungen an das Studium in Deutschland waren am Anfang zu hoch. | das Studium = üniversite öğrenimi; am Anfang = başta
+Seine Behauptung, dass alle Deutschen unfreundlich sind, ist einfach falsch. | unfreundlich = kaba, güler yüzsüz; einfach = düpedüz
+Im Seminar diskutieren wir oft über Politik und die Situation in unseren Heimatländern. | diskutieren = tartışmak; das Heimatland = memleket
+Durch ein Missverständnis bin ich zum falschen Termin in die Praxis gekommen. | durch = yüzünden; der Termin = randevu; die Praxis = muayenehane
+Mein Ziel ist es, im nächsten Jahr ohne Probleme Vorlesungen auf Deutsch zu verstehen. | die Vorlesung = (üniversitede) ders
+In der Diskussion über die neuen WG-Regeln hatte jeder eine andere Meinung. | die Regel = kural; die Meinung = fikir
+Ich habe eben eine E-Mail von der Ausländerbehörde bekommen. | die Ausländerbehörde = Yabancılar Dairesi
+Das Goethe-Zertifikat wird weltweit anerkannt, deshalb ist es für meine Bewerbung wichtig. | anerkennen = (resmî olarak) tanımak; die Bewerbung = başvuru
+Auf jeden Fall solltest du deinen Mietvertrag genau lesen, bevor du unterschreibst. | auf jeden Fall = mutlaka; der Mietvertrag = kira sözleşmesi
+Es ist anstrengend, gleichzeitig zu arbeiten und für die Prüfung zu lernen. | anstrengend = yorucu
+Im Deutschkurs muss man mindestens 80 Prozent der Zeit anwesend sein. | mindestens = en az; das Prozent = yüzde
+Das WG-Zimmer ist schön und hell, allerdings ist es ziemlich weit von der Uni entfernt. | hell = aydınlık; ziemlich = epey; entfernt = uzak
+Ich habe mich bei zwei Firmen beworben und von beiden eine Absage bekommen. | sich bewerben = başvurmak; die Absage = ret cevabı
+Bist du bereit, mir beim Umzug am Samstag zu helfen? | der Umzug = taşınma
+In unserer WG haben wir Respekt voreinander, auch wenn wir sehr verschieden sind. | voreinander = birbirine karşı; verschieden = farklı; auch wenn = -se de
+Wer in einer WG mit Menschen aus vielen Ländern wohnt, braucht viel Toleranz. | wer = … -an kişi
+Ich schätze an meiner besten Freundin vor allem ihre Ehrlichkeit. | schätzen = değer vermek; vor allem = özellikle
+Es ist eine Frage der Gerechtigkeit, dass alle Kinder eine gute Schule besuchen können. | die Frage = mesele, soru
+Während der Pandemie haben viele Studenten aus Solidarität für ältere Nachbarn eingekauft. | die Pandemie = pandemi; einkaufen = alışveriş yapmak
+In vielen Ländern hängt eine gute Bildung leider vom Geld der Eltern ab. | abhängen von = -e bağlı olmak
+Für meine Eltern war eine gute Bildung immer das Wichtigste. | das Wichtigste = en önemli şey
+Bevor ich nach Deutschland kam, hatte ich viele Vorurteile über die Deutschen. | bevor = -meden önce
+In meinem Deutschkurs sind die Studenten aus Europa in der Minderheit. | der Deutschkurs = Almanca kursu
+Für ein gutes Zusammenleben in der WG muss man offen miteinander sprechen. | offen = açıkça; miteinander = birbiriyle
+Der Umgang mit Behörden ist für viele ausländische Studenten am Anfang schwierig. | die Behörde = resmî kurum; ausländisch = yabancı; am Anfang = başta
+Im Wohnheim fühle ich mich als Teil einer großen Gemeinschaft. | der Teil = parça; sich fühlen = hissetmek; das Wohnheim = yurt
+Nach einem langen Tag an der Uni habe ich das Bedürfnis, allein zu sein. | allein = yalnız
+Wenn du in Not bist, kannst du dich jederzeit an mich wenden. | jederzeit = istediğin zaman; sich wenden an = başvurmak
+Mit viel Mühe habe ich endlich ein bezahlbares Zimmer in Bremen gefunden. | bezahlbar = uygun fiyatlı; endlich = sonunda
+Er gibt sich große Mühe, Deutsch ohne Fehler zu sprechen. | der Fehler = hata
+Mein Dozent hat viel Humor, deshalb ist die Vorlesung nie langweilig. | langweilig = sıkıcı; die Vorlesung = (üniversitede) ders; der Dozent = öğretim görevlisi
+Sehr geehrte Damen und Herren, ich möchte mich um einen Praktikumsplatz bewerben. | Damen und Herren = bayanlar baylar; sich bewerben um = başvurmak; der Praktikumsplatz = staj yeri
+Wenn der Vermieter die Kaution nicht zurückzahlt, gehe ich vor Gericht. | die Kaution = depozito; zurückzahlen = geri ödemek; der Vermieter = ev sahibi
+Während der Prüfungszeit bin ich so eingespannt, dass ich kaum Zeit zum Kochen habe. | die Prüfungszeit = sınav dönemi; kaum = neredeyse hiç
+Meine Mitbewohnerin studiert ebenfalls in Bremen, aber an der Hochschule. | die Hochschule = yüksekokul; die Mitbewohnerin = (kadın) ev arkadaşı
+Ich lerne eher abends, weil ich mich morgens nicht gut konzentrieren kann. | sich konzentrieren = konsantre olmak
+Ich finde es nicht gerecht, dass ausländische Studenten höhere Gebühren zahlen müssen. | die Gebühr = harç, ücret; ausländisch = yabancı
+Unsere Gruppe hat beim Wettbewerb der Uni den zweiten Platz belegt. | den zweiten Platz belegen = ikinci olmak; die Gruppe = grup
+Nach dem Training bin ich so müde, dass ich sofort einschlafe. | einschlafen = uykuya dalmak; müde = yorgun
+Wenn es am Wochenende sonnig ist, machen wir ein Picknick im Bürgerpark. | das Picknick = piknik
+Zieh dich warm an, heute Abend sollen es nur zwei Grad werden. | sich anziehen = giyinmek; das Grad = derece
+Im Hörsaal ist es so kalt, dass viele Studenten ihre Jacken anlassen. | der Hörsaal = amfi; anlassen = (üstünde) bırakmak, çıkarmamak
+Im Sommer ist es in meinem Zimmer unter dem Dach unglaublich heiß. | das Dach = çatı; unglaublich = inanılmaz
+Am Morgen waren keine Wolken am Himmel, aber am Nachmittag hat es geregnet. | der Himmel = gökyüzü; der Nachmittag = öğleden sonra
+In Bremen ist der Himmel im November fast jeden Tag grau. | grau = gri
+Weil die Sonne im Winter so früh untergeht, bin ich oft müde. | untergehen = batmak (güneş); müde = yorgun
+Ich suche ein möbliertes Zimmer, das nicht mehr als 400 Euro kostet. | möbliert = eşyalı
+Nach dem Spaziergang im Regen habe ich die Wärme in der Wohnung genossen. | der Spaziergang = yürüyüş; genießen = tadını çıkarmak
+Das Klima in Norddeutschland ist feuchter und kühler als in meiner Heimatstadt. | feucht = nemli; kühl = serin; die Heimatstadt = memleket (şehir)
+Studenten in Bremen zahlen durchschnittlich 400 Euro Miete im Monat. | die Miete = kira
+In meiner Familie legen wir großen Wert auf gemeinsames Essen am Abend. | Wert legen auf = önem vermek; gemeinsam = birlikte
+Meine Eltern haben bei meiner Erziehung immer viel Wert auf Ehrlichkeit gelegt. | Wert legen auf = önem vermek; die Ehrlichkeit = dürüstlük
+Das Essen in der Mensa ist oft zu fett, deshalb koche ich lieber selbst. | die Mensa = üniversite yemekhanesi; lieber = tercihen
+Ich war überrascht von der Hilfsbereitschaft meiner Nachbarn, als ich krank war. | überrascht = şaşırmış; der Nachbar = komşu
+Es braucht Zivilcourage, wenn man im Bus jemandem hilft, der beleidigt wird. | beleidigen = hakaret etmek; jemand = biri
+Weil ich den ganzen Tag sitze, mache ich abends zehn Minuten Gymnastik. | ganz = bütün
+An der Uni gibt man die meisten Hausarbeiten nur noch digital ab. | abgeben = teslim etmek; die Hausarbeit = dönem ödevi
+An der Küste ist es oft so windig, dass man kaum Fahrrad fahren kann. | die Küste = kıyı; kaum = neredeyse hiç
+Morgen ist es den ganzen Tag bewölkt, aber es soll nicht regnen. | ganz = bütün
