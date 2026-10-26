@@ -50,10 +50,13 @@
   const SECMELI = new Set(['sec', 'anla', 'metinde']);
   const KOK_BICIM = new Set(['kok', 'kokSatz', 'kokSec']);
   const YAVAS = 15000, COK_HIZLI = 400, FLAS_SURE = 8000;
+  // zor soru (26.10): ipucusuz biçim ve bu sürede doğruysa anlam notu 4; daha yavaşsa normal 3 + 'yavaş'
+  const ZOR_YAVAS = { yaz: 25000, bos: 40000, cumle: 120000 };
   const W_RET = { 0.8: 1.15, 0.85: 1, 0.9: 0.8 };
 
   // §4.5: FSRS + c, yanlışta yarın 04:00, yeni öğe gününde en geç yarın, pk kapısı (pk0 → 7 g, pk1 → 14 g)
-  // opts: { yeniGun, pkSay } — pk/pkGun yalnız pkSay (sayılan biçim, ipucusuz, başarılı) ise ve günde en çok +1
+  // opts: { yeniGun, pkSay, kapisiz } — pk/pkGun yalnız pkSay (sayılan biçim, ipucusuz, başarılı) ise ve günde en çok +1.
+  // kapisiz: pk kapısı yok (artikel hafızası: pk'si hiç artmaz, 26.10'a kadar hiçbir artikel 7 günü aşamıyordu); yine ≤ MAX_ARALIK
   function guncelle(h, g, t, ret, c, opts) {
     opts = opts || {};
     ret = ret || 0.85;
@@ -68,7 +71,7 @@
     else {
       let gun = Math.min(FSRS.intervalDays(n.S, ret), MAX_ARALIK);   // en uzun aralık 60 gün (B1 ufku; %85 hedefte aralık ≈ 1,9 × S olur, 94 gün çok uzun)
       // kapı bu cevaptan sonraki pk ile: bu cevap üretim kanıtıysa (pk 0 → 1) aralık ≤ 14 g; kanıtsız ≤ 7 g
-      if (n.pk === 0) gun = Math.min(gun, 7); else if (n.pk === 1) gun = Math.min(gun, 14);
+      if (!opts.kapisiz) { if (n.pk === 0) gun = Math.min(gun, 7); else if (n.pk === 1) gun = Math.min(gun, 14); }
       due = t + gun * DAY;
     }
     if (opts.yeniGun) due = Math.min(due, ertesiGun4(t));
@@ -110,6 +113,11 @@
       case 'dogru':
         if (art && art.sinandi && !art.dogru) { artEt(); return r(3, 1, 'fast'); }
         if (secmeli && (s.sure || 0) > YAVAS) { et.push('yavaş'); return r(3, aNot(), 'richtig', { c: c + KISMI }); }
+        // zor soru (sözleşme §2): ipucusuz biçim, doğru, yavaş değil → 4 (FSRS kolay); yavaşsa normal 3
+        if (s.zor === true && ZOR_YAVAS[b]) {
+          if ((s.sure || 0) > ZOR_YAVAS[b]) { et.push('yavaş'); return r(3, aNot(), 'richtig'); }
+          return r(4, aNot(), 'richtig', { zor: true });
+        }
         return r(3, aNot(), 'richtig');
       case 'yazim': et.unshift('yazım'); artEt(); return r(3, aNot(), 'fast', { c: c + KISMI });
       case 'mastar': et.unshift('mastar eki'); return r(3, null, 'fast', { c: c + KISMI });
@@ -143,13 +151,13 @@
     const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, aksam: false, seviyeOnce: seviye(it, id) };
     const yeniGun = opts.yeniGun != null ? opts.yeniGun : !!(it.tanit && gun4(it.tanit) === g);
     const aksam = !!opts.aksam && aksamHakki(S, id, t, opts);
-    const yaz = (h, not_, c, pkSay, aksamOk) => {
+    const yaz = (h, not_, c, pkSay, aksamOk, kapisiz) => {
       const once = R(h, t);
       // istisna yalnız günün daha erken bir oturumunda (≥ 4 saat önce) yazılmış hafızaya: akşam ilk kez sorulup yanlış yapılan öğenin
       // aynı turdaki yeniden sorusu ikinci kez yazmasın (26.10, e2e_aksam)
       const ist = aksamOk && h && h.S && h.gun === g && h.aksam !== g && t - h.last >= 4 * SAAT;
       if (h && h.gun === g && !ist) return { h, r: { R: once, S: h.S, yazildi: false } };
-      const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || ist, pkSay });
+      const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || ist, pkSay, kapisiz });
       n.gun = g;
       if (ist) { n.aksam = g; out.aksam = true; }
       out.yazildi = true;
@@ -171,11 +179,13 @@
         const h = it.m;
         if (h.bm == null) h.bm = hOnce && hOnce.S ? bmBaslat(hOnce) : 0;
         if (not.m >= 3 && opts.b && !opts.ipucu) h.bm = Math.max(h.bm, opts.b);
+        // art arda doğru kalıcı yazım (zor soru kapısı): doğru ve ipucusuz +1, yanlış / fast (not < 3) 0, ipuçlu doğru değiştirmez
+        h.ds = not.m < 3 ? 0 : opts.ipucu ? dsOf(hOnce) : dsOf(hOnce) + 1;
         if (not.m >= 2 && h.S) h.due = Math.max(t, Math.min(h.due, h.last + bmAralik(h, id) * DAY));
       }
       if (opts.b) it.m.b = opts.b;
     }
-    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksam); it.art = x.h; out.a = x.r; }
+    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksam, true); it.art = x.h; out.a = x.r; }
     if (not.k != null) {
       const bs = C.base(id), kk = S.kok = S.kok || {};
       const x = yaz(kk[bs] && kk[bs].S ? kk[bs] : null, not.k, not.ck);
@@ -203,7 +213,29 @@
     if (h.bm != null && h.bm < ustBasamak(id)) sv = Math.min(sv, Math.max(1, h.bm));
     return sv;
   };
-  // bag: { id, t, isinma, momentum, kurtarma, klavyesiz } → { b, yenidenTanit }
+  // Zor soru (26.10, Tuna: "neredeyse hep biliyorum ama seviye atlamıyor; zor sor, ipucusuz sor, bilirsem seviye atlat"):
+  // anlam hafızasında art arda ≥ 2 doğru kalıcı yazım (ds) varken S eşikleri soruyu bm + 1'in altına itiyorsa soru bm + 1'den,
+  // ipucusuz biçimle gelir (yaz / bos / cumle). Kapılar (pk, tier-3, ustBasamak, taze cümle, Goethe boşluğu) aynen; S eşikleri
+  // normal seçimde değişmez. Seviye yalnız zor soru doğru (not 4, bm yükselir) olunca çıkar.
+  const ZOR_DS = 2;
+  // eski hafızada ds yoksa son not ≥ 3 → 1
+  const dsOf = h => h && h.S ? (h.ds != null ? h.ds : (h.lastG || 0) >= 3 ? 1 : 0) : 0;
+  // zor soru basamağı (0 = aday değil)
+  function zorHedef(it, id, t) {
+    const h = (it && it.m) || {};
+    if (!h.S || h.bm == null || h.dogrula || dsOf(h) < ZOR_DS || R(h, t) < 0.5) return 0;
+    const pk = h.pk || 0, k = C.kind(id);
+    let b = h.bm + 1;
+    if (pk === 0) b = Math.min(b, 2); else if (pk === 1) b = Math.min(b, 3);
+    if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) b = Math.min(b, 3);
+    b = Math.min(b, ustBasamak(id));
+    if (b >= 3 && !C.tazeCumle(id)) b -= 1;
+    if (b === 4 && !C.lueckeVar(id)) b = 3;
+    return b >= 2 ? b : 0;
+  }
+  const ZOR_BICIM = { 2: 'yaz', 3: 'bos', 4: 'cumle' };
+  // bag: { id, t, isinma, momentum, kurtarma, klavyesiz, zorOk } → { b, yenidenTanit, zor?, bNormal? }
+  // zorOk yalnız normal vadeli seçimde (sec adım 6); kurtarma / ısınma / momentum / klavyesiz turda zor soru yok
   function basamak(it, bag, rnd) {
     bag = bag || {}; rnd = rnd || Math.random;
     const id = bag.id, h = it.m || {}, S = h.S || 0, r = R(h, bag.t), pk = h.pk || 0, k = C.kind(id);
@@ -220,6 +252,10 @@
     if (bag.klavyesiz) b = 1;
     b = Math.max(1, b);
     if (it.a1 && !bag.kurtarma && !bag.klavyesiz) b = Math.max(2, b);   // A1: anlam sorulmaz (kurtarmada ve klavyesiz turda 'sec' serbest, artikeli sınar)
+    if (bag.zorOk && !bag.kurtarma && !bag.isinma && !bag.momentum && !bag.klavyesiz) {
+      const zh = zorHedef(it, id, bag.t);
+      if (zh > b) return { b: zh, yenidenTanit, zor: true, bNormal: b };
+    }
     return { b, yenidenTanit };
   }
   // §3 biçim tablosu; son: son sorulan biçimler (aynı biçim en çok 2 kez üst üste) → { bicim, uretec } ya da null
@@ -227,6 +263,8 @@
     bag = bag || {}; rnd = rnd || Math.random; son = son || [];
     const id = bag.id, h = it.m || {}, k = C.kind(id), kx = C.kontextVar(id);
     const tekrarli = x => son.length >= 2 && son[son.length - 1] === x && son[son.length - 2] === x;
+    // zor soru: yalnız ipucusuz biçim, üreteç yok (düz boşluk / tam cümle); aynı biçim 3. kez üst üste gelecekse null
+    if (bag.zor) { const z = ZOR_BICIM[b]; return z && !tekrarli(z) ? { bicim: z, uretec: null } : null; }
     let aday;
     if (b <= 1) {
       const u = rnd();
@@ -468,7 +506,7 @@
 
   // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
   // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
-  const ARA = 8, ART_TUR = 3;
+  const ARA = 8, ART_TUR = 3, ZOR_TUR = 3;
   function sec(durum, oturum, t, rnd) {
     rnd = rnd || Math.random;
     const S = durum.S, o = oturum, adim = o.adim || 0, boy = o.boy || 12, gs = durum.gunSay || {};
@@ -476,9 +514,15 @@
     const yakin = id => sonIds.includes(id);
     const m1 = (id, kaynak, bag) => {
       const it = S.items[id];
-      const bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag), rnd);
-      const bc = bicimSec(it, bs.b, { id, t }, rnd, sonBicim);
-      return bc ? { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: bs.yenidenTanit, R: R(it.m, t) } : null;
+      let bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag), rnd);
+      let bc = bicimSec(it, bs.b, { id, t, zor: bs.zor }, rnd, sonBicim);
+      // zor biçimi üst üste kuralına takıldıysa normal merdiven
+      if (!bc && bs.zor) { bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag, { zorOk: false }), rnd); bc = bicimSec(it, bs.b, { id, t }, rnd, sonBicim); }
+      if (!bc) return null;
+      const x = { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: bs.yenidenTanit, R: R(it.m, t) };
+      // zor soru: sel.zor (sözleşme §1), bNormal = merdivenin vereceği basamak (log: zor)
+      if (bs.zor) Object.assign(x, { zor: true, bNormal: bs.bNormal });
+      return x;
     };
     // 1) oturum kuyruğu: yanlış (yeniden sorma), mini, ikinci; ilk gelen ilk çıkar
     const kuyrukSec = kq => {
@@ -522,6 +566,8 @@
     }
     // 6) vadeli öğeler, R azalan; artikel flaşı turda ≤ 3 (der olmayan önce); kök turda 1, günde 4
     const artSay = gecmis.filter(x => x.tur === 'art').length, kokSay = gecmis.filter(x => x.tur === 'kok').length;
+    // zor soru turda en çok ZOR_TUR (tur ezici olmasın); klavyesiz turda yok
+    const zorOk = !o.klavyesiz && gecmis.filter(x => x.zor).length < ZOR_TUR;
     const derMi = id => ((C.byId[id] || {}).art || '') === 'der';
     const sirali = vad.slice().sort((a, b) => b.R - a.R);
     const artlar = sirali.filter(v => v.tur === 'art').sort((a, b) => (derMi(a.id) ? 1 : 0) - (derMi(b.id) ? 1 : 0) || b.R - a.R);
@@ -540,7 +586,7 @@
         const k = S.kok[v.base];
         return { tur: 'kok', kaynak: 'vadeli', id: v.id, base: v.base, b: 0, bicim: k.S < 7 ? 'kokSatz' : 'kok', R: v.R };
       }
-      const x = m1(v.id, 'vadeli', {});
+      const x = m1(v.id, 'vadeli', { zorOk });
       if (x) return x;
       ilkAday = ilkAday || v;
     }
@@ -577,7 +623,7 @@
     o.kuyruk = o.kuyruk || []; o.gecmis = o.gecmis || [];
     const i = o.kuyruk.indexOf(secim._k); if (i >= 0) o.kuyruk.splice(i, 1);
     o.adim = (o.adim || 0) + 1;
-    o.gecmis.push({ id: secim.id, bicim: secim.bicim, tur: secim.tur });
+    o.gecmis.push(Object.assign({ id: secim.id, bicim: secim.bicim, tur: secim.tur }, secim.zor ? { zor: true } : null));
     if (secim.kaynak === 'kurtarma') o.kurtarma = true;
     const yanlis = sonuc && sonuc.ergebnis === 'falsch';
     o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
@@ -762,7 +808,7 @@
         return;
       }
       if (c.g4 != null && c.last < c.g4) return;
-      koy(guncelle(h, g, c.last, ret, ofs, { pkSay }));
+      koy(guncelle(h, g, c.last, ret, ofs, { pkSay, kapisiz: tur === 'art' }));
       n++;
     });
     return n;
@@ -902,10 +948,10 @@
             const ok = rnd() < sig(logit(kirp(R(x.m, tt), 0.01, 0.99)) + dd);
             x.m = guncelle(x.m, ok ? 3 : 1, tt, ret, OFS[bic], { pkSay: ok && PK_BICIM.has(bic) });
             butce -= ok ? 1 : 2;
-            if (x.a && x.a.due <= t0 && ok && b <= 2) { const okA = rnd() < sig(logit(kirp(R(x.a, tt), 0.01, 0.99)) - 0.2); x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel); }
+            if (x.a && x.a.due <= t0 && ok && b <= 2) { const okA = rnd() < sig(logit(kirp(R(x.a, tt), 0.01, 0.99)) - 0.2); x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel, { kapisiz: true }); }
           } else {
             const okA = rnd() < sig(logit(kirp(R(x.a, tt), 0.01, 0.99)) - 0.2);
-            x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel);
+            x.a = guncelle(x.a, okA ? 3 : 1, tt, ret, OFS.artikel, { kapisiz: true });
             butce -= okA ? 1 : 2;
           }
         }
@@ -916,7 +962,7 @@
     return r === Infinity ? null : r;
   }
 
-  const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak,
+  const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, ARA,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,

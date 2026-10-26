@@ -693,5 +693,124 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   }
 }
 
+// ---------- 26.10: artikel aralığı pk kapısına bağlı değil ----------
+{
+  const art = { S: 30, D: 3, last: T - 30 * DAY, due: T - 1000, reps: 6, lapses: 0, lastG: 3, pk: 0 };
+  const g = K.guncelle(art, 3, T, 0.85, K.OFS.artikel, { kapisiz: true });
+  ok((g.due - T) / DAY > 7, 'artikel: kapısız guncelle 7 günü aşar', (g.due - T) / DAY);
+  ok((g.due - T) / DAY <= K.MAX_ARALIK + 1e-9, 'artikel: yine en çok 60 gün');
+  ok((K.guncelle(art, 3, T, 0.85, 0).due - T) / DAY <= 7, 'anlam (kapılı): pk 0 → ≤ 7 g (değişmedi)');
+  const S = yeniS({ n1: { m: h(10, 0.9, { pk: 0, bm: 1 }), art: Object.assign({}, art) } });
+  const out = K.uygula(S, 'n1', K.notVer({ bicim: 'sec', tip: 'dogru', sure: 3000, artikel: { sinandi: true, dogru: true } }), T, { b: 1 });
+  ok(out.a.yazildi && (S.items.n1.art.due - T) / DAY > 7, 'uygula: artikel hafızası 7 günden uzun aralığa çıkar', (S.items.n1.art.due - T) / DAY);
+  ok((S.items.n1.m.due - T) / DAY <= 7, 'uygula: aynı cevapta anlam hafızası pk 0 kapısında kalır');
+  // aralikKisalt: artikelde yalnız 60 gün sınırı
+  const Sk = yeniS({ n1: { art: { S: 40, D: 3, last: T - DAY, due: T + 30 * DAY, reps: 5, lapses: 0, lastG: 3, pk: 0 } }, n5: { art: { S: 80, D: 3, last: T - DAY, due: T + 90 * DAY, reps: 5, lapses: 0, lastG: 3, pk: 0 } } });
+  K.aralikKisalt(Sk, T);
+  eq(Sk.items.n1.art.due, T + 30 * DAY, 'aralikKisalt: artikelde 30 g aralık kalır (pk kapısı yok)');
+  eq(Sk.items.n5.art.due, T - DAY + 60 * DAY, 'aralikKisalt: artikelde 60 gün sınırı');
+}
+
+// ---------- 26.10: zor soru (meydan okuma) ----------
+{
+  const oz = x => oturum(Object.assign({ adim: 5, parti: true, kurtarma: true }, x || {}));
+  // die Quittung benzeri: bildiği ama S'i düşük kaldığı için hep B1 seçmeliden sorulan
+  const quit = x => ({ m: h(1.8, 0.9, Object.assign({ pk: 0, bm: 1, ds: 2, b: 1, due: T - 1000 }, x || {})) });
+  const sc = (items, o, rnd, x) => K.sec(Object.assign({ S: yeniS(items), kap: 36 }, x || {}), oz(o), T, rnd || R99);
+  const z = sc({ n1: quit() });
+  ok(z.zor === true, 'zor: ds 2, S 1,8, bm 1 → sel.zor', z);
+  eq(z.bicim, 'yaz', 'zor: B2 ipucusuz yaz (yaz0 değil)'); eq(z.b, 2, 'zor: b = bm + 1 = 2'); eq(z.bNormal, 1, 'zor: merdivenin basamağı bNormal 1');
+  let y0 = 0, zs = 0;
+  for (let i = 0; i < 300; i++) { const s = sc({ n1: quit() }, {}, K.tohum(i)); if (s.zor) zs++; if (s.bicim === 'yaz0' || s.bicim === 'bos0') y0++; }
+  eq(zs, 300, 'zor: rastgelelikten bağımsız (20% düşüş zor soruya uygulanmaz)'); eq(y0, 0, 'zor: yaz0 / bos0 asla');
+  ok(!sc({ n1: quit({ ds: 1 }) }).zor, 'zor: ds 1 → zor değil');
+  ok(!sc({ n1: quit({ ds: undefined, lastG: 3 }) }).zor, 'zor: ds yok + son not 3 → ds 1 sayılır, zor değil');
+  eq(K.dsOf(quit({ ds: undefined, lastG: 3 }).m), 1, 'dsOf: eski hafıza, son not ≥ 3 → 1');
+  eq(K.dsOf(quit({ ds: undefined, lastG: 1 }).m), 0, 'dsOf: eski hafıza, son not 1 → 0');
+  // ısınma / kurtarma / momentum / klavyesiz / akşam / R < 0,5 / dogrula → zor yok
+  const is = K.sec({ S: yeniS({ n1: quit() }), kap: 36 }, oturum({ adim: 0 }), T, R99);
+  ok(is.kaynak === 'isinma' && !is.zor, 'zor: ısınmada yok', is);
+  const ku = K.sec({ S: yeniS({ n1: quit({ due: T - 4 * DAY }) }), kap: 36 }, oturum({ adim: 6, parti: true }), T, R99);
+  ok(ku.kaynak === 'kurtarma' && !ku.zor && ku.b === 1, 'zor: kurtarmada yok', ku);
+  const mo = sc({ n1: quit() }, { yanlisSeri: 2 });
+  ok(mo.kaynak === 'momentum' && !mo.zor, 'zor: momentumda yok', mo);
+  const kl = sc({ n1: quit() }, { klavyesiz: true });
+  ok(kl.kaynak === 'vadeli' && !kl.zor && kl.b === 1, 'zor: klavyesiz turda yok', kl);
+  const ak = K.sec({ S: yeniS({ n1: quit() }), kap: 36 }, oturum({ aksam: ['n1'] }), T, R99);
+  ok(ak.kaynak === 'aksam' && !ak.zor, 'zor: akşam turunda yok', ak);
+  ok(!sc({ n1: { m: h(1.8, 0.45, { pk: 0, bm: 1, ds: 2, due: T - 1000 }) } }, { kurtarma: true }).zor, 'zor: R < 0,5 → yok');
+  ok(!sc({ n1: quit({ dogrula: 1 }) }).zor, 'zor: doğrulanacak (eski "biliyorum") hafızada yok');
+  // kuyruk (yanlış sonrası tekrar) zor değil
+  const kq = sc({ n1: quit() }, { kuyruk: [{ id: 'n1', neden: 'yanlis', at: 5, b: 1, deneme: 2 }] });
+  ok(kq.kaynak === 'kuyruk' && !kq.zor, 'zor: yanlış sonrası tekrarda yok', kq);
+  // turda en çok ZOR_TUR
+  const gz = Array.from({ length: K.ZOR_TUR }, (_, i) => ({ id: 'x' + i, bicim: i % 2 ? 'bos' : 'cumle', tur: 'm', zor: true }));
+  ok(!sc({ n1: quit() }, { gecmis: gz }).zor, `zor: turda en çok ${K.ZOR_TUR}`);
+  ok(sc({ n1: quit() }, { gecmis: gz.slice(1) }).zor, 'zor: sınırın altında yine zor');
+  // aynı biçim 3. kez üst üste olmaz: zor biçimi tekrara takılırsa normal merdiven
+  const yy = sc({ n1: quit() }, { gecmis: [{ id: 'x', bicim: 'yaz', tur: 'm' }, { id: 'y', bicim: 'yaz', tur: 'm' }] });
+  ok(!yy.zor && yy.bicim !== 'yaz', 'zor: yaz üst üste 3. kez → normal merdiven', yy);
+  // oturumIsle: geçmişe zor işareti
+  { const o = oz(); K.oturumIsle(o, z, { ergebnis: 'richtig' }); ok(o.gecmis[o.gecmis.length - 1].zor === true, 'oturumIsle: geçmişte zor işareti'); }
+  // pk kapısı: pk 0 → en çok B2 (bm 2 olsa da), pk 1 → en çok B3
+  eq(K.zorHedef(quit({ bm: 2 }), 'n1', T), 2, 'zorHedef: pk 0 → ≤ 2');
+  eq(K.zorHedef(quit({ bm: 3, pk: 1 }), 'n1', T), 3, 'zorHedef: pk 1 → ≤ 3');
+  ok(!sc({ n1: quit({ bm: 2, S: 5, last: T - gecen(5, 0.9) * DAY }) }).zor, 'zor: normal basamak zaten bm + 1 (kapıda) → zor değil');
+  // tier-3 (ünite dışı) isim: en çok B3
+  eq(K.zorHedef({ m: h(12, 0.9, { pk: 2, bm: 3, ds: 2 }) }, 'n2', T), 3, 'zorHedef: tier-3 ünite dışı → ≤ 3');
+  // B4 tam cümle: bm 3, pk 2, ds 2, S 12 (S eşiği 21 tek başına engel değil)
+  const b4 = { n1: { m: h(12, 0.9, { pk: 2, bm: 3, ds: 2, due: T - 1000 }) } };
+  const s4 = sc(b4);
+  ok(s4.zor && s4.b === 4 && s4.bicim === 'cumle', 'zor: bm 3 pk 2 ds 2 S 12 → B4 cumle', s4);
+  ok(!sc({ n1: { m: h(12, 0.9, { pk: 2, bm: 3, ds: 1, due: T - 1000 }) } }).zor, 'normal seçim: S 12 → B4 değil (S eşikleri aynen)');
+  K.init(Object.assign({}, ctx, { lueckeVar: () => false }));
+  const s4l = sc(b4);
+  ok(!(s4l.b === 4 || s4l.bicim === 'cumle'), 'zor: lueckeVar yoksa B4 yok', s4l);
+  K.init(Object.assign({}, ctx, { tazeCumle: () => false }));
+  ok(sc(b4).bicim !== 'cumle', 'zor: taze cümle yoksa B4 yok');
+  K.init(ctx);
+  // not: zor doğru → m 4; yavaş → 3; yanlış → normal
+  const nz = K.notVer({ bicim: 'yaz', tip: 'dogru', zor: true, sure: 6000 });
+  eq(nz.m, 4, 'notVer: zor doğru → m 4'); eq(nz.ergebnis, 'richtig', 'notVer: zor doğru richtig');
+  eq(K.notVer({ bicim: 'yaz', tip: 'dogru', sure: 6000 }).m, 3, 'notVer: zor değilse 3');
+  const ny = K.notVer({ bicim: 'yaz', tip: 'dogru', zor: true, sure: 60000 });
+  ok(ny.m === 3 && ny.etiketler.includes('yavaş'), 'notVer: zor ama yavaş → 3 + yavaş', ny);
+  eq(K.notVer({ bicim: 'cumle', tip: 'dogru', zor: true, sure: 60000 }).m, 4, 'notVer: tam cümlede 60 sn yavaş sayılmaz');
+  eq(K.notVer({ bicim: 'yaz', tip: 'yazim', zor: true }).m, 3, 'notVer: zor + yazım → normal 3 (fast)');
+  eq(K.notVer({ bicim: 'yaz', tip: 'yanlis', zor: true }).m, 1, 'notVer: zor yanlış → 1');
+  eq(K.notVer({ bicim: 'sec', tip: 'dogru', zor: true, sure: 3000 }).m, 3, 'notVer: seçmelide zor işareti etkisiz');
+  // uygula: zor doğru → bm 2, ds 3, vade bm aralığında (14 g); yanlış → ds 0
+  {
+    const S = yeniS({ n1: quit() });
+    K.uygula(S, 'n1', nz, T, { b: z.b });
+    const m = S.items.n1.m;
+    eq(m.bm, 2, 'zor doğru: bm 1 → 2'); eq(m.ds, 3, 'zor doğru: ds +1'); eq(m.lastG, 4, 'zor doğru: FSRS notu 4');
+    ok(m.S > 1.8 * 2, 'zor doğru: S büyük büyür', m.S);
+    ok(m.due - T <= 14 * DAY + 1, 'zor doğru: vade bm aralığıyla kırpılır (≤ 14 g)', (m.due - T) / DAY);
+    eq(K.seviye(S.items.n1, 'n1'), 2, 'zor doğru: seviye 2 (Yazıyor)');
+    const S2 = yeniS({ n1: quit() });
+    K.uygula(S2, 'n1', K.notVer({ bicim: 'yaz', tip: 'yanlis', zor: true }), T, { b: 2 });
+    eq(S2.items.n1.m.ds, 0, 'zor yanlış: ds 0'); eq(S2.items.n1.m.bm, 1, 'zor yanlış: bm değişmez');
+    ok(!sc({ n1: Object.assign({}, S2.items.n1, { m: Object.assign({}, S2.items.n1.m, { due: T - 1000, last: T - 2 * DAY }) }) }).zor, 'zor yanlış: sonra zor soru yok');
+    // bedava seviye yok: zor soru seçilmesi bm'yi değiştirmez
+    eq(quit().m.bm, 1, 'seçim bm\'yi değiştirmez');
+  }
+  // ds sayacı: seçmeli doğru +1, ipuçlu doğru değişmez, sayılmadı yazmaz, eski hafıza (ds yok, son not 3) → 2
+  {
+    const S = yeniS({ n1: quit({ ds: undefined }) });
+    K.uygula(S, 'n1', K.notVer({ bicim: 'sec', tip: 'dogru', sure: 3000 }), T, { b: 1 });
+    eq(S.items.n1.m.ds, 2, 'ds: eski hafıza (son not 3) + doğru → 2');
+    const S2 = yeniS({ n1: quit({ ds: 1 }) });
+    K.uygula(S2, 'n1', K.notVer({ bicim: 'yaz', tip: 'dogru' }), T, { b: 2, ipucu: true });
+    eq(S2.items.n1.m.ds, 1, 'ds: ipuçlu doğru değiştirmez');
+    const S3 = yeniS({ n1: quit({ ds: 2 }) });
+    K.uygula(S3, 'n1', K.notVer({ bicim: 'yaz', tip: 'umlaut' }), T, { b: 2 });
+    eq(S3.items.n1.m.ds, 0, 'ds: not 2 (umlaut) → 0');
+    const S4 = yeniS({ n1: quit({ ds: 2, gun: K.gun4(T) }) });
+    K.uygula(S4, 'n1', K.notVer({ bicim: 'yaz', tip: 'yanlis' }), T, { b: 2 });
+    eq(S4.items.n1.m.ds, 2, 'ds: günde tek yazım (aynı gün ikinci cevap sayılmaz)');
+  }
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);

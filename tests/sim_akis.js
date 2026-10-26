@@ -29,7 +29,7 @@ async function simule(p, o) {
         const vadeli = new Set(Kr.vadeliler(S, t, filtre).map(v => v.id)).size;
         const durum = { S, kap: o.K, gunSay: gs, donus: false };
         const kt = Kr.kota(durum, t);
-        let cevap = 0, yeni = 0, dogru = 0, tekrar = 0; const kats = {};
+        let cevap = 0, yeni = 0, dogru = 0, tekrar = 0, zor = 0, zorDogru = 0; const kats = {};
         for (let tur = 0; tur < Math.ceil(o.K / 12); tur++) {
           const ot = { adim: 0, boy: 12, kuyruk: [], gecmis: [], filtre };
           let n = 0, guard = 0;
@@ -73,13 +73,14 @@ async function simule(p, o) {
               p = yeniOge ? (sel.neden === 'ikinci' ? 0.8 : 0.85) : sig(logit(kirp(Kr.R(it.m, t))) + off);
               const ok = rnd() < p, n_ = T.byId[sel.id] && !T.byId[sel.id].plOnly;
               const artSinandi = n_ && (sel.bicim === 'sec' || /^yaz/.test(sel.bicim));
-              sonuc = { bicim: sel.bicim, tip: ok ? 'dogru' : 'yanlis', sure: 3000, artikel: artSinandi && ok ? { sinandi: true, dogru: rnd() < (it.art && it.art.S ? sig(logit(kirp(Kr.R(it.art, t))) - 0.2) : 0.6), verilen: 'der', dogrusu: T.byId[sel.id].art } : null };
+              sonuc = { bicim: sel.bicim, tip: ok ? 'dogru' : 'yanlis', sure: 3000, zor: !!sel.zor, artikel: artSinandi && ok ? { sinandi: true, dogru: rnd() < (it.art && it.art.S ? sig(logit(kirp(Kr.R(it.art, t))) - 0.2) : 0.6), verilen: 'der', dogrusu: T.byId[sel.id].art } : null };
             }
             let not = Kr.notVer(sonuc);
             if (sel.neden === 'ikinci') not = Object.assign({}, not, { m: null, a: null, k: null });
             const out = Kr.uygula(S, sel.id, not, t, { b: sel.b });
             ['m', 'a', 'k'].forEach(x => { if (out[x] && out[x].yazildi) { const kk = d + '|' + (x === 'k' ? sel.base : sel.id) + '|' + x; yazim[kk] = (yazim[kk] || 0) + 1; if (yazim[kk] > 1) ihlal.push(kk); } });
             const erg = not.ergebnis || (sonuc.tip === 'dogru' ? 'richtig' : 'falsch');
+            if (sel.zor) { zor++; if (erg === 'richtig') zorDogru++; }
             const kat = sel.tur + ':' + (sel.neden || sel.kaynak) + ':' + sel.bicim; kats[kat] = (kats[kat] || 0) + 1;
             Kr.oturumIsle(ot, sel, { ergebnis: erg }, rnd);
             if (sel.tur === 'kok') gs.kok++;
@@ -90,7 +91,7 @@ async function simule(p, o) {
           t += 10 * 60000;
         }
         const mVad = Kr.vadeliler(S, t, filtre).filter(v => v.tur === 'm').length, aVad = Kr.vadeliler(S, t, filtre).filter(v => v.tur === 'art').length;
-        gunler.push({ d, vadeli, q: kt.q, sebep: kt.sebep, yeni, cevap, dogru: tekrar ? Math.round(dogru / tekrar * 100) : null, kats: o.DBG ? kats : null, son: o.DBG ? [mVad, aVad] : null });
+        gunler.push({ d, vadeli, zor, zorDogru, q: kt.q, sebep: kt.sebep, yeni, cevap, dogru: tekrar ? Math.round(dogru / tekrar * 100) : null, kats: o.DBG ? kats : null, son: o.DBG ? [mVad, aVad] : null });
       }
       sonuc.push({ tohum, gunler, ihlal: Object.entries(yazim).filter(([, v]) => v > 1).map(([k]) => k) });
     }
@@ -111,8 +112,8 @@ async function simule(p, o) {
   // HEAD'de bile 10 tohumun 5'i tek başına ölçütü aşıyordu). Tohum başına değerler yazdırılır; kota ve yazım kuralı tohum başına.
   const ort = a => a.reduce((x, y) => x + y, 0) / a.length;
   r.forEach(x => {
-    console.log(`tohum ${x.tohum}: gün · vadeli · kota (sebep) · yeni · cevap · doğruluk`);
-    x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
+    console.log(`tohum ${x.tohum}: gün · vadeli · kota (sebep) · yeni · cevap · doğruluk · zor soru (doğru)`);
+    x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}  ${g.zor} (${g.zorDogru})${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
     x.gunler.forEach(g => { if (!g.q) fehler.push(`tohum ${x.tohum}: ${g.d + 1}. gün kota 0`); });
     if (x.ihlal.length) fehler.push(`tohum ${x.tohum}: günde ikinci kalıcı yazım: ${x.ihlal.slice(0, 5).join(', ')}`);
   });
