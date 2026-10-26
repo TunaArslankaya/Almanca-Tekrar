@@ -4,5 +4,6 @@ Hızlı geri bildirim (GitHub Actions, insan yok, soru sorma).
 
 1. `text` satırlarındaki (serbest yazma) her metni cümle cümle düzelt: kendi cümlesi → doğrusu → kısa Türkçe açıklama; sonunda B1 Schreiben ölçütüne göre 2–3 cümlelik değerlendirme ve düzeltilmiş tam metin. Hepsini `daten/feedback.js`'e tek kayıt olarak ekle: `{ zeit, id, antwort: (metnin ilk 60 karakteri), richtig: (düzeltilmiş tam metin), urteil: 'fast' ya da 'falsch', text: (cümle cümle düzeltme, satırlar ' · ' ile) }`.
 2. `satz`, `nsatz`, `abr`, `wort`, `prod`, `frm`, `stamm`, `luecke`, `paket` satırlarında `falsch` ya da `fast` olanlar için `{ zeit, id, antwort, richtig, urteil, text }` kaydı ekle (isimler artikelli, açıklama tek cümle).
+2b. `cumle` satırları (Cümle atölyesi): `kur` (ergebnis `gonderildi`) satırlarındaki her cümleyi düzelt (kendi cümlesi → doğrusu, isimler artikelli → kısa açıklama; görevdeki yapı ve verilen kelimeler kullanılmış mı), doğruysa kısa onay (`urteil: 'richtig'`); `cevir` / `diz` satırlarında `falsch` / `fast` olanlar için de kayıt ekle.
 3. Aynı (zeit, id) için ikinci kayıt ekleme. Başka dosyaya dokunma (`js/`, `css/`, `index.html`, `tools/`, `quellen/` değişmez). `VERLAUF.md`'ye tek satır not ekle: `(geri bildirim, otomatik) <tarih saat>: N düzeltme, son satır <zaman damgası>`.
 4. `node tools/feedback_json.js` çalıştırıp hata olmadığını gör.

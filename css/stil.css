@@ -1039,3 +1039,40 @@ body.calis-modu .yenile-cubuk { display: none; }
 /* gramer: kelime çipleri satıra sığsın (çip ortadan bölünmesin, karttan taşmasın) */
 .g-woerter { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-top: 1rem; }
 .g-woerter .chip { max-width: 100%; overflow-wrap: anywhere; }
+/* cümle atölyesi (js/cumle.js) */
+.ca-yonerge { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; }
+.ca-tr, .ca-durum { font-size: 1.3rem; line-height: 1.45; overflow-wrap: anywhere; }
+.ca-hedef { display: flex; flex-wrap: wrap; gap: .35rem .6rem; align-items: baseline; font-size: 1.05rem; }
+.ca-kelime { display: inline-flex; flex-wrap: wrap; gap: .3rem; align-items: baseline; padding: .25rem .6rem; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.ca-gorev { font-weight: 600; }
+.ca-dizi { min-height: 3.4rem; padding: .55rem .6rem; border: 1.5px dashed var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; background: var(--surface-2); }
+.ca-son { font-size: 1.2rem; font-weight: 700; color: var(--muted); }
+.ca-cipler { display: flex; flex-wrap: wrap; gap: .45rem; }
+.ca-cip { font: inherit; font-size: 1.05rem; padding: .45rem .8rem; min-height: 44px; border-radius: 12px; cursor: pointer; color: var(--ink); max-width: 100%; overflow-wrap: anywhere; text-align: left; }
+.ca-cip kbd { font-size: .7rem; opacity: .7; }
+.ca-cip.ca-yerlesti { background: var(--accent-soft); border-color: transparent; }
+@media (hover: hover) { .ca-cip:hover { border-color: var(--accent); } }
+.ca-yaz textarea { border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1.15rem; line-height: 1.45; padding: .75rem .9rem; min-height: 64px; width: 100%; resize: vertical; outline: none; }
+.ca-liste { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .9rem; }
+.ca-liste .ca-tamam { color: var(--ok); }
+.ca-liste .ca-eksik-m { color: var(--muted); }
+.ca-uyari { background: var(--warn-soft); color: var(--ink); border-radius: 10px; padding: .45rem .7rem; font-size: .92rem; }
+.ca-not { font-size: .82rem; }
+.ca-fark { line-height: 1.9; overflow-wrap: anywhere; }
+.ca-w { white-space: normal; }
+.ca-fark .ca-ok { color: var(--ink); }
+.ca-fark .ca-yazim { background: var(--warn-soft); border-radius: 4px; padding: 0 .15rem; }
+.ca-yanlis s, s.ca-fazla { color: var(--bad); text-decoration-thickness: 2px; }
+.ca-yanlis ins, ins.ca-eksik { color: var(--ok); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.ca-yer { color: var(--warn); font-weight: 700; text-decoration: underline wavy; text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.ca-lejant { font-size: .8rem; }
+.ca-baska, .ca-neden { font-size: 1rem; }
+.sonuc.ca-gonder { background: var(--accent-soft); }
+.sonuc.ca-gonder .baslik { color: var(--accent); flex-wrap: wrap; }
+.ca-alt { font-weight: 400; font-size: .85rem; }
+.ca-kademe { margin: .4rem 0 .6rem; gap: .45rem; }
+.ca-ozet { list-style: none; margin: 0; padding: 0; width: 100%; max-width: 420px; display: grid; gap: .3rem; text-align: left; }
+.ca-ozet li { padding: .35rem .6rem; border-radius: 10px; background: var(--surface-2); overflow-wrap: anywhere; }
+.ca-ozet .ca-oz-i { display: inline-block; width: 1.4em; font-weight: 700; }
+.ca-oz-richtig .ca-oz-i { color: var(--ok); } .ca-oz-fast .ca-oz-i { color: var(--warn); } .ca-oz-falsch .ca-oz-i { color: var(--bad); }
+@media (max-width: 420px) { .ca-tr, .ca-durum { font-size: 1.18rem; } .ca-cip { font-size: 1rem; padding: .4rem .65rem; } }
