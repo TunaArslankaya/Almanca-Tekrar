@@ -22,7 +22,7 @@
 
 ## Yapı
 
-- `index.html` + `js/app.js` (arayüz, kuyruk, log) · `js/grammatik.js` (çekim, cümle üretimi, kontrol) · `js/fsrs.js`
+- `index.html` + `js/app.js` (arayüz, kuyruk, log) · `js/grammatik.js` (çekim, cümle üretimi, kontrol) · `js/fsrs.js` · `js/cumle.js` (Cümle atölyesi: diz / çevir / kur; app.js'e `Cumle.init(api)` kancasıyla bağlı)
 - Uygulama (PWA): `manifest.webmanifest` (`id` `/Almanca-Tekrar/`), `sw.js` (kabuk önbellekten anında, yenisi arka planda; önbellek listesi ve sürümü `tools/build.py` yazar: elle düzenleme), `img/` (ikonlar; kaynak `img/icon.svg`).
   Cihazlar arası: açılışta ve uygulamaya dönünce `log/zustand.json` çekilip kart kart birleştirilir (`zustandBirlestir`: son cevaplanan kazanır), yazmadan önce de birleştirilir; GitHub okumaları `cache: 'no-store'`.
   v5 şeması (`S.surum` 4, `js/kern.js`): açılışta `retGoc` → `kernAc` (`Kern.goc`: öğe hafızası `items[id].m`/`art`, `S.kok`, `pakete[pid].m`; öğe başına idempotent; ilk göçte bir kez `akt;goc4` satırı, `S.kartenV3` dondurulmuş kopya; `Kern.v3Yetis`: göçten sonra `karten`'e yazılan cevaplar hafızaya). Birleştirme `Kern.birlestir` (alan alan; gün sayaçları cihaz başına `S.tageC[gün][cihaz]`, `S.tage` toplamdan türetilir; cihaz kimliği `localStorage` `almanca-tekrar-cihaz`). Yazma koruması `Kern.yazabilir` (uzak surum > 4 → dokunma; yerel neredeyse boş → yalnız birleştir); ilk v4 yazımından önce uzak v3 kaydı bir kez `log/zustand_v3.json`. `S.log` ayrı anahtarda (`almanca-tekrar-log`). Test: `node tests/test_goc.js`.
@@ -70,6 +70,10 @@
     44 konu, ~2900 alıştırma (18.10). Türler: `luecke` (çok boşlukta seçenek takımı `habe ; gearbeitet / bin ; gegangen`, takımlar karışmaz), `wahl`, `ordnen` (virgül yok sayılır), `fehler`, `umform`, `ceviri` (Türkçe → Almanca cümle), `text` (çok boşluklu metin), `eslestir`, `kategori`, `dinle` (dikte). Cümle cevabında kaynaşmamış edat (in dem / im) `fast` + `kaynaştırma`. Doğrulayıcı: `python3 quellen/grammatik/pruef_grammatik.py`.
   - Prüfung: `pruefung` (madde id `pr:<set>:lesen:<teil>:<nr>` ergebnis richtig/falsch notiz `mod:tam|mini`; modül özeti `pr:<set>:lesen` ergebnis `bestanden`/`nicht-bestanden` notiz `puan:73 | roh:22/30 | t1:5/6 … | dk:58/65`; Sprechen `pr:<set>:sprechen:<teil>` ergebnis `selbst` notiz `liste:5/7 | kart:sp1-03`). Schreiben sınavı `text` satırı id `pr:<set>:schreiben:<teil>` (item görev kimliği, notiz `pruefung | kelime:83 | dk:19/20 | maddeler:3/3`) → "sonuçlarıma bak"ta B1 ölçütüyle (Erfüllung, Kohärenz, Wortschatz, Strukturen) puanla. Motor `js/pruefung.js`; Lesen seti `quellen/goethe_lesen.json` (okuma havuzunda değil). Durum `S.pruefung` (sonuçlar, sınav tarihi).
   - Konuşma: `sprechen` (id `shadow:<öğe>` / `teil2:<konu>` / `teil1:<görev>` / `teil3:<konu>`, ergebnis `gemacht`, antwort `kayıt:Nsn`; kayıt tarayıcıda kalır). Redemittel: `quellen/redemittel.txt` türleri `sprechen1/2/3`.
+  - Cümle atölyesi (`js/cumle.js`, Diğer → Cümle atölyesi, bölüm `cumle`; oturum 8 görev, kademe karışımı başarıya göre): `cumle` (id `<öğe>:diz|cevir|kur`, item öğe(ler) artikelli, frage Türkçe cümle / kur'da `durum | kelimeler: … | görev: …`, antwort, loesung asıl cümle (kur'da boş)).
+    `diz` (karışık parçaları sırala): ergebnis richtig / fast (yalnız zarf yeri) / falsch, notiz `kademe:diz | parça:N | kelime sırası|fiil yeri | sek:N`. `cevir` (Türkçe → tam cümle, hedef kelime verilir; `G.cumleKontrol` + `alts`): richtig / fast / falsch, notiz `kademe:cevir | hedef:<biçim> | <etiketler> | ipucu:1 | öneri:X | sek:N`.
+    `kur` (kelime(ler) + Türkçe durum + yapı görevi, serbest cümle): ergebnis `gonderildi` (not yok; Atla → `falsch` + `bilmiyorum`), notiz `kademe:kur | yapı:weil | kelime:9 | hedef:2/2 | hedef-eksik:… | kısa | yapı-eksik | büyük harf | nokta | uyarıya rağmen | ek:<2. öğe> | sek:N`.
+    Hafızaya (Kern) yazmaz (ipuçlu: bütün kelimeler / hedef kelime ekranda); yalnız log, gün sayacı ve `S.cumle` (kademe başarısı, kullanılan cümleler). Oturum sonu `tur;cumle` (notiz `cevap | doğru | küçük | yanlış | gönderildi | puan | dk | diz | cevir | kur`, yarım bırakılırsa `yarıda`).
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
   - Tur sonu: `tur` (id = bölüm, akşam tekrarında `aksam`; ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4 | yeni:2 | seviye+:3 | tekrar:9`): oturum uzunluğu ve sıklığı buradan okunur.
   - Metin etkinliği özeti: `akt` (id `luecke:<metin>` notiz `puan:x/y | boşluk:n`; `diktat:<öğe>`); göç satırı `akt;goc4`.
@@ -94,7 +98,7 @@
 ## "Sonuçlarıma bak" dendiğinde
 
 1. `git pull --rebase` (uygulama `log/` dosyalarını GitHub API ile doğrudan bu dala commit eder; pushlamadan önce de çek). `VERLAUF.md`'deki son notta yazan satırdan sonraki `log/log.csv` satırlarını oku.
-2. `satz`, `luecke`, `abr`, `frm`, `wort`, `prod`, `paket` denemelerinin her biri için (özellikle `falsch` / `fast`) düzeltmeyi
+2. `satz`, `luecke`, `abr`, `frm`, `wort`, `prod`, `paket`, `cumle` (Cümle atölyesi; `kur` = `gonderildi` satırlarının hepsi, doğruysa kısa onay) denemelerinin her biri için (özellikle `falsch` / `fast`) düzeltmeyi
    tam liste olarak yaz: kendi cevabı, doğrusu (isimler artikelli), kısa açıklama.
    Aynılarını `daten/feedback.js`'e ekle: `{ zeit, id, antwort, richtig, urteil, text }`.
    Seçmeli (`erk`, `bed`, `art`) yanlışlarını tek tek yazma: hangi kelimeler ve hangi artikeller karışıyor, toplu söyle.

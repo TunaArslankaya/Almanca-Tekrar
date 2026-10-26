@@ -195,6 +195,7 @@
     sprechen: { ad: 'Konuşma', grup: 'Beceri', ziel: 1, neu: 0, neuTr: 'shadowing + kayıt (soru yok)' },
     gram: { ad: 'Gramer', grup: 'Dilbilgisi', ziel: 9, neu: 0, neuTr: 'konu başına kural + alıştırma' },
     pruefung: { ad: 'Prüfung', grup: 'Sınav', ziel: 1, neu: 0, neuTr: 'Goethe B1 provası (soru yok)' },
+    cumle: { ad: 'Cümle atölyesi', grup: 'Yazma', ziel: 8, neu: 0, neuTr: 'diz · çevir · kendi cümleni kur (js/cumle.js)' },
   };
   // Tek akış: tanıma, yazma, cümle, yeni kelime ve ara etkinlikler tek kuyrukta. Diğer bölümler odak için "Bölüm" listesinde.
   const PLAN = ['akis'];
@@ -298,7 +299,7 @@
     // akşam tekrarı: turun başında sabitlenen adaylar (aksamDurum: bugün yeni / yanlış / R < 0,9)
     aksam: id => !!(session.ot && session.ot.aksam && session.ot.aksam.includes(id)),
   };
-  ['paket', 'yazma', 'lesen', 'fiilmetin', 'unite', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung'].forEach(m => { FILTER[m] = () => false; });
+  ['paket', 'yazma', 'lesen', 'fiilmetin', 'unite', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung', 'cumle'].forEach(m => { FILTER[m] = () => false; });
   // seçili konu
   const themaId = () => (thById[S.einst.thema] ? S.einst.thema : (THEMEN[0] && THEMEN[0].id));
   let _thSet = null, _thFor = null;
@@ -1383,7 +1384,7 @@
     const pk = S.pakete[q.pid] = S.pakete[q.pid] || {};
     if (!(pk.m && pk.m.gun === Kern.gun4(t))) {
       const h = pk.m && pk.m.S ? Object.assign({}, pk.m, { pk: 2 }) : null;
-      pk.m = Object.assign(Kern.guncelle(h, g, t, S.einst.ret, 0, {}), { gun: Kern.gun4(t) });
+      pk.m = Object.assign(Kern.guncelle(h, g, t, S.einst.ret, 0, { kapisiz: true }), { gun: Kern.gun4(t) });
       delete pk.m.pk; delete pk.m.pkGun;
       Kern.golge(S, q.pid, 'pak', pk.m, t);
     }
@@ -2383,6 +2384,7 @@
     if (session.modus === 'sprechen') { sprechenRender(); return; }
     if (session.modus === 'gram') { aktuell = { typ: 'gram' }; Gramer.yenile(); Gramer.render(); tastatur(); return; }
     if (session.modus === 'pruefung') { aktuell = { typ: 'pruefung' }; Pruefung.yenile(); Pruefung.render(); return; }
+    if (session.modus === 'cumle') { aktuell = { typ: 'cumle' }; Cumle.yenile(); Cumle.render(); tastatur(); return; }
     const m = session.modus;
     if (!session.tur || session.tur.bitti) { turBaslat(); session.tur.mod = m; }
     if (turBitti()) { turSonuRender(); return; }
@@ -3505,6 +3507,7 @@
       satir('data-modus="kalip"', '💬', 'Kalıplar', 'fiillerin kullanımı'),
       satir('data-modus="artoyun"', '⏱️', 'Artikel 60 sn', 'der / die / das oyunu'),
       satir('data-modus="gram"', '📐', 'Gramer', 'B1 kuralları + alıştırma'),
+      satir('data-modus="cumle"', '🧱', 'Cümle atölyesi', 'diz · çevir · kendi cümleni kur'),
       satir('data-modus="pruefung"', '🎓', 'Prüfung', 'Goethe B1 provası'),
       satir('data-git="zayif"', '🎯', 'Zayıflar', zayifN ? `${zayifN} kelime` : 'yanlış yaptıkların burada toplanır'),
       `<details class="diger-pratik"><summary class="diger-satir"><span class="ik" aria-hidden="true">🎲</span><span><b>Serbest pratik</b><span class="alt">aynı akış, tek bir türle</span></span><span class="ok" aria-hidden="true">⌄</span></summary><div class="diger-grup">${pratik}</div></details>`,
@@ -4322,6 +4325,7 @@
     else { window.scrollTo(0, 0); toastBosalt(); }
     // Prüfung sayacı yalnız Çalış görünümündeyken çalışır (çıkınca sınav bırakılmış sayılır, boş sınav loglanmaz)
     if (v !== 'calis' && window.Pruefung && Pruefung.reset) Pruefung.reset();
+    if (v !== 'calis' && window.Cumle && Cumle.cik) Cumle.cik();   // atölye: yarım oturum log'a (tur;cumle yarıda)
     // adres: #/liste (öğe kimliğiyle çakışmasın: #liste sayfayı o öğeye kaydırıyordu).
     // Bugün dışındaki görünümler geçmişe bir kayıt ekler: Android geri tuşu uygulamayı kapatmaz, Bugün'e döner (popstate)
     try {
@@ -4448,6 +4452,7 @@
     if (mc) { mcWahl(+mc.dataset.mc); return; }
     if (session.modus === 'gram' && !$('#v-calis').hidden && e.target.closest('[data-g]')) { if (Gramer.klick(e)) return; }
     if (session.modus === 'pruefung' && !$('#v-calis').hidden && e.target.closest('[data-p]')) { if (Pruefung.klick(e)) return; }
+    if (session.modus === 'cumle' && !$('#v-calis').hidden && e.target.closest('[data-ca]')) { if (Cumle.klick(e)) return; }
     const oy = e.target.closest('[data-oyun]'); if (oy) { oyunCevap(oy.dataset.oyun); return; }
     const spt = e.target.closest('[data-sp-tab]'); if (spt) { session.sp = session.sp || {}; session.sp.tab = spt.dataset.spTab; session.sp.timerBis = null; sprechenRender(); return; }
     const spo = e.target.closest('[data-sp-ol]'); if (spo) { session.sp.ol = session.sp.ol || {}; session.sp.ol[spo.dataset.spOl] = spo.checked; return; }
@@ -4520,6 +4525,7 @@
     if (q.typ === 'pruefung') { if (e.key === 'Escape') { e.preventDefault(); if (pruefungCik()) { clearTimers(); zeigView('ana'); } } return; }
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
+    if (q.typ === 'cumle') { Cumle.tus(e); return; }
     if (q.typ === 'oyun') {
       if (e.repeat) return;
       if (!inInput && /^[123]$/.test(e.key) && session.oyun && session.oyun.durum === 'oyun') { e.preventDefault(); oyunCevap(['der', 'die', 'das'][+e.key - 1]); }
@@ -4742,6 +4748,16 @@
       kelimeAnlam: w => { const id = labelIdx[w]; return id ? trOf(id) : ''; }, kelimeGesehen: w => { const id = labelIdx[w]; return !id || !!S.items[id]; },
       sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
       leech: (id, ad) => logEintrag({ modus: 'leech', id, item: ad, frage: '', antwort: '', ergebnis: 'takiliyor', loesung: '', notiz: 'gramer' }),
+    });
+  })();
+  // Cümle atölyesi (js/cumle.js): uygulama yardımcıları; Kern hafızasına yazmaz, yalnız log + gün sayacı
+  (function cumleBagla() {
+    if (!window.Cumle) return;
+    Cumle.init({
+      S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn,
+      kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, fx: u => fxCevap(u), umlaut: UMLAUT_IC,
+      kind, label, trOf, wortLuecke, hilfe: (de, id) => hilfeHTML(de, id),
+      sayac: urteil => { const d = heute(); d.n++; if (urteil) d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); },
     });
   })();
   (function pruefungBagla() {

@@ -169,7 +169,7 @@ async function senaryo(b, ad, o) {
     for (const m of modi) {
       await p.evaluate(m => window.__tekrar.starte(m), m);
       await p.waitForTimeout(150);
-      for (let i = 0; i < 3; i++) { const r = await D.adim(p, { dogru: 0.8, rnd }); if (/^bilinmeyen/.test(r.ad) && !['yazma', 'lesen', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung', 'unite', 'fiilmetin'].includes(m)) hata('bölüm ' + m, 'tanınmayan kart ' + r.ad); }
+      for (let i = 0; i < 3; i++) { const r = await D.adim(p, { dogru: 0.8, rnd }); if (/^bilinmeyen/.test(r.ad) && !['yazma', 'lesen', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung', 'unite', 'fiilmetin', 'cumle'].includes(m)) hata('bölüm ' + m, 'tanınmayan kart ' + r.ad); }
       await p.keyboard.press('Escape'); await p.waitForTimeout(80);
     }
     if (p.hatalar.length) hata('bölümler', 'sayfa hataları: ' + p.hatalar.join(' | '));
