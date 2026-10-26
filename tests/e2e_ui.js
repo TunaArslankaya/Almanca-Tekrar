@@ -165,6 +165,36 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   if (p.hatalar.length) hata('sayfa', p.hatalar.join(' | '));
   await p.ctx.close();
 
+  // ---- tam cümle (B4): zor soru rozeti (yardım yok), kademeli yardım (ilk kelime → kelime bankası), sonuç paneli 390 px'e sığar ----
+  {
+    const c = await D.sayfa(b, { mobil: true });
+    await c.evaluate(() => window.__tekrar.starte('akis')); await c.waitForTimeout(250);
+    const id = await c.evaluate(() => Object.keys(SAETZE).find(id => window.__tekrar.gueltig(id + ':x') && SAETZE[id].some(x => x.tr && x.de.split(' ').length >= 6)));
+    if (!(await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'cumle', zor: true }), id))) hata('cümle', `zor soru açılmadı (${id})`);
+    const z = await c.evaluate(() => ({ rozet: !!document.querySelector('.zor-rozet'), yardim: !!document.querySelector('[data-act="cumle-yardim"]'), gloss: /Yardım:/.test(document.querySelector('.q-ust').innerText), voll: !!window.__tekrar.aktuell.voll }));
+    if (!z.voll) hata('cümle', 'zor cümle sorusu tam cümle değil');
+    if (!z.rozet || z.yardim || z.gloss) hata('cümle', `zor soru: rozet ${z.rozet}, yardım düğmesi ${z.yardim}, glossen ${z.gloss}`);
+    await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'cumle' }), id); await c.waitForTimeout(100);
+    await c.click('[data-act="cumle-yardim"]'); await c.click('[data-act="cumle-yardim"]'); await c.waitForTimeout(100);
+    const y = await c.evaluate(() => { const a = window.__tekrar.aktuell; return { cip: document.querySelectorAll('.kb-chip').length, kelime: a.ziel.split(/\s+/).length, lv: a.ipucuLv, ip: a.ipucu, deger: document.querySelector('#cevap').value }; });
+    if (y.cip !== y.kelime - 1 || y.lv !== 0 || y.ip !== 1 || !y.deger.trim()) hata('cümle', `kelime bankası: ${JSON.stringify(y)}`);
+    (await kucukler(c, '#v-calis')).forEach(x => hata('cümle yardım ≥48', x));
+    // kelime sırası bozuk cevap (ilk iki kelimenin yeri değişik)
+    await c.evaluate(() => { const w = window.__tekrar.aktuell.ziel.split(' '); [w[0], w[1]] = [w[1], w[0]]; document.querySelector('#cevap').value = w.join(' '); });
+    await c.press('#cevap', 'Enter'); await c.waitForTimeout(150);
+    const s = await c.evaluate(() => ({ panel: !!document.querySelector('#sonuc .sonuc'), cfark: !!document.querySelector('#sonuc .cfark'), cumle: typeof G.cumleKontrol === 'function', yatay: document.documentElement.scrollWidth - innerWidth, tasma: [...document.querySelectorAll('#sonuc .cd, #sonuc .satir')].filter(e => e.getBoundingClientRect().right > innerWidth + 1).length }));
+    if (!s.panel) hata('cümle', 'sonuç paneli yok');
+    if (s.cumle && !s.cfark) hata('cümle', 'G.cumleKontrol var ama kelime kelime fark çizilmedi');
+    if (s.yatay > 1 || s.tasma) hata('cümle', `sonuç paneli taşıyor (yatay ${s.yatay}, öğe ${s.tasma})`);
+    (await kucukler(c, '#sonuc')).forEach(x => hata('cümle sonuç ≥48', x));
+    await c.click('#sonuc .devam-btn'); await c.waitForTimeout(150);
+    const n = await c.evaluate(() => { const l = window.__tekrar.S.log; return (l[l.length - 1] || {}).notiz || ''; });
+    if (!/bicim:cumle/.test(n) || !/yardım:ilk,banka/.test(n) || !/ipucu:0/.test(n) || /(^| )zor( |$)/.test(n)) hata('cümle', `log notiz: ${n}`);
+    if (c.hatalar.length) hata('cümle sayfa', c.hatalar.join(' | '));
+    console.log(`tam cümle: ${id} · banka ${y.cip} çip · cumleKontrol ${s.cumle ? 'var' : 'yok (eski yol)'} · ${n.split(' | ').slice(0, 2).join(' | ')}`);
+    await c.ctx.close();
+  }
+
   // ---- hareket azaltılmış: konfeti canvas'ı oluşmaz ----
   const ctx = await b.newContext({ viewport: D.GORUNUM.mobil, isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
   const q = await ctx.newPage();
