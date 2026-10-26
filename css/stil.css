@@ -1039,3 +1039,33 @@ body.calis-modu .yenile-cubuk { display: none; }
 /* gramer: kelime çipleri satıra sığsın (çip ortadan bölünmesin, karttan taşmasın) */
 .g-woerter { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; margin-top: 1rem; }
 .g-woerter .chip { max-width: 100%; overflow-wrap: anywhere; }
+/* ---------- tam cümle: kelime kelime fark, diğer doğru çeviriler, etiket açıklaması, kademeli yardım, zor soru ---------- */
+.satir.dikey { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
+.satir .deger { min-width: 0; overflow-wrap: anywhere; }
+.cfark { line-height: 2.05; }
+.cd { padding: .05rem .2rem; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.cd.ok { color: var(--ok); }
+.cd.yazim { color: var(--ink); background: color-mix(in srgb, var(--warn) 22%, transparent); box-shadow: inset 0 -2px 0 var(--warn); }
+.cfark .h-fazla { color: var(--bad); text-decoration: line-through; text-decoration-thickness: 2px; }
+.cfark .h-eksik { color: var(--ok); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.cd.yanlis s, .cd.fazla s { color: var(--bad); text-decoration-thickness: 2px; }
+.cd-dogru { color: var(--ok); font-weight: 700; margin-left: .3rem; }
+.cd.eksik { color: var(--muted); border: 1px dashed var(--muted); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+.cd.fazla { opacity: .85; }
+.cd.yer { color: var(--ink); background: color-mix(in srgb, var(--accent) 20%, transparent); box-shadow: inset 0 -2px 0 var(--accent); }
+.cd-yer-im { font-size: .75em; margin-left: .15rem; color: var(--accent); }
+.cd-alts { margin: 0; padding-left: 1.1rem; display: grid; gap: .15rem; font-size: 1.02rem; }
+.cd-acik { margin: 0; padding: .5rem .7rem .5rem 1.5rem; display: grid; gap: .25rem; font-size: .9rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.cd-acik li::marker { color: var(--muted); }
+.cy { display: grid; gap: .45rem; }
+.cy-sira { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.cy-not, .cy-sonuc { font-size: .8rem; }
+.cy-banka { display: flex; flex-wrap: wrap; gap: .4rem; max-height: 9.5rem; overflow-y: auto; }
+.cy-banka[hidden] { display: none; }
+.kb-chip { font: inherit; font-size: 1rem; min-height: var(--hedef, 48px); min-width: var(--hedef, 48px); padding: .3rem .7rem; border-radius: 8px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); cursor: pointer; max-width: 100%; overflow-wrap: anywhere; }
+.kb-chip:active { background: var(--accent-soft); }
+.kb-chip.kullanildi { opacity: .45; }
+.zor-rozet { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .15rem .6rem; border-radius: 99px; color: var(--warn); background: var(--warn-soft); border: 1px solid color-mix(in srgb, var(--warn) 45%, transparent); }
+.etiket.zor-et { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 55%, transparent); }
+.cd.eksik::before { content: '+'; font-size: .8em; margin-right: .1rem; color: var(--muted); }
+.sonuc .baslik { flex-wrap: wrap; }
