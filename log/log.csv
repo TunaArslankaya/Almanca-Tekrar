@@ -2652,3 +2652,26 @@
 2026-10-26 11:24:19;bed;v117:bed;berichten über;Ein Reporter ist ein Journalist, der zu einem Ereignis oder Ort fährt, um darüber zu berichten.;haber vermek, anlatmak;richtig;(bir şey hakkında) haber vermek, anlatmak;basamak:B1 | bicim:metinde | not:m3 | R:0.79 | S:3.5 | ısınma | sek:3
 2026-10-26 11:24:20;art;n1390:art;die Wohnung;Wohnung;die;richtig;die Wohnung;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:43.3 | sek:1
 2026-10-26 11:24:31;stamm;v243:stamm;fahren;fahren — Präsens (er/sie), Präteritum, Perfekt;fahr, er ist gefahren;falsch;fährt, fuhr, ist gefahren;basamak:K | bicim:kok | not:k1 | R:0.85 | S:1.6 | kök:fahren | Präsens (er/sie): fährt, Präteritum: fuhr, Perfekt: ist gefahren | sek:9
+2026-10-26 11:24:41;wort;x1504:wort;die Behauptung;iddia;die Behaptung;fast;die Behauptung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.79 | S:7.5 | kısmi | kapı:7g | yazım | sek:7 | ipucu:0
+2026-10-26 11:24:44;bed;v590:bed;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:1.2 | kurtarma | sek:3
+2026-10-26 11:24:45;art;n1424:art;das Zimmer;Zimmer;das;richtig;das Zimmer;basamak:A | bicim:artikel | not:a3 | R:0.85 | S:43.3 | sek:1
+2026-10-26 11:24:53;luecke;w0272:nsatz;kalt;Es wird also meistens nicht sehr _____ und nicht sehr warm, außer in vielen Gebieten südlich der Alpen.;kalt;richtig;kalt;basamak:B3 | bicim:metin | not:m3 | R:0.77 | S:8.5 | kaynak:k4
+2026-10-26 11:24:53;luecke;w0536:nsatz;warm;Es wird also meistens nicht sehr kalt und nicht sehr _____, außer in vielen Gebieten südlich der Alpen.;heiß;falsch;warm;basamak:B3 | bicim:metin | not:m1 | R:0.77 | S:0.7 | kaynak:k4
+2026-10-26 11:24:53;akt;luecke:k4;metinde boşluk;Europa liegt etwa in der Mitte. Deshalb haben hier die meisten Länder ein gemäßigtes Klima. Es wird also meistens nicht sehr kalt und nicht sehr warm, außer in vielen Gebieten südlich der Alpen.;kalt / heiß;falsch;kalt / warm;puan:1/2 | boşluk:2
+2026-10-26 11:24:56;art;n0914:art;die Politik;Politik;der;falsch;die Politik;basamak:A | bicim:artikel | not:a1 | R:0.82 | S:0.2 | artikel der → die | sek:1
+2026-10-26 11:24:56;leech;n0914;die Politik;siyaset;;takiliyor;;günler:2026-10-09,2026-10-25,2026-10-26
+2026-10-26 11:25:04;wort;n0474:wort;das Gewitter;fırtına (gök gürültülü);die Gewitter;fast;das Gewitter;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.79 | S:9.2 | kapı:7g | artikel die → das | sek:7 | ipucu:0
+2026-10-26 11:25:04;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:2 | yanlış:3 | puan:58 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-26 11:25:07;bed;v592:bed;sich verletzen;yaralanmak;sich verletzen;richtig;sich verletzen;basamak:B1 | bicim:sec | not:m3 | R:0.78 | S:4.5 | ısınma | sek:2
+2026-10-26 11:25:09;bed;v305:bed;hageln;hageln;dolu yağmak;richtig;dolu yağmak;basamak:B1 | bicim:anla | not:m3 | R:0.78 | S:9.6 | ısınma | kapı:7g | sek:2
+2026-10-26 11:25:13;erk;w0165:erk;feucht;Wenn man vom Klima spricht, ist gemeint, dass es irgendwo normalerweise warm oder kalt ist, dass es trocken oder feucht ist.;nemli;richtig;nemli;basamak:B1 | bicim:metinde | not:m3 | R:0.78 | S:0.3 | ısınma | sek:4
+2026-10-26 11:25:17;art;n1374:art;das Wetter;Wetter;der;falsch;das Wetter;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.1 | artikel der → das | sek:3
+2026-10-26 11:25:30;stamm;v242:stamm;essen;essen — Präsens (er/sie), Perfekt;isst, gegessen;fast;isst, hat gegessen;basamak:K | bicim:kok | not:k2 | R:0.85 | S:41.7 | kök:essen | Perfekt: hat gegessen | sek:12
+2026-10-26 11:25:39;abr;v642:abr;sich wenden an;(birine) başvurmak;sich wenden an;richtig;sich wenden an (an + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:5.4 | sek:9 | ipucu:0
+2026-10-26 11:25:43;bed;v256:bed;feststellen;feststellen;tespit etmek;richtig;tespit etmek;basamak:B1 | bicim:anla | not:m3 | R:0.75 | S:3.7 | kurtarma | sek:4
+2026-10-26 11:25:47;art;x1561:art;die Not;Not;der;falsch;die Not;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.0 | artikel der → die | sek:3
+2026-10-26 11:25:50;bed;v272:bed;frieren;An winzigen Schneekristallen frieren immer mehr Wassertröpfchen fest.;üşümek;richtig;üşümek;basamak:B1 | bicim:metinde | not:m3 | R:0.76 | S:8.3 | kapı:7g | sek:2
+2026-10-26 11:25:53;bed;v459:bed;schneien;schneien;kar yağmak;richtig;kar yağmak;basamak:B1 | bicim:anla | not:m3 | R:0.75 | S:1.7 | sek:3
+2026-10-26 11:25:55;art;n0121:art;das Bargeld;Bargeld;das;richtig;das Bargeld;basamak:A | bicim:artikel | not:a3 | R:0.72 | S:1.9 | sek:2
+2026-10-26 11:25:58;bed;v466:bed;schweigen;susmak;schweigen;richtig;schweigen;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:0.9 | sek:2
+2026-10-26 11:25:58;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:61 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
