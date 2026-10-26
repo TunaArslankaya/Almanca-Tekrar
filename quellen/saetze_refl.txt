@@ -61,7 +61,7 @@ v111 | Bemühen Sie sich bitte nicht! | Lütfen zahmet etmeyin (siz, kibar).
 v111 | Wir bemühen uns, pünktlich zu sein. | Dakik olmaya çabalıyoruz.
 v119 | Beruhige dich doch! | Sakinleş artık!
 v119 | Sie hat sich schnell beruhigt. | O (kadın) çabuk sakinleşti.
-v119 | Ich beruhige mich, wenn ich Musik höre. | Müzik dinlediğimde sakinleşiyorum.
+v119 | Ich beruhige mich, wenn ich Musik höre. || Wenn ich Musik höre, beruhige ich mich. | Müzik dinlediğimde sakinleşiyorum.
 v119 | Hat sich das Baby beruhigt? | Bebek sakinleşti mi?
 v121 | Ich beschäftige mich gern mit Computern. | Bilgisayarlarla uğraşmayı severim.
 v121 | Womit beschäftigst du dich in deiner Freizeit? | Boş zamanında neyle uğraşıyorsun?
@@ -191,7 +191,7 @@ v397 | Der Zug nähert sich dem Bahnhof. | Tren istasyona yaklaşıyor.
 v397 | Ein Hund hat sich dem Kind genähert. | Bir köpek çocuğa yaklaştı.
 v397 | Wir nähern uns langsam dem Ziel. | Yavaş yavaş hedefe yaklaşıyoruz.
 v397 | Nähern Sie sich dem Tier nicht! | Hayvana yaklaşmayın (siz, kibar)!
-v420 | Ich rasiere mich jeden Morgen. | Her sabah tıraş oluyorum.
+v420 | Ich rasiere mich jeden Morgen. || Jeden Morgen rasiere ich mich. | Her sabah tıraş oluyorum.
 v420 | Hast du dich heute rasiert? | Bugün tıraş oldun mu?
 v420 | Er rasiert sich nur am Wochenende. | O (erkek) sadece hafta sonu tıraş oluyor.
 v420 | Ich habe keine Zeit, weil ich mich noch rasieren muss. | Vaktim yok, çünkü daha tıraş olmam gerekiyor.
@@ -283,7 +283,7 @@ v628 | Darf ich mich vorstellen? | Kendimi tanıtabilir miyim?
 v628 | Stell dich bitte kurz vor! | Lütfen kendini kısaca tanıt!
 v628 | Er hat sich beim Chef vorgestellt. | O (erkek) kendini patrona tanıttı.
 v628 | Wir stellen uns der Klasse vor. | Kendimizi sınıfa tanıtıyoruz.
-v629 | Ich kann mir das nicht vorstellen. | Bunu hayal edemiyorum.
+v629 | Ich kann mir das nicht vorstellen. || Das kann ich mir nicht vorstellen. | Bunu hayal edemiyorum.
 v629 | Stell dir vor, ich habe eine Wohnung gefunden! | Düşünsene, bir daire buldum!
 v629 | Hast du dir das so vorgestellt? | Bunu böyle mi hayal etmiştin?
 v629 | Er stellt sich sein Leben in Deutschland schön vor. | O (erkek) Almanya'daki hayatını güzel hayal ediyor.
@@ -321,3 +321,21 @@ v590 | Ohne Handy verlaufe ich mich in jeder fremden Stadt. | Telefonsuz her yab
 v590 | Er hat sich auf dem Weg zum Bahnhof verlaufen. | Gara giderken yolunu kaybetti.
 v590 | Passt auf, dass ihr euch im Park nicht verlauft! | Dikkat edin, parkta yolunuzu kaybetmeyin!
 v177 | Diese Schuhe eignen sich nicht für nasses Wetter. | Bu ayakkabılar ıslak hava için uygun değil.
+
+v629 | Ich kann mir gut vorstellen, nach dem Studium in Bremen zu arbeiten. | Üniversiteden sonra Bremen'de çalışmayı rahatlıkla hayal edebiliyorum.
+v119 | Vor der Prüfung war ich sehr nervös, aber dann habe ich mich beruhigt. || Vor der Prüfung war ich sehr nervös, aber dann beruhigte ich mich. | Sınavdan önce çok gergindim ama sonra sakinleştim.
+v654 | Ich habe mich gewundert, dass die Miete in Bremen so hoch ist. || Ich habe mich darüber gewundert, dass die Miete in Bremen so hoch ist. || Ich wunderte mich, dass die Miete in Bremen so hoch ist. | Bremen'de kiranın bu kadar yüksek olmasına şaşırdım.
+v642 | Wenn Sie Fragen zur Aufenthaltserlaubnis haben, wenden Sie sich bitte an die Ausländerbehörde. || Wenden Sie sich bitte an die Ausländerbehörde, wenn Sie Fragen zur Aufenthaltserlaubnis haben. | Oturma izniyle ilgili sorularınız varsa lütfen Yabancılar Dairesi'ne başvurun.
+v111 | Ich bemühe mich sehr, im Deutschkurs jeden Tag nur Deutsch zu sprechen. | Almanca kursunda her gün sadece Almanca konuşmak için çok çabalıyorum.
+v121 | In meiner Hausarbeit beschäftige ich mich mit dem Klima in Norddeutschland. || Ich beschäftige mich in meiner Hausarbeit mit dem Klima in Norddeutschland. | Dönem ödevimde Kuzey Almanya'daki iklimle uğraşıyorum.
+v177 | Diese Wohnung eignet sich nicht für eine WG, weil sie nur zwei Zimmer hat. || Weil sie nur zwei Zimmer hat, eignet sich diese Wohnung nicht für eine WG. | Bu daire sadece iki odası olduğu için WG için uygun değil.
+v125 | Weil die Nachbarn jede Nacht laut sind, habe ich mich beim Vermieter beschwert. || Ich habe mich beim Vermieter beschwert, weil die Nachbarn jede Nacht laut sind. | Komşular her gece gürültü yaptığı için ev sahibine şikâyet ettim.
+v420 | Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. || Ich habe mich gründlich rasiert, weil ich heute ein Vorstellungsgespräch habe. | Bugün bir iş görüşmem olduğu için güzelce tıraş oldum.
+v592 | Beim Fußballspielen hat sich mein Mitbewohner am Knie verletzt. || Mein Mitbewohner hat sich beim Fußballspielen am Knie verletzt. | Ev arkadaşım futbol oynarken dizinden yaralandı.
+v590 | Am ersten Tag habe ich mich auf dem Campus verlaufen und bin zu spät gekommen. || Ich habe mich am ersten Tag auf dem Campus verlaufen und bin zu spät gekommen. | İlk gün kampüste yolumu kaybettim ve geç kaldım.
+v509 | Meine Mitbewohner streiten sich oft darüber, wer den Müll rausbringen muss. | Ev arkadaşlarım çöpü kimin çıkaracağı konusunda sık sık tartışıyor.
+v030 | Bis Ende Oktober muss ich mich für die Sprachprüfung an der Uni anmelden. || Ich muss mich bis Ende Oktober für die Sprachprüfung an der Uni anmelden. | Ekim sonuna kadar üniversitedeki dil sınavına kaydolmam gerekiyor.
+v589 | Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit dem Rad. || Man kann sich morgens nicht auf den Bus verlassen, deshalb fahre ich mit dem Rad. || Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit dem Fahrrad. | Sabahları otobüse güvenilmez, bu yüzden bisikletle gidiyorum.
+v278 | Viele Studenten fürchten sich vor der mündlichen Prüfung, weil sie frei sprechen müssen. | Birçok öğrenci serbest konuşmak zorunda oldukları için sözlü sınavdan korkuyor.
+v184 | Nach einer langen Diskussion haben wir uns auf einen gemeinsamen Termin geeinigt. || Wir haben uns nach einer langen Diskussion auf einen gemeinsamen Termin geeinigt. | Uzun bir tartışmadan sonra ortak bir tarihte anlaştık.
+v063 | Mein Mitbewohner regt sich auf, wenn jemand sein Essen aus dem Kühlschrank nimmt. || Wenn jemand sein Essen aus dem Kühlschrank nimmt, regt sich mein Mitbewohner auf. | Biri buzdolabından yemeğini alınca ev arkadaşım sinirleniyor.
