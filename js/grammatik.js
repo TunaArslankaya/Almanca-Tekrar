@@ -751,8 +751,268 @@
     return { urteil, ziel: best, tags: [...tags], diff: df };
   }
 
+  // ---------- Tam cümle kontrolü (sözleşme §3): G.cumleKontrol(giris, hedefler, opts) ----------
+  // Kelime düzeyinde ağırlıklı hizalama (DP): eşit 0, kaynaştırma / yazım 2, artikel-çekim 4, yardımcı fiil 5, edat 8, eksik / fazla 10;
+  // ilişkisiz kelime yer değiştirmez (eksik + fazla olur), sonra aynı kelime eksik + fazla → 'yer', aynı boşlukta kalan eksik + fazla → 'yanlis'.
+  const CK_KAY = { 'in dem': 'im', 'in das': 'ins', 'an dem': 'am', 'an das': 'ans', 'zu dem': 'zum', 'zu der': 'zur', 'bei dem': 'beim',
+    'von dem': 'vom', 'auf das': 'aufs', 'ueber das': 'uebers', 'durch das': 'durchs', 'fuer das': 'fuers', 'um das': 'ums' };
+  const CK_KAYP = {}; Object.keys(CK_KAY).forEach(k => { CK_KAYP[CK_KAY[k]] = k.split(' ')[0]; });
+  const CK_PRAEP = new Set('an auf in ueber unter vor hinter neben zwischen mit nach zu von bei aus seit fuer um gegen ohne durch bis waehrend wegen trotz statt'.split(' '));
+  const CK_DET = /^(der|die|das|den|dem|des|(k?ein|mein|dein|sein|ihr|unser|eur|euer)(e|en|em|er|es)?|dies(e|er|es|en|em)|jed(e|er|es|en|em)|welch(e|er|es|en|em))$/;
+  const CK_REFL = new Set(['sich', 'mich', 'dich', 'uns', 'euch', 'mir', 'dir']);
+  const CK_PRON = { ich: 1, mich: 1, mir: 1, du: 2, dich: 2, dir: 2, er: 3, ihn: 3, ihm: 3, wir: 4, uns: 4, euch: 5, ihnen: 6 };
+  const CK_NEG = new Set(['nicht', 'kein', 'keine', 'keinen', 'keinem', 'keiner', 'keines', 'nie', 'niemals', 'nichts', 'niemand']);
+  const CK_SUB = new Set('weil dass ob obwohl wenn nachdem bevor damit falls sobald sodass seitdem waehrend als bis da'.split(' '));
+  const CK_W = new Set('wann wo warum wie was wer wen wem wessen woher wohin wieso weshalb welche welcher welches welchen welchem'.split(' '));
+  const CK_RELP = new Set('der die das den dem deren dessen denen'.split(' '));
+  const CK_KONJ = new Set('und aber oder denn sondern doch auch nur noch schon nicht sogar so dann'.split(' '));
+  const CK_SUBJ = new Set(['ich', 'du', 'er', 'wir', 'ihr', 'man', 'sie', 'es']);
+  const CK_ENDS = /^(e|en|n|s|es|er|ern|r|m|em|t|st|et|est|te|ten|tet|test|tes|nen|se|sen)?$/;
+  const CK_IRR = {}; Object.keys(IRR).forEach(b => IRR[b].concat(b).forEach(f => { CK_IRR[acik(f.toLowerCase())] = b; }));
+  const CK_PRT = { sein: 'war', haben: 'hatte', werden: 'wurde', können: 'konnte', müssen: 'musste', wollen: 'wollte', sollen: 'sollte', dürfen: 'durfte', mögen: 'mochte' };
+  Object.keys(CK_PRT).forEach(b => praeteritumForms(CK_PRT[b]).forEach(f => { CK_IRR[acik(f)] = b; }));
+  ['gewesen', 'gehabt', 'geworden'].forEach((f, i) => { CK_IRR[f] = ['sein', 'haben', 'werden'][i]; });
+  const CK_PART = new Set('schon noch doch mal ja auch nur gern gerne sehr gar eben halt wohl etwa denn lieber immer so dann aber oder und sondern'.split(' '));
+  const CK_ZEIT = /^(letzte[nsr]?|naechste[nsr]?|jede[nsr]?|diese[nsr]?|vorige[nsr]?)$/;
+  const CK_ADV = new Set('morgen gestern heute jetzt dann hier dort da leider oft manchmal bald spaeter frueher abends morgens vorgestern uebermorgen zuerst danach endlich trotzdem deshalb'.split(' '));
+  const ckKey = w => acik(w.toLowerCase());
+  const ckUml = w => w.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss');
+  // cümle → kelime nesneleri {w: yazılan, k: anahtar, seg: virgül bölümü, kay: kaynaşmış edat ayrık yazıldı}
+  function ckTok(s, izin) {   // izin: öğrencide yalnız hedefte de geçen kaynaşmış edatlar birleştirilir (auf. Das ≠ aufs)
+    const parca = String(s || '').replace(/[„“"«»”‚‘’]/g, ' ').replace(/(\d)[.,:](?=\d)/g, '$1\u2027').replace(/[,;:]/g, ' , ').replace(/[.!?…]+(?=\s|$)/g, ' , ').replace(/[.!?…()[\]/]/g, ' ').split(/\s+/);
+    const out = []; let seg = 0;
+    parca.forEach(p => {
+      if (p === ',') { if (out.length && out[out.length - 1].seg === seg) seg++; return; }
+      p = p.replace(/^[-–—']+|[-–—']+$/g, '');
+      if (p) out.push({ w: p.replace(/\u2027/g, '.'), k: /^\d/.test(p) ? p.replace(/\D/g, '') : ckKey(p), seg, kay: false, bas: !out.length });   // sayı: 20.00 = 20:00
+    });
+    for (let i = 0; i < out.length - 1; i++) {
+      const k2 = CK_KAY[out[i].k + ' ' + out[i + 1].k];
+      if (k2 && out[i].seg === out[i + 1].seg && (!izin || izin.has(k2))) { out.splice(i, 2, { w: out[i].w + ' ' + out[i + 1].w, k: k2, seg: out[i].seg, kay: true, bas: out[i].bas }); }
+    }
+    return out;
+  }
+  function ckKok(x, y) {   // aynı kök + çekim eki (gehe/geht, kleine/kleinen, machen/gemacht)
+    const dene = (p, q) => { let c = 0; while (c < p.length && c < q.length && p[c] === q[c]) c++; return c >= 3 && CK_ENDS.test(p.slice(c)) && CK_ENDS.test(q.slice(c)); };
+    return [[x, y], [x.replace(/^ge/, ''), y], [x, y.replace(/^ge/, '')]].some(([p, q]) => dene(p, q));
+  }
+  // öğrenci kelimesi a ile hedef kelimesi b arasındaki ilişki: [tip, maliyet, etiket] ya da null (ilişkisiz)
+  function ckIliski(a, b) {
+    const x = a.k, y = b.k;
+    if (x === y) return a.kay === b.kay ? ['ok', 0, ''] : ['yazim', 2, 'kaynaştırma'];
+    const ua = ckUml(a.w), ub = ckUml(b.w), baskaKelime = LEX && LEX.has(a.w.toLowerCase()) && a.w.toLowerCase() !== b.w.toLowerCase();
+    if (ua === ub && !a.kay && !b.kay) return ['yazim', 2, 'umlaut'];   // umlaut yerine düz ünlü (fur → für, Madchen): klavye hatası sayılır, küçük hata
+    if (CK_NEG.has(x) !== CK_NEG.has(y)) return null;   // kein / nicht ↔ ein: anlam değişir
+    if (CK_DET.test(x) && CK_DET.test(y)) return ['cekim', 4, 'artikel/çekim'];
+    if ((CK_REFL.has(x) && CK_REFL.has(y)) || (CK_PRON[x] && CK_PRON[x] === CK_PRON[y])) return ['cekim', 4, 'artikel/çekim'];
+    const ix = CK_IRR[x], iy = CK_IRR[y];
+    if (ix && iy) {
+      if (ix === iy) return ['cekim', 4, 'artikel/çekim'];
+      if ((ix === 'haben' && iy === 'sein') || (ix === 'sein' && iy === 'haben')) return ['aux', 5, 'yardımcı fiil'];
+    }
+    const px = CK_PRAEP.has(x) ? x : CK_KAYP[x], py = CK_PRAEP.has(y) ? y : CK_KAYP[y];
+    if (px && py) return px === py ? ['cekim', 4, 'artikel/çekim'] : ['edat', 8, 'edat'];
+    if (px || py) return null;
+    const d = lev(x, y), hosgoru = (y.length >= 5 && d === 1) || (y.length >= 10 && d <= 2);
+    if (ckKok(x, y) || ckKok(ua, ub)) return ['cekim', 4, 'artikel/çekim'];   // ek farkı her zaman çekim (sıfat / fiil eki), sözlükte olmasa da
+    if (hosgoru && !baskaKelime) return ['yazim', 2, 'yazım'];
+    return null;
+  }
+  // tek hedefe karşı hizalama → { diff, items, skor, ... }
+  const ckFonk = k => /^\d/.test(k) || CK_DET.test(k) || CK_PRAEP.has(k) || !!CK_KAYP[k] || !!CK_PRON[k] || CK_REFL.has(k) || CK_SUB.has(k) || CK_W.has(k) || CK_KONJ.has(k) || CK_SUBJ.has(k) || CK_NEG.has(k);
+  const ckBuyuk = t => t.w.charAt(0) !== t.w.charAt(0).toLowerCase();
+  // hedef cümlenin yapısı: yan cümle bölümleri (weil/dass … ya da virgülden sonra W-sözcüğü / ilgi zamiri) ve ana cümlelerde çekimli fiil adayları
+  function ckYapi(T, opts) {
+    const ff = new Set();
+    if (opts.fiil) { try { praesensForms(opts.fiil).forEach(f => ff.add(ckKey(f))); if (opts.fiil.pt3) praeteritumForms(opts.fiil.pt3.split('/')[0].split(' ')[0]).forEach(f => ff.add(ckKey(f))); } catch (e) { /* eksik fiil nesnesi */ } }
+    const yanSeg = new Set(), fiilAday = new Set(), segs = [...new Set(T.map(t => t.seg))];
+    segs.forEach((sg, si) => {
+      const js = T.map((t, j) => j).filter(j => T[j].seg === sg), ilk = T[js[0]];
+      if (CK_SUB.has(ilk.k) || (si > 0 && (CK_W.has(ilk.k) || CK_RELP.has(ilk.k))) || (/^(um|ohne|statt|anstatt)$/.test(ilk.k) && js.some(j => T[j].k === 'zu'))) { yanSeg.add(sg); return; }
+      const irr = js.find(j => (CK_IRR[T[j].k] && T[j].k !== 'sein') || ff.has(T[j].k));   // ilk haben/sein/werden/modal ya da sorunun fiili
+      if (irr != null) fiilAday.add(irr);
+      js.forEach((j, n) => {
+        const t = T[j], onc = n > 0 ? T[js[n - 1]] : null, sonra = n < js.length - 1 ? T[js[n + 1]] : null;
+        if ((!t.bas && ckBuyuk(t)) || ckFonk(t.k) || CK_PART.has(t.k)) return;
+        if (sonra && CK_SUBJ.has(sonra.k)) fiilAday.add(j);            // devrik: Morgen gehe ich …
+        else if (n === 1 && CK_SUBJ.has(onc.k)) fiilAday.add(j);        // düz: Ich gehe …
+      });
+    });
+    return { yanSeg, fiilAday };
+  }
+  // geçerli başka dizilişler (yalnız öğrencide yer değişikliği varsa denenir): Vorfeld değişimi ve ana / yan cümle değişimi
+  function ckZarf(R) {   // R'nin başındaki zaman / yer öbeğinin uzunluğu (0: yok)
+    const k = R[0].k;
+    if (!ckBuyuk(R[0]) && !ckFonk(k) && !CK_PART.has(k) && !CK_IRR[k] && !(R[1] && ckBuyuk(R[1]) && /(e|en|em|er|es)$/.test(k))) return 1;   // gestern, morgen, leider
+    if (CK_PRAEP.has(k) || CK_KAYP[k]) { for (let i = 1; i < Math.min(R.length, 5); i++) if (ckBuyuk(R[i])) return i + 1; return 0; }
+    if (CK_ZEIT.test(k) && R[1] && ckBuyuk(R[1])) return 2;   // letztes Jahr, nächste Woche
+    return 0;
+  }
+  function ckVaryant(T, y) {
+    const out = [], segs = [...new Set(T.map(t => t.seg))], parca = sg => T.filter(t => t.seg === sg);
+    const kucult = t => t.bas && t.w !== 'Sie' && (ckFonk(t.k) || CK_ADV.has(t.k) || CK_ZEIT.test(t.k));
+    const kopya = (arr, sg) => arr.map(t => Object.assign({}, t, { seg: sg, bas: false, ilk: t.bas || t.ilk, w: kucult(t) ? t.w.charAt(0).toLowerCase() + t.w.slice(1) : t.w }));
+    const bas = V => { V[0] = Object.assign({}, V[0], { w: V[0].w.charAt(0).toUpperCase() + V[0].w.slice(1) }); return V; };
+    segs.forEach(sg => {
+      if (y.yanSeg.has(sg)) return;
+      const P = parca(sg), j0 = T.indexOf(P[0]), vj = P.findIndex(t => y.fiilAday.has(T.indexOf(t)));
+      if (vj < 1 || /^(und|aber|oder|denn|sondern)$/.test(P[0].k)) return;
+      const A = P.slice(0, vj), V = P[vj], R = P.slice(vj + 1);
+      let yeni = null;
+      if (R.length >= 2 && CK_SUBJ.has(R[0].k) && !(A.length === 1 && CK_SUBJ.has(A[0].k))) yeni = [R[0], V].concat(A, R.slice(1));   // Morgen gehe ich … → Ich gehe morgen …
+      else if (A.length === 1 && CK_SUBJ.has(A[0].k) && R.length >= 2) { const B = ckZarf(R); if (B && B < R.length) yeni = R.slice(0, B).concat(V, A, R.slice(B)); }   // Ich gehe morgen … → Morgen gehe ich …
+      if (yeni) out.push(bas(T.slice(0, j0).concat(kopya(yeni, sg), T.slice(j0 + P.length))));
+    });
+    if (segs.length === 2) {   // Ich komme, wenn … ↔ Wenn …, komme ich
+      const P0 = parca(segs[0]), P1 = parca(segs[1]);
+      if (!y.yanSeg.has(segs[0]) && y.yanSeg.has(segs[1]) && P0.length >= 2 && CK_SUBJ.has(P0[0].k) && y.fiilAday.has(T.indexOf(P0[1])))
+        out.push(bas(kopya(P1, 0).concat(kopya([P0[1], P0[0]].concat(P0.slice(2)), 1))));
+      else if (y.yanSeg.has(segs[0]) && !y.yanSeg.has(segs[1]) && P1.length >= 2 && y.fiilAday.has(T.indexOf(P1[0])) && CK_SUBJ.has(P1[1].k))
+        out.push(bas(kopya([P1[1], P1[0]].concat(P1.slice(2)), 0).concat(kopya(P0, 1))));
+    }
+    return out;
+  }
+  const ckYaz = (T, orj) => T.map((t, i) => (i && T[i - 1].seg !== t.seg ? ', ' : i ? ' ' : '') + t.w).join('') + ((String(orj).trim().match(/[.!?]+$/) || [''])[0]);
+  function ckHizala(S, T, opts, yapi) {
+    const n = S.length, m = T.length, C = Array.from({ length: n + 1 }, () => new Array(m + 1).fill(0));
+    const R = Array.from({ length: n }, (_, i) => T.map(t => ckIliski(S[i], t)));
+    for (let i = n; i >= 0; i--) for (let j = m; j >= 0; j--) {
+      if (i === n && j === m) continue;
+      let c = Infinity;
+      if (i < n && j < m && R[i][j]) c = R[i][j][1] + C[i + 1][j + 1];
+      if (i < n) c = Math.min(c, 10 + C[i + 1][j]);
+      if (j < m) c = Math.min(c, 10 + C[i][j + 1]);
+      C[i][j] = c;
+    }
+    let it = [], i = 0, j = 0;
+    while (i < n || j < m) {
+      if (i < n && j < m && R[i][j] && C[i][j] === R[i][j][1] + C[i + 1][j + 1]) { it.push({ t: R[i][j][0], si: i, ti: j, rel: R[i][j] }); i++; j++; }
+      else if (i < n && C[i][j] === 10 + C[i + 1][j]) it.push({ t: 'fazla', si: i++ });
+      else it.push({ t: 'eksik', ti: j++ });
+    }
+    // yer değiştirme: fazla kelime başka yerde eksik olanla aynıysa (önce birebir, sonra yazım / çekim farkıyla; artikel / zamir hariç)
+    [0, 1].forEach(tur => it.forEach(f => {
+      if (f.t !== 'fazla') return;
+      const e = it.find(x => x.t === 'eksik' && (r => r && (tur ? r[0] !== 'edat' && r[0] !== 'aux' && !CK_DET.test(T[x.ti].k) && !CK_PRON[T[x.ti].k] : r[0] === 'ok'))(ckIliski(S[f.si], T[x.ti])));
+      if (e) { f.t = 'yer'; f.ti = e.ti; f.rel = ckIliski(S[f.si], T[e.ti]); e.sil = true; }
+    }));
+    it = it.filter(x => !x.sil);
+    // aynı boşlukta kalan eksik + fazla → yanlış kelime (fazlanın yerinde)
+    for (let a = 0; a < it.length;) {
+      if (it[a].t !== 'fazla' && it[a].t !== 'eksik') { a++; continue; }
+      let b = a; while (b < it.length && (it[b].t === 'fazla' || it[b].t === 'eksik')) b++;
+      const fz = it.slice(a, b).filter(x => x.t === 'fazla'), ek = it.slice(a, b).filter(x => x.t === 'eksik');
+      for (let k = 0; k < Math.min(fz.length, ek.length); k++) { fz[k].t = 'yanlis'; fz[k].ti = ek[k].ti; ek[k].sil = true; }
+      a = b;
+    }
+    it = it.filter(x => !x.sil);
+    // aynı kelime iki kez geçiyorsa (ich … ich) eşleşmeyi komşulara göre düzelt
+    const uyum = (si, ti) => (si > 0 && ti > 0 && S[si - 1].k === T[ti - 1].k ? 1 : 0) + (S[si + 1] && T[ti + 1] && S[si + 1].k === T[ti + 1].k ? 1 : 0);
+    const es = it.filter(x => x.t === 'ok' || x.t === 'yer');
+    es.forEach(a => es.forEach(b => {
+      if (a === b || S[a.si].k !== S[b.si].k || T[a.ti].k !== T[b.ti].k) return;
+      if (uyum(a.si, b.ti) + uyum(b.si, a.ti) > uyum(a.si, a.ti) + uyum(b.si, b.ti)) { const t = a.ti; a.ti = b.ti; b.ti = t; }
+    }));
+    // etiketler, ceza
+    const tags = new Set(), ana = [];
+    let ceza = 0, kucuk = 0;
+    const s2t = {}; it.forEach(x => { if (x.si != null && x.ti != null) s2t[x.si] = x.ti; });
+    const { yanSeg, fiilAday } = yapi;
+    it.forEach(x => {
+      const sw = x.si != null ? S[x.si].w : '', tw = x.ti != null ? T[x.ti].w : '';
+      x.w = sw; x.d = tw;
+      if (x.t === 'ok') {
+        if (sw !== tw && x.si > 0 && !T[x.ti].bas && !T[x.ti].ilk && sw.charAt(0) !== tw.charAt(0)) tags.add('büyük/küçük harf');
+        return;
+      }
+      if (x.t === 'yazim') { tags.add(x.rel[2]); ceza += x.rel[2] === 'kaynaştırma' ? 0.2 : 0.25; kucuk++; return; }
+      if (x.t === 'cekim' || x.t === 'aux') { tags.add(x.rel[2]); ceza += 0.5; kucuk++; x.t = 'yanlis'; return; }
+      if (x.t === 'edat') { tags.add('edat'); ceza += 1; ana.push(x); x.t = 'yanlis'; return; }
+      if (x.t === 'yer') { tags.add('kelime sırası'); if (x.rel[0] !== 'ok') tags.add(x.rel[2]); ceza += 0.5 + (x.rel[0] === 'ok' ? 0 : 0.25); kucuk++; return; }
+      if (x.t === 'yanlis') { tags.add('yanlış kelime'); ceza += 1; ana.push(x); return; }
+      const k = (x.t === 'eksik' ? T[x.ti] : S[x.si]).k;
+      if (CK_DET.test(k)) { tags.add('artikel/çekim'); ceza += 0.5; kucuk++; return; }
+      if (CK_PRAEP.has(k) || CK_KAYP[k]) tags.add('edat');
+      else if (k === 'sich' || (CK_REFL.has(k) && opts.fiil && opts.fiil.refl)) tags.add('dönüşlü zamir');
+      else tags.add(x.t === 'eksik' ? 'eksik kelime' : 'fazla kelime');
+      ceza += 1; ana.push(x);
+    });
+    // fiil yeri: yalnız yer değişikliği varsa, sezgisel ve temkinli
+    if (it.some(x => x.t === 'yer')) {
+      const t2s = {}; Object.keys(s2t).forEach(s => { t2s[s2t[s]] = +s; });
+      let fy = false;
+      yanSeg.forEach(sg => {   // yan cümlede son kelime (fiil) öğrencide bölümün sonunda değil
+        const js = T.map((t, j) => j).filter(j => T[j].seg === sg), son = js[js.length - 1];
+        if (js.length < 3 || ckBuyuk(T[son]) || t2s[son] == null) return;
+        if (js.slice(0, -1).some(j => t2s[j] != null && t2s[j] > t2s[son])) fy = true;
+      });
+      fiilAday.forEach(j => {   // ana cümlede fiilden önce tek öbek (hedefte bitişik kelimeler) olmalı
+        const q = t2s[j]; if (q == null) return;
+        const on = []; for (let s = 0; s < q; s++) { if (s2t[s] == null) return; on.push(s2t[s]); }
+        if (!on.length) { if (j > 0) fy = true; return; }
+        if (j === 0) { fy = true; return; }
+        const mn = Math.min(...on), mx = Math.max(...on);
+        if (mx - mn + 1 !== on.length || new Set(on).size !== on.length) fy = true;
+      });
+      if (fy) tags.add('fiil yeri');
+    }
+    const skor = Math.max(0, Math.round((1 - ceza / Math.max(S.length, T.length, 1)) * 100) / 100);
+    return { it, tags, ana, kucuk, skor, S, T, fiilAday };
+  }
+  // hedef kelime (opts.hedefKelime) cevapta var mı: hedefteki karşılığı eşlenmiş mi, yoksa öğrencide aynı kök var mı
+  function ckHedefVar(h, r) {
+    const ht = ckTok(h).filter(t => !CK_DET.test(t.k) && t.k !== 'sich');
+    const ON = /^(ab|an|auf|aus|ein|mit|nach|vor|zu|zurueck|weg|fern|her|hin|los|teil|fest|um|statt)/;
+    return ht.every(h1 => {
+      const varyant = [h1].concat(ON.test(h1.k) ? [{ w: h1.w.replace(ON, ''), k: h1.k.replace(ON, ''), kay: false }] : []);
+      const tutar = t => varyant.some(v => v.k.length >= 2 && (r2 => r2 && ['ok', 'yazim', 'cekim'].includes(r2[0]))(ckIliski(t, v)));
+      const tj = r.T.map((t, j) => j).filter(j => tutar(r.T[j]));
+      if (!tj.length) return true;   // hedefte bulunamadı (ör. lemma gehen ↔ gegangen): denetlenemez, cezalandırma
+      return tj.some(j => r.it.some(x => x.ti === j && x.t !== 'eksik' && (x.t !== 'yanlis' || (x.rel && x.rel[0] === 'cekim') || tutar(r.S[x.si]))));
+    });
+  }
+  // Not: hata yok → richtig (büyük/küçük harf, noktalama, ae/oe/ue/ss sayılmaz); yalnız sıra / küçük hatalar (yazım, umlaut, kaynaştırma,
+  // artikel-çekim, yardımcı fiil, yer) ve skor ≥ 0,75 → fast; tek büyük hata yalnız ≥ 6 kelimelik cümlede tek eksik / fazla sıradan kelimeyse
+  // ve skor ≥ 0,8 → fast; yanlış kelime, edat, dönüşlü zamir, olumsuzluk, fiil → falsch. opts.hedefKelime cevapta yok / başka kelime → falsch.
+  // opts.fiil (fiil nesnesi, isteğe bağlı): çekimli biçimleri fiil yeri sezgisine ve dönüşlü zamir etiketine yardım eder.
+  function cumleKontrol(giris, hedefler, opts) {
+    opts = opts || {};
+    const hl = (Array.isArray(hedefler) ? hedefler : [hedefler]).filter(h => h && String(h).trim());
+    if (!hl.length) return { urteil: 'falsch', tags: [], enYakin: '', skor: 0, diff: [] };
+    const S0 = ckTok(giris, new Set());
+    if (!S0.length) return { urteil: 'falsch', tags: ['boş'], enYakin: hl[0], skor: 0, diff: ckTok(hl[0]).map(t => ({ t: 'eksik', w: '', d: t.w })) };
+    let en = null, S;
+    const dene = (T, y, h) => {
+      const r = ckHizala(S, T, opts, y); r.h = h;
+      if (!en || r.skor > en.skor || (r.skor === en.skor && r.ana.length + r.kucuk < en.ana.length + en.kucuk)) en = r;
+      return r;
+    };
+    hl.forEach(h => {
+      const T = ckTok(h), y = ckYapi(T, opts);
+      S = ckTok(giris, new Set(T.filter(t => CK_KAYP[t.k]).map(t => t.k)));
+      if (dene(T, y, h).it.some(x => x.t === 'yer')) ckVaryant(T, y).forEach(V => dene(V, ckYapi(V, opts), ckYaz(V, h)));
+    });
+    const r = en, tags = r.tags, hata = r.ana.length + r.kucuk > 0;
+    const yalnizSira = hata && !r.ana.length && r.it.every(x => x.t === 'ok' || (x.t === 'yer' && x.rel[0] === 'ok'));
+    let urteil;
+    if (!hata) urteil = 'richtig';
+    else if (yalnizSira) urteil = 'fast';
+    else if (!r.ana.length) urteil = r.skor >= 0.75 ? 'fast' : 'falsch';
+    else {
+      // tek büyük hata yalnız uzun cümlede, eksik / fazla tek kelimeyse affedilir (olumsuzluk, fiil, edat, dönüşlü zamir hariç)
+      const x = r.ana[0], k = x.t === 'eksik' ? r.T[x.ti].k : x.si != null ? r.S[x.si].k : '';
+      const agir = x.t === 'yanlis' || CK_NEG.has(k) || CK_PRAEP.has(k) || CK_KAYP[k] || CK_REFL.has(k) || CK_IRR[k] || (x.t === 'eksik' && r.fiilAday.has(x.ti));
+      urteil = r.ana.length === 1 && !agir && r.T.length >= 6 && r.skor >= 0.8 ? 'fast' : 'falsch';
+    }
+    if (opts.hedefKelime && !ckHedefVar(opts.hedefKelime, r)) { urteil = 'falsch'; tags.add('hedef kelime'); }
+    const SIRA = ['yazım', 'umlaut', 'kaynaştırma', 'artikel/çekim', 'yardımcı fiil', 'edat', 'dönüşlü zamir', 'fiil yeri', 'kelime sırası', 'eksik kelime', 'fazla kelime', 'yanlış kelime', 'hedef kelime', 'farklı cümle', 'büyük/küçük harf'];
+    if (r.skor < 0.4 && urteil === 'falsch') { const hk = tags.has('hedef kelime'); tags.clear(); tags.add('farklı cümle'); if (hk) tags.add('hedef kelime'); }
+    const tl = SIRA.filter(t => tags.has(t)).concat([...tags].filter(t => !SIRA.includes(t)));
+    return { urteil, tags: tl, enYakin: r.h, skor: r.skor, diff: r.it.map(x => ({ t: x.t, w: x.w, d: x.d })) };
+  }
+
   const api = {
-    PERS, NAMEN, MODAL, IRR, praesens, praesensForms, praeteritumForms, regular, stemOf,
+    PERS, NAMEN, MODAL, IRR, praesens, praesensForms, praeteritumForms, regular, stemOf, cumleKontrol,
     np, pluralForm, umlaut, withPrep, woWort, bauen, uebung, luecke, pruefen, lexSetzen, norm, diff, toks,
     objMuster, KASUS_TR, POSS_TR, PREP_CASE, rahmenAufloesen, ndekAufgabe, reflAufgabe, imperativDu, NUR_3, REFL_AUS,
   };
