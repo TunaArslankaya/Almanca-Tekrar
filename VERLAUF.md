@@ -321,3 +321,9 @@ Son incelenen log satırı: 2026-10-25 09:37:12 (tur akis).
 - Simülasyon (gerçek kayıt): 118 vadeli, günlük yük ≈ 37; günde 36 cevapla ~120'de sabit, 60 cevapla 2 haftada ~64. `sim_akis`: yük > K iken 7. gün düşüş ölçütü de uygulanmaz (yalnız büyümeme).
 - Log: 22.10 19:14'ten sonra cevap yok (23.10 çalışılmadı, seri dondurucusu kullanıldı; 24.10 açıldı, cevap yok).
 Son incelenen log satırı: 2026-10-22 19:14:37 (leech n0524).
+
+**2026-10-26 (Tuna: "ne zaman Oturdu'ya geçecek, ne kadar birikme var, dün 180 tekrarda 2 yeni")**
+- 25.10: 166 cevap (12 tur + akşam), 2 yeni (birikme varken kota 2). 84/165 soru seçmeli: 26 ısınma (her turun ilk 3'ü), 15 yanlış sonrası tekrar, 11 kurtarma, 10 akşam. Seviye: bm 1 118, bm 2 83, bm 3 17, B4'e ulaşan yok; ilk Oturdu adayları n0361, v069, n0889 (29 gün sonra tam cümle).
+- Basamak eşiklerini düşürme denendi, Tuna istemedi ("aşırı kolay yapma"): geri alındı. Yalnız ısınma günün ilk turuna indi (Tuna onayıyla).
+- Akşam istisnası: akşam ilk kez sorulup yanlış yapılan öğenin aynı turdaki yeniden sorusu ikinci kez yazıyordu (e2e_aksam yakaladı); istisna artık yalnız ≥ 4 saat önce yazılmış hafızaya.
+- `sim_akis` yük tahmini artikel hafızasını da sayar (anlam+artikel ≈ 58/gün; yalnız anlamla 33 görünüp ölçüt yanlış kalıyordu).

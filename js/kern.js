@@ -145,7 +145,9 @@
     const aksam = !!opts.aksam && aksamHakki(S, id, t, opts);
     const yaz = (h, not_, c, pkSay, aksamOk) => {
       const once = R(h, t);
-      const ist = aksamOk && h && h.S && h.gun === g && h.aksam !== g;
+      // istisna yalnız günün daha erken bir oturumunda (≥ 4 saat önce) yazılmış hafızaya: akşam ilk kez sorulup yanlış yapılan öğenin
+      // aynı turdaki yeniden sorusu ikinci kez yazmasın (26.10, e2e_aksam)
+      const ist = aksamOk && h && h.S && h.gun === g && h.aksam !== g && t - h.last >= 4 * SAAT;
       if (h && h.gun === g && !ist) return { h, r: { R: once, S: h.S, yazildi: false } };
       const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || ist, pkSay });
       n.gun = g;
@@ -512,9 +514,11 @@
       if (k) { const x = m1(k.id, 'kurtarma', { kurtarma: true }); if (x) return x; }
     }
     // 5) ısınma (ilk 3) ve momentum (art arda 2 yanlış): R'si en yüksek vadeli öğe, bir basamak aşağıdan
-    if (adim < 3 || (o.yanlisSeri || 0) >= 2) {
-      const kaynak = adim < 3 ? 'isinma' : 'momentum';
-      for (const v of mVad.slice().sort((a, b) => b.R - a.R)) { const x = m1(v.id, kaynak, { isinma: adim < 3, momentum: kaynak === 'momentum' }); if (x) return x; }
+    // 26.10: ısınma yalnız günün ilk turunda (günün ilk 3 cevabı); her turda olunca çok turlu günde onlarca soru seçmeliye düşüyordu (25.10: 12 turda 26)
+    const gunN = (S.tage && S.tage[gun4(t)] && S.tage[gun4(t)].n) || 0, isinma = adim < 3 && gunN < 3;
+    if (isinma || (o.yanlisSeri || 0) >= 2) {
+      const kaynak = isinma ? 'isinma' : 'momentum';
+      for (const v of mVad.slice().sort((a, b) => b.R - a.R)) { const x = m1(v.id, kaynak, { isinma, momentum: kaynak === 'momentum' }); if (x) return x; }
     }
     // 6) vadeli öğeler, R azalan; artikel flaşı turda ≤ 3 (der olmayan önce); kök turda 1, günde 4
     const artSay = gecmis.filter(x => x.tur === 'art').length, kokSay = gecmis.filter(x => x.tur === 'kok').length;

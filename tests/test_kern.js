@@ -378,6 +378,9 @@ const oturum = x => Object.assign({ adim: 0, boy: 12, kuyruk: [], gecmis: [] }, 
   eq(ku.kaynak, 'kurtarma', '4) kurtarma (adım ≥ 6)'); eq(ku.id, 'v1', 'kurtarma: R\'si en düşük'); eq(ku.b, 1, 'kurtarma B1');
   const is = d({}, { adim: 0 });
   eq(is.kaynak, 'isinma', '5) ısınma'); eq(is.id, 'n1', 'ısınma: R\'si en yüksek');
+  // 26.10: ısınma yalnız günün ilk turunda (bugün ≥ 3 cevap verildiyse yeni turda ısınma yok)
+  const Sg = yeniS(items()); Sg.tage = { [K.gun4(T)]: { n: 12 } };
+  ok(K.sec({ S: Sg, kap: 36 }, oturum({ adim: 0 }), T, R99).kaynak !== 'isinma', 'ısınma: günün ikinci turunda yok');
   eq(d({}, { adim: 5, parti: true, kurtarma: true, yanlisSeri: 2 }).kaynak, 'momentum', '5) momentum (art arda 2 yanlış)');
   const v = d({}, { adim: 5, parti: true, kurtarma: true });
   eq(v.kaynak, 'vadeli', '6) vadeli'); eq(v.id, 'n1', 'vadeli: R azalan');
