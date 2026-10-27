@@ -1,0 +1,115 @@
+# Gramer konusu: karşılaştırma ve karşılaştırma cümleleri (als / wie, so … wie, als ich dachte, je … desto). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id vergleich
+@titel Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto
+@tr Karşılaştırma: -den daha (als), kadar (so … wie), düşündüğümden (als ich dachte), ne kadar … o kadar (je … desto)
+@stufe B1–B2
+@kapitel B2 giriş · Komparativ A2 / B1 K5–8 ?
+@goethe 2 | Schreiben 2 · Sprechen 2-3
+@voraus weil-dass
+@kontrast komparation, je-desto
+@etiket bağlaç
+@kurz Farklıysa als (größer als), aynıysa (so) wie (so groß wie, nicht so groß wie). Arkadan cümle gelirse yan cümle olur, fiil sonda: teurer, als ich gedacht habe · nicht so schwer, wie ich befürchtet hatte. je + Komparativ (fiil sonda), desto + Komparativ + hemen fiil.
+
+@erklaerung
+Türkçede "-den daha" ve "kadar" ile karşılaştırırız. Almancada iki küçük kelime var: als ve wie.
+
+1. Fark: Komparativ + als: Bremen ist kleiner als Hamburg. ✗ kleiner wie (konuşma dili), ✗ mehr klein.
+2. Eşitlik: so / genauso + YALIN sıfat + wie: Er ist so alt wie ich. Daha az: nicht so … wie: Der Test war nicht so schwer wie der letzte. Kat: doppelt so groß wie.
+3. als ve wie'den sonra tam bir cümle gelirse bu bir yan cümledir (der Vergleichssatz), çekimli fiil sonda: Die Wohnung ist größer, als ich gedacht habe. Es war nicht so schlimm, wie ich befürchtet hatte. Kısaltması: größer als gedacht, schneller als erwartet.
+4. anders als, mehr als, weniger als, lieber … als: In der Türkei ist das anders als hier. Ich trinke lieber Tee als Kaffee.
+5. je … desto / umso: iki şey birlikte artar ya da azalır. je + Komparativ yan cümle açar (fiil sonda); desto + Komparativ ana cümleyi açar, hemen ardından çekimli fiil: Je mehr ich lese, desto besser verstehe ich.
+6. Dikkat: als iki iş yapar. Komparativ'ten sonra "-den" (schneller als ich), cümle başında geçmişte bir kez "-dığında" (Als ich klein war, …).
+
+Sınavda: Sprechen'de ülkeni anlatırken (In der Türkei ist das anders als in Deutschland), Schreiben'de görüş (Das ist wichtiger, als viele denken).
+@ende
+
+@tabelle als mı wie mi?
+yapı | bağlaç | örnek
+Komparativ (größer, besser, mehr) | als | Hamburg ist größer als Bremen.
+anders / lieber | als | Hier ist es anders als in der Türkei.
+so / genauso + sıfat | wie | Er ist so groß wie ich.
+nicht so + sıfat | wie | Der Film ist nicht so gut wie das Buch.
+doppelt so + sıfat | wie | Mein Zimmer ist doppelt so groß wie deins.
+@ende
+
+@tabelle Karşılaştırma cümlesi (fiil sonda)
+ana cümle | yan cümle | kısa biçim
+Die Miete ist höher, | als ich gedacht habe. | höher als gedacht
+Der Test war leichter, | als ich erwartet hatte. | leichter als erwartet
+Es war nicht so schlimm, | wie ich befürchtet hatte. | nicht so schlimm wie befürchtet
+Je mehr ich übe, | desto sicherer werde ich. | –
+@ende
+
+@beispiel Die Wohnung ist größer, als ich gedacht habe. | Daire düşündüğümden büyük.
+@beispiel Die Prüfung war nicht so schwer wie der Test letzte Woche. | Sınav geçen haftaki test kadar zor değildi.
+@beispiel In der Türkei ist das Frühstück ganz anders als in Deutschland. | Türkiye'de kahvaltı Almanya'dakinden çok farklı.
+@beispiel Je länger ich hier wohne, desto besser gefällt mir die Stadt. | Burada ne kadar uzun oturursam şehir o kadar hoşuma gidiyor.
+
+@teil als-wie | als (farklı) · so … wie (aynı) | bağlaç
+wahl | 1 | Hamburg ist größer ___ Bremen. | als | als / wie / so | Hamburg Bremen'den büyük. | Komparativ (größer) → als. | groß
+wahl | 1 | Mein Bruder ist so alt ___ dein Bruder. | wie | wie / als / dass | Erkek kardeşim seninkiyle aynı yaşta. | so + yalın sıfat (alt) → wie. | alt; der Bruder
+luecke | 1 | Der Zug ist schneller ___ der Bus. | als | als / wie | Tren otobüsten hızlı. | Komparativ (schneller) → als. | schnell; der Zug; der Bus
+luecke | 2 | Heute ist es genauso kalt ___ gestern. | wie | | Bugün de dün kadar soğuk. | genauso + yalın sıfat → wie. | genauso; kalt
+fehler | 2 | Mein Zimmer ist größer wie deins. | Mein Zimmer ist größer als deins. / Mein Zimmer ist größer als dein Zimmer. | wie | Odam seninkinden büyük. | Komparativ'ten sonra als. "größer wie" konuşma dilidir, yazıda hata. | das Zimmer; groß
+fehler | 2 | Deutsch ist mehr schwer als Englisch. | Deutsch ist schwerer als Englisch. | mehr schwer | Almanca İngilizceden zor. | Komparativ -er ile yapılır: schwerer. mehr + sıfat kullanılmaz. | schwer
+fehler | 1 | Ich trinke lieber Tee als Kaffee. | Ich trinke lieber Tee als Kaffee. | - | Kahve yerine çay içmeyi tercih ederim. | Hata yok: gern → lieber + als. | der Tee; der Kaffee
+ceviri | 2 | Bremen'de kiralar Münih'tekinden daha ucuz. | Die Mieten in Bremen sind billiger als in München. / In Bremen sind die Mieten billiger als in München. / Die Mieten sind in Bremen billiger als in München. / Die Mieten in Bremen sind günstiger als in München. / In Bremen sind die Mieten günstiger als in München. / Die Mieten sind in Bremen günstiger als in München. | | - | Komparativ (billiger / günstiger) + als. | die Miete; billig; günstig
+dinle | 1 | Mein Handy ist älter als deins. | Mein Handy ist älter als deins. | | Telefonum seninkinden eski. | Komparativ (älter) + als. | das Handy; alt
+ordnen | 2 | im Sommer / ist / Bremen / genauso schön / wie / Hamburg | Im Sommer ist Bremen genauso schön wie Hamburg. / Bremen ist im Sommer genauso schön wie Hamburg. | | Yazın Bremen de Hamburg kadar güzel. | genauso + yalın sıfat (schön) + wie. | schön
+
+@teil nicht-so | nicht so … wie · genauso … wie · doppelt so … wie | bağlaç
+wahl | 1 | Die Prüfung war nicht so schwer ___ der Test letzte Woche. | wie | wie / als / so | Sınav geçen haftaki test kadar zor değildi. | nicht so + yalın sıfat + wie (= daha az zor). | die Prüfung; schwer; der Test
+luecke | 2 | Mein Zimmer ist doppelt so ___ wie deins. (groß) | groß | | Odam seninkinin iki katı büyüklüğünde. | doppelt so / genauso / nicht so + YALIN sıfat (groß, größer değil) + wie. | das Zimmer; groß
+luecke | 2 | Der neue Film ist nicht so ___ wie der erste. (gut) | gut | | Yeni film ilki kadar iyi değil. | nicht so + yalın sıfat: gut (besser değil). | der Film; gut
+umform | 2 | Hamburg ist teurer als Bremen. → Bremen ist nicht so … | Bremen ist nicht so teuer wie Hamburg. | | Bremen Hamburg kadar pahalı değil. | X teurer als Y = Y nicht so teuer wie X; nicht so + yalın sıfat (teuer) + wie. | teuer
+fehler | 2 | Der Kurs ist nicht so gut als der letzte. | Der Kurs ist nicht so gut wie der letzte. | als | Kurs bir öncekisi kadar iyi değil. | so … wie: yalın sıfattan sonra als değil, wie. | der Kurs; gut
+fehler | 1 | Dein Kuchen ist genauso lecker wie der von meiner Oma. | Dein Kuchen ist genauso lecker wie der von meiner Oma. | - | Pastan büyükannemin pastası kadar lezzetli. | Hata yok: genauso + yalın sıfat (lecker) + wie. | der Kuchen; lecker; die Oma
+ceviri | 3 | Benim Almancam senin kadar iyi değil. | Mein Deutsch ist nicht so gut wie deins. / Mein Deutsch ist nicht so gut wie dein Deutsch. / Ich spreche nicht so gut Deutsch wie du. / Ich spreche Deutsch nicht so gut wie du. | | - | "… kadar … değil" → nicht so + yalın sıfat (gut) + wie. | gut
+dinle | 2 | Das Wetter ist heute nicht so schön wie gestern. | Das Wetter ist heute nicht so schön wie gestern. | | Hava bugün dünkü kadar güzel değil. | nicht so + yalın sıfat (schön) + wie. | das Wetter; schön
+
+@teil satz | als / wie + yan cümle: fiil sonda (größer, als ich dachte) | kelime sırası
+wahl | 2 | Die Wohnung war teurer, ___ wir gedacht hatten. | als | als / wie / dass | Daire düşündüğümüzden pahalıydı. | Komparativ (teurer) + cümle → als ile yan cümle, fiil sonda (gedacht hatten). | die Wohnung; teuer; denken
+luecke | 2 | Der Test war leichter, als ich ___. (erwarten) | erwartet habe / erwartet hatte / erwartete | | Test beklediğimden kolaydı. | als ile karşılaştırma cümlesi yan cümledir: Partizip + çekimli yardımcı fiil en sonda. | der Test; leicht; erwarten
+luecke | 2 | Es war nicht so schlimm, ___ ich befürchtet hatte. | wie | wie / als | Korktuğum kadar kötü değildi. | nicht so … + cümle → wie; yan cümlede fiil sonda (befürchtet hatte). | schlimm; befürchten
+ordnen | 3 | die Reise / war / viel schöner / als / wir / gedacht / hatten | Die Reise war viel schöner, als wir gedacht hatten. | | Yolculuk düşündüğümüzden çok daha güzeldi. | als ile kurulan yan cümlede çekimli fiil (hatten) en sonda. | die Reise; schön; denken
+ordnen | 2 | er / spricht / besser Deutsch / als / ich / dachte | Er spricht besser Deutsch, als ich dachte. | | Düşündüğümden iyi Almanca konuşuyor. | als-yan cümlesi: fiil (dachte) en sonda. | denken
+fehler | 2 | Das Essen war besser, als ich habe erwartet. | Das Essen war besser, als ich erwartet habe. / Das Essen war besser, als ich erwartet hatte. | habe erwartet | Yemek beklediğimden iyiydi. | als ile kurulan karşılaştırma cümlesi yan cümledir: çekimli yardımcı fiil (habe) en sona gider. | das Essen; erwarten
+umform | 3 | Ich habe gedacht, der Kurs ist schwer. Aber er ist noch schwerer. → als | Der Kurs ist schwerer, als ich gedacht habe. / Der Kurs ist noch schwerer, als ich gedacht habe. / Der Kurs ist schwerer, als ich gedacht hatte. / Der Kurs ist noch schwerer, als ich gedacht hatte. / Der Kurs ist schwerer, als ich dachte. / Der Kurs ist noch schwerer, als ich dachte. | | Kurs düşündüğümden de zor. | Komparativ + als + yan cümle; çekimli fiil en sonda (gedacht habe). | der Kurs; schwer; denken
+umform | 3 | Ich habe gedacht, die Prüfung ist sehr schwer. Sie war aber nicht so schwer. → wie | Die Prüfung war nicht so schwer, wie ich gedacht habe. / Die Prüfung war nicht so schwer, wie ich gedacht hatte. / Die Prüfung war nicht so schwer, wie ich dachte. | | Sınav düşündüğüm kadar zor değildi. | nicht so + yalın sıfat + wie + yan cümle; fiil en sonda. | die Prüfung; schwer; denken
+ceviri | 3 | Kira beklediğimizden yüksek. | Die Miete ist höher, als wir erwartet haben. / Die Miete ist höher, als wir erwartet hatten. / Die Miete ist höher, als wir gedacht haben. / Die Miete ist höher, als wir gedacht hatten. / Die Miete ist höher, als wir dachten. / Die Miete ist höher als erwartet. / Die Miete ist höher als gedacht. | | - | hoch → höher (c düşer); als + yan cümle, fiil sonda. Kısası: höher als erwartet. | die Miete; hoch; erwarten
+ceviri | 3 | Film düşündüğüm kadar sıkıcı değildi. | Der Film war nicht so langweilig, wie ich gedacht habe. / Der Film war nicht so langweilig, wie ich gedacht hatte. / Der Film war nicht so langweilig, wie ich dachte. / Der Film war nicht so langweilig wie gedacht. | | - | nicht so + yalın sıfat + wie + yan cümle (fiil sonda). | der Film; langweilig; denken
+dinle | 3 | Die Reise hat länger gedauert, als wir geplant hatten. | Die Reise hat länger gedauert, als wir geplant hatten. | | Yolculuk planladığımızdan uzun sürdü. | Komparativ (länger) + als + yan cümle; çekimli fiil (hatten) en sonda. | die Reise; dauern; planen
+
+@teil anders | anders als, mehr / weniger als, als erwartet, wie immer | bağlaç
+wahl | 1 | In der Türkei ist das ganz anders ___ in Deutschland. | als | als / wie / so | Türkiye'de bu Almanya'dakinden çok farklı. | anders als = "-den farklı". | anders; die Türkei
+luecke | 2 | Die Fahrt hat länger gedauert als ___. (erwarten) | erwartet | | Yolculuk beklenenden uzun sürdü. | Kısa kalıp: als erwartet / als gedacht (yalnız Partizip, özne yok). | dauern; erwarten
+luecke | 2 | Ich habe mehr ___ zwei Stunden auf den Bus gewartet. | als | | Otobüsü iki saatten fazla bekledim. | mehr als / weniger als = "-den fazla / az". | warten auf; der Bus
+ceviri | 3 | Her şey planladığımızdan farklı oldu. | Alles ist anders gekommen, als wir geplant haben. / Alles ist anders gekommen, als wir geplant hatten. / Alles kam anders, als wir geplant hatten. / Es ist anders gekommen, als wir geplant haben. / Es ist anders gekommen, als wir geplant hatten. / Es kam anders, als wir geplant hatten. / Alles ist anders gelaufen, als wir geplant haben. / Alles ist anders gelaufen, als wir geplant hatten. / Alles lief anders, als wir geplant hatten. / Alles kam anders als geplant. / Es kam anders als geplant. | | - | anders als + yan cümle, fiil sonda (geplant hatten). Kısası: anders als geplant. | anders; planen
+fehler | 1 | Sie verdient weniger als ihr Kollege. | Sie verdient weniger als ihr Kollege. | - | İş arkadaşından daha az kazanıyor. | Hata yok: weniger (az'ın Komparativ'i) + als. | verdienen; der Kollege
+dinle | 2 | Wie immer kam der Zug zu spät. | Wie immer kam der Zug zu spät. | | Her zamanki gibi tren geç geldi. | wie immer = her zamanki gibi; 1. yeri doldurur, fiil (kam) hemen arkada. | der Zug; spät
+eslestir | 2 | benden büyük ;; benim kadar büyük ;; benden farklı ;; benim kadar büyük değil | größer als ich ;; so groß wie ich ;; anders als ich ;; nicht so groß wie ich | | - | Komparativ ve anders → als; so / nicht so + yalın sıfat → wie. | groß; anders
+kategori | 1 | als oder wie? | als: größer, anders, mehr, lieber ;; wie: so groß, genauso gut, doppelt so alt, nicht so teuer | | Hangisinden sonra als, hangisinden sonra wie gelir? | Komparativ, anders, mehr, lieber → als; so / genauso / doppelt so / nicht so + yalın sıfat → wie. | groß; anders; teuer
+
+@teil je-desto | je … desto / umso | kelime sırası
+wahl | 2 | Je mehr ich übe, ___ besser spreche ich. | desto | desto / als / so | Ne kadar çok pratik yaparsam o kadar iyi konuşuyorum. | je … desto: iki Komparativ birlikte artar. desto + Komparativ, hemen arkasından çekimli fiil (spreche ich). |
+luecke | 2 | Je länger ich in Bremen wohne, desto besser ___ mir die Stadt. (gefallen) | gefällt | | Bremen'de ne kadar uzun oturursam şehir o kadar hoşuma gidiyor. | desto + Komparativ (besser) → hemen çekimli fiil: gefällt. | gefallen; die Stadt
+fehler | 2 | Je früher wir losfahren, desto weniger Stau wir haben. | Je früher wir losfahren, desto weniger Stau haben wir. / Je früher wir losfahren, umso weniger Stau haben wir. | wir haben | Ne kadar erken yola çıkarsak o kadar az trafik olur. | desto-kısmı ana cümledir: desto + Komparativ (weniger Stau), sonra çekimli fiil (haben), sonra özne. | losfahren; der Stau
+umform | 3 | Ich schlafe viel. Ich bin fit. → je … desto | Je mehr ich schlafe, desto fitter bin ich. / Je mehr ich schlafe, umso fitter bin ich. | | Ne kadar çok uyursam o kadar zinde olurum. | viel → mehr, fit → fitter. je-kısmında fiil sonda (schlafe), desto-kısmında hemen fiil (bin ich). |
+ordnen | 3 | je / älter / man / wird / desto / ruhiger / wird / man | Je älter man wird, desto ruhiger wird man. | | İnsan yaşlandıkça sakinleşir. | je + Komparativ + … + fiil sonda (wird); desto + Komparativ + fiil (wird) + özne. | alt; ruhig
+ceviri | 3 | Ne kadar çok okursan o kadar çok kelime öğrenirsin. | Je mehr du liest, desto mehr Wörter lernst du. / Je mehr du liest, umso mehr Wörter lernst du. / Je mehr man liest, desto mehr Wörter lernt man. / Je mehr man liest, umso mehr Wörter lernt man. | | - | je + Komparativ (mehr) + fiil sonda; desto + Komparativ (mehr Wörter) + hemen fiil (lernst du). | lesen; das Wort; lernen
+dinle | 2 | Je öfter ich spreche, desto sicherer werde ich. | Je öfter ich spreche, desto sicherer werde ich. | | Ne kadar sık konuşursam o kadar kendimden emin oluyorum. | oft → öfter, sicher → sicherer; desto-kısmında fiil (werde) özneden önce. | sicher
+luecke | 2 | Je ___ das Wetter ist, desto mehr Leute gehen an den Strand. (schön) | schöner | | Hava ne kadar güzel olursa plaja o kadar çok insan gider. | je + Komparativ: schön → schöner. | das Wetter; schön; der Strand
+
+@teil kontrast | als (zaman) · als (karşılaştırma) · wie · wenn | bağlaç
+eslestir | 1 | Als ich klein war, ;; Ich bin größer ;; Ich bin so groß ;; Wenn ich groß bin, | wohnten wir in Ankara. ;; als mein Vater. ;; wie meine Mutter. ;; werde ich Ärztin. | | - | Als + yan cümle = geçmişte "-dığında"; Komparativ + als = "-den"; so … wie = "kadar"; wenn = gelecekte "-ınca". | groß; klein
+kategori | 2 | als: Zeit oder Vergleich? | Zeit: Als ich ankam, Als wir jung waren, Als es dunkel wurde ;; Vergleich: schneller als ich, mehr als genug, anders als gedacht | | als zaman mı (-dığında), karşılaştırma mı (-den)? | Cümle başında, geçmişte bir kez → zaman. Komparativ, mehr, anders'ten sonra → karşılaştırma. | ankommen; anders
+wahl | 2 | Wir sind früher angekommen, ___ wir geplant hatten. | als | als / wie / wenn | Planladığımızdan erken vardık. | Komparativ (früher) + cümle → als; yan cümlede fiil sonda (geplant hatten). | ankommen; planen
+text | 2 | Bremen ist kleiner ___ Hamburg, aber genauso schön ___ München. Die Mieten sind nicht so hoch ___ in Hamburg. Und das Wetter? Es regnet öfter, ___ ich gedacht habe! | als ; wie ; wie ; als | | Bremen Hamburg'dan küçük ama Münih kadar güzel. Kiralar Hamburg'daki kadar yüksek değil. Ya hava? Düşündüğümden daha sık yağmur yağıyor! | Komparativ (kleiner, öfter) → als; (genauso / nicht so) + yalın sıfat → wie. | klein; schön; die Miete; hoch; das Wetter
+text | 3 | Liebe Elif, mein neuer Job ist ganz anders, ___ ich gedacht habe. Die Arbeit ist anstrengender ___ im Café, aber ich verdiene doppelt so viel ___ früher. Und je mehr ich arbeite, ___ besser wird mein Deutsch! | als ; als ; wie ; desto / umso | | Sevgili Elif, yeni işim düşündüğümden çok farklı. İş kafedekinden yorucu, ama eskisinin iki katı kazanıyorum. Ve ne kadar çok çalışırsam Almancam o kadar iyi oluyor! | anders als + yan cümle; Komparativ + als; doppelt so viel wie; je … desto. | anders; anstrengend; verdienen
+text | 2 | Mein Bruder ist zwei Jahre älter ___ ich, aber er ist nicht so groß ___ ich. Er spielt besser Gitarre ___ ich, und ich koche besser ___ er. | als ; wie ; als ; als | | Ağabeyim benden iki yaş büyük ama benim kadar uzun değil. O benden iyi gitar çalıyor, ben de ondan iyi yemek yapıyorum. | Komparativ (älter, besser) → als; nicht so + yalın sıfat (groß) → wie. | alt; groß; die Gitarre; kochen
+ceviri | 2 | Kız kardeşim benim kadar uzun. | Meine Schwester ist so groß wie ich. / Meine Schwester ist genauso groß wie ich. | | - | Eşitlik: so / genauso + yalın sıfat (groß) + wie. | die Schwester; groß
+umform | 2 | Anna ist 20 Jahre alt. Ich bin auch 20 Jahre alt. → so … wie | Anna ist so alt wie ich. / Ich bin so alt wie Anna. / Anna ist genauso alt wie ich. / Ich bin genauso alt wie Anna. | | Anna benimle aynı yaşta. | Eşitlik: so / genauso + yalın sıfat (alt) + wie. | alt
+umform | 3 | Der Bus ist langsam. Das Fahrrad ist schneller. → als | Das Fahrrad ist schneller als der Bus. / Der Bus ist langsamer als das Fahrrad. | | Bisiklet otobüsten hızlı. | Komparativ (schneller / langsamer) + als. | der Bus; das Fahrrad; schnell; langsam
+ordnen | 2 | ich / esse / lieber / Gemüse / als / Fleisch | Ich esse lieber Gemüse als Fleisch. | | Et yerine sebze yemeyi tercih ederim. | gern → lieber + als. | das Gemüse; das Fleisch

@@ -1,0 +1,124 @@
+# Gramer konusu: edatlı isim ve sıfatlar (Interesse an, stolz auf, zufrieden mit, Angst vor …). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id praep-nomen-adj
+@titel Nomen und Adjektive mit Präpositionen
+@tr Edatlı isim ve sıfatlar: stolz auf, zufrieden mit, Angst vor, Interesse an … (darauf / worauf)
+@stufe B1–B2
+@kapitel B2 giriş · B1 K6 (Verben mit Präpositionen) ?
+@goethe 2 | Schreiben 1-2-3 · Sprechen 1-3
+@voraus praep-verben
+@kontrast praep-verben
+@etiket edat
+@kurz Bazı sıfat ve isimler sabit bir edat ister; edat Türkçedeki eke göre seçilmez, kalıpla öğrenilir: stolz auf (+A), zufrieden mit (+D), Angst vor (+D), Interesse an (+D). Şey için da(r)- / wo(r)-: Ich bin stolz darauf. Worauf bist du stolz?
+
+@erklaerung
+Edatlı fiiller (warten auf) gibi bazı sıfatlar (das Adjektiv) ve isimler (das Nomen) de sabit bir edatla kullanılır. Edat Türkçedeki eke göre seçilmez: "-den korkmak" Angst vor, "-den memnun" zufrieden mit, "-e ilgi" Interesse an. Kalıbı edatı ve hâliyle birlikte öğren.
+
+1. Sıfat + edat çoğu zaman sein ile: Ich bin stolz auf dich. Er ist mit dem Ergebnis zufrieden.
+2. İsim + edat çoğu zaman haben ile: Ich habe Angst vor Hunden. Sie hat großes Interesse an Kunst.
+3. Hâli edat belirler. mit, von, zu, bei, nach hep Dativ; für, um hep Akkusativ. an, auf, über, vor, in bu kalıplarda sabittir: stolz auf, gespannt auf, froh über, Lust auf + Akkusativ; Angst vor, Interesse an + Dativ.
+4. Dikkat: fiil ve isim aynı edatı almayabilir: sich interessieren für, ama das Interesse an / interessiert an.
+5. Şeyden söz ederken edat + zamir yerine da(r) + edat: Ich bin stolz darauf. Soru: wo(r) + edat: Worauf bist du stolz? Kişide edat + zamir kalır: Ich bin stolz auf dich. Auf wen bist du stolz?
+6. Arkadan bir cümle gelirse da(r)- onu hazırlar: Ich bin froh darüber, dass du da bist. Ich habe Angst davor, die Prüfung nicht zu bestehen.
+
+Sınavda: Schreiben ve Sprechen'de duygu ve görüş: "Ich bin mit … (nicht) zufrieden", "Ich habe großes Interesse an …", "Ich bin gespannt auf …".
+@ende
+
+@tabelle Sıfat + edat
+kalıp | hâl | Türkçe | örnek
+stolz auf | Akkusativ | -den gurur duyan | Ich bin stolz auf meine Tochter.
+gespannt auf | Akkusativ | -i merak eden | Ich bin gespannt auf den Film.
+froh über | Akkusativ | -e sevinen | Wir sind froh über die Nachricht.
+sauer / böse auf | Akkusativ | -e kızgın | Bist du sauer auf mich?
+zufrieden mit | Dativ | -den memnun | Bist du mit der Wohnung zufrieden?
+fertig mit | Dativ | -i bitirmiş | Ich bin mit der Arbeit fertig.
+interessiert an | Dativ | -le ilgilenen | Sie ist an Politik interessiert.
+abhängig von | Dativ | -e bağlı | Das ist vom Wetter abhängig.
+nett zu | Dativ | -e karşı nazik | Sie war sehr nett zu mir.
+verantwortlich für | Akkusativ | -den sorumlu | Wer ist für die Küche verantwortlich?
+@ende
+
+@tabelle İsim + edat
+kalıp | hâl | Türkçe | örnek
+die Angst vor | Dativ | -den korku | Ich habe Angst vor der Prüfung.
+das Interesse an | Dativ | -e ilgi | Ich habe Interesse an dem Kurs.
+die Lust auf | Akkusativ | -i canı istemek | Ich habe Lust auf Pizza.
+die Erfahrung mit | Dativ | -de deneyim | Ich habe Erfahrung mit Kindern.
+der Kontakt zu / mit | Dativ | ile iletişim | Ich habe Kontakt zu alten Freunden.
+der Grund für | Akkusativ | -in sebebi | der Grund für die Verspätung
+@ende
+
+@beispiel Ich bin sehr stolz auf dich. | Seninle çok gurur duyuyorum.
+@beispiel Bist du mit deinem neuen Job zufrieden? | Yeni işinden memnun musun?
+@beispiel Ich habe große Lust auf einen Ausflug. | Canım çok bir gezi istiyor.
+@beispiel Worauf freust du dich am meisten? – Auf die Ferien. | En çok neyi dört gözle bekliyorsun? – Tatili.
+
+@teil adj | Sıfat + edat: stolz auf, zufrieden mit, gespannt auf | edat
+wahl | 1 | Meine Eltern sind sehr stolz ___ mich. | auf | auf / von / mit | Annemle babam benimle çok gurur duyuyor. | stolz auf + Akkusativ (mich). Türkçedeki "-le / -den" ekine bakıp mit ya da von seçme. | stolz; die Eltern
+wahl | 1 | Bist du ___ deiner neuen Wohnung zufrieden? | mit | mit / von / über | Yeni dairenden memnun musun? | zufrieden mit + Dativ (deiner neuen Wohnung). Türkçe "-den" yanıltır: von değil. | zufrieden; die Wohnung
+luecke | 2 | Ich bin sehr gespannt ___ den neuen Kurs. | auf | | Yeni kursu çok merak ediyorum. | gespannt auf + Akkusativ: auf den neuen Kurs. | gespannt; der Kurs
+luecke | 2 | Bremen ist bekannt ___ die Stadtmusikanten. | für | | Bremen, Bremen Mızıkacıları ile tanınır. | bekannt für + Akkusativ. | bekannt
+luecke | 2 | Wer ist ___ die Organisation der Party verantwortlich? | für | | Partinin organizasyonundan kim sorumlu? | verantwortlich für + Akkusativ. | verantwortlich; die Organisation; die Party
+luecke | 1 | Bist du noch sauer ___ mich? | auf | auf / mit / über | Bana hâlâ kızgın mısın? | sauer / böse auf + Akkusativ: kime kızgın? → auf mich. | sauer
+fehler | 2 | Ich bin sehr zufrieden von meinem neuen Job. | Ich bin sehr zufrieden mit meinem neuen Job. / Ich bin mit meinem neuen Job sehr zufrieden. | von | Yeni işimden çok memnunum. | Türkçe "-den" → von değil: zufrieden mit + Dativ. | zufrieden
+fehler | 1 | Sie ist mit einem Deutschen verheiratet. | Sie ist mit einem Deutschen verheiratet. | - | Bir Almanla evli. | Hata yok: verheiratet mit + Dativ (einem Deutschen). | verheiratet
+ceviri | 2 | Sonuçtan memnun musun? | Bist du mit dem Ergebnis zufrieden? / Bist du zufrieden mit dem Ergebnis? / Sind Sie mit dem Ergebnis zufrieden? / Sind Sie zufrieden mit dem Ergebnis? | | - | zufrieden mit + Dativ: mit dem Ergebnis. | zufrieden; das Ergebnis
+ceviri | 3 | Kızımla çok gurur duyuyorum. | Ich bin sehr stolz auf meine Tochter. / Auf meine Tochter bin ich sehr stolz. | | - | stolz auf + Akkusativ: auf meine Tochter. "-le" görüp mit yazma. | stolz; die Tochter
+dinle | 2 | Wir sind froh über die gute Nachricht. | Wir sind froh über die gute Nachricht. | | İyi habere seviniyoruz. | froh über + Akkusativ: über die gute Nachricht. | froh; die Nachricht
+ordnen | 2 | ich bin / mit / den Hausaufgaben / noch nicht / fertig | Ich bin mit den Hausaufgaben noch nicht fertig. / Ich bin noch nicht mit den Hausaufgaben fertig. | | Ödevleri henüz bitirmedim. | fertig mit + Dativ (den Hausaufgaben); sıfat (fertig) en sona. | fertig; die Hausaufgabe
+luecke | 2 | Ob wir grillen, ist ___ Wetter abhängig. (von + das) | vom | | Mangal yapıp yapmayacağımız havaya bağlı. | abhängig von + Dativ: von dem → vom Wetter. | abhängig; das Wetter; grillen
+
+@teil nomen | İsim + edat: Angst vor, Interesse an, Lust auf | edat
+wahl | 1 | Mein kleiner Bruder hat Angst ___ Hunden. | vor | vor / von / über | Küçük kardeşim köpeklerden korkuyor. | die Angst vor + Dativ. Türkçe "-den" diye von seçme. | die Angst; der Hund, -e; der Bruder
+wahl | 1 | Hast du Lust ___ Pizza? | auf | auf / für / zu | Canın pizza istiyor mu? | die Lust auf + Akkusativ: canı bir şey istemek. Fiille: Lust, ins Kino zu gehen. | die Lust; die Pizza
+luecke | 2 | Ich habe großes Interesse ___ Ihrem Sprachkurs. | an | | Dil kursunuza büyük ilgim var. | das Interesse an + Dativ (Ihrem Sprachkurs). Fiilde ise: sich interessieren für. | das Interesse
+luecke | 2 | Was ist der Grund ___ deine Verspätung? | für | | Gecikmenin sebebi ne? | der Grund für + Akkusativ. | der Grund; die Verspätung
+luecke | 1 | Haben Sie Erfahrung ___ Kindern? | mit | mit / von / für | Çocuklarla deneyiminiz var mı? | die Erfahrung mit + Dativ. | die Erfahrung; das Kind
+luecke | 3 | Ich habe noch Kontakt ___ meinen Freunden aus der Schule. | zu / mit | | Okuldaki arkadaşlarımla hâlâ görüşüyorum. | der Kontakt zu / mit + Dativ. | der Kontakt; der Freund; die Schule
+fehler | 2 | Ich habe Angst von der Prüfung. | Ich habe Angst vor der Prüfung. | von | Sınavdan korkuyorum. | die Angst vor + Dativ. Türkçedeki "-den" eki yanıltır. | die Angst; die Prüfung
+fehler | 1 | Die Nachbarn haben eine Beschwerde über den Lärm geschrieben. | Die Nachbarn haben eine Beschwerde über den Lärm geschrieben. | - | Komşular gürültüyle ilgili bir şikâyet yazdı. | Hata yok: die Beschwerde über + Akkusativ (über den Lärm), fiildeki gibi: sich beschweren über. | der Nachbar; der Lärm
+ceviri | 2 | Canım dondurma çekiyor. | Ich habe Lust auf ein Eis. / Ich habe Lust auf Eis. / Ich hätte Lust auf ein Eis. / Ich hätte Lust auf Eis. | | - | die Lust auf + Akkusativ: Lust auf ein Eis. | die Lust; das Eis
+ceviri | 3 | Uçmaktan korkuyorum. | Ich habe Angst vor dem Fliegen. / Ich habe Angst davor zu fliegen. / Ich habe Angst davor, zu fliegen. / Ich habe Angst zu fliegen. / Ich habe Angst, zu fliegen. / Ich habe Flugangst. | | - | Angst vor + Dativ (vor dem Fliegen) ya da davor + zu-mastar. | die Angst; fliegen
+dinle | 2 | Sie hat kein Interesse an Politik. | Sie hat kein Interesse an Politik. | | Politikaya hiç ilgisi yok. | das Interesse an + Dativ; artikelsiz isim olumsuzu: kein Interesse. | das Interesse; die Politik
+ordnen | 2 | wir haben / keinen Kontakt / mehr / zu / unseren alten Nachbarn | Wir haben keinen Kontakt mehr zu unseren alten Nachbarn. | | Eski komşularımızla artık görüşmüyoruz. | der Kontakt zu + Dativ (unseren alten Nachbarn); kein … mehr = artık … yok. | der Kontakt; der Nachbar
+luecke | 3 | Ich habe eine Bitte ___ Sie: Könnten Sie mir beim Formular helfen? | an | | Sizden bir ricam var: Formda bana yardım edebilir misiniz? | Ricayı kime: eine Bitte an + Akkusativ (an Sie). Ne için: die Bitte um + Akkusativ (um Hilfe). | die Bitte; das Formular
+
+@teil kasus | Edattan sonra hâl: auf + A, vor + D, an + D | hâl
+luecke | 2 | Ich freue mich, aber ich habe auch ein bisschen Angst vor ___ Umzug. (der) | dem | | Seviniyorum ama taşınmaktan biraz da korkuyorum. | die Angst vor + Dativ: der Umzug → vor dem Umzug. | die Angst; der Umzug
+luecke | 2 | Er ist stolz auf ___ Erfolg. (sein) | seinen | | Başarısıyla gurur duyuyor. | stolz auf + Akkusativ: der Erfolg → auf seinen Erfolg. | stolz; der Erfolg
+luecke | 2 | Sie hat großes Interesse an ___ Kultur. (die deutsche) | der deutschen | | Alman kültürüne büyük ilgisi var. | das Interesse an + Dativ: die Kultur → an der deutschen Kultur. | das Interesse; die Kultur
+luecke | 3 | Sind Sie zufrieden mit ___ Service? (unser) | unserem | | Hizmetimizden memnun musunuz? | zufrieden mit + Dativ: der Service → mit unserem Service. | zufrieden; der Service
+kategori | 1 | Akkusativ oder Dativ? | Akkusativ: stolz auf, gespannt auf, froh über, Lust auf ;; Dativ: Angst vor, Interesse an, zufrieden mit, Kontakt zu | | Bu kalıpta edattan sonra hangi hâl gelir? | mit ve zu hep Dativ. Bu kalıplarda auf ve über Akkusativ, vor ve an Dativ alır: kalıpla birlikte öğren. |
+fehler | 2 | Ich bin gespannt auf dem Ergebnis. | Ich bin gespannt auf das Ergebnis. | dem | Sonucu merak ediyorum. | gespannt auf + Akkusativ: auf das Ergebnis. | gespannt; das Ergebnis
+fehler | 2 | Sie hat Interesse an den Kurs. | Sie hat Interesse an dem Kurs. / Sie hat Interesse am Kurs. | den | Kursla ilgileniyor. | das Interesse an + Dativ: an dem Kurs (am Kurs). | das Interesse; der Kurs
+wahl | 2 | Ich bin froh über ___ Ergebnis. | das | das / dem / des | Sonuca seviniyorum. | froh über + Akkusativ: das Ergebnis. | froh; das Ergebnis
+dinle | 3 | Ich bin mit meinem Leben in Bremen sehr zufrieden. | Ich bin mit meinem Leben in Bremen sehr zufrieden. | | Bremen'deki hayatımdan çok memnunum. | zufrieden mit + Dativ: mit meinem Leben. | zufrieden; das Leben
+
+@teil da-wo | darauf / worauf (şey) · auf wen (kişi) | edat
+wahl | 1 | Ich habe die Prüfung bestanden. Ich bin sehr stolz ___. | darauf | darauf / auf sie / worauf | Sınavı geçtim. Bununla çok gurur duyuyorum. | Bir şeyden söz ediliyor (sınavı geçmek) → da(r) + edat: darauf. auf sie bir kişi için olur; worauf soru kelimesidir. | stolz; die Prüfung; bestehen
+luecke | 2 | ___ bist du so stolz? – Auf meine neue Wohnung. | Worauf | | Neyle bu kadar gurur duyuyorsun? – Yeni dairemle. | Şey için soru: wo(r) + edat → worauf (stolz auf). Kişi için: Auf wen? | stolz; die Wohnung
+luecke | 2 | ___ hast du Angst? – Vor meinem Chef. | Vor wem | | Kimden korkuyorsun? – Patronumdan. | Kişi için soru: edat + wem / wen → Vor wem? (Angst vor + Dativ). Şey için: Wovor? | die Angst; der Chef
+luecke | 2 | Bist du mit dem Hotel zufrieden? – Ja, ich bin sehr zufrieden ___. | damit | | Otelden memnun musun? – Evet, çok memnunum. | Şey (das Hotel) → da + mit = damit. | zufrieden; das Hotel
+umform | 3 | Ich habe Angst. Vielleicht bestehe ich die Prüfung nicht. → davor … zu | Ich habe Angst davor, die Prüfung nicht zu bestehen. / Ich habe Angst, die Prüfung nicht zu bestehen. | | Sınavı geçememekten korkuyorum. | Angst vor + bir cümle → davor + zu-mastar; nicht mastardan (zu bestehen) önce. | die Angst; die Prüfung; bestehen
+umform | 3 | Ich bin froh. Du bist wieder gesund. → darüber, dass | Ich bin froh darüber, dass du wieder gesund bist. / Ich bin darüber froh, dass du wieder gesund bist. / Ich bin froh, dass du wieder gesund bist. | | Tekrar sağlıklı olmana seviniyorum. | froh über + bir cümle → darüber, dass …; yan cümlede fiil sonda (gesund bist). | froh; gesund
+ceviri | 3 | Kime kızgınsın? | Auf wen bist du sauer? / Auf wen bist du böse? / Auf wen sind Sie sauer? / Auf wen sind Sie böse? | | - | Kişi için soru: auf + wen (sauer / böse auf + Akkusativ). | sauer; böse
+dinle | 2 | Worauf bist du am meisten gespannt? | Worauf bist du am meisten gespannt? | | En çok neyi merak ediyorsun? | Şey için soru: wo(r) + auf → worauf (gespannt auf). | gespannt
+eslestir | 2 | Ich bin stolz ;; Ich habe Angst ;; Ich bin zufrieden ;; Ich habe Interesse | darauf. ;; davor. ;; damit. ;; daran. | | - | stolz auf → darauf, Angst vor → davor, zufrieden mit → damit, Interesse an → daran. | stolz; die Angst; zufrieden; das Interesse
+umform | 2 | Er ist stolz auf seinen Sohn. → Auf wen … | Auf wen ist er stolz? | | Oğluyla gurur duyuyor. → Kiminle gurur duyuyor? | Kişi soruluyor → edat + wen (Akkusativ): Auf wen ist er stolz? | stolz; der Sohn
+umform | 2 | Sie ist mit der neuen Wohnung zufrieden. → Womit … | Womit ist sie zufrieden? | | Yeni dairesinden memnun. → Neyden memnun? | Şey soruluyor → wo + mit = womit (sesli harfle başlamayan edatta r yok). | zufrieden; die Wohnung
+
+@teil kontrast | Fiil mi isim / sıfat mı? sich interessieren für ↔ Interesse an | edat
+luecke | 3 | Ich interessiere mich ___ Geschichte, aber mein Bruder hat kein Interesse ___ Geschichte. | für ; an | | Ben tarihle ilgileniyorum ama kardeşimin tarihe hiç ilgisi yok. | Fiil: sich interessieren für + Akkusativ; isim: das Interesse an + Dativ. Aynı anlam, farklı edat. | sich interessieren für; das Interesse; die Geschichte
+eslestir | 1 | sich interessieren ;; interessiert ;; sich ärgern ;; Angst haben | für ;; an ;; über ;; vor | | - | sich interessieren für, ama interessiert an (sıfat); sich ärgern über; Angst haben vor. | sich interessieren für; sich ärgern über; die Angst
+kategori | 2 | Welche Präposition? | an: das Interesse, interessiert ;; für: sich interessieren, verantwortlich, bekannt ;; auf: stolz, gespannt, Lust | | Hangi edat? | Fiil sich interessieren für, ama isim ve sıfat: Interesse an, interessiert an. stolz / gespannt / Lust → auf. | das Interesse; verantwortlich; bekannt; stolz; gespannt; die Lust
+fehler | 2 | Ich habe großes Interesse für Kunst. | Ich habe großes Interesse an Kunst. / Ich interessiere mich sehr für Kunst. | für | Sanata büyük ilgim var. | İsim das Interesse → an + Dativ. für yalnız fiille: sich interessieren für. | das Interesse; die Kunst
+fehler | 1 | Ich interessiere mich für die Stelle als Kellner. | Ich interessiere mich für die Stelle als Kellner. | - | Garsonluk işiyle ilgileniyorum. | Hata yok: fiil sich interessieren für + Akkusativ (für die Stelle). | sich interessieren für; die Stelle; der Kellner
+ceviri | 3 | Bu işle ilgileniyorum. | Ich interessiere mich für diese Stelle. / Ich habe Interesse an dieser Stelle. / Ich bin an dieser Stelle interessiert. / Ich interessiere mich für diesen Job. / Ich habe Interesse an diesem Job. / Ich bin an diesem Job interessiert. / Ich interessiere mich für diese Arbeit. / Ich habe Interesse an dieser Arbeit. / Ich bin an dieser Arbeit interessiert. | | - | Üç yol: sich interessieren für + Akkusativ · Interesse an + Dativ · interessiert an + Dativ. | sich interessieren für; das Interesse; die Stelle
+ordnen | 3 | ich bin / an / einem Praktikum / in Ihrer Firma / sehr interessiert | Ich bin an einem Praktikum in Ihrer Firma sehr interessiert. | | Firmanızda staj yapmakla çok ilgileniyorum. | interessiert an + Dativ (einem Praktikum); sıfat (interessiert) en sonda. Resmî mektupta sık. | das Praktikum; die Firma
+umform | 3 | Ich habe Interesse an dem Kurs. → sich interessieren ile yaz | Ich interessiere mich für den Kurs. | | Kursla ilgileniyorum. | Interesse an + Dativ → sich interessieren für + Akkusativ: hem edat hem hâl değişir (dem → den). | sich interessieren für; das Interesse; der Kurs
+ceviri | 2 | Sana kızgın değilim. | Ich bin nicht sauer auf dich. / Ich bin nicht böse auf dich. / Ich bin dir nicht böse. | | - | sauer / böse auf + Akkusativ: auf dich. (jemandem böse sein de olur.) | sauer; böse
+text | 2 | Liebe Ayşe, ich bin schon sehr gespannt ___ deinen Besuch! Meine Eltern sind auch froh ___ die Nachricht. Hast du Lust ___ einen Ausflug nach Hamburg? | auf ; über ; auf | | Sevgili Ayşe, ziyaretini şimdiden çok merak ediyorum! Annemle babam da habere çok sevindi. Hamburg'a bir geziye ne dersin? | gespannt auf, froh über, Lust auf: üçü de Akkusativ. | der Besuch; die Nachricht; die Lust; der Ausflug
+text | 3 | Sehr geehrte Damen und Herren, ich habe großes Interesse ___ der Stelle als Verkäufer. Ich habe schon Erfahrung ___ Kunden und bin jetzt verantwortlich ___ die Kasse. Leider bin ich ___ meiner jetzigen Arbeit nicht mehr zufrieden. | an ; mit ; für ; mit | | Sayın yetkililer, satış elemanı pozisyonuyla çok ilgileniyorum. Müşterilerle deneyimim var ve şu anda kasadan sorumluyum. Maalesef şimdiki işimden artık memnun değilim. | Interesse an + Dativ, Erfahrung mit + Dativ, verantwortlich für + Akkusativ, zufrieden mit + Dativ. | das Interesse; die Stelle; der Verkäufer; die Erfahrung; der Kunde; verantwortlich; die Kasse; zufrieden
+text | 2 | Ich habe einen Job in einem Café gefunden. Ich bin sehr froh ___ (bunun için). Meine Chefin ist sehr nett ___ mir. Nur ___ meinem Lohn bin ich nicht so zufrieden. | darüber ; zu ; mit | | Bir kafede iş buldum. Buna çok seviniyorum. Patronum bana karşı çok nazik. Yalnız maaşımdan pek memnun değilim. | froh über → şey için darüber; nett zu + Dativ; zufrieden mit + Dativ. | froh; nett; der Lohn; zufrieden
+ordnen | 2 | hast du / Lust / auf / einen Spaziergang / am Abend | Hast du Lust auf einen Spaziergang am Abend? / Hast du am Abend Lust auf einen Spaziergang? | | Akşam yürüyüşe çıkmak ister misin? | die Lust auf + Akkusativ: auf einen Spaziergang. | die Lust; der Spaziergang
