@@ -86,6 +86,15 @@ async function adim(p, o) {
   if (ad === 'leer' || ad === 'yok') return { ad, s };
   if (ad === 'turSonu') { await p.keyboard.press('Enter'); await p.waitForTimeout(150); return { ad, s }; }
   if (ad === 'tanit') { await p.click('[data-act="tanit-devam"]'); await p.waitForTimeout(80); return { ad, s }; }
+  // turdaki gramer sorusu (Gramer.turRender): yazarak türlerde doğru cevabı gerçek girdiye yaz, yoksa / yanlışta Bilmiyorum; sonra Devam (Enter)
+  if (s.typ === 'gramTur') {
+    const cevap = await p.evaluate(() => { const a = window.__tekrar.aktuell, G = window.Gramer, so = a && a.soru; const u = so && G && G.GR[so.konu] && (G.GR[so.konu].uebungen || []).find(x => x.n === so.n); return u && ['luecke', 'umform', 'ceviri'].includes(u.tur) ? String(G.loesung(u)).split(' ;; ')[0].split(' ; ') : null; });
+    const inp = await p.$$('#kart input:not([disabled])');
+    if (dogruMu && cevap && inp.length) { for (let i = 0; i < inp.length; i++) await inp[i].fill(cevap[i] || cevap[0]); await p.keyboard.press('Enter'); }
+    else { const b = await p.$('#kart [data-g="bilmiyorum"]'); if (b) await b.click(); else await p.evaluate(() => { const a = window.__tekrar.aktuell; if (a && a.bitti) a.bitti({ urteil: 'falsch', antwort: 'test' }); }); }
+    for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'gramTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
+    return { ad: 'gram', s };
+  }
   if (ad === 'paket') {
     if (s.schritt === 'luecke' && !s.warte) await p.fill('#cevap', dogruMu ? s.form : 'xxxyz');
     else await ileri(p, 16000);

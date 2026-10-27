@@ -79,6 +79,17 @@ function logDenetle(ad, log, o) {
   return { cevap: cevap.length, tanit, mini, ikinci, tur: turlar.length };
 }
 
+// turdaki gramer sorusu (Kern.sec adım 5 / 10; Gramer.turRender çizer, sürücü kartı tanımaz): cevap Gramer'in bitti
+// geri çağrısıyla verilir, Enter = Devam. Gramer'de tur API'si yoksa bu kart hiç gelmez.
+async function gramAdim(p, r, dogru) {
+  if (!r || r.ad !== 'bilinmeyen:gramTur') return r;
+  await p.evaluate(u => { const a = window.__tekrar.aktuell; if (a && a.typ === 'gramTur' && !a.wartet) a.bitti({ urteil: u, antwort: 'test' }); }, dogru ? 'richtig' : 'falsch');
+  await p.waitForTimeout(40);
+  if (await p.evaluate(() => { const a = window.__tekrar.aktuell; return !!(a && a.typ === 'gramTur'); })) await p.keyboard.press('Enter');
+  await p.waitForTimeout(100);
+  return { ad: 'gram', s: r.s };
+}
+
 async function turlar(p, n, ad, o) {
   o = o || {};
   const adlar = [];
@@ -87,7 +98,7 @@ async function turlar(p, n, ad, o) {
   await p.waitForTimeout(120);
   while (bitti < n && guard++ < 70 * n) {
     const s0 = await D.durum(p);
-    const r = await D.adim(p, { dogru: o.dogru == null ? 0.8 : o.dogru, rnd, itiraz: true, yakin: rnd() < 0.3 });
+    const r = await gramAdim(p, await D.adim(p, { dogru: o.dogru == null ? 0.8 : o.dogru, rnd, itiraz: true, yakin: rnd() < 0.3 }), rnd() < 0.8);
     adlar.push(r.ad + (r.s && r.s.neden ? ':' + r.s.neden : r.s && r.s.kaynak ? ':' + r.s.kaynak : ''));
     const dom = await p.evaluate(() => ({ note: document.querySelectorAll('[data-note]').length, itiraz: document.querySelectorAll('[data-act="itiraz"]').length }));
     if (dom.note) hata(ad, 'DOM\'da data-note düğmesi var');
@@ -155,7 +166,7 @@ async function senaryo(b, ad, o) {
     for (let i = 0; i < 80 && !metinGeldi; i++) {
       metinGeldi = await p.evaluate(() => { const a = window.__tekrar.aktuell; return !!(a && a.typ === 'akt' && a.art === 'luecke'); });
       if (metinGeldi) break;
-      const r = await D.adim(p, { dogru: 0.8, rnd });
+      const r = await gramAdim(p, await D.adim(p, { dogru: 0.8, rnd }), true);
       if (r.ad === 'turSonu') { await p.evaluate(() => window.__tekrar.starte('akis')); await p.waitForTimeout(80); }
       if (r.ad === 'leer' || r.ad === 'yok' || /^bilinmeyen/.test(r.ad)) break;
     }
@@ -169,7 +180,7 @@ async function senaryo(b, ad, o) {
     for (const m of modi) {
       await p.evaluate(m => window.__tekrar.starte(m), m);
       await p.waitForTimeout(150);
-      for (let i = 0; i < 3; i++) { const r = await D.adim(p, { dogru: 0.8, rnd }); if (/^bilinmeyen/.test(r.ad) && !['yazma', 'lesen', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung', 'unite', 'fiilmetin', 'cumle'].includes(m)) hata('bölüm ' + m, 'tanınmayan kart ' + r.ad); }
+      for (let i = 0; i < 3; i++) { const r = await gramAdim(p, await D.adim(p, { dogru: 0.8, rnd }), true); if (/^bilinmeyen/.test(r.ad) && !['yazma', 'lesen', 'kalip', 'artoyun', 'sprechen', 'gram', 'pruefung', 'unite', 'fiilmetin', 'cumle'].includes(m)) hata('bölüm ' + m, 'tanınmayan kart ' + r.ad); }
       await p.keyboard.press('Escape'); await p.waitForTimeout(80);
     }
     if (p.hatalar.length) hata('bölümler', 'sayfa hataları: ' + p.hatalar.join(' | '));

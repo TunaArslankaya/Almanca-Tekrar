@@ -869,5 +869,64 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   K.init(ctx);
 }
 
+// ---------- B1 sprinti (S3): gramer sorusu ana turda adım 5 ve 10 ----------
+{
+  const items = () => ({ n1: { m: h(10, 0.8, { due: T - DAY }) }, n5: { m: h(10, 0.7, { due: T - DAY }) }, v1: { m: h(10, 0.75, { due: T - DAY }) } });
+  const d = (o, x) => K.sec(Object.assign({ S: yeniS(items()), kap: 36 }, x || {}), oturum(Object.assign({ parti: true, kurtarma: true }, o)), T, R99);
+  const G = { tur: 'gram' }, gr = s => s.tur === 'gram';
+  // varsayılan: gramVar yoksa hiçbir şey değişmez
+  eq(d({ adim: 5 }).kaynak, 'vadeli', 'gram: gramVar yoksa adım 5 normal soru');
+  eq(gr(d({ adim: 5, gramVar: 1 })), false, 'gram: yalnız gramVar === true');
+  const g5 = d({ adim: 5, gramVar: true });
+  eq(g5.tur, 'gram', 'gram: adım 5'); eq(g5.kaynak, 'gram', 'gram: kaynak gram');
+  eq(gr(d({ adim: 4, gramVar: true })), false, 'gram: adım 4 yok');
+  eq(gr(d({ adim: 7, gramVar: true })), true, 'gram: 5 kaçtıysa en geç 7');
+  eq(gr(d({ adim: 8, gramVar: true })), false, 'gram: pencere dışı (8) yok');
+  const gec = (n, gramAt) => Array.from({ length: n }, (_, i) => gramAt.includes(i) ? G : { id: 'x' + i, tur: 'm' });
+  eq(gr(d({ adim: 6, gramVar: true, gecmis: gec(6, [5]) })), false, 'gram: pencerede tek soru');
+  eq(gr(d({ adim: 10, gramVar: true, gecmis: gec(10, [5]) })), true, 'gram: adım 10 (ikinci)');
+  eq(gr(d({ adim: 10, gramVar: true, gecmis: gec(10, []) })), true, 'gram: ilki kaçtıysa adım 10 yine gelir');
+  eq(gr(d({ adim: 11, gramVar: true, gecmis: gec(11, [5, 10]) })), false, 'gram: turda en çok 2');
+  eq(gr(d({ adim: 12, boy: 25, gramVar: true, gecmis: gec(12, [6, 10]) })), false, 'gram: 25\'lik turda da en çok 2');
+  // istisnalar: klavyesiz, akşam, odak, momentum, sırası gelmiş kuyruk, parti önce
+  eq(gr(d({ adim: 5, gramVar: true, klavyesiz: true })), false, 'gram: klavyesiz turda yok');
+  eq(gr(d({ adim: 5, gramVar: true, odak: true })), false, 'gram: odak bölümünde yok');
+  eq(gr(d({ adim: 5, gramVar: true, aksam: ['n1', 'n5'] })), false, 'gram: akşam turunda yok');
+  eq(d({ adim: 5, gramVar: true, yanlisSeri: 2 }).kaynak, 'momentum', 'gram: art arda 2 yanlışta momentum önce');
+  eq(d({ adim: 5, gramVar: true, kuyruk: [{ id: 'n5', neden: 'yanlis', at: 5, b: 1, bicim: 'sec', deneme: 2 }] }).kaynak, 'kuyruk', 'gram: sırası gelmiş tekrar önce');
+  eq(gr(d({ adim: 5, gramVar: true, kuyruk: [{ id: 'n5', neden: 'yanlis', at: 7, b: 1, bicim: 'sec', deneme: 2 }] })), true, 'gram: sırası gelmemiş kuyruk beklemez');
+  eq(d({ adim: 5, gramVar: true, parti: false }).tur, 'parti', 'gram: parti (adım ≤ boy − 7) önce');
+  eq(gr(d({ adim: 0, gramVar: true })), false, 'gram: ısınmada yok');
+  // oturumIsle: gram cevabı adıma ve geçmişe sayılır, kuyruk kurmaz, hafızaya dokunmaz
+  {
+    const o = oturum({ adim: 5, parti: true, kurtarma: true, gramVar: true });
+    const S = yeniS(items()), once = JSON.stringify(S);
+    const s = K.sec({ S, kap: 36 }, o, T, R99);
+    K.oturumIsle(o, Object.assign({ id: 'g:verbstellung:3', bicim: 'gram' }, s), { ergebnis: 'falsch' }, R99);
+    eq(o.adim, 6, 'gram cevabı tur adımına sayılır'); eq(o.gecmis[o.gecmis.length - 1].tur, 'gram', 'gram geçmişte');
+    eq(o.kuyruk.length, 0, 'gram yanlışı kuyruk kurmaz'); eq(JSON.stringify(S), once, 'gram öğe hafızasına yazmaz');
+    eq(gr(K.sec({ S, kap: 36 }, o, T, R99)), false, 'gram: cevaptan sonra aynı pencerede yok');
+  }
+  // tam tur (12): gramVar hep true → tam 2 gram, adım 5 ve 10'da; gramVar yokken dizi eskisiyle aynı
+  const turDizi = gv => {
+    const rnd = K.tohum(5), it = {};
+    for (let i = 0; i < 20; i++) it['n' + (300 + i)] = { m: h(3 + i, 0.6 + i * 0.015, { due: T - DAY, pk: 1 }) };
+    const S = yeniS(it), o = oturum({ boy: 12, gramVar: gv }), dz = [];
+    for (let a = 0; a < 12; a++) {
+      const t = T + a * 20000, s = K.sec({ S, kap: 36, donus: true }, o, t, rnd);
+      if (s.tur === 'bitti') break;
+      if (s.tur === 'metin') { o.metin = true; a--; continue; }
+      if (s.tur === 'gram') { dz.push('gram@' + o.adim); K.oturumIsle(o, Object.assign({ id: 'g:x:1', bicim: 'gram' }, s), { ergebnis: 'richtig' }, rnd); continue; }
+      K.uygula(S, s.id, K.notVer({ bicim: s.bicim, tip: 'dogru', sure: 3000 }), t, { b: s.b });
+      K.oturumIsle(o, s, { ergebnis: 'richtig' }, rnd); dz.push(s.id);
+    }
+    return dz;
+  };
+  const dG = turDizi(true), d0 = turDizi(undefined);
+  eq(dG.filter(x => /^gram/.test(x)).join(' '), 'gram@5 gram@10', 'tam tur: gram adım 5 ve 10');
+  eq(dG.length, 12, 'tam tur: gram tur boyuna sayılır (12 cevap)');
+  eq(d0.filter(x => /^gram/.test(x)).length, 0, 'tam tur: gramVar yoksa gram yok');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);
