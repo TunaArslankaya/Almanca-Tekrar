@@ -206,6 +206,15 @@ Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana t
 - Vadeli konu tekrarları Çalış'a "gramer kartı" olarak girer: günde en çok **3 set** (≈ 9 alıştırma); tür dengesinde "cümle" sayılır; aynı tür en fazla 2 kez üst üste kuralı geçerli.
 - Hayalet adım 1'leri Çalış'ta da araya girer (tek alıştırma).
 - "Gramer" odak bölümünde sınır yok; günlük sayaç `tage[gün].modi.gram`.
+- (28.10) Ana tur (`akis`) adım 5 ve 10'da en çok 2 gramer sorusu (`Kern.sec` → `{ tur: 'gram' }`): `Gramer.turSorusu` açık konuların hazır hayaletlerinden, yoksa vadeli konulardan (en eski vade önce; bir konu turlarda günde ≤ 3) **yalnız yazarak** türde tek alıştırma seçer (seçeneksiz `luecke`, `umform`, `ceviri`, `ordnen`, `fehler`). Konu kartı değişmez (vade yalnız set ile); teil istatistiği ve hayalet yazılır; log notiz `tur:akis | …`.
+
+### 10.7 B1 sprinti: tanı testi ve sprint sırası (28.10 → 9.11.2026)
+- `S.sprint = { hedef, son_yeni, acik }`. Sprint açık ve bugün < `hedef` iken: günde en çok **1** yeni konu (günün bloğu bitince isteğe bağlı +1; testten açılanlar sayılmaz), haftada 2 sınırı yok; `son_yeni`'den sonra yeni konu yok. Konu vadesi en çok max(2, %40 × hedefe kalan gün) (set sonunda kısaltılır).
+- **Sprint sırası** (`Gramer.SPRINT_SIRA`, yalnız var olan dosyalar): verbstellung, satzklammer-tekamolo, nebensatz-satzbau, weil-dass, negation, zweiteilig, konnektoren-deshalb-trotzdem, nominal-verbal, vergleich, es-korrelat, relativ, adjektiv, praep-verben, praep-nomen-adj, zu-infinitiv, damit-um-zu, passiv, konjunktiv2, genitiv, n-deklination, partizip-adj, perfekt, praeteritum, reflexiv, wortbildung; sonra kalanlar Goethe önemine göre. Sıradaki yeni konu = sırada testte `zayif` (test bittiyse denenmemiş de) ilk kapalı konu; testte `biliyor` olanlar atlanır. `@voraus` sprintte zorunlu değil.
+- **Tanı testi**: bütün konular (yeni dosyalar kendiliğinden girer), sprint sırasıyla. Konu başına uyarlamalı: 1 yazarak alıştırma (z2; seçeneksiz `luecke`, `umform`, `ceviri`, `ordnen`), doğruysa 2. (z3, başka teil). İkisi de ipucusuz `richtig` → `biliyor`, değilse `zayif`. Oturum ~25 madde, kaldığı yerden; "Bilmiyorum" var, itiraz / öz-not yok; cevaptan sonra doğrusu ve kural gösterilir.
+- Sonuç: `biliyor` → konu açılır, kart **kısa**: S ≤ 5, ilk tekrar 4–5 gün sonra (bedava seviye yok: uzun vade ancak tekrar setiyle). `zayif` → sprint sırasına; açık konuysa vadesi yarına çekilir. Yanlış teil'ler: açık konuda hemen hayalet, kapalı konuda konu açılıp giriş seti bitince hayalet (ertesi gün, adım 2).
+- **Günün bloğu** (`Gramer.blokBaslat`): test bitmediyse test oturumu; yoksa vadeli konuların karışık tekrarı (en çok 5 konu, vadesi en eski önce, araya en çok 3 hazır hayalet) → bugünün yeni konusu (tanıtım + giriş seti). `sprintDurum().bugunYapildi` = bugün bir test oturumu ya da en az bir set bitti.
+- Açılış göçü: kartı olmayan ve bir günden eski açılış (giriş seti yapılmamış) kapatılır (`yarim` sayacı); kartsız konu vadeli sayılmaz.
 
 ## 11. Build önerisi
 
