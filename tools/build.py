@@ -705,9 +705,18 @@ for k, x in _kayitlar:
     x["frek"] = sum(_dc.get(k, {}).values())
     x["_skor"] = sum(min(c, 3) for c in _dc.get(k, {}).values())   # tek metinde çok geçen (Klexikon "Dialekt") sıralamayı ezmesin
     x["_df"] = len(_dc.get(k, {}))
-_b1 = [(i, x) for i, (k, x) in enumerate(_kayitlar) if x["tier"] == 3 and x["frek"] > 0]
-for i, x in sorted(_b1, key=lambda e: (-e[1]["_skor"], -e[1]["_df"], -e[1]["frek"], e[0]))[:SIK_N]:
-    x["sik"] = True
+# eş sesli kayıtlar (das Wort "söz" / "kelime", das Rad, das Teil …) sayıyı paylaşır: sayının sahibi en düşük seviyeli kayıt sayılır;
+# daha düşük seviyede eşi olan B1 kaydı ve aynı sayıyı paylaşan ikinci B1 kaydı (der/die Kranke) "sik" olmaz (27.10 denetim)
+_min_tier = {}
+for k, x in _kayitlar:
+    _min_tier[k] = min(_min_tier.get(k, 9), x["tier"])
+_b1 = [(i, x) for i, (k, x) in enumerate(_kayitlar) if x["tier"] == 3 and x["frek"] > 0 and _min_tier.get(k, 3) >= 3]
+_sik_k = set()
+for i, x in sorted(_b1, key=lambda e: (-e[1]["_skor"], -e[1]["_df"], -e[1]["frek"], e[0])):
+    k = _kayitlar[i][0]
+    if k in _sik_k: continue
+    _sik_k.add(k); x["sik"] = True
+    if len(_sik_k) >= SIK_N: break
 for _, x in _kayitlar:
     del x["_skor"], x["_df"]
 print(f"sıklık: {len(_korpus())} metin, seviye 3'te frek > 0: {len(_b1)}, sik: {sum(1 for _, x in _kayitlar if x.get('sik'))} "

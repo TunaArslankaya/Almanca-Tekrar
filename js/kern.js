@@ -914,6 +914,20 @@
       const a = lok.ayar4 || {}, b = uz.ayar4 || {};
       m.ayar4 = Object.assign({}, lok.ayar4 && dolu(lok) ? Object.assign({}, b, a) : Object.assign({}, a, b), { gosterildi: Object.assign({}, b.gosterildi, a.gosterildi) });
     }
+    // gramer (27.10 denetim: yeni cihazın boş S.gram'ı uzaktaki konu kartlarını / tanı ilerlemesini eziyordu): konu başına son etkinlik kazanır,
+    // hayaletler ve tanı konuları birleşir (aynı konuda son cevaplanan), gün sayacı aynı günse büyük olan
+    if (lok.gram || uz.gram) {
+      const a = lok.gram || {}, b = uz.gram || {}, son = k => Math.max((k && k.karte && k.karte.last) || 0, (k && k.acildi) || 0, ...Object.values((k && k.gesehen) || {}).map(Number).filter(x => x > 0), 0);
+      const konu = Object.assign({}, b.konu); Object.entries(a.konu || {}).forEach(([id, k]) => { konu[id] = !konu[id] || son(k) >= son(konu[id]) ? k : konu[id]; });
+      const ta = a.tani || {}, tb = b.tani || {}, tk = Object.assign({}, tb.konu);
+      Object.entries(ta.konu || {}).forEach(([id, k]) => { const o = tk[id]; tk[id] = !o || (k.t || 0) >= (o.t || 0) ? k : o; });
+      const gun = a.gun && b.gun && a.gun.g === b.gun.g ? Object.assign({}, b.gun, a.gun, { set: Math.max(a.gun.set || 0, b.gun.set || 0), tani: Math.max(a.gun.tani || 0, b.gun.tani || 0) }) : (a.gun && b.gun ? (a.gun.g > b.gun.g ? a.gun : b.gun) : a.gun || b.gun);
+      m.gram = Object.assign({}, b, a, { konu, ghost: Object.assign({}, b.ghost, a.ghost) });
+      if (a.tani || b.tani) m.gram.tani = Object.assign({}, tb, ta, { konu: tk, oturum: Math.max(ta.oturum || 0, tb.oturum || 0) });
+      if (gun) m.gram.gun = gun;
+    }
+    // sprint: en son değiştirilen (zaman damgası z; yoksa uzaktaki: yeni cihazın varsayılanı Ayarlar'da kapatılmış sprinti açmasın)
+    if (lok.sprint || uz.sprint) m.sprint = lok.sprint && uz.sprint ? ((lok.sprint.z || 0) > (uz.sprint.z || 0) ? lok.sprint : uz.sprint) : (uz.sprint || lok.sprint);
     if (lok.xpTaban != null || uz.xpTaban != null) m.xpTaban = Math.max(lok.xpTaban || 0, uz.xpTaban || 0);
     if (lok.tageC || uz.tageC) {
       // cihaz başına, alan başına en büyük (her cihaz yalnız kendi sayacını artırır)

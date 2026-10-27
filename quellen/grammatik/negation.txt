@@ -80,7 +80,7 @@ umform | 3 | Das ist kein Tee. Das ist Kaffee. → kein … sondern | Das ist ke
 umform | 3 | Der Kurs beginnt nicht um neun. Er beginnt um zehn. → nicht … sondern | Der Kurs beginnt nicht um neun, sondern um zehn. | | Kurs dokuzda değil, onda başlıyor. | Parça olumsuzu: nicht olumsuzlanan parçanın (um neun) hemen önünde; sondern'den sonra doğrusu. | der Kurs
 ordnen | 3 | ich / wohne / nicht / in Hamburg / sondern / in Bremen | Ich wohne nicht in Hamburg, sondern in Bremen. | | Hamburg'da değil, Bremen'de oturuyorum. | nicht olumsuzlanan yer bilgisinin (in Hamburg) önünde; doğrusu sondern ile. | wohnen
 fehler | 2 | Wir fahren nicht mit dem Zug, aber mit dem Auto. | Wir fahren nicht mit dem Zug, sondern mit dem Auto. | aber | Trenle değil, arabayla gidiyoruz. | Olumsuzlanan parçanın doğrusunu verirken sondern kullanılır. | der Zug; das Auto
-luecke | 2 | Lara ist ___ Lehrerin, sondern Ärztin. | keine | | Lara öğretmen değil, doktor. | Meslek isimleri artikelsiz kullanılır → kein; Lehrerin dişil → keine. | die Lehrerin, -nen; die Ärztin
+luecke | 2 | Lara ist ___ Lehrerin, sondern Ärztin. | keine / nicht | | Lara öğretmen değil, doktor. | Meslek isimleri artikelsiz kullanılır → kein; Lehrerin dişil → keine. | die Lehrerin, -nen; die Ärztin
 
 @teil mehr | noch nicht · nicht mehr · noch kein · kein … mehr | zaman
 wahl | 1 | Früher habe ich geraucht, aber jetzt rauche ich ___. | nicht mehr | nicht mehr / noch nicht / kein mehr | Eskiden sigara içerdim ama artık içmiyorum. | Bir şey bitti → nicht mehr (artık … değil). noch nicht = henüz … değil. | rauchen; früher

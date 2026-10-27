@@ -928,5 +928,16 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(d0.filter(x => /^gram/.test(x)).length, 0, 'tam tur: gramVar yoksa gram yok');
 }
 
+// ---------- 27.10 denetim: gramer ve sprint cihazlar arası birleşir ----------
+{
+  const r = K.birlestir({ gram: { konu: {}, ghost: {} }, sprint: { hedef: '2026-11-09', acik: true } },
+    { gram: { konu: { adjektiv: { karte: { S: 2, last: 5 } } }, ghost: { 'a:b': { due: 1 } }, tani: { konu: { verbstellung: { s: 'zayif', t: 9 } }, oturum: 1 } }, sprint: { hedef: '2026-11-09', acik: false, z: 7 } });
+  ok(!!r.gram.konu.adjektiv, 'birleştirme: yeni cihazın boş gram\'ı uzaktaki konu kartını ezmez');
+  ok(!!r.gram.ghost['a:b'] && r.gram.tani.konu.verbstellung.s === 'zayif', 'birleştirme: hayalet ve tanı ilerlemesi korunur');
+  eq(r.sprint.acik, false, 'birleştirme: Ayarlar\'da kapatılmış sprint (z) yeni cihazın varsayılanıyla açılmaz');
+  const r2 = K.birlestir({ gram: { konu: { adjektiv: { karte: { S: 4, last: 20 } } } } }, { gram: { konu: { adjektiv: { karte: { S: 2, last: 5 } } } } });
+  eq(r2.gram.konu.adjektiv.karte.last, 20, 'birleştirme: konu başına son etkinlik kazanır');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);

@@ -143,6 +143,8 @@
     return `<div class="kural istisna"><b>İstisna!</b> <b>-${esc(suf)}</b> ile bitenlerin %${pct}'i <span class="art art-${art}">${art}</span>, ama bu <span class="art art-${n.art}">${n.art}</span></div>`;
   }
   // Artikel yanlışında not (B1 sprinti 28.10: artikel hatalarının ~%60'ı "der" varsayımı, der → die 37, der → das 20).
+  // "hep" yalnız gerçekten istisnasız eklerde (27.10 denetim: -ment / -or / -ei istatistikte %100 ama der Moment, das Tor, das Ei var)
+  const HEP_EK = new Set(['ung', 'heit', 'keit', 'schaft', 'tät']);
   // Karşıt not ("der değil → die Uhr") + kural varsa kısa ve kesin ("-ung → hep die"), istisnaysa istisna kutusu; kural yoksa
   // "der" verildiyse varsayma uyarısı (renk ipucu: der mavi, die kırmızı, das yeşil) + kelimeyle ezberle. verilen '' = artikel yazılmadı.
   const ART_RENK = { der: 'mavi', die: 'kırmızı', das: 'yeşil' };
@@ -150,7 +152,7 @@
     if (n.plOnly) return regelHTML(n);
     const A = x => `<span class="art art-${x}">${x}</span>`;
     const kopfK = n.kopf && n.kopf[1] === n.art, r = !kopfK && n.regel && n.regel[1] === n.art ? n.regel : null;
-    const kisa = r ? `<b>-${esc(r[0])} → ${r[2] >= 100 ? 'hep' : 'çoğunlukla'} ${A(n.art)}</b>${r[2] < 100 ? ` <span class="soluk">(%${r[2]})</span>` : ''}`
+    const hep = r && r[2] >= 100 && HEP_EK.has(r[0]), kisa = r ? `<b>-${esc(r[0])} → ${hep ? 'hep' : 'çoğunlukla'} ${A(n.art)}</b>${!hep ? ` <span class="soluk">(%${r[2]})</span>` : ''}`
       : kopfK ? `<b>son parça belirler:</b> ${A(n.art)} ${esc(n.kopf[0])}` : '';
     const karsi = `<b>${verilen ? esc(verilen) + ' değil' : 'artikel yazmadın'}</b> → ${A(n.art)} ${esc(n.lemma)}`;
     if (kisa) return `<div class="kural">${karsi} · ${kisa}</div>`;
@@ -4885,6 +4887,7 @@
       const sp = S.sprint = S.sprint || Object.assign({}, SPRINT0, { acik: false });
       if (id === 'a-sprint') sp.acik = !!e.target.checked;
       else if (/^\d{4}-\d\d-\d\d$/.test(e.target.value)) { sp.hedef = e.target.value; sp.son_yeni = gunEkle(sp.hedef, -4); }
+      sp.z = now();   // elle değişiklik: cihazlar arası birleştirmede en son değiştirilen kazanır (Kern.birlestir)
       save(); renderAyar(); return;
     }
     else return;

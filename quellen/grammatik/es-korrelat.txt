@@ -63,10 +63,10 @@ dinle | 2 | Es gibt heute keinen Unterricht. | Es gibt heute keinen Unterricht. 
 ordnen | 2 | in dem Artikel / geht / es / um / die Mieten in Bremen | In dem Artikel geht es um die Mieten in Bremen. / Es geht in dem Artikel um die Mieten in Bremen. | | Makale Bremen'deki kiralarla ilgili. | es geht um + Akkusativ; In dem Artikel başta → geht es. | der Artikel; die Miete
 
 @teil korrelat | Özne yer tutucusu: Es freut mich, dass … · Es ist wichtig, … zu | eksik kelime
-wahl | 1 | ___ freut mich, dass du die Prüfung bestanden hast. | Es | Es / Das / Dass | Sınavı geçmene sevindim. | Asıl özne dass-cümlesi; es onun yerini başta tutar. | die Prüfung; bestehen
-luecke | 2 | ___ ist wichtig, jeden Tag ein bisschen zu lernen. | Es | | Her gün biraz çalışmak önemli. | Asıl özne zu-cümlesi; ana cümlenin başında yer tutucu es. | wichtig; lernen
-luecke | 2 | ___ ist schade, dass du nicht kommen kannst. | Es | | Gelememen yazık. | es = dass-cümlesinin yer tutucusu. | schade
-luecke | 2 | Ist ___ möglich, den Termin zu verschieben? | es | | Randevuyu ertelemek mümkün mü? | Soru cümlesinde de yer tutucu es kalır: Ist es möglich, … zu …? | möglich; der Termin; verschieben
+wahl | 1 | ___ freut mich, dass du die Prüfung bestanden hast. | Es | Es / Er / Dass | Sınavı geçmene sevindim. | Asıl özne dass-cümlesi; es onun yerini başta tutar. | die Prüfung; bestehen
+luecke | 2 | ___ ist wichtig, jeden Tag ein bisschen zu lernen. | Es / Das | | Her gün biraz çalışmak önemli. | Asıl özne zu-cümlesi; ana cümlenin başında yer tutucu es. (Konuşmada das de olur; yazıda es.) | wichtig; lernen
+luecke | 2 | ___ ist schade, dass du nicht kommen kannst. | Es / Das | | Gelememen yazık. | es = dass-cümlesinin yer tutucusu. (Konuşmada das de olur; yazıda es.) | schade
+luecke | 2 | Ist ___ möglich, den Termin zu verschieben? | es / das | | Randevuyu ertelemek mümkün mü? | Soru cümlesinde de yer tutucu es kalır: Ist es möglich, … zu …?. (Konuşmada das de olur; yazıda es.) | möglich; der Termin; verschieben
 umform | 2 | Du hilfst mir. Das ist sehr nett. → Es … | Es ist sehr nett, dass du mir hilfst. | | Bana yardım etmen çok nazik. | Başta yer tutucu es, asıl özne dass-cümlesi sonda (fiil sonda: hilfst). | nett; helfen
 umform | 3 | Man muss pünktlich sein. Das ist in Deutschland wichtig. → Es … | Es ist in Deutschland wichtig, pünktlich zu sein. / Es ist wichtig, in Deutschland pünktlich zu sein. | | Almanya'da dakik olmak önemli. | man + müssen → zu-mastar (pünktlich zu sein); başta es yer tutar. | pünktlich; wichtig
 ceviri | 2 | Seni gördüğüme sevindim. | Es freut mich, dich zu sehen. / Es freut mich, dass ich dich sehe. / Ich freue mich, dich zu sehen. / Es ist schön, dich zu sehen. / Schön, dich zu sehen. | | - | Yer tutucu es + zu-mastar: Es freut mich, dich zu sehen. | sich freuen über
@@ -76,8 +76,8 @@ ordnen | 3 | es / war / schwer / für mich / Deutsch / zu lernen | Es war schwer
 text | 2 | Liebe Lena, ___ freut mich sehr, dass du mich besuchen möchtest! Leider ist ___ im Moment in Bremen sehr kalt. Und ___ gibt hier nicht viel Sonne. Also ist ___ besser, warme Kleidung mitzunehmen. | es ; es ; es ; es | | Sevgili Lena, beni ziyaret etmek istemene çok sevindim! Maalesef şu anda Bremen'de hava çok soğuk. Burada pek güneş de yok. Yani yanına sıcak giysiler alman daha iyi olur. | Yer tutucu (Es freut mich, dass …; es ist besser, … zu), hava (es ist kalt) ve kalıp (es gibt). | besuchen; kalt; die Sonne; die Kleidung
 
 @teil finden-es | Nesne yer tutucusu: Ich finde es gut, dass … · Ich mag es, wenn … | eksik kelime
-wahl | 1 | Ich finde ___ toll, dass du so gut Deutsch sprichst. | es | es / das / dass | Bu kadar iyi Almanca konuşmanı harika buluyorum. | finden + sıfat + dass-cümlesi: nesnenin yerini es tutar (Ich finde es toll, dass …). | toll; finden
-luecke | 2 | Ich mag ___ nicht, wenn man im Kurs mit dem Handy spielt. | es | | Kursta telefonla oynanmasından hoşlanmıyorum. | mögen + wenn-cümlesi: nesne yer tutucusu es. | das Handy; der Kurs
+wahl | 1 | Ich finde ___ toll, dass du so gut Deutsch sprichst. | es | es / ihm / dass | Bu kadar iyi Almanca konuşmanı harika buluyorum. | finden + sıfat + dass-cümlesi: nesnenin yerini es tutar (Ich finde es toll, dass …). | toll; finden
+luecke | 2 | Ich mag ___ nicht, wenn man im Kurs mit dem Handy spielt. | es / das | | Kursta telefonla oynanmasından hoşlanmıyorum. | mögen + wenn-cümlesi: nesne yer tutucusu es. (Konuşmada das de olur; yazıda es.) | das Handy; der Kurs
 luecke | 2 | Ich halte ___ für wichtig, dass alle Kinder schwimmen lernen. | es | | Bütün çocukların yüzme öğrenmesini önemli buluyorum. | etwas für wichtig halten: es arkadaki dass-cümlesinin yerini tutar. | wichtig; das Kind
 fehler | 2 | Ich finde es gut, dass du machst jeden Tag Sport. | Ich finde es gut, dass du jeden Tag Sport machst. | machst | Her gün spor yapmanı iyi buluyorum. | es yerinde; ama dass-cümlesinde çekimli fiil (machst) en sona gider. | der Sport
 ceviri | 2 | Her gün yemek yapmayı sıkıcı buluyorum. | Ich finde es langweilig, jeden Tag zu kochen. | | - | finden + es + sıfat + zu-mastar: Ich finde es langweilig, … zu kochen. | langweilig; kochen

@@ -205,7 +205,9 @@
   // bugün vadesi gelen hayalet adımı (oturum içi adım 1'ler zamanı gelince)
   function hayaletHazir(t = now()) {
     const g = st().ghost;
-    return Object.keys(g).filter(k => g[k].due <= t && (g[k].adim > 1 || (api.soruSayisi() - (g[k].q || 0) >= 8))).sort((a, b) => g[a].due - g[b].due);
+    // adım 1: aynı oturumda ≥ 8 soru sonra; sayaç oturumla sıfırlandıysa (soruSayisi < q: başka oturum) hemen hazır (27.10 denetim: q 63'te kalan hayalet hiç gelmiyordu)
+    const sq = api.soruSayisi();
+    return Object.keys(g).filter(k => g[k].due <= t && (g[k].adim > 1 || sq < (g[k].q || 0) || sq - (g[k].q || 0) >= 8)).sort((a, b) => g[a].due - g[b].due);
   }
 
   // ---------- ana turda gramer sorusu (S2/S3) ----------
@@ -365,6 +367,8 @@
   const karistir = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 
   function render() {
+    // turda yarım kalmış gramer sorusu gramer bölümünde çizilmesin (27.10 denetim: Devam'dan sonra kart donuyordu): bölümün kendi oturumuna dön
+    if (ses && ses.art === 'tur') { ses = turOnceki; turOnceki = null; turEl = null; }
     if (!ses) ses = { ekran: 'liste' };
     api.durum('');
     if (ses.ekran === 'liste') return renderListe();
