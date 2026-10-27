@@ -550,6 +550,201 @@ ids = [p_["id"] for p_ in pakete]
 if len(ids) != len(set(ids)):
     errors.append("pakete.txt: paket kimliği tekrar ediyor")
 
+# ---------------- Sıklık (B1 sprinti, sözleşme S4): frek + sik ----------------
+# frek = okuma metinlerinde (Klexikon, DW Top-Thema, Goethe B1 Lesen) geçme sayısı, lemma eşlemesiyle:
+#   isim: tekil / çoğul / -s / -es / -n (büyük harf, tam biçim); fiil: mastar, Präsens / Präteritum biçimleri, Partizip II, zu-Infinitiv;
+#   ayrılan ön ekli fiilin çekimli biçimi yan cümlede (virgüle dek) sonra gelen ön ekle birlikte o fiile sayılır, ön ek yoksa yalın fiile;
+#   diğer kelime: sıfat / zamir ekleri (-e -en -er -es -em), çok kelimeli kalıp art arda ("…" ile ayrılanlar aynı cümlede sırayla;
+#   sondaki mastar düşer: "zur Verfügung stehen" → "zur Verfügung"). Aynı lemmalı kayıtlar (eş sesli, dönüşlü/dönüşsüz) aynı sayıyı alır.
+# sik = seviye 3 (B1) kayıtları içinde en sık SIK_N (frek azalan; eşitlikte metin sayısı, sonra dosya sırası). Gece yeni metin gelince kayar.
+SIK_N = 300
+_TOK = re.compile(r"[A-Za-zÄÖÜäöüß]+(?:-[A-Za-zÄÖÜäöüß]+)*|,")
+def _korpus():
+    docs = []
+    for fn in ("lesetexte.json", "lesetexte_dw.json", "goethe_lesen.json"):
+        fp = P("quellen", fn)
+        if not os.path.exists(fp):
+            continue
+        for x in json.load(open(fp, encoding="utf-8")):
+            t = [x.get("text") or ""] + [a.get("s") or "" for a in (x.get("aufgaben") or []) if isinstance(a, dict)]
+            docs.append("\n".join(t))
+    return docs
+def _vstamm(inf):
+    if inf.endswith(("eln", "ern")):
+        return inf[:-1]
+    return inf[:-2] if inf.endswith("en") else inf[:-1] if inf.endswith("n") else inf
+_n_form, _v_dir, _v_sep, _w_form, _w_phr = {}, {}, {}, {}, []
+def _ekle(m, f, k):
+    if f and " " not in f:
+        m.setdefault(f, set()).add(k)
+for x in nomen:
+    if x.get("skip") or " " in x["lemma"]:
+        continue
+    l, k = x["lemma"], ("n", x["lemma"])
+    fs = {l, l + "s", l + "es", x.get("gen")}
+    if x.get("plf"):
+        fs |= {x["plf"]} | (set() if re.search(r"[ns]$", x["plf"]) else {x["plf"] + "n"})
+    if x.get("weak"):
+        fs |= {l + "n", l + "en"}
+    if x.get("adjN"):
+        fs |= {l + "n", l + "r", l + "s", l + "m"}
+    for f in fs:
+        _ekle(_n_form, f, k)
+for v in verben:
+    k, base, pre = ("v", v["inf"]), v["base"], v["pre"]
+    st = _vstamm(base)
+    fin = {st + "e", st + "st", st + "t", st + "est", st + "et", base, v["p3"], v["pt3"]}
+    p3, pt = v["p3"], v["pt3"]
+    fin |= {p3[:-1] + "st"} if p3.endswith("t") else {p3 + "st", p3 + "t"}   # fährt → fährst; kann → kannst; weiß → weißt
+    if pt:
+        fin |= {pt + "st", pt + "t", pt + ("n" if pt.endswith("e") else "en")}
+    p2 = v["p2"].split()[-1] if v["p2"] else ""
+    if pre:
+        for f in fin:
+            if f:
+                _v_sep.setdefault(f, []).append((k, pre))
+        if v["sp"]:   # spazieren gehen: mastar / Partizip iki kelime → ön ek + fiil art arda
+            _w_phr.append((k, [[pre.lower(), base]], False))
+            if p2:
+                _w_phr.append((k, [[pre.lower(), p2]], False))
+        else:
+            for f in (v["inf"], p2, pre + "zu" + base):
+                _ekle(_v_dir, f, k)
+    else:
+        for f in fin | {v["inf"], p2}:
+            _ekle(_v_dir, f, k)
+ADJ_EK = ("", "e", "en", "er", "es", "em")
+for w in woerter:
+    de, k = w["de"], ("w", w["de"])
+    if "…" in de:
+        _w_phr.append((k, [p.lower().split() for p in de.split("…") if p.strip()], True))
+        continue
+    t = de.split()
+    if len(t) > 1:
+        if w["kl"] == "andere" and re.fullmatch(r"[a-zäöüß]+n", t[-1]):
+            t = t[:-1]   # sondaki mastar çekimli olur: kalıbın geri kalanı
+        _w_phr.append((k, [[x.lower() for x in t]], False))
+        continue
+    fs = {de}
+    if w["kl"] in ("adj", "pron"):
+        kok = de[:-1] if de.endswith("e") else de
+        fs |= {kok + e for e in ADJ_EK if e}
+        if re.search(r"[^aeiouäöü](el|er)$", de):   # dunkel → dunkle, teuer → teure
+            fs |= {de[:-2] + de[-1] + e for e in ADJ_EK if e}
+    for f in fs:
+        _ekle(_w_form, f.lower(), k)
+_dc, _vocc = {}, {}   # anahtar → {metin: sayı}; fiil lemması → [(metin, cümlenin küçük harfli kelimeleri)]
+def _say(k, di, low=None):
+    if k[0] == "v":
+        _vocc.setdefault(k, []).append((di, low))
+        return
+    d = _dc.setdefault(k, {})
+    d[di] = d.get(di, 0) + 1
+for di, doc in enumerate(_korpus()):
+    for satz in re.split(r"[.!?;:\n„“”\"()–]+", doc):
+        tk = _TOK.findall(satz)
+        if not tk:
+            continue
+        kel = [x for x in tk if x != ","]
+        low = [x.lower() for x in kel]
+        ls = set(low)
+        for i, tok in enumerate(tk):
+            if tok == ",":
+                continue
+            for k in _n_form.get(tok, ()):
+                _say(k, di)
+            alt = {tok, tok.lower()} if i == 0 or tk[i - 1] == "," else {tok}
+            for a in alt:   # diğer kelimeler hep küçük harf: cümle ortasında büyük harfli biçim isimdir (das Gute)
+                for k in (_w_form.get(a, ()) if a == a.lower() else ()):
+                    _say(k, di)
+            # fiil: önce ayrılan ön ek (aynı yan cümlede sonra gelen), yoksa yalın biçim
+            bulundu = False
+            for a in alt:
+                adaylar = []
+                for k, pre in _v_sep.get(a, ()):
+                    for j in range(i + 1, len(tk)):
+                        if tk[j] == ",":
+                            break
+                        if tk[j] == pre:
+                            adaylar.append((j, k))
+                if adaylar:
+                    son = max(j for j, _ in adaylar)
+                    for k in {k for j, k in adaylar if j == son}:
+                        _say(k, di, ls)
+                    bulundu = True
+                    break
+            if not bulundu:
+                for k in set().union(*[_v_dir.get(a, set()) for a in alt]):
+                    _say(k, di, ls)
+        for k, parcalar, sirali in _w_phr:
+            bas = 0
+            for p_ in parcalar:
+                yer = next((i for i in range(bas, len(low) - len(p_) + 1) if low[i:i + len(p_)] == p_), -1)
+                if yer < 0:
+                    break
+                bas = yer + len(p_)
+            else:
+                _say(k, di, ls)
+_kayitlar = [(("n", x["lemma"]), x) for x in nomen if not x.get("skip")] + [(("v", v["inf"]), v) for v in verben] + [(("w", w["de"]), w) for w in woerter]
+# edatlı / dönüşlü fiil anlamı (kommen auf, sich bewegen): yalnız edatı (am, zum, darauf, worüber …) ya da dönüşlü zamiri aynı cümlede olan geçişler;
+# yoksa "kommen auf" yalın "kommen"in sayısını alırdı
+_KAYN = {"an": ["am", "ans"], "in": ["im", "ins"], "zu": ["zum", "zur"], "von": ["vom"], "bei": ["beim"], "auf": ["aufs"], "für": ["fürs"],
+         "um": ["ums"], "über": ["übers"], "vor": ["vors"], "durch": ["durchs"], "unter": ["unters"]}
+def _edat_bicim(p):
+    return {p, *_KAYN.get(p, []), ("dar" if p[0] in "aeiouäöü" else "da") + p, ("wor" if p[0] in "aeiouäöü" else "wo") + p}
+_REFL = {"sich", "mich", "dich", "uns", "euch", "mir", "dir"}
+for k, x in _kayitlar:
+    if k[0] == "v":
+        ed = [_edat_bicim(o["p"]) for o in x["obj"] if o.get("p")]
+        d = {}
+        for di, ls in _vocc.get(k, ()):
+            if (not x["refl"] or ls & _REFL) and all(ls & e for e in ed):
+                d[di] = d.get(di, 0) + 1
+        _dc[("r", x["id"])] = d
+        k = ("r", x["id"])
+    x["frek"] = sum(_dc.get(k, {}).values())
+    x["_skor"] = sum(min(c, 3) for c in _dc.get(k, {}).values())   # tek metinde çok geçen (Klexikon "Dialekt") sıralamayı ezmesin
+    x["_df"] = len(_dc.get(k, {}))
+_b1 = [(i, x) for i, (k, x) in enumerate(_kayitlar) if x["tier"] == 3 and x["frek"] > 0]
+for i, x in sorted(_b1, key=lambda e: (-e[1]["_skor"], -e[1]["_df"], -e[1]["frek"], e[0]))[:SIK_N]:
+    x["sik"] = True
+for _, x in _kayitlar:
+    del x["_skor"], x["_df"]
+print(f"sıklık: {len(_korpus())} metin, seviye 3'te frek > 0: {len(_b1)}, sik: {sum(1 for _, x in _kayitlar if x.get('sik'))} "
+      f"(en düşük frek {min((x['frek'] for _, x in _kayitlar if x.get('sik')), default=0)})")
+
+# Anlam alanı (karışma kapısı, js/kern.js karismaOk): ünite kelimesinin @gruppe'u ana kayda "alan" olarak ("u4:Ehrenamt und Hilfe").
+# Ana kayıt eşlemesi uygulamadaki uMainId ile aynı (isim: artikel + lemma, fiil: anz ya da sich'siz mastar, diğer: kelime; ilk eşleşen).
+_n_lab = {}
+for x in nomen:
+    if not x.get("skip"):
+        _n_lab.setdefault(("die " if x.get("plOnly") else x["art"] + " ") + x["lemma"], x)
+for nr in range(1, 13):
+    fp = P("quellen", f"unite{nr}.txt")
+    if not os.path.exists(fp):
+        continue
+    gr = ""
+    for line in open(fp, encoding="utf-8"):
+        line = line.strip()
+        if line.startswith("@gruppe "):
+            gr = line[8:].strip()
+            continue
+        if not line or line.startswith(("#", "@")):
+            continue
+        p_ = [y.strip() for y in line.split("|")]
+        if len(p_) != 7 or not gr:
+            continue
+        typ, de = p_[0], p_[1]
+        if typ == "n":
+            ana = _n_lab.get(de)
+        elif typ == "v":
+            yal, sich = re.sub(r"^sich ", "", de), de.startswith("sich ")
+            ana = next((v for v in verben if v["anz"] == de or (v["inf"] == yal and v["refl"] == ("A" if sich else v["refl"]))), None)
+        else:
+            ana = w_key.get(de)
+        if ana is not None and "alan" not in ana:
+            ana["alan"] = f"u{nr}:{gr}"
+
 # ---------------- Çıktı ----------------
 for x in nomen:
     x.pop("g", None)

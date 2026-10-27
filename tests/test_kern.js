@@ -825,5 +825,49 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   }
 }
 
+// ---------- B1 sprinti (P5): sık B1 sırası (sik / frek) ve anlam alanı kapısı (alan) ----------
+{
+  const nB = {
+    s1: { id: 's1', art: 'die', lemma: 'Regierung', tier: 3, frek: 16, sik: true }, s2: { id: 's2', art: 'das', lemma: 'Wort', tier: 3, frek: 36, sik: true },
+    s3: { id: 's3', art: 'der', lemma: 'Fall', tier: 3, frek: 9, sik: true }, r1: { id: 'r1', art: 'der', lemma: 'Abfall', tier: 3, frek: 7 },
+    r2: { id: 'r2', art: 'die', lemma: 'Abbildung', tier: 2, frek: 40 },
+    a1: { id: 'a1', art: 'die', lemma: 'Toleranz', tier: 3, alan: 'u4:Werte' }, a2: { id: 'a2', art: 'die', lemma: 'Fairness', tier: 3, alan: 'u4:Werte' },
+    a3: { id: 'a3', art: 'die', lemma: 'Ehrlichkeit', tier: 3, alan: 'u4:Werte' }, a4: { id: 'a4', art: 'das', lemma: 'Ehrenamt', tier: 3, alan: 'u4:Hilfe' },
+  };
+  const vB = { vs: { id: 'vs', base: 'nennen', tier: 3, frek: 61, sik: true }, vr: { id: 'vr', base: 'verteilen', tier: 3, frek: 0 } };
+  const wB = { ws: { id: 'ws', lemma: 'damit', tier: 3, frek: 41, sik: true } };
+  const tOf = id => (nB[id] || vB[id] || wB[id] || { tier: 2 }).tier;
+  const lem = id => (nB[id] || wB[id] || {}).lemma || (vB[id] || {}).base || id;
+  const c5 = Object.assign({}, ctx, { byId: nB, vById: vB, wById: wB, tierOf: tOf, lemma: lem, trKey: id => id, konu: () => '',
+    BLITZ_ORDER: ['r2', 'r1', 's1', 'ws', 's3', 's2', 'a1', 'a2', 'a3', 'a4'], VERB_ORDER: ['vr', 'vs'], uniteSira: () => ['a1'], lesenWort: () => [] });
+  K.init(c5);
+  const S = yeniS({ y1: { yarim: 1, m: null } });
+  const ys = K.yeniSira(S);
+  eq(ys.slice(0, 2).join(','), 'y1,a1', 'P5 sıra: yarım → ünite önce (sık kelimeden önce)');
+  eq(ys.slice(2, 7).join(','), 'vs,ws,s2,s1,s3', 'P5 sıra: sik B1 frek azalan, isim / fiil / diğer karışık');
+  ok(ys.indexOf('r1') > ys.indexOf('s3') && ys.indexOf('r2') > ys.indexOf('s3'), 'P5 sıra: sik olmayan (tier-3 ya da frek yüksek tier-2) sonra', ys);
+  eq(new Set(ys).size, ys.length, 'P5 sıra: tekrar yok');
+  { const S2 = yeniS({ vs: { m: { S: 3, due: T + DAY, last: T } } }); ok(!K.yeniSira(S2).includes('vs'), 'P5 sıra: öğrenilen sik kelime yok'); }
+  // sik / frek alanı olmayan kayıtlar: eski sıra (Goethe sırası, tier-3 önce)
+  K.init(Object.assign({}, c5, { byId: { r1: nB.r1, r2: nB.r2 }, vById: {}, wById: {}, BLITZ_ORDER: ['r2', 'r1'], VERB_ORDER: [], uniteSira: () => [] }));
+  eq(K.yeniSira(yeniS({})).join(','), 'r1,r2', 'P5 sıra: sik yoksa Goethe sırası aynen');
+  // anlam alanı: aynı ünite grubundan en çok 2 (bugün tanıtılanlar dahil), konusuz olsa da
+  K.init(Object.assign({}, c5, { uniteSira: () => ['a1', 'a2', 'a3', 'a4'], BLITZ_ORDER: [], VERB_ORDER: [] }));
+  ok(K.karismaOk('a2', ['a1']), 'P5 alan: aynı gruptan 2 olur');
+  ok(!K.karismaOk('a3', ['a1', 'a2']), 'P5 alan: aynı gruptan 3. girmez');
+  ok(K.karismaOk('a4', ['a1', 'a2']), 'P5 alan: başka grup girer');
+  ok(K.karismaOk('s1', ['a1', 'a2']), 'P5 alan: alansız öğe kapıya takılmaz');
+  { const p = K.yeniParti(yeniS({}), T, 4, { yoklamaHak: 0 }); eq(p.ids.join(','), 'a1,a2,a4', 'P5 parti: Werte kümesinden 2, sonra başka grup'); }
+  { const Sb = yeniS({ a1: { tanit: T - SAAT, yeni4: K.gun4(T), m: { S: 1, due: T + DAY, last: T - SAAT } } }); eq(K.yeniParti(Sb, T, 3, { yoklamaHak: 0 }).ids.join(','), 'a2,a4', 'P5 parti: bugün tanıtılan aynı gruptan sayılır'); }
+  { const Sd = yeniS({ a1: { tanit: T - 2 * DAY, m: { S: 1, due: T + DAY, last: T - 2 * DAY } } }); eq(K.yeniParti(Sd, T, 3, { yoklamaHak: 0 }).ids.join(','), 'a2,a3,a4', 'P5 parti: dünkü tanıtım bugünü kısıtlamaz'); }
+  // yoklama kartı partinin başında (tanıtımlar art arda kalsın)
+  K.init(Object.assign({}, c5, { uniteSira: () => [], BLITZ_ORDER: ['r1', 'n2'], VERB_ORDER: [] }));
+  { const p = K.yeniParti(yeniS({}), T, 2, {}); eq(p.ids.join(',') + '|' + p.yoklama.join(','), 'n2,r1|n2', 'P5 parti: yoklama adayı önce'); }
+  // konu kapısı eskisi gibi (aynı konudan 2)
+  K.init(Object.assign({}, c5, { konu: id => /^a/.test(id) ? 'gesellschaft' : '' }));
+  ok(!K.karismaOk('a4', ['a1', 'a2']), 'P5: konu kapısı da geçerli');
+  K.init(ctx);
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);
