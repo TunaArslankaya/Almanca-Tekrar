@@ -197,3 +197,44 @@ sprechen3 | Wie ist das bei dir? / Was denkst du darüber? | Sende nasıl? / Bu 
 sprechen3 | Könntest du das bitte noch einmal erklären? | Bunu bir kez daha açıklar mısın?
 sprechen3 | Vielen Dank für deine Frage. Ich denke, dass … | Sorun için teşekkürler. Bence …
 sprechen3 | Das ist eine gute Frage. Ich glaube, … | Güzel bir soru. Sanırım …
+
+# 28.10 B2 hazırlık: B2 Redemittel (görüş bildirme, artı / eksi, öneri, grafik anlatma, tartışma, resmî yazı)
+forum | Ich vertrete die Ansicht, dass … | … görüşünü savunuyorum.
+forum | Meines Erachtens … | Kanımca … (fiil hemen arkadan: Meines Erachtens ist …)
+forum | Ich bin fest davon überzeugt, dass … | … olduğuna kesinlikle inanıyorum.
+forum | Ich halte es für wichtig / problematisch, dass … | … önemli / sorunlu buluyorum.
+forum | Dafür spricht, dass … Dagegen spricht, dass … | Lehine olan şu: … Aleyhine olan şu: …
+forum | Ein wichtiges Argument für / gegen … ist, dass … | … lehine / aleyhine önemli bir argüman şu: …
+forum | Ein großer Vorteil besteht darin, dass … | Büyük bir avantajı, … olmasıdır.
+forum | Der größte Nachteil liegt darin, dass … | En büyük dezavantajı, … olmasıdır.
+forum | Man darf aber nicht vergessen, dass … | Ama … unutulmamalı.
+forum | Zwar …, aber … | Gerçi …, ama … (Zwar ist es teuer, aber …)
+forum | Wenn man alle Argumente abwägt, … | Bütün argümanları tartınca …
+forum | Alles in allem bin ich der Meinung, dass … | Sonuç olarak … kanısındayım.
+sprechen1 | Was hältst du von der Idee, … zu …? | … fikri hakkında ne düşünüyorsun?
+sprechen1 | Ich hätte da einen Vorschlag: … | Bir önerim var: …
+sprechen1 | Es wäre doch sinnvoll, wenn wir … | … yapsak mantıklı olurdu.
+sprechen1 | Wie wäre es, wenn wir uns die Arbeit teilen? | İşi paylaşsak nasıl olur?
+sprechen1 | Lass uns doch lieber … | Gel, onun yerine … yapalım.
+sprechen1 | Darauf können wir uns einigen. | Bunda anlaşabiliriz.
+sprechen2 | Die Grafik zeigt, wie viele … | Grafik, kaç … olduğunu gösteriyor.
+sprechen2 | Die Grafik gibt Auskunft über … | Grafik … hakkında bilgi veriyor.
+sprechen2 | Die Zahlen stammen aus dem Jahr … | Rakamlar … yılına ait.
+sprechen2 | Auf den ersten Blick fällt auf, dass … | İlk bakışta … dikkat çekiyor.
+sprechen2 | An erster Stelle steht …, gefolgt von … | İlk sırada … var, onu … izliyor.
+sprechen2 | Die Zahl der … ist von … auf … gestiegen / gesunken. | … sayısı …'den …'e yükseldi / düştü.
+sprechen2 | Mehr als die Hälfte der Befragten … | Ankete katılanların yarısından fazlası …
+sprechen2 | Nur … Prozent der Befragten … | Ankete katılanların yalnızca yüzde …'i …
+sprechen2 | Im Vergleich zu … ist … deutlich höher / niedriger. | …'e kıyasla … belirgin biçimde daha yüksek / düşük.
+sprechen2 | Das überrascht mich (nicht), weil … | Bu beni şaşırtıyor (şaşırtmıyor), çünkü …
+sprechen3 | Da stimme ich dir völlig zu. | Bu konuda sana tamamen katılıyorum.
+sprechen3 | Da bin ich anderer Meinung. | Bu konuda farklı düşünüyorum.
+sprechen3 | Das sehe ich ein bisschen anders: … | Bunu biraz farklı görüyorum: …
+sprechen3 | Da hast du recht, aber man muss auch bedenken, dass … | Haklısın ama … da düşünmek lazım.
+sprechen3 | Ich verstehe deinen Standpunkt, trotzdem … | Bakış açını anlıyorum, yine de …
+sprechen3 | Was meinst du genau mit …? | … ile tam olarak ne demek istiyorsun?
+formell | Ich wende mich an Sie, weil … | Size … nedeniyle başvuruyorum.
+formell | Ich möchte mich über … beschweren. | … hakkında şikâyette bulunmak istiyorum.
+formell | Ich wäre Ihnen dankbar, wenn Sie … | … yaparsanız minnettar olurum.
+formell | Ich erwarte, dass … | … olmasını bekliyorum.
+formell | Für eine baldige Antwort wäre ich Ihnen dankbar. | Yakında cevap verirseniz minnettar olurum.

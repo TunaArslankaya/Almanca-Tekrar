@@ -1,0 +1,113 @@
+# Gramer konusu: "es" kelimesi: boş özne (es regnet, es gibt) ve yer tutucu / Korrelat (Es freut mich, dass …). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id es-korrelat
+@titel Das Wort „es“: Subjekt, Platzhalter und Korrelat
+@tr "es" kelimesi: boş özne (es regnet, es gibt), yer tutucu (Es freut mich, dass … · Ich finde es gut, dass …)
+@stufe B1–B2
+@kapitel B2 giriş ?
+@goethe 2 | Schreiben 1-2-3 · Sprechen 2-3
+@voraus weil-dass
+@etiket eksik kelime
+@kurz Almancada özne yeri boş kalmaz: Es regnet. Es gibt … Es geht mir gut. Arkadan dass / zu / wenn cümlesi gelirse es onun yerini tutar: Es freut mich, dass du kommst. Ich finde es gut, dass … Yan cümle başa geçerse yer tutucu es düşer: Dass du kommst, freut mich.
+
+@erklaerung
+Türkçede öznesiz cümle kurulur: "Yağmur yağıyor", "Geç oldu", "Gelmene sevindim". Almancada ana cümlenin özne yeri boş kalmaz; anlamı olmayan bir es konur.
+
+1. Hava ve doğa: Es regnet. Es schneit. Es ist kalt. Es wird dunkel.
+2. Saat ve zaman: Wie spät ist es? Es ist acht Uhr. Es ist schon spät.
+3. Kalıplar: es gibt + Akkusativ (var / yok): Hier gibt es keinen Supermarkt. · Wie geht es dir? – Mir geht es gut. · Es tut mir leid. · Es geht um … (konu): In dem Text geht es um Umweltschutz.
+Bu es cümle başka bir öğeyle başlasa da kalır: Heute regnet es. Hier gibt es kein Café.
+4. Yer tutucu (das Korrelat): asıl özne ya da nesne arkadaki dass / zu / wenn cümlesidir; es onun yerini önceden tutar: Es freut mich, dass du kommst. Es ist wichtig, pünktlich zu sein. Ich finde es gut, dass du Sport machst. Ich mag es nicht, wenn man laut telefoniert.
+5. Yan cümle ya da zu-cümlesi BAŞA geçerse yer tutucu es düşer: Dass du kommst, freut mich. Pünktlich zu sein ist wichtig. ✗ Dass du kommst, freut es mich.
+6. Okumada: cümle başında yalnız yer tutan es; fiil asıl özneye uyar: Es waren viele Leute auf der Party (viele Leute → waren).
+
+Sınavda: Schreiben'de görüş ve duygu: "Es ist wichtig, dass …", "Ich finde es gut / schade, dass …", "Es tut mir leid, dass …"; Lesen'de "Es geht um …".
+@ende
+
+@tabelle Hangi es?
+iş | örnek | yer değişince
+hava / zaman | Es regnet. Es ist spät. | kalır: Heute regnet es.
+kalıp | Es gibt … · Es geht mir gut. · Es geht um … | kalır: Hier gibt es …
+özne yer tutucusu | Es freut mich, dass du kommst. | düşer: Dass du kommst, freut mich.
+nesne yer tutucusu | Ich finde es gut, dass du kommst. | düşer: Dass du kommst, finde ich gut.
+başta yer tutan es | Es kamen viele Gäste. | düşer: Viele Gäste kamen.
+@ende
+
+@beispiel Es ist schon dunkel, und es regnet. | Hava çoktan karardı ve yağmur yağıyor.
+@beispiel In dem Artikel geht es um die Mieten in Bremen. | Makale Bremen'deki kiralarla ilgili.
+@beispiel Es freut mich, dass du die Prüfung bestanden hast. | Sınavı geçmene sevindim.
+@beispiel Ich finde es wichtig, jeden Tag ein bisschen zu lernen. | Her gün biraz çalışmayı önemli buluyorum.
+
+@teil wetter | Boş özne: es regnet, es ist spät | eksik kelime
+wahl | 1 | Nimm eine Jacke mit, ___ ist kalt draußen. | es | es / er / das | Yanına bir ceket al, dışarısı soğuk. | Hava ve sıcaklıkta özne hep es: es ist kalt. | kalt; draußen; die Jacke
+luecke | 1 | Im Winter wird ___ schon um vier Uhr dunkel. | es | | Kışın hava saat dörtte kararıyor. | Özne yeri boş kalmaz: es wird dunkel. es fiilden sonra da kalır. | dunkel
+luecke | 2 | Wie spät ist ___? – ___ ist halb acht. | es ; Es | | Saat kaç? – Yedi buçuk. | Saat sorusunda ve cevabında özne es: Wie spät ist es? Es ist halb acht. | spät
+fehler | 2 | Heute ist sehr kalt. | Heute ist es sehr kalt. / Es ist heute sehr kalt. | ist sehr | Bugün hava çok soğuk. | Türkçede özne gerekmez, Almancada gerekir: Heute ist es sehr kalt. es cümle başında olmasa da kalır. | kalt
+fehler | 1 | Gestern hat es den ganzen Tag geschneit. | Gestern hat es den ganzen Tag geschneit. | - | Dün bütün gün kar yağdı. | Hata yok: hava fiilinin (schneien) öznesi es; cümle Gestern ile başlasa da es kalır. | schneien
+ceviri | 1 | Dışarısı çok sıcak. | Draußen ist es sehr heiß. / Es ist draußen sehr heiß. / Es ist sehr heiß draußen. | | - | Hava ve sıcaklıkta özne es: es ist heiß. Draußen başta ise es fiilden sonra gelir. | heiß; draußen
+dinle | 1 | Es ist schon spät, ich gehe nach Hause. | Es ist schon spät, ich gehe nach Hause. | | Geç oldu, eve gidiyorum. | Zaman bildiren cümlede özne es: Es ist spät. | spät
+ordnen | 2 | morgen / soll / es / regnen | Morgen soll es regnen. / Es soll morgen regnen. | | Yarın yağmur yağacakmış. | es özne; Morgen başta ise fiil (soll) 2. yerde, es arkasında. sollen burada "söyleniyor, -mış" anlamında. | regnen
+ceviri | 2 | Yarın kar yağacak mı? | Schneit es morgen? / Wird es morgen schneien? / Soll es morgen schneien? | | - | Hava fiilinin öznesi es: Schneit es morgen? Soru cümlesinde de es düşmez. | schneien
+
+@teil es-gibt | Kalıplar: es gibt, es geht (um), es tut mir leid | eksik kelime
+wahl | 1 | In meiner Straße ___ keinen Supermarkt. | gibt es | gibt es / ist es / hat es | Sokağımda süpermarket yok. | "var / yok" → es gibt + Akkusativ (keinen Supermarkt). Cümle In meiner Straße ile başladığı için: gibt es. | die Straße; der Supermarkt
+luecke | 2 | Worum geht ___ in dem Text? – ___ geht um Umweltschutz. | es ; Es | | Metin ne hakkında? – Çevre korumayla ilgili. | es geht um + Akkusativ = konu, söz konusu. Özne hep es. | der Text; der Umweltschutz
+luecke | 1 | Wie geht ___ dir? – Danke, mir geht ___ gut. | es ; es | | Nasılsın? – Teşekkürler, iyiyim. | Wie geht es dir? Kalıpta özne es, kişi Dativ (dir, mir). |
+fehler | 2 | In Bremen gibt viele Studenten. | In Bremen gibt es viele Studenten. | gibt viele | Bremen'de çok öğrenci var. | es gibt'te es düşmez: In Bremen gibt es … | der Student
+fehler | 1 | Es gibt hier einen guten Arzt. | Es gibt hier einen guten Arzt. | - | Burada iyi bir doktor var. | Hata yok: es gibt + Akkusativ (einen guten Arzt). | der Arzt
+fehler | 2 | Es tut mich leid. | Es tut mir leid. | mich | Üzgünüm. | Kalıp: es tut mir leid (kişi Dativ: mir). |
+ceviri | 2 | Yakınlarda bir eczane var mı? | Gibt es hier in der Nähe eine Apotheke? / Gibt es in der Nähe eine Apotheke? / Gibt es eine Apotheke in der Nähe? / Gibt es hier eine Apotheke in der Nähe? | | - | "var mı?" → Gibt es …? + Akkusativ (eine Apotheke). | die Apotheke; die Nähe
+ceviri | 3 | Bu kitap ne hakkında? | Worum geht es in diesem Buch? / Worum geht es in dem Buch? | | - | Konu: es geht um. Soru: Worum geht es …? | das Buch
+dinle | 2 | Es gibt heute keinen Unterricht. | Es gibt heute keinen Unterricht. | | Bugün ders yok. | es gibt + Akkusativ: keinen Unterricht (der Unterricht). | der Unterricht
+ordnen | 2 | in dem Artikel / geht / es / um / die Mieten in Bremen | In dem Artikel geht es um die Mieten in Bremen. / Es geht in dem Artikel um die Mieten in Bremen. | | Makale Bremen'deki kiralarla ilgili. | es geht um + Akkusativ; In dem Artikel başta → geht es. | der Artikel; die Miete
+
+@teil korrelat | Özne yer tutucusu: Es freut mich, dass … · Es ist wichtig, … zu | eksik kelime
+wahl | 1 | ___ freut mich, dass du die Prüfung bestanden hast. | Es | Es / Das / Dass | Sınavı geçmene sevindim. | Asıl özne dass-cümlesi; es onun yerini başta tutar. | die Prüfung; bestehen
+luecke | 2 | ___ ist wichtig, jeden Tag ein bisschen zu lernen. | Es | | Her gün biraz çalışmak önemli. | Asıl özne zu-cümlesi; ana cümlenin başında yer tutucu es. | wichtig; lernen
+luecke | 2 | ___ ist schade, dass du nicht kommen kannst. | Es | | Gelememen yazık. | es = dass-cümlesinin yer tutucusu. | schade
+luecke | 2 | Ist ___ möglich, den Termin zu verschieben? | es | | Randevuyu ertelemek mümkün mü? | Soru cümlesinde de yer tutucu es kalır: Ist es möglich, … zu …? | möglich; der Termin; verschieben
+umform | 2 | Du hilfst mir. Das ist sehr nett. → Es … | Es ist sehr nett, dass du mir hilfst. | | Bana yardım etmen çok nazik. | Başta yer tutucu es, asıl özne dass-cümlesi sonda (fiil sonda: hilfst). | nett; helfen
+umform | 3 | Man muss pünktlich sein. Das ist in Deutschland wichtig. → Es … | Es ist in Deutschland wichtig, pünktlich zu sein. / Es ist wichtig, in Deutschland pünktlich zu sein. | | Almanya'da dakik olmak önemli. | man + müssen → zu-mastar (pünktlich zu sein); başta es yer tutar. | pünktlich; wichtig
+ceviri | 2 | Seni gördüğüme sevindim. | Es freut mich, dich zu sehen. / Es freut mich, dass ich dich sehe. / Ich freue mich, dich zu sehen. / Es ist schön, dich zu sehen. / Schön, dich zu sehen. | | - | Yer tutucu es + zu-mastar: Es freut mich, dich zu sehen. | sich freuen über
+ceviri | 3 | Burada sigara içmek yasak. | Es ist verboten, hier zu rauchen. / Es ist hier verboten zu rauchen. / Es ist hier verboten, zu rauchen. / Hier ist es verboten zu rauchen. / Hier ist es verboten, zu rauchen. / Rauchen ist hier verboten. / Hier ist Rauchen verboten. | | - | Yer tutucu es + zu-mastar. Hier başta olsa da es kalır, çünkü zu-cümlesi sonda. | verboten; rauchen
+dinle | 2 | Es ist nicht leicht, eine Wohnung zu finden. | Es ist nicht leicht, eine Wohnung zu finden. | | Ev bulmak kolay değil. | Asıl özne zu-cümlesi (eine Wohnung zu finden); başta yer tutucu es. | leicht; die Wohnung; finden
+ordnen | 3 | es / war / schwer / für mich / Deutsch / zu lernen | Es war schwer für mich, Deutsch zu lernen. / Es war für mich schwer, Deutsch zu lernen. / Für mich war es schwer, Deutsch zu lernen. | | Almanca öğrenmek benim için zordu. | es yer tutucu, zu + mastar en sonda. Für mich başta ise es fiilden sonra kalır, çünkü zu-cümlesi sonda. | schwer
+text | 2 | Liebe Lena, ___ freut mich sehr, dass du mich besuchen möchtest! Leider ist ___ im Moment in Bremen sehr kalt. Und ___ gibt hier nicht viel Sonne. Also ist ___ besser, warme Kleidung mitzunehmen. | es ; es ; es ; es | | Sevgili Lena, beni ziyaret etmek istemene çok sevindim! Maalesef şu anda Bremen'de hava çok soğuk. Burada pek güneş de yok. Yani yanına sıcak giysiler alman daha iyi olur. | Yer tutucu (Es freut mich, dass …; es ist besser, … zu), hava (es ist kalt) ve kalıp (es gibt). | besuchen; kalt; die Sonne; die Kleidung
+
+@teil finden-es | Nesne yer tutucusu: Ich finde es gut, dass … · Ich mag es, wenn … | eksik kelime
+wahl | 1 | Ich finde ___ toll, dass du so gut Deutsch sprichst. | es | es / das / dass | Bu kadar iyi Almanca konuşmanı harika buluyorum. | finden + sıfat + dass-cümlesi: nesnenin yerini es tutar (Ich finde es toll, dass …). | toll; finden
+luecke | 2 | Ich mag ___ nicht, wenn man im Kurs mit dem Handy spielt. | es | | Kursta telefonla oynanmasından hoşlanmıyorum. | mögen + wenn-cümlesi: nesne yer tutucusu es. | das Handy; der Kurs
+luecke | 2 | Ich halte ___ für wichtig, dass alle Kinder schwimmen lernen. | es | | Bütün çocukların yüzme öğrenmesini önemli buluyorum. | etwas für wichtig halten: es arkadaki dass-cümlesinin yerini tutar. | wichtig; das Kind
+fehler | 2 | Ich finde es gut, dass du machst jeden Tag Sport. | Ich finde es gut, dass du jeden Tag Sport machst. | machst | Her gün spor yapmanı iyi buluyorum. | es yerinde; ama dass-cümlesinde çekimli fiil (machst) en sona gider. | der Sport
+ceviri | 2 | Her gün yemek yapmayı sıkıcı buluyorum. | Ich finde es langweilig, jeden Tag zu kochen. | | - | finden + es + sıfat + zu-mastar: Ich finde es langweilig, … zu kochen. | langweilig; kochen
+ceviri | 3 | İnsanların geç kalmasından hoşlanmıyorum. | Ich mag es nicht, wenn Leute zu spät kommen. / Ich mag es nicht, wenn die Leute zu spät kommen. / Ich mag es nicht, wenn man zu spät kommt. / Ich finde es nicht gut, wenn Leute zu spät kommen. / Ich finde es nicht gut, wenn man zu spät kommt. | | - | mögen + es + wenn-cümlesi; wenn-cümlesinde fiil sonda (kommen). | die Leute; spät
+dinle | 2 | Ich finde es super, dass wir zusammen lernen. | Ich finde es super, dass wir zusammen lernen. | | Birlikte çalışmamızı süper buluyorum. | Nesne yer tutucusu es; dass-cümlesinde fiil sonda (lernen). | zusammen; lernen
+ordnen | 2 | ich / finde / es / schade / dass / du / schon / gehst | Ich finde es schade, dass du schon gehst. | | Şimdiden gitmene üzülüyorum. | Ich finde es schade + dass-cümlesi; fiil (gehst) en sonda. | schade
+umform | 3 | Du rufst mich jeden Sonntag an. Das finde ich nett. → Ich finde es … | Ich finde es nett, dass du mich jeden Sonntag anrufst. | | Beni her pazar araman çok hoş. | Das'ın yerine dass-cümlesi gelir, onun yerini es tutar: Ich finde es nett, dass … Ayrılabilen fiil yan cümlede bitişik: anrufst. | nett; anrufen
+
+@teil wegfall | Yan cümle başta → yer tutucu es düşer | kelime sırası
+wahl | 2 | Welcher Satz ist richtig? | Dass du mitkommst, freut mich sehr. | Dass du mitkommst, freut mich sehr. / Dass du mitkommst, freut es mich sehr. / Dass du mitkommst, es freut mich sehr. | Benimle gelmene çok seviniyorum. | dass-cümlesi başta = öznenin kendisi; yer tutucu es düşer, fiil (freut) hemen arkada. |
+luecke | 3 | Dass du so lange warten musstest, ___ mir leid. | tut | | Bu kadar uzun beklemek zorunda kaldığın için üzgünüm. | Yan cümle başta → es düşer, fiil (tut) hemen arkada: Dass …, tut mir leid. | warten auf
+fehler | 2 | Dass du mir geholfen hast, finde ich es toll. | Dass du mir geholfen hast, finde ich toll. / Ich finde es toll, dass du mir geholfen hast. | es | Bana yardım etmeni harika buluyorum. | dass-cümlesi başa geçince nesne yer tutucusu es düşer: Dass …, finde ich toll. | helfen; toll
+fehler | 2 | Pünktlich zu sein ist es sehr wichtig. | Pünktlich zu sein ist sehr wichtig. / Es ist sehr wichtig, pünktlich zu sein. | es | Dakik olmak çok önemli. | zu-cümlesi başta → yer tutucu es düşer. | pünktlich; wichtig
+fehler | 1 | Dass der Kurs ausfällt, wissen wir schon. | Dass der Kurs ausfällt, wissen wir schon. | - | Kursun iptal olduğunu zaten biliyoruz. | Hata yok: dass-cümlesi başta, hemen arkasından fiil (wissen); es yok. | ausfallen; wissen
+umform | 3 | Es ist schade, dass du nicht kommst. → Dass … | Dass du nicht kommst, ist schade. | | Gelmemen yazık. | Yan cümle başa → es düşer, ana cümlenin fiili (ist) hemen arkada. | schade
+umform | 3 | Es ist nicht leicht, eine Arbeit zu finden. → Eine Arbeit … | Eine Arbeit zu finden ist nicht leicht. / Eine Arbeit zu finden, ist nicht leicht. | | İş bulmak kolay değil. | zu-cümlesi başta → es düşer, fiil (ist) hemen arkada. | die Arbeit; leicht
+kategori | 2 | Bleibt das es, wenn der Satz anders beginnt? | bleibt immer: Es regnet, Es gibt keinen Zucker, Es ist acht Uhr ;; fällt weg (Nebensatz vorne): Es freut mich (dass …), Es ist wichtig (… zu …), Es tut mir leid (dass …) | | Cümle başka türlü başlarsa es kalır mı? | Hava, saat ve es gibt'teki es hep kalır (Heute regnet es). Yer tutucu es, dass / zu-cümlesi başa geçince düşer (Dass du kommst, freut mich). | regnen; der Zucker
+eslestir | 2 | Hier gibt ;; Dass du anrufst, ;; Heute regnet ;; Wie geht | es kein Café. ;; freut mich. ;; es den ganzen Tag. ;; es dir? | | - | es gibt + Akkusativ; dass-cümlesi başta → es yok, hemen fiil; hava es'i kalır (regnet es); Wie geht es dir? | das Café; regnen
+
+@teil vorfeld | Başta yer tutan es: fiil asıl özneye uyar (okumada) | artikel/çekim
+wahl | 2 | Es ___ viele Leute auf der Party. | waren | waren / war / hatte | Partide çok insan vardı. | Başta yer tutan es özne değildir; asıl özne viele Leute (çoğul) → fiil çoğul: waren. | die Leute; die Party
+luecke | 3 | Es ___ gestern drei Pakete für dich gekommen. (sein) | sind | | Dün sana üç paket geldi. | Başta yer tutan es; asıl özne drei Pakete (çoğul) → sind gekommen. | das Paket
+umform | 3 | Viele Studenten haben an der Diskussion teilgenommen. → Es … | Es haben viele Studenten an der Diskussion teilgenommen. | | Tartışmaya çok öğrenci katıldı. | Başa yer tutucu es gelir, asıl özne (viele Studenten) fiilden sonraya geçer; fiil çoğul kalır (haben). | der Student; teilnehmen an; die Diskussion
+fehler | 3 | Es ist viele Touristen in der Stadt. | Es sind viele Touristen in der Stadt. / Es gibt viele Touristen in der Stadt. / In der Stadt sind viele Touristen. | ist | Şehirde çok turist var. | Yer tutan es özne değildir; fiil asıl özneye (viele Touristen, çoğul) uyar: sind. Ya da es gibt + Akkusativ. | der Tourist; die Stadt
+dinle | 3 | Es kamen mehr Gäste als erwartet. | Es kamen mehr Gäste als erwartet. | | Beklenenden fazla misafir geldi. | Başta yer tutan es; asıl özne mehr Gäste (çoğul) → kamen. | der Gast; erwarten
+
+@teil korrelat
+text | 3 | Hallo Tim, ___ tut mir leid, dass ich gestern nicht da war. Dass du so lange gewartet hast, ___ (bulmak: ben) wirklich nett von dir. Ich finde ___ wichtig, dass wir bald einen neuen Termin finden. | es ; finde ich ; es | | Merhaba Tim, dün orada olmadığım için üzgünüm. Bu kadar uzun beklemeni gerçekten çok nazik buluyorum. Yakında yeni bir randevu bulmamızı önemli buluyorum. | Es tut mir leid, dass …; dass-cümlesi başta → es yok, hemen fiil: finde ich; finden + es + sıfat + dass. | warten auf; nett; wichtig; der Termin
+eslestir | 1 | Yağmur yağıyor. ;; Burada kafe yok. ;; Gelmene sevindim. ;; Gelmemen yazık. | Es regnet. ;; Hier gibt es kein Café. ;; Es freut mich, dass du kommst. ;; Es ist schade, dass du nicht kommst. | | - | Türkçede özne yok; Almancada es: hava (es regnet), var / yok (es gibt), duygu ve görüş + dass (es freut mich, es ist schade). | regnen; das Café; schade
+
+@teil wetter
+text | 2 | Am Wochenende soll ___ sonnig sein. In der Nähe ___ einen schönen See. Wie wäre ___, wenn wir dort picknicken? | es ; gibt es ; es | | Hafta sonu havanın güneşli olacağı söyleniyor. Yakınlarda güzel bir göl var. Orada piknik yapsak nasıl olur? | Hava: es ist sonnig; var: es gibt (In der Nähe başta → gibt es); öneri kalıbı: Wie wäre es, wenn …? | sonnig; die Nähe; der See
+kategori | 1 | Welches es ist das? | Wetter und Zeit: Es regnet, Es ist kalt, Es ist zehn Uhr ;; Platzhalter für dass oder zu: Es freut mich (dass …), Es ist wichtig (… zu …), Es ist schade (dass …) | | Bu hangi es? | Hava ve saatte es boş öznedir. Arkadan dass / zu-cümlesi gelirse es o cümlenin yerini tutar. | regnen; kalt; wichtig; schade

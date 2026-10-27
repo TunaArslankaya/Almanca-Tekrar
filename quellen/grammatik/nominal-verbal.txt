@@ -1,0 +1,129 @@
+# Gramer konusu: isimli (Nominalstil) ve fiilli (Verbalstil) anlatım: wegen ↔ weil, trotz ↔ obwohl, bei ↔ wenn … Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id nominal-verbal
+@titel Nominalstil und Verbalstil: wegen – weil, trotz – obwohl, bei – wenn
+@tr Edat + isim mi, bağlaç + yan cümle mi: wegen ↔ weil, trotz ↔ obwohl, bei ↔ wenn, nach ↔ nachdem, vor ↔ bevor, zu ↔ um … zu
+@stufe B1–B2
+@kapitel B2 giriş · wegen / trotz B1 K1–2 ?
+@goethe 2 | Lesen 2-3 · Schreiben 2-3 · B2 Schreiben
+@voraus weil-dass
+@kontrast obwohl-wenn
+@etiket bağlaç
+@kurz Aynı bilgi iki yolla: bağlaç + yan cümle (weil es regnet) ya da edat + isim (wegen des Regens). Edattan sonra çekimli fiil gelmez; bağlaçtan sonra yalnız isim gelmez.
+
+@erklaerung
+Aynı bilgiyi iki yolla söyleriz. Fiilli anlatım (der Verbalstil): bağlaç + yan cümle, çekimli fiil sonda: Weil es stark regnete, fiel das Spiel aus. İsimli anlatım (der Nominalstil): edat + isim, fiil yok: Wegen des starken Regens fiel das Spiel aus. Konuşmada fiilli yapı, gazetede, resmî yazıda ve B2 metinlerinde isimli yapı sıktır; B2 kursunda bu dönüştürme çok çalışılır.
+
+1. Sebep: weil / da ↔ wegen + Genitiv: wegen des Wetters.
+2. Karşıtlık: obwohl ↔ trotz + Genitiv: trotz der Kälte.
+3. Koşul ve zaman: wenn ↔ bei + Dativ: bei Regen, beim Kochen. Geçmişte bir kez (als) da bei olur: bei meiner Ankunft.
+4. Zaman: nachdem ↔ nach + Dativ, bevor ↔ vor + Dativ, während ↔ während + Genitiv, seit(dem) ↔ seit + Dativ.
+5. Amaç: um … zu / damit ↔ zu + Dativ (zur Erholung) ya da für + Akkusativ (für die Prüfung).
+6. Dönüştürürken fiil isme döner (ankommen → die Ankunft); mastar da isim olur, hep das ve büyük harf (kochen → beim Kochen). Sıfat isimden önce çekimlenir (es regnet stark → wegen des starken Regens). Özne iyelik ya da Genitiv olur: wenn ich ankomme → bei meiner Ankunft.
+7. Tipik hata: edattan sonra cümle (✗ wegen ich krank bin), bağlaçtan sonra yalnız isim (✗ obwohl des Regens).
+
+Konuşmada wegen + Dativ (wegen dem Regen) duyulur; yazıda Genitiv kullan.
+@ende
+
+@tabelle Bağlaç (fiilli) ↔ edat (isimli)
+bağlaç + yan cümle | edat + isim | hâl | örnek
+weil / da | wegen | Genitiv | weil es regnet → wegen des Regens
+obwohl | trotz | Genitiv | obwohl es kalt ist → trotz der Kälte
+wenn | bei | Dativ | wenn es regnet → bei Regen
+als (bir kez) | bei | Dativ | als ich ankam → bei meiner Ankunft
+nachdem | nach | Dativ | nachdem wir gegessen haben → nach dem Essen
+bevor | vor | Dativ | bevor wir abfahren → vor der Abfahrt
+während | während | Genitiv | während wir essen → während des Essens
+seit / seitdem | seit | Dativ | seit ich umgezogen bin → seit meinem Umzug
+um … zu / damit | zu / für | Dativ / Akkusativ | um mich zu erholen → zur Erholung
+@ende
+
+@tabelle Fiil → isim
+fiil | isim | edatla
+ankommen | die Ankunft | bei meiner Ankunft
+abfahren | die Abfahrt | vor der Abfahrt
+umziehen | der Umzug | seit dem Umzug
+regnen | der Regen | wegen des Regens
+krank sein | die Krankheit | wegen meiner Krankheit
+kalt sein | die Kälte | trotz der Kälte
+kochen | das Kochen | beim Kochen
+sich erholen | die Erholung | zur Erholung
+@ende
+
+@beispiel Wegen des starken Regens ist das Konzert ausgefallen. | Şiddetli yağmur yüzünden konser iptal oldu.
+@beispiel Trotz der Kälte sind wir spazieren gegangen. | Soğuğa rağmen yürüyüşe çıktık.
+@beispiel Beim Kochen höre ich gern Musik. | Yemek yaparken müzik dinlemeyi severim.
+@beispiel Nach dem Kurs gehen wir in die Mensa. | Kurstan sonra yemekhaneye gidiyoruz.
+
+@teil wegen | Sebep: weil / da ↔ wegen + Genitiv | bağlaç
+wahl | 1 | ___ des schlechten Wetters bleiben wir zu Hause. | Wegen | Wegen / Weil / Obwohl | Kötü hava yüzünden evde kalıyoruz. | Arkada fiil yok, yalnız isim (des schlechten Wetters) → edat wegen + Genitiv. weil'in arkasına özne ve fiil gelir. | das Wetter; schlecht
+wahl | 1 | Wir bleiben zu Hause, ___ das Wetter schlecht ist. | weil | weil / wegen / trotz | Hava kötü olduğu için evde kalıyoruz. | Arkada özne + fiil (das Wetter … ist) → bağlaç weil, fiil sonda. wegen yalnız isimle: wegen des Wetters. | das Wetter; schlecht
+luecke | 2 | Wegen ___ Erkältung kann ich heute nicht zum Kurs kommen. (meine) | meiner | | Soğuk algınlığım yüzünden bugün kursa gelemiyorum. | wegen + Genitiv; die Erkältung dişil → meiner Erkältung. | die Erkältung; der Kurs
+luecke | 2 | Wegen des starken ___ ist das Fußballspiel ausgefallen. (der Regen) | Regens | | Şiddetli yağmur yüzünden futbol maçı iptal oldu. | wegen + Genitiv: eril isim -s alır → des starken Regens. | der Regen; ausfallen
+umform | 2 | Ich bin zu spät gekommen, weil der Bus Verspätung hatte. → Wegen … | Wegen der Verspätung des Busses bin ich zu spät gekommen. | | Otobüsün rötarı yüzünden geç kaldım. | weil-cümlesindeki öbek isim olur (die Verspätung), özne Genitiv'e geçer (des Busses). Edatlı öbek başta → fiil hemen arkada: bin ich. | die Verspätung; der Bus
+umform | 3 | Wegen meiner Krankheit konnte ich nicht zur Prüfung gehen. → Weil … | Weil ich krank war, konnte ich nicht zur Prüfung gehen. | | Hastalığım yüzünden sınava gidemedim. | die Krankheit → krank sein; iyelik (meiner) özne olur (ich). Yan cümlede fiil sonda (krank war), ana cümle fiille başlar (konnte ich). | die Krankheit; krank; die Prüfung
+fehler | 2 | Wegen ich krank bin, bleibe ich heute im Bett. | Weil ich krank bin, bleibe ich heute im Bett. / Wegen meiner Krankheit bleibe ich heute im Bett. | Wegen | Hasta olduğum için bugün yatakta kalıyorum. | Arkada özne + fiil var → bağlaç weil. wegen yalnız isimle: wegen meiner Krankheit. | krank; das Bett
+fehler | 1 | Wegen des Lärms konnte ich nicht schlafen. | Wegen des Lärms konnte ich nicht schlafen. | - | Gürültü yüzünden uyuyamadım. | Hata yok: wegen + Genitiv (der Lärm → des Lärms); edatlı öbek başta → fiil hemen arkada (konnte ich). | der Lärm; schlafen
+ceviri | 2 | Kar yüzünden okul kapalı. | Wegen des Schnees ist die Schule geschlossen. / Die Schule ist wegen des Schnees geschlossen. / Weil es schneit, ist die Schule geschlossen. / Die Schule ist geschlossen, weil es schneit. / Weil es geschneit hat, ist die Schule geschlossen. / Die Schule ist geschlossen, weil es geschneit hat. | | - | "… yüzünden" + isim → wegen + Genitiv: des Schnees. Cümleyle: weil es schneit. | der Schnee; die Schule
+dinle | 2 | Wegen der Verspätung haben wir den Anschluss verpasst. | Wegen der Verspätung haben wir den Anschluss verpasst. | | Rötar yüzünden aktarmayı kaçırdık. | wegen + Genitiv dişil: der Verspätung (die → der). Edatlı öbek başta → fiil hemen arkada (haben wir). | die Verspätung; der Anschluss; verpassen
+ordnen | 2 | wegen / des Regens / ist / das Konzert / ausgefallen | Wegen des Regens ist das Konzert ausgefallen. / Das Konzert ist wegen des Regens ausgefallen. | | Yağmur yüzünden konser iptal oldu. | Edatlı öbek (wegen des Regens) 1. yerde → çekimli fiil (ist) hemen arkada; Partizip (ausgefallen) en sonda. | der Regen; das Konzert; ausfallen
+
+@teil trotz | Karşıtlık: obwohl ↔ trotz + Genitiv | bağlaç
+wahl | 1 | ___ der Kälte sind wir am Strand spazieren gegangen. | Trotz | Trotz / Obwohl / Wegen | Soğuğa rağmen sahilde yürüyüşe çıktık. | Arkada yalnız isim (der Kälte), anlam "-e rağmen" → trotz + Genitiv. obwohl'un arkasına cümle gelir; wegen "yüzünden" demektir. | die Kälte; der Strand; spazieren gehen
+wahl | 1 | ___ ich müde war, habe ich noch zwei Stunden gelernt. | Obwohl | Obwohl / Trotz / Weil | Yorgun olmama rağmen iki saat daha ders çalıştım. | Arkada özne + fiil (ich … war) → bağlaç obwohl. trotz yalnız isimle kullanılır; weil anlamca uymaz. | müde; lernen
+luecke | 2 | Trotz ___ Regens haben wir gegrillt. (der) | des | | Yağmura rağmen mangal yaptık. | trotz + Genitiv; der Regen → des Regens. | der Regen; grillen
+luecke | 2 | Trotz ___ guten Vorbereitung hat sie die Prüfung nicht bestanden. (ihre) | ihrer | | İyi hazırlanmasına rağmen sınavı geçemedi. | trotz + Genitiv; die Vorbereitung dişil → ihrer guten Vorbereitung. | die Vorbereitung; die Prüfung; bestehen
+umform | 3 | Obwohl es kalt war, sind wir schwimmen gegangen. → Trotz … | Trotz der Kälte sind wir schwimmen gegangen. | | Soğuk olmasına rağmen yüzmeye gittik. | kalt sein → die Kälte; trotz + Genitiv (der Kälte). Edatlı öbek başta → fiil hemen arkada: sind wir. | die Kälte; schwimmen
+umform | 3 | Trotz seiner Erkältung ist er zur Arbeit gegangen. → Obwohl … | Obwohl er erkältet war, ist er zur Arbeit gegangen. / Obwohl er eine Erkältung hatte, ist er zur Arbeit gegangen. | | Soğuk algınlığına rağmen işe gitti. | seiner → özne er; die Erkältung → erkältet sein ya da eine Erkältung haben. Yan cümlede fiil sonda, ana cümle fiille başlar (ist er). | die Erkältung; erkältet; die Arbeit
+fehler | 2 | Obwohl des schlechten Wetters sind viele Leute gekommen. | Trotz des schlechten Wetters sind viele Leute gekommen. / Obwohl das Wetter schlecht war, sind viele Leute gekommen. | Obwohl | Kötü havaya rağmen çok insan geldi. | obwohl'un arkasına cümle gelir; yalnız isimle (des schlechten Wetters) edat trotz kullanılır. | das Wetter; die Leute
+ceviri | 2 | Trafik sıkışıklığına rağmen zamanında vardık. | Trotz des Staus sind wir pünktlich angekommen. / Wir sind trotz des Staus pünktlich angekommen. / Trotz des Staus kamen wir pünktlich an. / Wir kamen trotz des Staus pünktlich an. / Obwohl es Stau gab, sind wir pünktlich angekommen. / Wir sind pünktlich angekommen, obwohl es Stau gab. / Obwohl es einen Stau gab, sind wir pünktlich angekommen. / Wir sind pünktlich angekommen, obwohl es einen Stau gab. | | - | "… -e rağmen" + isim → trotz + Genitiv: des Staus. Cümleyle: obwohl es Stau gab. | der Stau; pünktlich; ankommen
+dinle | 2 | Trotz des Regens war die Party ein großer Erfolg. | Trotz des Regens war die Party ein großer Erfolg. | | Yağmura rağmen parti büyük bir başarıydı. | trotz + Genitiv eril: des Regens. Edatlı öbek başta → fiil hemen arkada (war). | der Regen; die Party; der Erfolg
+ceviri | 3 | Yüksek kiraya rağmen Bremen'de kalmak istiyorum. | Trotz der hohen Miete möchte ich in Bremen bleiben. / Ich möchte trotz der hohen Miete in Bremen bleiben. / Trotz der hohen Miete will ich in Bremen bleiben. / Ich will trotz der hohen Miete in Bremen bleiben. / Obwohl die Miete hoch ist, möchte ich in Bremen bleiben. / Ich möchte in Bremen bleiben, obwohl die Miete hoch ist. / Obwohl die Miete hoch ist, will ich in Bremen bleiben. / Ich will in Bremen bleiben, obwohl die Miete hoch ist. | | - | trotz + Genitiv dişil: der hohen Miete (sıfat -en). Cümleyle: obwohl die Miete hoch ist. | die Miete; hoch; bleiben
+
+@teil bei | Koşul / zaman: wenn (als) ↔ bei + Dativ | bağlaç
+wahl | 1 | ___ Regen fällt das Training aus. | Bei | Bei / Wenn / Trotz | Yağmur yağarsa antrenman olmaz. | Arkada yalnız isim (Regen), anlam "yağarsa" → bei + Dativ (= wenn es regnet). wenn'in arkasına cümle gelir. | der Regen; das Training; ausfallen
+luecke | 2 | Bitte nicht stören! ___ Lernen brauche ich Ruhe. (bei + das) | Beim | | Lütfen rahatsız etme! Ders çalışırken sessizliğe ihtiyacım var. | Mastar isim (das Lernen) + bei → beim (bei dem) = wenn ich lerne. | die Ruhe; brauchen; lernen
+umform | 2 | Wenn du Fragen hast, ruf mich an. → Bei … | Bei Fragen ruf mich an. | | Sorun olursa beni ara. | wenn du Fragen hast → bei Fragen (artikelsiz, Dativ çoğul). Emir cümlesi: Bei Fragen + ruf … an. | die Frage; anrufen
+umform | 3 | Als ich in Bremen angekommen bin, hat es geregnet. → Bei … | Bei meiner Ankunft in Bremen hat es geregnet. | | Bremen'e vardığımda yağmur yağıyordu. | als (geçmişte bir kez) → bei; ankommen → die Ankunft; ich → meiner (Dativ dişil). | die Ankunft; ankommen; regnen
+ceviri | 2 | Yemek yaparken müzik dinlerim. | Beim Kochen höre ich Musik. / Ich höre beim Kochen Musik. / Wenn ich koche, höre ich Musik. / Ich höre Musik, wenn ich koche. / Während ich koche, höre ich Musik. / Ich höre Musik, während ich koche. | | - | "-ken" → beim + mastar isim (beim Kochen) ya da cümleyle: wenn / während ich koche. | kochen; die Musik; hören
+fehler | 2 | Bei schönes Wetter gehen wir in den Park. | Bei schönem Wetter gehen wir in den Park. | schönes | Hava güzel olursa parka gideriz. | bei + Dativ: artikelsiz nötr isimde sıfat -em alır → bei schönem Wetter. | das Wetter; schön; der Park
+fehler | 1 | Beim Autofahren darf man nicht telefonieren. | Beim Autofahren darf man nicht telefonieren. | - | Araba sürerken telefonla konuşulmaz. | Hata yok: bei + das Autofahren → beim Autofahren (= wenn man Auto fährt). | das Auto; telefonieren mit
+dinle | 2 | Bei Fieber sollten Sie im Bett bleiben. | Bei Fieber sollten Sie im Bett bleiben. | | Ateşiniz olursa yatakta kalmalısınız. | bei Fieber = wenn Sie Fieber haben (artikelsiz, Dativ). | das Fieber; das Bett
+
+@teil zeit | Zaman: nachdem / bevor / während / seit ↔ nach / vor / während / seit | zaman
+wahl | 1 | ___ dem Essen putze ich mir die Zähne. | Nach | Nach / Nachdem / Wenn | Yemekten sonra dişlerimi fırçalarım. | Arkada isim (dem Essen) → edat nach + Dativ. nachdem'in arkasına cümle gelir: nachdem ich gegessen habe. | das Essen; der Zahn
+wahl | 1 | ___ ich zur Arbeit gehe, trinke ich einen Kaffee. | Bevor | Bevor / Vor / Nach | İşe gitmeden önce bir kahve içerim. | Arkada özne + fiil (ich … gehe) → bağlaç bevor. vor yalnız isimle: vor der Arbeit. | die Arbeit; der Kaffee
+luecke | 2 | Vor ___ Abfahrt müssen wir noch tanken. (die) | der | | Yola çıkmadan önce bir de benzin almamız lazım. | vor + Dativ; die Abfahrt → vor der Abfahrt (= bevor wir abfahren). | die Abfahrt; tanken
+luecke | 2 | Während ___ Unterrichts darf man das Handy nicht benutzen. (der) | des | | Ders sırasında telefon kullanılmaz. | während + Genitiv; der Unterricht → des Unterrichts (= während wir Unterricht haben). | der Unterricht; das Handy; benutzen
+umform | 3 | Nachdem wir gegessen haben, gehen wir spazieren. → Nach … | Nach dem Essen gehen wir spazieren. | | Yemek yedikten sonra yürüyüşe çıkıyoruz. | essen → das Essen; nachdem → nach + Dativ (dem Essen). Edatlı öbek başta → fiil hemen arkada: gehen wir. | das Essen; spazieren gehen
+umform | 3 | Seit meinem Umzug nach Bremen fahre ich viel Fahrrad. → Seitdem … | Seitdem ich nach Bremen umgezogen bin, fahre ich viel Fahrrad. / Seitdem ich nach Bremen gezogen bin, fahre ich viel Fahrrad. | | Bremen'e taşındığımdan beri çok bisiklete biniyorum. | der Umzug → umziehen (Perfekt'i sein ile); bitmiş başlangıç → seitdem + Perfekt, ana cümle Präsens. | der Umzug; umziehen; das Fahrrad
+ceviri | 2 | Sınavdan önce çok heyecanlıyım. | Vor der Prüfung bin ich sehr nervös. / Ich bin vor der Prüfung sehr nervös. / Bevor die Prüfung beginnt, bin ich sehr nervös. / Ich bin sehr nervös, bevor die Prüfung beginnt. / Vor der Prüfung bin ich sehr aufgeregt. / Ich bin vor der Prüfung sehr aufgeregt. | | - | "-den önce" + isim → vor + Dativ (vor der Prüfung). Cümleyle: bevor die Prüfung beginnt. | die Prüfung; nervös
+ceviri | 3 | Kurs sırasında çok not alıyorum. | Während des Kurses mache ich mir viele Notizen. / Ich mache mir während des Kurses viele Notizen. / Während des Kurses mache ich viele Notizen. / Ich mache während des Kurses viele Notizen. / Während des Kurses schreibe ich viel mit. / Ich schreibe während des Kurses viel mit. | | - | "… sırasında" → während + Genitiv: der Kurs → des Kurses. | der Kurs; die Notiz
+dinle | 2 | Nach dem Umzug war ich total müde. | Nach dem Umzug war ich total müde. | | Taşınmadan sonra çok yorgundum. | nach + Dativ: der Umzug → dem Umzug (= nachdem ich umgezogen war). | der Umzug; müde
+ordnen | 2 | nach / der Arbeit / gehe / ich / oft / ins Kino | Nach der Arbeit gehe ich oft ins Kino. / Ich gehe nach der Arbeit oft ins Kino. / Ich gehe oft nach der Arbeit ins Kino. / Oft gehe ich nach der Arbeit ins Kino. | | İşten sonra sık sık sinemaya gidiyorum. | nach der Arbeit = nachdem ich gearbeitet habe. Edatlı öbek başta → fiil (gehe) hemen arkada. | die Arbeit; das Kino
+fehler | 2 | Nach dem ich gegessen habe, mache ich einen Spaziergang. | Nachdem ich gegessen habe, mache ich einen Spaziergang. / Nach dem Essen mache ich einen Spaziergang. | Nach dem | Yemek yedikten sonra yürüyüş yaparım. | Arkada cümle var → bağlaç nachdem (tek kelime). nach dem + isim: nach dem Essen. | essen; der Spaziergang
+
+@teil zweck | Amaç: um … zu / damit ↔ zu / für + isim | bağlaç
+wahl | 1 | Ich brauche das Wörterbuch ___ Lernen. | zum | zum / um / damit | Bu sözlüğe ders çalışmak için ihtiyacım var. | Arkada yalnız mastar isim (das Lernen) → zum (zu dem). um … zu'da mastar en sonda olur: um zu lernen. | das Wörterbuch; brauchen
+luecke | 2 | Zur ___ fahren wir ans Meer. (sich erholen → isim) | Erholung | | Dinlenmek için denize gidiyoruz. | sich erholen → die Erholung; amaç: zu + Dativ dişil → zur Erholung (= um uns zu erholen). | die Erholung; das Meer
+umform | 3 | Ich spare Geld, um ein Auto zu kaufen. → für | Ich spare Geld für ein Auto. / Ich spare für ein Auto. / Für ein Auto spare ich Geld. | | Araba almak için para biriktiriyorum. | um … zu + fiil → für + Akkusativ isim: für ein Auto. | sparen; das Geld; das Auto
+umform | 3 | Zur Verbesserung meiner Aussprache lese ich laut. → Um … | Um meine Aussprache zu verbessern, lese ich laut. | | Telaffuzumu geliştirmek için yüksek sesle okuyorum. | die Verbesserung → verbessern; iyelik (meiner Aussprache) nesne olur (meine Aussprache). zu mastarın hemen önünde, ana cümle fiille başlar. | die Aussprache; verbessern
+ceviri | 2 | Dinlenmek için hafta sonu dağa gidiyoruz. | Zur Erholung fahren wir am Wochenende in die Berge. / Am Wochenende fahren wir zur Erholung in die Berge. / Wir fahren am Wochenende zur Erholung in die Berge. / Um uns zu erholen, fahren wir am Wochenende in die Berge. / Wir fahren am Wochenende in die Berge, um uns zu erholen. / Am Wochenende fahren wir in die Berge, um uns zu erholen. | | - | zur Erholung (zu + die Erholung) = um uns zu erholen. | die Erholung; das Wochenende, -n; der Berg
+fehler | 1 | Für die Prüfung lerne ich jeden Tag. | Für die Prüfung lerne ich jeden Tag. | - | Sınav için her gün çalışıyorum. | Hata yok: arkada isim var → für + Akkusativ (für die Prüfung). | die Prüfung; lernen
+
+@teil kontrast | İsim mi cümle mi? Edat mı bağlaç mı? | bağlaç
+luecke | 2 | ___ es stark regnet, nehme ich das Auto. = ___ des starken Regens nehme ich das Auto. | Weil ; Wegen / Da ; Wegen | | Çok yağmur yağdığı için arabayı alıyorum. | Arkada cümle → bağlaç (Weil / Da), arkada isim → edat (Wegen + Genitiv). İkisinde de ana cümle fiille başlar: nehme ich. | der Regen; das Auto
+kategori | 1 | Präposition (+ Nomen) oder Konjunktion (+ Nebensatz)? | Präposition: wegen, trotz, bei, vor ;; Konjunktion: weil, obwohl, wenn, bevor | | Edat mı (+ isim), bağlaç mı (+ yan cümle)? | wegen / trotz / bei / vor arkasına isim alır; weil / obwohl / wenn / bevor yan cümle açar, fiil sona gider. (während ve seit ikisi de olabilir.) |
+kategori | 2 | Welche Bedeutung? | Grund: wegen des Regens, weil es regnet ;; Gegensatz: trotz des Regens, obwohl es regnet ;; Bedingung: bei Regen, wenn es regnet | | Sebep mi, karşıtlık mı, koşul mu? | weil = wegen (sebep), obwohl = trotz (karşıtlık), wenn = bei (koşul). | der Regen; regnen
+eslestir | 1 | weil es regnet ;; obwohl es regnet ;; wenn es regnet ;; nachdem es geregnet hat | wegen des Regens ;; trotz des Regens ;; bei Regen ;; nach dem Regen | | - | weil → wegen, obwohl → trotz, wenn → bei, nachdem → nach. | der Regen; regnen
+eslestir | 2 | ankommen ;; abfahren ;; umziehen ;; sich erholen ;; beginnen | die Ankunft ;; die Abfahrt ;; der Umzug ;; die Erholung ;; der Beginn | | - | İsimli yapıda fiilin ismi gerekir: bei der Ankunft, vor der Abfahrt, nach dem Umzug, zur Erholung, vor Beginn. | ankommen; die Ankunft; die Abfahrt; der Umzug; die Erholung; der Beginn
+text | 2 | Liebe Frau Weber, ___ (yüzünden) meiner Erkältung kann ich morgen nicht zum Kurs kommen. ___ (-e rağmen) des Fiebers habe ich die Hausaufgaben gemacht. ___ (sonra) dem Arzttermin schicke ich sie Ihnen per E-Mail. | Wegen ; Trotz ; Nach | | Sevgili Weber Hanım, soğuk algınlığım yüzünden yarın kursa gelemiyorum. Ateşime rağmen ödevleri yaptım. Doktor randevusundan sonra onları size e-postayla gönderiyorum. | Arkada isim → edat: wegen / trotz + Genitiv (meiner Erkältung, des Fiebers), nach + Dativ (dem Arzttermin). | die Erkältung; das Fieber; die Hausaufgabe; der Termin
+text | 3 | ___ (-dığı için) der Zug Verspätung hatte, bin ich zu spät gekommen. ___ (yüzünden) der Verspätung habe ich den Anfang des Films verpasst. ___ (-e rağmen) ich mich beeilt habe, war es im Kino schon dunkel. | Weil / Da ; Wegen ; Obwohl | | Tren rötar yaptığı için geç kaldım. Rötar yüzünden filmin başını kaçırdım. Acele etmeme rağmen sinemada ışıklar çoktan sönmüştü. | Arkada cümle → bağlaç (Weil, Obwohl; fiil sonda), arkada yalnız isim → edat (Wegen + Genitiv). | die Verspätung; der Anfang; der Film; verpassen; sich beeilen
+ordnen | 3 | trotz / der guten Noten / hat / er / keinen Studienplatz / bekommen | Trotz der guten Noten hat er keinen Studienplatz bekommen. / Er hat trotz der guten Noten keinen Studienplatz bekommen. | | İyi notlarına rağmen üniversitede yer alamadı. | trotz + Genitiv çoğul: der guten Noten. Edatlı öbek başta → fiil (hat) hemen arkada. | die Note; bekommen
+ordnen | 2 | bei / gutem Wetter / frühstücken / wir / auf dem Balkon | Bei gutem Wetter frühstücken wir auf dem Balkon. / Wir frühstücken bei gutem Wetter auf dem Balkon. | | Hava güzel olursa balkonda kahvaltı yaparız. | bei + Dativ: bei gutem Wetter (= wenn das Wetter gut ist). Edatlı öbek başta → fiil hemen arkada. | das Wetter; frühstücken; der Balkon
+ceviri | 2 | Kötü hava yüzünden gezi iptal oldu. | Wegen des schlechten Wetters ist der Ausflug ausgefallen. / Der Ausflug ist wegen des schlechten Wetters ausgefallen. / Wegen des schlechten Wetters fiel der Ausflug aus. / Der Ausflug fiel wegen des schlechten Wetters aus. / Weil das Wetter schlecht war, ist der Ausflug ausgefallen. / Der Ausflug ist ausgefallen, weil das Wetter schlecht war. / Wegen des schlechten Wetters wurde der Ausflug abgesagt. / Der Ausflug wurde wegen des schlechten Wetters abgesagt. | | - | "… yüzünden" + isim → wegen + Genitiv: des schlechten Wetters (sıfat -en). | das Wetter; der Ausflug; ausfallen
+dinle | 3 | Trotz der vielen Arbeit hat er immer Zeit für uns. | Trotz der vielen Arbeit hat er immer Zeit für uns. | | Bu kadar işine rağmen bize hep vakit ayırıyor. | trotz + Genitiv dişil: der vielen Arbeit (sıfat -en). | die Arbeit; die Zeit
+
+@teil zeit
+text | 2 | ___ (sırasında) des Essens soll man nicht telefonieren. ___ (önce) dem Essen wäscht man sich die Hände. Und ___ (sonra) dem Essen hilft man beim Abwaschen. | Während ; Vor ; Nach | | Yemek sırasında telefonla konuşulmamalı. Yemekten önce eller yıkanır. Yemekten sonra da bulaşığa yardım edilir. | während + Genitiv (des Essens); vor / nach + Dativ (dem Essen). Arkalarında fiil yok, yalnız isim. | das Essen; die Hand; abwaschen
