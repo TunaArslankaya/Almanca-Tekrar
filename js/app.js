@@ -1615,7 +1615,12 @@
   // yazma kontrolü: tam doğru / küçük hata (artikel eksik, tek harf, umlaut) / yanlış
   function uPruef(eingabe, ziel, alts) {
     const e = uNorm(eingabe), cands = [ziel].concat(alts || []).map(uNorm);
-    if (cands.includes(e)) return { u: (eingabe || '').trim().replace(/\s+/g, ' ') === ziel ? 'richtig' : 'fast', hinweis: (eingabe || '').trim() === ziel ? '' : 'büyük/küçük harf ya da umlaut' };
+    if (cands.includes(e)) {
+      // noktalama ve ae/oe/ue/ss farkı hata değil (27.10: "…angekommen" noktasız küçük hata sayılıyordu); yalnız büyük/küçük harf farkı küçük hata
+      const yal = x => (x || '').replace(/[.,!?;:„“"()…]/g, '').replace(/\s+/g, ' ').trim().replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+      const tam = [ziel].concat(alts || []).some(c => yal(c) === yal(eingabe));
+      return { u: tam ? 'richtig' : 'fast', hinweis: tam ? '' : 'büyük/küçük harf' };
+    }
     for (const c of cands) {
       const ohneArt = c.replace(/^(der|die|das) /, '');
       if (ohneArt !== c && e === ohneArt) return { u: 'fast', hinweis: 'artikel eksik: ' + ziel };
