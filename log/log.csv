@@ -2757,3 +2757,32 @@
 2026-10-27 14:16:47;wort;n1180:wort;die Tafel;"tahta (okul); tablet (çikolata)";die Tafel;richtig;die Tafel;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
 2026-10-27 14:16:53;prod;w0626:prod;bedürftig;muhtaç, yoksul;bedürftig;richtig;bedürftig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
 2026-10-27 14:16:53;tur;akis;Çalış;;;leer;;cevap:9 | doğru:7 | küçük:0 | yanlış:2 | puan:52 | dk:1 | yeni:3 | seviye+:0 | tekrar:3
+2026-10-27 20:24:38;erk;x1560:erk;das Bedürfnis;ihtiyaç;das Bedürfnis;richtig;das Bedürfnis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.90 | S:9.5 | ısınma | kapı:7g | sek:3
+2026-10-27 20:24:41;erk;w0169:erk;flexibel;esnek;flexibel;richtig;flexibel;basamak:B1 | bicim:sec | not:m3 | R:0.90 | S:6.8 | ısınma | sek:2
+2026-10-27 20:24:44;erk;n0660:erk;die Kosten;Viele Menschen reagieren zum Beispiel kritisch auf die geplanten Reformen der Regierung bei der Kranken- oder Rentenversicherung, deren Kosten stark gestiegen sind.;masraflar;richtig;masraflar (çoğul);basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:11.6 | ısınma | sek:3
+2026-10-27 20:24:47;art;n0244:art;die Diskussion;Diskussion;die;richtig;die Diskussion;basamak:A | bicim:artikel | not:a3 | R:0.62 | S:0.4 | sek:2
+2026-10-27 20:24:49;art;n0994:art;das Rezept;Rezept;das;richtig;das Rezept;basamak:A | bicim:artikel | not:a3 | R:0.60 | S:0.3 | sek:2
+2026-10-27 20:24:50;art;x1561:art;die Not;Not;die;richtig;die Not;basamak:A | bicim:artikel | not:a3 | R:0.59 | S:0.2 | sek:1
+2026-10-27 20:24:50;tur;akis;Çalış;;;leer;;cevap:6 | doğru:6 | küçük:0 | yanlış:0 | puan:30 | dk:1 | yeni:0 | seviye+:0 | tekrar:6
+2026-10-27 20:24:56;art;x1557:art;das Vorurteil;Vorurteil;die;falsch;das Vorurteil;basamak:A | bicim:artikel | not:a1 | R:0.54 | S:0.0 | artikel die → das | sek:2
+2026-10-27 20:24:58;art;x1547:art;die Toleranz;Toleranz;die;richtig;die Toleranz;basamak:A | bicim:artikel | not:a3 | R:0.48 | S:0.1 | sek:2
+2026-10-27 20:24:59;art;n1044:art;der Schmerz;Schmerz;der;richtig;der Schmerz;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:55.5 | sek:1
+2026-10-27 20:24:59;tur;akis;Çalış;;;leer;;cevap:3 | doğru:2 | küçük:0 | yanlış:1 | puan:11 | dk:1 | yeni:0 | seviye+:0 | tekrar:3
+2026-10-27 20:25:06;art;n0536:art;der Himmel;Himmel;der;richtig;der Himmel;basamak:A | bicim:artikel | not:a3 | R:0.87 | S:3.2 | sek:4
+2026-10-27 20:25:08;art;n1325:art;der Vertrag;Vertrag;die;falsch;der Vertrag;basamak:A | bicim:artikel | not:a1 | R:0.85 | S:0.4 | artikel die → der | sek:1
+2026-10-27 20:25:09;art;n1316:art;der Vermieter;Vermieter;der;richtig;der Vermieter;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:44.7 | sek:2
+2026-10-27 20:25:17;yeni;v685;spenden;tanıtım;;neu;bağışlamak;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-27 20:25:19;yeni;w0627;übrig;tanıtım;;neu;artan, kalan;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-27 20:25:21;bed;v685:bed;spenden;bağışlamak;spenden;richtig;spenden;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-27 20:25:25;erk;w0627:erk;übrig;artan, kalan;übrig;richtig;übrig;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-27 20:25:27;abr;v685:abr;spenden;bağışlamak;spenden;richtig;spenden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-27 20:25:31;prod;w0627:prod;übrig;artan, kalan;übrings;falsch;übrig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | ek | sek:3 | ipucu:0
+2026-10-27 20:25:34;yeni;v613;verteilen;tanıtım;;neu;dağıtmak;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-27 20:25:35;yeni;n0360;die Feuerwehr;tanıtım;;neu;itfaiye;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-27 20:25:36;yeni;x1563;der Feuerwehrmann;tanıtım;;neu;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-27 20:25:40;erk;x1563:erk;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrmann;richtig;der Feuerwehrmann;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-27 20:25:42;bed;v613:bed;verteilen;dağıtmak;verteilen;richtig;verteilen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-27 20:25:47;erk;n0360:erk;die Feuerwehr;itfaiye;die Feuerwehr;richtig;die Feuerwehr;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-27 20:25:49;erk;w0627:erk;übrig;artan, kalan;übrig;richtig;übrig;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-27 20:25:58;wort;x1563:wort;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrman;fast;der Feuerwehrmann;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:8 | ipucu:0
+2026-10-27 20:25:58;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:59 | dk:1 | yeni:5 | seviye+:0 | tekrar:4
