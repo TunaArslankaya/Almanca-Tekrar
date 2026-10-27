@@ -508,7 +508,7 @@
 
   // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
   // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
-  const ARA = 8, ART_TUR = 3, ZOR_TUR = 3;
+  const ARA = 8, ART_TUR = 3, ZOR_TUR = 3, GRAM_ADIM = [5, 10];   // gramer sorusu: turun 1. ve 2. gramer adımı (S3)
   function sec(durum, oturum, t, rnd) {
     rnd = rnd || Math.random;
     const S = durum.S, o = oturum, adim = o.adim || 0, boy = o.boy || 12, gs = durum.gunSay || {};
@@ -546,6 +546,16 @@
     };
     // 2) yeni parti: turda bir kez, 3 ≤ adım ≤ boy − 7
     if (!o.parti && adim >= 3 && adim <= boy - 7) { const p = partiAc(); if (p) return p; }
+    // 2b) gramer sorusu (B1 sprinti, sözleşme S3): ana turda adım 5 ve 10 (sırası gelmiş kuyruk / parti önce gelirse en çok
+    //     2 adım kayar: pencere 5–7, 10–12), pencere başına 1, turda en çok 2; o.gramVar === true ise (uygulama: Gramer.turSorusu bir soru verdi).
+    //     Klavyesiz / akşam (yukarıda döndü) / momentum (art arda 2 yanlış) turunda yok; ısınma (adım < 3) zaten dışarıda.
+    //     Odak bölümünde (o.odak; uygulama orada gramVar da vermez) yok. Gram cevabı tur adımına sayılır (oturumIsle), öğe hafızasına yazmaz.
+    if (o.gramVar === true && !o.klavyesiz && !o.aksam && !o.odak && (o.yanlisSeri || 0) < 2) {
+      // gi: sorulan gramlerin adımı (oturumIsle'nin kaydı; yoksa geçmişteki sırası)
+      const gi = gecmis.reduce((a, x, i) => (x.tur === 'gram' ? a.concat(x.a != null ? x.a : i) : a), []), ga = GRAM_ADIM.find(a => adim >= a && adim <= a + 2);
+      // her pencerede bir soru (o pencerenin başından beri gram yoksa); ilki kaçtıysa ikincisi yine gelir
+      if (ga != null && gi.length < GRAM_ADIM.length && !gi.some(i => i >= ga)) return { tur: 'gram', kaynak: 'gram' };
+    }
     const vad = vadeliler(S, t, o.filtre).filter(v => !yakin(v.id));
     const mVad = vad.filter(v => v.tur === 'm');
     // 3) metin etkinliği: turda bir, günde en çok 3; 8 ≤ adım ≤ boy − 3; boşluklar m.S ≥ 1,5 ve (vadeli ya da R < 0,9)
@@ -625,7 +635,7 @@
     o.kuyruk = o.kuyruk || []; o.gecmis = o.gecmis || [];
     const i = o.kuyruk.indexOf(secim._k); if (i >= 0) o.kuyruk.splice(i, 1);
     o.adim = (o.adim || 0) + 1;
-    o.gecmis.push(Object.assign({ id: secim.id, bicim: secim.bicim, tur: secim.tur }, secim.zor ? { zor: true } : null));
+    o.gecmis.push(Object.assign({ id: secim.id, bicim: secim.bicim, tur: secim.tur }, secim.zor ? { zor: true } : null, secim.tur === 'gram' ? { a: o.adim - 1 } : null));
     if (secim.kaynak === 'kurtarma') o.kurtarma = true;
     const yanlis = sonuc && sonuc.ergebnis === 'falsch';
     o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
@@ -966,7 +976,7 @@
 
   const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     init, get ctx() { return C; },
-    DAY, OFS, KISMI, PK_BICIM, ARA,
+    DAY, OFS, KISMI, PK_BICIM, ARA, GRAM_ADIM,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,

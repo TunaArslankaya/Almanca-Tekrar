@@ -427,6 +427,7 @@
     const ot = session.ot, m = session.modus, f = FILTER[m] || FILTER.akis;
     ot.boy = buTurBoyu(); ot.klavyesiz = m === 'blitz';
     ot.filtre = id => gueltig(id + ':x') && f(id);
+    ot.odak = m !== 'akis'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
     if (m === 'aksam' && !ot.aksam) {
       const ad = aksamDurum().adaylar;
       ot.aksam = ad.map(x => x.id);
@@ -2418,6 +2419,7 @@
       const sel = sec();
       if (sel.tur === 'parti') { partiKur(sel); tanitGoster(); return; }
       if (sel.tur === 'metin') { ot.metin = true; const q = metinKur(sel); if (q) { aktuell = q; render(q); return; } continue; }
+      if (sel.tur === 'gram') { const q = gramTurFrage(sel); if (q) { aktuell = q; gramTurRender(q); return; } ot.gramYok = true; continue; }
       if (sel.tur === 'bitti') return leerGoster(sel);
       // uzun süredir görülmeyen (R < 0,35): önce kısa yeniden tanıtım
       if (sel.yenidenTanit && sel.tur === 'm') { ot.bekleyen = sel; aktuell = frageTanit(sel.id, { kisa: true }); render(aktuell); return; }
@@ -2504,6 +2506,70 @@
     if (!a) return null;
     gs.metin = (gs.metin || 0) + 1;
     return aktFrage(a);
+  }
+
+  // ---------- gramer sorusu ana turda (B1 sprinti, sözleşme S2/S3): Kern.sec adım 5 / 10'da { tur: 'gram' } ----------
+  // Soruyu Gramer seçer ve çizer (turSorusu / turRender), log satırını ve teil / hayaleti Gramer yazar; uygulama turu ilerletir
+  // (sayaç, puan, fx, kombo, tur sonu özeti). Öğe hafızasına yazmaz. Gramer'de tur API'si yoksa ya da soru yoksa normal soru.
+  const gramApi = () => !!(window.Gramer && typeof Gramer.turSorusu === 'function' && typeof Gramer.turRender === 'function');
+  function gramVarMi(ot) {
+    ot.gramSoru = null;
+    const a = ot.adim || 0;
+    if (session.modus !== 'akis' || ot.klavyesiz || ot.gramYok || !gramApi() || !(Kern.GRAM_ADIM || []).some(x => a >= x && a <= x + 2) || (ot.gramKonular || []).length >= 2) return false;
+    try { ot.gramSoru = Gramer.turSorusu(now(), (ot.gramKonular || []).slice()) || null; } catch (e) { console.warn('Gramer.turSorusu', e); ot.gramYok = true; }
+    return !!ot.gramSoru;
+  }
+  function gramTurFrage(sel) {
+    const ot = session.ot, soru = ot && ot.gramSoru;
+    if (!soru || !soru.konu) return null;
+    ot.gramSoru = null;
+    const q = { typ: 'gramTur', soru, sel: Object.assign({}, sel, { id: `g:${soru.konu}:${soru.n}`, bicim: 'gram' }), bicim: 'gram', start: now() };
+    q.bitti = sonuc => gramTurBitti(q, sonuc);
+    return q;
+  }
+  // çizim: kart Gramer'e verilir; çizemezse (hata / boş) bu turda gram yok, sıradaki soru
+  function gramTurRender(q) {
+    sesKes();
+    kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis', 'cevaplandi', 'duzen');
+    otRender();
+    $('#durum-satiri').innerHTML = '<span class="chip vurgu">gramer</span>';
+    kart.innerHTML = '';
+    let ok = true;
+    try { Gramer.turRender(kart, q.soru, q.bitti); } catch (e) { console.warn('Gramer.turRender', e); ok = false; }
+    if (!ok || !kart.innerHTML.trim()) { session.ot.gramYok = true; if (aktuell === q) aktuell = null; zeige(); return; }
+    tastatur();
+  }
+  // Gramer cevabı değerlendirdi: tur sayacı (+ ayrı gram sayımı), puan, fx / kombo, oturum adımı; Devam (Gramer çizmediyse)
+  function gramTurBitti(q, r) {
+    if (aktuell !== q || q.wartet) return;
+    const urteil = r && ['richtig', 'fast', 'falsch'].includes(r.urteil) ? r.urteil : 'falsch', ot = session.ot, tu = session.tur;
+    q.wartet = true; q.urteil = urteil; q.antwort = r && r.antwort != null ? String(r.antwort) : ''; q.bittiT = performance.now();
+    zaehlen(q, urteil);
+    session.q++;
+    if (ot) { Kern.oturumIsle(ot, q.sel, { ergebnis: urteil }, Math.random); (ot.gramKonular = ot.gramKonular || []).push(q.soru.konu); }
+    if (tu) { const g = tu.gram = tu.gram || { n: 0, richtig: 0, fast: 0, falsch: 0 }; g.n++; g[urteil]++; }
+    fxCevap(urteil);
+    save(); renderHedef(); renderPlan();
+    if (!kart.querySelector('.devam-btn')) {
+      const yer = kart.querySelector('#g-sonuc .sonuc') || kart.querySelector('#g-sonuc') || kart;
+      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${devamBtn('gtur', 'devam', urteil === 'richtig' ? 1200 : 0)}</div>`);
+    }
+    const b = kart.querySelector('.devam-btn');
+    if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
+    if (urteil === 'richtig') later(() => { if (aktuell === q) zeige(); }, 1200);
+  }
+  // tıklama / tuş: önce Gramer; cevaplanmış soruda Devam (bizim ya da Gramer'in .devam-btn'i) ya da Enter sıradaki soruya geçirir
+  // (bitti bu olayın içinde çağrıldıysa geçmez: cevabı gösteren basış Devam sayılmaz)
+  function gramTurOlay(e, tus) {
+    const q = aktuell;
+    if (!tus && e.target.closest('[data-gtur]')) { if (q.wartet) zeige(); return true; }
+    let tuk = false;
+    try { tuk = !!(tus ? typeof Gramer.turTus === 'function' && Gramer.turTus(e) : typeof Gramer.turKlick === 'function' && Gramer.turKlick(e)); } catch (err) { console.warn('Gramer tur olayı', err); }
+    if (aktuell !== q) return true;
+    const ayniOlay = q.bittiT != null && q.bittiT >= e.timeStamp;
+    const devam = tus ? e.key === 'Enter' && !e.repeat : !!e.target.closest('.devam-btn');
+    if (q.wartet && devam && !ayniOlay) { if (tus) e.preventDefault(); zeige(); return true; }
+    return tuk;
   }
 
   // odak ekranı: üst %45 talimat + kelime / cümle + seviye noktaları (.q-ust), alt %55 cevap alanı (.q-alt, başparmak bölgesi);
@@ -3583,7 +3649,7 @@
     if (session.tur) session.tur.xp += n;
     xpUc(n);
   }
-  const XP_TYP = { art: 1, erk: 1, bed: 1, wort: 2, prod: 2, abr: 2, frm: 2, refl: 2, ndek: 2, stamm: 3, satz: 3, nsatz: 3, pak: 3 };
+  const XP_TYP = { art: 1, erk: 1, bed: 1, wort: 2, prod: 2, abr: 2, frm: 2, refl: 2, ndek: 2, stamm: 3, satz: 3, nsatz: 3, pak: 3, gramTur: 3 };
   const xpFuer = (q, urteil) => {
     const w = q && q.typ ? (XP_TYP[q.typ] || 2) : 3;
     return w * (urteil === 'richtig' ? 5 : urteil === 'fast' ? 3 : 1) * (session.donusBonus ? 2 : 1);
@@ -3731,6 +3797,7 @@
     const grup = (et, ids, cls) => ids.length ? `<div class="ts-grup"><div class="ts-et">${et}</div><div class="ts-chips">${ids.slice(0, 6).map(id => `<span class="ts-chip ${cls}" data-id="${esc(id)}">${deItemHTML(id)}</span>`).join('')}${ids.length > 6 ? `<span class="soluk">+${ids.length - 6}</span>` : ''}</div></div>` : '';
     const o = oran == null ? 60 : oran;
     const aksamTur = session.modus === 'aksam';
+    const gr = tu.gram;   // turdaki gramer soruları (ayrı sayım; cevap sayısına dahil)
     const baslik = aksamTur ? (sebep === 'leer' ? 'Akşam tekrarı tamam 🌙' : 'Akşam turu tamam 🌙') : sebep === 'leer' ? 'Şimdilik bu kadar' : o >= 85 ? 'Harika tur!' : o >= 60 ? 'Tur tamam' : 'Tur tamam, zor bir turdu';
     const aksamKalan = aksamTur && sebep !== 'leer' ? aksamDurum().adaylar.filter(x => !(tu.w[x.id] != null)).length : 0;
     // tur içinde biriken notlar (tost yerine)
@@ -3755,6 +3822,7 @@
         <div><b id="ts-dogruluk">${oran == null ? '–' : '%' + oran}</b><span>doğruluk</span></div>
         <div><b>${dk}</b><span>dakika</span></div>
       </div>
+      ${gr && gr.n ? `<div class="ts-grup"><div class="ts-et">gramer · ${gr.n} soru</div><div class="soluk">${gr.richtig} doğru${gr.fast ? ` · ${gr.fast} küçük hata` : ''}${gr.falsch ? ` · ${gr.falsch} yanlış (yakında tekrar)` : ''}</div></div>` : ''}
       ${grup(`seviye atlayanlar · ${seviye.length}`, seviye, 'altin')}
       ${grup('tanıştıkların', yeniIds, 'yeni')}
       ${grup('yakında tekrar', zor, 'kehribar')}
@@ -3775,7 +3843,7 @@
     if (session.donusBonus && tu.n) session.donusBonus = false;
     if (sebep !== 'leer') { ton('tur'); if (hedefYeni) konfeti(); }
     if (tu.n) logEintrag({ modus: 'tur', id: session.modus, item: MODI[session.modus] ? MODI[session.modus].ad : '', frage: '', antwort: '', ergebnis: sebep === 'leer' ? 'leer' : 'bitti', loesung: '',
-      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0}` });
+      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0}${gr && gr.n ? ` | gram:${gr.richtig}/${gr.n}` : ''}` });
     save();
   }
   // ---- efektler: ses, titreşim, kart rengi, uçan puan, konfeti ----
@@ -4418,6 +4486,7 @@
   kart.addEventListener('click', e => {
     const uk = e.target.closest('.klavye.ic button');
     if (uk) { const i = letzteEingabe && kart.contains(letzteEingabe) && letzteEingabe.classList.contains('u-luecke') && !letzteEingabe.disabled ? letzteEingabe : $('#cevap'); if (i && !i.readOnly) { const p = i.selectionStart == null ? i.value.length : i.selectionStart; i.value = i.value.slice(0, p) + uk.dataset.c + i.value.slice(i.selectionEnd == null ? p : i.selectionEnd); i.setSelectionRange(p + 1, p + 1); i.focus(); } return; }
+    if (aktuell && aktuell.typ === 'gramTur') { if (gramTurOlay(e, false)) return; }
     if (aktuell && aktuell.mc && !aktuell.offen && !aktuell.done && !e.target.closest('[data-act]')) { mcAufdecken(aktuell); return; }
     const kb = e.target.closest('.kb-chip'); if (kb) { bankaEkle(kb); return; }
     const fv = e.target.closest('[data-fav]');
@@ -4531,6 +4600,7 @@
     if (q.typ === 'pruefung') { if (e.key === 'Escape') { e.preventDefault(); if (pruefungCik()) { clearTimers(); zeigView('ana'); } } return; }
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
+    if (q.typ === 'gramTur') { gramTurOlay(e, true); return; }
     if (q.typ === 'cumle') { Cumle.tus(e); return; }
     if (q.typ === 'oyun') {
       if (e.repeat) return;
@@ -4742,17 +4812,19 @@
 
   // ================= Başlat =================
   // Gramer bölümü (js/gramer.js): uygulama yardımcıları
+  const gramTurAcik = () => !!(aktuell && aktuell.typ === 'gramTur');
   (function gramerBagla() {
     const labelIdx = {};
     try { NL.forEach(n => { labelIdx[label(n.id)] = n.id; }); VERBEN.forEach(v => { labelIdx[v.anz || v.inf] = v.id; if (v.inf) labelIdx[v.inf] = labelIdx[v.inf] || v.id; }); WOERTER.forEach(w => { labelIdx[w.de] = w.id; }); } catch (e) { console.warn(e); }
     Gramer.init({
-      S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur,
+      S: () => S, save, logEintrag, xpEkle: n => { if (!gramTurAcik()) xpEkle(n); }, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur, devamBtn,
       kart: () => kart, ret: () => S.einst.ret, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
-      fx: u => fxCevap(u), soruSayisi: () => session.q, odakla: () => !!(window.matchMedia && matchMedia('(hover: hover)').matches),
+      // turdaki gram sorusunda (gramTur) sayaç / puan / fx uygulamanın (gramTurBitti): Gramer çağırsa da iki kez sayılmasın
+      fx: u => { if (!gramTurAcik()) fxCevap(u); }, soruSayisi: () => session.q, odakla: () => !!(window.matchMedia && matchMedia('(hover: hover)').matches),
       aktifKapitel: () => { const U = uAktivler()[0]; return U && U.kapitel ? 'K' + U.kapitel : null; },
       birikme: () => faellig().length > 1.2 * kota().kap,
       kelimeAnlam: w => { const id = labelIdx[w]; return id ? trOf(id) : ''; }, kelimeGesehen: w => { const id = labelIdx[w]; return !id || !!S.items[id]; },
-      sayac: urteil => { const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
+      sayac: urteil => { if (gramTurAcik()) return; const d = heute(); d.n++; d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); if (session.tur && !session.tur.bitti) { session.tur.n++; session.tur[urteil]++; otRender(); } },
       leech: (id, ad) => logEintrag({ modus: 'leech', id, item: ad, frage: '', antwort: '', ergebnis: 'takiliyor', loesung: '', notiz: 'gramer' }),
     });
   })();
