@@ -142,6 +142,26 @@
     if (n.art === art) return `<div class="kural">Kural: <b>-${esc(suf)}</b> ile bitenler <span class="art art-${art}">${art}</span> <span class="soluk">(listede ${cnt} isim, %${pct})</span></div>`;
     return `<div class="kural istisna"><b>İstisna!</b> <b>-${esc(suf)}</b> ile bitenlerin %${pct}'i <span class="art art-${art}">${art}</span>, ama bu <span class="art art-${n.art}">${n.art}</span></div>`;
   }
+  // Artikel yanlışında not (B1 sprinti 28.10: artikel hatalarının ~%60'ı "der" varsayımı, der → die 37, der → das 20).
+  // Karşıt not ("der değil → die Uhr") + kural varsa kısa ve kesin ("-ung → hep die"), istisnaysa istisna kutusu; kural yoksa
+  // "der" verildiyse varsayma uyarısı (renk ipucu: der mavi, die kırmızı, das yeşil) + kelimeyle ezberle. verilen '' = artikel yazılmadı.
+  const ART_RENK = { der: 'mavi', die: 'kırmızı', das: 'yeşil' };
+  function artikelNotHTML(n, verilen) {
+    if (n.plOnly) return regelHTML(n);
+    const A = x => `<span class="art art-${x}">${x}</span>`;
+    const kopfK = n.kopf && n.kopf[1] === n.art, r = !kopfK && n.regel && n.regel[1] === n.art ? n.regel : null;
+    const kisa = r ? `<b>-${esc(r[0])} → ${r[2] >= 100 ? 'hep' : 'çoğunlukla'} ${A(n.art)}</b>${r[2] < 100 ? ` <span class="soluk">(%${r[2]})</span>` : ''}`
+      : kopfK ? `<b>son parça belirler:</b> ${A(n.art)} ${esc(n.kopf[0])}` : '';
+    const karsi = `<b>${verilen ? esc(verilen) + ' değil' : 'artikel yazmadın'}</b> → ${A(n.art)} ${esc(n.lemma)}`;
+    if (kisa) return `<div class="kural">${karsi} · ${kisa}</div>`;
+    const ist = regelHTML(n);   // istisna kutusu (kural yoksa boş)
+    if (ist) return `<div class="kural">${karsi}</div>${ist}`;
+    const derNot = verilen === 'der' && n.art !== 'der' ? '"der" varsayma, ' : '';
+    return `<div class="kural${n.art !== 'der' ? ' istisna' : ''}">${karsi} <span class="soluk">(${ART_RENK[n.art]})</span> · kural yok: ${derNot}artikeliyle ezberle${KANCA[n.id] ? ' · kanca aşağıda' : ''}.</div>`;
+  }
+  // tanıtım kartında kuralsız ve der olmayan isim: "der değil" uyarısı (der tahmini burada yanlış olur)
+  const artTanitNot = n => !n.plOnly && n.art !== 'der' && !regelHTML(n)
+    ? `<div class="kural istisna">Kural yok · <b>der değil:</b> <span class="art art-${n.art}">${n.art}</span> ${esc(n.lemma)} <span class="soluk">(${ART_RENK[n.art]})</span>; artikeliyle birlikte ezberle.</div>` : '';
   const kancaHTML = id => KANCA[id] ? `<div class="kanca">🪝 <b>Kanca:</b> ${esc(KANCA[id])}</div>` : '';
 
   // Tanıtım sırası: seviye → (fiil: kalıplı önce) → (isim: kalıplarda geçen önce)
@@ -709,7 +729,7 @@
       kopf = `<div class="art-band art-${a}">${n.plOnly ? 'die · çoğul' : n.art}</div>
         <div class="tanit-bas"><span class="kelime">${artHTML(n)}</span>${sesBtn(label(id))}<span class="tr">${esc(n.tr)}</span></div>
         <div class="soluk">${n.plOnly ? 'yalnız çoğul' : n.plf ? 'Çoğul: die ' + esc(n.plf) : 'çoğulu yok'}</div>`;
-      chips = regelHTML(n) || '<div class="kural">Kural yok: artikeli kelimeyle birlikte ezberle (kanca yardımcı olur).</div>';
+      chips = regelHTML(n) || artTanitNot(n) || '<div class="kural">Kural yok: artikeli kelimeyle birlikte ezberle (kanca yardımcı olur).</div>';
       if (n.weak) chips += `<div class="kural"><b>n-Deklination:</b> den / dem / des ${esc(G.np(n, 'A', { det: 'def' })[1])}</div>`;
     } else if (k === 'v') {
       const v = vById[id];
@@ -2816,7 +2836,9 @@
     const erkl = (q.erkl ? q.erkl() : []).filter(Boolean).filter(e => !/class="kural/.test(e) && !(halStr && e === halStr) && !(ornek && /^Örnek:/.test(e))).slice(0, 3);
     const itiraz = q.itirazVar && !q.itiraz ? `<button class="btn mini itiraz" data-act="itiraz" type="button">${q.itirazVar === 'yazim' ? 'yazım hatasıydı' : 'aslında doğru'}</button>` : '';
     // isim: kural (sonek / bileşik) ya da "kural yok: kanca" — artikel sınandıysa ya da yanlışsa
-    const kural = k === 'n' && byId[q.id] && (yanlis || q.artFrage || artYanlis) ? (regelHTML(byId[q.id]) || `<div class="kural">Kural yok: artikeli kelimeyle ezberle${KANCA[q.id] ? ' · kanca aşağıda' : ''}.</div>`) : '';
+    // artikel yanlışı (flaş ya da yazma / seçmeli artikel sınaması): karşıt not + kısa kural (artikelNotHTML)
+    const sa = q.sonuc && q.sonuc.artikel, artVerilen = q.artFrage ? (yanlis ? q.antwort : null) : sa && sa.sinandi && !sa.dogru && !o.weissNicht && not.m >= 2 ? (sa.eksik ? '' : sa.verilen) : null;
+    const kural = k === 'n' && byId[q.id] && (yanlis || q.artFrage || artYanlis) ? (artVerilen != null ? artikelNotHTML(byId[q.id], artVerilen) : regelHTML(byId[q.id]) || `<div class="kural">Kural yok: artikeli kelimeyle ezberle${KANCA[q.id] ? ' · kanca aşağıda' : ''}.</div>`) : '';
     const hal = yanlis && halStr ? `<div class="hal-karsi">Türkçe hâlle: ${halStr}</div>` : '';
     let senin = '';
     // tam cümle (G.cumleKontrol): kelime kelime fark, en yakın doğru çeviri, diğer doğru çeviriler, etiket açıklamaları (alt alta, tam genişlik)

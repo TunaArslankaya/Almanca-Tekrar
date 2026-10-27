@@ -386,18 +386,22 @@
     const yapilan = bugunYeni(S, t) + (sebep !== 'normal' && sebep !== 'dönüş' ? Math.min(1, bugunYarim(S, t)) : 0);
     return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan };
   }
-  // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
+  // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → sık B1 (build: sik, frek azalan) → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
+  // (B1 sprinti 28.10: okuma metinlerinde en sık 300 B1 kelimesi listenin geri kalanından önce; kota değişmez)
+  const kayit = id => (C.byId || {})[id] || (C.vById || {})[id] || (C.wById || {})[id] || null;
   function yeniSira(S) {
     const yarim = Object.keys(S.items || {}).filter(id => S.items[id].yarim && !a1Mi(S.items[id]) && !(S.items[id].m && S.items[id].m.S));
     const onde = new Set();
     const ilk = [].concat(C.lesenWort() || [], C.uniteSira() || []).filter(id => !S.items[id]);
     ilk.forEach(id => onde.add(id));
     const yeniMi = id => !S.items[id] && !onde.has(id);
+    const sik = [].concat(C.BLITZ_ORDER || [], C.VERB_ORDER || []).filter(id => yeniMi(id) && (kayit(id) || {}).sik)
+      .map((id, i) => [id, i]).sort((a, b) => ((kayit(b[0]).frek || 0) - (kayit(a[0]).frek || 0)) || a[1] - b[1]).map(x => x[0]);
     const t3 = l => l.filter(yeniMi).map((id, i) => [id, i]).sort((a, b) => (C.tierOf(a[0]) === 3 ? 0 : 1) - (C.tierOf(b[0]) === 3 ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
     const nv = t3(C.BLITZ_ORDER || []), vv = t3(C.VERB_ORDER || []), karisik = [];
     while (nv.length || vv.length) karisik.push(karisik.length % 3 === 2 && vv.length ? vv.shift() : nv.length ? nv.shift() : vv.shift());
     const g = new Set(), out = [];
-    yarim.concat(ilk, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
+    yarim.concat(ilk, sik, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
     return out;
   }
   function lev(a, b) {
@@ -411,18 +415,21 @@
     }
     return p[b.length];
   }
-  // §5.4 karışma kapısı: aynı anlam, aynı kök / Ablaut, benzer lemma (lev ≤ 2), aynı konudan 2'den fazla öğe birlikte girmez
+  // §5.4 karışma kapısı: aynı anlam, aynı kök / Ablaut, benzer lemma (lev ≤ 2), aynı konudan (themen.txt) ya da aynı anlam alanından
+  // (ünite @gruppe'u, build: alan) 2'den fazla öğe birlikte (aynı gün) girmez — 18.10: "Werte" kümesinden 9 kelime aynı gün, konusuzdu
+  const alanOf = id => (kayit(id) || {}).alan || '';
   function karismaOk(id, digerleri) {
-    const tk = C.trKey(id), bs = C.kind(id) === 'v' ? C.base(id) : '', ab = C.ablaut(id), lm = C.lemma(id), kn = C.konu(id);
-    let ayniKonu = 0;
+    const tk = C.trKey(id), bs = C.kind(id) === 'v' ? C.base(id) : '', ab = C.ablaut(id), lm = C.lemma(id), kn = C.konu(id), al = alanOf(id);
+    let ayniKonu = 0, ayniAlan = 0;
     for (const o of digerleri) {
       if (tk && C.trKey(o) === tk) return false;
       if (bs && C.kind(o) === 'v' && C.base(o) === bs) return false;
       if (ab && C.ablaut(o) === ab) return false;
       if (lm && C.lemma(o) && lev(lm, C.lemma(o)) <= 2) return false;
       if (kn && C.konu(o) === kn) ayniKonu++;
+      if (al && alanOf(o) === al) ayniAlan++;
     }
-    return ayniKonu < 2;
+    return ayniKonu < 2 && ayniAlan < 2;
   }
   const yoklamaAday = (S, id) => !S.items[id] && (C.tierOf(id) === 1 || C.uluslararasi(id));
   // yeni parti: kotadan n yeni öğe + kotadan bağımsız en çok opts.yarimHak yarım öğe (günde en çok YARIM_GUN);
@@ -444,7 +451,9 @@
       if (yarim) yarimSay++;
       else { yeniSay++; if (yoklama.length < (opts.yoklamaHak == null ? 2 : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id); }
     }
-    return { ids: sec, yoklama };
+    // yoklama kartları önce: tanıtım kartları art arda kalsın, ardından mini sorular (anlam alanı kapısı sırayı karıştırınca
+    // yoklama adayı iki tanıtımın arasına düşebiliyordu)
+    return { ids: yoklama.concat(sec.filter(id => !yoklama.includes(id))), yoklama };
   }
 
   // ================= Akşam tekrarı =================
