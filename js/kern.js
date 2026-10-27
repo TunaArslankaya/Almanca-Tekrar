@@ -400,8 +400,11 @@
     const t3 = l => l.filter(yeniMi).map((id, i) => [id, i]).sort((a, b) => (C.tierOf(a[0]) === 3 ? 0 : 1) - (C.tierOf(b[0]) === 3 ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
     const nv = t3(C.BLITZ_ORDER || []), vv = t3(C.VERB_ORDER || []), karisik = [];
     while (nv.length || vv.length) karisik.push(karisik.length % 3 === 2 && vv.length ? vv.shift() : nv.length ? nv.shift() : vv.shift());
+    // aktif ünite ile sık B1 kelimeleri karışık: her 2 ünite kelimesine 1 sık kelime (27.10: ünite 120+ kelimeyle sırayı doldurunca sık kelime sprintte hiç gelmiyordu)
+    const lw = (C.lesenWort() || []).filter(id => !S.items[id]), un = (C.uniteSira() || []).filter(id => !S.items[id]), sk = sik.slice(), unSik = [];
+    while (un.length || sk.length) unSik.push(unSik.length % 3 === 2 && sk.length ? sk.shift() : un.length ? un.shift() : sk.shift());
     const g = new Set(), out = [];
-    yarim.concat(ilk, sik, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
+    yarim.concat(lw, unSik, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
     return out;
   }
   function lev(a, b) {
