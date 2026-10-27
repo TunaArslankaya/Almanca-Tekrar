@@ -24,11 +24,24 @@
     return `„${hedef}“ ile yeniden yaz`; };
 
   // ---------- durum ----------
-  const st = () => (S.gram = S.gram || { konu: {}, ghost: {} });
+  // S her erişimde app'ten tazelenir (GitHub birleştirmesi S'yi değiştirir; Bugün ekranı sprintDurum'u yenile'den önce okuyabilir)
+  const st = () => {
+    if (api && api.S) { const s = api.S(); if (s && s !== S) { S = s; gocGerek = true; } }
+    const g = S.gram || (S.gram = { konu: {}, ghost: {} });
+    if (gocGerek) { gocGerek = false; goc(g); }
+    return g;
+  };
+  let gocGerek = false;
+  // açılış göçü: kartı olmayan, bir günden eski açılış (tanıtım okunmuş, giriş seti yapılmamış: tuerkisch-fallen 18.10) kapanır;
+  // vadeli sayılmaz, yeniden "yeni konu" olur (eskiden kartsız açık konu hep vadeliydi: ikinci iş her gün "Gramer tekrarı")
+  function goc(g) { const t = now(); Object.values(g.konu || {}).forEach(k => { if (k && k.acildi && !k.karte && t - k.acildi > DAY) { k.acildi = 0; k.yarim = (k.yarim || 0) + 1; } }); }
   const konuSt = id => { const g = st(); return g.konu[id] || (g.konu[id] = { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 0 }); };
   const now = () => api.now();
+  const gun = (t = now()) => { if (api.tag) return api.tag(t); const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
   const acik = id => !!st().konu[id] && !!st().konu[id].acildi;
-  const vadeli = id => { const k = st().konu[id]; return !!(k && k.acildi && (!k.karte || k.karte.due <= now())); };
+  // vadeli: açık VE kartlı VE vadesi gelmiş (kartsız konu vadeli değil; giriş seti bekliyor)
+  const vadeliT = (id, t) => { const k = st().konu[id]; return !!(k && k.acildi && k.karte && k.karte.due <= t); };
+  const vadeli = id => vadeliT(id, now());
   const kararlilik = id => { const k = st().konu[id]; return k && k.karte && k.karte.S ? k.karte.S : 0; };
   const aktifKapitel = () => (api.aktifKapitel ? api.aktifKapitel() : null);   // ör. "K9"
   // açılış sırası: aktif Kapitel → goethe 3 → goethe 2 → diğer; @voraus açık olmalı
@@ -38,7 +51,99 @@
     const puan = id => { const k = GR[id].kopf; return (kap && (k.kapitel || '').includes(kap) ? 100 : 0) + (k.goethe.stufe || 1) * 10 - (k.voraus || []).filter(v => !acik(v)).length * 50; };
     return ids.filter(id => (GR[id].kopf.voraus || []).every(v => acik(v) || !GR[v])).sort((a, b) => puan(b) - puan(a));
   }
-  const buHafta = () => Object.values(st().konu).filter(k => k.acildi && now() - k.acildi < 7 * DAY).length;
+  const buHafta = () => Object.values(st().konu).filter(k => k.acildi && k.kaynak !== 'tani' && now() - k.acildi < 7 * DAY).length;
+
+  // ---------- B1 sprinti (28.10 → 9.11): tanı testi, sprint sırası, günün bloğu ----------
+  // S.sprint = { hedef: '2026-11-09', son_yeni: '2026-11-05', acik: true } (P2 kurar). Sprintte: günde 1 yeni konu (+1 isteğe bağlı),
+  // haftada 2 sınırı yok, son_yeni'den sonra yeni konu yok; konu vadesi hedefe kalan sürenin ~%40'ını aşmaz.
+  const SPRINT_SIRA = ['verbstellung', 'satzklammer-tekamolo', 'nebensatz-satzbau', 'weil-dass', 'negation', 'zweiteilig', 'konnektoren-deshalb-trotzdem',
+    'nominal-verbal', 'vergleich', 'es-korrelat', 'relativ', 'adjektiv', 'praep-verben', 'praep-nomen-adj', 'zu-infinitiv', 'damit-um-zu', 'passiv',
+    'konjunktiv2', 'genitiv', 'n-deklination', 'partizip-adj', 'perfekt', 'praeteritum', 'reflexiv', 'wortbildung'];
+  const TANI_OTURUM = 25;   // tanı oturumu ~25 madde (yarım konu bitirilir)
+  const sprint = () => { st(); return (S && S.sprint) || null; };
+  const sprintAktif = (t = now()) => { const sp = sprint(); return !!(sp && sp.acik !== false && sp.hedef && gun(t) < sp.hedef); };
+  const sprintYeniVar = (t = now()) => sprintAktif(t) && (!sprint().son_yeni || gun(t) <= sprint().son_yeni);
+  const kalanGun = t => Math.max(0, Math.round((new Date(sprint().hedef + 'T12:00:00') - new Date(gun(t) + 'T12:00:00')) / DAY));
+  // sprintte vade sınırı: en çok max(2, %40 × kalan gün) (aralık hedefe kalan sürenin %20–40'ı)
+  const sprintVade = (karte, t) => { if (karte && karte.due && sprintAktif(t)) karte.due = Math.min(karte.due, t + Math.max(2, Math.round(0.4 * kalanGun(t))) * DAY); return karte; };
+  // sıra: SPRINT_SIRA (yalnız var olan konular) → kalanlar Goethe önemine göre
+  const sprintSira = () => { const ic = SPRINT_SIRA.filter(id => GR[id]); return ic.concat(Object.keys(GR).filter(id => !ic.includes(id)).sort((a, b) => (GR[b].kopf.goethe.stufe || 1) - (GR[a].kopf.goethe.stufe || 1))); };
+  // ---- tanı testi ----
+  // S.gram.tani = { konu: { id: { a: [{ n, teil, u, ip }], s: 'biliyor'|'zayif'|null, t, yanlis: [teil] } }, oturum }
+  // konu başına uyarlamalı: 1 yazarak alıştırma (z2, seçeneksiz); doğruysa 2. (z3, başka teil). İkisi de tam doğru (ipucusuz) → biliyor, değilse zayif.
+  const taniSt = () => { const g = st(); return g.tani || (g.tani = { konu: {}, oturum: 0 }); };
+  const taniUygun = u => (u.z === 2 || u.z === 3) && ((u.tur === 'luecke' && !u.opt) || u.tur === 'umform' || u.tur === 'ceviri' || u.tur === 'ordnen');
+  const taniHavuz = id => uebungen(id).filter(taniUygun);
+  const taniKonular = () => sprintSira().filter(id => taniHavuz(id).length);
+  const taniSonuc = id => { const k = taniSt().konu[id]; return (k && k.s) || null; };
+  const taniDurum = () => { const ks = taniKonular(), yap = ks.filter(taniSonuc).length; return { bitti: yap >= ks.length, yapilan: yap, toplam: ks.length }; };
+  // sıradaki tanı sorusu: yarım konu (ilk doğru, ikincisi bekliyor) önce, yoksa sırada ilk denenmemiş konu
+  function taniSoru() {
+    const T = taniSt();
+    const id = Object.keys(T.konu).find(x => GR[x] && !T.konu[x].s && (T.konu[x].a || []).length) || taniKonular().find(x => !taniSonuc(x));
+    if (!id) return null;
+    const onceki = (T.konu[id] || {}).a || [], havuz = taniHavuz(id), teils = new Set(onceki.map(x => x.teil)), nler = new Set(onceki.map(x => x.n));
+    const z = onceki.length ? 3 : 2;
+    let aday = havuz.filter(u => !teils.has(u.teil) && !nler.has(u.n) && u.z === z);
+    if (!aday.length) aday = havuz.filter(u => !teils.has(u.teil) && !nler.has(u.n));
+    if (!aday.length) aday = havuz.filter(u => !nler.has(u.n));
+    if (!aday.length) { T.konu[id].s = onceki.every(x => x.u === 'richtig' && !x.ip) ? 'biliyor' : 'zayif'; return taniSoru(); }
+    return { konu: id, u: secUebung(id, aday, new Set()), sira: onceki.length + 1 };
+  }
+  // tanı cevabını işle; konu sonuçlandıysa 'biliyor' | 'zayif' döner (yoksa null)
+  function taniCevap(id, u, urteil, ipucu, t = now()) {
+    const T = taniSt(), k = T.konu[id] || (T.konu[id] = { a: [], s: null });
+    k.a.push({ n: u.n, teil: u.teil, u: urteil, ip: !!ipucu });
+    const tam = urteil === 'richtig' && !ipucu;
+    if (!tam) k.yanlis = [...new Set((k.yanlis || []).concat(u.teil))];
+    let son = !tam || k.a.length >= 2;
+    if (!son && !taniHavuz(id).some(x => !k.a.some(y => y.n === x.n))) son = true;
+    if (!son) return null;
+    k.s = tam && k.a.every(x => x.u === 'richtig' && !x.ip) ? 'biliyor' : 'zayif'; k.t = t;
+    const ks = konuSt(id);
+    if (k.s === 'biliyor') taniAc(id, t);
+    else if (ks.acildi && ks.karte) ks.karte.due = Math.min(ks.karte.due, t + DAY);   // açık konu testte zayıf: yarın tekrar
+    return k.s;
+  }
+  // testte bilinen konu açılır; kart KISA vadeli (bedava seviye yok): S ≤ 5, ilk tekrar 4–5 gün sonra (gün içinde dönüşümlü)
+  function taniAc(id, t) {
+    const ks = konuSt(id);
+    if (ks.acildi && ks.karte) return;   // zaten açık ve kartlı: kart değişmez
+    const T = taniSt(), bugun = Object.keys(T.konu).filter(x => T.konu[x].s === 'biliyor' && T.konu[x].t && gun(T.konu[x].t) === gun(t)).length;
+    const karte = api.FSRS.review({}, 3, t, api.ret ? api.ret() : undefined);
+    karte.S = Math.min(karte.S, 5); karte.due = t + (bugun % 2 ? 5 : 4) * DAY;
+    ks.karte = karte; ks.acildi = ks.acildi || t; ks.kaynak = 'tani';
+  }
+  // ---- sprint durumu ----
+  // bugün açılan (testten açılanlar sayılmaz)
+  const bugunAcilan = (t = now()) => Object.keys(st().konu).filter(id => GR[id] && st().konu[id].acildi && st().konu[id].kaynak !== 'tani' && gun(st().konu[id].acildi) === gun(t)).sort((a, b) => st().konu[a].acildi - st().konu[b].acildi);
+  // sıradaki yeni konu: sırada testte zayıf ya da (test bittiyse) denenmemiş ilk kapalı konu; testte bilinenler atlanır
+  const sprintAday = () => { const tb = taniDurum().bitti; return sprintSira().find(id => !acik(id) && taniSonuc(id) !== 'biliyor' && (tb || taniSonuc(id) === 'zayif')) || null; };
+  function bugunYeni(t = now()) {
+    const ac = bugunAcilan(t);
+    if (ac.length) return ac[0];
+    if (sprintAktif(t)) return sprintYeniVar(t) ? sprintAday() : null;
+    if (buHafta() >= 2 || (api.birikme && api.birikme())) return null;
+    return acilabilir()[0] || null;
+  }
+  // blok bitince isteğe bağlı +1 (sprintte günde en çok 2)
+  const ekYeni = (t = now()) => (sprintYeniVar(t) && bugunAcilan(t).length === 1 ? sprintAday() : null);
+  function konuDurum(id) {
+    const k = st().konu[id], ts = taniSonuc(id);
+    if (!k || !k.acildi) return ts === 'zayif' ? 'zayif' : ts === 'biliyor' ? 'biliyor' : 'denenmedi';
+    const c = k.karte;
+    if (!c) return 'ogreniliyor';
+    if (c.lastG === 1) return 'zayif';
+    if (c.S >= 21 || (ts === 'biliyor' && k.kaynak === 'tani')) return 'biliyor';
+    return 'ogreniliyor';
+  }
+  // günün işi sayacı: S.gram.gun = { g: gün, set, tani } (set sonu ya da tanı oturumu sonu)
+  const gunIs = tur => { const g = st(); if (!g.gun || g.gun.g !== gun()) g.gun = { g: gun(), set: 0, tani: 0 }; g.gun[tur] = (g.gun[tur] || 0) + 1; };
+  const bugunYapildi = (t = now()) => { const g = st().gun; return !!(g && g.g === gun(t) && (g.set > 0 || g.tani > 0)); };
+  function sprintDurum(t = now()) {
+    return { tani: taniDurum(), konular: sprintSira().map((id, i) => ({ id, ad: GR[id].kopf.titel, durum: konuDurum(id), oncelik: i + 1 })),
+      bugunYeni: bugunYeni(t), vadeli: Object.keys(GR).filter(id => vadeliT(id, t)), bugunYapildi: bugunYapildi(t) };
+  }
 
   // ---------- alıştırma seçimi ----------
   const sesVar = () => typeof root.speechSynthesis !== 'undefined';
@@ -98,10 +203,63 @@
     return havuz.length ? havuz[Math.floor(Math.random() * havuz.length)] : null;
   }
   // bugün vadesi gelen hayalet adımı (oturum içi adım 1'ler zamanı gelince)
-  function hayaletHazir() {
-    const g = st().ghost, t = now();
+  function hayaletHazir(t = now()) {
+    const g = st().ghost;
     return Object.keys(g).filter(k => g[k].due <= t && (g[k].adim > 1 || (api.soruSayisi() - (g[k].q || 0) >= 8))).sort((a, b) => g[a].due - g[b].due);
   }
+
+  // ---------- ana turda gramer sorusu (S2/S3) ----------
+  // yalnız yazarak türler: seçeneksiz luecke, umform, ceviri, ordnen, fehler (text / dinle uzun ya da sesli: yok)
+  const TUR_TUR = new Set(['luecke', 'umform', 'ceviri', 'ordnen', 'fehler']);
+  const turUygun = u => TUR_TUR.has(u.tur) && !u.opt;
+  const TUR_GUN = 3;   // bir vadeli konu turlarda günde en çok 3 kez (hayalet hariç)
+  function turUebung(id, teil, ausser) {
+    const tum = uebungen(id).filter(u => turUygun(u) && (!teil || u.teil === teil));
+    let aday = tum.filter(u => u.n !== ausser); if (!aday.length) aday = tum;
+    if (!aday.length) return null;
+    const z = kararlilik(id) >= 4 ? [2, 3] : [2], zli = aday.filter(u => z.includes(u.z)), z2 = aday.filter(u => u.z >= 2);
+    return secUebung(id, zli.length ? zli : z2.length ? z2 : aday, new Set());
+  }
+  const turSayi = (id, t) => { const x = (st().konu[id] || {}).tur; return x && x.g === gun(t) ? x.n : 0; };
+  let turCache = null, turEl = null, turOnceki = null;
+  // { konu, n, tur, ghost? } | null — açık konuların hazır hayaletleri, sonra vadeli konular (en eski vade önce); haric = bu turda sorulan konular
+  function turSorusu(t, haric) {
+    if (!api || !Object.keys(GR).length) return null;
+    t = t == null ? now() : t;
+    const h = new Set(haric || []), key = [...h].sort().join(','), c = turCache;
+    if (c && c.key === key && Math.abs(t - c.t) < 10 * 60000 && !h.has(c.soru.konu) && (c.soru.ghost ? !!st().ghost[c.soru.ghost] : vadeliT(c.soru.konu, t))) return c.soru;
+    let soru = null;
+    for (const k of hayaletHazir(t)) {
+      const [id, kod] = k.split(':');
+      if (!GR[id] || !acik(id) || h.has(id)) continue;
+      const u = turUebung(id, kod, st().ghost[k].son); if (u) { soru = { konu: id, n: u.n, tur: u.tur, ghost: k }; break; }
+    }
+    if (!soru) {
+      const due = Object.keys(GR).filter(id => vadeliT(id, t) && !h.has(id) && turSayi(id, t) < TUR_GUN).sort((a, b) => turSayi(a, t) - turSayi(b, t) || konuSt(a).karte.due - konuSt(b).karte.due);
+      for (const id of due) { const u = turUebung(id); if (u) { soru = { konu: id, n: u.n, tur: u.tur }; break; } }
+    }
+    turCache = soru ? { key, t, soru } : null;
+    return soru;
+  }
+  // soruyu verilen kart elemanına çizer; Devam'dan sonra (doğruda 1,4 sn sonra kendiliğinden) bitti({ urteil, antwort, oneri }) çağrılır.
+  // Log satırı, teil istatistiği ve hayalet burada; konu kartı, gün sayacı, xp, fx, tur sayacı app'te (bitti).
+  function turRender(elm, soru, bitti) {
+    const u = soru && GR[soru.konu] && (GR[soru.konu].uebungen || []).find(x => x.n === soru.n);
+    if (!u || !elm) return false;
+    if (!(ses && ses.art === 'tur')) turOnceki = ses;   // gramer bölümünde yarım kalan oturum korunur
+    turEl = elm; turCache = null;
+    ses = { ekran: 'ueb', id: soru.konu, art: 'tur', set: [u], i: 0, erg: [], q: null, turBitti: bitti, ghostKey: soru.ghost || null };
+    renderUebung();
+    return true;
+  }
+  const turAktif = () => !!(ses && ses.art === 'tur' && turEl);
+  function turKlick(e) {
+    if (!turAktif() || !e || !e.target || !e.target.closest) return false;
+    const b = e.target.closest('[data-g]');
+    if (!b || (turEl.contains && !turEl.contains(b))) return false;
+    return klick(e);
+  }
+  const turTus = e => (turAktif() ? tus(e) : false);
 
   // ---------- cevap kontrolü ----------
   const norm = s => (s || '').replace(/[„“"«»”]/g, '').replace(/\s+/g, ' ').trim().replace(/\s*[.!?]+$/, '').replace(/\s+([,?.!])/g, '$1');
@@ -199,7 +357,7 @@
   // ---------- oturum ----------
   let ses = null;  // { ekran: 'liste'|'tanit'|'ueb', id, set: [...], i, art: 'giris'|'tekrar'|'ghost'|'kontrast', erg: [], q }
   const reset = () => { ses = null; };
-  const el = () => api.kart();
+  const el = () => (ses && ses.art === 'tur' && turEl ? turEl : api.kart());
   const esc = s => api.esc(s == null ? '' : String(s));
   const de = s => api.deHTML(s == null ? '' : String(s));
   // "-e mi -en mi?": ek başındaki tire satır sonunda kopmasın (bölünmez tire)
@@ -213,6 +371,8 @@
     if (ses.ekran === 'tanit') return renderTanit();
     if (ses.ekran === 'ueb') return renderUebung();
     if (ses.ekran === 'son') return renderSon();
+    if (ses.ekran === 'tani-giris') return renderTaniGiris();
+    if (ses.ekran === 'tani-son') return renderTaniSon();
   }
   // içerikteki "doğrulanmadı" işareti (?) öğrenciye gösterilmez
   const kapTemiz = s => String(s || '').replace(/\s*\?/g, '');
@@ -220,18 +380,23 @@
   function renderListe() {
     const ids = Object.keys(GR);
     if (!ids.length) { el().innerHTML = '<div class="bos">Gramer içeriği yok.</div>'; return; }
-    const due = ids.filter(vadeli), ac = ids.filter(id => acik(id) && !vadeli(id)), yeni = acilabilir();
+    const sp = sprintAktif(), td = taniDurum(), by = bugunYeni();
+    const due = ids.filter(id => vadeli(id)), ac = ids.filter(id => acik(id) && !vadeli(id)), yeni = sp ? sprintSira().filter(id => !acik(id) && taniSonuc(id) !== 'biliyor') : acilabilir();
     const ghosts = hayaletHazir();
-    const pil = id => { const Sg = kararlilik(id); return !acik(id) ? '' : vadeli(id) ? '<span class="durum-pil schwach">tekrar</span>' : Sg >= 21 ? '<span class="durum-pil sitzt">oturdu</span>' : '<span class="durum-pil lernt">öğreniliyor</span>'; };
+    const pil = id => { const Sg = kararlilik(id); return !acik(id) ? (taniSonuc(id) === 'zayif' ? '<span class="durum-pil schwach">testte zayıf</span>' : '') : vadeli(id) ? '<span class="durum-pil schwach">tekrar</span>' : Sg >= 21 ? '<span class="durum-pil sitzt">oturdu</span>' : '<span class="durum-pil lernt">öğreniliyor</span>'; };
     const satir = (id, btn) => { const k = GR[id].kopf; return `<div class="oge g-oge"><span class="de">${esc(k.titel)}${k.goethe.stufe === 3 ? ' <span class="soluk">★ sınavda şart</span>' : ''}</span><span class="tr">${esc(k.tr)}${k.kapitel ? ` · <span class="soluk">${esc(kapTemiz(k.kapitel))}</span>` : ''}</span><span class="yan">${pil(id)} ${btn}</span></div>`; };
     const h = [`<div class="tur"><span class="yeni">gramer</span><span>konu başına kısa kural + alıştırma · yanlışlar kısa aralıkla geri gelir</span></div>`];
+    if (!td.bitti) h.push(`<div class="kural">📝 Gramer testi: ${td.yapilan}/${td.toplam} konu · bildiğin konular açılır, bilmediklerin sırayla öğretilir <button class="btn mini ana" data-g="tani" type="button">${td.yapilan ? 'Devam et' : 'Başla'}</button></div>`);
+    if (sp) h.push(`<div class="sira"><button class="btn${bugunYapildi() ? '' : ' ana'}" data-g="blok" type="button">${bugunYapildi() ? '✓ ' : ''}Günün gramer bloğu${!td.bitti ? ' · test' : by && !(acik(by) && konuSt(by).karte) ? ' · yeni: ' + esc(GR[by].kopf.titel) : ''}</button></div>`);
     if (ghosts.length) h.push(`<div class="kural">⚡ ${ghosts.length} hayalet tekrar hazır (az önce yanlış yaptığın kurallar) <button class="btn mini ana" data-g="ghost-basla" type="button">Çöz</button></div>`);
     if (due.length) h.push(`<h2>Tekrar zamanı (${due.length})</h2>${due.length > 1 ? `<div class="sira"><button class="btn ana" data-g="karisik" type="button">Karışık tekrar · ${due.length} konu</button></div>` : ''}` + due.map(id => satir(id, `<button class="btn mini ana" data-g="tekrar" data-id="${id}" type="button">Tekrar et</button>`)).join(''));
     if (ac.length) h.push(`<h2>Açık konular</h2>` + ac.map(id => satir(id, `<button class="btn mini" data-g="oku" data-id="${id}" type="button">Kural</button> <button class="btn mini" data-g="tekrar" data-id="${id}" type="button">Alıştır</button>`)).join(''));
     if (yeni.length) {
-      const sinir = buHafta() >= 2 || (api.birikme && api.birikme());
-      h.push(`<h2>Yeni konu</h2>${sinir ? '<p class="aciklama">Bu hafta 2 yeni konu açıldı ya da kelime tekrarları birikmiş: yeni konu için biraz bekle (istersen yine açabilirsin).</p>' : ''}` +
-        yeni.slice(0, 8).map(id => satir(id, `<button class="btn mini${sinir ? '' : ' ana'}" data-g="ac" data-id="${id}" type="button">Başla</button>`)).join(''));
+      // sprintte haftada 2 sınırı yok; günde 2'den fazlası yalnız uyarı
+      const sinir = sp ? bugunAcilan().length >= 2 : buHafta() >= 2 || (api.birikme && api.birikme());
+      const not = sp ? 'Bugün 2 konu açtın: yenisi yarın daha iyi oturur (istersen yine açabilirsin).' : 'Bu hafta 2 yeni konu açıldı ya da kelime tekrarları birikmiş: yeni konu için biraz bekle (istersen yine açabilirsin).';
+      h.push(`<h2>Yeni konu${sp ? ' · sprint sırası' : ''}</h2>${sinir ? `<p class="aciklama">${not}</p>` : ''}` +
+        yeni.slice(0, 8).map(id => satir(id, `<button class="btn mini${sinir || (sp && id !== by) ? '' : ' ana'}" data-g="ac" data-id="${id}" type="button">Başla</button>`)).join(''));
     }
     el().innerHTML = h.join('');
   }
@@ -262,7 +427,10 @@
     const u = ses.set[ses.i], g = GR[ses.id];
     if (!ses.q || ses.q.n !== u.n || ses.q.id !== ses.id) ses.q = { n: u.n, id: ses.id, start: now(), ipucu: false, secim: [], adim: 1, done: false, ok: null };
     const q = ses.q, teil = (g.teile || {})[u.teil] || { name: u.teil };
-    const ust = `<div class="tur"><span class="yeni">gramer · ${esc(TUR_AD[u.tur] || u.tur)}</span><span>${esc(g.kopf.titel)} · ${esc(teil.name)} · ${ses.i + 1}/${ses.set.length}${ses.art === 'ghost' ? ' · hayalet' : ''}</span></div>`;
+    const sayac = ses.art === 'tani' ? ` · test ${ses.tani.n + 1}/~${TANI_OTURUM}` : ses.art === 'tur' ? '' : ` · ${ses.i + 1}/${ses.set.length}`;
+    const ust = `<div class="tur"><span class="yeni">gramer · ${esc(TUR_AD[u.tur] || u.tur)}</span><span>${esc(g.kopf.titel)}${ses.art === 'tani' ? '' : ' · ' + esc(teil.name)}${sayac}${ses.art === 'ghost' || (ses.art === 'tur' && ses.ghostKey) ? ' · hayalet' : ''}</span></div>`;
+    // test ve turda ordnen / fehler'de de "Bilmiyorum" (tahmin yerine)
+    const bilmBtn = ses.art === 'tani' || ses.art === 'tur' ? '<button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button>' : '';
     const trVar = u.tr && u.tr !== '-';
     const ipucu = !trVar ? '' : u.z === 1 || q.ipucu ? `<div class="soluk g-tr">${esc(u.tr)}</div>` : `<div class="soluk"><button class="btn mini" data-g="ipucu" type="button">Türkçesi (ipucu)</button></div>`;
     const hover = api.odakla && api.odakla();
@@ -280,12 +448,12 @@
       const kalan = q.parcalar.map((p, i) => ({ p, i })).filter(x => !q.secim.includes(x.i));
       govde = `<div class="soru g-soru">${ipucu ? '' : ''}Cümleyi diz:</div>${ipucu}<div class="g-dizi">${q.secim.length ? q.secim.map(i => `<button class="chip g-sec" data-g="geri" data-i="${i}" type="button">${esc(q.parcalar[i])}</button>`).join(' ') : '<span class="soluk">parçalara sırayla dokun</span>'}</div>
         <div class="chips">${kalan.map(x => `<button class="chip" data-g="parca" data-i="${x.i}" type="button">${esc(x.p)}</button>`).join('')}</div>
-        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${kalan.length ? ' disabled' : ''}>Kontrol <kbd>Enter</kbd></button><button class="btn mini" data-g="geri-son" type="button">← geri al</button></div>`;
+        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${kalan.length ? ' disabled' : ''}>Kontrol <kbd>Enter</kbd></button><button class="btn mini" data-g="geri-son" type="button">← geri al</button>${bilmBtn}</div>`;
     } else if (u.tur === 'fehler') {
       const toks = u.soru.split(/(\s+)/);
       const hataVar = u.hata && u.hata !== '-';
       if (q.adim === 1) govde = `<div class="soru g-soru g-fehler">${toks.map((t, i) => /\S/.test(t) ? `<button class="g-tok${q.tok === i ? ' secili' : ''}" data-g="tok" data-i="${i}" type="button">${esc(t)}</button>` : ' ').join('')}</div>${ipucu}
-        <p class="aciklama">Hatalı kelimeye dokun; cümle doğruysa „Hata yok“.</p><div class="sira"><button class="btn" data-g="hata-yok" type="button">Hata yok</button></div>`;
+        <p class="aciklama">Hatalı kelimeye dokun; cümle doğruysa „Hata yok“.</p><div class="sira"><button class="btn" data-g="hata-yok" type="button">Hata yok</button>${bilmBtn}</div>`;
       else govde = `<div class="soru g-soru"><s>${esc(u.hata)}</s> hatalı. Cümlenin doğrusunu yaz:</div><div class="soluk">${esc(u.soru)}</div>${ipucu}<div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button></div>`;
       if (!hataVar && q.adim === 2) q.adim = 1;
     } else if (u.tur === 'umform') {
@@ -349,7 +517,8 @@
     } else { const r = pruef(u, girisTopla(u, q, antwort)); urteil = r.urteil; tags = r.tags; antwort = r.antwort; q.detay = r.detay || null; }
     q.done = true; q.urteil = urteil; q.antwort = antwort; q.tags = tags; q.sek = Math.round((now() - q.start) / 1000);
     q.oneri = urteil === 'richtig' ? 3 : urteil === 'fast' ? 2 : 1;
-    const serbest = (u.tur === 'umform' || u.tur === 'ordnen' || u.tur === 'ceviri') && urteil !== 'richtig';   // alternatif sıralama / çeviri olabilir: kendi notunu verebilir
+    // alternatif sıralama / çeviri olabilir: kendi notunu verebilir (tanı testinde itiraz yok: notu sistem verir)
+    const serbest = (u.tur === 'umform' || u.tur === 'ordnen' || u.tur === 'ceviri') && urteil !== 'richtig' && ses.art !== 'tani';
     const baslik = { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[urteil];
     el().querySelectorAll('.mc-opt').forEach(b => { b.disabled = true; if (u.cevap.includes(b.dataset.v)) b.classList.add('dogru'); else if (b.dataset.v === antwort) b.classList.add('yanlis'); });
     el().querySelectorAll('.g-inp').forEach((inp, i) => { inp.readOnly = true; if (q.detay && !bilmiyorum && typeof q.detay[i] === 'string') inp.classList.add(q.detay[i] === 'richtig' ? 'dogru' : q.detay[i] === 'fast' ? 'yakin' : 'yanlis'); });
@@ -371,10 +540,11 @@
       ${!(u.z === 1 || q.ipucu) && u.tr && u.tr !== '-' ? `<div class="soluk">${esc(u.tr)}</div>` : ''}
       ${serbest ? `<div class="notlar"><button class="btn ana devam-btn" data-g="not" data-n="${q.oneri}" type="button">Devam <kbd>Enter</kbd></button>${[1, 2, 3].filter(n => n !== q.oneri).map(n => `<button class="btn mini n${n}" data-g="not" data-n="${n}" type="button"><kbd>${n}</kbd> ${['', 'yanlış say', 'küçük hata say', 'aslında doğru'][n]}</button>`).join('')}</div>`
         : `<button class="btn ana devam-btn${urteil === 'richtig' ? ' otomatik' : ''}" data-g="not" data-n="${q.oneri}" type="button">${urteil === 'richtig' ? '<span class="dolum" style="animation-duration:1.4s"></span>' : ''}Devam <kbd>Enter</kbd></button>`}</div>`;
-    api.fx && api.fx(urteil);
-    if (urteil === 'richtig' && !serbest) api.later(() => notla(3), 1400);
+    if (ses.art !== 'tur') api.fx && api.fx(urteil);   // turda fx app'te (bitti)
+    if (urteil === 'richtig' && !serbest) api.later(() => { if (ses && ses.q === q) notla(3); }, 1400);
   }
   function notla(n) {
+    if (!ses || !ses.q || !ses.set) return;
     const q = ses.q, u = ses.set[ses.i], g = GR[ses.id], ks = konuSt(ses.id);
     if (!q || !q.done || q.notlandi) return;
     q.notlandi = true;
@@ -385,21 +555,37 @@
     ses.erg.push({ n: u.n, teil: u.teil, not: n, tur: u.tur, z: u.z, konu: ses.id });
     // hayalet: yanlış → aynı teil kısa aralıkla; üretim türünde küçük hata da
     const key = ses.id + ':' + u.teil, gh = st().ghost;
-    if (ses.art === 'ghost') {
+    const ghostModu = ses.art === 'ghost' || (ses.art === 'tur' && ses.ghostKey === key);
+    if (ghostModu) {
       const h = gh[key];
       if (h) { if (n === 3) { h.dogru = (h.dogru || 0) + 1; if (h.dogru >= 2) delete gh[key]; else { h.adim = Math.min(3, h.adim + 1); h.due = now() + (h.adim === 2 ? DAY : 3 * DAY); } }
         else { h.dogru = 0; h.deneme = (h.deneme || 0) + 1; h.adim = 1; h.due = now() + 5 * 60000; h.q = api.soruSayisi(); if (h.deneme >= 4) { api.leech && api.leech('g:' + key, g.kopf.titel + ' / ' + ((g.teile[u.teil] || {}).name || u.teil)); delete gh[key]; } } }
-    } else if (ses.art !== 'deneme' && (n === 1 || (n === 2 && yazarak(u)))) {
+    } else if (ses.art !== 'deneme' && (ses.art !== 'tani' || acik(ses.id)) && (n === 1 || (n === 2 && yazarak(u)))) {   // testte kapalı konunun yanlış teil'i: açılınca hayalet
       if (!gh[key]) { if (Object.keys(gh).length >= 6) { const eski = Object.keys(gh).sort((a, b) => gh[a].due - gh[b].due)[0]; delete gh[eski]; }
         gh[key] = { adim: 1, due: now() + 5 * 60000, q: api.soruSayisi(), son: u.n, dogru: 0, deneme: 0 }; }
     }
     const notiz = [`tür:${u.tur}`, `z:${u.z}`].concat(n !== 3 && (g.teile[u.teil] || {}).etiket ? [(g.teile[u.teil] || {}).etiket] : [], q.tags.filter(x => x !== 'bilmiyorum' && x !== (g.teile[u.teil] || {}).etiket), q.tags.includes('bilmiyorum') ? ['bilmiyorum'] : [],
-      ses.art === 'ghost' ? ['ghost:' + ((gh[key] || {}).adim || 0)] : [], q.ipucu ? ['ipucu:1'] : [], q.oneri !== n ? [`öneri:${['', 'falsch', 'fast', 'richtig'][q.oneri]}`] : [], [`sek:${q.sek}`]);
-    api.logEintrag({ modus: 'gram', id: `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: notiz.join(' | ') });
+      ghostModu ? ['ghost:' + ((gh[key] || {}).adim || 0)] : [], q.ipucu ? ['ipucu:1'] : [], q.oneri !== n ? [`öneri:${['', 'falsch', 'fast', 'richtig'][q.oneri]}`] : [], [`sek:${q.sek}`]);
+    // test: id g:<konu>:tani:<n>, notiz tanı:<konudaki sıra> önde · tur: notiz tur:akis önde
+    const onEk = ses.art === 'tani' ? [`tanı:${ses.taniSira}`] : ses.art === 'tur' ? ['tur:akis'] : [];
+    api.logEintrag({ modus: 'gram', id: ses.art === 'tani' ? `g:${ses.id}:tani:${u.n}` : `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: onEk.concat(notiz).join(' | ') });
+    if (ses.art === 'tur') {   // turda: konu kartı, gün sayacı, xp, fx değişmez (app bitti'de sayar)
+      const x = ks.tur && ks.tur.g === gun() ? ks.tur : (ks.tur = { g: gun(), n: 0 }); if (!ghostModu) x.n++;
+      api.save && api.save();
+      const cb = ses.turBitti, sonuc = { urteil, antwort: q.antwort, oneri: ['', 'falsch', 'fast', 'richtig'][q.oneri] };
+      ses = turOnceki; turOnceki = null; turEl = null;
+      if (cb) cb(sonuc);
+      return;
+    }
+    if (ses.art === 'tani') {
+      const o = ses.tani, sonuc = taniCevap(ses.id, u, urteil, q.ipucu);
+      o.n++; if (urteil === 'richtig') o.d++; if (sonuc) o[sonuc].push(ses.id);
+    }
     api.heuteM('gram').n++; api.heuteM('gram')[urteil] = (api.heuteM('gram')[urteil] || 0) + 1;
     api.xpEkle(n === 3 ? (u.z >= 3 ? 15 : 10) : n === 2 ? 5 : 0);
     api.sayac && api.sayac(urteil);
     api.save();
+    if (ses.art === 'tani') return taniIleri();
     ses.i++;
     if (ses.i >= ses.set.length) setBitti(); else { ses.q = null; render(); }
   }
@@ -414,6 +600,11 @@
       // öğrenme adımları: giriş setinden sonra ertesi gün kesin tekrar; yanlışsa 1 gün içinde
       if (ses.art === 'giris' || setNot === 1) ks.karte.due = Math.min(ks.karte.due, t + DAY);
       if (ses.art === 'giris') ks.karte.due = t + DAY;
+      sprintVade(ks.karte, t);
+      // testte yanlış çıkan teil'ler: giriş setinden sonra hayalet (ertesi gün)
+      const tk = ses.art === 'giris' && taniSt().konu[ses.id], gh = st().ghost;
+      if (tk) (tk.yanlis || []).forEach(kod => { const key = ses.id + ':' + kod; if (!gh[key] && (GR[ses.id].teile || {})[kod]) { if (Object.keys(gh).length >= 6) delete gh[Object.keys(gh).sort((a, b) => gh[a].due - gh[b].due)[0]]; gh[key] = { adim: 2, due: t + DAY, q: api.soruSayisi(), son: 0, dogru: 0, deneme: 0 }; } });
+      gunIs('set');
       api.logEintrag({ modus: 'gram', id: `g:${ses.id}`, item: g.kopf.titel, frage: ses.art === 'giris' ? 'giriş' : ses.art === 'kontrast' ? 'kontrast' : 'tekrar', antwort: '', ergebnis: ['', 'falsch', 'fast', 'richtig'][setNot], loesung: '', notiz: `puan:${puan}/${n} | teil:${[...new Set(ses.erg.map(e => e.teil))].join(',')}` });
     }
     api.save();
@@ -426,6 +617,8 @@
     // teil adı alıştırmanın kendi konusundan (karışık tekrarda konular farklı)
     const zayif = [...new Set(ses.erg.filter(e => e.not < 3).map(e => { const gg = GR[e.konu] || g; return (gg.teile[e.teil] || {}).name || e.teil; }))];
     const dahaDue = Object.keys(GR).filter(id => id !== ses.id && vadeli(id));
+    // günün bloğu sürüyor: bugünün yeni konusu henüz öğrenilmedi → ana düğme; giriş setinden sonra sprintte isteğe bağlı +1
+    const by = blokYeni(), ek = !by && ses.art === 'giris' ? ekYeni() : null;
     const sonraki = id => { const kk = konuSt(id).karte; const dk = kk && kk.due ? kk.due - now() : 0; return dk < DAY ? (dk < 3600000 ? 'birazdan' : 'yarın') : Math.round(dk / DAY) + ' gün sonra'; };
     const kopf = ses.karisikOzet && ses.karisikOzet.length > 1
       ? `<div class="ts-baslik">Karışık tekrar · ${ses.karisikOzet.length} konu</div>${ses.karisikOzet.map(o => `<div class="oge"><span class="de">${esc(GR[o.id].kopf.titel)}</span><span class="tr">${o.p}/${o.n} puan · sıradaki tekrar ${sonraki(o.id)}</span></div>`).join('')}`
@@ -433,17 +626,20 @@
     el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">${ses.setNot === 3 ? '🏆' : ses.setNot === 2 ? '👍' : ses.art === 'ghost' ? '👻' : '🌱'}</div>
       ${kopf}
       ${zayif.length ? `<div class="kural">Zayıf kaldı: ${zayif.map(esc).join(', ')} → kısa aralıkla yeniden gelecek.</div>` : ''}
-      <div class="sira ts-btns">${dahaDue.length ? `<button class="btn ana" data-g="tekrar" data-id="${dahaDue[0]}" type="button">Sıradaki konu: ${esc(GR[dahaDue[0]].kopf.titel)}</button>` : ''}<button class="btn${dahaDue.length ? '' : ' ana'}" data-g="liste" type="button">Konu listesi</button><button class="btn" data-g="oku" data-id="${ses.id}" type="button">Kuralı oku</button></div></div>`;
+      <div class="sira ts-btns">${by ? `<button class="btn ana" data-g="ac" data-id="${by}" type="button">Bugünün yeni konusu: ${esc(GR[by].kopf.titel)}</button>` : ''}${dahaDue.length ? `<button class="btn${by ? '' : ' ana'}" data-g="tekrar" data-id="${dahaDue[0]}" type="button">Sıradaki konu: ${esc(GR[dahaDue[0]].kopf.titel)}</button>` : ''}${ek ? `<button class="btn" data-g="ac" data-id="${ek}" type="button">İstersen +1 yeni konu: ${esc(GR[ek].kopf.titel)}</button>` : ''}<button class="btn${dahaDue.length || by ? '' : ' ana'}" data-g="liste" type="button">Konu listesi</button><button class="btn" data-g="oku" data-id="${ses.id}" type="button">Kuralı oku</button></div></div>`;
     if (ses.setNot === 3 && api.konfeti) api.konfeti();
   }
 
   // ---------- olaylar ----------
   function klick(e) {
-    const b = e.target.closest('[data-g]'); if (!b) return false;
+    const b = e && e.target && e.target.closest('[data-g]'); if (!b) return false;
     const a = b.dataset.g, id = b.dataset.id;
     if (a === 'liste') { ses = { ekran: 'liste' }; render(); }
     else if (a === 'oku') { ses = { ekran: 'tanit', id, sonra: 'liste' }; render(); }
-    else if (a === 'ac') { const ks = konuSt(id); ks.acildi = now(); api.save(); api.logEintrag({ modus: 'gram', id: 'g:' + id, item: GR[id].kopf.titel, frage: 'tanıtım', antwort: '', ergebnis: 'neu', loesung: '', notiz: '' }); ses = { ekran: 'tanit', id, sonra: 'giris' }; render(); }
+    else if (a === 'ac') yeniAc(id);
+    else if (a === 'tani') taniBaslat();
+    else if (a === 'tani-basla') { ses = { tani: { n: 0, d: 0, biliyor: [], zayif: [], basla: now() } }; taniIleri(); }
+    else if (a === 'blok') blokBaslat();
     else if (a === 'giris-basla') { const sek = ses.tanitBasi ? Math.round((now() - ses.tanitBasi) / 1000) : 0; if (sek) api.logEintrag({ modus: 'gram', id: 'g:' + ses.id, item: GR[ses.id].kopf.titel, frage: 'okudu', antwort: '', ergebnis: 'gelesen', loesung: '', notiz: `sek:${sek}` }); baslatSet(ses.id, 'giris', girisSeti(ses.id)); }
     else if (a === 'tekrar') baslatSet(id, 'tekrar', tekrarSeti(id));
     else if (a === 'karisik') karisikBaslat();
@@ -496,7 +692,8 @@
     if (!ses) return false;
     if (e.key === 'Enter') {
       if (ses.ekran === 'tanit') { e.preventDefault(); klick({ target: el().querySelector('[data-g="giris-basla"], [data-g="liste"]') }); return true; }
-      if (ses.ekran === 'son') { e.preventDefault(); const b = el().querySelector('.ts-btns .btn.ana'); if (b) klick({ target: b }); return true; }
+      if (ses.ekran === 'son' || ses.ekran === 'tani-son') { e.preventDefault(); const b = el().querySelector('.ts-btns .btn.ana'); if (b) klick({ target: b }); return true; }
+      if (ses.ekran === 'tani-giris') { e.preventDefault(); klick({ target: el().querySelector('[data-g="tani-basla"]') }); return true; }
       if (ses.ekran === 'ueb') {
         e.preventDefault();
         if (ses.q && ses.q.done) { notla(ses.q.oneri); return true; }
@@ -515,26 +712,31 @@
       if (u.tur === 'eslestir' && q.sagSira && k < q.sagSira.length) { esSag(q.sagSira[k]); return true; }
       if (u.tur === 'kategori' && q.ogeler && k < u.gruplar.length) { const a = q.ogeler.findIndex((_, i) => q.kat[i] == null); if (a !== -1) { q.kat[a] = k; renderUebung(); } return true; }
     }
-    if (ses.ekran === 'ueb' && ses.q && ses.q.done && /^[123]$/.test(e.key) && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { notla(+e.key); return true; }
+    if (ses.ekran === 'ueb' && ses.art !== 'tani' && ses.q && ses.q.done && /^[123]$/.test(e.key) && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { notla(+e.key); return true; }
     return false;
   }
   // karışık tekrar: vadeli konulardan dönüşümlü (A, B, C, A, …), aynı konudan art arda en çok 2
-  function karisikBaslat() {
-    const due = Object.keys(GR).filter(vadeli);
-    if (!due.length) return;
+  // limit: en çok bu kadar konu (vadesi en eski önce); ghostN: araya serpilen hazır hayalet sayısı (günün bloğu)
+  function karisikBaslat(limit, ghostN) {
+    let due = Object.keys(GR).filter(id => vadeli(id)).sort((a, b) => konuSt(a).karte.due - konuSt(b).karte.due);
+    if (limit) due = due.slice(0, limit);
+    const ghosts = ghostN ? hayaletHazir().slice(0, ghostN).map(k => { const [id, kod] = k.split(':'); const u = GR[id] ? ghostUebung(id, kod, st().ghost[k].son) : null; return u ? { id, u, ghost: k } : null; }).filter(Boolean) : [];
+    if (!due.length && !ghosts.length) return false;
     const setler = due.map(id => ({ id, set: tekrarSeti(id), i: 0 }));
     const sira = []; let kaldi = true;
     while (kaldi) { kaldi = false; setler.forEach(s => { if (s.i < s.set.length) { sira.push({ id: s.id, u: s.set[s.i++] }); kaldi = true; } }); }
-    ses = { ekran: 'ueb', karisik: setler.map(s => ({ id: s.id, erg: [] })), sira, k: 0 };
+    ghosts.forEach((x, i) => sira.splice(Math.min(sira.length, 2 + i * 4), 0, x));
+    ses = { ekran: 'ueb', karisik: setler.map(s => ({ id: s.id, erg: [] })), sira, k: 0, sonId: (due[0] || ghosts[0].id) };
     karisikAdim();
+    return true;
   }
   function karisikAdim() {
     // her alıştırma kendi konusunun seti gibi tek tek koşulur; set sonunda konu başına FSRS
     const kar = ses.karisik, sira = ses.sira;
     if (ses.k >= sira.length) { karisikBitir(kar); return; }
     const x = sira[ses.k++];
-    const erg = kar.find(s => s.id === x.id).erg;
-    ses = Object.assign(ses, { ekran: 'ueb', id: x.id, art: 'tekrar', set: [x.u], i: 0, erg, q: null, karisikDevam: true });
+    const erg = x.ghost ? [] : kar.find(s => s.id === x.id).erg;   // hayalet konu kartını değiştirmez
+    ses = Object.assign(ses, { ekran: 'ueb', id: x.id, art: x.ghost ? 'ghost' : 'tekrar', set: [x.u], i: 0, erg, q: null, karisikDevam: true });
     render();
   }
   function karisikBitir(kar) {
@@ -542,10 +744,11 @@
     const ozetler = [];
     kar.forEach(s => { if (!s.erg.length) return; const ks = konuSt(s.id); const p = s.erg.reduce((a, e) => a + (e.not === 3 ? 1 : e.not === 2 ? 0.5 : 0), 0); const o = p / s.erg.length; const nt = o >= 0.8 ? 3 : o >= 0.5 ? 2 : 1;
       ozetler.push({ id: s.id, p, n: s.erg.length, nt });
-      ks.karte = api.FSRS.review(ks.karte && ks.karte.S ? ks.karte : {}, nt, t, api.ret()); if (nt === 1) ks.karte.due = Math.min(ks.karte.due, t + DAY);
+      ks.karte = api.FSRS.review(ks.karte && ks.karte.S ? ks.karte : {}, nt, t, api.ret()); if (nt === 1) ks.karte.due = Math.min(ks.karte.due, t + DAY); sprintVade(ks.karte, t);
       api.logEintrag({ modus: 'gram', id: 'g:' + s.id, item: GR[s.id].kopf.titel, frage: 'tekrar', antwort: '', ergebnis: ['', 'falsch', 'fast', 'richtig'][nt], loesung: '', notiz: `puan:${p}/${s.erg.length} | karışık` }); toplam += p; n += s.erg.length; });
+    if (ozetler.length) gunIs('set');
     api.save();
-    ses = { ekran: 'son', id: kar[0].id, erg: kar.flatMap(s => s.erg), puan: toplam, n, setNot: n ? (toplam / n >= 0.8 ? 3 : toplam / n >= 0.5 ? 2 : 1) : null, art: 'tekrar', karisikOzet: ozetler };
+    ses = { ekran: 'son', id: ozetler.length ? ozetler[0].id : ses.sonId, erg: kar.flatMap(s => s.erg), puan: toplam, n, setNot: n ? (toplam / n >= 0.8 ? 3 : toplam / n >= 0.5 ? 2 : 1) : null, art: n ? 'tekrar' : 'ghost', karisikOzet: ozetler };
     render();
   }
   function ghostBaslat() {
@@ -559,12 +762,76 @@
   const _setBitti = setBitti;
   setBitti = function () { if (ses && ses.karisikDevam) { karisikAdim(); return; } _setBitti(); };
 
+  // ---------- yeni konu, tanı oturumu, günün bloğu ----------
+  function yeniAc(id) {
+    if (!GR[id]) return;
+    const ks = konuSt(id);
+    if (!ks.acildi) { ks.acildi = now(); ks.kaynak = sprintAktif() ? 'sprint' : 'el'; api.save(); api.logEintrag({ modus: 'gram', id: 'g:' + id, item: GR[id].kopf.titel, frage: 'tanıtım', antwort: '', ergebnis: 'neu', loesung: '', notiz: '' }); }
+    ses = { ekran: 'tanit', id, sonra: 'giris' }; render();
+  }
+  function taniBaslat() { ses = { ekran: 'tani-giris' }; render(); }
+  // sıradaki test maddesi; oturum ~25 maddede biter (yarım konu tamamlanır)
+  function taniIleri() {
+    const o = ses.tani, sq = taniSoru();
+    if (!sq || !sq.u || (o.n >= TANI_OTURUM && sq.sira === 1)) return taniBitir();
+    ses = { ekran: 'ueb', art: 'tani', id: sq.konu, set: [sq.u], i: 0, erg: [], q: null, tani: o, taniSira: sq.sira };
+    render();
+  }
+  function taniBitir() {
+    const o = ses.tani, d = taniDurum(), T = taniSt();
+    if (o.n) {
+      T.oturum = (T.oturum || 0) + 1;
+      api.logEintrag({ modus: 'gram', id: 'g:tani', item: 'Gramer testi', frage: `oturum:${T.oturum}`, antwort: '', ergebnis: d.bitti ? 'bitti' : 'ara', loesung: '',
+        notiz: `puan:${o.d}/${o.n} | konu:${d.yapilan}/${d.toplam} | biliyor:${o.biliyor.join(',')} | zayif:${o.zayif.join(',')} | dk:${Math.max(1, Math.round((now() - o.basla) / 60000))}` });
+      gunIs('tani');
+    }
+    api.save();
+    ses = { ekran: 'tani-son', tani: o }; render();
+  }
+  function renderTaniGiris() {
+    const d = taniDurum();
+    el().innerHTML = `<div class="tur"><span class="yeni">gramer · test</span><span>${d.yapilan}/${d.toplam} konu</span></div>
+      <div class="soru">Gramer testi</div><div class="soluk">B1'in bütün konuları: ne biliyorsun, ne öğrenilecek?</div>
+      <div class="g-erkl"><p>Her konudan 1–2 kısa soru, yazarak. Bilmiyorsan „Bilmiyorum“ de, tahmin etme: test bilmediğini bulmak için.</p>
+      <p>İki sorusu da doğru (ipucusuz) olan konu açılır; ilk tekrarı 4–5 gün sonra, orada yine sınanır. Zayıf çıkanlar sprint sırasına girer: her gün biri öğretilir.</p></div>
+      <div class="soluk">Bu oturum ~${TANI_OTURUM} soru (~8 dk)${d.yapilan ? ' · kaldığın yerden' : ''}</div>
+      <div class="sira"><button class="btn ana devam-btn" data-g="tani-basla" type="button">${d.yapilan ? 'Devam et' : 'Başla'} <kbd>Enter</kbd></button><button class="btn" data-g="liste" type="button">Konu listesi</button></div>`;
+  }
+  function renderTaniSon() {
+    const o = ses.tani, d = taniDurum(), ad = id => esc(GR[id].kopf.titel), y = bugunYeni(), yeni = y && !acik(y) ? y : null;
+    const kisa = ids => ids.slice(0, 4).map(ad).join(' · ') + (ids.length > 4 ? ` <span class="soluk">+ ${ids.length - 4} konu</span>` : '');
+    el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">📝</div><div class="ts-baslik">Gramer testi · ${d.bitti ? 'bitti' : `${d.yapilan}/${d.toplam} konu`}</div>
+      <div class="soluk">${o.d}/${o.n} soru doğru</div>
+      ${o.biliyor.length ? `<div class="kural">Biliyorsun: ${o.biliyor.length} konu (açıldı, ilk tekrar 4–5 gün sonra): ${kisa(o.biliyor)}</div>` : ''}
+      ${o.zayif.length ? `<div class="kural">Öğrenilecek: ${o.zayif.length} konu (sprint sırasına girdi): ${kisa(o.zayif)}</div>` : ''}
+      ${d.bitti ? '' : `<p class="aciklama">Kalan ${d.toplam - d.yapilan} konu: sonraki gramer bloğunda kaldığın yerden.</p>`}
+      <div class="sira ts-btns"><button class="btn ana" data-g="liste" type="button">Tamam</button>${yeni ? `<button class="btn" data-g="ac" data-id="${yeni}" type="button">İstersen yeni konu: ${ad(yeni)}</button>` : ''}${d.bitti ? '' : '<button class="btn" data-g="tani-basla" type="button">İstersen teste devam</button>'}</div></div>`;
+  }
+  // günün bloğu (S2): test bitmediyse test oturumu (kaldığı yerden); yoksa vadeli konuların karışık tekrarı (en çok 5 konu + 3 hayalet),
+  // ardından bugünün yeni konusu (tanıtım + giriş seti). Çağıran: app, starte('gram') sonrası.
+  let blok = null;
+  const blokYeni = () => { const y = blok && blok.gun === gun() && blok.yeni; return y && GR[y] && !(acik(y) && konuSt(y).karte) ? y : null; };
+  function blokBaslat() {
+    if (!api) return;
+    st();
+    if (!taniDurum().bitti) return taniBaslat();
+    const y = bugunYeni();
+    blok = { gun: gun(), yeni: y && !(acik(y) && konuSt(y).karte) ? y : null };
+    if (karisikBaslat(5, 3)) return;
+    if (blok.yeni) return yeniAc(blok.yeni);
+    ses = { ekran: 'liste' }; render();
+  }
+
   // ---------- Çalış akışı için dış arayüz ----------
   // vadeli konu sayısı / hayalet; Bugün ekranı ve plan buradan okur
-  const ozet = () => ({ due: Object.keys(GR).filter(vadeli).length, acik: Object.keys(GR).filter(acik).length, ghost: hayaletHazir().length, toplam: Object.keys(GR).length });
-  function init(a) { api = a; S = api.S(); }
-  function yenile() { S = api.S(); }
+  const ozet = () => ({ due: Object.keys(GR).filter(id => vadeli(id)).length, acik: Object.keys(GR).filter(id => acik(id)).length, ghost: hayaletHazir().length, toplam: Object.keys(GR).length });
+  function init(a) { api = a; S = null; turCache = null; if (api.S) st(); }
+  function yenile() { if (api && api.S) st(); }
   // test / önizleme: belirli alıştırmaları sırayla göster (FSRS'e ve hayalete yazmaz, log'a yazar)
   function dene(id, nler) { const set = (nler || []).map(n => (GR[id].uebungen || []).find(u => u.n === n)).filter(Boolean); baslatSet(id, 'deneme', set); }
-  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik, pruef, yazarak, loesung, tekrarSeti: id => tekrarSeti(id), girisSeti: id => girisSeti(id), dene };
+  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik, pruef, yazarak, loesung, tekrarSeti: id => tekrarSeti(id), girisSeti: id => girisSeti(id), dene,
+    // B1 sprinti (S2): durum, günün bloğu, ana turda soru
+    SPRINT_SIRA, sprintDurum, blokBaslat, turSorusu, turRender, turKlick, turTus,
+    // DOM'suz iç işler (test): tanı sorusu / cevabı, sıra, konu durumu, +1 aday
+    _ic: { taniSoru, taniCevap, taniDurum, sprintSira, konuDurum, ekYeni, bugunAcilan, sprintVade, yeniAc, ses: () => ses } };
 })(window);

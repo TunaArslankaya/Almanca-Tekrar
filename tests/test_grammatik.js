@@ -350,6 +350,161 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   fs.rmSync(dir, { recursive: true, force: true });
 }
 
+// Gramer: B1 sprinti — açılış göçü, tanı testi, sprint sırası / kuralları, ana turda soru (S2 API; sahte DOM ile)
+{
+  const fs = require('fs'), path = require('path'), ROOT = path.join(__dirname, '..');
+  global.window = global.window || {};
+  window.G = G;
+  if (!window.GRAMMATIK) eval(fs.readFileSync(ROOT + '/daten/grammatik.js', 'utf8'));
+  eval(fs.readFileSync(ROOT + '/js/gramer.js', 'utf8'));
+  const Gr = window.Gramer, GR = window.GRAMMATIK, DAY = 86400000;
+  const gunStr = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  // sahte DOM: kart elemanı (yalnız gramer.js'in kullandığı kadar)
+  const inp = v => ({ value: v, readOnly: false, classList: { add() {} } });
+  const mkEl = () => { const e = { innerHTML: '', inputs: [], tam: null, sonuc: { innerHTML: '' },
+    querySelector(s) { return s === '#g-sonuc' ? e.sonuc : s === '.g-tam' ? e.tam : s === '.g-inp' ? (e.inputs[0] || e.tam) : null; },
+    querySelectorAll(s) { return s === '.g-inp' ? (e.inputs.length ? e.inputs : e.tam ? [e.tam] : []) : []; }, contains: () => true }; return e; };
+  const B = (g, ds) => ({ dataset: Object.assign({ g }, ds || {}), closest() { return this; } });
+  const ENTER = { key: 'Enter', preventDefault() {}, target: { tagName: 'DIV' } };
+  const temiz = s => (s || '').replace(/[.,!?;:]+$/, '');
+  // doğru cevabı ekrana "yaz" ve kontrol et (klick: Gr.klick ya da Gr.turKlick)
+  function dogruCevap(elm, klick) {
+    const s = Gr._ic.ses(), u = s.set[s.i], q = s.q;
+    elm.inputs = []; elm.tam = null;
+    if (u.tur === 'luecke') { elm.inputs = u.cevap[0].split(' ; ').map(inp); return klick({ target: B('kontrol') }); }
+    if (u.tur === 'umform' || u.tur === 'ceviri') { elm.tam = inp(u.cevap[0]); return klick({ target: B('kontrol') }); }
+    if (u.tur === 'ordnen') {
+      let hedef = u.cevap[0].replace(/[.!?]+$/, '').replace(/,/g, '').replace(/\s+/g, ' ').trim().toLowerCase(); const secim = [];
+      while (hedef) { const i = q.parcalar.findIndex((p, k) => !secim.includes(k) && (hedef === p.toLowerCase() || hedef.startsWith(p.toLowerCase() + ' '))); if (i < 0) break; secim.push(i); hedef = hedef.slice(q.parcalar[i].length).trim(); }
+      q.secim = secim; return klick({ target: B('kontrol') });
+    }
+    if (u.tur === 'fehler') {
+      if (!u.hata || u.hata === '-') return klick({ target: B('hata-yok') });
+      const toks = u.soru.split(/(\s+)/), hw = u.hata.split(/\s+/).map(temiz), i = toks.findIndex(t => /\S/.test(t) && hw.includes(temiz(t)));
+      klick({ target: B('tok', { i: String(i) }) });
+      if (Gr._ic.ses().q.adim === 2) { elm.tam = inp(u.cevap[0]); klick({ target: B('kontrol') }); }
+    }
+  }
+  let saat = new Date(2026, 9, 28, 10).getTime();
+  const t0 = saat, logs = [], later = [], hm = {};
+  const kartEl = mkEl();
+  const D = { sprint: { hedef: '2026-11-09', son_yeni: '2026-11-05', acik: true }, gram: { konu: {
+    'tuerkisch-fallen': { karte: null, teil: {}, gesehen: {}, lern: null, acildi: saat - 10 * DAY },
+    perfekt: { karte: null, teil: {}, gesehen: {}, lern: null, acildi: saat - 3600000 },
+    adjektiv: { karte: { reps: 1, lapses: 0, S: 2.3, D: 2.1, last: saat - 10 * DAY, due: saat - 9 * DAY, lastG: 3 }, teil: {}, gesehen: {}, lern: null, acildi: saat - 10 * DAY } }, ghost: {} } };
+  Gr.init({ S: () => D, G, FSRS, now: () => saat, tag: gunStr, ret: () => 0.85, soruSayisi: () => 0, logEintrag: x => logs.push(x), save() {}, heuteM: m => (hm[m] = hm[m] || { n: 0 }),
+    xpEkle() {}, sayac() {}, toast() {}, esc: s => String(s), deHTML: s => String(s), kart: () => kartEl, durum() {}, later: f => later.push(f), fx() {}, odakla: () => false, sprich() {} });
+  const runLater = () => { while (later.length) later.shift()(); };
+  // göç: kartsız, bir günden eski açılış kapanır (vadeli değil); bugün açılmış kartsız konu açık kalır ama vadeli değil
+  eq(Gr.acik('tuerkisch-fallen') || Gr.vadeli('tuerkisch-fallen'), false, 'göç: tuerkisch-fallen kapandı, vadeli değil');
+  eq(D.gram.konu['tuerkisch-fallen'].yarim, 1, 'göç: yarım işareti');
+  eq(Gr.acik('perfekt') && !Gr.vadeli('perfekt'), true, 'kartsız bugünkü açılış: açık ama vadeli değil');
+  eq(Gr.sprintDurum().vadeli.join(','), 'adjektiv', 'sprintDurum.vadeli yalnız kartlı vadeli konu');
+  eq(Gr._ic.konuDurum('tuerkisch-fallen'), 'denenmedi', 'göçten sonra denenmedi');
+  D.gram.konu.perfekt.acildi = 0;
+  // sıra (S6)
+  const sd0 = Gr.sprintDurum();
+  eq(sd0.konular.slice(0, 4).map(k => k.id).join(','), 'verbstellung,satzklammer-tekamolo,nebensatz-satzbau,weil-dass', 'sprint sırası başı');
+  eq(sd0.konular.length, Object.keys(GR).length, 'sprint sırası: bütün konular');
+  eq(sd0.konular.every((k, i) => k.oncelik === i + 1 && k.ad && ['denenmedi', 'zayif', 'ogreniliyor', 'biliyor'].includes(k.durum)), true, 'konular: oncelik / ad / durum');
+  const sira = Gr._ic.sprintSira(), sp = Gr.SPRINT_SIRA.filter(id => GR[id]);
+  eq(sira.slice(0, sp.length).join(','), sp.join(','), 'yalnız var olan sprint konuları, sabit sırada');
+  eq(sd0.tani.bitti === false && sd0.tani.yapilan === 0 && sd0.tani.toplam >= 40, true, 'tanı başlamadı');
+  eq(sd0.bugunYeni, null, 'tanı yokken yeni konu yok');
+  eq(sd0.bugunYapildi, false, 'blok yapılmadı');
+  // tanı sorusu: yazarak, seçeneksiz, z2–3
+  const q1 = Gr._ic.taniSoru();
+  eq(q1.konu === 'verbstellung' && q1.sira === 1 && q1.u.z === 2 && ['luecke', 'umform', 'ceviri', 'ordnen'].includes(q1.u.tur) && !q1.u.opt, true, 'tanı: ilk soru z2 yazarak');
+  // tanı oturumu (sahte DOM): verbstellung ikisi doğru → biliyor; satzklammer bilmiyorum → zayif; nebensatz doğru + bilmiyorum → zayif; kalanlar bilmiyorum
+  Gr.blokBaslat();
+  eq(Gr._ic.ses().ekran === 'tani-giris' && kartEl.innerHTML.includes('Gramer testi'), true, 'blok: tanı bitmedi → test girişi');
+  Gr.klick({ target: B('tani-basla') });
+  let n = 0, tusEngel = true;
+  while (Gr._ic.ses() && Gr._ic.ses().ekran === 'ueb' && n < 60) {
+    const s = Gr._ic.ses(), id = s.id;
+    const dogru = id === 'verbstellung' || (id === 'nebensatz-satzbau' && s.taniSira === 1);
+    if (dogru) dogruCevap(kartEl, Gr.klick); else Gr.klick({ target: B('bilmiyorum') });
+    eq(Gr._ic.ses().q.done, true, 'tanı: cevaplandı ' + id + ' ' + s.set[0].tur);
+    if (Gr.tus({ key: '3', target: { tagName: 'DIV' } })) tusEngel = false;
+    Gr.tus(ENTER); n++;
+  }
+  eq(tusEngel, true, 'tanı: 1/2/3 ile itiraz yok');
+  eq(Gr._ic.ses().ekran, 'tani-son', 'tanı: oturum sonu ekranı');
+  eq(n >= 25 && n <= 26, true, 'tanı: oturum ~25 madde (' + n + ')');
+  const tl = logs.filter(x => /^g:[a-z0-9-]+:tani:\d+$/.test(x.id));
+  eq(tl.length, n, 'tanı: madde başına log g:<konu>:tani:<n>');
+  eq(tl[0].notiz.startsWith('tanı:1 | tür:') && tl[1].notiz.startsWith('tanı:2 | '), true, 'tanı: notiz tanı:<sıra> önde');
+  eq(tl.filter(x => x.id.startsWith('g:verbstellung:')).every(x => x.ergebnis === 'richtig'), true, 'tanı: doğru cevap richtig (' + tl.filter(x => x.id.startsWith('g:verbstellung:')).map(x => x.ergebnis + '/' + x.notiz).join(' ; ') + ')');
+  eq(tl.find(x => x.id.startsWith('g:satzklammer-tekamolo:')).notiz.includes('bilmiyorum'), true, 'tanı: bilmiyorum loglandı');
+  const son = logs.filter(x => x.id === 'g:tani').pop();
+  eq(!!son && son.ergebnis === 'ara' && /^puan:\d+\/\d+ \| konu:\d+\/\d+ \| biliyor:verbstellung \| zayif:satzklammer-tekamolo,nebensatz-satzbau,/.test(son.notiz), true, 'tanı: oturum sonu g:tani (' + (son && son.notiz) + ')');
+  const vb = D.gram.konu.verbstellung;
+  eq(Gr.acik('verbstellung') && vb.karte.S <= 5 && vb.karte.due - saat >= 4 * DAY && vb.karte.due - saat <= 5 * DAY && !Gr.vadeli('verbstellung'), true, 'biliyor: açıldı, kısa vade (4–5 gün, S ≤ 5)');
+  eq(Gr._ic.konuDurum('verbstellung'), 'biliyor', 'biliyor durumu');
+  eq(Gr.acik('satzklammer-tekamolo'), false, 'zayif: açılmadı');
+  eq(Gr._ic.konuDurum('satzklammer-tekamolo'), 'zayif', 'zayif durumu');
+  eq(Object.keys(D.gram.ghost).some(k => k.startsWith('satzklammer-tekamolo:') || k.startsWith('nebensatz-satzbau:')), false, 'kapalı konuya hayalet açılmaz (açılınca)');
+  eq(D.gram.tani.konu['nebensatz-satzbau'].yanlis.length, 1, 'zayif: yanlış teil kaydı');
+  eq(Object.keys(D.gram.ghost).some(k => k.startsWith('adjektiv:')) || !tl.some(x => x.id.startsWith('g:adjektiv:')), true, 'açık konunun testte yanlış teil\'i hayalet');
+  const sd1 = Gr.sprintDurum();
+  eq(sd1.bugunYapildi && sd1.tani.yapilan > 0 && !sd1.tani.bitti, true, 'tanı oturumu bitti → bugunYapildi');
+  eq(sd1.bugunYeni, 'satzklammer-tekamolo', 'tanı sürerken: sırada ilk zayıf konu');
+  // tanının kalanı (DOM'suz): hepsi yanlış
+  let guv = 0; for (let q; (q = Gr._ic.taniSoru()) && guv < 200; guv++) Gr._ic.taniCevap(q.konu, q.u, 'falsch', false, saat);
+  eq(Gr._ic.taniDurum().bitti, true, 'tanı bitti');
+  // günün bloğu: vadeli yok → bugünün yeni konusu (tanıtım + giriş)
+  D.gram.konu.adjektiv.karte.due = saat + 3 * DAY;
+  Gr.blokBaslat();
+  eq(Gr._ic.ses().ekran === 'tanit' && Gr._ic.ses().id === 'satzklammer-tekamolo', true, 'blok: yeni konu tanıtımı');
+  eq(logs.some(x => x.id === 'g:satzklammer-tekamolo' && x.ergebnis === 'neu'), true, 'blok: tanıtım logu');
+  eq(Gr.sprintDurum().bugunYeni, 'satzklammer-tekamolo', 'bugunYeni: bugün açılan');
+  eq(Gr._ic.ekYeni(), 'nebensatz-satzbau', 'isteğe bağlı +1: sıradaki zayıf');
+  Gr._ic.yeniAc('nebensatz-satzbau');
+  eq(Gr._ic.ekYeni() === null && Gr._ic.bugunAcilan().length === 2, true, 'sprint: günde en çok 2');
+  eq(Gr._ic.bugunAcilan().includes('verbstellung'), false, 'testten açılan bugün sayılmaz');
+  // son_yeni / hedef
+  const s0 = saat;
+  saat = new Date(2026, 10, 6, 10).getTime(); eq(Gr.sprintDurum().bugunYeni, null, 'son_yeni sonrası yeni konu yok');
+  saat = new Date(2026, 10, 10, 10).getTime(); eq(Gr.sprintDurum().bugunYeni !== null, true, 'sprint bitti: normal kural');
+  saat = s0;
+  // sprint vadesi: hedefe kalan sürenin ~%40'ı
+  eq(Gr._ic.sprintVade({ due: saat + 30 * DAY }, saat).due, saat + 5 * DAY, 'sprintVade: 12 gün kala ≤ 5 gün');
+  D.sprint.acik = false; eq(Gr._ic.sprintVade({ due: saat + 30 * DAY }, saat).due, saat + 30 * DAY, 'sprint kapalı: sınır yok'); D.sprint.acik = true;
+  // ana turda soru (S2): 5 gün sonra verbstellung ve adjektiv vadeli
+  saat = t0 + 5 * DAY + 3600000;
+  const kartOnce = JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte]);
+  const ts1 = Gr.turSorusu(saat, []);
+  eq(!!ts1 && ['verbstellung', 'adjektiv'].includes(ts1.konu) && ['luecke', 'umform', 'ceviri', 'ordnen', 'fehler'].includes(ts1.tur) && !GR[ts1.konu].uebungen.find(u => u.n === ts1.n).opt, true, 'turSorusu: vadeli konudan yazarak soru');
+  eq(Gr.turSorusu(saat, []), ts1, 'turSorusu: aynı soru (önbellek)');
+  const ts2 = Gr.turSorusu(saat, [ts1.konu]);
+  eq(!!ts2 && ts2.konu !== ts1.konu, true, 'turSorusu: haric konu atlanır');
+  eq(Gr.turSorusu(saat, ['verbstellung', 'adjektiv']), null, 'turSorusu: aday yok → null');
+  eq(Gr.turSorusu(t0, []), null, 'turSorusu: vadeli yokken null');
+  // turRender: gramer bölümündeki oturum korunur; doğru → bitti richtig, log tur:akis, konu kartı değişmez
+  const bolumOnce = Gr._ic.ses(), turEl = mkEl(), sonuclar = [];
+  eq(Gr.turKlick({ target: B('kontrol') }), false, 'turKlick: tur yokken false');
+  eq(Gr.turRender(turEl, ts1, r => sonuclar.push(r)), true, 'turRender çizdi');
+  eq(turEl.innerHTML.length > 0 && kartEl.innerHTML.includes('satzklammer') === kartEl.innerHTML.includes('satzklammer'), true, 'turRender verilen elemana');
+  const turU = Gr._ic.ses().set[0], teilOnce = ((D.gram.konu[ts1.konu].teil[turU.teil] || {}).d || 0);
+  dogruCevap(turEl, Gr.turKlick); runLater();
+  eq(sonuclar.length === 1 && sonuclar[0].urteil === 'richtig', true, 'tur: doğru → bitti richtig (' + JSON.stringify(sonuclar) + ')');
+  const tlog = logs[logs.length - 1];
+  eq(tlog.modus === 'gram' && tlog.id === `g:${ts1.konu}:${ts1.n}` && tlog.notiz.startsWith('tur:akis | tür:'), true, 'tur: log g:<konu>:<n>, notiz tur:akis');
+  eq(JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte]), kartOnce, 'tur: konu kartı değişmez');
+  eq(D.gram.konu[ts1.konu].teil[turU.teil].d, teilOnce + 1, 'tur: teil istatistiği');
+  eq(Gr._ic.ses(), bolumOnce, 'tur: bölüm oturumu geri geldi');
+  eq(Gr.turKlick({ target: B('kontrol') }) || Gr.turTus(ENTER), false, 'tur bitti: olay tüketilmez');
+  // yanlış → hayalet, bitti falsch
+  const ts3 = Gr.turSorusu(saat, []);
+  Gr.turRender(turEl, ts3, r => sonuclar.push(r));
+  const u3 = Gr._ic.ses().set[0];
+  eq(Gr.turKlick({ target: B('bilmiyorum') }), true, 'turKlick: bilmiyorum tüketildi');
+  eq(Gr.turTus(ENTER), true, 'turTus: Enter (Devam) tüketildi');
+  eq(sonuclar.length === 2 && sonuclar[1].urteil === 'falsch', true, 'tur: bilmiyorum → falsch');
+  eq(!!D.gram.ghost[ts3.konu + ':' + u3.teil], true, 'tur: yanlış teil hayalet');
+  eq(logs[logs.length - 1].notiz.includes('bilmiyorum'), true, 'tur: bilmiyorum loglandı');
+}
+
 // FSRS
 let c = FSRS.review({}, 3, 0);
 eq(Math.round(c.S * 100) / 100, 2.31, 'S0 good');
