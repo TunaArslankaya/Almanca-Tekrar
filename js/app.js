@@ -3452,14 +3452,36 @@
     return l.length ? `<div class="seviye-dagilim">${l.map(([x, o]) => `<div class="sd-satir"><span>${esc(BICIM_TR[x])}</span><span class="sd-cubuk"><span style="width:${Math.round(o.ok / o.n * 100)}%"></span></span><b>%${Math.round(o.ok / o.n * 100)}</b></div>`).join('')}</div><div class="soluk">son 30 gün · küçük hata yarım sayılır</div>`
       : '<p class="soluk">Henüz yeterli cevap yok: birkaç turdan sonra her soru biçimindeki başarın burada görünür.</p>';
   }
+  // gramer haritası: konu durumları (Gramer.sprintDurum; yoksa açık / denenmedi), sözleşme sırasıyla
+  const GH_AD = { biliyor: 'biliyor', ogreniliyor: 'öğreniliyor', zayif: 'zayıf', denenmedi: 'denenmedi' };
+  function gramerHaritasi() {
+    const gb = gramBlok(now()), l = gb.konular || []; if (!l.length) return '';
+    const say = d => l.filter(k => k.durum === d).length;
+    const tani = gb.tani && !gb.tani.bitti ? `<div class="soluk">Gramer testi: ${gb.tani.yapilan}/${gb.tani.toplam} · bitince denenmemiş konular "biliyor" ya da "zayıf" olur.</div>` : '';
+    return `${tani}<div class="g-harita">${l.map(k => `<span class="gh-konu gh-${GH_AD[k.durum] ? k.durum : 'denenmedi'}" title="${esc(k.ad)} · ${GH_AD[k.durum] || k.durum}">${esc(kisaKonu(k.ad))}</span>`).join('')}</div>
+      <div class="gh-lejant">${Object.keys(GH_AD).map(d => `<span><i class="gh-${d}"></i>${GH_AD[d]} <b>${say(d)}</b></span>`).join('')}</div>`;
+  }
+  // sık 300 (sözleşme S4: build'in `sik` alanı; yoksa kutu gizli): yazıyor ve üstü / tanıştığın
+  function sik300() {
+    const ids = [].concat(NL, VERBEN, WOERTER).filter(x => x && x.sik).map(x => x.id); if (!ids.length) return '';
+    const it = ids.filter(id => S.items[id] && S.items[id].m && S.items[id].m.S), yaz = it.filter(id => seviyeOf(id) >= 2).length;
+    return `<div class="b1-kart sik-kart"><div class="b1-ust"><b>Sık ${ids.length} kelime: ${yaz}/${ids.length}</b><span>okuma metinlerinde en sık geçen B1 kelimeleri · "Yazıyor ve üstü" · tanıştığın ${it.length}</span></div>
+      <div class="b1-cubuk"><span class="b1-oturdu" style="width:${(yaz / ids.length * 100).toFixed(2)}%"></span><span class="b1-ogren" style="width:${((it.length - yaz) / ids.length * 100).toFixed(2)}%"></span></div></div>`;
+  }
   function renderGecmis() { ilerlemeUst(); }
   function ilerlemeUst() {
     const el = $('#ilerleme-ust'); if (!el) return;
     const t = now(), sr = seriDurum(), seri = seriSay();
     const ogeler = Object.keys(S.items).filter(id => kind(id) !== 'p' && gueltig(id + ':x'));
     const sv = [0, 0, 0, 0, 0, 0]; ogeler.forEach(id => { sv[seviyeOf(id)]++; });
-    const toplam = NL.length + VERBEN.length + WOERTER.length, yaziyor = sv[2] + sv[3] + sv[4] + sv[5];
-    const b1 = Math.round(yaziyor / toplam * 1000) / 10;
+    const yaziyor = sv[2] + sv[3] + sv[4] + sv[5];
+    // B1 yolu: yalnız B1 (seviye 3) kelimeler, pay da payda da
+    const b1mi = id => { try { return tierOf(id) === 3; } catch (e) { return false; } };
+    const toplam = [].concat(NL, VERBEN, WOERTER).filter(x => x && x.tier === 3).length || 1;
+    const b1Yaz = ogeler.filter(id => b1mi(id) && seviyeOf(id) >= 2).length;
+    const b1 = Math.round(b1Yaz / toplam * 1000) / 10;
+    const spA = sprintAktif(), harita = gramerHaritasi(), sik = sik300();
+    const spBolum = harita || sik ? `<h2>${spA ? 'B2 hazırlık' : 'Gramer ve sık kelimeler'}</h2>${sik}${harita ? `<h3 class="gh-baslik">Gramer haritası</h3>${harita}` : ''}` : '';
     // son 5 hafta ısı haritası (pazartesiden başlar; seri takvimi geçmişten)
     const bugun = new Date(t); bugun.setHours(12, 0, 0, 0);
     const pzt = new Date(bugun); pzt.setDate(pzt.getDate() - ((pzt.getDay() + 6) % 7) - 28);
@@ -3479,6 +3501,7 @@
         <div><b>${yaziyor}</b><span>kelime yazıyor ve üstü</span></div>
         <div><b>%${b1}</b><span>B1 yolu</span></div>
       </div>
+      ${spA ? spBolum : ''}
       <h2>Son 14 gün</h2>
       <table class="gun-tablo"><thead><tr><th>gün</th><th>cevap</th><th>doğru</th><th>yeni</th><th>dk</th><th>puan</th></tr></thead><tbody>${gunSatirlari(14)}</tbody></table>
       <h2>Seri takvimi · son 5 hafta</h2>
@@ -3493,8 +3516,9 @@
       <h2>Biçim başına başarı</h2>
       ${bicimBasari()}
       <h2>B1 yolu</h2>
-      <div class="b1-kart"><div class="b1-ust"><b>%${b1} · ${yaziyor} / ${toplam}</b><span>Goethe B1 listesinde "Yazıyor ve üstü"</span></div>
-        <div class="b1-cubuk"><span class="b1-oturdu" style="width:${(yaziyor / toplam * 100).toFixed(2)}%"></span></div></div>`;
+      <div class="b1-kart"><div class="b1-ust"><b>%${b1} · ${b1Yaz} / ${toplam}</b><span>Goethe listesinin B1 kelimeleri (A1–A2 hariç), "Yazıyor ve üstü"</span></div>
+        <div class="b1-cubuk"><span class="b1-oturdu" style="width:${(b1Yaz / toplam * 100).toFixed(2)}%"></span></div></div>
+      ${spA ? '' : spBolum}`;
   }
 
   // Diğer: yan bölümler, serbest pratik, geçmiş, ayarlar
@@ -3534,6 +3558,10 @@
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),
       satir('Titreşim', 'Android', anahtar('a-titresim', titresimAcik())),
+      // B2 hazırlık sprinti (S.sprint): kurs tarihi + aç / kapat; son yeni gramer konusu tarihten 4 gün önce
+      (() => { const sp = S.sprint || Object.assign({}, SPRINT0, { acik: false }), ak = sprintAktif();
+        return satir('B2 kursu başlangıcı', ak ? `${gunFark(tag(), sp.hedef)} gün kaldı · son yeni gramer konusu ${esc(tarihTR(sp.son_yeni, { day: 'numeric', month: 'long' }))}` : sp.acik ? 'tarih geçti: hazırlık modu bitti' : 'hazırlık modu kapalı', `<input id="a-sprint-tarih" class="tarih-gir" type="date" value="${esc(sp.hedef)}" aria-label="B2 kursu başlangıç tarihi">`)
+          + satir('Hazırlık modu', 'geri sayım + günde üç blok: kelime · gramer · beceri', anahtar('a-sprint', !!sp.acik)); })(),
     ].join('');
     const saat = $('#a-saat'); if (saat && document.activeElement !== saat) saat.value = S.ayar4.saat || sikSaat();
     const sv = $('#a-surum');
@@ -3945,6 +3973,100 @@
     }
     return out.length ? out.join('') : '<tr><td colspan="6" class="soluk">henüz yok</td></tr>';
   }
+  // ---------- B2 hazırlık sprinti (S.sprint = { hedef, son_yeni, acik }; 28.10 → 9.11.2026): geri sayım + günün üç bloğu ----------
+  // Sprint açıkken Bugün'de "ikinci iş" yerine üç blok: 1) Kelime (günlük hedef turları) 2) Gramer (Gramer.sprintDurum / blokBaslat)
+  // 3) Beceri (gün gün: DW okuma-dinleme · serbest yazma · konuşma Teil 2 · Cümle atölyesi). "Bugün tamam" üçü bitince.
+  // Hedef günü gelince bir kez geçiş kartı (S.ayar4.gosterildi.sprintGecis = hedef), sonra eski düzen.
+  const SPRINT0 = { hedef: '2026-11-09', son_yeni: '2026-11-05', acik: true };
+  const gunFark = (a, b) => Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / DAY);
+  const gunEkle = (k, n) => { const d = new Date(k + 'T12:00:00'); d.setDate(d.getDate() + n); return tag(d.getTime()); };
+  const tarihTR = (k, o) => new Date(k + 'T12:00:00').toLocaleDateString('tr-TR', o || { day: 'numeric', month: 'long', weekday: 'long' });
+  // yoksa kur (yalnız hedeften önce); Ayarlar'dan kapatılan / tarihi değişen kayıt korunur
+  function sprintKur() { if (!S.sprint && tag() < SPRINT0.hedef) { S.sprint = Object.assign({}, SPRINT0); save(); } return S.sprint || null; }
+  const sprintAktif = () => { const sp = sprintKur(); return !!(sp && sp.acik && sp.hedef && tag() < sp.hedef); };
+  const sprintBas = sp => gunEkle(sp.hedef, -13);   // 13 günlük hazırlık (özet buradan sayılır)
+  const kisaKonu = s => String(s || '').split(':')[0].trim();
+  // gramer bloğu: sözleşme API'si (Gramer.sprintDurum); yoksa yedek: bugün gram satırı var mı, konu durumu açık / denenmedi
+  function gramBlok(t) {
+    const Gr = window.Gramer;
+    if (Gr && typeof Gr.sprintDurum === 'function') { try { const d = Gr.sprintDurum(t); if (d) return Object.assign({ api: true, konular: [], vadeli: [] }, d); } catch (e) { console.warn('Gramer.sprintDurum', e); } }
+    const GR = (Gr && Gr.GR) || {}, k = (S.gram && S.gram.konu) || {};
+    return { api: false, tani: null, bugunYeni: null, vadeli: [],
+      konular: Object.keys(GR).map((id, i) => ({ id, ad: (GR[id].kopf || {}).titel || id, durum: k[id] && k[id].acildi && k[id].karte ? 'ogreniliyor' : 'denenmedi', oncelik: i })),
+      bugunYapildi: S.log.some(e => e.modus === 'gram' && e.zeit && e.zeit.startsWith(tag(t))) };
+  }
+  // beceri bloğu: gün gün dönüşüm; o gün herhangi bir beceri kaydı varsa ✓
+  const BECERI = [
+    { m: 'lesen', ikon: '🎧', b: 'Okuma + dinleme', alt: 'DW Top-Thema: dinle, oku, soruları cevapla', dk: 10, log: e => e.modus === 'lesen' && e.ergebnis === 'gelesen' },
+    { m: 'yazma', ikon: '✍️', b: 'Serbest yazma', alt: '~80 kelime · Claude gece düzeltir', dk: 15, log: e => e.modus === 'text' },
+    { m: 'sprechen', ikon: '🎙️', b: 'Konuşma · Teil 2', alt: 'bir konuyu 2 dakika anlat, kendini kaydet', dk: 8, log: e => e.modus === 'sprechen' },
+    { m: 'cumle', ikon: '🧱', b: 'Cümle atölyesi', alt: 'diz · çevir · kendi cümleni kur', dk: 8, log: e => e.modus === 'cumle' },
+  ];
+  function beceriBugun() {
+    const k = tag(), rows = S.log.filter(e => e.zeit && e.zeit.startsWith(k));
+    const gun = BECERI[((gunFark('2026-10-27', k) % BECERI.length) + BECERI.length) % BECERI.length];
+    const yapilan = BECERI.filter(x => rows.some(x.log));
+    return { gun, yapilan, bitti: yapilan.length > 0 };
+  }
+  // okunmamış DW metni (sesli olan önce, yoksa en yeni)
+  const dwSec = () => { const g = S.gelesen || {}, dw = LT.filter(x => /^dw/.test(x.id) && !x.aufgaben), c = dw.filter(x => !g[x.id]), h = c.length ? c : dw; return h.find(x => x.audio) || h[h.length - 1] || null; };
+  // üç blok: { id, no, ikon, b, alt, dk, bitti }
+  function sprintBloklar() {
+    const turH = turHedefi(), yapildi = Math.min(turYapildi(), turH), dkTur = Math.max(3, Math.round(turBoyu() / 3));
+    const kelimeBitti = bugun().n >= ziel('akis');
+    const kelime = { id: 'kelime', no: 1, ikon: '📚', b: 'Kelime', kisa: 'Kelime turu', bitti: kelimeBitti, dk: kelimeBitti ? 0 : dkTur * Math.max(1, turH - yapildi), alt: `${yapildi}/${turH} tur` };
+    const gb = gramBlok(now()), v = (gb.vadeli || []).length, ad = id => kisaKonu(((gb.konular || []).find(x => x.id === id) || {}).ad || id);
+    let g;
+    if (gb.tani && !gb.tani.bitti) g = { b: `Gramer testi: ${gb.tani.yapilan}/${gb.tani.toplam}`, kisa: 'Gramer testi', alt: 'hangi B1 konusunu bildiğini ölçer · kaldığın yerden', dk: 10 };
+    else if (gb.bugunYeni) g = { b: 'Gramer: ' + ad(gb.bugunYeni), kisa: 'Gramer', alt: `yeni konu: kural + giriş seti${v ? ` · ${v} konu da tekrarda` : ''}`, dk: v ? 12 : 8 };
+    else if (v) g = { b: 'Gramer tekrarı', kisa: 'Gramer', alt: `${ad(gb.vadeli[0])}${v > 1 ? ` + ${v - 1} konu` : ''} · karışık`, dk: 6 };
+    else g = gb.api ? { b: 'Gramer', kisa: 'Gramer', alt: 'açtığın konulardan karışık alıştırma', dk: 6 } : { b: 'Gramer', kisa: 'Gramer', alt: 'bir konu: kısa kural + alıştırma', dk: 8 };
+    const gram = Object.assign({ id: 'gram', no: 2, ikon: '📐', bitti: !!gb.bugunYapildi }, g);
+    const bc = beceriBugun(), x = bc.bitti ? bc.yapilan[0] : bc.gun;
+    const beceri = { id: x.m, no: 3, ikon: x.ikon, b: 'Beceri: ' + x.b, kisa: x.b, alt: x.alt, dk: x.dk, bitti: bc.bitti };
+    [kelime, gram, beceri].forEach(k => { if (k.bitti) { k.alt = k.id === 'kelime' ? `${k.alt} · tamam` : 'bugün yapıldı · istersen bir daha'; k.dk = 0; } });
+    return [kelime, gram, beceri];
+  }
+  function sprintSerit(sp, bloklar) {
+    const n = gunFark(tag(), sp.hedef), bitti = bloklar.filter(b => b.bitti).length, kalanDk = bloklar.reduce((s, b) => s + b.dk, 0);
+    return `<div class="sprint-serit"><div class="ss-sayi"><b>${n}</b><span>gün</span></div>
+      <div class="ss-metin"><b>${n === 1 ? 'B2 kursu yarın başlıyor' : `B2 kursuna ${n} gün`}</b><span>${esc(tarihTR(sp.hedef))} · bugün ${bitti}/3 blok${kalanDk ? ` · ~${kalanDk} dk kaldı` : ''}</span></div></div>`;
+  }
+  function sprintBlokHTML(bloklar) {
+    const sira = bloklar.find(b => !b.bitti);
+    return `<div class="sprint-bloklar"><div class="ii-ust">Bugünün üç bloğu</div>${bloklar.map(b => `<button class="is-kart blok${b.bitti ? ' yapildi' : ''}${b === sira ? ' sirada' : ''}" data-act-ana="blok" data-blok="${b.id}" type="button">
+      <span class="is-ikon">${b.bitti ? '✓' : b.ikon}</span><span class="is-metin"><b><span class="blok-no">${b.no}</span>${esc(b.b)}</b><span>${esc(b.alt)}${b.dk ? ` · ~${b.dk} dk` : ''}</span></span><span class="is-ok">›</span></button>`).join('')}</div>`;
+  }
+  // blok düğmesi: kelime → Çalış; gramer → bölüm + günün bloğu (sözleşme S2); beceri → bölümün ilgili yeri
+  function blokBasla(id) {
+    if (id === 'kelime') { calisBasla('akis'); return; }
+    if (id === 'gram') {
+      calisBasla('gram');
+      const Gr = window.Gramer;
+      if (Gr && typeof Gr.blokBaslat === 'function') { try { Gr.blokBaslat(); } catch (e) { console.warn('Gramer.blokBaslat', e); } }
+      return;
+    }
+    const x = BECERI.find(b => b.m === id) || beceriBugun().gun;
+    if (x.m === 'sprechen') session.sp = Object.assign(session.sp || {}, { tab: 'teil2' });
+    if (x.m === 'lesen') { const dw = dwSec(); if (dw && !(session.lesen && session.lesen.id === dw.id)) { session.lesen = dw; session.lesenQ = dw.quelle; session.lesenCevap = {}; session.lesenFv = false; } }
+    calisBasla(x.m);
+  }
+  // hedef günü ve sonrası: bir kez "B2 kursu başladı" (13 günün özeti), sonra eski düzen
+  function sprintGecisKarti() {
+    const sp = S.sprint; if (!sp || !sp.acik || !sp.hedef || tag() < sp.hedef) return '';
+    const gs = S.ayar4.gosterildi = S.ayar4.gosterildi || {}; if (gs.sprintGecis === sp.hedef) return '';
+    const bas = sprintBas(sp), basT = new Date(bas + 'T04:00:00').getTime(), bitT = new Date(sp.hedef + 'T04:00:00').getTime();
+    const konu = Object.values((S.gram && S.gram.konu) || {}).filter(k => k && k.acildi >= basT && k.acildi < bitT).length;
+    const kelime = Object.entries(S.items).filter(([id, it]) => kind(id) !== 'p' && it.m && it.m.S && (it.tanit || it.seit || 0) >= basT && (it.tanit || it.seit) < bitT).length;
+    const biliyor = (gramBlok(now()).konular || []).filter(k => k.durum === 'biliyor').length;
+    let cevap = 0, gun = 0;
+    for (let k = bas; k < sp.hedef; k = gunEkle(k, 1)) { const x = S.tage[k]; if (x && gunEs(x) > 0) { cevap += x.n || 0; gun++; } }
+    const kutu = (v, ad) => `<div class="bk-kutu"><b>${v}</b><span>${ad}</span></div>`;
+    return `<div class="ana-kart bugun-kart sprint-gecis" id="sprint-gecis"><h3>🎓 B2 kursu başladı</h3>
+      <div>B1 hazırlığı bitti (son 13 günün özeti aşağıda). Bugün ekranı eski düzenine dönüyor: kelime turları + istersen günün ikinci işi. Gramer konuları ve kelimeler tekrar sisteminde kalıyor.</div>
+      <div class="bk-kutular">${kutu(gun, 'çalışılan gün')}${kutu(cevap, 'cevap')}${kutu(konu, 'açılan gramer konusu')}${biliyor ? kutu(biliyor, 'bildiğin gramer konusu') : ''}${kutu(kelime, 'yeni kelime')}</div>
+      <div class="sira" style="margin:0"><button class="btn" data-act-ana="sprint-gecis" type="button">Tamam, B2'ye başlıyorum</button></div></div>`;
+  }
   // günün ikinci işi: yalnız günlük hedef bittikten sonra görünür (isteğe bağlı; Tuna 18.10: önceden görünürse başlangıç eşiği büyür)
   // sıra: vadeli gramer konusu → gün gün dönüşümlü gramer / okuma / yazma (yazma haftada bir); bugün yapıldıysa ✓
   function ikinciIs() {
@@ -3985,13 +4107,18 @@
     const pkT = session.parkTur && session.parkTur.mod === 'akis' ? session.parkTur.tur : null;
     const surT = session.tur && !session.tur.bitti && session.tur.n && session.tur.mod === 'akis' ? session.tur : pkT;
     const surer = !!surT;
-    const btnMetin = ilkGun ? `İlk turun · ${b} soru` : surer ? `Devam et · ${surT.n}/${surT.boyu || b}` : tamam ? `Bonus tur · ~${dk} dk` : `Başla · ~${dk} dk`;
+    // sprint: üç blok; kelime bitince birincil düğme sıradaki bloğa geçer, "Bugün tamam" yalnız üçü bitince
+    const spA = sprintAktif(), bloklar = spA ? sprintBloklar() : null, siradaki = bloklar && tamam && !surer ? bloklar.find(x => !x.bitti) : null;
+    const hepsi = tamam && (!bloklar || bloklar.every(x => x.bitti));
+    const btnMetin = siradaki ? `Sırada: ${siradaki.kisa} · ~${siradaki.dk} dk` : ilkGun ? `İlk turun · ${b} soru` : surer ? `Devam et · ${surT.n}/${surT.boyu || b}` : tamam ? `Bonus tur · ~${dk} dk` : `Başla · ~${dk} dk`;
+    const btnAct = siradaki ? `data-act-ana="blok" data-blok="${siradaki.id}"` : 'data-act-ana="basla"';
+    const sabit = !(tamam && !surer && !siradaki);   // Bonus tur yapışkan değil (Ünite / iş kartlarının üstüne binmesin)
     const ic = tamam ? '<span class="halka-ok">✓</span>' : `<b>${Math.min(yapildi, turHedef)}/${turHedef}</b><span>tur</span>`;
-    const baslik = ilkGun ? 'Hoş geldin' : tamam ? 'Bugün tamam' : bugunSayildi ? 'Gün seriye sayıldı ✓' : yapildi ? 'İyi gidiyor' : 'Bugünün ilk turu';
+    const baslik = ilkGun ? 'Hoş geldin' : hepsi ? 'Bugün tamam' : tamam ? 'Kelime bloğu tamam ✓' : bugunSayildi ? 'Gün seriye sayıldı ✓' : yapildi ? 'İyi gidiyor' : 'Bugünün ilk turu';
     // merak satırı: dün tanıştığın kelimeler ya da turdaki yeni kelimeler (sayı borç değil, merak)
     const dun = Kern.gun4(now() - DAY);
     const dunden = Object.values(S.items).filter(it => it.tanit && Kern.gun4(it.tanit) === dun && it.m && it.m.S && it.m.due <= now() + 6 * 3600000).length;
-    const merak = session.ot && session.ot.donus ? 'Önce bildiklerin: kısa bir ısınma turu' : dunden ? `Dünden ${dunden} kelime seni bekliyor` : kt.kalan > 0 ? `İçinde ${Math.min(kt.kalan, 2)} yeni kelime` : tamam ? 'Bonus tur yeni kelime getirir' : 'Bugün eskileri sağlamlaştırıyoruz';
+    const merak = siradaki ? `${bloklar.filter(x => x.bitti).length}/3 blok bitti · sırada ${siradaki.no}. blok` : session.ot && session.ot.donus ? 'Önce bildiklerin: kısa bir ısınma turu' : dunden ? `Dünden ${dunden} kelime seni bekliyor` : kt.kalan > 0 ? `İçinde ${Math.min(kt.kalan, 2)} yeni kelime` : tamam ? 'Bonus tur yeni kelime getirir' : 'Bugün eskileri sağlamlaştırıyoruz';
     // toparlanma: yalnız birikme 1,2 günlük işten büyükken; sayı yok, süre var
     const vad = faellig().length, gunIs = 0.75 * gunHedef();
     let toparlanma = '';
@@ -4035,18 +4162,19 @@
         <div><div class="selam">${selam()}</div><div class="tarih">${new Date(now()).toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' })}</div></div>
         <div class="seri-pil${bugunSayildi ? ' yandi' : ''}" title="Seri: en az ${MIN_TAG} cevaplı gün. Dondurucu: kaçırdığın bir günü seriden düşürmez (her 7 günde bir kazanılır).">🔥 <b>${seri}</b>${sr.frz ? `<span class="frz">❄️${sr.frz > 1 ? sr.frz : ''}</span>` : ''}</div>
       </div>
-      ${bilgi}${guven}
+      ${bilgi}${sprintGecisKarti()}${guven}
+      ${spA ? sprintSerit(S.sprint, bloklar) : ''}
       <div class="hero">
         <div class="halka-kap">${halka3(Math.min(yapildi, turHedef), turHedef, (d.n % b) / b, ic)}</div>
         <div class="hero-metin">
           <div class="hero-baslik">${baslik}</div>
           <div class="merak">${esc(merak)}</div>
-          <button class="btn ana buyuk basla-btn basla-sabit" data-act-ana="basla" type="button">${btnMetin}</button>
+          <button class="btn ana buyuk basla-btn${sabit ? ' basla-sabit' : ''}" ${btnAct} type="button">${btnMetin}</button>
           ${toparlanma}
         </div>
       </div>
       ${ilkGun ? '' : aksamKarti()}
-      ${tamam && !ilkGun ? ikinciIs() : ''}
+      ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs() : ''}
       ${bugunKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
@@ -4397,6 +4525,8 @@
     else if (act === 'kur' && kurPrompt) { kurPrompt.prompt(); kurPrompt.userChoice.finally(() => { kurPrompt = null; renderAna(); }); }
     else if (act === 'kur-gizle') { S.einst.kurGizle = true; save(); renderAna(); }
     else if (act === 'guven-tamam') { session.guvenAcik = false; renderAna(); }
+    else if (act === 'blok') blokBasla(a.dataset.blok);
+    else if (act === 'sprint-gecis') { (S.ayar4.gosterildi = S.ayar4.gosterildi || {}).sprintGecis = S.sprint && S.sprint.hedef; save(); renderAna(); }
     else if (act === 'gecmis') zeigView('kayit');
     else if (act === 'notlar-tamam' || act === 'notlar-hepsi') { S.ayar4.fbGorulen = feedbackListe().length; save(); if (act === 'notlar-hepsi') zeigView('kayit'); else renderAna(); }
     else if (act === 'token-kopya') { ghSync(true); try { navigator.clipboard.writeText(ghToken()).then(() => toast('Anahtar kopyalandı: ana ekran uygulamasında "Getir"e yapıştır.')); } catch (e) { toast('Kopyalanamadı: Ayarlar → GitHub\'dan al.'); } }
@@ -4659,6 +4789,12 @@
     else if (id === 'a-ses') S.einst.ses = !!e.target.checked;
     else if (id === 'a-titresim') S.einst.titresim = !!e.target.checked;
     else if (id === 'a-saat') return;
+    else if (id === 'a-sprint' || id === 'a-sprint-tarih') {
+      const sp = S.sprint = S.sprint || Object.assign({}, SPRINT0, { acik: false });
+      if (id === 'a-sprint') sp.acik = !!e.target.checked;
+      else if (/^\d{4}-\d\d-\d\d$/.test(e.target.value)) { sp.hedef = e.target.value; sp.son_yeni = gunEkle(sp.hedef, -4); }
+      save(); renderAyar(); return;
+    }
     else return;
     save(); renderHedef(); renderPlan();
   });
@@ -4800,7 +4936,7 @@
   if (acilisBitti) return; acilisBitti = true;
   { const d = $('#durum-satiri'); if (d && /alınıyor…$/.test(d.textContent)) d.textContent = ''; }
   { const n = document.querySelector('.alt-nav'); if (n) n.style.pointerEvents = ''; }
-  kernAc(); save();
+  kernAc(); sprintKur(); save();
   seriBakim();
   if (session.donduruldu) mesajEkle(`❄️ Seri dondurucu kullanıldı: kaçırdığın ${session.donduruldu} gün serini bozmadı.`);
   const start = (location.hash || '').replace(/^#\/?/, '');

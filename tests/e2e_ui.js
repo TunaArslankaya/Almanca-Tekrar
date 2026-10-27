@@ -56,9 +56,9 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     const kopya = v.cloneNode(true); kopya.querySelectorAll('.guven-kart').forEach(x => x.remove());
     return { birincil: birincil.map(e => e.innerText.trim()), metin: kopya.innerText };
   });
-  if (ana.birincil.length !== 1 || !/Başla|İlk turun|Devam et|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `birincil düğmeler: ${JSON.stringify(ana.birincil)}`);
-  // gerçek kayıtta günün hedefi dolmuşsa (bugün zaten çalışmış) düğme "Bonus tur" olur
-  if (!/Başla|Bonus tur/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" / "Bonus tur" değil: ${ana.birincil[0]}`);
+  if (ana.birincil.length !== 1 || !/Başla|İlk turun|Devam et|Bonus tur|Sırada:/.test(ana.birincil[0] || '')) hata('bugün', `birincil düğmeler: ${JSON.stringify(ana.birincil)}`);
+  // gerçek kayıtta günün hedefi dolmuşsa (bugün zaten çalışmış) düğme "Bonus tur" olur (sprintte: sıradaki blok)
+  if (!/Başla|Bonus tur|Sırada:/.test(ana.birincil[0] || '')) hata('bugün', `gerçek kopyada düğme "Başla" / "Bonus tur" değil: ${ana.birincil[0]}`);
   // aynı satırda sayı + kelime (satır sonu sayılmaz: seri pili "🔥 2" + "Tekrar hoş geldin" yanlış yakalanmasın)
   const borc = /\d+[ \t]*(vadeli|tekrar|kart|borç|birikme|bekleyen)\b/i.exec(ana.metin);
   if (borc) hata('bugün', `vadeli / borç sayısı görünüyor: "${borc[0]}"`);
@@ -194,6 +194,52 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     if (c.hatalar.length) hata('cümle sayfa', c.hatalar.join(' | '));
     console.log(`tam cümle: ${id} · banka ${y.cip} çip · cumleKontrol ${s.cumle ? 'var' : 'yok (eski yol)'} · ${n.split(' | ').slice(0, 2).join(' | ')}`);
     await c.ctx.close();
+  }
+
+  // ---- B2 hazırlık sprinti (S.sprint): geri sayım + üç blok, gramer bloğu sözleşme API'si, "Bugün tamam" üçü bitince,
+  //      Bonus tur yapışkan değil, hedef gününde bir kez geçiş kartı, sonra eski düzen ----
+  {
+    const ofs = new Date('2026-10-28T09:30:00').getTime() - Date.now();
+    const s = await D.sayfa(b, { mobil: true, saatOfs: ofs });
+    const bak = () => s.evaluate(() => ({ sp: JSON.stringify(window.__tekrar.S.sprint || null), serit: (document.querySelector('.sprint-serit') || {}).innerText || '',
+      bloklar: [...document.querySelectorAll('.sprint-bloklar [data-blok]')].map(e => e.dataset.blok), ii: !!document.querySelector('.ikinci-is:not(.aksam-is)'),
+      birincil: [...document.querySelectorAll('#v-ana .btn.ana')].filter(e => e.getClientRects().length).map(e => e.innerText.trim()), sabit: !!document.querySelector('#v-ana .basla-sabit'),
+      baslik: (document.querySelector('.hero-baslik') || {}).innerText || '', gecis: !!document.querySelector('#sprint-gecis') }));
+    const anaCiz = async () => { await s.click('.alt-nav [data-v="liste"]'); await s.click('.alt-nav [data-v="ana"]'); await s.waitForTimeout(150); };
+    let x = await bak();
+    if (x.sp !== '{"hedef":"2026-11-09","son_yeni":"2026-11-05","acik":true}') hata('sprint', `S.sprint kurulmadı: ${x.sp}`);
+    if (!/B2 kursuna 12 gün/.test(x.serit)) hata('sprint', `geri sayım: "${x.serit}"`);
+    if (x.bloklar.length !== 3 || x.bloklar[0] !== 'kelime' || x.bloklar[1] !== 'gram') hata('sprint', `bloklar: ${x.bloklar}`);
+    if (x.ii) hata('sprint', 'sprintte ikinci iş kartı görünüyor');
+    (await kucukler(s, '#v-ana')).forEach(y => hata('sprint ≥48', y));
+    // gramer bloğu: Gramer.sprintDurum (tanı sürüyor) + blokBaslat çağrısı
+    await s.evaluate(() => { const G = window.Gramer; G.sprintDurum = () => ({ tani: { bitti: false, yapilan: 3, toplam: 48 }, konular: [], bugunYeni: null, vadeli: [], bugunYapildi: window.__gramBitti === true }); G.blokBaslat = () => { window.__blok = (window.__blok || 0) + 1; }; });
+    await anaCiz();
+    const gm = await s.$eval('[data-blok="gram"]', e => e.innerText);
+    if (!/Gramer testi: 3\/48/.test(gm)) hata('sprint', `gramer bloğu tanı metni: ${gm}`);
+    await s.click('[data-blok="gram"]'); await s.waitForTimeout(200);
+    const gb = await s.evaluate(() => ({ calis: !document.querySelector('#v-calis').hidden, blok: window.__blok || 0 }));
+    if (!gb.calis || gb.blok !== 1) hata('sprint', `gramer bloğu açılmadı / blokBaslat çağrılmadı: ${JSON.stringify(gb)}`);
+    await s.click('#calis-kapat'); await s.waitForTimeout(150);
+    // kelime bitti → birincil düğme sıradaki blok, başlık "Bugün tamam" değil
+    await s.evaluate(() => { const S = window.__tekrar.S, d = new Date(Date.now()), g = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; (S.tageC[g] = S.tageC[g] || {}).cTest = { n: 200, richtig: 200, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 }; });
+    await anaCiz(); x = await bak();
+    if (!/^Sırada: Gramer testi/.test(x.birincil[0] || '') || /Bugün tamam/.test(x.baslik)) hata('sprint', `kelime bitince: düğme ${x.birincil}, başlık ${x.baslik}`);
+    // üç blok bitti → Bugün tamam, Bonus tur (yapışkan değil)
+    await s.evaluate(() => { window.__gramBitti = true; const d = new Date(Date.now()), g = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; window.__tekrar.S.log.push({ zeit: g + ' 10:00:00', modus: 'cumle', id: 'x:diz', item: '', frage: '', antwort: '', ergebnis: 'richtig', loesung: '', notiz: '' }); });
+    await anaCiz(); x = await bak();
+    if (!/Bugün tamam/.test(x.baslik) || !/^Bonus tur/.test(x.birincil[0] || '') || x.sabit) hata('sprint', `üç blok bitince: başlık ${x.baslik}, düğme ${x.birincil}, yapışkan ${x.sabit}`);
+    // hedef günü: bir kez geçiş kartı, sonra eski düzen
+    await s.evaluate(ms => localStorage.setItem('__off', String(ms)), new Date('2026-11-09T10:00:00').getTime() - Date.now());
+    await s.reload(); await s.waitForTimeout(400);
+    x = await bak();
+    if (!x.gecis || x.serit || x.bloklar.length) hata('sprint', `9.11: geçiş kartı ${x.gecis}, şerit "${x.serit}", bloklar ${x.bloklar.length}`);
+    await s.click('[data-act-ana="sprint-gecis"]'); await s.waitForTimeout(150);
+    await s.reload(); await s.waitForTimeout(400);
+    if ((await bak()).gecis) hata('sprint', 'geçiş kartı "Tamam"dan sonra yine görünüyor');
+    if (s.hatalar.length) hata('sprint sayfa', s.hatalar.join(' | '));
+    await s.ctx.close();
+    console.log('sprint: geri sayım, üç blok, gramer bloğu, Bugün tamam, geçiş kartı denetlendi');
   }
 
   // ---- hareket azaltılmış: konfeti canvas'ı oluşmaz ----

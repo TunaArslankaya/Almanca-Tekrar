@@ -1106,3 +1106,38 @@ body.calis-modu .yenile-cubuk { display: none; }
 .ca-ozet .ca-oz-i { display: inline-block; width: 1.4em; font-weight: 700; }
 .ca-oz-richtig .ca-oz-i { color: var(--ok); } .ca-oz-fast .ca-oz-i { color: var(--warn); } .ca-oz-falsch .ca-oz-i { color: var(--bad); }
 @media (max-width: 420px) { .ca-tr, .ca-durum { font-size: 1.18rem; } .ca-cip { font-size: 1rem; padding: .4rem .65rem; } }
+/* ---------- B2 hazırlık sprinti: geri sayım şeridi, günün üç bloğu, geçiş kartı, gramer haritası ---------- */
+.sprint-serit { display: grid; grid-template-columns: auto 1fr; gap: .8rem; align-items: center; margin: 0 0 .9rem; padding: .6rem .85rem; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.ss-sayi { display: grid; place-items: center; min-width: 3.4rem; padding: .3rem .5rem; border-radius: 12px; background: var(--accent-soft); color: var(--accent); line-height: 1; }
+.ss-sayi b { font-family: var(--f-disp); font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+.ss-sayi span { font-size: .72rem; font-weight: 700; margin-top: .15rem; }
+.ss-metin { display: grid; gap: .1rem; min-width: 0; }
+.ss-metin b { font-family: var(--f-disp); font-size: 1.1rem; line-height: 1.2; }
+.ss-metin span { color: var(--muted); font-size: .85rem; }
+.sprint-bloklar { display: grid; gap: .5rem; margin-top: 1rem; }
+.sprint-bloklar .ii-ust { color: var(--muted); font-size: .8rem; letter-spacing: .03em; }
+.is-kart.blok.sirada { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+.is-kart.blok.yapildi { opacity: .72; box-shadow: none; }
+.is-kart.blok.yapildi .is-ikon { background: var(--ok-soft); color: var(--ok); font-weight: 800; }
+.is-kart.blok .is-metin b { display: flex; gap: .45rem; align-items: baseline; overflow-wrap: anywhere; }
+.blok-no { flex: none; display: inline-grid; place-items: center; width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--line); color: var(--muted); font-size: .72rem; font-weight: 800; transform: translateY(-1px); }
+.is-kart.blok.sirada .blok-no { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.sprint-gecis { margin-bottom: .9rem; border-color: color-mix(in srgb, var(--gold) 55%, var(--line)); }
+.sprint-gecis h3 { margin: 0; }
+.sprint-gecis .bk-kutular { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 620px) { .sprint-gecis .bk-kutular { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.tarih-gir { min-height: var(--hedef, 48px); padding: .3rem .6rem; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; }
+.sik-kart { margin: .2rem 0 .8rem; }
+.gh-baslik { margin: .9rem 0 .5rem; font-size: 1rem; }
+.g-harita { display: flex; flex-wrap: wrap; gap: .35rem; }
+.gh-konu { display: inline-block; max-width: 100%; padding: .25rem .6rem; border-radius: 99px; font-size: .82rem; line-height: 1.3; overflow-wrap: anywhere; border: 1px solid transparent; }
+.gh-biliyor { background: var(--ok-soft); color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.gh-ogreniliyor { background: var(--warn-soft); color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+.gh-zayif { background: var(--bad-soft); color: var(--bad); border-color: color-mix(in srgb, var(--bad) 40%, transparent); }
+.gh-denenmedi { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.gh-lejant { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .6rem; font-size: .82rem; color: var(--muted); }
+.gh-lejant span { display: inline-flex; align-items: center; gap: .35rem; }
+.gh-lejant b { color: var(--ink); }
+.gh-lejant i { display: inline-block; width: .8rem; height: .8rem; border-radius: 50%; }
+.gh-lejant i.gh-denenmedi { border-width: 1.5px; }
+.gh-lejant i.gh-biliyor { background: var(--ok); } .gh-lejant i.gh-ogreniliyor { background: var(--warn); } .gh-lejant i.gh-zayif { background: var(--bad); }
