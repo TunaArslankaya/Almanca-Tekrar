@@ -2858,3 +2858,6 @@
 2026-10-28 10:48:37;bed;v688:bed;bewältigen;üstesinden gelmek;bewältigen;richtig;bewältigen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
 2026-10-28 10:48:43;erk;n1303:erk;der Verein;dernek, kulüp;das Verein;fast;der Verein;basamak:B1 | bicim:sec | not:m3,a1 | R:0.00 | S:2.3 | parti | artikel das → der | sek:5
 2026-10-28 10:48:45;art;n1375:art;der Wetterbericht;Wetterbericht;die;falsch;der Wetterbericht;basamak:A | bicim:artikel | not:a1 | R:0.91 | S:0.3 | artikel die → der | sek:2
+2026-10-28 10:54:17;gram;g:verbstellung:tani:20;verbstellung/inversion;Maalesef bugün vaktim yok.;Leider heute habe ich keine Zeit.;falsch;Leider habe ich heute keine Zeit.;tanı:1 | tür:ceviri | z:2 | kelime sırası | sek:16
+2026-10-28 10:54:53;gram;g:satzklammer-tekamolo:tani:19;satzklammer-tekamolo/vorfeld;Ich fahre mit dem Rad zur Uni. Das mache ich jeden Tag. → Jeden Tag …;Jeden Tag fahre ich mit dem Rad zur Uni.;richtig;Jeden Tag fahre ich mit dem Rad zur Uni.;tanı:1 | tür:umform | z:2 | sek:35
+2026-10-28 10:55:23;gram;g:satzklammer-tekamolo:tani:5;satzklammer-tekamolo/klammer;Wir sehen uns am Abend einen Film an. → Perfekt;Wir haben uns am Abend einen film angesehen;fast;Wir haben uns am Abend einen Film angesehen.;tanı:2 | tür:umform | z:3 | kelime sırası | groß/klein | sek:23
