@@ -2825,3 +2825,33 @@
 2026-10-28 10:46:46;bed;v378:bed;löschen;silmek;löschen;richtig;löschen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-28 10:46:48;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:3.2 | sek:1
 2026-10-28 10:46:57;wort;x1552:wort;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.90 | S:6.0 | sek:9 | ipucu:0
+2026-10-28 10:47:04;abr;v687:abr;ausbilden;yetiştirmek, (meslek) eğitimi vermek;ausbilden;richtig;ausbilden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-10-28 10:47:07;abr;v378:abr;löschen;"silmek; (yangını) söndürmek";löschen;richtig;löschen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-28 10:47:10;art;x1554:art;die Solidarität;Solidarität;die;richtig;die Solidarität;basamak:A | bicim:artikel | not:a3 | R:0.87 | S:1.1 | sek:3
+2026-10-28 10:47:14;prod;w0026:prod;anwesend;orada bulunan, hazır;allerdings;falsch;anwesend;basamak:B2 | bicim:yaz0 | not:m1 | R:0.90 | S:0.7 | farklı | sek:3 | ipucu:0
+2026-10-28 10:47:14;leech;w0026;anwesend;orada bulunan, hazır;;takiliyor;;günler:2026-10-17,2026-10-21,2026-10-28
+2026-10-28 10:47:19;stamm;v672:stamm;zustimmen;Meine Eltern haben meinem Vorschlag sofort _____.;zugestimmt;richtig;zugestimmt;basamak:K | bicim:kokSatz | not:k3 | R:0.90 | S:8.4 | kök:stimmen | sek:4
+2026-10-28 10:47:22;prod;w0229:prod;heiß;sıcak;heiß;richtig;heiß;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:5.0 | sek:3 | ipucu:0
+2026-10-28 10:47:25;erk;w0026:erk;anwesend;Der damalige CDU/CSU-Fraktionschef Jens Spahn war bei diesem Parteitag anwesend.;orada bulunan, hazır;richtig;orada bulunan, hazır;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:0.7 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-28 10:47:25;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:13 | küçük:1 | yanlış:1 | puan:100 | dk:1 | yeni:2 | seviye+:0 | tekrar:11
+2026-10-28 10:47:29;erk;n0286:erk;das Eis;buz;das Eis;richtig;das Eis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:3.6 | ısınma | sek:2
+2026-10-28 10:47:31;erk;w0566:erk;bewölkt;bulutlu;bewölkt;richtig;bewölkt;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:3.6 | ısınma | sek:2
+2026-10-28 10:47:33;art;x1460:art;das Missverständnis;Missverständnis;die;falsch;das Missverständnis;basamak:A | bicim:artikel | not:a1 | R:0.76 | S:0.1 | artikel die → das | sek:1
+2026-10-28 10:47:36;nsatz;w0325:nsatz;mild;Möchten Sie die Soße scharf? – Nein, bitte ganz _____.;mild;richtig;mild;basamak:B2 | bicim:bos0 | not:m3 | R:0.89 | S:7.7 | kapı:7g | sek:3 | ipucu:0
+2026-10-28 10:47:47;prod;w0109:prod;drüben;karşıda, öte tarafta;drennen;falsch;drüben;basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.6 | farklı | sek:10 | ipucu:0
+2026-10-28 10:47:50;art;n0433:art;die Geduld;Geduld;die;richtig;die Geduld;basamak:A | bicim:artikel | not:a3 | R:0.67 | S:0.2 | sek:2
+2026-10-28 10:47:56;wort;n0795:wort;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:4.7 | sek:7 | ipucu:0
+2026-10-28 10:47:59;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:m3 | R:0.85 | S:0.6 | sek:2
+2026-10-28 10:48:01;erk;w0109:erk;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-28 10:48:05;art;n1374:art;das Wetter;Wetter;das;richtig;das Wetter;basamak:A | bicim:artikel | not:a3 | R:0.65 | S:0.2 | sek:3
+2026-10-28 10:48:11;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebracht;richtig;gebracht;basamak:K | bicim:kokSatz | not:k3 | R:0.70 | S:2.8 | kök:bringen | sek:5
+2026-10-28 10:48:11;tur;akis;Çalış;;;leer;;cevap:11 | doğru:9 | küçük:0 | yanlış:2 | puan:73 | dk:1 | yeni:0 | seviye+:1 | tekrar:11
+2026-10-28 10:48:15;art;x1557:art;das Vorurteil;Vorurteil;die;falsch;das Vorurteil;basamak:A | bicim:artikel | not:a1 | R:0.63 | S:0.0 | artikel die → das | sek:2
+2026-10-28 10:48:15;leech;x1557;das Vorurteil;önyargı;;takiliyor;;günler:2026-10-19,2026-10-27,2026-10-28
+2026-10-28 10:48:22;stamm;v148:stamm;bleiben;bleiben — Perfekt;gebliebt;falsch;geblieben;basamak:K | bicim:kokSatz | not:k1 | R:0.59 | S:0.2 | kök:bleiben | Partizip: geblieben | sek:6
+2026-10-28 10:48:24;art;n0844:art;der Nebel;Nebel;die;falsch;der Nebel;basamak:A | bicim:artikel | not:a1 | R:0.91 | S:0.7 | artikel die → der | sek:2
+2026-10-28 10:48:24;leech;n0844;der Nebel;sis;;takiliyor;;günler:2026-10-02,2026-10-09,2026-10-28
+2026-10-28 10:48:27;yeni;x1564;das Hochwasser;tanıtım;;neu;sel, taşkın;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-28 10:48:29;yeni;v688;bewältigen;tanıtım;;neu;üstesinden gelmek;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-28 10:48:30;yeni;n1303;der Verein;tanıtım;;neu;dernek, kulüp;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-28 10:48:34;erk;x1564:erk;das Hochwasser;sel, taşkın;der Hochwasser;fast;das Hochwasser;basamak:B1 | bicim:sec | not:m3,a1 | R:0.00 | S:2.3 | parti | artikel der → das | sek:3
