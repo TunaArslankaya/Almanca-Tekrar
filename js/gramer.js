@@ -273,7 +273,24 @@
     for (const h of hedefler) { if (fold(u) === fold(norm(h))) return 'fast'; }
     // kaynaşmış edat (im / in dem, zum / zu dem …): listede yoksa küçük hata (dilbilgisel olarak doğru, yalnız biçim)
     for (const h of hedefler) { if (kaynasAc(fold(u)) === kaynasAc(fold(norm(h)))) return 'fast'; }
+    // konuşma dili (FORMAT.md 4.7): Genitiv yerine von + Dativ, wegen / trotz / während + Dativ → doğru Almanca, yazı dilinde Genitiv: küçük hata
+    for (const h of hedefler) { if (konusmaDili(u, h)) { konusmaIz = true; return 'fast'; } }
     return 'falsch';
+  }
+  // 28.10 (Tuna: "von meinen Eltern teknik olarak doğru değil mi"): Genitiv belirleyicisinin Dativ karşılıkları
+  let konusmaIz = false;
+  const GEN_DAT = { des: ['dem'], eines: ['einem'], keines: ['keinem'], dieses: ['diesem'], jedes: ['jedem'], der: ['der', 'den'], einer: ['einer'], keiner: ['keiner', 'keinen'], dieser: ['dieser', 'diesen'], jeder: ['jeder'] };
+  const datVon = g => GEN_DAT[g] || ((m => m ? (m[2] === 'es' ? [m[1] + 'em'] : [m[1] + 'er', m[1] + 'en']) : null)(g.match(/^(mein|dein|sein|ihr|unser|eur)(es|er)$/)));
+  const kokAyni = (a, b) => { const k = w => w.replace(/(es|en|s|n)$/, ''); return a === b || k(a) === b || a === k(b) || k(a) === k(b); };
+  function konusmaDili(giris, hedef) {
+    const a = fold(norm(giris)).split(' '), h = fold(norm(hedef)).split(' ');
+    let ai, hi;
+    if (a[0] === 'von' && a.length === h.length + 1 && h[0] !== 'von') { ai = 1; hi = 0; }
+    else if (['wegen', 'trotz', 'wahrend', 'statt', 'innerhalb', 'ausserhalb'].includes(h[0]) && a[0] === h[0] && a.length === h.length) { ai = 1; hi = 1; }
+    else return false;
+    const d = datVon(h[hi] || ''); if (!d || !d.includes(a[ai])) return false;
+    for (let i = 1; hi + i < h.length; i++) if (!kokAyni(a[ai + i] || '', h[hi + i])) return false;
+    return true;
   }
   const KAYNAS = { im: 'in dem', ins: 'in das', am: 'an dem', ans: 'an das', zum: 'zu dem', zur: 'zu der', beim: 'bei dem', vom: 'von dem', aufs: 'auf das', ubers: 'uber das', durchs: 'durch das', furs: 'fur das' };
   const kaynasAc = s => s.replace(/\b(im|ins|am|ans|zum|zur|beim|vom|aufs|ubers|durchs|furs)\b/g, m => KAYNAS[m]);
@@ -321,7 +338,7 @@
     const T = u.tur;
     if (T === 'wahl' || (T === 'luecke' && u.opt)) return { urteil: u.cevap.includes(giris) ? 'richtig' : 'falsch', tags: [], antwort: String(giris == null ? '' : giris) };
     if (T === 'luecke' || T === 'text') {
-      const parcalar = (giris || []).map(x => (x == null ? '' : String(x)).trim());
+      const parcalar = (giris || []).map(x => (x == null ? '' : String(x)).trim()); konusmaIz = false;
       let hedef, detay;
       if (T === 'text') { hedef = u.parcalar; detay = parcalar.map((p, i) => parcaPruef(p, hedef[i] || [])); }
       else {
@@ -332,10 +349,11 @@
         detay = enIyi ? enIyi.d : []; hedef = (enIyi ? enIyi.set : []).map(x => [x]);
       }
       const n = (hedef || []).length || 1;
+      const konusma = konusmaIz; konusmaIz = false;
       const urteil = detay.length === n && detay.every(x => x === 'richtig') ? 'richtig'
         : T === 'luecke' ? (detay.every(x => x !== 'falsch') ? 'fast' : 'falsch')
         : detay.filter(x => x !== 'falsch').length / n >= 0.5 ? 'fast' : 'falsch';
-      return { urteil, tags: [], antwort: parcalar.join(' ; '), detay };
+      return { urteil, tags: konusma && urteil === 'fast' ? ['konuşma dili (yazıda Genitiv)'] : [], antwort: parcalar.join(' ; '), detay };
     }
     if (T === 'ordnen' || T === 'umform' || T === 'ceviri') {
       // ordnen'de parçalar boşlukla birleşir, virgül girilemez: virgül iki tarafta da yok sayılır (eskiden virgüllü her ordnen cevabı yanlış çıkıyordu)
