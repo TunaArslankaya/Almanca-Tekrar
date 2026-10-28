@@ -2872,3 +2872,9 @@
 2026-10-28 10:59:49;gram;g:vergleich:tani:13;vergleich/nicht-so;Der neue Film ist nicht so ___ wie der erste. (gut);gut als;falsch;gut;tanı:1 | tür:luecke | z:2 | bağlaç | sek:20
 2026-10-28 11:00:03;gram;g:es-korrelat:tani:21;es-korrelat/korrelat;___ ist wichtig, jeden Tag ein bisschen zu lernen.;Es;richtig;Es;tanı:1 | tür:luecke | z:2 | sek:14
 2026-10-28 11:00:29;gram;g:es-korrelat:tani:17;es-korrelat/es-gibt;Bu kitap ne hakkında?;Welche  über das Buch?;falsch;Worum geht es in diesem Buch?;tanı:2 | tür:ceviri | z:3 | eksik kelime | edat | sek:22
+2026-10-28 11:01:21;gram;g:relativ:tani:76;relativ/wer-was;Wer mir hilft, ___ helfe ich auch.;ihnen;falsch;dem;tanı:1 | tür:luecke | z:2 | hâl | ipucu:1 | sek:47
+2026-10-28 11:01:41;gram;g:adjektiv:tani:44;adjektiv/ohne;Taze ekmek çok lezzetli.;Frisches Brot ist sehr lecker;richtig;Frisches Brot ist sehr lecker.;tanı:1 | tür:ceviri | z:2 | sek:19
+2026-10-28 11:01:49;gram;g:adjektiv:tani:64;adjektiv/plural;Einige ___ Kollegen sprechen auch Türkisch. (neu);neuen;falsch;neue;tanı:2 | tür:luecke | z:3 | artikel/çekim | sek:7
+2026-10-28 11:02:06;gram;g:praep-verben:tani:56;praep-verben/wo;Kiminle kavga ettin?;Womit hast du streitet?;falsch;Mit wem hast du dich gestritten?;tanı:1 | tür:ceviri | z:2 | edat | farklı | sek:13
+2026-10-28 11:02:31;gram;g:praep-nomen-adj:tani:55;praep-nomen-adj/kontrast;Sana kızgın değilim.;Ich bin nicht dir böse;falsch;Ich bin nicht sauer auf dich.;tanı:1 | tür:ceviri | z:2 | edat | kelime sırası | nicht | sek:23
+2026-10-28 11:02:44;gram;g:zu-infinitiv:tani:31;zu-infinitiv/verb;Die Ärztin hat mir verboten, diese Woche Sport ___. (machen);zu machen;richtig;zu machen;tanı:1 | tür:luecke | z:2 | sek:12
