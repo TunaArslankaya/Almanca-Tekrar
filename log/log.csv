@@ -2869,3 +2869,6 @@
 2026-10-28 10:58:34;gram;g:konnektoren-deshalb-trotzdem:tani:3;konnektoren-deshalb-trotzdem/folge;es regnet stark / darum / wir / bleiben / heute zu Hause;wir bleiben heute zu Hause darum es regnet stark;falsch;Es regnet stark, darum bleiben wir heute zu Hause.;tanı:1 | tür:ordnen | z:2 | kelime sırası | sek:10
 2026-10-28 10:58:52;gram;g:nominal-verbal:tani:15;nominal-verbal/trotz;Trotz ___ guten Vorbereitung hat sie die Prüfung nicht bestanden. (ihre);ihrer;richtig;ihrer;tanı:1 | tür:luecke | z:2 | sek:18
 2026-10-28 10:59:21;gram;g:nominal-verbal:tani:43;nominal-verbal/zweck;Ich spare Geld, um ein Auto zu kaufen. → für;Ich spare Geld für eine Auto kaufen.;falsch;Ich spare Geld für ein Auto.;tanı:2 | tür:umform | z:3 | bağlaç | artikel/çekim | sek:26
+2026-10-28 10:59:49;gram;g:vergleich:tani:13;vergleich/nicht-so;Der neue Film ist nicht so ___ wie der erste. (gut);gut als;falsch;gut;tanı:1 | tür:luecke | z:2 | bağlaç | sek:20
+2026-10-28 11:00:03;gram;g:es-korrelat:tani:21;es-korrelat/korrelat;___ ist wichtig, jeden Tag ein bisschen zu lernen.;Es;richtig;Es;tanı:1 | tür:luecke | z:2 | sek:14
+2026-10-28 11:00:29;gram;g:es-korrelat:tani:17;es-korrelat/es-gibt;Bu kitap ne hakkında?;Welche  über das Buch?;falsch;Worum geht es in diesem Buch?;tanı:2 | tür:ceviri | z:3 | eksik kelime | edat | sek:22
