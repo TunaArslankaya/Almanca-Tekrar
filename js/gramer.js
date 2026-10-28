@@ -278,9 +278,17 @@
   const KAYNAS = { im: 'in dem', ins: 'in das', am: 'an dem', ans: 'an das', zum: 'zu dem', zur: 'zu der', beim: 'bei dem', vom: 'von dem', aufs: 'auf das', ubers: 'uber das', durchs: 'durch das', furs: 'fur das' };
   const kaynasAc = s => s.replace(/\b(im|ins|am|ans|zum|zur|beim|vom|aufs|ubers|durchs|furs)\b/g, m => KAYNAS[m]);
   const Gx = () => (api && api.G) || root.G;
+  // gramer alıştırmasında anlam zarfı / parçacığı eksik ya da fazla (noch, schon, auch …) yapı hatası değildir: küçük hata (28.10, Tuna:
+  // "Ich weiß nicht, ob ich die Prüfung bestanden habe" — yalnız "noch" eksik — tam yanlış sayılıp konu testte zayıf çıkıyordu)
+  const ZARF = new Set(['noch', 'schon', 'auch', 'nur', 'immer', 'gern', 'gerne', 'sehr', 'wirklich', 'leider', 'jetzt', 'heute', 'gestern', 'morgen', 'bald', 'mal', 'eigentlich', 'vielleicht', 'oft', 'wieder', 'endlich', 'gerade', 'bitte', 'schnell', 'genau', 'etwas', 'sogar']);   // dann / danach / zuerst / trotzdem / so / doch / ja konuların hedefi olabilir: listede değil
+  const zarfsiz = x => kaynasAc(fold(norm(x))).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(w => w && !ZARF.has(w)).join(' ');
   function cumlePruef(giris, alts) {
     const r = Gx().pruefen(giris, alts[0], alts.slice(1));
     if (r.urteil === 'falsch' && alts.some(a => kaynasAc(fold(norm(a))) === kaynasAc(fold(norm(giris))))) return { urteil: 'fast', tags: ['kaynaştırma'], diff: r.diff };
+    if (r.urteil === 'falsch' && alts.some(a => zarfsiz(a) === zarfsiz(giris))) {
+      const ga = norm(giris).split(/\s+/).length;
+      return { urteil: 'fast', tags: [alts.some(a => norm(a).split(/\s+/).length > ga) ? 'eksik kelime' : 'fazla kelime', 'zarf'], diff: r.diff };
+    }
     return { urteil: r.urteil, tags: r.tags || [], diff: r.diff };
   }
   function lev(a, b) {
@@ -582,7 +590,10 @@
       return;
     }
     if (ses.art === 'tani') {
-      const o = ses.tani, sonuc = taniCevap(ses.id, u, urteil, q.ipucu);
+      // testte konu bilgisi ölçülür: yalnız konuyla ilgisiz küçük hata (zarf eksik/fazla, yazım, büyük/küçük harf, kaynaştırma) konuyu zayıf yapmaz
+      const KUCUK = new Set(['zarf', 'eksik kelime', 'fazla kelime', 'yazım', 'büyük/küçük harf', 'kaynaştırma', 'umlaut', 'noktalama']);
+      const gecti = urteil === 'richtig' || (urteil === 'fast' && (q.tags || []).length && q.tags.every(x => KUCUK.has(x)));
+      const o = ses.tani, sonuc = taniCevap(ses.id, u, gecti ? 'richtig' : urteil, q.ipucu);
       o.n++; if (urteil === 'richtig') o.d++; if (sonuc) o[sonuc].push(ses.id);
     }
     api.heuteM('gram').n++; api.heuteM('gram')[urteil] = (api.heuteM('gram')[urteil] || 0) + 1;
