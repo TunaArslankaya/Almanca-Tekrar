@@ -313,7 +313,7 @@
     blitz: id => kind(id) === 'n' || kind(id) === 'w',
     verben: id => kind(id) === 'v',
     woerter: id => kind(id) === 'n' || kind(id) === 'w',
-    zayif: id => kind(id) !== 'p' && schwach(id),
+    zayif: id => kind(id) !== 'p' && (schwach(id) || (!!S.items[id] && bilmedikAcik(id))),
     ndek: id => istNdek(id),
     refl: id => istRefl(id),
     thema: id => kind(id) !== 'p' && themaSet().has(id),
@@ -392,6 +392,15 @@
     const it = S.items[id];
     return !!it && (!!it.leech || !!(it.m && it.m.S && ((it.m.lapses || 0) > 0 || it.m.lastG === 1)) || !!(it.art && it.art.lastG === 1));
   }
+  // Bilmediklerim (Zayıflar): "Bilmiyorum" denen kelime (öğe kimliği) ve gramer teil'i (g:<konu>:<teil>); S.bilmedik[anahtar] = { ad, ilk, son, n, d, dt }.
+  // Sonra başka günlerde iki doğru cevap (d ≥ 2, günde en çok bir) → "artık biliyorsun"; yeniden "Bilmiyorum" d'yi sıfırlar
+  const BILMEDIK_TAMAM = 2;
+  function bilmedikIsle(key, ad, dogru) {
+    const b = S.bilmedik || (S.bilmedik = {}), x = b[key], t = now();
+    if (!dogru) { b[key] = Object.assign({ ilk: t }, x, { ad: ad || (x && x.ad) || key, son: t, n: ((x && x.n) || 0) + 1, d: 0, dt: 0 }); return; }
+    if (x && (x.d || 0) < BILMEDIK_TAMAM && tag(t) !== tag(x.son) && (!x.dt || tag(t) !== tag(x.dt))) { x.d = (x.d || 0) + 1; x.dt = t; }
+  }
+  function bilmedikAcik(key) { const x = (S.bilmedik || {})[key]; return !!x && (x.d || 0) < BILMEDIK_TAMAM; }
   const paketFertig = pid => !!(S.pakete[pid] && (S.pakete[pid].fertig || (S.pakete[pid].m && S.pakete[pid].m.S)));
   // ertesi günün başı (gece yarısı)
   function morgen(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + 1); return d.getTime(); }
@@ -3029,6 +3038,8 @@
     if ((not.etiketler || []).includes('sayılmadı')) n.push('sayılmadı');
     if ((not.etiketler || []).includes('yavaş')) n.push('yavaş');
     if ((not.etiketler || []).includes('bilmiyorum')) n.push('bilmiyorum');
+    if ((not.etiketler || []).includes('bilmiyorum') && !q.yoklama) bilmedikIsle(id, label(id), false);
+    else if (ergebnis === 'richtig') bilmedikIsle(id, null, true);
     if (opt.log !== false) logEintrag({ modus, id: id + ':' + (modus === 'luecke' ? (kind(id) === 'v' ? 'satz' : 'nsatz') : eski), item: label(id), frage: q.frageText || '', antwort: q.antwort || '', ergebnis, loesung: q.ziel || '', notiz: n.join(' | ') });
     return { not, out, ergebnis, kopf: n.slice(0, 5).join(' | ') + (n.includes('hafıza:yazılmadı') ? ' | hafıza:yazılmadı' : ''), sayilmadi: (not.etiketler || []).includes('sayılmadı') };
   }
@@ -3483,6 +3494,15 @@
     const leech = ids.filter(id => S.items[id].leech).length;
     $('#zayif-say').textContent = ids.length ? `${ids.length} kelime${leech ? ` · ${leech} tanesi takılıyor (🪝)` : ''}` : 'Zayıf kelimen yok: yanlış yaptıkların burada toplanır.';
     $('#zayif-liste').innerHTML = ids.map(id => itemZeile(id)).join('');
+    // Bilmediklerim: "Bilmiyorum" dediğin kelimeler ve gramer konuları (en yenisi önce); öğrendiklerin altta soluk
+    const B = S.bilmedik || {}, anahtar = Object.keys(B).filter(k => /^g:/.test(k) ? !!(window.Gramer && Gramer.GR[k.split(':')[1]]) : gueltig(k + ':x')).sort((a, b) => B[b].son - B[a].son);
+    const acik = anahtar.filter(bilmedikAcik), tamam = anahtar.filter(k => !bilmedikAcik(k)).slice(0, 20);
+    const gun = t => { const d = new Date(t); return `${d.getDate()}.${d.getMonth() + 1}`; };
+    const yan = k => { const x = B[k]; return `<span class="soluk">${x.n > 1 ? `${x.n} kez · ` : ''}${gun(x.son)}${x.d ? ` · ${'✓'.repeat(x.d)}` : ''}</span>`; };
+    const satir = k => /^g:/.test(k) ? `<button class="oge tikla" data-gram-oku="${esc(k.split(':')[1])}" type="button"><span class="de"><b>📐 ${esc(B[k].ad)}</b></span><span class="tr">gramer · kuralı oku</span><span class="yan">${yan(k)}</span></button>`
+      : itemZeile(k).replace('<span class="vade">', yan(k) + ' <span class="vade">');
+    $('#bilmedik-say').textContent = acik.length ? `${acik.length} tane · başka günlerde iki kez doğru yapınca "öğrendin"e geçer` : anahtar.length ? 'Hepsini öğrendin ✓' : 'Henüz yok: soruda „Bilmiyorum“a bastığın kelime ve gramer konuları burada toplanır.';
+    $('#bilmedik-liste').innerHTML = acik.map(satir).join('') + (tamam.length ? `<details class="bilmedik-tamam"><summary class="soluk">Artık biliyorsun (${tamam.length})</summary>${tamam.map(satir).join('')}</details>` : '');
   }
 
   // Geçmiş: Claude'un düzeltmeleri, son 21 gün, son cevaplar
@@ -3614,7 +3634,7 @@
   // Diğer: yan bölümler, serbest pratik, geçmiş, ayarlar
   function renderDiger() {
     const el = $('#diger'); if (!el) return;
-    const U = uAktivler()[0], zayifN = Object.keys(S.items).filter(id => gueltig(id + ':x') && schwach(id)).length;
+    const U = uAktivler()[0], zayifN = Object.keys(S.items).filter(id => gueltig(id + ':x') && schwach(id)).length, bilmN = Object.keys(S.bilmedik || {}).filter(bilmedikAcik).length;
     const satir = (attr, ik, ad, alt) => `<button class="diger-satir" ${attr} type="button"><span class="ik" aria-hidden="true">${ik}</span><span><b>${esc(ad)}</b><span class="alt">${alt}</span></span><span class="ok" aria-hidden="true">›</span></button>`;
     const pratik = ODAK.filter(([m]) => SORU_MODI.has(m) && m !== 'paket').map(([m, ik, ad]) => `<button class="btn" data-modus="${m}" type="button">${ik} ${esc(ad)}</button>`).join('');
     el.innerHTML = [
@@ -3629,7 +3649,7 @@
       satir('data-modus="gram"', '📐', 'Gramer', 'B1 kuralları + alıştırma'),
       satir('data-modus="cumle"', '🧱', 'Cümle atölyesi', 'diz · çevir · kendi cümleni kur'),
       satir('data-modus="pruefung"', '🎓', 'Prüfung', 'Goethe B1 provası'),
-      satir('data-git="zayif"', '🎯', 'Zayıflar', zayifN ? `${zayifN} kelime` : 'yanlış yaptıkların burada toplanır'),
+      satir('data-git="zayif"', '🎯', 'Zayıflar · Bilmediklerim', zayifN || bilmN ? [zayifN ? `${zayifN} kelime` : '', bilmN ? `${bilmN} „bilmiyorum“` : ''].filter(Boolean).join(' · ') : 'yanlış yaptıkların ve bilmediklerin burada toplanır'),
       `<details class="diger-pratik"><summary class="diger-satir"><span class="ik" aria-hidden="true">🎲</span><span><b>Serbest pratik</b><span class="alt">aynı akış, tek bir türle</span></span><span class="ok" aria-hidden="true">⌄</span></summary><div class="diger-grup">${pratik}</div></details>`,
       satir('data-git="kayit"', '🗂️', 'Geçmiş', 'Claude\'un düzeltmeleri, son cevaplar'),
       satir('data-git="ayar" data-v="ayar"', '⚙️', 'Ayarlar', 'tempo, yeni kelime, hatırlatıcı, GitHub'),
@@ -4734,6 +4754,8 @@
   document.addEventListener('click', e => {
     const g = e.target.closest('[data-git]');
     if (g) { zeigView(g.dataset.git); return; }
+    const go = e.target.closest('[data-gram-oku]');
+    if (go && window.Gramer) { calisBasla('gram'); Gramer.oku(go.dataset.gramOku); return; }
     const b = e.target.closest('[data-modus]');
     if (!b) return;
     calisBasla(b.dataset.modus);
@@ -4978,7 +5000,7 @@
     const labelIdx = {};
     try { NL.forEach(n => { labelIdx[label(n.id)] = n.id; }); VERBEN.forEach(v => { labelIdx[v.anz || v.inf] = v.id; if (v.inf) labelIdx[v.inf] = labelIdx[v.inf] || v.id; }); WOERTER.forEach(w => { labelIdx[w.de] = w.id; }); } catch (e) { console.warn(e); }
     Gramer.init({
-      S: () => S, save, logEintrag, xpEkle: n => { if (!gramTurAcik()) xpEkle(n); }, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur, devamBtn,
+      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle: n => { if (!gramTurAcik()) xpEkle(n); }, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur, devamBtn,
       kart: () => kart, ret: () => S.einst.ret, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
       // turdaki gram sorusunda (gramTur) sayaç / puan / fx uygulamanın (gramTurBitti): Gramer çağırsa da iki kez sayılmasın
       fx: u => { if (!gramTurAcik()) fxCevap(u); }, soruSayisi: () => session.q, odakla: () => !!(window.matchMedia && matchMedia('(hover: hover)').matches),
@@ -4993,7 +5015,7 @@
   (function cumleBagla() {
     if (!window.Cumle) return;
     Cumle.init({
-      S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn,
+      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn,
       kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, fx: u => fxCevap(u), umlaut: UMLAUT_IC,
       kind, label, trOf, wortLuecke, hilfe: (de, id) => hilfeHTML(de, id),
       sayac: urteil => { const d = heute(); d.n++; if (urteil) d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); },

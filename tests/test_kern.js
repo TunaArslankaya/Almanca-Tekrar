@@ -939,5 +939,13 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(r2.gram.konu.adjektiv.karte.last, 20, 'birleştirme: konu başına son etkinlik kazanır');
 }
 
+// ---------- 28.10: Bilmediklerim cihazlar arası birleşir ----------
+{
+  const r = K.birlestir({ bilmedik: { n1: { ad: 'a', ilk: 5, son: 50, n: 2, d: 0 }, 'g:x:t': { ad: 'g', ilk: 9, son: 9, n: 1, d: 1, dt: 20 } } },
+    { bilmedik: { n1: { ad: 'a', ilk: 3, son: 30, n: 1, d: 2, dt: 40 }, n2: { ad: 'b', ilk: 1, son: 1, n: 1, d: 0 } } });
+  eq(Object.keys(r.bilmedik).sort().join(','), 'g:x:t,n1,n2', 'bilmedik: iki taraftaki anahtarlar birleşir');
+  eq(r.bilmedik.n1.son + '/' + r.bilmedik.n1.d + '/' + r.bilmedik.n1.ilk, '50/0/3', 'bilmedik: son "bilmiyorum" kazanır, ilk en eski');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);

@@ -928,6 +928,12 @@
     }
     // sprint: en son değiştirilen (zaman damgası z; yoksa uzaktaki: yeni cihazın varsayılanı Ayarlar'da kapatılmış sprinti açmasın)
     if (lok.sprint || uz.sprint) m.sprint = lok.sprint && uz.sprint ? ((lok.sprint.z || 0) > (uz.sprint.z || 0) ? lok.sprint : uz.sprint) : (uz.sprint || lok.sprint);
+    // Bilmediklerim: anahtar başına son "bilmiyorum" (son) daha yeni olan; aynıysa ilerlemesi (d) büyük olan; ilk görülme en eski
+    if (lok.bilmedik || uz.bilmedik) {
+      const b = Object.assign({}, uz.bilmedik);
+      Object.entries(lok.bilmedik || {}).forEach(([k, a]) => { const o = b[k]; b[k] = !o ? a : Object.assign({}, (a.son || 0) > (o.son || 0) || ((a.son || 0) === (o.son || 0) && (a.d || 0) >= (o.d || 0)) ? a : o, { ilk: Math.min(a.ilk || Infinity, o.ilk || Infinity), n: Math.max(a.n || 0, o.n || 0) }); });
+      m.bilmedik = b;
+    }
     if (lok.xpTaban != null || uz.xpTaban != null) m.xpTaban = Math.max(lok.xpTaban || 0, uz.xpTaban || 0);
     if (lok.tageC || uz.tageC) {
       // cihaz başına, alan başına en büyük (her cihaz yalnız kendi sayacını artırır)

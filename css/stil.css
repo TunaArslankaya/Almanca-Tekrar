@@ -1141,3 +1141,4 @@ body.calis-modu .yenile-cubuk { display: none; }
 .gh-lejant i { display: inline-block; width: .8rem; height: .8rem; border-radius: 50%; }
 .gh-lejant i.gh-denenmedi { border-width: 1.5px; }
 .gh-lejant i.gh-biliyor { background: var(--ok); } .gh-lejant i.gh-ogreniliyor { background: var(--warn); } .gh-lejant i.gh-zayif { background: var(--bad); }
+.bilmedik-tamam summary { cursor: pointer; padding: 8px 0; }

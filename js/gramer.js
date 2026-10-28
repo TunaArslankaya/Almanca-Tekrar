@@ -467,8 +467,8 @@
     const q = ses.q, teil = (g.teile || {})[u.teil] || { name: u.teil };
     const sayac = ses.art === 'tani' ? ` · test ${ses.tani.n + 1}/~${TANI_OTURUM}` : ses.art === 'tur' ? '' : ` · ${ses.i + 1}/${ses.set.length}`;
     const ust = `<div class="tur"><span class="yeni">gramer · ${esc(TUR_AD[u.tur] || u.tur)}</span><span>${esc(g.kopf.titel)}${ses.art === 'tani' ? '' : ' · ' + esc(teil.name)}${sayac}${ses.art === 'ghost' || (ses.art === 'tur' && ses.ghostKey) ? ' · hayalet' : ''}</span></div>`;
-    // test ve turda ordnen / fehler'de de "Bilmiyorum" (tahmin yerine)
-    const bilmBtn = ses.art === 'tani' || ses.art === 'tur' ? '<button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button>' : '';
+    // her türde "Bilmiyorum" (tahmin yerine; Zayıflar → Bilmediklerim listesine girer); yazı kutusu yoksa 0 tuşu
+    const bilmBtn = '<button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button>';
     const trVar = u.tr && u.tr !== '-';
     const ipucu = !trVar ? '' : u.z === 1 || q.ipucu ? `<div class="soluk g-tr">${esc(u.tr)}</div>` : `<div class="soluk"><button class="btn mini" data-g="ipucu" type="button">Türkçesi (ipucu)</button></div>`;
     const hover = api.odakla && api.odakla();
@@ -476,7 +476,7 @@
     let govde = '';
     if (u.tur === 'wahl' || (u.tur === 'luecke' && u.opt)) {
       if (!q.opts) q.opts = karistir(u.opt);
-      govde = `<div class="soru g-soru">${de(tire(u.soru))}</div>${ipucu}<div class="mc${q.opts.every(o => o.length < 14) ? ' kisa' : ''}">${q.opts.map(o => `<button class="mc-opt" data-g="sec" data-v="${esc(o)}" type="button">${de(o)}</button>`).join('')}</div>`;
+      govde = `<div class="soru g-soru">${de(tire(u.soru))}</div>${ipucu}<div class="mc${q.opts.every(o => o.length < 14) ? ' kisa' : ''}">${q.opts.map(o => `<button class="mc-opt" data-g="sec" data-v="${esc(o)}" type="button">${de(o)}</button>`).join('')}</div><div class="sira">${bilmBtn.replace('>Bilmiyorum<', '>Bilmiyorum <kbd>0</kbd><')}</div>`;
     } else if (u.tur === 'luecke') {
       const n = (u.soru.match(/___/g) || []).length; let i = 0;
       const html = esc(u.soru).replace(/___/g, () => `<input class="g-inp" data-i="${i++}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="boşluk ${i}">`);
@@ -492,7 +492,7 @@
       const hataVar = u.hata && u.hata !== '-';
       if (q.adim === 1) govde = `<div class="soru g-soru g-fehler">${toks.map((t, i) => /\S/.test(t) ? `<button class="g-tok${q.tok === i ? ' secili' : ''}" data-g="tok" data-i="${i}" type="button">${esc(t)}</button>` : ' ').join('')}</div>${ipucu}
         <p class="aciklama">Hatalı kelimeye dokun; cümle doğruysa „Hata yok“.</p><div class="sira"><button class="btn" data-g="hata-yok" type="button">Hata yok</button>${bilmBtn}</div>`;
-      else govde = `<div class="soru g-soru"><s>${esc(u.hata)}</s> hatalı. Cümlenin doğrusunu yaz:</div><div class="soluk">${esc(u.soru)}</div>${ipucu}<div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button></div>`;
+      else govde = `<div class="soru g-soru"><s>${esc(u.hata)}</s> hatalı. Cümlenin doğrusunu yaz:</div><div class="soluk">${esc(u.soru)}</div>${ipucu}<div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button>${bilmBtn}</div>`;
       if (!hataVar && q.adim === 2) q.adim = 1;
     } else if (u.tur === 'umform') {
       const [kaynak, hedef] = u.soru.split(' → ');
@@ -510,13 +510,13 @@
       const sol = u.sol.map((t, i) => `<button class="g-es g-es-sol${q.solSec === i && !tam ? ' secili' : ''}${q.es[i] != null ? ' eslendi' : ''}" data-g="es-sol" data-i="${i}" type="button"><span class="g-no">${i + 1}</span><span class="g-es-t">${de(t)}</span></button>`).join('');
       const sag = q.sagSira.map((j, k) => { const s0 = solOf(j); return `<button class="g-es g-es-sag${s0 != null ? ' eslendi' : ''}" data-g="es-sag" data-j="${j}" type="button">${s0 != null ? `<span class="g-no">${s0 + 1}</span>` : hover ? `<kbd class="g-kbd">${k + 1}</kbd>` : ''}<span class="g-es-t">${de(u.sag[j])}</span></button>`; }).join('');
       govde = `<div class="soru g-soru">Eşleştir</div><p class="aciklama">Soldakine, sonra sağdaki eşine dokun. Eşi bozmak için yeniden dokun.</p>${ipucu}<div class="g-esle"><div class="g-kol">${sol}</div><div class="g-kol">${sag}</div></div>
-        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${tam ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button></div>`;
+        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${tam ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button>${bilmBtn}</div>`;
     } else if (u.tur === 'kategori') {
       if (!q.ogeler) { q.ogeler = karistir(u.gruplar.flatMap((g2, gi) => g2.oge.map(o => ({ o, gi })))); q.kat = {}; }
       const aktif = q.ogeler.findIndex((_, k) => q.kat[k] == null);
       const rows = q.ogeler.map((x, k) => `<div class="g-kat-oge${q.kat[k] != null ? ' atandi' : ''}${aktif === k ? ' aktif' : ''}" data-k="${k}"><span class="g-kat-ad">${de(x.o)}</span><span class="g-kat-btns">${u.gruplar.map((g2, gi) => `<button class="btn mini g-kat-btn${q.kat[k] === gi ? ' an' : ''}" data-g="kat" data-k="${k}" data-gi="${gi}" type="button">${hover && aktif === k ? `<kbd>${gi + 1}</kbd> ` : ''}${esc(g2.ad)}</button>`).join('')}</span></div>`).join('');
       govde = `<div class="soru g-soru">${de(tire(u.soru))}</div>${ipucu}<div class="g-kat">${rows}</div>
-        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${aktif === -1 ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button></div>`;
+        <div class="sira"><button class="btn ana" data-g="kontrol" type="button"${aktif === -1 ? '' : ' disabled'}>Kontrol <kbd>Enter</kbd></button>${bilmBtn}</div>`;
     } else if (u.tur === 'dinle') {
       govde = `<div class="soluk g-yonerge">Dinle, duyduğun cümleyi yaz</div><div class="sira g-dinle"><button class="btn buyuk ana" data-g="dinle" type="button">🔊 Dinle</button><button class="btn mini" data-g="dinle" data-hiz="yavas" type="button">🐢 yavaş</button></div>${ipucu}
         <div class="cevap"><input id="cevap" class="g-inp g-tam" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="duyduğun cümle" lang="de"></div><div class="sira"><button class="btn ana" data-g="kontrol" type="button">Kontrol <kbd>Enter</kbd></button><button class="btn" data-g="bilmiyorum" type="button">Bilmiyorum</button></div>`;
@@ -556,8 +556,8 @@
     q.done = true; q.urteil = urteil; q.antwort = antwort; q.tags = tags; q.sek = Math.round((now() - q.start) / 1000);
     q.oneri = urteil === 'richtig' ? 3 : urteil === 'fast' ? 2 : 1;
     // alternatif sıralama / çeviri olabilir: kendi notunu verebilir (tanı testinde itiraz yok: notu sistem verir)
-    const serbest = (u.tur === 'umform' || u.tur === 'ordnen' || u.tur === 'ceviri') && urteil !== 'richtig' && ses.art !== 'tani';
-    const baslik = { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[urteil];
+    const serbest = (u.tur === 'umform' || u.tur === 'ordnen' || u.tur === 'ceviri') && urteil !== 'richtig' && ses.art !== 'tani' && !bilmiyorum;
+    const baslik = { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: bilmiyorum ? '✗ Bilmiyorum' : '✗ Yanlış' }[urteil];
     el().querySelectorAll('.mc-opt').forEach(b => { b.disabled = true; if (u.cevap.includes(b.dataset.v)) b.classList.add('dogru'); else if (b.dataset.v === antwort) b.classList.add('yanlis'); });
     el().querySelectorAll('.g-inp').forEach((inp, i) => { inp.readOnly = true; if (q.detay && !bilmiyorum && typeof q.detay[i] === 'string') inp.classList.add(q.detay[i] === 'richtig' ? 'dogru' : q.detay[i] === 'fast' ? 'yakin' : 'yanlis'); });
     if (u.tur === 'eslestir') el().querySelectorAll('.g-es').forEach(b => { b.disabled = true; if (b.dataset.i != null && q.detay) b.classList.add(q.detay[+b.dataset.i] ? 'dogru' : 'yanlis'); });
@@ -606,6 +606,8 @@
       ghostModu ? ['ghost:' + ((gh[key] || {}).adim || 0)] : [], q.ipucu ? ['ipucu:1'] : [], q.oneri !== n ? [`öneri:${['', 'falsch', 'fast', 'richtig'][q.oneri]}`] : [], [`sek:${q.sek}`]);
     // test: id g:<konu>:tani:<n>, notiz tanı:<konudaki sıra> önde · tur: notiz tur:akis önde
     const onEk = ses.art === 'tani' ? [`tanı:${ses.taniSira}`] : ses.art === 'tur' ? ['tur:akis'] : [];
+    // Bilmediklerim: "Bilmiyorum" → listeye; sonra doğru cevaplar (başka günlerde iki kez) "artık biliyorsun"a taşır
+    if (api.bilmedik && (q.tags.includes('bilmiyorum') || n === 3)) api.bilmedik(`g:${ses.id}:${u.teil}`, `${g.kopf.titel.split(":")[0]} · ${(g.teile[u.teil] || {}).name || u.teil}`, !q.tags.includes('bilmiyorum'));
     api.logEintrag({ modus: 'gram', id: ses.art === 'tani' ? `g:${ses.id}:tani:${u.n}` : `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: onEk.concat(notiz).join(' | ') });
     if (ses.art === 'tur') {   // turda: konu kartı, gün sayacı, xp, fx değişmez (app bitti'de sayar)
       const x = ks.tur && ks.tur.g === gun() ? ks.tur : (ks.tur = { g: gun(), n: 0 }); if (!ghostModu) x.n++;
@@ -753,6 +755,7 @@
       if (u.tur === 'eslestir' && q.sagSira && k < q.sagSira.length) { esSag(q.sagSira[k]); return true; }
       if (u.tur === 'kategori' && q.ogeler && k < u.gruplar.length) { const a = q.ogeler.findIndex((_, i) => q.kat[i] == null); if (a !== -1) { q.kat[a] = k; renderUebung(); } return true; }
     }
+    if (ses.ekran === 'ueb' && ses.q && !ses.q.done && e.key === '0' && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { cevapla('', true); return true; }
     if (ses.ekran === 'ueb' && ses.art !== 'tani' && ses.q && ses.q.done && /^[123]$/.test(e.key) && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { notla(+e.key); return true; }
     return false;
   }
@@ -870,7 +873,9 @@
   function yenile() { if (api && api.S) st(); }
   // test / önizleme: belirli alıştırmaları sırayla göster (FSRS'e ve hayalete yazmaz, log'a yazar)
   function dene(id, nler) { const set = (nler || []).map(n => (GR[id].uebungen || []).find(u => u.n === n)).filter(Boolean); baslatSet(id, 'deneme', set); }
-  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik, pruef, yazarak, loesung, tekrarSeti: id => tekrarSeti(id), girisSeti: id => girisSeti(id), dene,
+  // konunun kural sayfası (Zayıflar → Bilmediklerim'den)
+  function oku(id) { if (!GR[id]) return; ses = { ekran: 'tanit', id, sonra: 'liste' }; render(); }
+  root.Gramer = { init, yenile, render, klick, tus, ozet, reset, GR, vadeli, acik, pruef, yazarak, loesung, oku, tekrarSeti: id => tekrarSeti(id), girisSeti: id => girisSeti(id), dene,
     // B1 sprinti (S2): durum, günün bloğu, ana turda soru
     SPRINT_SIRA, sprintDurum, blokBaslat, turSorusu, turRender, turKlick, turTus,
     // DOM'suz iç işler (test): tanı sorusu / cevabı, sıra, konu durumu, +1 aday

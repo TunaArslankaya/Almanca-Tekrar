@@ -570,7 +570,7 @@
       c.son[g.x.de] = t;
       istEkle(g.kademe, urteil === 'richtig' ? 1 : urteil === 'fast' ? 0.5 : 0);
     }
-    if (g.bilmiyorum) notiz.push('bilmiyorum');
+    if (g.bilmiyorum) { notiz.push('bilmiyorum'); if (api.bilmedik) (g.ids || [g.id]).forEach(id => { let ad = id; try { ad = api.label(id); } catch (e) { /* listede yok */ } api.bilmedik(id, ad, false); }); }
     notiz.push(`sek:${g.sek || 0}`);
     (g.ids || [g.id]).forEach(id => { c.oge[id] = t; });
     api.logEintrag({ modus: 'cumle', id: `${g.id}:${g.kademe}`, item, frage, antwort: g.antwort, ergebnis: urteil, loesung, notiz: notiz.join(' | ') });

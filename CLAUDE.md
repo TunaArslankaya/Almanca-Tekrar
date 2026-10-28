@@ -79,6 +79,7 @@
     `diz` (karışık parçaları sırala): ergebnis richtig / fast (yalnız zarf yeri) / falsch, notiz `kademe:diz | parça:N | kelime sırası|fiil yeri | sek:N`. `cevir` (Türkçe → tam cümle, hedef kelime verilir; `G.cumleKontrol` + `alts`): richtig / fast / falsch, notiz `kademe:cevir | hedef:<biçim> | <etiketler> | ipucu:1 | öneri:X | sek:N`.
     `kur` (kelime(ler) + Türkçe durum + yapı görevi, serbest cümle): ergebnis `gonderildi` (not yok; Atla → `falsch` + `bilmiyorum`), notiz `kademe:kur | yapı:weil | kelime:9 | hedef:2/2 | hedef-eksik:… | kısa | yapı-eksik | büyük harf | nokta | uyarıya rağmen | ek:<2. öğe> | sek:N`.
     Hafızaya (Kern) yazmaz (ipuçlu: bütün kelimeler / hedef kelime ekranda); yalnız log, gün sayacı ve `S.cumle` (kademe başarısı, kullanılan cümleler). Oturum sonu `tur;cumle` (notiz `cevap | doğru | küçük | yanlış | gönderildi | puan | dk | diz | cevir | kur`, yarım bırakılırsa `yarıda`).
+  - Bilmediklerim (28.10, `S.bilmedik`, `bilmedikIsle`): soruda „Bilmiyorum“ (ana tur, Gramer'in her türü — yazı kutusu yoksa `0` tuşu —, Cümle atölyesi) anahtarı listeye yazar `{ ad, ilk, son, n, d, dt }`; sonra başka günlerde iki doğru (`d` ≥ 2, günde bir) → "artık biliyorsun". Kelimeler `FILTER.zayif`'e girer (Zayıfları çalış), gramer satırı konunun kural sayfasını açar (`Gramer.oku`). Birleştirme `Kern.birlestir`: anahtar başına son "bilmiyorum" kazanır. Gramerde Bilmiyorum'dan sonra itiraz yok.
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
   - Tur sonu: `tur` (id = bölüm, akşam tekrarında `aksam`; ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4 | yeni:2 | seviye+:3 | tekrar:9`): oturum uzunluğu ve sıklığı buradan okunur.
   - Metin etkinliği özeti: `akt` (id `luecke:<metin>` notiz `puan:x/y | boşluk:n`; `diktat:<öğe>`); göç satırı `akt;goc4`.
@@ -130,6 +131,8 @@
    tam cümle sorusunda öğrencinin bilmediği kelimeler bu sözlükten gösterilir).
 5d. `lesen-wort` satırlarındaki kelimeler öğrencinin okurken bilmediği kelimeler: yeni cümle ve paketlerde öncelik ver.
     `bilmiyorum` etiketli `falsch` satırlarındaki ve `kurtarma` satırlarında yanlış olan kelimeler de öyle: her birine 2–3 yeni çeviri cümlesi yaz (Tuna "bilmiyorum"da daha çok cümle istiyor).
+    Gramerde `bilmiyorum` etiketli `gram` satırlarının teil'ine (item `konu/teil`) 3–5 yeni alıştırma yaz (`quellen/grammatik/<konu>.txt` sonuna, leech gibi).
+    Bunların listesi `log/zustand.json` → `bilmedik` (Zayıflar → Bilmediklerim; anahtar öğe kimliği ya da `g:<konu>:<teil>`, `d` < 2 = hâlâ bilmiyor).
     Yoklamada bilip (`yeni;bekannt`) sonra yazmada / cümlede yanlış yapılan kelimeleri söyle.
    Yeni okuma metni için `quellen/pakete.txt`'e paket + `quellen/lesen.txt`'e 4 richtig/falsch ifadesi ekle.
 6. Paketler bittiyse ya da "yeni paket yaz" denirse `quellen/pakete.txt`'nin sonuna yeni paket ekle: bir sahne (konu değil:
