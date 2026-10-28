@@ -2786,3 +2786,12 @@
 2026-10-27 20:25:49;erk;w0627:erk;übrig;artan, kalan;übrig;richtig;übrig;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2
 2026-10-27 20:25:58;wort;x1563:wort;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrman;fast;der Feuerwehrmann;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:8 | ipucu:0
 2026-10-27 20:25:58;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:59 | dk:1 | yeni:5 | seviye+:0 | tekrar:4
+2026-10-28 10:43:50;erk;n0360:erk;die Feuerwehr;itfaiye;die Feuerwehr;richtig;die Feuerwehr;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:3.0 | ısınma | sek:3
+2026-10-28 10:43:54;bed;v613:bed;verteilen;verteilen;dağıtmak;richtig;dağıtmak;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:4.3 | ısınma | sek:3
+2026-10-28 10:43:57;erk;x1563:erk;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrmann;richtig;der Feuerwehrmann;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:3.0 | ısınma | sek:3
+2026-10-28 10:43:58;yeni;n1173;der Supermarkt;tanıtım;;neu;süpermarket;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:1
+2026-10-28 10:44:00;yeni;v686;alarmieren;tanıtım;;neu;(itfaiye, polis) çağırmak;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-28 10:44:03;erk;n1173:erk;der Supermarkt;süpermarket;der Supermarkt;richtig;der Supermarkt;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-28 10:44:05;bed;v686:bed;alarmieren;(itfaiye, polis) çağırmak;alarmieren;richtig;alarmieren;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-28 10:44:09;prod;w0627:prod;übrig;artan, kalan;übrig;richtig;übrig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.3 | sek:3 | ipucu:0
+2026-10-28 10:44:12;abr;v685:abr;spenden;bağışlamak;spenden;richtig;spenden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.3 | sek:3 | ipucu:0
