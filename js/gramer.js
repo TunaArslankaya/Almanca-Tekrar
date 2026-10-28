@@ -298,10 +298,18 @@
   // gramer alıştırmasında anlam zarfı / parçacığı eksik ya da fazla (noch, schon, auch …) yapı hatası değildir: küçük hata (28.10, Tuna:
   // "Ich weiß nicht, ob ich die Prüfung bestanden habe" — yalnız "noch" eksik — tam yanlış sayılıp konu testte zayıf çıkıyordu)
   const ZARF = new Set(['noch', 'schon', 'auch', 'nur', 'immer', 'gern', 'gerne', 'sehr', 'wirklich', 'leider', 'jetzt', 'heute', 'gestern', 'morgen', 'bald', 'mal', 'eigentlich', 'vielleicht', 'oft', 'wieder', 'endlich', 'gerade', 'bitte', 'schnell', 'genau', 'etwas', 'sogar']);   // dann / danach / zuerst / trotzdem / so / doch / ja konuların hedefi olabilir: listede değil
+  const CEKIM = [['bin', 'bist', 'ist', 'sind', 'seid'], ['habe', 'hast', 'hat', 'haben', 'habt'], ['werde', 'wirst', 'wird', 'werden', 'werdet'], ['war', 'warst', 'waren', 'wart'], ['hatte', 'hattest', 'hatten', 'hattet'], ['kann', 'kannst', 'konnen', 'konnt'], ['muss', 'musst', 'mussen'], ['will', 'willst', 'wollen', 'wollt'], ['darf', 'darfst', 'durfen', 'durft'], ['soll', 'sollst', 'sollen', 'sollt'], ['mochte', 'mochtest', 'mochten', 'mochtet']].map(l => new Set(l));
   const zarfsiz = x => kaynasAc(fold(norm(x))).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(w => w && !ZARF.has(w)).join(' ');
   function cumlePruef(giris, alts) {
     const r = Gx().pruefen(giris, alts[0], alts.slice(1));
     if (r.urteil === 'falsch' && alts.some(a => kaynasAc(fold(norm(a))) === kaynasAc(fold(norm(giris))))) return { urteil: 'fast', tags: ['kaynaştırma'], diff: r.diff };
+    // tek fark aynı fiilin başka kişi çekimi (sind → ist, hat → haben …): özne–fiil uyumu hatası, hedef yapı doğru → küçük hata
+    // (28.10, Tuna: "Diese Aufgabe sind nicht lösbar" -bar alıştırmasında tam yanlış + yanlış etiket "yardımcı fiil" alıyordu)
+    if (r.urteil === 'falsch') {
+      const tk = x => kaynasAc(fold(norm(x))).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(Boolean);
+      const g = tk(giris), cek = alts.map(tk).find(h => h.length === g.length && h.filter((w, i) => w !== g[i]).length === 1);
+      if (cek) { const i = cek.findIndex((w, j) => w !== g[j]); if (CEKIM.some(c => c.has(cek[i]) && c.has(g[i]))) return { urteil: 'fast', tags: ['fiil çekimi (özne uyumu)'], diff: r.diff }; }
+    }
     if (r.urteil === 'falsch' && alts.some(a => zarfsiz(a) === zarfsiz(giris))) {
       const ga = norm(giris).split(/\s+/).length;
       return { urteil: 'fast', tags: [alts.some(a => norm(a).split(/\s+/).length > ga) ? 'eksik kelime' : 'fazla kelime', 'zarf'], diff: r.diff };
