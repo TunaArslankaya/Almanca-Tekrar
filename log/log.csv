@@ -2795,3 +2795,33 @@
 2026-10-28 10:44:05;bed;v686:bed;alarmieren;(itfaiye, polis) çağırmak;alarmieren;richtig;alarmieren;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-28 10:44:09;prod;w0627:prod;übrig;artan, kalan;übrig;richtig;übrig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.3 | sek:3 | ipucu:0
 2026-10-28 10:44:12;abr;v685:abr;spenden;bağışlamak;spenden;richtig;spenden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.3 | sek:3 | ipucu:0
+2026-10-28 10:44:18;wort;n1173:wort;der Supermarkt;süpermarket;das Supermarkt;fast;der Supermarkt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | artikel das → der | sek:5 | ipucu:0
+2026-10-28 10:44:26;abr;v686:abr;alarmieren;(itfaiye, polis) çağırmak;alermieren;fast;alarmieren (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:5 | ipucu:0
+2026-10-28 10:44:57;akt;diktat:n1076;dinle–yaz;Im nächsten Semester belege ich einen Deutschkurs.;In nächstem Semestar ;falsch;Im nächsten Semester belege ich einen Deutschkurs.;
+2026-10-28 10:45:16;prod;w0626:prod;bedürftig;muhtaç, yoksul;bedürftig;richtig;bedürftig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.95 | S:5.0 | sek:14 | ipucu:0
+2026-10-28 10:45:21;wort;n1180:wort;die Tafel;"tahta (okul); tablet (çikolata)";die Tafel;richtig;die Tafel;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.95 | S:5.0 | sek:5 | ipucu:0
+2026-10-28 10:45:21;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:79 | dk:2 | yeni:2 | seviye+:0 | tekrar:7
+2026-10-28 10:45:30;erk;w0625:erk;ehrenamtlich;Das sind dann ehrenamtliche Mitarbeiter.;gönüllü;richtig;gönüllü (karşılıksız);basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:5.0 | ısınma | sek:4
+2026-10-28 10:45:33;bed;v185:bed;einkaufen;alışveriş yapmak;einkaufen;richtig;einkaufen;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.3 | ısınma | sek:2
+2026-10-28 10:45:38;erk;x1562:erk;das Ehrenamt;Bürgermeister im Ehrenamt haben es schwer: Sie arbeiten viel und erfahren immer wieder Anfeindungen.;gönüllü görev;richtig;gönüllü (karşılıksız) görev;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:5.0 | ısınma | sek:5
+2026-10-28 10:45:41;erk;w0056:erk;bereit;hazır;bereit;richtig;bereit;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.9 | sek:2
+2026-10-28 10:45:44;erk;n0991:erk;der Respekt;saygı;der Respekt;richtig;der Respekt;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:1.9 | sek:2
+2026-10-28 10:45:52;prod;w0170:prod;fließend;akıcı;fließend;richtig;fließend;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:6.8 | sek:8 | ipucu:0
+2026-10-28 10:45:55;nsatz;n0813:nsatz;die Mühe;Mit ein bisschen mehr _____ können wir das schaffen.;Mühe;richtig;Mühe;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:11.0 | kapı:7g | sek:2 | ipucu:0
+2026-10-28 10:45:58;art;n0937:art;das Projekt;Projekt;das;richtig;das Projekt;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:4.6 | sek:2
+2026-10-28 10:46:17;luecke;x1547:nsatz;die Toleranz;Ich finde _____ sehr wichtig, weil bei uns Menschen aus zwölf Ländern zusammen lernen.;fairness;falsch;Toleranz;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.7 | kaynak:u4:t3
+2026-10-28 10:46:17;luecke;x1557:nsatz;das Vorurteil;Natürlich gibt es auch _____, aber sie verschwinden, wenn man sich besser kennt.;;falsch;Vorurteile;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.7 | kaynak:u4:t3 | bilmiyorum
+2026-10-28 10:46:17;luecke;x1551:nsatz;die Gleichberechtigung;Wir haben auch über die _____ von Frauen und Männern und über die Erziehung von Kindern diskutiert.;gleichbereitig;falsch;Gleichberechtigung;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.7 | kaynak:u4:t3
+2026-10-28 10:46:17;akt;luecke:u4:t3;metinde boşluk;Ich finde Toleranz sehr wichtig, weil bei uns Menschen aus zwölf Ländern zusammen lernen. Natürlich gibt es auch Vorurteile, aber sie verschwinden, wenn man sich besser kennt. Unsere Lehrerin hat von einer Frau erzählt, die in der Straßenbahn Zivilcourage gezeigt hat: Sie hat einem Jungen geholfen, ;fairness /  / gleichbereitig;falsch;Toleranz / Vorurteile / Gleichberechtigung;puan:0/3 | boşluk:3
+2026-10-28 10:46:25;art;x1562:art;das Ehrenamt;Ehrenamt;das;richtig;das Ehrenamt;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:5.0 | sek:2
+2026-10-28 10:46:25;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:66 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-10-28 10:46:30;erk;x1484:erk;der Kommilitone;sınıf arkadaşı (üniversite);die Kommilitone;fast;der Kommilitone;basamak:B1 | bicim:sec | not:m3,a1 | R:0.90 | S:10.0 | ısınma | kapı:7g | artikel die → der | sek:3
+2026-10-28 10:46:34;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:m3 | R:0.90 | S:4.3 | ısınma | sek:4
+2026-10-28 10:46:37;bed;v149:bed;blitzen;blitzen;şimşek çakmak;richtig;şimşek çakmak;basamak:B1 | bicim:anla | not:m3 | R:0.90 | S:6.0 | ısınma | sek:2
+2026-10-28 10:46:39;art;n0449:art;das Gemüse;Gemüse;das;richtig;das Gemüse;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:11.6 | sek:1
+2026-10-28 10:46:40;yeni;v378;löschen;tanıtım;;neu;"silmek; (yangını) söndürmek";basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-28 10:46:42;yeni;v687;ausbilden;tanıtım;;neu;yetiştirmek, (meslek) eğitimi vermek;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-28 10:46:44;bed;v687:bed;ausbilden;yetiştirmek, (meslek) eğitimi vermek;ausbilden;richtig;ausbilden;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-28 10:46:46;bed;v378:bed;löschen;silmek;löschen;richtig;löschen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-28 10:46:48;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:3.2 | sek:1
+2026-10-28 10:46:57;wort;x1552:wort;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.90 | S:6.0 | sek:9 | ipucu:0
