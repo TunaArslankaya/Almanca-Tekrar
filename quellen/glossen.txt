@@ -4383,3 +4383,13 @@ Weil ich den ganzen Tag sitze, mache ich abends zehn Minuten Gymnastik. | ganz =
 An der Uni gibt man die meisten Hausarbeiten nur noch digital ab. | abgeben = teslim etmek; die Hausarbeit = dönem ödevi
 An der Küste ist es oft so windig, dass man kaum Fahrrad fahren kann. | die Küste = kıyı; kaum = neredeyse hiç
 Morgen ist es den ganzen Tag bewölkt, aber es soll nicht regnen. | ganz = bütün
+Viele Vorurteile verschwinden, wenn man andere Menschen persönlich kennenlernt. | verschwinden = ortadan kalkmak; kennenlernen = tanımak; persönlich = şahsen
+Es ist nicht leicht, ein Vorurteil gegen sich selbst zu erkennen. | erkennen = fark etmek; leicht = kolay
+Wegen des dichten Nebels fahren die Züge heute langsamer. | dicht = yoğun; langsam = yavaş
+Im Herbst liegt morgens oft Nebel über der Weser. | der Herbst = sonbahar
+Mein Bruder interessiert sich sehr für Politik und liest jeden Tag die Zeitung. | sich interessieren für = ilgilenmek; die Zeitung = gazete
+Bei der Besprechung waren leider nicht alle Kollegen anwesend. | die Besprechung = toplantı; der Kollege = iş arkadaşı
+Ist Herr Weber heute anwesend oder ist er im Urlaub? | der Urlaub = izin, tatil
+Die Wohnung ist schön, allerdings ist sie ziemlich teuer. | ziemlich = oldukça; teuer = pahalı
+Ich habe den Kurs bestanden, allerdings nur knapp. | bestehen = geçmek (sınav); knapp = ucu ucuna
+Sie hat neben ihrem Beruf noch ein Ehrenamt im Sportverein. | der Beruf = meslek; der Sportverein = spor kulübü

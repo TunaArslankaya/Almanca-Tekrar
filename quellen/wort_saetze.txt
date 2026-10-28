@@ -2898,3 +2898,13 @@ n0496 | die Gymnastik | Weil ich den ganzen Tag sitze, mache ich abends zehn Min
 w0100 | digital | An der Uni gibt man die meisten Hausarbeiten nur noch digital ab. | Üniversitede ödevlerin çoğu artık sadece dijital olarak teslim ediliyor.
 w0560 | windig | An der Küste ist es oft so windig, dass man kaum Fahrrad fahren kann. | Kıyıda çoğu zaman o kadar rüzgârlı ki neredeyse bisiklete binilemiyor.
 w0566 | bewölkt | Morgen ist es den ganzen Tag bewölkt, aber es soll nicht regnen. | Yarın bütün gün hava bulutlu olacak ama yağmur yağmayacakmış.
+x1557 | das Vorurteil | Viele Vorurteile verschwinden, wenn man andere Menschen persönlich kennenlernt. | Birçok önyargı, insan diğer insanları şahsen tanıyınca ortadan kalkar.
+x1557 | das Vorurteil | Es ist nicht leicht, ein Vorurteil gegen sich selbst zu erkennen. | Kendine karşı bir önyargıyı fark etmek kolay değil.
+n0844 | der Nebel | Wegen des dichten Nebels fahren die Züge heute langsamer. | Yoğun sis yüzünden trenler bugün daha yavaş gidiyor.
+n0844 | der Nebel | Im Herbst liegt morgens oft Nebel über der Weser. | Sonbaharda sabahları çoğu zaman Weser üzerinde sis olur.
+n0914 | die Politik | Mein Bruder interessiert sich sehr für Politik und liest jeden Tag die Zeitung. | Ağabeyim siyasetle çok ilgileniyor ve her gün gazete okuyor.
+w0026 | anwesend | Bei der Besprechung waren leider nicht alle Kollegen anwesend. | Toplantıda maalesef bütün iş arkadaşları hazır bulunmadı.
+w0026 | anwesend | Ist Herr Weber heute anwesend oder ist er im Urlaub? | Bay Weber bugün burada mı yoksa izinde mi?
+w0011 | allerdings | Die Wohnung ist schön, allerdings ist sie ziemlich teuer. | Daire güzel, ancak oldukça pahalı.
+w0011 | allerdings | Ich habe den Kurs bestanden, allerdings nur knapp. | Kursu geçtim, ama ucu ucuna.
+x1562 | das Ehrenamt | Sie hat neben ihrem Beruf noch ein Ehrenamt im Sportverein. | Mesleğinin yanında spor kulübünde bir de gönüllü görevi var.

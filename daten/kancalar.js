@@ -36,4 +36,8 @@ window.KANCA = {
   w0599: "eingespannt sein → 'ayn-şpannt': arabaya koşulmuş at (einspannen = koşmak); işe koşulmuş = çok meşgul",
   v142: "beweisen → 'bevayzın' ~ 'beni vay!': hâkim 'vay!' der kanıtı görünce; der Beweis = kanıt; Perfekt hat bewiesen (ge- yok)",
   n1422: "das Ziel → 'ziyl' sesi 'cetvel' değil, okçunun yeşil (das) hedef tahtası; Ziel–Spiel–Ende hep das: das Ziel, das Spiel, das Ende",
+  w0011: "allerdings → 'aler-dings': 'hepsi güzel, ALLERDINGS (ancak) bir şey var' diye araya girersin; ancak, gerçi",
+  w0026: "anwesend → 'an-vezend': annem vezneye gelmiş, orada bulunuyor; ters: abwesend = yok",
+  x1557: "das Vorurteil → 'for-urtayl': ÖN yargı (vor = ön) + Urteil = yargı; yeşil (das) ön yargı kutusu; çoğul Vorurteile",
+  n0914: "die Politik → 'politika' sesi aynı; -ik sonlu isimler hep die: die Politik, die Musik, die Technik",
 };
