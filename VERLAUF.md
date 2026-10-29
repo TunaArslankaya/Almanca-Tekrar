@@ -360,3 +360,7 @@ Son incelenen log satırı: 2026-10-25 22:52:45 (tur akis).
 - 25.10 22:52 sonrası 322 satır (26.10 sabah, 27.10 öğleden sonra + akşam, 28.10 sabah + gramer tanı oturumu 2). Yazma yanlışları: artikel karışıkları (der Humor ×2, Wetterbericht, Supermarkt, Gewitter), yazım (Behauptung, Feuerwehrmann, alarmieren), kelime karışıkları (anwesend ↔ allerdings, bereit ↔ beide, drüben ↔ drennen). Çekim: fahren, kommen (ist gekommen), bleiben (geblieben). Seçmeli artikel yanlışları toplu: Vorurteil (das ×2 die dedi), Missverständnis (die dedi ×2), Wetter, Politik, Regel, Not, Behörde, Nebel, Geduld. Leech: allerdings, Politik, anwesend, Vorurteil, Nebel (Nebel kancası vardı). Yoklamada bilip sonra yanlış: yok.
 - 25 düzeltme `feedback.js`'e, 4 kanca (allerdings, anwesend, Vorurteil, Politik). DW metni (Proteinprodukte) sözlüğündeki kelimeler Goethe listesinde yok; takılanlara 10 çeviri cümlesi + gloss (Vorurteil ×2, Nebel ×2, Politik, anwesend ×2, allerdings ×2, Ehrenamt).
 Son incelenen log satırı: 2026-10-28 11:19:09 (gram g:verbstellung).
+
+**2026-10-29 (gece işi, otomatik)**
+- 28.10 11:19:09 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni (Proteinprodukte) aynı, sözlüğündeki kelimeler (Allergie, Wachstum, Umsatz, Übergewicht, Pubertät, Niere, Pulver …) Goethe B1 listesinde yok; yeni cümle eklenmedi.
+Son incelenen log satırı: 2026-10-28 11:19:09 (gram g:verbstellung).
