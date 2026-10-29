@@ -2913,3 +2913,9 @@
 2026-10-28 11:19:03;gram;g:imperativ:tani:30;imperativ/du;___ bitte lauter, ich verstehe dich nicht! (sprechen · du);Sprech;falsch;Sprich;tanı:1 | tür:luecke | z:2 | artikel/çekim | sek:18
 2026-10-28 11:19:03;gram;g:tani;Gramer testi;oturum:2;;ara;;puan:15/25 | konu:34/48 | biliyor:n-deklination,reflexiv,modalverben,tuerkisch-fallen | zayif:partizip-adj,perfekt,praeteritum,wortbildung,indirekte-fragen,lokal-praep,obwohl-wenn,praep-dat-akk,wechselpraep,artikelwoerter,imperativ | dk:11
 2026-10-28 11:19:09;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;tanıtım;;neu;;
+2026-10-29 18:10:18;erk;n0244:erk;die Diskussion;Bei Diskussionen über Künstliche Intelligenz (KI) geht es meist um ihre Gefahren und darum, wie sie unseren Alltag beeinflusst.;tartışma;richtig;tartışma;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:52.8 | ısınma | kapı:7g | sek:2
+2026-10-29 18:10:21;erk;n0538:erk;die Hitze;sıcaklık (bunaltıcı);die Hitze;richtig;die Hitze;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:35.0 | ısınma | kapı:7g | sek:3
+2026-10-29 18:10:26;erk;n1307:erk;das Verhalten;davranış;das Verhalten;richtig;das Verhalten;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:34.6 | ısınma | kapı:7g | sek:5
+2026-10-29 18:10:28;yeni;n0449;das Gemüse;tanıtım;;neu;sebze;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:1
+2026-10-29 18:10:31;yeni;x1565;das Vereinsmitglied;tanıtım;;neu;dernek üyesi;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-29 18:10:42;yeni;n0076;die Aufnahme;tanıtım;;neu;"kayıt (ses/video); kabul";basamak:B0 | bicim:tanit | not:- | parti | sek:12
