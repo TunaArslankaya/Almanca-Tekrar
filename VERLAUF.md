@@ -364,3 +364,9 @@ Son incelenen log satırı: 2026-10-28 11:19:09 (gram g:verbstellung).
 **2026-10-29 (gece işi, otomatik)**
 - 28.10 11:19:09 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni (Proteinprodukte) aynı, sözlüğündeki kelimeler (Allergie, Wachstum, Umsatz, Übergewicht, Pubertät, Niere, Pulver …) Goethe B1 listesinde yok; yeni cümle eklenmedi.
 Son incelenen log satırı: 2026-10-28 11:19:09 (gram g:verbstellung).
+
+**2026-10-30 (gece işi, otomatik)**
+- 28.10 11:19:09 sonrası 82 satır (29.10 akşam 1 tur, 30.10 sabah 5 tur + metin). 19 düzeltme `feedback.js`'e. Yazma yanlışları: n0076 Aufnahme (iki kez rastgele harf, "bilmiyorum" yerine), x1565 Vereinsmitglied (artikel + yazım), x1478 Frühjahr (leech), n0137 Behörde (leech, Amt ile karıştı), kelime karışıkları (Geduld↔gerecht, Würde↔Wert), yazım (Schirm, Kälte, Gymnastik). Metinde boşluk u4:t1 0/3 (löschen, bewältigen, Solidarität; Passiv Partizip). Gramer: adjektiv:63 keine guten. Dikte: du hast. Seçmeli artikel yanlışları toplu: Vereinsmitglied (der dedi ×3), Frühjahr, Gymnastik, Wert (der/das).
+- 2 kanca (Frühjahr, Behörde); 12 yeni çeviri cümlesi + gloss (löschen, bewältigen, Vereinsmitglied, Patenschaft, Aufnahme, Organisation, Solidarität). DW metni aynı (Proteinprodukte), Goethe listesinde yeni kelime yok. `bilmiyorum`: yalnız n0875 yoklamada (sonra doğru).
+- Dikkat: 30.10 11:32 son8 yanlış 5; çok hızlı turlar (dk:1–2), rastgele harf cevapları.
+Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).

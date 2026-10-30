@@ -1202,3 +1202,7 @@ v262 | Folgen Sie den Schildern, dann finden Sie das Büro der Ausländerbehörd
 v211 | Durch das Missverständnis ist zwischen mir und meinem Mitbewohner ein Streit entstanden. || Wegen des Missverständnisses ist zwischen mir und meinem Mitbewohner ein Streit entstanden. | Yanlış anlaşılma yüzünden ev arkadaşımla aramda bir kavga çıktı.
 v140 | Nach dem langen Tag in der Bibliothek muss ich mich ein bisschen bewegen. | Kütüphanede geçen uzun günden sonra biraz hareket etmem gerekiyor.
 v534 | Was kann man tun, wenn der Vermieter die Kaution nicht zurückzahlt? | Ev sahibi depozitoyu geri ödemezse ne yapılabilir?
+v378 | Die Feuerwehr hat das Feuer in einer Stunde gelöscht. | İtfaiye yangını bir saatte söndürdü.
+v378 | Nach dem Brand wurde das Feuer schnell gelöscht. | Yangından sonra ateş çabucak söndürüldü.
+v688 | Die viele Arbeit können wir nur gemeinsam bewältigen. | Bu kadar çok işin üstesinden ancak birlikte gelebiliriz.
+v688 | Sie hat die schwierige Zeit nach dem Umzug gut bewältigt. | Taşınmadan sonraki zor dönemin üstesinden iyi geldi.

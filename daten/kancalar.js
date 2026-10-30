@@ -39,5 +39,7 @@ window.KANCA = {
   w0011: "allerdings → 'aler-dings': 'hepsi güzel, ALLERDINGS (ancak) bir şey var' diye araya girersin; ancak, gerçi",
   w0026: "anwesend → 'an-vezend': annem vezneye gelmiş, orada bulunuyor; ters: abwesend = yok",
   x1557: "das Vorurteil → 'for-urtayl': ÖN yargı (vor = ön) + Urteil = yargı; yeşil (das) ön yargı kutusu; çoğul Vorurteile",
+  x1478: "das Frühjahr → 'fry-yar': früh (erken) + Jahr (yıl); yılın erken kısmı = ilkbahar; Jahr hep das, yeşil (das) çimen çıkar",
+  n0137: "die Behörde → 'bö-hörde': bir 'hörde' (horda) memur; kırmızı (die) kurum kapısında sıra bekliyorsun; Amt = daire, Behörde = kurumun kendisi",
   n0914: "die Politik → 'politika' sesi aynı; -ik sonlu isimler hep die: die Politik, die Musik, die Technik",
 };

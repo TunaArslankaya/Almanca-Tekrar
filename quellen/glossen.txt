@@ -4393,3 +4393,15 @@ Ist Herr Weber heute anwesend oder ist er im Urlaub? | der Urlaub = izin, tatil
 Die Wohnung ist schön, allerdings ist sie ziemlich teuer. | ziemlich = oldukça; teuer = pahalı
 Ich habe den Kurs bestanden, allerdings nur knapp. | bestehen = geçmek (sınav); knapp = ucu ucuna
 Sie hat neben ihrem Beruf noch ein Ehrenamt im Sportverein. | der Beruf = meslek; der Sportverein = spor kulübü
+Die Feuerwehr hat das Feuer in einer Stunde gelöscht. | die Feuerwehr = itfaiye; das Feuer = ateş, yangın
+Nach dem Brand wurde das Feuer schnell gelöscht. | der Brand = yangın; schnell = çabuk
+Die viele Arbeit können wir nur gemeinsam bewältigen. | gemeinsam = birlikte; nur = ancak
+Sie hat die schwierige Zeit nach dem Umzug gut bewältigt. | schwierig = zor; der Umzug = taşınma
+Ich bin seit einem Jahr Vereinsmitglied im Sportverein. | der Sportverein = spor kulübü; seit = -den beri
+Jedes Vereinsmitglied zahlt einen kleinen Beitrag. | der Beitrag = aidat, katkı; zahlen = ödemek
+Sie hat die Patenschaft für ein Kind in Afrika übernommen. | übernehmen = üstlenmek; das Kind = çocuk
+Eine Patenschaft kostet im Monat zwanzig Euro. | kosten = tutmak (fiyat); der Monat = ay
+Die Aufnahme war so laut, dass man nichts verstehen konnte. | laut = gürültülü; verstehen = anlamak
+Die Aufnahme in die Schule dauert einige Wochen. | die Schule = okul; dauern = sürmek; die Woche = hafta
+Diese Organisation hilft Menschen in Not. | helfen = yardım etmek; die Not = zor durum
+Die Solidarität im Dorf war wirklich groß. | das Dorf = köy; wirklich = gerçekten; groß = büyük

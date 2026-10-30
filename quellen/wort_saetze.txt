@@ -2908,3 +2908,11 @@ w0026 | anwesend | Ist Herr Weber heute anwesend oder ist er im Urlaub? | Bay We
 w0011 | allerdings | Die Wohnung ist schön, allerdings ist sie ziemlich teuer. | Daire güzel, ancak oldukça pahalı.
 w0011 | allerdings | Ich habe den Kurs bestanden, allerdings nur knapp. | Kursu geçtim, ama ucu ucuna.
 x1562 | das Ehrenamt | Sie hat neben ihrem Beruf noch ein Ehrenamt im Sportverein. | Mesleğinin yanında spor kulübünde bir de gönüllü görevi var.
+x1565 | das Vereinsmitglied | Ich bin seit einem Jahr Vereinsmitglied im Sportverein. | Bir yıldır spor kulübünün üyesiyim.
+x1565 | das Vereinsmitglied | Jedes Vereinsmitglied zahlt einen kleinen Beitrag. | Her dernek üyesi küçük bir aidat öder.
+x1566 | die Patenschaft | Sie hat die Patenschaft für ein Kind in Afrika übernommen. | Afrika'daki bir çocuk için destekçiliği üstlendi.
+x1566 | die Patenschaft | Eine Patenschaft kostet im Monat zwanzig Euro. | Bir destekçilik ayda yirmi euro tutuyor.
+n0076 | die Aufnahme | Die Aufnahme war so laut, dass man nichts verstehen konnte. | Kayıt o kadar gürültülüydü ki hiçbir şey anlaşılmıyordu.
+n0076 | die Aufnahme | Die Aufnahme in die Schule dauert einige Wochen. | Okula kabul birkaç hafta sürüyor.
+n0875 | die Organisation | Diese Organisation hilft Menschen in Not. | Bu kuruluş zor durumdaki insanlara yardım ediyor.
+x1554 | die Solidarität | Die Solidarität im Dorf war wirklich groß. | Köydeki dayanışma gerçekten büyüktü.
