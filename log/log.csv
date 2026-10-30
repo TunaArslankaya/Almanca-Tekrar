@@ -2931,3 +2931,33 @@
 2026-10-29 18:12:03;erk;n0076:erk;die Aufnahme;kayıt (ses/video);die Aufnahme;richtig;die Aufnahme;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:4
 2026-10-29 18:12:06;erk;x1565:erk;das Vereinsmitglied;dernek üyesi;der Vereinsmitglied;fast;das Vereinsmitglied;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | artikel der → das | sek:2
 2026-10-29 18:12:06;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:9 | küçük:3 | yanlış:2 | puan:89 | dk:2 | yeni:3 | seviye+:1 | tekrar:7 | gram:1/1
+2026-10-30 11:27:55;erk;n1169:erk;der Sturm;Zum Wetter gehören Wind, Stürme, Regen, Schnee und manches mehr.;fırtına;richtig;fırtına;basamak:B1 | bicim:metinde | not:m3 | R:0.98 | S:84.9 | ısınma | kapı:7g | sek:8
+2026-10-30 11:27:59;erk;n1359:erk;die Wärme;sıcaklık;die Wärme;richtig;die Wärme;basamak:B1 | bicim:sec | not:m3,a3 | R:0.98 | S:63.3 | ısınma | kapı:7g | sek:4
+2026-10-30 11:28:03;erk;n0844:erk;der Nebel;sis;der Nebel;richtig;der Nebel;basamak:B1 | bicim:sec | not:m3,a3 | R:0.98 | S:63.3 | ısınma | kapı:7g | sek:3
+2026-10-30 11:28:07;wort;n0875:wort;die Organisation;organizasyon, kuruluş;;falsch;die Organisation;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:2 | ipucu:2 | bilmiyorum
+2026-10-30 11:28:11;yeni;n0875;die Organisation;tanıtım;;neu;organizasyon, kuruluş;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-10-30 11:28:13;yeni;n0928;der Preis;tanıtım;;neu;"fiyat; ödül";basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-10-30 11:28:17;yeni;x1566;die Patenschaft;tanıtım;;neu;(gönüllü) destekçilik;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-30 11:28:21;erk;n0875:erk;die Organisation;organizasyon, kuruluş;die Organisation;richtig;die Organisation;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-30 11:28:24;erk;x1566:erk;die Patenschaft;(gönüllü) destekçilik;die Patenschaft;richtig;die Patenschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-10-30 11:28:29;erk;n0928:erk;der Preis;fiyat;der Preis;richtig;der Preis;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:4
+2026-10-30 11:28:45;gram;g:adjektiv:57;adjektiv/kontrast;In unserer Straße gibt es einen neue Supermarkt.;einen;richtig;In unserer Straße gibt es einen neuen Supermarkt.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:15
+2026-10-30 11:28:54;wort;n0875:wort;die Organisation;organizasyon, kuruluş;die Organisation;richtig;die Organisation;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-10-30 11:28:58;wort;x1566:wort;die Patenschaft;(gönüllü) destekçilik;die Patenschaft;richtig;die Patenschaft;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-30 11:29:00;wort;n0928:wort;der Preis;"fiyat; ödül";der Preis;richtig;der Preis;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-30 11:29:03;art;n1095:art;die Sonne;Sonne;die;richtig;die Sonne;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:80.7 | sek:2
+2026-10-30 11:29:03;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:0 | yanlış:1 | puan:82 | dk:1 | yeni:3 | seviye+:0 | tekrar:4 | gram:1/1
+2026-10-30 11:29:08;wort;n0957:wort;der Rat;tavsiye, öğüt;der Rat;richtig;der Rat;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:60.6 | kapı:14g | sek:4 | ipucu:2
+2026-10-30 11:29:13;nsatz;n0629:nsatz;das Klima;Alle sagen, dass sich das _____ ändert.;Klima;richtig;Klima;basamak:B2 | bicim:bos0 | not:m3 | R:0.97 | S:48.8 | kapı:7g | sek:4 | ipucu:0
+2026-10-30 11:29:19;wort;n0155:wort;die Bestätigung;onay;die Bestätigung;richtig;die Bestätigung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:56.3 | kapı:14g | sek:6 | ipucu:2
+2026-10-30 11:29:22;yeni;v399;nennen;tanıtım;;neu;adlandırmak, söylemek;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-30 11:29:24;bed;v399:bed;nennen;adlandırmak, söylemek;nennen;richtig;nennen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-30 11:29:31;nsatz;n1207:nsatz;die Temperatur;Der Regler für die _____ unseres Körpers sitzt im Gehirn.;Temperatur;richtig;Temperatur;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:39.7 | kapı:7g | sek:7 | ipucu:0
+2026-10-30 11:29:45;gram;g:adjektiv:63;adjektiv/plural;Ich habe leider keine ___ Fotos von der Reise. (gut);gute;falsch;guten;tur:akis | tür:luecke | z:2 | artikel/çekim | ghost:1 | sek:12
+2026-10-30 11:29:48;art;n0602:art;die Kasse;Kasse;die;richtig;die Kasse;basamak:A | bicim:artikel | not:a3 | R:0.96 | S:43.7 | sek:2
+2026-10-30 11:29:51;abr;v399:abr;nennen;adlandırmak, söylemek;nennen;richtig;nennen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-30 11:30:12;akt;diktat:v142;dinle–yaz;Kannst du beweisen, dass du das Geld bezahlt hast?;Kannst du beweisen, dass du das Geld bezahlt hat?;fast;Kannst du beweisen, dass du das Geld bezahlt hast?;yazım: Kannst du beweisen, dass du das Geld bezahlt hast?
+2026-10-30 11:30:20;art;n1392:art;die Wolke;Wolke;die;richtig;die Wolke;basamak:A | bicim:artikel | not:a3 | R:0.96 | S:31.6 | sek:2
+2026-10-30 11:30:23;erk;x1565:erk;das Vereinsmitglied;dernek üyesi;das Vereinsmitglied;richtig;das Vereinsmitglied;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:3.2 | sek:3
+2026-10-30 11:30:27;wort;n0449:wort;das Gemüse;sebze;das Gemüse;richtig;das Gemüse;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.6 | sek:4 | ipucu:0
+2026-10-30 11:30:27;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:99 | dk:1 | yeni:1 | seviye+:2 | tekrar:8 | gram:0/1
