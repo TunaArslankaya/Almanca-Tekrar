@@ -2961,3 +2961,33 @@
 2026-10-30 11:30:23;erk;x1565:erk;das Vereinsmitglied;dernek üyesi;das Vereinsmitglied;richtig;das Vereinsmitglied;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:3.2 | sek:3
 2026-10-30 11:30:27;wort;n0449:wort;das Gemüse;sebze;das Gemüse;richtig;das Gemüse;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.6 | sek:4 | ipucu:0
 2026-10-30 11:30:27;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:99 | dk:1 | yeni:1 | seviye+:2 | tekrar:8 | gram:0/1
+2026-10-30 11:30:33;wort;n0076:wort;die Aufnahme;"kayıt (ses/video); kabul";asda;falsch;die Aufnahme;basamak:B2 | bicim:yaz0 | not:m1 | R:0.96 | S:0.6 | kelime yanlış | sek:3 | ipucu:0
+2026-10-30 11:30:37;prod;w0560:prod;windig;rüzgârlı;windig;richtig;windig;basamak:B2 | bicim:yaz | not:m3 | R:0.95 | S:38.5 | kapı:14g | sek:4 | ipucu:2
+2026-10-30 11:30:44;wort;n0587:wort;die Kälte;soğuk;kält;fast;die Kälte;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.95 | S:34.7 | kısmi | kapı:14g | yazım, artikel eksik | sek:6 | ipucu:2
+2026-10-30 11:30:49;nsatz;x1479:nsatz;die Aussage;Diese _____ ist falsch.;aussage;richtig;Aussage;basamak:B3 | bicim:bos | not:m3 | R:0.95 | S:82.7 | sek:5 | ipucu:1
+2026-10-30 11:30:56;abr;v423:abr;reagieren auf;(bir şeye) tepki vermek;reagieren auf a;richtig;reagieren auf (auf + Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.95 | S:36.5 | kapı:14g | sek:7 | ipucu:2
+2026-10-30 11:31:00;erk;n0076:erk;die Aufnahme;kayıt (ses/video);die Aufnahme;richtig;die Aufnahme;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:4
+2026-10-30 11:31:28;gram;g:adjektiv:38;adjektiv/unbestimmt;Bremen'de küçük bir daire arıyorum.;Ich suche eine kleine Wohnung in Bremen.;richtig;Ich suche eine kleine Wohnung in Bremen.;tur:akis | tür:ceviri | z:2 | sek:27
+2026-10-30 11:31:33;prod;w0100:prod;digital;dijital;digital;richtig;digital;basamak:B2 | bicim:yaz | not:m3 | R:0.94 | S:51.9 | kapı:14g | sek:4 | ipucu:2
+2026-10-30 11:31:36;wort;n1422:wort;das Ziel;hedef;das Ziel;richtig;das Ziel;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.94 | S:51.8 | kapı:14g | sek:3 | ipucu:2
+2026-10-30 11:31:44;nsatz;w0448:nsatz;sonnig;Wenn es am Wochenende _____ ist, machen wir ein Picknick im Bürgerpark.;sonnig;richtig;sonnig;basamak:B3 | bicim:bos | not:m3 | R:0.93 | S:57.5 | sek:7 | ipucu:1
+2026-10-30 11:31:56;satz;v127:satz;besichtigen;Im Urlaub haben wir Schloss Schönbrunn _____.;besichtigt;richtig;besichtigt;basamak:B2 | bicim:bos0 | not:m3 | R:0.94 | S:23.1 | kapı:7g | sek:12 | ipucu:0
+2026-10-30 11:32:01;nsatz;x1478:nsatz;das Frühjahr;Die Wohnung ist erst im _____ fertig.;Fr;falsch;Frühjahr;basamak:B2 | bicim:bos0 | not:m1 | R:0.94 | S:1.6 | farklı | sek:4 | ipucu:0
+2026-10-30 11:32:01;leech;x1478;das Frühjahr;ilkbahar;;takiliyor;;günler:2026-10-02,2026-10-03,2026-10-30
+2026-10-30 11:32:09;prod;w0199:prod;gerecht;adaletli;der Geduld;falsch;gerecht;basamak:B2 | bicim:yaz | not:m1 | R:0.94 | S:1.6 | farklı | sek:7 | ipucu:2
+2026-10-30 11:32:14;erk;x1478:erk;das Frühjahr;ilkbahar;der Frühjahr;fast;das Frühjahr;basamak:B1 | bicim:sec | not:a1 | R:1.00 | S:1.6 | tekrar:1 | artikel der → das | sek:4
+2026-10-30 11:32:17;erk;w0199:erk;gerecht;adaletli;gerecht;richtig;gerecht;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-30 11:32:17;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:2 | yanlış:3 | puan:126 | dk:2 | yeni:0 | seviye+:5 | tekrar:14 | gram:1/1
+2026-10-30 11:32:28;wort;n1038:wort;der Schirm;şemsiye;der Schrim;falsch;der Schirm;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.5 | kelime yanlış | sek:6 | ipucu:2
+2026-10-30 11:32:38;wort;n0496:wort;die Gymnastik;jimnastik;das Jimnastic;falsch;die Gymnastik;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.8 | kelime yanlış | sek:7 | ipucu:2
+2026-10-30 11:32:43;erk;n1389:erk;der Wohnsitz;ikametgâh;der Wohnsitz;richtig;der Wohnsitz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:18.7 | kapı:7g | sek:5
+2026-10-30 11:32:46;wort;n0137:wort;die Behörde;resmî kurum;das Amt;falsch;die Behörde;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.6 | kelime yanlış | sek:2 | ipucu:2
+2026-10-30 11:32:46;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-10-30 11:32:46;leech;n0137;die Behörde;resmî kurum;;takiliyor;;günler:2026-10-15,2026-10-26,2026-10-30
+2026-10-30 11:32:51;erk;n1038:erk;der Schirm;şemsiye;der Schirm;richtig;der Schirm;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.5 | tekrar:1 | sek:4
+2026-10-30 11:32:59;gram;g:adjektiv:3;adjektiv/bestimmt;Siehst du das ___ Haus an der Ecke? Dort wohne ich. (gelb);gelbe;richtig;gelbe;tur:akis | tür:luecke | z:2 | sek:7
+2026-10-30 11:33:05;wort;n1372:wort;der Wert;değer;der Würde;falsch;der Wert;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.5 | kelime yanlış | sek:5 | ipucu:2
+2026-10-30 11:33:09;erk;n0496:erk;die Gymnastik;jimnastik;der Gymnastik;fast;die Gymnastik;basamak:B1 | bicim:sec | not:a1 | R:1.00 | S:1.8 | tekrar:1 | artikel der → die | sek:3
+2026-10-30 11:33:12;erk;n0137:erk;die Behörde;resmî kurum;die Behörde;richtig;die Behörde;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.6 | tekrar:1 | sek:2
+2026-10-30 11:33:33;luecke;v378:satz;löschen;Das Feuer wurde aber schnell _____.;löschen;falsch;gelöscht;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:0.6 | kaynak:u4:t1
+2026-10-30 11:33:33;luecke;v688:satz;bewältigen;Die viele Arbeit konnte nur gemeinsam _____ werden.;schaffen;falsch;bewältigt;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:0.6 | kaynak:u4:t1
