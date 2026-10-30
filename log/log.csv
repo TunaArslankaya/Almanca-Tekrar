@@ -2991,3 +2991,7 @@
 2026-10-30 11:33:12;erk;n0137:erk;die Behörde;resmî kurum;die Behörde;richtig;die Behörde;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.6 | tekrar:1 | sek:2
 2026-10-30 11:33:33;luecke;v378:satz;löschen;Das Feuer wurde aber schnell _____.;löschen;falsch;gelöscht;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:0.6 | kaynak:u4:t1
 2026-10-30 11:33:33;luecke;v688:satz;bewältigen;Die viele Arbeit konnte nur gemeinsam _____ werden.;schaffen;falsch;bewältigt;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:0.6 | kaynak:u4:t1
+2026-10-30 11:33:33;luecke;x1554:nsatz;die Solidarität;Die _____ im Dorf war wirklich groß: Jeder hat geholfen, wo er konnte.;Hilfsbereitschaft;falsch;Solidarität;basamak:B3 | bicim:metin | not:m1 | R:0.93 | S:1.5 | kaynak:u4:t1
+2026-10-30 11:33:33;akt;luecke:u4:t1;metinde boşluk;Das Feuer wurde aber schnell gelöscht. Die viele Arbeit konnte nur gemeinsam bewältigt werden. Die Solidarität im Dorf war wirklich groß: Jeder hat geholfen, wo er konnte.;löschen / schaffen / Hilfsbereitschaft;falsch;gelöscht / bewältigt / Solidarität;puan:0/3 | boşluk:3
+2026-10-30 11:33:39;erk;n1372:erk;der Wert;değer;das Wert;fast;der Wert;basamak:B1 | bicim:sec | not:a1 | R:1.00 | S:1.5 | tekrar:1 | artikel das → der | sek:3
+2026-10-30 11:33:39;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:4 | küçük:2 | yanlış:7 | puan:50 | dk:1 | yeni:0 | seviye+:0 | tekrar:12 | gram:1/1
