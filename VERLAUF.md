@@ -370,3 +370,7 @@ Son incelenen log satırı: 2026-10-28 11:19:09 (gram g:verbstellung).
 - 2 kanca (Frühjahr, Behörde); 12 yeni çeviri cümlesi + gloss (löschen, bewältigen, Vereinsmitglied, Patenschaft, Aufnahme, Organisation, Solidarität). DW metni aynı (Proteinprodukte), Goethe listesinde yeni kelime yok. `bilmiyorum`: yalnız n0875 yoklamada (sonra doğru).
 - Dikkat: 30.10 11:32 son8 yanlış 5; çok hızlı turlar (dk:1–2), rastgele harf cevapları.
 Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).
+
+**2026-10-31 (gece işi, otomatik)**
+- 30.10 11:33:39 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. Yeni DW metni (Deutschland und seine Kolonialverbrechen): Goethe B1 listesinden yalnız Soldat (x1486, nomen_extra) ve Pflicht (n0903, cümlesi zaten var); Soldat için 2 çeviri cümlesi + gloss eklendi.
+Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).

@@ -2916,3 +2916,5 @@ n0076 | die Aufnahme | Die Aufnahme war so laut, dass man nichts verstehen konnt
 n0076 | die Aufnahme | Die Aufnahme in die Schule dauert einige Wochen. | Okula kabul birkaç hafta sürüyor.
 n0875 | die Organisation | Diese Organisation hilft Menschen in Not. | Bu kuruluş zor durumdaki insanlara yardım ediyor.
 x1554 | die Solidarität | Die Solidarität im Dorf war wirklich groß. | Köydeki dayanışma gerçekten büyüktü.
+x1486 | der Soldat | Der Soldat schreibt jede Woche einen Brief an seine Familie. | Asker her hafta ailesine bir mektup yazıyor.
+x1486 | der Soldat | Viele Soldaten waren damals sehr jung. | O zamanlar birçok asker çok gençti.
