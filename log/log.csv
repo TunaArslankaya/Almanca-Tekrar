@@ -3138,3 +3138,18 @@
 2026-10-31 16:16:58;gram;g:plusquamperfekt:tani:44;plusquamperfekt/nachdem;Nachdem ich mich für den Kurs ___ ___, kaufte ich die Bücher. (anmelden);"angemeldet ; habe";falsch;"angemeldet ; hatte";tanı:1 | tür:luecke | z:2 | zaman | sek:14
 2026-10-31 16:17:06;gram;g:pronomen:tani:27;pronomen/dieser;___ Woche habe ich viele Prüfungen. (dieser);Diese;richtig;Diese;tanı:1 | tür:luecke | z:2 | sek:8
 2026-10-31 16:17:18;gram;g:pronomen:tani:58;pronomen/derselbe;Wir fahren jeden Morgen mit ___ Bus zur Uni. (derselbe);demselben;richtig;demselben;tanı:2 | tür:luecke | z:3 | sek:11
+2026-10-31 16:17:50;gram;g:statt-ohne-zu:tani:22;statt-ohne-zu/statt-zu;er / spielt / am Handy / statt / für die Prüfung / zu lernen;;falsch;Er spielt am Handy, statt für die Prüfung zu lernen.;tanı:1 | tür:ordnen | z:2 | kelime sırası | bilmiyorum | sek:25
+2026-10-31 16:17:50;gram;g:tani;Gramer testi;oturum:3;;bitti;;puan:7/20 | konu:48/48 | biliyor:pronomen | zayif:komparation,konjunktiv2-verg,nomen-verb,temporal-praep,temporal,trennbar,verben-dativ,zuerst-dann-danach,futur,je-desto,lassen-brauchen,plusquamperfekt,statt-ohne-zu | dk:8
+2026-10-31 16:17:59;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;tanıtım;;neu;;
+2026-10-31 16:18:21;gram;g:adjektiv:33;adjektiv/kontrast;Welcher Satz ist richtig?;Das ist ein guter Wein.;richtig;Das ist ein guter Wein.;tür:wahl | z:2 | sek:13
+2026-10-31 16:18:40;gram;g:adjektiv:50;adjektiv/dativ;Er wohnt mit seiner kleinen Tochter in Bremen.;Er wohnt mit seiner Tochter in Bremen;falsch;Er wohnt mit seiner kleinen Tochter in Bremen.;tür:dinle | z:2 | hâl | eksik kelime | sek:13
+2026-10-31 16:18:47;gram;g:adjektiv:17;adjektiv/ohne;Zum Frühstück esse ich ___ Obst und Joghurt. (frisch);frisches;richtig;frisches;tür:luecke | z:2 | sek:7
+2026-10-31 16:18:47;gram;g:adjektiv;Adjektivdeklination: mit bestimmtem, unbestimmtem und ohne Artikel;tekrar;;fast;;puan:2/3 | karışık
+2026-10-31 16:18:53;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;okudu;;gelesen;;sek:4
+2026-10-31 16:18:57;gram;g:verbstellung:3;verbstellung/v2;Mein Bruder in Istanbul als Ingenieur arbeitet.;arbeitet.;richtig;Mein Bruder arbeitet in Istanbul als Ingenieur.;tür:fehler | z:1 | sek:3
+2026-10-31 16:19:01;gram;g:verbstellung:14;verbstellung/inversion;Gestern ich habe meine Oma angerufen.;habe;richtig;Gestern habe ich meine Oma angerufen.;tür:fehler | z:1 | sek:4
+2026-10-31 16:19:14;gram;g:verbstellung:57;verbstellung/kontrast;Ich wollte kommen, aber ich hatte keine Zeit.;Ich wollte kommen, aber ich hatte keine Zeit;richtig;Ich wollte kommen, aber ich hatte keine Zeit.;tür:dinle | z:2 | sek:12
+2026-10-31 16:19:53;gram;g:verbstellung:35;verbstellung/frage;Der Kurs fängt um neun Uhr an. → Wann …;Wann der Kurs um neun Uhr anfangen;falsch;Wann fängt der Kurs an?;tür:umform | z:2 | kelime sırası | edat | sek:33
+2026-10-31 16:20:21;gram;g:verbstellung:58;verbstellung/kontrast;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;Der Bus kam nicht, deshalb bin ich Fuß gegangen;falsch;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;tür:dinle | z:3 | bağlaç | edat | sek:26
+2026-10-31 16:20:21;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;giriş;;fast;;puan:3/5 | teil:v2,inversion,kontrast,frage
+2026-10-31 16:20:29;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;tanıtım;;neu;;
