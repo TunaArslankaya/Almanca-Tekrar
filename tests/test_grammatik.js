@@ -387,9 +387,11 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
     if (u.tur === 'luecke') { elm.inputs = u.cevap[0].split(' ; ').map(inp); return klick({ target: B('kontrol') }); }
     if (u.tur === 'umform' || u.tur === 'ceviri') { elm.tam = inp(u.cevap[0]); return klick({ target: B('kontrol') }); }
     if (u.tur === 'ordnen') {
-      let hedef = u.cevap[0].replace(/[.!?]+$/, '').replace(/,/g, '').replace(/\s+/g, ' ').trim().toLowerCase(); const secim = [];
-      while (hedef) { const i = q.parcalar.findIndex((p, k) => !secim.includes(k) && (hedef === p.toLowerCase() || hedef.startsWith(p.toLowerCase() + ' '))); if (i < 0) break; secim.push(i); hedef = hedef.slice(q.parcalar[i].length).trim(); }
-      q.secim = secim; return klick({ target: B('kontrol') });
+      // parçalar birbirinin başı olabilir (ich / ich habe): geri izlemeli eşleme
+      const hedef0 = u.cevap[0].replace(/[.!?]+$/, '').replace(/,/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      const ara = (hedef, secim) => { if (!hedef) return secim.length === q.parcalar.length ? secim : null;
+        for (let k = 0; k < q.parcalar.length; k++) { const p = q.parcalar[k].replace(/,/g, '').toLowerCase(); if (secim.includes(k) || !(hedef === p || hedef.startsWith(p + ' '))) continue; const r = ara(hedef.slice(p.length).trim(), secim.concat(k)); if (r) return r; } return null; };
+      q.secim = ara(hedef0, []) || []; return klick({ target: B('kontrol') });
     }
     if (u.tur === 'fehler') {
       if (!u.hata || u.hata === '-') return klick({ target: B('hata-yok') });
