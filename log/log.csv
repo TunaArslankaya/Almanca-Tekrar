@@ -3002,3 +3002,32 @@
 2026-10-31 15:58:46;yeni;x1567;der Pate;tanıtım;;neu;"(gönüllü) destekçi; vaftiz babası";basamak:B0 | bicim:tanit | not:- | parti | sek:3
 2026-10-31 15:58:49;erk;x1567:erk;der Pate;(gönüllü) destekçi;der Pate;richtig;der Pate;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-31 15:58:51;erk;n0602:erk;die Kasse;kasa;die Kasse;richtig;die Kasse;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-31 15:59:09;gram;g:adjektiv:68;adjektiv/plural;viele / junge / Leute / suchen / in Bremen / eine Wohnung;viele junge Leute suchen eine Wohnung in Bremen;richtig;Viele junge Leute suchen in Bremen eine Wohnung.;tur:akis | tür:ordnen | z:2 | ghost:2 | sek:17
+2026-10-31 15:59:13;erk;w0165:erk;feucht;Wenn man vom Klima spricht, ist gemeint, dass es irgendwo normalerweise warm oder kalt ist, dass es trocken oder feucht ist.;nemli;richtig;nemli;basamak:B1 | bicim:metinde | not:m3 | R:0.72 | S:1.2 | kurtarma | sek:2
+2026-10-31 15:59:21;wort;x1567:wort;der Pate;"(gönüllü) destekçi; vaftiz babası";der Pane;falsch;der Pate;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kelime yanlış | sek:5 | ipucu:0
+2026-10-31 15:59:24;wort;n0602:wort;die Kasse;kasa;die Kasse;richtig;die Kasse;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-31 16:00:00;akt;diktat:v184;dinle–yaz;Habt ihr euch auf einen Preis geeinigt?;Habt ihr euch auf einen Preis geeinigt;richtig;Habt ihr euch auf einen Preis geeinigt?;
+2026-10-31 16:00:04;art;n0037:art;die Anmeldung;Anmeldung;die;richtig;die Anmeldung;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:71.3 | sek:3
+2026-10-31 16:00:08;erk;x1567:erk;der Pate;(gönüllü) destekçi;die Pate;fast;der Pate;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | artikel die → der | sek:3
+2026-10-31 16:00:08;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:75 | dk:2 | yeni:2 | seviye+:0 | tekrar:6 | gram:1/1
+2026-10-31 16:00:25;stamm;v069:stamm;ausfüllen;ausfüllen — Präsens (er/sie), Perfekt;füllt aus, hat ausgefüllt;richtig;füllt aus, hat ausgefüllt;basamak:K | bicim:kok | not:k3 | R:0.94 | S:25.1 | kök:füllen | sek:16
+2026-10-31 16:00:32;wort;n0928:wort;der Preis;"fiyat; ödül";die Preis;fast;der Preis;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.94 | S:5.9 | artikel die → der | sek:4 | ipucu:0
+2026-10-31 16:00:40;wort;x1566:wort;die Patenschaft;(gönüllü) destekçilik;a;falsch;die Patenschaft;basamak:B2 | bicim:yaz0 | not:m1 | R:0.94 | S:0.6 | sek:6 | ipucu:0 | bilmiyorum
+2026-10-31 16:00:43;abr;v672:abr;zustimmen;(birine) katılmak, onaylamak;zustimmen;richtig;zustimmen (Dat);basamak:B2 | bicim:yaz | not:m3 | R:0.93 | S:42.2 | kapı:14g | sek:3 | ipucu:2
+2026-10-31 16:00:51;wort;n0875:wort;die Organisation;organizasyon, kuruluş;die Organisation;richtig;die Organisation;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.94 | S:5.9 | sek:7 | ipucu:0
+2026-10-31 16:00:58;gram;g:adjektiv:6;adjektiv/bestimmt;der / neue / Kollege / kommt / aus der Türkei;der neue Kollege kommt aus der Türkei;richtig;Der neue Kollege kommt aus der Türkei.;tur:akis | tür:ordnen | z:2 | sek:6
+2026-10-31 16:01:01;erk;x1566:erk;die Patenschaft;(gönüllü) destekçilik;die Patenschaft;richtig;die Patenschaft;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:2
+2026-10-31 16:01:05;erk;w0011:erk;allerdings;Viele Flüsse fließen allerdings nicht direkt ins Meer, sondern in einen anderen Fluss.;ancak, gerçi;richtig;ancak, gerçi;basamak:B1 | bicim:metinde | not:m3 | R:0.73 | S:1.9 | kurtarma | sek:2
+2026-10-31 16:01:19;nsatz;n0051:nsatz;die Anzeige;Ich habe auf eine _____ für ein WG-Zimmer geantwortet, aber noch keine Antwort bekommen.;Anzeige;richtig;Anzeige;basamak:B3 | bicim:bos | not:m3 | R:0.93 | S:57.3 | sek:14 | ipucu:1
+2026-10-31 16:01:27;nsatz;n0111:nsatz;der Balkon;Die Wohnung hat auch einen kleinen _____.;Balkon;richtig;Balkon;basamak:B3 | bicim:bos | not:m3 | R:0.93 | S:57.3 | sek:7 | ipucu:1
+2026-10-31 16:01:31;erk;n0496:erk;die Gymnastik;jimnastik;der Gymnastik;fast;die Gymnastik;basamak:B1 | bicim:sec | not:m3,a1 | R:0.92 | S:2.4 | artikel der → die | sek:4
+2026-10-31 16:01:42;nsatz;n1424:nsatz;das Zimmer;Für jeden Quadratmeter des _____ arbeiten sie eine Stunde monatlich für ihren Vermieter oder ihre Vermieterin.;Zimmers;richtig;Zimmers;basamak:B3 | bicim:bos | not:m3 | R:0.93 | S:57.3 | sek:11 | ipucu:1
+2026-10-31 16:01:42;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:116 | dk:2 | yeni:0 | seviye+:3 | tekrar:11 | gram:1/1
+2026-10-31 16:01:46;art;n0051:art;die Anzeige;Anzeige;die;richtig;die Anzeige;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:74.8 | sek:2
+2026-10-31 16:01:48;prod;w0051:prod;beide;her ikisi;beide;richtig;beide;basamak:B2 | bicim:yaz | not:m3 | R:0.92 | S:35.8 | kapı:14g | sek:2 | ipucu:2
+2026-10-31 16:01:53;erk;x1478:erk;das Frühjahr;ilkbahar;der Frühjahr;fast;das Frühjahr;basamak:B1 | bicim:sec | not:m3,a1 | R:0.92 | S:2.0 | artikel der → das | sek:3
+2026-10-31 16:01:54;art;n0587:art;die Kälte;Kälte;die;richtig;die Kälte;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:2.8 | sek:1
+2026-10-31 16:01:58;nsatz;w0290:nsatz;kühl;Es ist _____ draußen. Zieh dir eine Jacke an.;kalt;falsch;kühl;basamak:B3 | bicim:bos | not:m1 | R:0.92 | S:1.8 | farklı | sek:3 | ipucu:1
+2026-10-31 16:02:12;gram;g:adjektiv:21;adjektiv/ohne;Ich esse jeden Tag frischen Obst.;frischen;richtig;Ich esse jeden Tag frisches Obst.;tur:akis | tür:fehler | z:2 | sek:13
+2026-10-31 16:02:17;erk;x1559:erk;der Umgang;Ein sorgfältiger Umgang mit Abfall hat viel mit Umweltschutz zu tun.;ilişki;richtig;(biriyle) ilişki;basamak:B1 | bicim:metinde | not:m3 | R:0.76 | S:2.2 | kurtarma | sek:3
+2026-10-31 16:02:19;erk;w0199:erk;gerecht;adaletli;gerecht;richtig;gerecht;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:1.9 | sek:2
