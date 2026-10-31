@@ -3091,3 +3091,33 @@
 2026-10-31 16:07:16;erk;w0315:erk;manche;bazı;manche;richtig;manche;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2
 2026-10-31 16:07:16;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:10 | küçük:1 | yanlış:3 | puan:86 | dk:1 | yeni:2 | seviye+:1 | tekrar:10
 2026-10-31 16:07:21;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:2.7 | sek:3
+2026-10-31 16:07:35;wort;x1460:wort;das Missverständnis;yanlış anlaşılma;die Missverständnis;fast;das Missverständnis;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.90 | S:15.7 | kapı:14g | artikel die → das | sek:12 | ipucu:2
+2026-10-31 16:07:40;abr;v564:abr;untersuchen;muayene etmek, incelemek;Untersuchen;richtig;untersuchen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.90 | S:40.9 | sek:4 | ipucu:2
+2026-10-31 16:07:43;art;n0121:art;das Bargeld;Bargeld;das;richtig;das Bargeld;basamak:A | bicim:artikel | not:a3 | R:0.82 | S:3.9 | sek:3
+2026-10-31 16:07:50;prod;w0636:prod;sich Mühe geben;çaba göstermek;sich mühen um;falsch;sich Mühe geben;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:1.0 | ek | sek:5 | ipucu:2
+2026-10-31 16:07:59;wort;n1375:wort;der Wetterbericht;hava raporu;die Wetterbericht;fast;der Wetterbericht;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.89 | S:5.9 | artikel die → der | sek:7 | ipucu:0
+2026-10-31 16:08:03;erk;n0322:erk;die Erziehung;eğitim, terbiye;die Erziehung;richtig;die Erziehung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.79 | S:1.8 | kurtarma | sek:4
+2026-10-31 16:08:06;art;n0926:art;die Praxis;Praxis;die;richtig;die Praxis;basamak:A | bicim:artikel | not:a3 | R:0.80 | S:2.7 | sek:2
+2026-10-31 16:08:08;erk;w0636:erk;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-31 16:08:13;luecke;n0972:nsatz;die Regel;Bauhus spricht sich für neue _____ aus.;Regel;fast;Regeln;basamak:B3 | bicim:metin | not:m3 | R:0.88 | S:7.7 | kısmi | kaynak:dw78532414 | yazım, yazım: Regeln
+2026-10-31 16:08:13;luecke;n0914:nsatz;die Politik;Beyer hofft auf eine bessere Zusammenarbeit zwischen _____, Ämtern und Bürgerinnen und Bürgern.;Politik;richtig;Politik;basamak:B3 | bicim:metin | not:m3 | R:0.89 | S:18.5 | kapı:14g | kaynak:dw78532414
+2026-10-31 16:08:13;akt;luecke:dw78532414;metinde boşluk;Bauhus spricht sich für neue Regeln aus. Das könnten zum Beispiel Regenwasserzisternen bei neuen Häusern sein. Beyer hofft auf eine bessere Zusammenarbeit zwischen Politik, Ämtern und Bürgerinnen und Bürgern.;Regel / Politik;fast;Regeln / Politik;puan:2/2 | boşluk:2
+2026-10-31 16:08:18;nsatz;n0994:nsatz;das Rezept;Für dieses Medikament brauchen Sie ein _____.;Rezept;richtig;Rezept;basamak:B3 | bicim:bos | not:m3 | R:0.89 | S:49.3 | sek:5 | ipucu:1
+2026-10-31 16:08:18;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:3 | yanlış:1 | puan:80 | dk:1 | yeni:0 | seviye+:3 | tekrar:12
+2026-10-31 16:08:22;art;n0207:art;die Burg;Burg;die;richtig;die Burg;basamak:A | bicim:artikel | not:a3 | R:0.80 | S:2.3 | sek:2
+2026-10-31 16:08:28;wort;n0384:wort;das Formular;form;das Formular;richtig;das Formular;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:13.0 | kapı:7g | sek:5 | ipucu:0
+2026-10-31 16:08:41;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebrachten;falsch;gebracht;basamak:K | bicim:kokSatz | not:k1 | R:0.89 | S:0.6 | kök:bringen | Partizip: gebracht | sek:12
+2026-10-31 16:08:44;art;n0972:art;die Regel;Regel;der;falsch;die Regel;basamak:A | bicim:artikel | not:a1 | R:0.71 | S:0.2 | artikel der → die | sek:2
+2026-10-31 16:08:46;bed;v592:bed;sich verletzen;yaralanmak;sich verletzen;richtig;sich verletzen;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:5.6 | sek:2
+2026-10-31 16:08:56;satz;v589:satz;sich verlassen auf;Auf den Bus kann man sich morgens nicht _____, deshalb fahre ich mit dem Rad.;sicher;falsch;verlassen;basamak:B3 | bicim:bos | not:m1 | R:0.89 | S:1.7 | farklı | sek:9 | ipucu:1
+2026-10-31 16:08:56;leech;v589;sich verlassen auf;(birine / bir şeye) güvenmek;;takiliyor;;günler:2026-10-10,2026-10-11,2026-10-31
+2026-10-31 16:09:00;bed;v177:bed;sich eignen für;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:sec | not:m3 | R:0.79 | S:1.5 | kurtarma | sek:3
+2026-10-31 16:09:02;art;n0914:art;die Politik;Politik;die;richtig;die Politik;basamak:A | bicim:artikel | not:a3 | R:0.70 | S:1.2 | sek:2
+2026-10-31 16:09:06;abr;v626:abr;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen (Dat, Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.88 | S:13.6 | sek:4 | ipucu:2
+2026-10-31 16:09:20;nsatz;w0103:nsatz;doppelt;Eine Wohnung im Zentrum kostet fast _____ so viel wie ein Zimmer im Wohnheim.;doppelt;richtig;doppelt;basamak:B3 | bicim:bos | not:m3 | R:0.88 | S:58.3 | sek:12 | ipucu:1
+2026-10-31 16:09:39;abr;v589:abr;sich verlassen auf;(birine / bir şeye) güvenmek;sich ;falsch;sich verlassen auf (auf + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.7 | tekrar:1 | hafıza:yazılmadı | sek:13 | ipucu:0
+2026-10-31 16:09:44;abr;v157:abr;bringen;(birine bir şey) getirmek;bringen;richtig;bringen (Dat, Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:26.9 | kapı:14g | sek:5 | ipucu:2
+2026-10-31 16:09:47;bed;v589:bed;sich verlassen auf;(birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.7 | tekrar:2 | hafıza:yazılmadı | sek:3
+2026-10-31 16:09:47;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:0 | yanlış:4 | puan:79 | dk:1 | yeni:0 | seviye+:2 | tekrar:13
+2026-10-31 16:10:01;gram;g:komparation:tani:54;komparation/superlativ;im Sommer / sind / die Tage / am längsten;die Tage sind im Sommer am längsten;richtig;Im Sommer sind die Tage am längsten.;tanı:1 | tür:ordnen | z:2 | sek:8
+2026-10-31 16:10:21;gram;g:komparation:tani:25;komparation/attributiv;Wir suchen eine ___ Wohnung. Unsere ist zu klein. (groß · Komparativ);große;falsch;größere;tanı:2 | tür:luecke | z:3 | artikel/çekim | sek:13
