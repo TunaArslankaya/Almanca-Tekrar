@@ -176,12 +176,17 @@ Yeni türler:
 
 ### 10.2 Tanıtım (bloklu)
 1. `@kurz` → `@erklaerung` → `@tabelle`'ler → `@beispiel`'ler.
-2. **Giriş seti**, 10 alıştırma (31.10; eskiden 5), aynı konudan: 3 × z1, 4 × z2, 3 × z3; önce her teil bir kez, en az 4 yazarak (son dörtte yazarak olanlar öne).
+2. **Giriş**: tanıtımdan sonra boylu boyuna çalışma (aşağıda, `derin`; 31.10'a kadar 5 alıştırmalık giriş seti).
 3. Set puanı ilk FSRS notudur (10.3'teki çeviri). Öğrenme adımları: ~10 dk sonra aynı oturumda 1 alıştırma (en zayıf teil), ertesi gün 3'lü set, sonra FSRS takvimi.
 
 ### 10.3 Tekrar seti (konu vadesi gelince)
 Bir tekrar = **5 alıştırma** (31.10; eskiden 3), her tekrarda başka alıştırma. İlk üçü aşağıdaki kurala göre, 4. ve 5. en zayıf teil'den ve başka bir teil'den birer yazarak (mümkünse yeni tür).
-Set sonunda isteğe bağlı **„5 alıştırma daha“** (`ekSeti`, `art: 'ek'`): sette en çok hata yapılan konunun en zayıf üç teil'inden, z ≥ 2, yazarak ağırlıklı; konu kartına yazmaz (teil istatistiği, hayalet, log yazılır; set sonu satırı yok).
+**Boylu boyuna** (`derin`, 31.10): yeni konu tanıtımdan sonra (giriş seti yerine), açık / vadeli konuda "Boylu boyuna", set sonunda "<konu>: boylu boyuna çalış".
+Teil teil kolaydan zora: her teil z1 → z2 → z3 (açık konuda teil başarısı ≥ 0,75 ise z2'den); aynı zorlukta art arda 2 doğru → üst zorluk, z3'te 2 doğru → teil tamam;
+yanlış → bir alt zorluk + 2 alıştırma sonra aynı teil'e başka alıştırmayla; küçük hata → seri sıfır, 3 sonra dönüş. Teil'ler karışık (en uzun süredir sorulmayan, art arda aynı teil yok), z ≥ 2'de %70 yazarak.
+Oturumda alıştırma tekrar etmez; teil'in alıştırması biterse teil kapanır (tamam sayılmaz). Bitiş: bütün teil'ler / havuz / "Bitir". Konu kartı oturum başına bir kez (yeni konuda giriş gibi: ertesi gün);
+"Devam et"le süren oturumda yalnız log (`frage: derin`, notiz `… | devam`). Log set sonu satırı `frage: giriş|derin`, notiz `puan:x/n | teil:… | teil-tamam:x/y`.
+Bu yüzden teil başına hedef havuz ≥ 22 alıştırma (z1 ≥ 4, z2 ≥ 9, z3 ≥ 7).
 
 İlk üç alıştırma:
 

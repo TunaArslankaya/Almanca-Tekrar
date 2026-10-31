@@ -316,17 +316,24 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
     const set = Gr.tekrarSeti('weil-dass'), turler = set.map(u => u.tur);
     if (set.length !== 5 || new Set(turler.slice(0, 3)).size !== 3 || set.filter(Gr.yazarak).length < 2 || new Set(set.map(u => u.n)).size !== 5 || turler.filter(t => t === 'eslestir' || t === 'kategori').length > 1) ihlal++;
     if (turler.includes('dinle')) dinleVar = true;
-    const gs = Gr.girisSeti('weil-dass');
-    if (gs.length !== 10 || new Set(gs.map(u => u.n)).size !== 10 || gs.filter(Gr.yazarak).length < 4 || gs.filter(u => u.tur === 'eslestir' || u.tur === 'kategori').length > 1) ihlal++;
   }
-  eq(ihlal, 0, 'tekrar seti 5 (ilk üçü farklı tür, ≥ 2 yazarak) / giriş seti 10 (≥ 4 yazarak), tekrarsız, eslestir + kategori ≤ 1');
+  eq(ihlal, 0, 'tekrar seti 5 (ilk üçü farklı tür, ≥ 2 yazarak), tekrarsız, eslestir + kategori ≤ 1');
   eq(dinleVar, false, 'ses yoksa dinle seçilmez');
-  {   // her konuda (48) giriş 10 / tekrar 5 alıştırma çıkar
-    const az = [];
+  {   // her konuda tekrar 5; boylu boyuna (derin): hep doğru → her teil z1→z3 tamam, tekrar yok; hep yanlış → teil'e geri döner, havuz bitince biter
+    const az = [], D = Gr._ic;
     Object.keys(Gr.GR).forEach(id => { durum.gram.konu[id] = durum.gram.konu[id] || { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 1 };
-      for (let i = 0; i < 20; i++) { const g = Gr.girisSeti(id), t = Gr.tekrarSeti(id); if (g.length !== 10 || t.length !== 5 || g.filter(Gr.yazarak).length < 4) { az.push(id); break; } } });
-    eq(az.join(','), '', 'bütün konularda giriş 10 (≥ 4 yazarak) / tekrar 5');
+      if (Gr.tekrarSeti(id).length !== 5) az.push(id + ':tekrar');
+      const d = D.derinYeni(id, true); let u, k = 0; const gor = new Set();
+      while ((u = D.derinSonraki(id, d)) && k < 400) { if (gor.has(u.n)) { az.push(id + ':yineleme'); break; } gor.add(u.n); D.derinIsle(id, d, u, 3); k++; }
+      const ts = Object.values(d.teil);
+      if (!ts.every(t => t.tamam) || k < ts.length * 2) az.push(id + ':derin ' + k);
+      const d2 = D.derinYeni(id, true); let k2 = 0, ard = 0, onceki = null;
+      while ((u = D.derinSonraki(id, d2)) && k2 < 2000) { if (onceki === u.teil && Object.values(d2.teil).filter(t => !t.tamam).length > 1) ard++; onceki = u.teil; D.derinIsle(id, d2, u, 1); k2++; }
+      if (k2 !== Gr.GR[id].uebungen.filter(x => !x.aus && x.teil && x.tur !== 'dinle').length) az.push(id + ':derin-yanlis ' + k2);
+    });
+    eq(az.join(','), '', 'bütün konularda tekrar 5; boylu boyuna: hep doğru → bütün bölümler tamam, hep yanlış → bütün havuz, tekrar yok');
   }
+
   // build denetimi (quellen/grammatik/pruef_grammatik.py): geçerli dosya + hatalı satırlar
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'gr-')), dosya = path.join(dir, 'test-konu.txt');
   const KOPF = '@id test-konu\n@titel Test\n@tr Test\n@stufe B1\n@goethe 1 | Lesen\n@kurz kısa\n@erklaerung\nmetin\n@ende\n@teil a | A | bağlaç\n@teil b | B | bağlaç\n';
