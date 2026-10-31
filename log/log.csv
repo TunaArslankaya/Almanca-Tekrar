@@ -3153,3 +3153,10 @@
 2026-10-31 16:20:21;gram;g:verbstellung:58;verbstellung/kontrast;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;Der Bus kam nicht, deshalb bin ich Fuß gegangen;falsch;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;tür:dinle | z:3 | bağlaç | edat | sek:26
 2026-10-31 16:20:21;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;giriş;;fast;;puan:3/5 | teil:v2,inversion,kontrast,frage
 2026-10-31 16:20:29;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;tanıtım;;neu;;
+2026-10-31 16:20:48;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;okudu;;gelesen;;sek:19
+2026-10-31 16:20:58;gram;g:vergleich:34;vergleich/anders;Sie verdient weniger als ihr Kollege.;hata yok;richtig;Sie verdient weniger als ihr Kollege.;tür:fehler | z:1 | sek:8
+2026-10-31 16:21:12;gram;g:vergleich:9;vergleich/als-wie;Mein Handy ist älter als deins.;Mein Handy älter als deins;falsch;Mein Handy ist älter als deins.;tür:dinle | z:1 | bağlaç | yardımcı fiil | sek:9
+2026-10-31 16:21:28;gram;g:vergleich:51;vergleich/kontrast;Mein Bruder ist zwei Jahre älter ___ ich, aber er ist nicht so groß ___ ich. Er spielt besser Gitarre ___ ich, und ich koche besser ___ er.;"als ; wie ; als ; als";richtig;"als ; wie ; als ; als";tür:text | z:2 | sek:15
+2026-10-31 16:21:33;gram;g:vergleich:19;vergleich/satz;Die Wohnung war teurer, ___ wir gedacht hatten.;als;richtig;als;tür:wahl | z:2 | sek:5
+2026-10-31 16:22:00;gram;g:vergleich:17;vergleich/nicht-so;Benim Almancam senin kadar iyi değil.;Meinen Deutsch ist nicht gut als deinen;falsch;Mein Deutsch ist nicht so gut wie deins.;tür:ceviri | z:3 | bağlaç | artikel/çekim | sek:21
+2026-10-31 16:22:00;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;giriş;;fast;;puan:3/5 | teil:anders,als-wie,kontrast,satz,nicht-so
