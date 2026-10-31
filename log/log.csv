@@ -3153,3 +3153,21 @@
 2026-10-31 16:20:21;gram;g:verbstellung:58;verbstellung/kontrast;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;Der Bus kam nicht, deshalb bin ich Fuß gegangen;falsch;Der Bus kam nicht, deshalb bin ich zu Fuß gegangen.;tür:dinle | z:3 | bağlaç | edat | sek:26
 2026-10-31 16:20:21;gram;g:verbstellung;Verbstellung im Hauptsatz: Verb auf Position 2, Inversion, Fragen;giriş;;fast;;puan:3/5 | teil:v2,inversion,kontrast,frage
 2026-10-31 16:20:29;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;tanıtım;;neu;;
+2026-10-31 16:20:48;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;okudu;;gelesen;;sek:19
+2026-10-31 16:20:58;gram;g:vergleich:34;vergleich/anders;Sie verdient weniger als ihr Kollege.;hata yok;richtig;Sie verdient weniger als ihr Kollege.;tür:fehler | z:1 | sek:8
+2026-10-31 16:21:12;gram;g:vergleich:9;vergleich/als-wie;Mein Handy ist älter als deins.;Mein Handy älter als deins;falsch;Mein Handy ist älter als deins.;tür:dinle | z:1 | bağlaç | yardımcı fiil | sek:9
+2026-10-31 16:21:28;gram;g:vergleich:51;vergleich/kontrast;Mein Bruder ist zwei Jahre älter ___ ich, aber er ist nicht so groß ___ ich. Er spielt besser Gitarre ___ ich, und ich koche besser ___ er.;"als ; wie ; als ; als";richtig;"als ; wie ; als ; als";tür:text | z:2 | sek:15
+2026-10-31 16:21:33;gram;g:vergleich:19;vergleich/satz;Die Wohnung war teurer, ___ wir gedacht hatten.;als;richtig;als;tür:wahl | z:2 | sek:5
+2026-10-31 16:22:00;gram;g:vergleich:17;vergleich/nicht-so;Benim Almancam senin kadar iyi değil.;Meinen Deutsch ist nicht gut als deinen;falsch;Mein Deutsch ist nicht so gut wie deins.;tür:ceviri | z:3 | bağlaç | artikel/çekim | sek:21
+2026-10-31 16:22:00;gram;g:vergleich;Vergleiche und Vergleichssätze: als, wie, so … wie, je … desto;giriş;;fast;;puan:3/5 | teil:anders,als-wie,kontrast,satz,nicht-so
+2026-10-31 16:22:17;gram;g:es-korrelat;Das Wort „es“: Subjekt, Platzhalter und Korrelat;tanıtım;;neu;;
+2026-10-31 16:22:23;gram;g:es-korrelat;Das Wort „es“: Subjekt, Platzhalter und Korrelat;okudu;;gelesen;;sek:6
+2026-10-31 16:22:38;gram;g:es-korrelat:44;es-korrelat/wegfall;Dass der Kurs ausfällt, wissen wir schon.;;falsch;Dass der Kurs ausfällt, wissen wir schon.;tür:fehler | z:1 | kelime sırası | bilmiyorum | sek:12
+2026-10-31 16:22:53;gram;g:es-korrelat:7;es-korrelat/wetter;Es ist schon spät, ich gehe nach Hause.;Es ist schon spät, ich gehe nach Hause;richtig;Es ist schon spät, ich gehe nach Hause.;tür:dinle | z:1 | sek:14
+2026-10-31 16:23:25;gram;g:es-korrelat:16;es-korrelat/es-gibt;Yakınlarda bir eczane var mı?;Gibt es eine Aphoteke in der Nähe?;richtig;Gibt es hier in der Nähe eine Apotheke?;tür:ceviri | z:2 | farklı | öneri:falsch | sek:22
+2026-10-31 16:23:46;gram;g:es-korrelat:26;es-korrelat/korrelat;Seni gördüğüme sevindim.;Ich freue mich über dich zu sehen;falsch;Es freut mich, dich zu sehen.;tür:ceviri | z:2 | eksik kelime | farklı | sek:15
+2026-10-31 16:23:56;gram;g:es-korrelat:52;es-korrelat/vorfeld;Es ist viele Touristen in der Stadt.;Es;falsch;Es sind viele Touristen in der Stadt.;tür:fehler | z:3 | artikel/çekim | sek:7
+2026-10-31 16:23:56;gram;g:es-korrelat;Das Wort „es“: Subjekt, Platzhalter und Korrelat;giriş;;falsch;;puan:2/5 | teil:wegfall,wetter,es-gibt,korrelat,vorfeld
+2026-10-31 16:25:44;lesen-wort;n0067;die Art;Schülerinnen gegen Sexualisierung der Schuluniform;;neu;"tür, çeşit; tarz";
+2026-10-31 16:25:45;lesen-wort;n0067;die Art;Schülerinnen gegen Sexualisierung der Schuluniform;;neu;"tür, çeşit; tarz";
+2026-10-31 16:26:10;lesen-wort;n0067;die Art;Schülerinnen gegen Sexualisierung der Schuluniform;;neu;"tür, çeşit; tarz";
