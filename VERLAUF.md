@@ -374,3 +374,4 @@ Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).
 **2026-10-31 (gece işi, otomatik)**
 - 30.10 11:33:39 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. Yeni DW metni (Deutschland und seine Kolonialverbrechen): Goethe B1 listesinden yalnız Soldat (x1486, nomen_extra) ve Pflicht (n0903, cümlesi zaten var); Soldat için 2 çeviri cümlesi + gloss eklendi.
 Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).
+- 31.10 (Tuna: "gramer sorularında alıştırma sayısı az değil mi?"): havuz az değil (48 konu, 3208 alıştırma, konu başına 55–90), set kısaydı. Giriş seti 5 → 10 (3 × z1, 4 × z2, 3 × z3, her teil, ≥ 4 yazarak), tekrar seti 3 → 5 (+ zayıf teil'den ve başka teil'den yazarak), set sonunda isteğe bağlı "5 alıştırma daha" (en zayıf teil'ler, konu kartına yazmaz). Test: bütün konularda giriş 10 / tekrar 5.

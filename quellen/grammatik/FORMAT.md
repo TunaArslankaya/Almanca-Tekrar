@@ -176,17 +176,20 @@ Yeni türler:
 
 ### 10.2 Tanıtım (bloklu)
 1. `@kurz` → `@erklaerung` → `@tabelle`'ler → `@beispiel`'ler.
-2. **Giriş seti**, 5 alıştırma, aynı konudan: 2 × z1, 2 × z2, 1 × z3; mümkünse her biri farklı teil.
+2. **Giriş seti**, 10 alıştırma (31.10; eskiden 5), aynı konudan: 3 × z1, 4 × z2, 3 × z3; önce her teil bir kez, en az 4 yazarak (son dörtte yazarak olanlar öne).
 3. Set puanı ilk FSRS notudur (10.3'teki çeviri). Öğrenme adımları: ~10 dk sonra aynı oturumda 1 alıştırma (en zayıf teil), ertesi gün 3'lü set, sonra FSRS takvimi.
 
 ### 10.3 Tekrar seti (konu vadesi gelince)
-Bir tekrar = **3 alıştırma**, her tekrarda başka alıştırma:
+Bir tekrar = **5 alıştırma** (31.10; eskiden 3), her tekrarda başka alıştırma. İlk üçü aşağıdaki kurala göre, 4. ve 5. en zayıf teil'den ve başka bir teil'den birer yazarak (mümkünse yeni tür).
+Set sonunda isteğe bağlı **„5 alıştırma daha“** (`ekSeti`, `art: 'ek'`): sette en çok hata yapılan konunun en zayıf üç teil'inden, z ≥ 2, yazarak ağırlıklı; konu kartına yazmaz (teil istatistiği, hayalet, log yazılır; set sonu satırı yok).
+
+İlk üç alıştırma:
 
 - **Teil**: 1) en zayıf teil (başarı `(d+1)/(d+y+2)` en düşük), 2) en uzun süredir görülmeyen teil, 3) kalanlardan rastgele. Hayaleti açık teil bu sete girmez (hayalet kendi yolunda döner).
 - **Zorluk**, konu kartının kararlılığına (S, gün) göre: S < 4 → z1–z2 (en az biri z2); 4 ≤ S < 21 → z2–z3 (en az biri z3); S ≥ 21 → en az ikisi z3 / üretim (`umform`, `fehler`, `ordnen`, yazarak `luecke`).
 - **Tür**: üç farklı tür (teil tercihinden önce gelir); en az biri yazarak (`ceviri`, `dinle`, `text`, `umform`, `ordnen`, `fehler`, seçeneksiz `luecke`); `eslestir` / `kategori` seçmeli sayılır ve sette bunlardan en çok 1. Giriş setinde de `eslestir` + `kategori` en çok 1.
 - **Alıştırma**: son 14 günde görülmemiş olan; hepsi görüldüyse en eski görülen. Kelimeleri (`kelimeler`) görülmüş olan alıştırma önce; görülmemiş kelime varsa altında anlamı gösterilir.
-- **Not**: richtig = 1, fast = 0,5, falsch = 0. Toplam ≥ 2,5 → 3 (doğru); ≥ 1,5 → 2 (küçük hata); daha az → 1 (yanlış). FSRS set başına **bir kez** güncellenir.
+- **Not**: richtig = 1, fast = 0,5, falsch = 0. Oran ≥ 0,8 → 3 (doğru); ≥ 0,5 → 2 (küçük hata); daha az → 1 (yanlış). FSRS set başına **bir kez** güncellenir.
 
 ### 10.4 Hayalet (yanlışın kısa süreli dönüşü)
 Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana takvimden bağımsız olarak kısa aralıkla yeniden sorulur.

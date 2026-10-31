@@ -161,17 +161,24 @@
     const havuz = taze.length ? taze : c.slice().sort((a, b) => (g[a.n] || 0) - (g[b.n] || 0)).slice(0, Math.max(1, Math.ceil(c.length / 3)));
     return havuz[Math.floor(Math.random() * havuz.length)];
   }
-  // giriş seti: 2×z1, 2×z2, 1×z3, farklı teil'ler
+  // giriş seti (31.10, Tuna: "alıştırma az"; eskiden 5): 10 alıştırma, kolaydan zora 3×z1, 4×z2, 3×z3; önce her teil bir kez,
+  // son dörtte yazarak olanlar öne (en az 4 yazarak), eslestir / kategori en çok 1
   function girisSeti(id) {
-    const all = uebungen(id), out = [], used = new Set(), teils = new Set();
-    [1, 1, 2, 2, 3].forEach(z => {
+    const all = uebungen(id), out = [], used = new Set(), teils = new Set(), teilSay = new Set(all.map(u => u.teil)).size;
+    [1, 1, 1, 2, 2, 2, 2, 3, 3, 3].forEach((z, i) => {
+      if (teils.size >= teilSay) teils.clear();
       const ekOk = u => !(SECMELI_EK.has(u.tur) && ekSecmeliVar(out.map(x => x.tur)));
-      let aday = all.filter(u => u.z === z && !teils.has(u.teil) && ekOk(u)); if (!aday.length) aday = all.filter(u => u.z === z && ekOk(u)); if (!aday.length) aday = all.filter(ekOk); if (!aday.length) aday = all;
-      const u = secUebung(id, aday, used); if (u) { out.push(u); used.add(u.n); teils.add(u.teil); }
+      const yazGerek = i >= 6 && out.filter(yazarak).length < 4;
+      const tercih = [u => u.z === z && !teils.has(u.teil), u => u.z === z, () => true];
+      let u = null;
+      for (const f of tercih) { u = secUebung(id, all.filter(x => f(x) && ekOk(x) && (!yazGerek || yazarak(x))), used); if (u) break; }
+      if (!u) for (const f of tercih) { u = secUebung(id, all.filter(x => f(x) && ekOk(x)), used); if (u) break; }
+      if (!u) u = secUebung(id, all, used);
+      if (u) { out.push(u); used.add(u.n); teils.add(u.teil); }
     });
     return out;
   }
-  // tekrar seti: 3 alıştırma — en zayıf teil, en eski teil, rastgele; zorluk kararlılığa göre; üç farklı tür, en az biri yazarak
+  // tekrar seti: 5 alıştırma (31.10; eskiden 3) — en zayıf teil, en eski teil, rastgele, sonra zayıf ve başka bir teil'den birer yazarak; zorluk kararlılığa göre; üç farklı tür, en az biri yazarak
   // (ceviri / dinle / text / umform / ordnen / fehler / seçeneksiz luecke), eslestir + kategori en çok 1
   function tekrarSeti(id) {
     const all = uebungen(id), ks = konuSt(id), Sg = kararlilik(id);
@@ -193,7 +200,25 @@
     });
     if (out.length && !out.some(yazarak)) {
       const diger = new Set(out.slice(0, -1).map(u => u.tur)), yz = all.filter(u => yazarak(u) && !used.has(u.n));
-      const y = secUebung(id, yz.filter(u => !diger.has(u.tur)).length ? yz.filter(u => !diger.has(u.tur)) : yz, used); if (y) out[out.length - 1] = y;
+      const y = secUebung(id, yz.filter(u => !diger.has(u.tur)).length ? yz.filter(u => !diger.has(u.tur)) : yz, used); if (y) { out[out.length - 1] = y; used.add(y.n); }
+    }
+    [zayif, rast || eski].filter(Boolean).forEach(kod => {
+      const yok = u => !used.has(u.n) && !SECMELI_EK.has(u.tur);
+      const yeniTur = u => !out.some(x => x.tur === u.tur);
+      const aday = [u => u.teil === kod && yazarak(u) && yeniTur(u), u => yazarak(u) && yeniTur(u), u => u.teil === kod && yazarak(u), u => u.teil === kod, () => true].map(f => all.filter(u => f(u) && yok(u))).find(c => c.length) || [];
+      const u = secUebung(id, aday, used); if (u) { out.push(u); used.add(u.n); }
+    });
+    return out;
+  }
+  // "5 tane daha" (set sonunda, isteğe bağlı): aynı konudan, şu an en zayıf üç teil sırayla, z ≥ 2 ve yazarak öne; az önce sorulanlar hariç.
+  // Konu kartına yazmaz (bugün zaten notlandı); teil istatistiği, hayalet ve log yazılır
+  function ekSeti(id, haric) {
+    const all = uebungen(id).filter(u => !haric.has(u.n)), out = [], used = new Set();
+    const teile = Object.keys(GR[id].teile || {}).filter(k => all.some(u => u.teil === k)).sort((a, b) => teilBasari(id, a) - teilBasari(id, b)).slice(0, 3);
+    for (let i = 0; i < 5 && teile.length; i++) {
+      const kod = teile[i % teile.length], yok = u => !SECMELI_EK.has(u.tur);
+      let c = all.filter(u => u.teil === kod && u.z >= 2 && yok(u) && (i % 2 === 0 || yazarak(u))); if (!c.length) c = all.filter(u => u.teil === kod && yok(u)); if (!c.length) c = all.filter(yok);
+      const u = secUebung(id, c, used); if (u) { out.push(u); used.add(u.n); }
     }
     return out;
   }
@@ -452,7 +477,7 @@
       <div class="soru">${esc(k.titel)}</div><div class="soluk">${esc(k.tr)}</div>
       <div class="kural g-kurz">${de(k.kurz)}</div>
       <div class="g-erkl">${paras}</div>${tablolar}${bsp ? `<ul class="erkl g-bsp">${bsp}</ul>` : ''}
-      <div class="sira"><button class="btn ana devam-btn" data-g="${ses.sonra === 'giris' ? 'giris-basla' : 'liste'}" type="button">${ses.sonra === 'giris' ? 'Alıştırmalara geç (5 soru)' : 'Tamam'} <kbd>Enter</kbd></button></div>`;
+      <div class="sira"><button class="btn ana devam-btn" data-g="${ses.sonra === 'giris' ? 'giris-basla' : 'liste'}" type="button">${ses.sonra === 'giris' ? 'Alıştırmalara geç (10 soru)' : 'Tamam'} <kbd>Enter</kbd></button></div>`;
     ses.tanitBasi = now();
   }
   // ---- alıştırma ----
@@ -636,7 +661,7 @@
     const g = GR[ses.id], ks = konuSt(ses.id), t = now();
     const puan = ses.erg.reduce((a, e) => a + (e.not === 3 ? 1 : e.not === 2 ? 0.5 : 0), 0), n = ses.erg.length;
     const oran = n ? puan / n : 0;
-    const setNot = ses.art === 'ghost' || ses.art === 'deneme' ? null : oran >= 0.8 ? 3 : oran >= 0.5 ? 2 : 1;
+    const setNot = ses.art === 'ghost' || ses.art === 'deneme' || ses.art === 'ek' ? null : oran >= 0.8 ? 3 : oran >= 0.5 ? 2 : 1;
     if (setNot) {
       const alt = ks.karte && ks.karte.S ? ks.karte : {};
       ks.karte = api.FSRS.review(alt, setNot, t, api.ret());
@@ -665,11 +690,15 @@
     const sonraki = id => { const kk = konuSt(id).karte; const dk = kk && kk.due ? kk.due - now() : 0; return dk < DAY ? (dk < 3600000 ? 'birazdan' : 'yarın') : Math.round(dk / DAY) + ' gün sonra'; };
     const kopf = ses.karisikOzet && ses.karisikOzet.length > 1
       ? `<div class="ts-baslik">Karışık tekrar · ${ses.karisikOzet.length} konu</div>${ses.karisikOzet.map(o => `<div class="oge"><span class="de">${esc(GR[o.id].kopf.titel)}</span><span class="tr">${o.p}/${o.n} puan · sıradaki tekrar ${sonraki(o.id)}</span></div>`).join('')}`
-      : `<div class="ts-baslik">${esc(g.kopf.titel)}</div><div class="soluk">${ses.puan}/${ses.n} puan${ses.setNot ? ` · sıradaki tekrar ${gun === 0 ? 'yarın' : gun === 1 ? 'yarın' : gun + ' gün sonra'}` : ' · hayalet tekrar'}</div>`;
-    el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">${ses.setNot === 3 ? '🏆' : ses.setNot === 2 ? '👍' : ses.art === 'ghost' ? '👻' : '🌱'}</div>
+      : `<div class="ts-baslik">${esc(g.kopf.titel)}</div><div class="soluk">${ses.puan}/${ses.n} puan${ses.setNot ? ` · sıradaki tekrar ${gun === 0 ? 'yarın' : gun === 1 ? 'yarın' : gun + ' gün sonra'}` : ses.art === 'ek' ? ' · ek alıştırma' : ' · hayalet tekrar'}</div>`;
+    // "5 tane daha": bu sette en çok hata yapılan konudan (yoksa bu konudan)
+    const hataSay = {}; ses.erg.forEach(e => { if (e.not < 3 && GR[e.konu]) hataSay[e.konu] = (hataSay[e.konu] || 0) + 1; });
+    const dahaId = Object.keys(hataSay).sort((a, b) => hataSay[b] - hataSay[a])[0] || (GR[ses.id] ? ses.id : null);
+    const dahaBtn = dahaId && ses.art !== 'deneme' ? `<button class="btn" data-g="daha" data-id="${dahaId}" type="button">${esc(GR[dahaId].kopf.titel.split(':')[0])}: 5 alıştırma daha</button>` : '';
+    el().innerHTML = `<div class="tur-sonu"><div class="ts-rozet">${ses.setNot === 3 ? '🏆' : ses.setNot === 2 ? '👍' : ses.art === 'ghost' ? '👻' : ses.art === 'ek' ? '💪' : '🌱'}</div>
       ${kopf}
       ${zayif.length ? `<div class="kural">Zayıf kaldı: ${zayif.map(esc).join(', ')} → kısa aralıkla yeniden gelecek.</div>` : ''}
-      <div class="sira ts-btns">${by ? `<button class="btn ana" data-g="ac" data-id="${by}" type="button">Bugünün yeni konusu: ${esc(GR[by].kopf.titel)}</button>` : ''}${dahaDue.length ? `<button class="btn${by ? '' : ' ana'}" data-g="tekrar" data-id="${dahaDue[0]}" type="button">Sıradaki konu: ${esc(GR[dahaDue[0]].kopf.titel)}</button>` : ''}${ek ? `<button class="btn" data-g="ac" data-id="${ek}" type="button">İstersen +1 yeni konu: ${esc(GR[ek].kopf.titel)}</button>` : ''}<button class="btn${dahaDue.length || by ? '' : ' ana'}" data-g="liste" type="button">Konu listesi</button><button class="btn" data-g="oku" data-id="${ses.id}" type="button">Kuralı oku</button></div></div>`;
+      <div class="sira ts-btns">${by ? `<button class="btn ana" data-g="ac" data-id="${by}" type="button">Bugünün yeni konusu: ${esc(GR[by].kopf.titel)}</button>` : ''}${dahaDue.length ? `<button class="btn${by ? '' : ' ana'}" data-g="tekrar" data-id="${dahaDue[0]}" type="button">Sıradaki konu: ${esc(GR[dahaDue[0]].kopf.titel)}</button>` : ''}${ek ? `<button class="btn" data-g="ac" data-id="${ek}" type="button">İstersen +1 yeni konu: ${esc(GR[ek].kopf.titel)}</button>` : ''}${dahaBtn}<button class="btn${dahaDue.length || by ? '' : ' ana'}" data-g="liste" type="button">Konu listesi</button><button class="btn" data-g="oku" data-id="${ses.id}" type="button">Kuralı oku</button></div></div>`;
     if (ses.setNot === 3 && api.konfeti) api.konfeti();
   }
 
@@ -685,6 +714,7 @@
     else if (a === 'blok') blokBaslat();
     else if (a === 'giris-basla') { const sek = ses.tanitBasi ? Math.round((now() - ses.tanitBasi) / 1000) : 0; if (sek) api.logEintrag({ modus: 'gram', id: 'g:' + ses.id, item: GR[ses.id].kopf.titel, frage: 'okudu', antwort: '', ergebnis: 'gelesen', loesung: '', notiz: `sek:${sek}` }); baslatSet(ses.id, 'giris', girisSeti(ses.id)); }
     else if (a === 'tekrar') baslatSet(id, 'tekrar', tekrarSeti(id));
+    else if (a === 'daha') { const haric = new Set((ses.erg || []).filter(e => e.konu === id).map(e => e.n)); baslatSet(id, 'ek', ekSeti(id, haric)); }
     else if (a === 'karisik') karisikBaslat();
     else if (a === 'ghost-basla') ghostBaslat();
     else if (a === 'ses') api.sprich(b.dataset.metin);
