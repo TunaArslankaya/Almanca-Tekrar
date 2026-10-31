@@ -3175,3 +3175,16 @@
 2026-10-31 17:26:14;gram;g:es-korrelat:40;es-korrelat/wegfall;Welcher Satz ist richtig?;Dass du mitkommst, freut es mich sehr.;falsch;Dass du mitkommst, freut mich sehr.;tür:wahl | z:2 | kelime sırası | ghost:1 | sek:6
 2026-10-31 17:26:41;gram;g:es-korrelat:24;es-korrelat/korrelat;Du hilfst mir. Das ist sehr nett. → Es …;Es ist sehr nett, dass du mir hlifst;richtig;Es ist sehr nett, dass du mir hilfst.;tür:umform | z:2 | farklı | ghost:2 | öneri:falsch | sek:16
 2026-10-31 17:26:52;gram;g:es-korrelat:121;es-korrelat/vorfeld;Welcher Satz ist richtig?;Im Kurs wurde heute viel diskutiert.;richtig;Im Kurs wurde heute viel diskutiert.;tür:wahl | z:1 | ghost:2 | sek:11
+2026-10-31 17:27:48;gram;g:nominal-verbal;Nominalstil und Verbalstil: wegen – weil, trotz – obwohl, bei – wenn;tanıtım;;neu;;
+2026-10-31 17:27:50;gram;g:nominal-verbal;Nominalstil und Verbalstil: wegen – weil, trotz – obwohl, bei – wenn;okudu;;gelesen;;sek:2
+2026-10-31 17:27:57;gram;g:nominal-verbal:1;nominal-verbal/wegen;___ des schlechten Wetters bleiben wir zu Hause.;Wegen;richtig;Wegen;tür:wahl | z:1 | sek:6
+2026-10-31 17:28:05;gram;g:nominal-verbal:12;nominal-verbal/trotz;___ der Kälte sind wir am Strand spazieren gegangen.;Obwohl;falsch;Trotz;tür:wahl | z:1 | bağlaç | sek:7
+2026-10-31 17:28:11;gram;g:nominal-verbal:84;nominal-verbal/bei;___ ich in Bremen ankam, regnete es.;Als;richtig;Als;tür:wahl | z:1 | sek:5
+2026-10-31 17:28:17;gram;g:nominal-verbal:71;nominal-verbal/trotz;___ des Verbots hat er im Zug geraucht.;Trotz;richtig;Trotz;tür:wahl | z:1 | sek:6
+2026-10-31 17:28:24;gram;g:nominal-verbal:31;nominal-verbal/zeit;___ ich zur Arbeit gehe, trinke ich einen Kaffee.;Bevor;richtig;Bevor;tür:wahl | z:1 | sek:6
+2026-10-31 17:28:29;gram;g:nominal-verbal:110;nominal-verbal/zweck;___ Feiern haben wir einen Kuchen gebacken.;Zum;richtig;Zum;tür:wahl | z:1 | sek:4
+2026-10-31 17:28:40;gram;g:nominal-verbal:127;nominal-verbal/kontrast;Genitiv oder Dativ?;"Genitiv: wegen, trotz, während ;; Dativ: bei, nach, vor, seit";richtig;"Genitiv: wegen, trotz, während ;; Dativ: bei, nach, vor, seit";tür:kategori | z:1 | sek:10
+2026-10-31 17:28:49;gram;g:nominal-verbal:8;nominal-verbal/wegen;Wegen des Lärms konnte ich nicht schlafen.;hata yok;richtig;Wegen des Lärms konnte ich nicht schlafen.;tür:fehler | z:1 | sek:9
+2026-10-31 17:29:01;gram;g:nominal-verbal:28;nominal-verbal/bei;Beim Autofahren darf man nicht telefonieren.;hata yok;richtig;Beim Autofahren darf man nicht telefonieren.;tür:fehler | z:1 | sek:11
+2026-10-31 17:29:09;gram;g:nominal-verbal:13;nominal-verbal/trotz;___ ich müde war, habe ich noch zwei Stunden gelernt.;Trotz;falsch;Obwohl;tür:wahl | z:1 | bağlaç | sek:4
+2026-10-31 17:29:13;gram;g:nominal-verbal:98;nominal-verbal/zeit;___ des Fluges habe ich einen Film gesehen.;Während;richtig;Während;tür:wahl | z:1 | sek:3
