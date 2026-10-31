@@ -3031,3 +3031,33 @@
 2026-10-31 16:02:12;gram;g:adjektiv:21;adjektiv/ohne;Ich esse jeden Tag frischen Obst.;frischen;richtig;Ich esse jeden Tag frisches Obst.;tur:akis | tür:fehler | z:2 | sek:13
 2026-10-31 16:02:17;erk;x1559:erk;der Umgang;Ein sorgfältiger Umgang mit Abfall hat viel mit Umweltschutz zu tun.;ilişki;richtig;(biriyle) ilişki;basamak:B1 | bicim:metinde | not:m3 | R:0.76 | S:2.2 | kurtarma | sek:3
 2026-10-31 16:02:19;erk;w0199:erk;gerecht;adaletli;gerecht;richtig;gerecht;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:1.9 | sek:2
+2026-10-31 16:02:29;luecke;v447:satz;scheinen;Der Name Eisenbahn kommt von den _____, auf denen sie fährt und die vor allem aus Eisen bestehen.;scheint;falsch;Schienen;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:1.2 | kaynak:k41
+2026-10-31 16:02:29;luecke;v243:satz;fahren;Der Name Eisenbahn kommt von den Schienen, auf denen sie _____ und die vor allem aus Eisen bestehen.;fahren;falsch;fährt;basamak:B3 | bicim:metin | not:m1 | R:0.92 | S:1.4 | kaynak:k41
+2026-10-31 16:02:29;akt;luecke:k41;metinde boşluk;Der Name Eisenbahn kommt von den Schienen, auf denen sie fährt und die vor allem aus Eisen bestehen. Mit Bahn meinte man den Weg, der gebahnt wurde.;scheint / fahren;falsch;Schienen / fährt;puan:0/2 | boşluk:2
+2026-10-31 16:02:39;prod;w0290:prod;kühl;serin;kühl;richtig;kühl;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.8 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-31 16:02:43;erk;n0137:erk;die Behörde;resmî kurum;die Behörde;richtig;die Behörde;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | sek:3
+2026-10-31 16:02:43;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:70 | dk:1 | yeni:0 | seviye+:1 | tekrar:11 | gram:1/1
+2026-10-31 16:02:49;wort;x1553:wort;die Zivilcourage;sivil cesaret;die Civilcourage;fast;die Zivilcourage;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.92 | S:22.4 | kısmi | kapı:14g | yazım | sek:4 | ipucu:2
+2026-10-31 16:02:51;erk;n1038:erk;der Schirm;şemsiye;der Schirm;richtig;der Schirm;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:1.9 | sek:2
+2026-10-31 16:02:56;erk;x1554:erk;die Solidarität;dayanışma;die Solidarität;richtig;die Solidarität;basamak:B1 | bicim:sec | not:m3,a3 | R:0.92 | S:2.1 | sek:4
+2026-10-31 16:02:59;erk;n1372:erk;der Wert;Man merkt an diesem Ausdruck, dass Abfall oft noch einen Wert hat.;değer;richtig;değer;basamak:B1 | bicim:metinde | not:m3 | R:0.92 | S:2.9 | sek:2
+2026-10-31 16:03:05;abr;v527:abr;treffen;(biriyle) buluşmak, karşılaşmak;sich treffen;falsch;treffen (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.91 | S:1.6 | dönüşlü, sich fazla | sek:5 | ipucu:2
+2026-10-31 16:03:05;leech;v527;treffen;(biriyle) buluşmak, karşılaşmak;;takiliyor;;günler:2026-10-03,2026-10-04,2026-10-31
+2026-10-31 16:03:24;gram;g:adjektiv:10;adjektiv/unbestimmt;Mein Opa ist ein sehr ___ Mensch. (freundlich);freundlicher;richtig;freundlicher;tur:akis | tür:luecke | z:2 | sek:18
+2026-10-31 16:03:30;bed;v169:bed;donnern;donnern;şimşek çakmak;falsch;gök gürlemek;basamak:B1 | bicim:anla | not:m1 | R:0.76 | S:0.3 | kurtarma | sek:5
+2026-10-31 16:03:35;abr;v211:abr;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B2 | bicim:yaz | not:m3 | R:0.91 | S:10.8 | sek:4 | ipucu:2
+2026-10-31 16:03:38;bed;v527:bed;treffen;Hier trifft sich der Stadtrat oder Rat, das heißt die Volksvertretung der Stadt.;buluşmak, karşılaşmak;richtig;(biriyle) buluşmak, karşılaşmak;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-31 16:03:42;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit d;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:m3 | R:0.90 | S:6.6 | sek:4 | ipucu:2
+2026-10-31 16:03:50;abr;v642:abr;sich wenden an;(birine) başvurmak;wundern um d;falsch;sich wenden an (an + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:1.0 | sek:6 | ipucu:2
+2026-10-31 16:03:52;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:4.4 | sek:2
+2026-10-31 16:03:56;bed;v169:bed;donnern;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-31 16:04:06;satz;v185:satz;einkaufen;Nach der Arbeit _____ ich noch schnell _____.;kaufe ein;richtig;kaufe ein;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:11.2 | kapı:7g | sek:9 | ipucu:0
+2026-10-31 16:04:09;bed;v642:bed;sich wenden an;(birine) başvurmak;sich wenden an;richtig;sich wenden an;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-31 16:04:09;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:11 | küçük:1 | yanlış:3 | puan:96 | dk:1 | yeni:0 | seviye+:4 | tekrar:14 | gram:1/1
+2026-10-31 16:04:19;art;x1565:art;das Vereinsmitglied;Vereinsmitglied;das;richtig;das Vereinsmitglied;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:2.9 | sek:8
+2026-10-31 16:04:34;nsatz;n1316:nsatz;der Vermieter;Für jeden Quadratmeter des Zimmers arbeiten sie eine Stunde monatlich für ihren _____ oder ihre Vermieterin.;Vermieter;richtig;Vermieter;basamak:B3 | bicim:bos | not:m3 | R:0.90 | S:37.5 | sek:14 | ipucu:1
+2026-10-31 16:04:57;stamm;v629:stamm;sich(D) vorstellen;vorstellen — Präsens (er/sie), Perfekt;sich stellt vor, er hat sich vorgestellt;fast;stellt sich vor, hat sich vorgestellt;basamak:K | bicim:kok | not:k2 | R:0.90 | S:15.5 | kök:stellen | Präsens (er/sie): stellt sich vor | sek:19
+2026-10-31 16:05:15;yeni;v099;begleiten;tanıtım;;neu;(birine) eşlik etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:17
+2026-10-31 16:05:17;yeni;w0084;damit;tanıtım;;neu;-sın diye;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-31 16:05:20;bed;v099:bed;begleiten;(birine) eşlik etmek;begleiten;richtig;begleiten;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-31 16:05:22;erk;w0084:erk;damit;-sın diye;damit;richtig;damit;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
