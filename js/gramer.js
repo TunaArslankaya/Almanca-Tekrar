@@ -10,7 +10,9 @@
   const TUR_AD = { luecke: 'boşluk', wahl: 'seçmeli', ordnen: 'cümle diz', fehler: 'hatayı bul', umform: 'dönüştür', ceviri: 'çeviri', text: 'metin', eslestir: 'eşleştir', kategori: 'grupla', dinle: 'dinle-yaz' };
   // eslestir / kategori seçmeli sayılır; bir sette bunlardan en çok 1
   const SECMELI_EK = new Set(['eslestir', 'kategori']);
-  const UMFORM_TR = [[/^(weil|dass|obwohl|wenn|als|damit|ob|nachdem|bevor|während|seit|bis|so dass|falls|trotzdem|deshalb|denn)$/i, h => `„${h}“ ile birleştir`],
+  const UMFORM_TR = [[/^Imperativ \((du|ihr|Sie)\)$/, (h, m) => `emir kipine çevir (${m[1]})`], [/^Genitiv$/i, () => 'Genitiv ile yaz'], [/^Plural$/i, () => 'çoğul yap'],
+    [/^Komparativ$/i, () => 'Komparativ yap (-er / als)'], [/^Superlativ$/i, () => 'Superlativ yap (am …sten)'], [/^Partizip$/i, () => 'Partizip (sıfat-fiil) ile yaz'], [/^Adjektiv$/i, () => 'sıfatla yaz'],
+    [/^(weil|dass|obwohl|wenn|als|damit|ob|nachdem|bevor|während|seit|bis|so dass|falls|trotzdem|deshalb|denn)$/i, h => `„${h}“ ile birleştir`],
     [/^um … zu$|^um \.\.\. zu$/i, () => '„um … zu“ ile birleştir'], [/^Passiv$/i, () => 'Passiv yap'], [/^Perfekt$/i, () => 'Perfekt yap'], [/^Präteritum$/i, () => 'Präteritum yap'],
     [/^Plusquamperfekt$/i, () => 'Plusquamperfekt yap'], [/^Futur( I)?$/i, () => 'Futur I yap'], [/^indirekt$/i, () => 'dolaylı soru yap (Können Sie mir sagen, …?)'],
     [/^Relativsatz$/i, () => 'ilgi cümlesiyle tek cümle yap'], [/^Konjunktiv II$/i, () => 'kibar / dilek cümlesi yap (Konjunktiv II)'], [/^Nebensatz$/i, () => 'yan cümle yap'],
