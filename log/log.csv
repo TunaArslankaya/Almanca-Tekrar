@@ -3173,3 +3173,5 @@
 2026-10-31 16:26:10;lesen-wort;n0067;die Art;Schülerinnen gegen Sexualisierung der Schuluniform;;neu;"tür, çeşit; tarz";
 2026-10-31 17:25:56;lesen;dw79669480;Schülerinnen gegen Sexualisierung der Schuluniform;;;gelesen;;https://learngerman.dw.com/de/schülerinnen-gegen-sexualisierung-der-schuluniform/l-79669480
 2026-10-31 17:26:14;gram;g:es-korrelat:40;es-korrelat/wegfall;Welcher Satz ist richtig?;Dass du mitkommst, freut es mich sehr.;falsch;Dass du mitkommst, freut mich sehr.;tür:wahl | z:2 | kelime sırası | ghost:1 | sek:6
+2026-10-31 17:26:41;gram;g:es-korrelat:24;es-korrelat/korrelat;Du hilfst mir. Das ist sehr nett. → Es …;Es ist sehr nett, dass du mir hlifst;richtig;Es ist sehr nett, dass du mir hilfst.;tür:umform | z:2 | farklı | ghost:2 | öneri:falsch | sek:16
+2026-10-31 17:26:52;gram;g:es-korrelat:121;es-korrelat/vorfeld;Welcher Satz ist richtig?;Im Kurs wurde heute viel diskutiert.;richtig;Im Kurs wurde heute viel diskutiert.;tür:wahl | z:1 | ghost:2 | sek:11
