@@ -3061,3 +3061,33 @@
 2026-10-31 16:05:17;yeni;w0084;damit;tanıtım;;neu;-sın diye;basamak:B0 | bicim:tanit | not:- | parti | sek:2
 2026-10-31 16:05:20;bed;v099:bed;begleiten;(birine) eşlik etmek;begleiten;richtig;begleiten;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-10-31 16:05:22;erk;w0084:erk;damit;-sın diye;damit;richtig;damit;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-31 16:05:23;art;n0813:art;die Mühe;Mühe;die;richtig;die Mühe;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:18.8 | sek:1
+2026-10-31 16:05:26;erk;n0248:erk;der Donner;Der Donner kommt erst später bei einem an.;gök gürültüsü;richtig;gök gürültüsü;basamak:B1 | bicim:metinde | not:m3 | R:0.77 | S:1.9 | kurtarma | sek:2
+2026-10-31 16:05:33;abr;v099:abr;begleiten;(birine) eşlik etmek;beglieten;falsch;begleiten (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-10-31 16:05:36;prod;w0084:prod;damit;-sın diye;damit;richtig;damit;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-10-31 16:05:40;art;n0629:art;das Klima;Klima;der;falsch;das Klima;basamak:A | bicim:artikel | not:a1 | R:0.88 | S:1.1 | artikel der → das | sek:3
+2026-10-31 16:05:40;leech;n0629;das Klima;iklim;;takiliyor;;günler:2026-10-07,2026-10-08,2026-10-31
+2026-10-31 16:05:44;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über (über + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:6.9 | sek:4 | ipucu:0
+2026-10-31 16:05:48;prod;w0119:prod;eher;daha çok, daha ziyade;allerdings;falsch;eher;basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:1.6 | farklı | sek:3 | ipucu:2
+2026-10-31 16:05:51;bed;v099:bed;begleiten;Dieser Zustand wird meist von starken Gefühlen begleitet, die sich auch im Körper zeigen.;eşlik etmek;richtig;(birine) eşlik etmek;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-31 16:06:04;abr;v111:abr;sich bemühen um;(bir şey için) çabalamak;beschweren an d;falsch;sich bemühen um (um + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:1.0 | sek:10 | ipucu:2
+2026-10-31 16:06:07;erk;w0119:erk;eher;daha çok, daha ziyade;eher;richtig;eher;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-10-31 16:06:07;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:86 | dk:2 | yeni:2 | seviye+:0 | tekrar:11
+2026-10-31 16:06:10;art;n1240:art;das Training;Training;das;richtig;das Training;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:10.5 | sek:1
+2026-10-31 16:06:15;nsatz;n0520:nsatz;der Hausmeister;Der _____ hat den Schlüssel für den Keller.;Hausmeister;richtig;Hausmeister;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:12.1 | kapı:7g | sek:4 | ipucu:0
+2026-10-31 16:06:24;wort;x1563:wort;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrleute;falsch;der Feuerwehrmann;basamak:B2 | bicim:yaz0 | not:m1 | R:0.90 | S:0.7 | kelime yanlış | sek:8 | ipucu:0
+2026-10-31 16:06:26;yeni;w0315;manche;tanıtım;;neu;bazı;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-10-31 16:06:28;yeni;w0522;vor allem;tanıtım;;neu;özellikle, her şeyden önce;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-10-31 16:06:34;erk;w0315:erk;manche;bazı;manche;richtig;manche;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:6
+2026-10-31 16:06:37;erk;w0522:erk;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-31 16:06:43;art;n0474:art;das Gewitter;Gewitter;die;falsch;das Gewitter;basamak:A | bicim:artikel | not:a1 | R:0.87 | S:0.7 | artikel die → das | sek:5
+2026-10-31 16:06:46;erk;w0117:erk;eben;az önce;eben;richtig;eben;basamak:B1 | bicim:sec | not:m3 | R:0.78 | S:1.7 | kurtarma | sek:3
+2026-10-31 16:06:48;prod;w0315:prod;manche;bazı;mache;falsch;manche;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | farklı | sek:2 | ipucu:0
+2026-10-31 16:06:56;erk;x1563:erk;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrmann;richtig;der Feuerwehrmann;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:8
+2026-10-31 16:06:59;prod;w0522:prod;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-10-31 16:07:01;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:3.0 | sek:1
+2026-10-31 16:07:08;wort;n0360:wort;die Feuerwehr;itfaiye;der Feuerwehr;fast;die Feuerwehr;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.90 | S:10.9 | kapı:7g | artikel der → die | sek:6 | ipucu:0
+2026-10-31 16:07:14;stamm;v243:stamm;fahren;Wir sind mit dem Zug _____.;gefahren;richtig;gefahren;basamak:K | bicim:kokSatz | not:k3 | R:0.90 | S:10.1 | kök:fahren | sek:5
+2026-10-31 16:07:16;erk;w0315:erk;manche;bazı;manche;richtig;manche;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-10-31 16:07:16;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:10 | küçük:1 | yanlış:3 | puan:86 | dk:1 | yeni:2 | seviye+:1 | tekrar:10
+2026-10-31 16:07:21;art;n0691:art;die Kunst;Kunst;die;richtig;die Kunst;basamak:A | bicim:artikel | not:a3 | R:0.83 | S:2.7 | sek:3
