@@ -2995,3 +2995,10 @@
 2026-10-30 11:33:33;akt;luecke:u4:t1;metinde boşluk;Das Feuer wurde aber schnell gelöscht. Die viele Arbeit konnte nur gemeinsam bewältigt werden. Die Solidarität im Dorf war wirklich groß: Jeder hat geholfen, wo er konnte.;löschen / schaffen / Hilfsbereitschaft;falsch;gelöscht / bewältigt / Solidarität;puan:0/3 | boşluk:3
 2026-10-30 11:33:39;erk;n1372:erk;der Wert;değer;das Wert;fast;der Wert;basamak:B1 | bicim:sec | not:a1 | R:1.00 | S:1.5 | tekrar:1 | artikel das → der | sek:3
 2026-10-30 11:33:39;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:4 | küçük:2 | yanlış:7 | puan:50 | dk:1 | yeni:0 | seviye+:0 | tekrar:12 | gram:1/1
+2026-10-31 15:58:32;erk;w0213:erk;gleichzeitig;aynı anda;gleichzeitig;richtig;gleichzeitig;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:24.1 | ısınma | kapı:7g | sek:2
+2026-10-31 15:58:37;erk;x1555:erk;die Würde;onur, (insan) haysiyeti;die Würde;richtig;die Würde;basamak:B1 | bicim:sec | not:m3,a3 | R:0.95 | S:22.4 | ısınma | kapı:7g | sek:5
+2026-10-31 15:58:40;bed;v399:bed;nennen;Wassertropfen, die vom Himmel fallen, nennt man Regen.;adlandırmak, söylemek;richtig;adlandırmak, söylemek;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:5.9 | ısınma | sek:2
+2026-10-31 15:58:43;yeni;n0602;die Kasse;tanıtım;;neu;kasa;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-10-31 15:58:46;yeni;x1567;der Pate;tanıtım;;neu;"(gönüllü) destekçi; vaftiz babası";basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-10-31 15:58:49;erk;x1567:erk;der Pate;(gönüllü) destekçi;der Pate;richtig;der Pate;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-10-31 15:58:51;erk;n0602:erk;die Kasse;kasa;die Kasse;richtig;die Kasse;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
