@@ -2918,3 +2918,10 @@ n0875 | die Organisation | Diese Organisation hilft Menschen in Not. | Bu kurulu
 x1554 | die Solidarität | Die Solidarität im Dorf war wirklich groß. | Köydeki dayanışma gerçekten büyüktü.
 x1486 | der Soldat | Der Soldat schreibt jede Woche einen Brief an seine Familie. | Asker her hafta ailesine bir mektup yazıyor.
 x1486 | der Soldat | Viele Soldaten waren damals sehr jung. | O zamanlar birçok asker çok gençti.
+x1567 | der Pate | Mein Onkel ist der Pate meiner Tochter. | Amcam kızımın vaftiz babası.
+x1567 | der Pate | Als Pate besucht er das Kind jeden Monat. | Destekçi olarak çocuğu her ay ziyaret ediyor.
+x1566 | die Patenschaft | Nach einem Jahr endet die Patenschaft für das Kind. | Bir yıl sonra çocuk için destekçilik sona eriyor.
+x1564 | das Hochwasser | Nach dem Regen gab es in vielen Dörfern Hochwasser. | Yağmurdan sonra birçok köyde sel oldu.
+x1563 | der Feuerwehrmann | Der Feuerwehrmann hat das Kind aus dem Haus getragen. | İtfaiyeci çocuğu evden dışarı taşıdı.
+n0629 | das Klima | Das Klima in Bremen ist im Winter nass und kühl. | Bremen'in iklimi kışın ıslak ve serindir.
+n0360 | die Feuerwehr | Die Feuerwehr kam nach fünf Minuten. | İtfaiye beş dakika sonra geldi.

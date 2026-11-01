@@ -4407,3 +4407,15 @@ Diese Organisation hilft Menschen in Not. | helfen = yardım etmek; die Not = zo
 Die Solidarität im Dorf war wirklich groß. | das Dorf = köy; wirklich = gerçekten; groß = büyük
 Der Soldat schreibt jede Woche einen Brief an seine Familie. | der Brief = mektup; die Familie = aile; jede Woche = her hafta
 Viele Soldaten waren damals sehr jung. | damals = o zamanlar; jung = genç; viele = birçok
+Mein Onkel ist der Pate meiner Tochter. | der Onkel = amca, dayı; die Tochter = kız evlat
+Als Pate besucht er das Kind jeden Monat. | besuchen = ziyaret etmek; das Kind = çocuk; jeden Monat = her ay
+Nach einem Jahr endet die Patenschaft für das Kind. | enden = sona ermek; das Jahr = yıl
+Nach dem Regen gab es in vielen Dörfern Hochwasser. | der Regen = yağmur; das Dorf = köy; viele = birçok
+Der Feuerwehrmann hat das Kind aus dem Haus getragen. | tragen = taşımak; das Haus = ev
+Das Klima in Bremen ist im Winter nass und kühl. | der Winter = kış; nass = ıslak; kühl = serin
+Die Feuerwehr kam nach fünf Minuten. | die Minute = dakika; kommen = gelmek
+Darf ich dich nach Hause begleiten? | dürfen = izinli olmak; nach Hause = eve
+Meine Schwester begleitet mich zum Arzt. | die Schwester = kız kardeş; der Arzt = doktor
+Sie betreut am Nachmittag drei Kinder. | der Nachmittag = öğleden sonra; drei = üç
+Der Arzt betreut den Patienten schon lange. | der Patient = hasta; schon lange = uzun zamandır
+Wo treffen wir uns morgen? | wo = nerede; morgen = yarın

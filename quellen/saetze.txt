@@ -1206,3 +1206,8 @@ v378 | Die Feuerwehr hat das Feuer in einer Stunde gelöscht. | İtfaiye yangın
 v378 | Nach dem Brand wurde das Feuer schnell gelöscht. | Yangından sonra ateş çabucak söndürüldü.
 v688 | Die viele Arbeit können wir nur gemeinsam bewältigen. | Bu kadar çok işin üstesinden ancak birlikte gelebiliriz.
 v688 | Sie hat die schwierige Zeit nach dem Umzug gut bewältigt. | Taşınmadan sonraki zor dönemin üstesinden iyi geldi.
+v099 | Darf ich dich nach Hause begleiten? | Seni eve kadar geçirebilir miyim?
+v099 | Meine Schwester begleitet mich zum Arzt. | Kız kardeşim bana doktora kadar eşlik ediyor.
+v138 | Sie betreut am Nachmittag drei Kinder. | Öğleden sonra üç çocuğa bakıyor.
+v138 | Der Arzt betreut den Patienten schon lange. | Doktor hastayla uzun zamandır ilgileniyor.
+v527 | Wo treffen wir uns morgen? | Yarın nerede buluşuyoruz?

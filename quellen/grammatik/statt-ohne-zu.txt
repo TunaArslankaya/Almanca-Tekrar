@@ -185,3 +185,10 @@ umform | 3 | Statt dass ich warte, gehe ich schon mal vor. → statt … zu | St
 fehler | 3 | Ich gehe nie ohne zu meinem Handy aus dem Haus. | Ich gehe nie ohne mein Handy aus dem Haus. | zu meinem Handy | Telefonum olmadan asla evden çıkmam. | ohne + isim → Akkusativ (mein Handy), zu yok. zu yalnız fiille gelir. | ohne; das Handy
 luecke | 3 | Ich bin früher aufgestanden, ___ den Bus nicht zu verpassen, und dann bin ich aus dem Haus gegangen, ___ zu frühstücken. | um ; ohne | | Otobüsü kaçırmamak için erken kalktım, sonra da kahvaltı yapmadan evden çıktım. | Amaç → um … zu; -meden → ohne … zu. | verpassen; frühstücken
 kategori | 3 | Was passt nach „Er ist gegangen, ohne …“? | passt: sich zu verabschieden, dass wir es gemerkt haben, ein Wort zu sagen ;; passt nicht: zu sich verabschieden, dass zu bezahlen, nicht zu fragen | | "Er ist gegangen, ohne …" cümlesinden sonra ne gelebilir? | zu + mastar (zamir zu'dan önce) ya da dass + yan cümle; dass ile zu birlikte olmaz, ohne'dan sonra nicht gelmez. | ohne; sich verabschieden von
+
+@teil statt-zu
+wahl | 1 | ___ zu schlafen, hat er die ganze Nacht gespielt. | Statt | Statt / Ohne / Um | Uyumak yerine bütün gece oynadı. | -mek yerine = statt … zu. | schlafen; spielen
+luecke | 1 | Statt ins Kino ___ ___, bleibe ich zu Hause. (gehen) | zu ; gehen | | Sinemaya gitmek yerine evde kalıyorum. | statt … zu + mastar; zu mastarın hemen önünde. | gehen; das Kino
+luecke | 2 | Statt die Hausaufgaben ___ ___, hat sie ferngesehen. (machen) | zu ; machen | | Ödev yapmak yerine televizyon izledi. | statt + nesne + zu + mastar. | die Hausaufgabe; fernsehen
+ordnen | 2 | statt / zu / arbeiten / spielt / er / lieber / Gitarre | Statt zu arbeiten, spielt er lieber Gitarre. | | Çalışmak yerine gitar çalmayı tercih ediyor. | statt … zu başta → ana cümle fiille başlar: spielt er. | arbeiten; die Gitarre
+fehler | 3 | Anstatt zu aufräumen, hat er sich aufs Sofa gelegt. | Anstatt aufzuräumen, hat er sich aufs Sofa gelegt. | zu aufräumen | Toplamak yerine kanepeye uzandı. | aufräumen ayrılabilen: zu araya girer, bitişik yazılır: aufzuräumen. | aufräumen; das Sofa

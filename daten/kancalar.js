@@ -42,4 +42,9 @@ window.KANCA = {
   x1478: "das Frühjahr → 'fry-yar': früh (erken) + Jahr (yıl); yılın erken kısmı = ilkbahar; Jahr hep das, yeşil (das) çimen çıkar",
   n0137: "die Behörde → 'bö-hörde': bir 'hörde' (horda) memur; kırmızı (die) kurum kapısında sıra bekliyorsun; Amt = daire, Behörde = kurumun kendisi",
   n0914: "die Politik → 'politika' sesi aynı; -ik sonlu isimler hep die: die Politik, die Musik, die Technik",
+  n0629: "das Klima → klima sesi aynı (klima = iklim); yeşil (das) bir klima aleti; das Klima, das Wetter",
+  n0496: "die Gymnastik → jimnastik sesi aynı; -ik sonlu isimler hep die: die Musik, die Technik, die Gymnastik",
+  v527: "treffen → TREN istasyonunda biriyle karşılaşırsın; jemanden treffen (Akk), sich treffen = buluşmak",
+  w0119: "eher → ERkenden çok / daha çok: eher = daha çok, daha ziyade (ich trinke eher Tee)",
+  x1567: "der Pate → PATEs yerine vaftiz babası / destekçi; der Pate (mavi), kadın hâli die Patin",
 };
