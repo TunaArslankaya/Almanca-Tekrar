@@ -3188,3 +3188,11 @@
 2026-10-31 17:29:01;gram;g:nominal-verbal:28;nominal-verbal/bei;Beim Autofahren darf man nicht telefonieren.;hata yok;richtig;Beim Autofahren darf man nicht telefonieren.;tür:fehler | z:1 | sek:11
 2026-10-31 17:29:09;gram;g:nominal-verbal:13;nominal-verbal/trotz;___ ich müde war, habe ich noch zwei Stunden gelernt.;Trotz;falsch;Obwohl;tür:wahl | z:1 | bağlaç | sek:4
 2026-10-31 17:29:13;gram;g:nominal-verbal:98;nominal-verbal/zeit;___ des Fluges habe ich einen Film gesehen.;Während;richtig;Während;tür:wahl | z:1 | sek:3
+2026-11-01 08:23:21;erk;w0522:erk;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | ısınma | sek:3
+2026-11-01 08:23:25;erk;w0315:erk;manche;bazı;manche;richtig;manche;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | ısınma | sek:4
+2026-11-01 08:23:28;erk;w0084:erk;damit;Damit ist Regen eine Form des Niederschlags, wenn es normal warm ist.;-sın diye;richtig;-sın diye;basamak:B1 | bicim:metinde | not:m3 | R:0.96 | S:4.5 | ısınma | sek:2
+2026-11-01 08:23:29;yeni;v145;bezahlen;tanıtım;;neu;ödemek;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-11-01 08:23:32;yeni;n0067;die Art;tanıtım;;neu;"tür, çeşit; tarz";basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-01 08:23:39;yeni;v138;betreuen;tanıtım;;neu;(birine) bakmak, ilgilenmek (çocuk, hasta);basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-11-01 08:23:41;erk;n0067:erk;die Art;tür, çeşit;die Art;richtig;die Art;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:23:44;bed;v145:bed;bezahlen;ödemek;bezahlen;richtig;bezahlen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
