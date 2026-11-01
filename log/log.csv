@@ -3280,3 +3280,4 @@
 2026-11-01 08:35:15;gram;g:satzklammer-tekamolo:92;satzklammer-tekamolo/objekte;Wem gibst du den Schlüssel? – Ich gebe ___.;meinem Nachbarn ihn;falsch;ihn meinem Nachbarn;tür:wahl | z:1 | hâl | sek:15
 2026-11-01 08:35:21;gram;g:satzklammer-tekamolo:73;satzklammer-tekamolo/vorfeld;Am Wochenende ___ zu meinen Eltern.;fahre ich;richtig;fahre ich;tür:luecke | z:1 | sek:5
 2026-11-01 08:35:35;gram;g:satzklammer-tekamolo:91;satzklammer-tekamolo/objekte;Welcher Satz ist richtig?;Ich zeige morgen die Stadt dir.;falsch;Ich zeige dir morgen die Stadt.;tür:wahl | z:1 | hâl | sek:13
+2026-11-01 08:35:55;gram;g:satzklammer-tekamolo:60;satzklammer-tekamolo/klammer;Welcher Satz ist richtig?;Wir sind am Sonntag sehr spät nach Hause gekommen.;richtig;Wir sind am Sonntag sehr spät nach Hause gekommen.;tür:wahl | z:1 | sek:19
