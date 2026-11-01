@@ -3251,3 +3251,18 @@
 2026-11-01 08:30:21;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:2 | yanlış:2 | puan:68 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
 2026-11-01 08:30:25;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.1 | artikel das → die | sek:2
 2026-11-01 08:30:25;leech;n0496;die Gymnastik;jimnastik;;takiliyor;;günler:2026-10-25,2026-10-30,2026-11-01
+2026-11-01 08:32:09;wort;x1564:wort;das Hochwasser;sel, taşkın;die ;falsch;das Hochwasser;basamak:B2 | bicim:yaz0 | not:m1 | R:0.86 | S:0.7 | kelime yanlış | sek:3 | ipucu:0
+2026-11-01 08:32:13;bed;v687:bed;ausbilden;yetiştirmek, (meslek) eğitimi vermek;ausbilden;richtig;ausbilden;basamak:B1 | bicim:sec | not:m3 | R:0.86 | S:5.6 | sek:3
+2026-11-01 08:32:14;yeni;w0149;etwa;tanıtım;;neu;yaklaşık;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-11-01 08:32:15;yeni;w0490;um … zu;tanıtım;;neu;-mek için;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-11-01 08:32:18;erk;w0149:erk;etwa;yaklaşık;etwa;richtig;etwa;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:32:20;erk;w0490:erk;um … zu;-mek için;um … zu;richtig;um … zu;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:32:23;erk;x1564:erk;das Hochwasser;sel, taşkın;das Hochwasser;richtig;das Hochwasser;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:2
+2026-11-01 08:32:40;gram;g:nominal-verbal:76;nominal-verbal/trotz;trotz / der Schmerzen / hat / er / das Spiel / zu Ende gespielt;trotz der Schmerzen hat er das Spiel zu Ende gespielt;richtig;Trotz der Schmerzen hat er das Spiel zu Ende gespielt.;tur:akis | tür:ordnen | z:2 | ghost:2 | sek:16
+2026-11-01 08:32:43;prod;w0149:prod;etwa;yaklaşık;etwa;richtig;etwa;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-01 08:32:45;prod;w0490:prod;um … zu;-mek için;um zu;richtig;um … zu;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-01 08:32:52;luecke;n1173:nsatz;der Supermarkt;Bunte Farben, viele Gerüche und dann noch Lärm: Der Einkauf im _____ ist für manche Menschen sehr anstrengend.;Supermarkt;richtig;Supermarkt;basamak:B3 | bicim:metin | not:m3 | R:0.86 | S:16.0 | kapı:14g | kaynak:dw77708174
+2026-11-01 08:32:52;luecke;v184:satz;sich einigen auf;Um ihn reizärmer zu machen, gibt es jetzt in _____ Geschäften eine „Stille Stunde“.;einigen;richtig;einigen;basamak:B3 | bicim:metin | not:m3 | R:0.85 | S:8.7 | kaynak:dw77708174
+2026-11-01 08:32:52;akt;luecke:dw77708174;metinde boşluk;Bunte Farben, viele Gerüche und dann noch Lärm: Der Einkauf im Supermarkt ist für manche Menschen sehr anstrengend. Um ihn reizärmer zu machen, gibt es jetzt in einigen Geschäften eine „Stille Stunde“.;Supermarkt / einigen;richtig;Supermarkt / einigen;puan:2/2 | boşluk:2
+2026-11-01 08:32:57;erk;x1547:erk;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B1 | bicim:sec | not:m3,a1 | R:0.75 | S:1.2 | kurtarma | artikel der → die | sek:4
+2026-11-01 08:32:57;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:81 | dk:3 | yeni:2 | seviye+:2 | tekrar:7 | gram:1/1
