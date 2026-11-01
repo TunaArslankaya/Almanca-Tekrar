@@ -3196,3 +3196,10 @@
 2026-11-01 08:23:39;yeni;v138;betreuen;tanıtım;;neu;(birine) bakmak, ilgilenmek (çocuk, hasta);basamak:B0 | bicim:tanit | not:- | parti | sek:7
 2026-11-01 08:23:41;erk;n0067:erk;die Art;tür, çeşit;die Art;richtig;die Art;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
 2026-11-01 08:23:44;bed;v145:bed;bezahlen;ödemek;bezahlen;richtig;bezahlen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:23:47;bed;v138:bed;betreuen;(birine) bakmak, ilgilenmek (çocuk, hasta);betreuen;richtig;betreuen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:23:52;abr;v099:abr;begleiten;(birine) eşlik etmek;be;falsch;begleiten (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.96 | S:0.6 | sek:4 | ipucu:0
+2026-11-01 08:23:55;wort;n0067:wort;die Art;"tür, çeşit; tarz";die Art;richtig;die Art;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-01 08:23:57;abr;v145:abr;bezahlen;ödemek;bezahlen;richtig;bezahlen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-01 08:24:06;abr;v138:abr;betreuen;(birine) bakmak, ilgilenmek (çocuk, hasta);betreuten;falsch;betreuen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-11-01 08:24:10;erk;w0109:erk;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:1.1 | kurtarma | sek:3
+2026-11-01 08:24:15;bed;v099:bed;begleiten;Dieser Zustand wird meist von starken Gefühlen begleitet, die sich auch im Körper zeigen.;eşlik etmek;richtig;(birine) eşlik etmek;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4
