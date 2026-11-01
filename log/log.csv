@@ -3203,3 +3203,22 @@
 2026-11-01 08:24:06;abr;v138:abr;betreuen;(birine) bakmak, ilgilenmek (çocuk, hasta);betreuten;falsch;betreuen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
 2026-11-01 08:24:10;erk;w0109:erk;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:1.1 | kurtarma | sek:3
 2026-11-01 08:24:15;bed;v099:bed;begleiten;Dieser Zustand wird meist von starken Gefühlen begleitet, die sich auch im Körper zeigen.;eşlik etmek;richtig;(birine) eşlik etmek;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4
+2026-11-01 08:26:06;gram;g:nominal-verbal:18;nominal-verbal/trotz;Obwohl des schlechten Wetters sind viele Leute gekommen.;hata yok;falsch;Trotz des schlechten Wetters sind viele Leute gekommen.;tur:akis | tür:fehler | z:2 | bağlaç | ghost:1 | sek:19
+2026-11-01 08:26:10;wort;n0602:wort;die Kasse;kasa;die Kasse;richtig;die Kasse;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.5 | sek:3 | ipucu:0
+2026-11-01 08:26:14;bed;v138:bed;betreuen;betreuen;bakmak, ilgilenmek;richtig;(birine) bakmak, ilgilenmek (çocuk, hasta);basamak:B1 | bicim:anla | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-01 08:26:14;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:0 | yanlış:3 | puan:82 | dk:3 | yeni:3 | seviye+:0 | tekrar:8 | gram:0/1
+2026-11-01 08:26:27;wort;x1567:wort;der Pate;"(gönüllü) destekçi; vaftiz babası";der Pate;richtig;der Pate;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:4.5 | sek:10 | ipucu:0
+2026-11-01 08:26:30;erk;w0290:erk;kühl;serin;kühl;richtig;kühl;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:2.0 | sek:2
+2026-11-01 08:26:33;bed;v589:bed;sich verlassen auf;(birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:2.1 | sek:3
+2026-11-01 08:26:35;yeni;n0830;die Nachhilfe;tanıtım;;neu;özel ders (takviye);basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-01 08:26:38;erk;n0830:erk;die Nachhilfe;özel ders (takviye);die Nachhilfe;richtig;die Nachhilfe;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-01 08:26:46;erk;w0119:erk;eher;„Die Dienste bekommen deutlich mehr Macht, die Kontrolle wird im Zweifel eher schwächer“, sagt Kai Dittmann von der Gesellschaft für Freiheitsrechte.;çoktan;falsch;daha çok, daha ziyade;basamak:B1 | bicim:metinde | not:m1 | R:0.95 | S:0.4 | sek:6
+2026-11-01 08:26:46;leech;w0119;eher;daha çok, daha ziyade;;takiliyor;;günler:2026-10-09,2026-10-31,2026-11-01
+2026-11-01 08:26:49;bed;v527:bed;treffen;Großes Pech trifft zwar selten ein, aber dafür ist es dann umso schlimmer für den Betroffenen.;buluşmak, karşılaşmak;richtig;(biriyle) buluşmak, karşılaşmak;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:2.5 | sek:3
+2026-11-01 08:26:53;erk;w0026:erk;anwesend;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:1.2 | kurtarma | sek:4
+2026-11-01 08:26:59;wort;n0830:wort;die Nachhilfe;özel ders (takviye);die Nachhilfe;richtig;die Nachhilfe;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-11-01 08:27:02;erk;w0119:erk;eher;daha çok, daha ziyade;eher;richtig;eher;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-01 08:28:01;akt;diktat:x1503;dinle–yaz;Meine Eltern haben hohe Erwartungen an mich.;Meine Eltern haben hoche Erwartungen an mich;fast;Meine Eltern haben hohe Erwartungen an mich.;yazım: Meine Eltern haben hohe Erwartungen an mich.
+2026-11-01 08:28:12;bed;v243:bed;fahren;fahren;gitmek;richtig;(araçla) gitmek;basamak:B1 | bicim:anla | not:m3 | R:0.94 | S:2.3 | sek:5
+2026-11-01 08:28:14;bed;v447:bed;scheinen;Um das Jahr 1570 scheint sie zum ersten Mal nach Spanien gekommen zu sein.;parlamak;richtig;(güneş) parlamak;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:1.6 | sek:2
+2026-11-01 08:28:14;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:67 | dk:2 | yeni:1 | seviye+:2 | tekrar:9
