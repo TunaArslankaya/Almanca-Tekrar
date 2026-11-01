@@ -3222,3 +3222,32 @@
 2026-11-01 08:28:12;bed;v243:bed;fahren;fahren;gitmek;richtig;(araçla) gitmek;basamak:B1 | bicim:anla | not:m3 | R:0.94 | S:2.3 | sek:5
 2026-11-01 08:28:14;bed;v447:bed;scheinen;Um das Jahr 1570 scheint sie zum ersten Mal nach Spanien gekommen zu sein.;parlamak;richtig;(güneş) parlamak;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:1.6 | sek:2
 2026-11-01 08:28:14;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:67 | dk:2 | yeni:1 | seviye+:2 | tekrar:9
+2026-11-01 08:28:19;art;n0629:art;das Klima;Klima;das;richtig;das Klima;basamak:A | bicim:artikel | not:a3 | R:0.93 | S:1.5 | sek:2
+2026-11-01 08:28:22;bed;v111:bed;sich bemühen um;(bir şey için) çabalamak;sich bemühen um;richtig;sich bemühen um;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.2 | sek:3
+2026-11-01 08:28:25;erk;w0636:erk;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:1.3 | sek:2
+2026-11-01 08:28:28;art;n0360:art;die Feuerwehr;Feuerwehr;das;falsch;die Feuerwehr;basamak:A | bicim:artikel | not:a1 | R:0.92 | S:0.3 | artikel das → die | sek:2
+2026-11-01 08:28:36;bed;v642:bed;sich wenden an;sich wenden an;başvurmak;richtig;(birine) başvurmak;basamak:B1 | bicim:anla | not:m3 | R:0.92 | S:1.3 | sek:7
+2026-11-01 08:28:40;erk;x1563:erk;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrmann;richtig;der Feuerwehrmann;basamak:B1 | bicim:sec | not:m3,a3 | R:0.91 | S:1.1 | sek:3
+2026-11-01 08:28:44;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.75 | S:1.2 | kurtarma | artikel der → das | sek:3
+2026-11-01 08:28:46;art;n0746:art;die Luft;Luft;die;richtig;die Luft;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:9.7 | sek:1
+2026-11-01 08:29:09;luecke;v256:satz;feststellen;Außerdem fragt er sich, wie man den Grund des Besuchs _____ will: „Wer kommt zum Beten, wer zum Staunen, wer aus Trauer, wer als Tourist?“;beweisen;falsch;feststellen;basamak:B3 | bicim:metin | not:m1 | R:0.87 | S:0.8 | kaynak:dw77886388
+2026-11-01 08:29:09;luecke;v346:satz;kommen;Außerdem fragt er sich, wie man den Grund des Besuchs feststellen will: „Wer _____ zum Beten, wer zum Staunen, wer aus Trauer, wer als Tourist?“;kommen;falsch;kommt;basamak:B3 | bicim:metin | not:m1 | R:0.87 | S:1.3 | kaynak:dw77886388
+2026-11-01 08:29:09;akt;luecke:dw77886388;metinde boşluk;Außerdem fragt er sich, wie man den Grund des Besuchs feststellen will: „Wer kommt zum Beten, wer zum Staunen, wer aus Trauer, wer als Tourist?“;beweisen / kommen;falsch;feststellen / kommt;puan:0/2 | boşluk:2
+2026-11-01 08:29:16;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebracht;richtig;gebracht;basamak:K | bicim:kokSatz | not:k3 | R:0.90 | S:1.1 | kök:bringen | sek:4
+2026-11-01 08:29:21;wort;n0596:wort;die Karriere;kariyer;die Karriere;richtig;die Karriere;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.89 | S:15.8 | kapı:14g | sek:5 | ipucu:2
+2026-11-01 08:29:21;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:63 | dk:1 | yeni:0 | seviye+:1 | tekrar:12
+2026-11-01 08:29:24;art;n0474:art;das Gewitter;Gewitter;das;richtig;das Gewitter;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:1.0 | sek:2
+2026-11-01 08:29:27;erk;x1566:erk;die Patenschaft;(gönüllü) destekçilik;die Patenschaft;richtig;die Patenschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:0.9 | sek:3
+2026-11-01 08:29:33;luecke;v429:satz;regnen;Es hat gestern den ganzen Tag _____.;regnet;falsch;geregnet;basamak:B3 | bicim:bos | not:m1 | R:0.87 | S:1.4 | farklı | sek:5 | ipucu:1
+2026-11-01 08:29:36;art;x1478:art;das Frühjahr;Frühjahr;das;richtig;das Frühjahr;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:0.6 | sek:2
+2026-11-01 08:29:43;nsatz;n0448:nsatz;die Gemeinschaft;In unserer _____ helfen sich alle gegenseitig.;Gemeinsam;falsch;Gemeinschaft;basamak:B2 | bicim:bos0 | not:m1 | R:0.87 | S:1.3 | artikel / ek | sek:4 | ipucu:0
+2026-11-01 08:29:54;wort;x1549:wort;die Ehrlichkeit;dürüstlük;die Erlichkeit;fast;die Ehrlichkeit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:5.0 | kısmi | yazım | sek:9 | ipucu:0
+2026-11-01 08:29:57;abr;v429:abr;regnen;yağmur yağmak;regnen;richtig;regnen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.4 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-01 08:30:01;erk;x1551:erk;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:1.2 | kurtarma | sek:4
+2026-11-01 08:30:03;art;n0972:art;die Regel;Regel;die;richtig;die Regel;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:0.4 | sek:2
+2026-11-01 08:30:08;wort;x1548:wort;die Fairness;hakkaniyet, fair play;die Fairness;richtig;die Fairness;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:7.0 | sek:4 | ipucu:0
+2026-11-01 08:30:12;erk;n0448:erk;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.3 | tekrar:1 | sek:3
+2026-11-01 08:30:21;wort;n1303:wort;der Verein;dernek, kulüp;die Verein;fast;der Verein;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.86 | S:10.9 | kapı:7g | artikel die → der | sek:8 | ipucu:0
+2026-11-01 08:30:21;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:2 | yanlış:2 | puan:68 | dk:1 | yeni:0 | seviye+:0 | tekrar:12
+2026-11-01 08:30:25;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.1 | artikel das → die | sek:2
+2026-11-01 08:30:25;leech;n0496;die Gymnastik;jimnastik;;takiliyor;;günler:2026-10-25,2026-10-30,2026-11-01
