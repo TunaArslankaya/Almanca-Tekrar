@@ -3285,3 +3285,21 @@
 2026-11-01 08:45:04;gram;g:satzklammer-tekamolo:66;satzklammer-tekamolo/tekamolo;wir / lernen / jeden Abend / zusammen / in der Bibliothek;wir lernen jeden Abend in der Bibliothek zusammen;richtig;Wir lernen jeden Abend zusammen in der Bibliothek.;tür:ordnen | z:2 | sek:6
 2026-11-01 17:48:40;wort;n0067:wort;die Art;"tür, çeşit; tarz";die Art;richtig;die Art;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:3.6 | akşam | sek:7 | ipucu:0
 2026-11-01 17:48:43;abr;v145:abr;bezahlen;ödemek;bezahlen;richtig;bezahlen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:3.6 | akşam | sek:3 | ipucu:0
+2026-11-01 17:49:01;abr;v138:abr;betreuen;(birine) bakmak, ilgilenmek (çocuk, hasta);;falsch;betreuen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.98 | S:0.5 | akşam | sek:10 | ipucu:0 | bilmiyorum
+2026-11-01 17:49:04;wort;n0830:wort;die Nachhilfe;özel ders (takviye);;falsch;die Nachhilfe;basamak:B2 | bicim:yaz0 | not:m1 | R:0.98 | S:0.5 | akşam | sek:2 | ipucu:0 | bilmiyorum
+2026-11-01 17:49:06;prod;w0149:prod;etwa;yaklaşık;etwa;richtig;etwa;basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:3.6 | akşam | sek:2 | ipucu:0
+2026-11-01 17:49:09;prod;w0490:prod;um … zu;-mek için;um zu;richtig;um … zu;basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:3.6 | akşam | sek:2 | ipucu:0
+2026-11-01 17:49:12;bed;v138:bed;betreuen;(birine) bakmak, ilgilenmek (çocuk, hasta);betreuen;richtig;betreuen;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | akşam | sek:3
+2026-11-01 17:49:16;erk;n0830:erk;die Nachhilfe;özel ders (takviye);die Nachhilfe;richtig;die Nachhilfe;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:0.5 | tekrar:1 | akşam | sek:3
+2026-11-01 17:49:26;erk;w0119:erk;eher;„Die Dienste bekommen deutlich mehr Macht, die Kontrolle wird im Zweifel eher schwächer“, sagt Kai Dittmann von der Gesellschaft für Freiheitsrechte.;özellikle, her şeyden önce;falsch;daha çok, daha ziyade;basamak:B1 | bicim:metinde | not:m1 | R:0.90 | S:0.1 | akşam | sek:4
+2026-11-01 17:49:31;bed;v099:bed;begleiten;(birine) eşlik etmek;begleiten;richtig;begleiten;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:0.8 | akşam | sek:5
+2026-11-01 17:49:35;erk;x1564:erk;das Hochwasser;sel, taşkın;das Hochwasser;richtig;das Hochwasser;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:0.9 | akşam | sek:3
+2026-11-01 17:49:39;bed;v256:bed;feststellen;Einen deutlichen Zeitverlust kann ich persönlich nicht feststellen.;tespit etmek;richtig;tespit etmek;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:1.0 | akşam | sek:4
+2026-11-01 17:49:42;erk;w0119:erk;eher;daha çok, daha ziyade;eher;richtig;eher;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | akşam | sek:2
+2026-11-01 17:49:42;tur;aksam;Akşam tekrarı;;;bitti;;cevap:13 | doğru:10 | küçük:0 | yanlış:3 | puan:75 | dk:1 | yeni:0 | seviye+:0 | tekrar:13
+2026-11-01 17:49:53;wort;n0496:wort;die Gymnastik;jimnastik;das Gymnastik;fast;die Gymnastik;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.94 | S:3.8 | akşam | artikel das → die | sek:9 | ipucu:0
+2026-11-01 17:49:59;erk;x1557:erk;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B1 | bicim:sec | not:m3,a1 | R:0.96 | S:1.3 | akşam | artikel der → das | sek:5
+2026-11-01 17:50:03;erk;x1547:erk;die Toleranz;hoşgörü;die Toleranz;richtig;die Toleranz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.3 | akşam | sek:3
+2026-11-01 17:50:05;bed;v346:bed;kommen;Auch in großen oder sehr hohen Räumen kann es zu Luftzügen kommen, wenn es innerhalb des Raumes große Temperaturunterschiede gibt.;gelmek;richtig;gelmek;basamak:B1 | bicim:metinde | not:m3 | R:0.96 | S:1.8 | akşam | sek:2
+2026-11-01 17:50:11;erk;n0448:erk;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.5 | akşam | sek:6
+2026-11-01 17:50:11;tur;aksam;Akşam tekrarı;;;leer;;cevap:5 | doğru:3 | küçük:2 | yanlış:0 | puan:24 | dk:1 | yeni:0 | seviye+:0 | tekrar:5
