@@ -422,4 +422,9 @@ window.FEEDBACK = [
   { zeit: "2026-11-01 08:35", id: "g:satzklammer-tekamolo:92", antwort: "meinem Nachbarn ihn", richtig: "ihn meinem Nachbarn", urteil: "falsch", text: "Zamir (ihn) isimden önce gelir." },
   { zeit: "2026-11-01 08:35", id: "g:satzklammer-tekamolo:91", antwort: "Ich zeige morgen die Stadt dir.", richtig: "Ich zeige dir morgen die Stadt.", urteil: "falsch", text: "Zamir dir önce, sonra zaman, sonra Akk isim." },
   { zeit: "2026-11-01 08:44", id: "g:satzklammer-tekamolo:58", antwort: "der Lehrerin → ihnen ; den Kindern → ihr", richtig: "der Lehrerin → ihr ; den Kindern → ihnen", urteil: "fast", text: "Lehrerin tekil: ihr; Kinder çoğul: ihnen." },
+  { zeit: "2026-11-01 17:49", id: "v138:abr", antwort: "", richtig: "betreuen (Akk)", urteil: "falsch", text: "Bilmiyorum dedin: betreuen + Akk = (birine) bakmak, ilgilenmek. Örnek: Sie betreut drei Kinder." },
+  { zeit: "2026-11-01 17:49", id: "n0830:wort", antwort: "", richtig: "die Nachhilfe", urteil: "falsch", text: "Bilmiyorum dedin: die Nachhilfe = özel ders (takviye). Nachhilfe geben/bekommen." },
+  { zeit: "2026-11-01 17:49", id: "w0119:erk", antwort: "özellikle, her şeyden önce", richtig: "daha çok, daha ziyade", urteil: "falsch", text: "eher = daha çok, daha ziyade (insbesondere ile karışıyor)." },
+  { zeit: "2026-11-01 17:49", id: "n0496:wort", antwort: "das Gymnastik", richtig: "die Gymnastik", urteil: "fast", text: "-ik ile biten isimler çoğunlukla die: die Gymnastik, die Politik." },
+  { zeit: "2026-11-01 17:49", id: "x1557:erk", antwort: "der Vorurteil", richtig: "das Vorurteil", urteil: "fast", text: "Bileşikte son parça: das Urteil → das Vorurteil." },
 ];

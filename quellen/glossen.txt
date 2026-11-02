@@ -4419,3 +4419,9 @@ Meine Schwester begleitet mich zum Arzt. | die Schwester = kız kardeş; der Arz
 Sie betreut am Nachmittag drei Kinder. | der Nachmittag = öğleden sonra; drei = üç
 Der Arzt betreut den Patienten schon lange. | der Patient = hasta; schon lange = uzun zamandır
 Wo treffen wir uns morgen? | wo = nerede; morgen = yarın
+Die Großmutter betreut die Kinder am Wochenende. | das Wochenende = hafta sonu; die Großmutter = büyükanne
+Wer betreut die Gruppe im Sommer? | die Gruppe = grup; der Sommer = yaz
+Meine Tochter bekommt jeden Dienstag Nachhilfe in Englisch. | die Tochter = kız evlat; der Dienstag = salı
+Die Nachhilfe hat ihm sehr geholfen. | helfen = yardım etmek
+Die Gymnastik am Morgen tut mir gut. | der Morgen = sabah; gut tun = iyi gelmek
+Ein Vorurteil ist oft schwer zu ändern. | schwer = zor; ändern = değiştirmek

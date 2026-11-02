@@ -1211,3 +1211,5 @@ v099 | Meine Schwester begleitet mich zum Arzt. | Kız kardeşim bana doktora ka
 v138 | Sie betreut am Nachmittag drei Kinder. | Öğleden sonra üç çocuğa bakıyor.
 v138 | Der Arzt betreut den Patienten schon lange. | Doktor hastayla uzun zamandır ilgileniyor.
 v527 | Wo treffen wir uns morgen? | Yarın nerede buluşuyoruz?
+v138 | Die Großmutter betreut die Kinder am Wochenende. | Büyükanne hafta sonu çocuklara bakıyor.
+v138 | Wer betreut die Gruppe im Sommer? | Yazın grubu kim yönetiyor / ilgileniyor?

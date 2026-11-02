@@ -383,3 +383,7 @@ Son incelenen log satırı: 2026-10-30 11:33:39 (erk n1372).
 - 5 kanca (Klima, Gymnastik, treffen, eher, Pate); 12 çeviri cümlesi + gloss (Pate, Patenschaft, Hochwasser, Feuerwehrmann, Klima, Feuerwehr, begleiten, betreuen, treffen). `bilmiyorum`: Patenschaft (yazma), es-korrelat/wegfall, statt-ohne-zu/statt-zu → her birine 5 yeni gramer alıştırması. DW metni aynı (Kolonialverbrechen), Goethe B1 listesinde yeni kelime yok.
 - Dikkat: yazmada çok kısa yarım cevaplar (be, a, sich) ve çok hızlı turlar (dk:1); bilmiyorsan Bilmiyorum de.
 Son incelenen log satırı: 2026-11-01 08:45:04 (gram g:satzklammer-tekamolo:66).
+
+**2026-11-02 (gece işi, otomatik)**
+- 1.11 08:45:04 sonrası 20 satır (1.11 akşam tekrarı 2 tur). Bilmiyorum: betreuen (abr), Nachhilfe (wort); eher metinde karıştı; artikel: Gymnastik (das), Vorurteil (der). 5 düzeltme `feedback.js`'e; 6 çeviri cümlesi + gloss (betreuen ×2, Nachhilfe ×2, Gymnastik, Vorurteil). Kanca yok (leech yok).
+Son incelenen log satırı: 2026-11-01 17:50:11 (tur aksam).

@@ -2925,3 +2925,7 @@ x1564 | das Hochwasser | Nach dem Regen gab es in vielen Dörfern Hochwasser. | 
 x1563 | der Feuerwehrmann | Der Feuerwehrmann hat das Kind aus dem Haus getragen. | İtfaiyeci çocuğu evden dışarı taşıdı.
 n0629 | das Klima | Das Klima in Bremen ist im Winter nass und kühl. | Bremen'in iklimi kışın ıslak ve serindir.
 n0360 | die Feuerwehr | Die Feuerwehr kam nach fünf Minuten. | İtfaiye beş dakika sonra geldi.
+n0830 | die Nachhilfe | Meine Tochter bekommt jeden Dienstag Nachhilfe in Englisch. | Kızım her salı İngilizce özel ders alıyor.
+n0830 | die Nachhilfe | Die Nachhilfe hat ihm sehr geholfen. | Özel ders ona çok yardımcı oldu.
+n0496 | die Gymnastik | Die Gymnastik am Morgen tut mir gut. | Sabah jimnastiği bana iyi geliyor.
+x1557 | das Vorurteil | Ein Vorurteil ist oft schwer zu ändern. | Bir önyargıyı değiştirmek çoğu zaman zordur.
