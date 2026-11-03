@@ -3367,3 +3367,14 @@
 2026-11-03 18:49:15;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:11 | küçük:3 | yanlış:1 | puan:131 | dk:2 | yeni:0 | seviye+:3 | tekrar:13 | gram:2/2
 2026-11-03 18:49:28;gram;g:reflexiv:29;reflexiv/akk;Setz ___ doch! Der Kaffee ist gleich fertig. (du);dich;richtig;dich;tür:luecke | z:1 | sek:6
 2026-11-03 18:49:44;gram;g:tuerkisch-fallen:87;tuerkisch-fallen/kasus;Size yardım edebilir miyim?;Darf ich ihnen helfen?;richtig;Kann ich Ihnen helfen?;tür:ceviri | z:2 | groß/klein | öneri:fast | sek:11
+2026-11-03 18:50:35;gram;g:nominal-verbal:17;nominal-verbal/trotz;Trotz seiner Erkältung ist er zur Arbeit gegangen. → Obwohl …;Obwohl seiner erkältung, ist er zur Arbeit gegangen;falsch;Obwohl er erkältet war, ist er zur Arbeit gegangen.;tür:umform | z:3 | bağlaç | artikel/çekim | ghost:1 | sek:46
+2026-11-03 18:50:40;gram;g:verbstellung:31;verbstellung/frage;Hast du am Wochenende Zeit?;hata yok;richtig;Hast du am Wochenende Zeit?;tür:fehler | z:2 | sek:4
+2026-11-03 18:50:55;gram;g:vergleich:16;vergleich/nicht-so;Dein Kuchen ist genauso lecker wie der von meiner Oma.;hata yok;richtig;Dein Kuchen ist genauso lecker wie der von meiner Oma.;tür:fehler | z:1 | sek:14
+2026-11-03 18:51:12;gram;g:es-korrelat:108;es-korrelat/wegfall;Dass der Zug Verspätung hat, ___.;ärgert es mich;falsch;ärgert mich;tür:wahl | z:1 | kelime sırası | sek:14
+2026-11-03 18:52:00;gram;g:reflexiv:38;reflexiv/dat;Du musst dir vor dem Essen die Hände waschen.;Du muss dir vor dem Essen die Hande waschen.;falsch;Du musst dir vor dem Essen die Hände waschen.;tür:dinle | z:2 | dönüşlü zamir | artikel/çekim | sek:37
+2026-11-03 18:52:06;gram;g:tuerkisch-fallen:29;tuerkisch-fallen/hilfsverb;Ich habe am Wochenende zu Hause geblieben.;habe;richtig;Ich bin am Wochenende zu Hause geblieben.;tür:fehler | z:2 | sek:5
+2026-11-03 18:52:23;gram;g:verbstellung:52;verbstellung/kontrast;Ich gehe heute nicht zum Kurs. Ich bin krank. → denn;Ich gehe heute nicht zum Kurs, denn ich bin krank;richtig;Ich gehe heute nicht zum Kurs, denn ich bin krank.;tür:umform | z:2 | sek:16
+2026-11-03 18:52:39;gram;g:vergleich:39;vergleich/je-desto;Je länger ich in Bremen wohne, desto besser ___ mir die Stadt. (gefallen);gefalt;falsch;gefällt;tür:luecke | z:2 | kelime sırası | sek:15
+2026-11-03 18:52:47;gram;g:es-korrelat:32;es-korrelat/finden-es;Ich mag ___ nicht, wenn man im Kurs mit dem Handy spielt.;es;richtig;es;tür:luecke | z:2 | sek:6
+2026-11-03 18:53:04;gram;g:reflexiv:49;reflexiv/perfekt;Ich bin mich in der Stadt verlaufen.;hata yok;falsch;Ich habe mich in der Stadt verlaufen.;tür:fehler | z:2 | yardımcı fiil | sek:9
+2026-11-03 18:53:16;gram;g:tuerkisch-fallen:75;tuerkisch-fallen/richtung;Ich stelle die Blumen ___ Fenster. (an + das);am;falsch;ans;tür:luecke | z:2 | hâl | sek:5
