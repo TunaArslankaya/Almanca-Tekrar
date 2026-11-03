@@ -3333,3 +3333,28 @@
 2026-11-03 18:45:15;gram;g:reflexiv:15;reflexiv/stellung;Ich weiß nicht, ob er ___ noch an mich erinnert.;sich;richtig;sich;tur:akis | tür:luecke | z:2 | sek:12
 2026-11-03 18:45:16;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:79 | dk:2 | yeni:0 | seviye+:0 | tekrar:10 | gram:1/2
 2026-11-03 18:45:19;art;n0753:art;die Mahnung;Mahnung;die;richtig;die Mahnung;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:77.8 | sek:2
+2026-11-03 18:45:27;stamm;v242:stamm;essen;essen — Präsens (er/sie), Perfekt;isst, gegessen;fast;isst, hat gegessen;basamak:K | bicim:kok | not:k2 | R:0.97 | S:53.8 | kök:essen | Perfekt: hat gegessen | sek:7
+2026-11-03 18:45:31;nsatz;x1483:nsatz;der Dozent;Der _____ spricht sehr schnell, ich verstehe ihn kaum.;Dozent;richtig;Dozent;basamak:B2 | bicim:bos0 | not:m3 | R:0.95 | S:43.9 | kapı:7g | sek:3 | ipucu:0
+2026-11-03 18:45:33;art;n0781:art;die Mensa;Mensa;die;richtig;die Mensa;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:56.0 | sek:2
+2026-11-03 18:45:51;satz;v030:satz;sich anmelden für;Ich _____ mich heute für die Prüfung _____.;melde an;richtig;melde an;basamak:B2 | bicim:bos0 | not:m3 | R:0.95 | S:43.9 | kapı:7g | sek:18 | ipucu:0
+2026-11-03 18:46:06;gram;g:es-korrelat:87;es-korrelat/korrelat;es / ist / verboten / im Bus / zu essen;es ist verboten im Bus zu essen;richtig;Es ist verboten, im Bus zu essen.;tur:akis | tür:ordnen | z:2 | ghost:0 | sek:13
+2026-11-03 18:46:10;bed;v688:bed;bewältigen;üstesinden gelmek;bewältigen;richtig;bewältigen;basamak:B1 | bicim:sec | not:m3 | R:0.72 | S:1.6 | kurtarma | sek:3
+2026-11-03 18:46:11;art;n0869:art;die Operation;Operation;die;richtig;die Operation;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:70.3 | sek:1
+2026-11-03 18:46:20;luecke;w0149:nsatz;etwa;Das ist dann _____ ein Markttag, an dem Händler mit ihren Ständen ihre Waren verkaufen.;etwa;richtig;etwa;basamak:B3 | bicim:metin | not:m3 | R:0.93 | S:13.0 | kaynak:k38
+2026-11-03 18:46:20;luecke;v173:satz;dürfen;Dafür, dass sie einen Stand dort haben _____, zahlen sie eine Gebühr.;dürfen;richtig;dürfen;basamak:B3 | bicim:metin | not:m3 | R:0.94 | S:49.5 | kapı:14g | kaynak:k38
+2026-11-03 18:46:20;akt;luecke:k38;metinde boşluk;Das ist dann etwa ein Markttag, an dem Händler mit ihren Ständen ihre Waren verkaufen. Dafür, dass sie einen Stand dort haben dürfen, zahlen sie eine Gebühr.;etwa / dürfen;richtig;etwa / dürfen;puan:2/2 | boşluk:2
+2026-11-03 18:46:24;gram;g:tuerkisch-fallen:20;tuerkisch-fallen/v2;Am Montag ich gehe zum Deutschkurs.;gehe;richtig;Am Montag gehe ich zum Deutschkurs.;tur:akis | tür:fehler | z:2 | sek:3
+2026-11-03 18:46:53;nsatz;n0691:nsatz;die Kunst;Meine Schwester interessiert sich für _____.;die Kunst;falsch;Kunst;basamak:B3 | bicim:bos | not:m1 | R:0.94 | S:2.4 | farklı | sek:12 | ipucu:1
+2026-11-03 18:47:03;satz;v262:satz;folgen;Sie _____ Verschwörungsideologien, haben wenig Vertrauen in den Staat und verachten die westlich-liberale Gesellschaft.;folgen;richtig;folgen;basamak:B2 | bicim:bos0 | not:m3 | R:0.94 | S:32.3 | kapı:7g | sek:9 | ipucu:0
+2026-11-03 18:47:10;abr;v232:abr;erleichtern;kolaylaştırmak;leichtern;fast;erleichtern (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.94 | S:33.1 | kısmi | kapı:14g | yazım | sek:4 | ipucu:2
+2026-11-03 18:47:12;wort;n0691:wort;die Kunst;sanat;die Kunst;richtig;die Kunst;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:2.4 | tekrar:1 | sek:2 | ipucu:0
+2026-11-03 18:47:12;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:2 | yanlış:1 | puan:143 | dk:2 | yeni:0 | seviye+:4 | tekrar:13 | gram:2/2
+2026-11-03 18:47:17;art;n1424:art;das Zimmer;Zimmer;das;richtig;das Zimmer;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:60.7 | sek:3
+2026-11-03 18:47:42;stamm;v420:stamm;sich rasieren;rasieren — Präsens (er/sie), Perfekt;sich rasierte, hat sich rasiert;fast;rasiert sich, hat sich rasiert;basamak:K | bicim:kok | not:k2 | R:0.97 | S:57.3 | kök:rasieren | Präsens (er/sie): rasiert sich | sek:21
+2026-11-03 18:47:46;satz;v145:satz;bezahlen;Dafür _____ man eine Gebühr.;bezahlt;richtig;bezahlt;basamak:B2 | bicim:bos0 | not:m3 | R:0.93 | S:9.4 | kapı:7g | sek:4 | ipucu:0
+2026-11-03 18:47:48;art;n1354:art;die Wahrheit;Wahrheit;die;richtig;die Wahrheit;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:53.3 | sek:2
+2026-11-03 18:47:56;wort;n0067:wort;die Art;"tür, çeşit; tarz";der Art;fast;die Art;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.93 | S:9.4 | kapı:7g | artikel der → die | sek:7 | ipucu:0
+2026-11-03 18:48:04;gram;g:es-korrelat:127;es-korrelat/vorfeld;Gestern kamen es viele Gäste.;es;richtig;Gestern kamen viele Gäste.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:7
+2026-11-03 18:48:10;bed;v378:bed;löschen;Beide Organisationen sollen außerdem Daten manipulieren oder löschen dürfen.;silmek;richtig;silmek;basamak:B1 | bicim:metinde | not:m3 | R:0.72 | S:3.1 | kurtarma | sek:4
+2026-11-03 18:48:11;art;x1556:art;die Bildung;Bildung;die;richtig;die Bildung;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:45.8 | sek:1
+2026-11-03 18:48:15;prod;w0490:prod;um … zu;-mek için;um zu;richtig;um … zu;basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:9.4 | kapı:7g | sek:3 | ipucu:0
