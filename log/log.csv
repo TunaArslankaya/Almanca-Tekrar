@@ -3310,3 +3310,26 @@
 2026-11-03 18:41:40;yeni;x1568;das Vorhaben;tanıtım;;neu;plan, niyet;basamak:B0 | bicim:tanit | not:- | parti | sek:3
 2026-11-03 18:41:43;bed;v039:bed;sich anstrengen;çabalamak, gayret etmek;sich anstrengen;richtig;sich anstrengen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-11-03 18:41:47;erk;x1568:erk;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-03 18:42:12;gram;g:satzklammer-tekamolo:55;satzklammer-tekamolo/objekte;Der Arzt hat ___ ___ verschrieben. (ein Medikament · mir);"mir ; ein Medikament";richtig;"mir ; ein Medikament";tur:akis | tür:luecke | z:2 | ghost:2 | sek:24
+2026-11-03 18:42:15;erk;w0599:erk;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B1 | bicim:sec | not:m3 | R:0.69 | S:1.3 | kurtarma | sek:2
+2026-11-03 18:42:23;abr;v039:abr;sich anstrengen;çabalamak, gayret etmek;sich anstrengen;richtig;sich anstrengen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-11-03 18:42:28;wort;x1568:wort;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0
+2026-11-03 18:42:50;akt;diktat:v125;dinle–yaz;Die Kunden haben sich bei der Firma beschwert.;Die Kunden haben sich bei der Firma beschwert;richtig;Die Kunden haben sich bei der Firma beschwert.;
+2026-11-03 18:42:56;gram;g:verbstellung:26;verbstellung/inversion;In Deutschland man trennt den Müll sehr genau.;trennt;richtig;In Deutschland trennt man den Müll sehr genau.;tur:akis | tür:fehler | z:2 | ghost:3 | sek:5
+2026-11-03 18:43:01;art;n0025:art;das Amt;Amt;das;richtig;das Amt;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:76.4 | sek:3
+2026-11-03 18:43:01;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:12 | küçük:0 | yanlış:0 | puan:190 | dk:2 | yeni:2 | seviye+:0 | tekrar:5 | gram:2/2
+2026-11-03 18:43:04;art;n0293:art;die Energie;Energie;die;richtig;die Energie;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:73.9 | sek:1
+2026-11-03 18:43:20;stamm;v346:stamm;kommen;kommen — Präsens (er/sie), Präteritum, Perfekt;kommt, kam, ist gekommen;richtig;kommt, kam, ist gekommen;basamak:K | bicim:kok | not:k3 | R:0.98 | S:56.6 | kök:kommen | sek:16
+2026-11-03 18:43:53;nsatz;n1082:nsatz;der Service;Pizza servisini arıyor musun?;Rufst du die Pizza Service an?;richtig;Rufst du beim Pizza-Service an?;basamak:B3 | bicim:cumle | not:m3 | R:0.97 | S:110.2 | sek:26 | ipucu:2 | öneri:falsch
+2026-11-03 18:43:55;art;x1501:art;die Clique;Clique;die;richtig;die Clique;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:79.6 | sek:1
+2026-11-03 18:44:05;wort;n0028:wort;die Änderung;değişiklik;die Veranderung;falsch;die Änderung;basamak:B2 | bicim:yaz | not:m1 | R:0.95 | S:2.1 | kelime yanlış | sek:5 | ipucu:2
+2026-11-03 18:44:33;gram;g:es-korrelat:74;es-korrelat/es-gibt;es / geht / meiner Oma / wieder / besser;es geht besser wieder meiner Oma;falsch;Meiner Oma geht es wieder besser.;tur:akis | tür:ordnen | z:2 | eksik kelime | kelime sırası | groß/klein | ghost:1 | sek:19
+2026-11-03 18:44:38;erk;n0076:erk;die Aufnahme;kayıt (ses/video);die Aufnahme;richtig;die Aufnahme;basamak:B1 | bicim:sec | not:m3,a3 | R:0.72 | S:1.5 | kurtarma | sek:3
+2026-11-03 18:44:39;art;n0941:art;die Prüfung;Prüfung;die;richtig;die Prüfung;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:77.8 | sek:1
+2026-11-03 18:44:42;erk;n0028:erk;die Änderung;değişiklik;die Änderung;richtig;die Änderung;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:2.1 | tekrar:1 | sek:2
+2026-11-03 18:45:00;luecke;v643:satz;werden;„Wirklich wichtig ist, dass der Vorgang in die täglichen Abläufe integriert _____ kann“, sagt Charytanowicz.;wird;falsch;werden;basamak:B3 | bicim:metin | not:m1 | R:0.94 | S:1.9 | kaynak:dw79711839
+2026-11-03 18:45:00;luecke;n0937:nsatz;das Projekt;Bei _____ in Belgien, Spanien und Slowenien konnten Elektrogeräte kostenlos per Post zurückgeschickt oder an öffentlichen Sammelstellen abgegeben werden.;Projekt;falsch;Projekten;basamak:B3 | bicim:metin | not:m1 | R:0.95 | S:2.1 | kaynak:dw79711839
+2026-11-03 18:45:00;akt;luecke:dw79711839;metinde boşluk;„Wirklich wichtig ist, dass der Vorgang in die täglichen Abläufe integriert werden kann“, sagt Charytanowicz. Bei Projekten in Belgien, Spanien und Slowenien konnten Elektrogeräte kostenlos per Post zurückgeschickt oder an öffentlichen Sammelstellen abgegeben werden.;wird / Projekt;falsch;werden / Projekten;puan:0/2 | boşluk:2
+2026-11-03 18:45:15;gram;g:reflexiv:15;reflexiv/stellung;Ich weiß nicht, ob er ___ noch an mich erinnert.;sich;richtig;sich;tur:akis | tür:luecke | z:2 | sek:12
+2026-11-03 18:45:16;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:79 | dk:2 | yeni:0 | seviye+:0 | tekrar:10 | gram:1/2
+2026-11-03 18:45:19;art;n0753:art;die Mahnung;Mahnung;die;richtig;die Mahnung;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:77.8 | sek:2
