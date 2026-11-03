@@ -3303,3 +3303,10 @@
 2026-11-01 17:50:05;bed;v346:bed;kommen;Auch in großen oder sehr hohen Räumen kann es zu Luftzügen kommen, wenn es innerhalb des Raumes große Temperaturunterschiede gibt.;gelmek;richtig;gelmek;basamak:B1 | bicim:metinde | not:m3 | R:0.96 | S:1.8 | akşam | sek:2
 2026-11-01 17:50:11;erk;n0448:erk;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.5 | akşam | sek:6
 2026-11-01 17:50:11;tur;aksam;Akşam tekrarı;;;leer;;cevap:5 | doğru:3 | küçük:2 | yanlış:0 | puan:24 | dk:1 | yeni:0 | seviye+:0 | tekrar:5
+2026-11-03 18:41:27;erk;w0115:erk;durchschnittlich;ortalama;durchschnittlich;richtig;durchschnittlich;basamak:B1 | bicim:sec | not:m3 | R:0.98 | S:52.3 | ısınma | kapı:7g | sek:2
+2026-11-03 18:41:29;erk;n0293:erk;die Energie;Das Restaurant ist also ein Ort, an dem man etwas isst, um Energie zu tanken.;enerji;richtig;enerji;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:57.8 | ısınma | kapı:7g | sek:2
+2026-11-03 18:41:34;erk;n0617:erk;die Kindheit;çocukluk;die Kindheit;richtig;die Kindheit;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:38.4 | ısınma | kapı:7g | sek:5
+2026-11-03 18:41:37;yeni;v039;sich anstrengen;tanıtım;;neu;çabalamak, gayret etmek;basamak:B0 | bicim:tanit | not:- | parti | yarım | sek:2
+2026-11-03 18:41:40;yeni;x1568;das Vorhaben;tanıtım;;neu;plan, niyet;basamak:B0 | bicim:tanit | not:- | parti | sek:3
+2026-11-03 18:41:43;bed;v039:bed;sich anstrengen;çabalamak, gayret etmek;sich anstrengen;richtig;sich anstrengen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-03 18:41:47;erk;x1568:erk;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
