@@ -3378,3 +3378,14 @@
 2026-11-03 18:52:47;gram;g:es-korrelat:32;es-korrelat/finden-es;Ich mag ___ nicht, wenn man im Kurs mit dem Handy spielt.;es;richtig;es;tür:luecke | z:2 | sek:6
 2026-11-03 18:53:04;gram;g:reflexiv:49;reflexiv/perfekt;Ich bin mich in der Stadt verlaufen.;hata yok;falsch;Ich habe mich in der Stadt verlaufen.;tür:fehler | z:2 | yardımcı fiil | sek:9
 2026-11-03 18:53:16;gram;g:tuerkisch-fallen:75;tuerkisch-fallen/richtung;Ich stelle die Blumen ___ Fenster. (an + das);am;falsch;ans;tür:luecke | z:2 | hâl | sek:5
+2026-11-03 18:53:50;gram;g:verbstellung:6;verbstellung/v2;Mein Mitbewohner kocht heute Abend für uns alle.;Mein Mitbewohner kocht heute Abend für uns alle;richtig;Mein Mitbewohner kocht heute Abend für uns alle.;tür:dinle | z:2 | sek:34
+2026-11-03 18:53:57;gram;g:vergleich:2;vergleich/als-wie;Mein Bruder ist so alt ___ dein Bruder.;wie;richtig;wie;tür:wahl | z:1 | sek:6
+2026-11-03 18:54:30;gram;g:es-korrelat:125;es-korrelat/vorfeld;Es sind heute viele Leute im Park. → Heute …;Heute gibt es Viele Leute im Park;richtig;Heute sind viele Leute im Park.;tür:umform | z:2 | yardımcı fiil | groß/klein | öneri:falsch | sek:25
+2026-11-03 18:55:07;gram;g:reflexiv:76;reflexiv/akk;Liebe Kursteilnehmer, wir treffen ___ morgen um zehn vor der Uni. Bitte meldet ___ bis heute Abend bei mir an. Frau Krüger freut ___ schon sehr auf euch. Zieht ___ bitte warm an, wir machen einen Ausflug!;"uns ; sich ; sich ; euer";fast;"uns ; euch ; sich ; euch";tür:text | z:3 | dönüşlü zamir | sek:23
+2026-11-03 18:55:30;gram;g:tuerkisch-fallen:45;tuerkisch-fallen/kasus;Liebe Frau Klein, ich danke ___ (Sie) für das Buch. Es hat ___ (ich) sehr gut gefallen. Kann ich ___ (Sie) morgen kurz anrufen?;"ihnen ; mir ; Sie";richtig;"Ihnen ; mir ; Sie";tür:text | z:2 | sek:23
+2026-11-03 18:55:41;gram;g:verbstellung:32;verbstellung/frage;Sag mal, ___ ___ morgen mit ins Schwimmbad? (du · mitkommen);"kommst ; du";richtig;"kommst ; du";tür:luecke | z:2 | sek:11
+2026-11-03 18:55:52;gram;g:vergleich:80;vergleich/nicht-so;ich / laufe / nicht so schnell / wie / meine Schwester;ich laufe nicht so schnell wie meine Schwester;richtig;Ich laufe nicht so schnell wie meine Schwester.;tür:ordnen | z:3 | sek:10
+2026-11-03 18:56:12;gram;g:reflexiv:11;reflexiv/dat;Ich ziehe mich schnell die Jacke an.;mich;richtig;Ich ziehe mir schnell die Jacke an.;tür:fehler | z:2 | sek:3
+2026-11-03 18:56:18;gram;g:tuerkisch-fallen:36;tuerkisch-fallen/klein;Ich freue mich auf das Wochenende.;hata yok;richtig;Ich freue mich auf das Wochenende.;tür:fehler | z:2 | sek:5
+2026-11-03 18:56:23;gram;g:verbstellung:29;verbstellung/frage;Wo ___ jetzt? – In der Neustadt, in einer WG.;wohnst du;richtig;wohnst du;tür:luecke | z:1 | sek:4
+2026-11-03 18:56:46;gram;g:reflexiv:83;reflexiv/dat;Welcher Satz ist richtig?;Ich wünsche mir ein Wochenende ohne Arbeit.;richtig;Ich wünsche mir ein Wochenende ohne Arbeit.;tür:wahl | z:1 | sek:15
