@@ -2929,3 +2929,9 @@ n0830 | die Nachhilfe | Meine Tochter bekommt jeden Dienstag Nachhilfe in Englis
 n0830 | die Nachhilfe | Die Nachhilfe hat ihm sehr geholfen. | Özel ders ona çok yardımcı oldu.
 n0496 | die Gymnastik | Die Gymnastik am Morgen tut mir gut. | Sabah jimnastiği bana iyi geliyor.
 x1557 | das Vorurteil | Ein Vorurteil ist oft schwer zu ändern. | Bir önyargıyı değiştirmek çoğu zaman zordur.
+n1428 | der Zoll | Bei der Einreise muss man manchmal Zoll bezahlen. | Ülkeye girişte bazen gümrük vergisi ödemek gerekir.
+n0255 | der Druck | Vor der Prüfung stehe ich unter großem Druck. | Sınavdan önce büyük bir baskı altındayım.
+n0994 | das Rezept | Der Arzt hat mir ein Rezept für das Medikament gegeben. | Doktor bana ilaç için reçete verdi.
+n0994 | das Rezept | Hast du ein gutes Rezept für Kartoffelsuppe? | Patates çorbası için iyi bir tarifin var mı?
+n0433 | die Geduld | Mit etwas Geduld lernt man jede Sprache. | Biraz sabırla her dil öğrenilir.
+n0360 | die Feuerwehr | Die Feuerwehr war nach zehn Minuten am Haus. | İtfaiye on dakika sonra evdeydi.

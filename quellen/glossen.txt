@@ -4425,3 +4425,16 @@ Meine Tochter bekommt jeden Dienstag Nachhilfe in Englisch. | die Tochter = kız
 Die Nachhilfe hat ihm sehr geholfen. | helfen = yardım etmek
 Die Gymnastik am Morgen tut mir gut. | der Morgen = sabah; gut tun = iyi gelmek
 Ein Vorurteil ist oft schwer zu ändern. | schwer = zor; ändern = değiştirmek
+Die Stadt finanziert den Bau der neuen Schule. | der Bau = yapım; die Schule = okul
+Wie finanzierst du dein Studium? | das Studium = üniversite eğitimi
+Meine Eltern haben die Reise finanziert. | die Eltern = ana baba; die Reise = yolculuk
+Übertreib doch nicht so! | so = bu kadar
+Wie können wir das Problem verhindern? | das Problem = sorun
+Der Regen hat den Unfall nicht verhindert. | der Regen = yağmur; der Unfall = kaza
+Heute Nacht soll es hageln. | die Nacht = gece; sollen = -mış (söylentisi)
+Bei der Einreise muss man manchmal Zoll bezahlen. | die Einreise = ülkeye giriş; bezahlen = ödemek
+Vor der Prüfung stehe ich unter großem Druck. | die Prüfung = sınav; unter Druck stehen = baskı altında olmak
+Der Arzt hat mir ein Rezept für das Medikament gegeben. | der Arzt = doktor; das Medikament = ilaç
+Hast du ein gutes Rezept für Kartoffelsuppe? | die Kartoffelsuppe = patates çorbası
+Mit etwas Geduld lernt man jede Sprache. | die Sprache = dil; lernen = öğrenmek
+Die Feuerwehr war nach zehn Minuten am Haus. | die Minute = dakika; das Haus = ev

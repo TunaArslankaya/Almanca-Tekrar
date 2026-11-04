@@ -391,3 +391,9 @@ Son incelenen log satırı: 2026-11-01 17:50:11 (tur aksam).
 **2026-11-03 (gece işi, otomatik)**
 - 1.11 17:50:11 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni aynı (Kolonialverbrechen), Goethe B1 listesinde yeni kelime yok (Soldat, Pflicht zaten işlendi); yeni cümle eklenmedi.
 Son incelenen log satırı: 2026-11-01 17:50:11 (tur aksam).
+
+**2026-11-04 (gece işi, otomatik)**
+- 1.11 17:50:11 sonrası ~210 satır (3.11 akşam 4 tur, 4.11 sabah 9 tur). 54 düzeltme `feedback.js`'e. Yazma: kelime karışıkları (Änderung, Bedürfnis, Behauptung, eigen/eignen, überweisen/übertreiben, donnern/hageln), yazım (Gehirn, Behördengang, Apotheke), artikel karışıkları (Feuerwehr ×3, Geduld, Rezept, Art, Wert). Gramerde reflexiv (Perfekt haben, Dativ-sich, euch/sich), es-korrelat (es düşer / es gibt), n-Deklination Dativ, hâl (in die / ans), fahren/gefallen/treffen ä-i değişimi. Bilmiyorum: finanzieren (yoklama). Leech: übertreiben, Schmerz (2 kanca). `öneri:` satırı: satzklammer-tekamolo:96 itirazı haklı (fast adil).
+- 13 çeviri cümlesi + gloss (finanzieren ×3, übertreiben, verhindern ×2, hageln, Zoll, Druck, Rezept ×2, Geduld, Feuerwehr). DW metni (Audi / USA) sözlüğünden Goethe B1'de olan Zoll, Druck'a cümle eklendi; diğerleri listede yok. `bilmiyorum` gram satırı yok.
+- Dikkat: turlar çok hızlı (dk:1–2), bazı yazma cevapları rastgele (Mahnung, donnern); bilmiyorsan Bilmiyorum de. Seçmeli artikel yanlışları toplu: Feuerwehr (das dedi ×2), Geduld, Rezept, Behördengang.
+Son incelenen log satırı: 2026-11-04 06:55:51 (tur akis).

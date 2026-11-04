@@ -46,5 +46,7 @@ window.KANCA = {
   n0496: "die Gymnastik → jimnastik sesi aynı; -ik sonlu isimler hep die: die Musik, die Technik, die Gymnastik",
   v527: "treffen → TREN istasyonunda biriyle karşılaşırsın; jemanden treffen (Akk), sich treffen = buluşmak",
   w0119: "eher → ERkenden çok / daha çok: eher = daha çok, daha ziyade (ich trinke eher Tee)",
+  v545: "übertreiben → ÜBER + treiben: bir şeyi fazla ileri itmek = abartmak (etwas übertreiben, Akk)",
+  n1044: "der Schmerz → 'şmerts' diye bağırırsın, ağrının sesi bu; mavi (der) bir çekiç ağrıtır; çoğulu die Schmerzen",
   x1567: "der Pate → PATEs yerine vaftiz babası / destekçi; der Pate (mavi), kadın hâli die Patin",
 };

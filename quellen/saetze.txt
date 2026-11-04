@@ -1213,3 +1213,10 @@ v138 | Der Arzt betreut den Patienten schon lange. | Doktor hastayla uzun zamand
 v527 | Wo treffen wir uns morgen? | Yarın nerede buluşuyoruz?
 v138 | Die Großmutter betreut die Kinder am Wochenende. | Büyükanne hafta sonu çocuklara bakıyor.
 v138 | Wer betreut die Gruppe im Sommer? | Yazın grubu kim yönetiyor / ilgileniyor?
+v257 | Die Stadt finanziert den Bau der neuen Schule. | Şehir yeni okulun yapımını finanse ediyor.
+v257 | Wie finanzierst du dein Studium? | Eğitimini nasıl finanse ediyorsun?
+v257 | Meine Eltern haben die Reise finanziert. | Ailem yolculuğu finanse etti.
+v545 | Übertreib doch nicht so! | Bu kadar abartma!
+v584 | Wie können wir das Problem verhindern? | Bu sorunu nasıl önleyebiliriz?
+v584 | Der Regen hat den Unfall nicht verhindert. | Yağmur kazayı engellemedi.
+v305 | Heute Nacht soll es hageln. | Bu gece dolu yağacakmış.
