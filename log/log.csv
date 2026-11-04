@@ -3427,3 +3427,29 @@
 2026-11-04 06:45:57;abr;v545:abr;übertreiben;abartmak;überweisen;falsch;übertreiben (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.91 | S:1.5 | sek:3 | ipucu:2
 2026-11-04 06:45:57;leech;v545;übertreiben;abartmak;;takiliyor;;günler:2026-10-08,2026-10-09,2026-11-04
 2026-11-04 06:45:59;art;n0313:art;die Erlaubnis;Erlaubnis;die;richtig;die Erlaubnis;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:4.1 | sek:1
+2026-11-04 06:46:19;stamm;v527:stamm;treffen;treffen — Präsens (er/sie), Perfekt;treffe, hat getroffen;fast;trifft, hat getroffen;basamak:K | bicim:kok | not:k2 | R:0.91 | S:16.5 | kök:treffen | Präsens (er/sie): trifft | sek:17
+2026-11-04 06:47:00;gram;g:tuerkisch-fallen:37;tuerkisch-fallen/richtung;Bugün öğleden sonra kütüphaneye gidiyorum.;Ich gehe heute nachmittag im Bibliothek;falsch;Heute Nachmittag gehe ich in die Bibliothek.;tur:akis | tür:ceviri | z:2 | hâl | artikel/çekim | groß/klein | ghost:1 | sek:32
+2026-11-04 06:47:04;bed;v545:bed;übertreiben;Deswegen wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;abartmak;richtig;abartmak;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-04 06:47:06;erk;w0209:erk;glatt;kaygan;glatt;richtig;glatt;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:2.2 | kurtarma | sek:2
+2026-11-04 06:47:29;luecke;w0315:nsatz;manche;_____ Mittel werden in Apotheken auch noch selbst hergestellt, zum Beispiel Salben, Tropfen oder Teemischungen.;manche;fast;Manche;basamak:B3 | bicim:metin | not:m3 | R:0.90 | S:9.3 | kısmi | kaynak:k29 | yazım, büyük/küçük harf
+2026-11-04 06:47:29;luecke;n0055:nsatz;die Apotheke;Manche Mittel werden in _____ auch noch selbst hergestellt, zum Beispiel Salben, Tropfen oder Teemischungen.;Aptheke;falsch;Apotheken;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:1.4 | kaynak:k29
+2026-11-04 06:47:29;akt;luecke:k29;metinde boşluk;Nur sie dürfen dort verkaufen oder den Kunden erklären, wozu die Medikamente gut sind. Manche Mittel werden in Apotheken auch noch selbst hergestellt, zum Beispiel Salben, Tropfen oder Teemischungen.;manche / Aptheke;falsch;Manche / Apotheken;puan:1/2 | boşluk:2
+2026-11-04 06:47:51;gram;g:reflexiv:32;reflexiv/akk;Bugün kendimi çok yorgun hissediyorum.;Heute fühle ich mich sehr müde;richtig;Ich fühle mich heute sehr müde.;tur:akis | tür:ceviri | z:2 | ghost:2 | sek:16
+2026-11-04 06:47:53;art;n0587:art;die Kälte;Kälte;die;richtig;die Kälte;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:5.3 | sek:1
+2026-11-04 06:47:53;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:2 | yanlış:3 | puan:72 | dk:2 | yeni:0 | seviye+:1 | tekrar:10 | gram:1/2
+2026-11-04 06:47:55;art;n0055:art;die Apotheke;Apotheke;die;richtig;die Apotheke;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:66.0 | sek:1
+2026-11-04 06:48:01;abr;v509:abr;sich streiten mit;(biriyle) kavga etmek, tartışmak;Sich streiten mit d;richtig;sich streiten mit (mit + Dat);basamak:B2 | bicim:yaz | not:m3 | R:0.91 | S:44.0 | kapı:14g | sek:5 | ipucu:2
+2026-11-04 06:48:07;abr;v305:abr;hageln;dolu yağmak;donnern;falsch;hageln;basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:1.3 | sek:5 | ipucu:2
+2026-11-04 06:48:09;art;n0926:art;die Praxis;Praxis;die;richtig;die Praxis;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:3.7 | sek:1
+2026-11-04 06:48:11;nsatz;w0522:nsatz;vor allem;Grüßen Sie alle von mir, _____ allem Frau Meier.;vor allem;falsch;vor;basamak:B2 | bicim:bos0 | not:m1 | R:0.90 | S:0.8 | farklı | sek:2 | ipucu:0
+2026-11-04 06:48:34;gram;g:reflexiv:40;reflexiv/dat;Ich sehe mir die Ausstellung an. → Perfekt;Ich habe mir die Ausstellung angesehen;richtig;Ich habe mir die Ausstellung angesehen.;tur:akis | tür:umform | z:2 | sek:23
+2026-11-04 06:48:38;bed;v305:bed;hageln;dolu yağmak;hageln;richtig;hageln;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-04 06:48:41;erk;w0172:erk;frech;arsız, şımarık;frech;richtig;frech;basamak:B1 | bicim:sec | not:m3 | R:0.74 | S:2.0 | kurtarma | sek:2
+2026-11-04 06:48:42;art;n0207:art;die Burg;Burg;die;richtig;die Burg;basamak:A | bicim:artikel | not:a3 | R:0.86 | S:3.3 | sek:1
+2026-11-04 06:48:46;erk;w0522:erk;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-04 06:48:49;gram;g:tuerkisch-fallen:12;tuerkisch-fallen/kasus;Ich danke ___ für die Einladung. (Sie);ihnen;richtig;Ihnen;tur:akis | tür:luecke | z:2 | sek:3
+2026-11-04 06:48:56;wort;n0474:wort;das Gewitter;fırtına (gök gürültülü);das gewitter;richtig;das Gewitter;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:22.5 | kapı:14g | sek:6 | ipucu:2
+2026-11-04 06:48:56;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:85 | dk:1 | yeni:0 | seviye+:2 | tekrar:10 | gram:2/2
+2026-11-04 06:48:58;art;x1479:art;die Aussage;Aussage;die;richtig;die Aussage;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:52.9 | sek:1
+2026-11-04 06:49:04;nsatz;w0272:nsatz;kalt;Wenn man vom Klima spricht, ist gemeint, dass es irgendwo normalerweise warm oder _____ ist, dass es trocken oder feucht ist.;kalt;richtig;kalt;basamak:B3 | bicim:bos0 | not:m3 | R:0.90 | S:14.0 | sek:6 | ipucu:0
+2026-11-04 06:49:23;satz;v272:satz;frieren;An winzigen Schneekristallen _____ immer mehr Wassertröpfchen fest.;friert;fast;frieren;basamak:B2 | bicim:bos0 | not:m2 | R:0.90 | S:14.0 | kapı:7g | çekim | sek:12 | ipucu:0
