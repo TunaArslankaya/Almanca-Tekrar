@@ -3453,3 +3453,33 @@
 2026-11-04 06:48:58;art;x1479:art;die Aussage;Aussage;die;richtig;die Aussage;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:52.9 | sek:1
 2026-11-04 06:49:04;nsatz;w0272:nsatz;kalt;Wenn man vom Klima spricht, ist gemeint, dass es irgendwo normalerweise warm oder _____ ist, dass es trocken oder feucht ist.;kalt;richtig;kalt;basamak:B3 | bicim:bos0 | not:m3 | R:0.90 | S:14.0 | sek:6 | ipucu:0
 2026-11-04 06:49:23;satz;v272:satz;frieren;An winzigen Schneekristallen _____ immer mehr Wassertröpfchen fest.;friert;fast;frieren;basamak:B2 | bicim:bos0 | not:m2 | R:0.90 | S:14.0 | kapı:7g | çekim | sek:12 | ipucu:0
+2026-11-04 06:49:36;abr;v257:abr;finanzieren;finanse etmek;;falsch;finanzieren (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:11 | ipucu:2 | bilmiyorum
+2026-11-04 06:49:38;yeni;v257;finanzieren;tanıtım;;neu;finanse etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-04 06:49:40;yeni;w0079;dabei;tanıtım;;neu;"bu sırada; yanında";basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-11-04 06:49:43;erk;w0079:erk;dabei;bu sırada;dabei;richtig;dabei;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-04 06:49:45;bed;v257:bed;finanzieren;finanse etmek;finanzieren;richtig;finanzieren;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-04 06:50:07;gram;g:verbstellung:11;verbstellung/v2;Mein Kollege aus der Türkei ___ jeden Tag mit dem Fahrrad ___. (fahren · zur Arbeit);"fahrt ; zur Arbeit";fast;"fährt ; zur Arbeit";tur:akis | tür:luecke | z:2 | kelime sırası | sek:18
+2026-11-04 06:50:10;erk;w0118:erk;ebenfalls;aynı şekilde, keza;ebenfalls;richtig;ebenfalls;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:2.6 | kurtarma | sek:2
+2026-11-04 06:50:20;prod;w0079:prod;dabei;"bu sırada; yanında";dabei;richtig;dabei;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:9 | ipucu:0
+2026-11-04 06:50:24;abr;v257:abr;finanzieren;finanse etmek;finanzieren;richtig;finanzieren (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-11-04 06:50:27;art;n0629:art;das Klima;Klima;das;richtig;das Klima;basamak:A | bicim:artikel | not:a3 | R:0.84 | S:2.5 | sek:2
+2026-11-04 06:50:35;gram;g:vergleich:112;vergleich/je-desto;Je mehr ich über Bremen lese, desto interessanter ___ ich die Stadt. (finden);finde;richtig;finde;tur:akis | tür:luecke | z:2 | sek:8
+2026-11-04 06:50:35;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:95 | dk:2 | yeni:2 | seviye+:0 | tekrar:5 | gram:1/2
+2026-11-04 06:50:39;art;n0914:art;die Politik;Politik;die;richtig;die Politik;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:2.3 | sek:2
+2026-11-04 06:50:42;prod;w0169:prod;flexibel;esnek;flexibel;richtig;flexibel;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:18.2 | kapı:14g | sek:3 | ipucu:2
+2026-11-04 06:50:46;nsatz;x1561:nsatz;die Not;In der _____ helfen sich Nachbarn oft gegenseitig.;Not;richtig;Not;basamak:B2 | bicim:bos0 | not:m3 | R:0.89 | S:27.4 | kapı:7g | sek:3 | ipucu:0
+2026-11-04 06:50:48;yeni;w0595;eigen;tanıtım;;neu;kendi (-ne ait);basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-04 06:50:58;yeni;x1569;der Behördengang;tanıtım;;neu;resmi daireye gidiş;basamak:B0 | bicim:tanit | not:- | parti | sek:10
+2026-11-04 06:51:02;erk;x1569:erk;der Behördengang;resmi daireye gidiş;das Behördengang;fast;der Behördengang;basamak:B1 | bicim:sec | not:m3,a1 | R:0.00 | S:2.3 | parti | artikel das → der | sek:3
+2026-11-04 06:51:05;erk;w0595:erk;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-04 06:51:21;gram;g:es-korrelat:13;es-korrelat/es-gibt;In Bremen gibt viele Studenten.;hata yok;falsch;In Bremen gibt es viele Studenten.;tur:akis | tür:fehler | z:2 | eksik kelime | sek:10
+2026-11-04 06:51:26;bed;v590:bed;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:2.1 | kurtarma | sek:3
+2026-11-04 06:51:35;wort;x1569:wort;der Behördengang;resmi daireye gidiş;der Behördegang;fast;der Behördengang;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım | sek:7 | ipucu:0
+2026-11-04 06:51:39;prod;w0595:prod;eigen;kendi (-ne ait);eignen;falsch;eigen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | farklı | sek:3 | ipucu:0
+2026-11-04 06:51:41;art;n0972:art;die Regel;Regel;die;richtig;die Regel;basamak:A | bicim:artikel | not:a3 | R:0.73 | S:1.0 | sek:2
+2026-11-04 06:52:24;gram;g:satzklammer-tekamolo:96;satzklammer-tekamolo/objekte;Erkek kardeşime uzun bir mesaj yazdım.;Ich habe zu meinem Bruder eine lange Nachricht geschrieben;fast;Ich habe meinem Bruder eine lange Nachricht geschrieben.;tur:akis | tür:ceviri | z:2 | hâl | farklı | öneri:falsch | sek:34
+2026-11-04 06:52:32;wort;n1279:wort;die Universität;üniversite;die Universität;richtig;die Universität;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.89 | S:30.1 | kapı:14g | sek:7 | ipucu:2
+2026-11-04 06:52:36;erk;w0595:erk;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-04 06:52:36;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:8 | küçük:3 | yanlış:2 | puan:83 | dk:2 | yeni:2 | seviye+:4 | tekrar:7 | gram:0/2
+2026-11-04 06:52:41;art;n0360:art;die Feuerwehr;Feuerwehr;das;falsch;die Feuerwehr;basamak:A | bicim:artikel | not:a1 | R:0.68 | S:0.1 | artikel das → die | sek:3
+2026-11-04 06:52:44;abr;v149:abr;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:15.6 | sek:3 | ipucu:2
