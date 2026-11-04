@@ -3483,3 +3483,33 @@
 2026-11-04 06:52:36;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:8 | küçük:3 | yanlış:2 | puan:83 | dk:2 | yeni:2 | seviye+:4 | tekrar:7 | gram:0/2
 2026-11-04 06:52:41;art;n0360:art;die Feuerwehr;Feuerwehr;das;falsch;die Feuerwehr;basamak:A | bicim:artikel | not:a1 | R:0.68 | S:0.1 | artikel das → die | sek:3
 2026-11-04 06:52:44;abr;v149:abr;blitzen;şimşek çakmak;blitzen;richtig;blitzen;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:15.6 | sek:3 | ipucu:2
+2026-11-04 06:52:59;nsatz;x1552:nsatz;die Hilfsbereitschaft;Ich war überrascht von der _____ meiner Nachbarn, als ich krank war.;die Hilfsbereitschaft;falsch;Hilfsbereitschaft;basamak:B2 | bicim:bos0 | not:m1 | R:0.89 | S:1.0 | farklı | sek:6 | ipucu:0
+2026-11-04 06:53:01;art;n0244:art;die Diskussion;Diskussion;die;richtig;die Diskussion;basamak:A | bicim:artikel | not:a3 | R:0.63 | S:1.1 | sek:3
+2026-11-04 06:53:06;wort;x1504:wort;die Behauptung;iddia;die Mahnung;falsch;die Behauptung;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:1.2 | kelime yanlış | sek:3 | ipucu:2
+2026-11-04 06:53:24;gram;g:n-deklination:89;n-deklination/dat;Bei der Kontrolle habe ich dem ___ meinen Ausweis gezeigt. (der Polizist);den Polizist;falsch;Polizisten;tur:akis | tür:luecke | z:2 | artikel/çekim | sek:14
+2026-11-04 06:53:28;bed;v459:bed;schneien;kar yağmak;schneien;richtig;schneien;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:2.5 | kurtarma | sek:2
+2026-11-04 06:53:32;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.0 | tekrar:1 | sek:4
+2026-11-04 06:53:35;erk;x1504:erk;die Behauptung;iddia;die Behauptung;richtig;die Behauptung;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:3
+2026-11-04 06:53:39;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.61 | S:0.2 | artikel die → das | sek:3
+2026-11-04 06:54:11;gram;g:modalverben:51;modalverben/praeteritum;Sie kann nicht schlafen, weil es so laut ist. → Präteritum;Sie konnte nicht schalfen, weil es so laut war;richtig;Sie konnte nicht schlafen, weil es so laut war.;tur:akis | tür:umform | z:2 | artikel/çekim | öneri:falsch | sek:19
+2026-11-04 06:54:25;prod;w0600:prod;vor Gericht gehen;mahkemeye gitmek;vor gerecht gehen;falsch;vor Gericht gehen;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:1.2 | farklı | sek:9 | ipucu:2
+2026-11-04 06:54:28;nsatz;n0682:nsatz;die Kritik;Die _____ der Gegner: Rechenzentren brauchen viel Energie, vor allem für die Server und ihre Kühlung.;Kritik;richtig;Kritik;basamak:B3 | bicim:bos0 | not:m3 | R:0.89 | S:12.3 | sek:3 | ipucu:0
+2026-11-04 06:54:32;abr;v527:abr;treffen;(biriyle) buluşmak, karşılaşmak;treffen;richtig;treffen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:5.4 | sek:3 | ipucu:0
+2026-11-04 06:54:34;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.2 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-04 06:54:34;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:0 | yanlış:6 | puan:87 | dk:2 | yeni:0 | seviye+:1 | tekrar:13 | gram:1/2
+2026-11-04 06:54:38;art;n0433:art;die Geduld;Geduld;das;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.58 | S:0.1 | artikel das → die | sek:2
+2026-11-04 06:54:42;wort;n1372:wort;der Wert;değer;die Wert;fast;der Wert;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.88 | S:6.4 | artikel die → der | sek:3 | ipucu:0
+2026-11-04 06:54:49;abr;v584:abr;verhindern;engellemek, önlemek;vor;falsch;verhindern (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.88 | S:1.3 | sek:5 | ipucu:2
+2026-11-04 06:54:54;art;n1374:art;das Wetter;Wetter;das;richtig;das Wetter;basamak:A | bicim:artikel | not:a3 | R:0.57 | S:0.7 | sek:5
+2026-11-04 06:55:01;satz;v242:satz;essen;In vielen Ländern _____ die Menschen eine Menge Brot, beispielsweise zum Frühstück, aber nicht nur.;essen;richtig;essen;basamak:B2 | bicim:bos0 | not:m3 | R:0.88 | S:12.6 | kapı:7g | sek:6 | ipucu:0
+2026-11-04 06:55:07;gram;g:reflexiv:10;reflexiv/dat;ich / putze / mir / jeden Abend / die Zähne;ich putze mir die Zähne jeden Abend;richtig;Ich putze mir jeden Abend die Zähne.;tur:akis | tür:ordnen | z:2 | sek:6
+2026-11-04 06:55:11;bed;v584:bed;verhindern;verhindern;engellemek, önlemek;richtig;engellemek, önlemek;basamak:B1 | bicim:anla | not:- | R:1.00 | S:1.3 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-04 06:55:14;bed;v466:bed;schweigen;susmak;schweigen;richtig;schweigen;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:2.2 | kurtarma | sek:2
+2026-11-04 06:55:15;art;x1561:art;die Not;Not;die;richtig;die Not;basamak:A | bicim:artikel | not:a3 | R:0.57 | S:0.7 | sek:1
+2026-11-04 06:55:22;wort;n1044:wort;der Schmerz;ağrı;der Schmerzen;falsch;der Schmerz;basamak:B2 | bicim:yaz | not:m1 | R:0.88 | S:1.2 | kelime yanlış | sek:5 | ipucu:2
+2026-11-04 06:55:22;leech;n1044;der Schmerz;ağrı;;takiliyor;;günler:2026-10-02,2026-10-15,2026-11-04
+2026-11-04 06:55:34;gram;g:tuerkisch-fallen:67;tuerkisch-fallen/zaman-de;Wir treffen uns ___ Freitag ___ sieben Uhr vor der Mensa.;"am ; um";richtig;"am ; um";tur:akis | tür:luecke | z:2 | sek:12
+2026-11-04 06:55:43;wort;n0297:wort;die Entscheidung;karar;die Entscheidung;richtig;die Entscheidung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.88 | S:21.7 | kapı:14g | sek:8 | ipucu:2
+2026-11-04 06:55:47;abr;v243:abr;fahren;(araçla) gitmek;fahren;richtig;fahren;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:5.2 | sek:4 | ipucu:0
+2026-11-04 06:55:51;erk;n1044:erk;der Schmerz;ağrı;der Schmerz;richtig;der Schmerz;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:3
+2026-11-04 06:55:51;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:10 | küçük:1 | yanlış:3 | puan:101 | dk:1 | yeni:0 | seviye+:2 | tekrar:12 | gram:2/2
