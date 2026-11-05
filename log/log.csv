@@ -3554,3 +3554,33 @@
 2026-11-05 05:30:52;yeni;w0504;verantwortlich;tanıtım;;neu;sorumlu;basamak:B0 | bicim:tanit | not:- | parti | sek:2
 2026-11-05 05:30:55;erk;w0586:erk;zuverlässig;güvenilir;zuverlässig;richtig;zuverlässig;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
 2026-11-05 05:30:58;erk;w0504:erk;verantwortlich;sorumlu;verantwortlich;richtig;verantwortlich;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-05 05:31:08;gram;g:vergleich:70;vergleich/nicht-so;Mein Weg zur Uni ist nur halb so ___ wie deiner. (lang);langer;falsch;lang;tur:akis | tür:luecke | z:2 | bağlaç | ghost:1 | sek:8
+2026-11-05 05:31:14;erk;w0119:erk;eher;daha çok, daha ziyade;eher;richtig;eher;basamak:B1 | bicim:sec | not:m3 | R:0.61 | S:0.3 | kurtarma | sek:6
+2026-11-05 05:31:37;prod;w0586:prod;zuverlässig;güvenilir;zufällasig;falsch;zuverlässig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | farklı | sek:12 | ipucu:0
+2026-11-05 05:31:40;erk;w0079:erk;dabei;bu sırada;dabei;richtig;dabei;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.7 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-05 05:31:47;prod;w0504:prod;verantwortlich;sorumlu;verantwortlich;richtig;verantwortlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-11-05 05:32:00;gram;g:reflexiv:113;reflexiv/praep;Ich muss mich noch ___ meine Prüfung vorbereiten.;zu;falsch;auf;tur:akis | tür:luecke | z:2 | edat | ghost:1 | sek:12
+2026-11-05 05:32:04;art;n0524:art;die Heimat;Heimat;die;richtig;die Heimat;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:6.2 | sek:2
+2026-11-05 05:32:07;erk;w0586:erk;zuverlässig;Zuverlässige Daten zu den Oberflächentemperaturen der Meere gibt es erst seit den 1980er-Jahren.;güvenilir;richtig;güvenilir;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-05 05:32:07;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:0 | yanlış:4 | puan:59 | dk:2 | yeni:2 | seviye+:0 | tekrar:7 | gram:0/2
+2026-11-05 05:32:13;art;n1422:art;das Ziel;Ziel;das;richtig;das Ziel;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:6.8 | sek:1
+2026-11-05 05:32:15;erk;n0055:erk;die Apotheke;Eine Apotheke benötigt dafür eine besondere Erlaubnis.;eczane;richtig;eczane;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:2.1 | sek:2
+2026-11-05 05:32:21;bed;v305:bed;hageln;dolu yağmak;hageln;richtig;hageln;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:1.8 | sek:5
+2026-11-05 05:32:26;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.76 | S:0.1 | artikel die → das | sek:3
+2026-11-05 05:32:29;erk;n1044:erk;der Schmerz;ağrı;der Schmerz;richtig;der Schmerz;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:1.8 | sek:2
+2026-11-05 05:32:33;gram;g:reflexiv:4;reflexiv/akk;Wir haben ___ im Deutschkurs kennengelernt. (wir);uns;richtig;uns;tur:akis | tür:luecke | z:2 | sek:4
+2026-11-05 05:32:37;erk;n0830:erk;die Nachhilfe;özel ders (takviye);die Nachhilfe;richtig;die Nachhilfe;basamak:B1 | bicim:sec | not:m3,a3 | R:0.73 | S:1.4 | kurtarma | sek:3
+2026-11-05 05:32:41;art;n0360:art;die Feuerwehr;Feuerwehr;der;falsch;die Feuerwehr;basamak:A | bicim:artikel | not:a1 | R:0.75 | S:0.0 | artikel der → die | sek:3
+2026-11-05 05:32:41;leech;n0360;die Feuerwehr;itfaiye;;takiliyor;;günler:2026-11-01,2026-11-04,2026-11-05
+2026-11-05 05:32:49;akt;diktat:w0011;dinle–yaz;Ich habe die E-Mail bekommen, allerdings noch nicht gelesen.;;falsch;Ich habe die E-Mail bekommen, allerdings noch nicht gelesen.;
+2026-11-05 05:33:28;nsatz;n1373:nsatz;der Wettbewerb;Unser Chor nimmt an einem _____ teil.;Wetbewerb;fast;Wettbewerb;basamak:B3 | bicim:bos | not:m3 | R:0.97 | S:86.0 | kısmi | yazım | sek:32 | ipucu:1
+2026-11-05 05:33:32;gram;g:tuerkisch-fallen:14;tuerkisch-fallen/kasus;Das neue Handy gefällt ___ sehr gut. (ich);mir;richtig;mir;tur:akis | tür:luecke | z:2 | sek:4
+2026-11-05 05:33:38;abr;v673:abr;zweifeln an;(bir şeyden) şüphe etmek;zweifeln an d;richtig;zweifeln an (an + Dat);basamak:B2 | bicim:yaz | not:m3 | R:0.97 | S:108.4 | sek:6 | ipucu:2
+2026-11-05 05:33:38;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:78 | dk:1 | yeni:0 | seviye+:1 | tekrar:9 | gram:2/2
+2026-11-05 05:33:42;art;x1460:art;das Missverständnis;Missverständnis;das;richtig;das Missverständnis;basamak:A | bicim:artikel | not:a3 | R:0.51 | S:0.3 | sek:2
+2026-11-05 05:33:46;bed;v584:bed;verhindern;verhindern;engellemek, önlemek;richtig;engellemek, önlemek;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:1.9 | sek:4
+2026-11-05 05:33:48;erk;x1504:erk;die Behauptung;iddia;die Behauptung;richtig;die Behauptung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.97 | S:1.6 | sek:2
+2026-11-05 05:33:51;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.48 | S:0.0 | artikel das → die | sek:1
+2026-11-05 05:33:53;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:1.6 | sek:2
+2026-11-05 05:34:01;gram;g:verbstellung:19;verbstellung/inversion;am Montag / habe / ich / einen Termin / bei der Ausländerbehörde;ich habe am Montag einen Termin bei der Ausländerbehörde;richtig;Am Montag habe ich einen Termin bei der Ausländerbehörde.;tur:akis | tür:ordnen | z:2 | sek:7
+2026-11-05 05:34:08;bed;v138:bed;betreuen;Andere Mitarbeiter des Museums betreuen die Besucher und erklären ihnen, was es zu sehen gibt.;bakmak, ilgilenmek;richtig;(birine) bakmak, ilgilenmek (çocuk, hasta);basamak:B1 | bicim:metinde | not:m3 | R:0.73 | S:2.7 | kurtarma | sek:6
