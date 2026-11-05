@@ -3644,3 +3644,27 @@
 2026-11-05 05:40:01;nsatz;n0449:nsatz;das Gemüse;_____ kann man frisch auf Wochenmärkten oder im Supermarkt kaufen.;Gemüse;richtig;Gemüse;basamak:B2 | bicim:bos0 | not:m3 | R:0.88 | S:17.2 | kapı:7g | sek:3 | ipucu:0
 2026-11-05 05:40:20;gram;g:reflexiv:95;reflexiv/stellung;ich hoffe / dass / ihr / euch / gut / versteht;ich hoffe dass ihr euch gut versteht;richtig;Ich hoffe, dass ihr euch gut versteht.;tur:akis | tür:ordnen | z:2 | sek:18
 2026-11-05 05:40:24;erk;n0969:erk;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.9 | kurtarma | sek:3
+2026-11-05 05:40:37;nsatz;n0790:nsatz;die Miete;Man kann einer Bank auch einen Auftrag geben etwas zu tun, jedes Monat die _____ zu bezahlen beispielsweise.;Miete;richtig;Miete;basamak:B2 | bicim:bos0 | not:m3 | R:0.87 | S:15.4 | kapı:7g | sek:12 | ipucu:0
+2026-11-05 05:40:39;erk;w0170:erk;fließend;akıcı;fließend;richtig;fließend;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-05 05:40:43;stamm;v347:stamm;können;Leider _____ ich gestern nicht zum Kurs kommen, weil ich krank war.;konnte;richtig;konnte;basamak:K | bicim:kokSatz | not:k3 | R:0.87 | S:11.3 | kök:können | sek:3
+2026-11-05 05:40:48;gram;g:tuerkisch-fallen:19;tuerkisch-fallen/v2;nächste Woche / ich / habe / eine Prüfung;ich habe nächste Woche eine Prüfung;richtig;Nächste Woche habe ich eine Prüfung.;tur:akis | tür:ordnen | z:2 | sek:5
+2026-11-05 05:41:10;wort;x1562:wort;das Ehrenamt;gönüllü (karşılıksız) görev;1;falsch;das Ehrenamt;basamak:B2 | bicim:yaz | not:m1 | R:0.87 | S:1.1 | sek:4 | ipucu:2 | bilmiyorum
+2026-11-05 05:41:18;nsatz;w0625:nsatz;ehrenamtlich;Die Hälfte der _____ Bürgermeisterinnen und Bürgermeister arbeitet wöchentlich mindestens 20 Stunden für ihr Amt.;ehrenamt;falsch;ehrenamtlichen;basamak:B2 | bicim:bos0 | not:m1 | R:0.87 | S:1.1 | ek | sek:5 | ipucu:0
+2026-11-05 05:41:21;erk;x1562:erk;das Ehrenamt;Bürgermeister im Ehrenamt haben es schwer: Sie arbeiten viel und erfahren immer wieder Anfeindungen.;gönüllü görev;richtig;gönüllü (karşılıksız) görev;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-05 05:41:24;erk;w0625:erk;ehrenamtlich;Das sind dann ehrenamtliche Mitarbeiter.;gönüllü;richtig;gönüllü (karşılıksız);basamak:B1 | bicim:metinde | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-05 05:41:24;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:124 | dk:2 | yeni:0 | seviye+:3 | tekrar:13 | gram:2/2
+2026-11-05 05:41:29;art;n0790:art;die Miete;Miete;die;richtig;die Miete;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:80.1 | sek:1
+2026-11-05 05:41:33;nsatz;n1180:nsatz;die Tafel;Der Lehrer schreibt das neue Wort an die _____.;Tafel;richtig;Tafel;basamak:B2 | bicim:bos0 | not:m3 | R:0.87 | S:20.6 | kapı:7g | sek:3 | ipucu:0
+2026-11-05 05:42:47;prod;w0626:prod;bedürftig;muhtaç, yoksul;a;falsch;bedürftig;basamak:B2 | bicim:yaz | not:m1 | R:0.87 | S:1.1 | sek:72 | ipucu:2 | bilmiyorum
+2026-11-05 05:42:50;art;x1562:art;das Ehrenamt;Ehrenamt;das;richtig;das Ehrenamt;basamak:A | bicim:artikel | not:a3 | R:0.87 | S:20.6 | sek:3
+2026-11-05 05:42:56;nsatz;x1558:nsatz;das Zusammenleben;Das _____ in der WG funktioniert gut.;Zusammenleben;richtig;Zusammenleben;basamak:B2 | bicim:bos0 | not:m3 | R:0.87 | S:27.4 | kapı:7g | sek:6 | ipucu:0
+2026-11-05 05:43:17;gram;g:verbstellung:51;verbstellung/kontrast;Ich bin müde. Ich gehe ins Bett. → deshalb;Ich bin müde, deshalb ich gehe ins Bett;falsch;Ich bin müde, deshalb gehe ich ins Bett.;tur:akis | tür:umform | z:2 | bağlaç | kelime sırası | sek:15
+2026-11-05 05:43:20;bed;v142:bed;beweisen;kanıtlamak;beweisen;richtig;beweisen;basamak:B1 | bicim:sec | not:m3 | R:0.75 | S:2.7 | kurtarma | sek:2
+2026-11-05 05:43:25;erk;w0626:erk;bedürftig;muhtaç, yoksul;bedürftig;richtig;bedürftig;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:5
+2026-11-05 05:43:29;abr;v610:abr;verstehen;anlamak;Verstehen;richtig;verstehen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.86 | S:16.2 | sek:4 | ipucu:2
+2026-11-05 05:43:31;art;n1180:art;die Tafel;Tafel;die;richtig;die Tafel;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:23.0 | sek:1
+2026-11-05 05:43:40;gram;g:vergleich:20;vergleich/satz;Der Test war leichter, als ich ___. (erwarten);erwartet;falsch;erwartet habe;tur:akis | tür:luecke | z:2 | kelime sırası | sek:7
+2026-11-05 05:43:48;wort;n0795:wort;die Minderheit;azınlık;die Minderheit;richtig;die Minderheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.86 | S:14.7 | kapı:14g | sek:7 | ipucu:2
+2026-11-05 05:43:48;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:83 | dk:2 | yeni:0 | seviye+:5 | tekrar:10 | gram:0/2
+2026-11-05 05:43:51;art;x1558:art;das Zusammenleben;Zusammenleben;das;richtig;das Zusammenleben;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:37.1 | sek:1
+2026-11-05 05:43:59;satz;v148:satz;bleiben;Ärzte können in einem Krankenhaus arbeiten, in dem sie Patienten versorgen, die meistens länger als nur wenige Minuten _____.;bleibt;fast;bleiben;basamak:B2 | bicim:bos0 | not:m2 | R:0.86 | S:17.0 | kapı:7g | çekim | sek:7 | ipucu:0
