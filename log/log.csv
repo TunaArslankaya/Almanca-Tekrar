@@ -3614,3 +3614,33 @@
 2026-11-05 05:36:56;gram;g:n-deklination:6;n-deklination/akk;Die Lehrerin lobt den ___. (der Junge);Jungen;richtig;Jungen;tur:akis | tür:luecke | z:2 | sek:8
 2026-11-05 05:36:59;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.8 | kurtarma | sek:3
 2026-11-05 05:37:03;abr;v690:abr;sich abmelden;kaydını sildirmek;sich abmelden;richtig;sich abmelden;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-11-05 05:37:20;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi;die Einwohnersamt;falsch;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kelime yanlış | sek:9 | ipucu:0
+2026-11-05 05:37:21;art;n0520:art;der Hausmeister;Hausmeister;der;richtig;der Hausmeister;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:49.2 | sek:1
+2026-11-05 05:37:27;gram;g:modalverben:22;modalverben/satz;Ich weiß nicht, ob ich morgen kommen kann.;hata yok;richtig;Ich weiß nicht, ob ich morgen kommen kann.;tur:akis | tür:fehler | z:2 | sek:5
+2026-11-05 05:37:47;stamm;v672:stamm;zustimmen;zustimmen — Präsens (er/sie), Perfekt;stimme zu, hat zugestimmt;fast;stimmt zu, hat zugestimmt;basamak:K | bicim:kok | not:k2 | R:0.90 | S:13.4 | kök:stimmen | Präsens (er/sie): stimmt zu | sek:14
+2026-11-05 05:37:49;art;n1048:art;der Schnee;Schnee;der;richtig;der Schnee;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:20.9 | sek:2
+2026-11-05 05:37:54;erk;x1570:erk;das Einwohnermeldeamt;adres kayıt dairesi;das Einwohnermeldeamt;richtig;das Einwohnermeldeamt;basamak:B1 | bicim:sec | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:4
+2026-11-05 05:37:54;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:10 | küçük:2 | yanlış:2 | puan:98 | dk:2 | yeni:2 | seviye+:0 | tekrar:8 | gram:2/2
+2026-11-05 05:38:02;nsatz;w0325:nsatz;mild;In Bremen sind die Winter meistens _____, aber es regnet sehr oft.;mild;richtig;mild;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:15.2 | kapı:7g | sek:6 | ipucu:0
+2026-11-05 05:38:11;nsatz;w0108:nsatz;drinnen;Weil es draußen so kalt ist, machen wir die Party lieber _____.;drüben;falsch;drinnen;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:1.6 | farklı | sek:8 | ipucu:1
+2026-11-05 05:38:13;art;n1379:art;der Wind;Wind;der;richtig;der Wind;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:18.6 | sek:2
+2026-11-05 05:38:15;yeni;w0445;sogar;tanıtım;;neu;hatta, bile;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-05 05:38:16;yeni;w0388;politisch;tanıtım;;neu;siyasi;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-11-05 05:38:18;erk;w0388:erk;politisch;siyasi;politisch;richtig;politisch;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-05 05:38:20;erk;w0445:erk;sogar;hatta, bile;sogar;richtig;sogar;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-05 05:38:35;gram;g:reflexiv:116;reflexiv/praep;Ich kümmere mich für den Hund meiner Nachbarin.;hata yok;falsch;Ich kümmere mich um den Hund meiner Nachbarin.;tur:akis | tür:fehler | z:2 | edat | ghost:1 | sek:10
+2026-11-05 05:38:40;prod;w0108:prod;drinnen;içeride;drinnen;richtig;drinnen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-11-05 05:38:47;prod;w0388:prod;politisch;siyasi;Politisch;richtig;politisch;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-11-05 05:38:49;prod;w0445:prod;sogar;hatta, bile;sogar;richtig;sogar;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-05 05:38:58;luecke;n1028:nsatz;der Schatten;Sie sorgen für _____ und kühlen die Umgebung durch verdunstetes Wasser.;gölge;falsch;Schatten;basamak:B3 | bicim:metin | not:m1 | R:0.87 | S:1.2 | kaynak:dw78532414
+2026-11-05 05:38:58;luecke;w0229:nsatz;heiß;Wenn sie sterben, werden die Städte noch _____.;heiß;falsch;heißer;basamak:B3 | bicim:metin | not:m1 | R:0.87 | S:1.0 | kaynak:dw78532414
+2026-11-05 05:38:59;akt;luecke:dw78532414;metinde boşluk;Aber gerade in Zeiten des Klimawandels brauchen Städte dringend gesunde Bäume. Sie sorgen für Schatten und kühlen die Umgebung durch verdunstetes Wasser. Wenn sie sterben, werden die Städte noch heißer.;gölge / heiß;falsch;Schatten / heißer;puan:0/2 | boşluk:2
+2026-11-05 05:39:24;gram;g:adjektiv:79;adjektiv/bestimmt;Die neuen Nachbarin ist sehr nett.;hata yok;falsch;Die neue Nachbarin ist sehr nett.;tur:akis | tür:fehler | z:3 | artikel/çekim | sek:10
+2026-11-05 05:39:25;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:0 | yanlış:5 | puan:73 | dk:1 | yeni:2 | seviye+:0 | tekrar:6 | gram:0/2
+2026-11-05 05:39:33;art;n1028:art;der Schatten;Schatten;die;falsch;der Schatten;basamak:A | bicim:artikel | not:a1 | R:0.97 | S:2.7 | artikel die → der | sek:4
+2026-11-05 05:39:43;prod;w0599:prod;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespanned sein;fast;eingespannt sein;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:2.0 | zor | kısmi | yazım | sek:8 | ipucu:2
+2026-11-05 05:39:50;prod;w0170:prod;fließend;akıcı;fleißig;falsch;fließend;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:1.1 | farklı | sek:6 | ipucu:2
+2026-11-05 05:39:57;nsatz;n0552:nsatz;der Humor;Wir mögen Paul, weil er so viel _____ hat.;Humor;richtig;Humor;basamak:B2 | bicim:bos0 | not:m3 | R:0.87 | S:22.8 | kapı:7g | sek:7 | ipucu:0
+2026-11-05 05:40:01;nsatz;n0449:nsatz;das Gemüse;_____ kann man frisch auf Wochenmärkten oder im Supermarkt kaufen.;Gemüse;richtig;Gemüse;basamak:B2 | bicim:bos0 | not:m3 | R:0.88 | S:17.2 | kapı:7g | sek:3 | ipucu:0
+2026-11-05 05:40:20;gram;g:reflexiv:95;reflexiv/stellung;ich hoffe / dass / ihr / euch / gut / versteht;ich hoffe dass ihr euch gut versteht;richtig;Ich hoffe, dass ihr euch gut versteht.;tur:akis | tür:ordnen | z:2 | sek:18
+2026-11-05 05:40:24;erk;n0969:erk;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.9 | kurtarma | sek:3
