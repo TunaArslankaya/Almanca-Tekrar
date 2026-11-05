@@ -3668,3 +3668,15 @@
 2026-11-05 05:43:48;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:83 | dk:2 | yeni:0 | seviye+:5 | tekrar:10 | gram:0/2
 2026-11-05 05:43:51;art;x1558:art;das Zusammenleben;Zusammenleben;das;richtig;das Zusammenleben;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:37.1 | sek:1
 2026-11-05 05:43:59;satz;v148:satz;bleiben;Ärzte können in einem Krankenhaus arbeiten, in dem sie Patienten versorgen, die meistens länger als nur wenige Minuten _____.;bleibt;fast;bleiben;basamak:B2 | bicim:bos0 | not:m2 | R:0.86 | S:17.0 | kapı:7g | çekim | sek:7 | ipucu:0
+2026-11-05 05:44:03;nsatz;w0164:nsatz;fett;Das ist aber eine _____ Katze!;fett;falsch;fette;basamak:B2 | bicim:bos0 | not:m1 | R:0.85 | S:0.9 | ek | sek:2 | ipucu:0
+2026-11-05 05:44:09;wort;x1565:wort;das Vereinsmitglied;dernek üyesi;das Vereinsmitglied;richtig;das Vereinsmitglied;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.85 | S:15.0 | kapı:7g | sek:6 | ipucu:0
+2026-11-05 05:44:12;abr;v685:abr;spenden;bağışlamak;spenden;richtig;spenden (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.85 | S:28.3 | kapı:14g | sek:3 | ipucu:2
+2026-11-05 05:44:28;gram;g:es-korrelat:42;es-korrelat/wegfall;Dass du mir geholfen hast, finde ich es toll.;hata yok;falsch;Dass du mir geholfen hast, finde ich toll.;tur:akis | tür:fehler | z:2 | kelime sırası | sek:11
+2026-11-05 05:44:31;erk;n1094:erk;das Sonderangebot;özel indirim;das Sonderangebot;richtig;das Sonderangebot;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.1 | kurtarma | sek:2
+2026-11-05 05:44:34;erk;w0164:erk;fett;yağlı;fett;richtig;fett;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.9 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-05 05:44:49;nsatz;w0627:nsatz;übrig;Ist noch etwas zu essen _____?;übrings;falsch;übrig;basamak:B2 | bicim:bos0 | not:m1 | R:0.85 | S:1.0 | ek | sek:8 | ipucu:0
+2026-11-05 05:44:54;abr;v613:abr;verteilen;dağıtmak;verteilen;richtig;verteilen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.85 | S:28.3 | kapı:14g | sek:4 | ipucu:2
+2026-11-05 05:45:26;gram;g:satzklammer-tekamolo:9;satzklammer-tekamolo/klammer;Der Kurs fängt am Montag um neun Uhr an. → Perfekt;Der Kurs hat am Montan um neun Uhr angefangen.;richtig;Der Kurs hat am Montag um neun Uhr angefangen.;tur:akis | tür:umform | z:2 | artikel/çekim | öneri:falsch | sek:13
+2026-11-05 05:45:33;abr;v589:abr;sich verlassen auf;(birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf (auf + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.85 | S:5.5 | sek:5 | ipucu:0
+2026-11-05 05:45:35;erk;w0627:erk;übrig;artan, kalan;übrig;richtig;übrig;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-05 05:45:35;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:1 | yanlış:3 | puan:93 | dk:2 | yeni:0 | seviye+:2 | tekrar:11 | gram:1/2
