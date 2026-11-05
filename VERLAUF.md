@@ -413,3 +413,7 @@ Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
   isim yazma (der Schmerzen → çekim), gramer tam cümlesi ve dikte (tek kelimede yazım hatası artık küçük hata: önce 1712 alıştırmanın ~1700'ünde tam yanlıştı; ek farkı gramer hatası olarak kalır).
   Noktalama: bütün gramer cümlelerinde nokta olmadan doğru (2519/2519). Ayarlar → yeni kelime / gün'e 10 seçeneği.
   Tekrar yükü (5.11 05:48 kaydı): 270 öğe; vadeli 62 anlam + 37 artikel, yarına kadar 101 + 50. "Aynı kelimeler" çoğunlukla artikel flaşları: 21 isimde artikel ≥ 4 kez yanlış (Geduld 12, Rezept 11, Vorurteil 9, Praxis 8 …): artikel hafızası S ≈ 0 kalıp her gün geliyor (Rezept'in anlamı S 49, 30.11'e kadar sorulmaz).
+
+**2026-11-05 (gece işi, otomatik)**
+- 5.11 05:45:35 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni aynı (Audi / USA); sözlüğündeki kelimelerden (Wahlkampf, Subvention, investieren, Vorsprung, betroffen, beitragen …) Goethe B1 listesinde yeni olan yok (Zoll, Druck zaten işlendi); yeni cümle eklenmedi.
+Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
