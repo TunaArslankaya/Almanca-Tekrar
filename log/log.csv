@@ -3584,3 +3584,33 @@
 2026-11-05 05:33:53;erk;w0600:erk;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:1.6 | sek:2
 2026-11-05 05:34:01;gram;g:verbstellung:19;verbstellung/inversion;am Montag / habe / ich / einen Termin / bei der Ausländerbehörde;ich habe am Montag einen Termin bei der Ausländerbehörde;richtig;Am Montag habe ich einen Termin bei der Ausländerbehörde.;tur:akis | tür:ordnen | z:2 | sek:7
 2026-11-05 05:34:08;bed;v138:bed;betreuen;Andere Mitarbeiter des Museums betreuen die Besucher und erklären ihnen, was es zu sehen gibt.;bakmak, ilgilenmek;richtig;(birine) bakmak, ilgilenmek (çocuk, hasta);basamak:B1 | bicim:metinde | not:m3 | R:0.73 | S:2.7 | kurtarma | sek:6
+2026-11-05 05:34:11;art;n0111:art;der Balkon;Balkon;der;richtig;der Balkon;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:83.4 | sek:3
+2026-11-05 05:34:36;luecke;v347:satz;können;In bestimmten Fällen _____ der Arzt Medikamente verschreiben, die helfen.;können;falsch;kann;basamak:B3 | bicim:metin | not:m1 | R:0.93 | S:0.4 | kaynak:k23
+2026-11-05 05:34:36;luecke;v605:satz;verschreiben;In bestimmten Fällen kann der Arzt Medikamente _____, die helfen.;unterschreiben;falsch;verschreiben;basamak:B3 | bicim:metin | not:m1 | R:0.94 | S:2.2 | kaynak:k23
+2026-11-05 05:34:36;akt;luecke:k23;metinde boşluk;Manchmal kommt ein Gefühl daher, dass mit dem Körper etwas los ist. Wenn das Gehirn nicht richtig funktioniert, dann ist jemand zum Beispiel immer sehr traurig. Wenn das Gefühl länger besteht, nennt man das Depression. In bestimmten Fällen kann der Arzt Medikamente verschreiben, die helfen.;können / unterschreiben;falsch;kann / verschreiben;puan:0/2 | boşluk:2
+2026-11-05 05:34:56;gram;g:vergleich:53;vergleich/kontrast;Anna ist 20 Jahre alt. Ich bin auch 20 Jahre alt. → so … wie;Anna ist so alt wie ich;richtig;Anna ist so alt wie ich.;tur:akis | tür:umform | z:2 | sek:15
+2026-11-05 05:34:59;erk;x1552:erk;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.96 | S:1.3 | sek:2
+2026-11-05 05:34:59;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:70 | dk:1 | yeni:0 | seviye+:0 | tekrar:10 | gram:2/2
+2026-11-05 05:35:01;art;n1211:art;der Termin;Termin;der;richtig;der Termin;basamak:A | bicim:artikel | not:a3 | R:0.98 | S:82.4 | sek:1
+2026-11-05 05:35:03;erk;w0522:erk;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:1.2 | sek:2
+2026-11-05 05:35:12;wort;n0433:wort;die Geduld;sabır;der Geduld;fast;die Geduld;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.95 | S:70.2 | artikel der → die | sek:7 | ipucu:2
+2026-11-05 05:35:13;art;n1316:art;der Vermieter;Vermieter;der;richtig;der Vermieter;basamak:A | bicim:artikel | not:a3 | R:0.97 | S:62.2 | sek:1
+2026-11-05 05:35:16;bed;v545:bed;übertreiben;abartmak;übertreiben;richtig;übertreiben;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:1.8 | sek:3
+2026-11-05 05:35:46;gram;g:es-korrelat:111;es-korrelat/wegfall;dass / du / gekommen bist / freut / mich / sehr;freut mich sehr dass du gekommen bist;falsch;Dass du gekommen bist, freut mich sehr.;tur:akis | tür:ordnen | z:2 | kelime sırası | artikel/çekim | groß/klein | sek:25
+2026-11-05 05:35:50;erk;n1254:erk;die Tüte;poşet;die Tüte;richtig;die Tüte;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.8 | kurtarma | sek:2
+2026-11-05 05:35:53;art;n1173:art;der Supermarkt;Supermarkt;das;falsch;der Supermarkt;basamak:A | bicim:artikel | not:a1 | R:0.97 | S:2.4 | artikel das → der | sek:3
+2026-11-05 05:35:56;erk;w0595:erk;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B1 | bicim:sec | not:m3 | R:0.93 | S:0.8 | sek:2
+2026-11-05 05:36:02;erk;x1569:erk;der Behördengang;resmi daireye gidiş;der Behördengang;richtig;der Behördengang;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:0.8 | sek:6
+2026-11-05 05:36:05;gram;g:satzklammer-tekamolo:77;satzklammer-tekamolo/vorfeld;Morgen ich schreibe eine Prüfung.;schreibe;richtig;Morgen schreibe ich eine Prüfung.;tur:akis | tür:fehler | z:2 | sek:3
+2026-11-05 05:36:08;erk;x1523:erk;das Gehirn;beyin;das Gehirn;richtig;das Gehirn;basamak:B1 | bicim:sec | not:m3,a3 | R:0.93 | S:0.8 | sek:2
+2026-11-05 05:36:08;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:65 | dk:1 | yeni:0 | seviye+:0 | tekrar:10 | gram:1/2
+2026-11-05 05:36:15;art;x1483:art;der Dozent;Dozent;die;falsch;der Dozent;basamak:A | bicim:artikel | not:a1 | R:0.96 | S:2.3 | artikel die → der | sek:5
+2026-11-05 05:36:26;wort;n0813:wort;die Mühe;zahmet;die Mühe;richtig;die Mühe;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.92 | S:38.6 | kapı:14g | sek:10 | ipucu:2
+2026-11-05 05:36:33;wort;x1484:wort;der Kommilitone;sınıf arkadaşı (üniversite);der Komilitone;fast;der Kommilitone;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.92 | S:19.3 | kısmi | kapı:14g | yazım | sek:5 | ipucu:2
+2026-11-05 05:36:37;yeni;x1570;das Einwohnermeldeamt;tanıtım;;neu;adres kayıt dairesi;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-05 05:36:40;yeni;v690;sich abmelden;tanıtım;;neu;kaydını sildirmek;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-05 05:36:43;bed;v690:bed;sich abmelden;kaydını sildirmek;sich abmelden;richtig;sich abmelden;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-05 05:36:47;erk;x1570:erk;das Einwohnermeldeamt;adres kayıt dairesi;das Einwohnermeldeamt;richtig;das Einwohnermeldeamt;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:5
+2026-11-05 05:36:56;gram;g:n-deklination:6;n-deklination/akk;Die Lehrerin lobt den ___. (der Junge);Jungen;richtig;Jungen;tur:akis | tür:luecke | z:2 | sek:8
+2026-11-05 05:36:59;erk;n1076:erk;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.8 | kurtarma | sek:3
+2026-11-05 05:37:03;abr;v690:abr;sich abmelden;kaydını sildirmek;sich abmelden;richtig;sich abmelden;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
