@@ -397,3 +397,19 @@ Son incelenen log satırı: 2026-11-01 17:50:11 (tur aksam).
 - 13 çeviri cümlesi + gloss (finanzieren ×3, übertreiben, verhindern ×2, hageln, Zoll, Druck, Rezept ×2, Geduld, Feuerwehr). DW metni (Audi / USA) sözlüğünden Goethe B1'de olan Zoll, Druck'a cümle eklendi; diğerleri listede yok. `bilmiyorum` gram satırı yok.
 - Dikkat: turlar çok hızlı (dk:1–2), bazı yazma cevapları rastgele (Mahnung, donnern); bilmiyorsan Bilmiyorum de. Seçmeli artikel yanlışları toplu: Feuerwehr (das dedi ×2), Geduld, Rezept, Behördengang.
 Son incelenen log satırı: 2026-11-04 06:55:51 (tur akis).
+
+**2026-11-05 ("Sonuçlarıma bak")**
+- 4.11 06:55:51 sonrası 167 satır: 4.11 akşam tekrarı 2 tur + 13 gramer sorusu (20:54–20:58), 5.11 sabah 8 Çalış turu (05:30–05:45, her biri dk:1–2). 39 düzeltme `feedback.js`'e.
+- Sistem haksız saydı (kontrol kodu ayrıca düzeltiliyor): doğru kelime + eksik ek / çekim (fett → fette, ehrenamt → ehrenamtlichen, heiß → heißer, können → kann) m1 / falsch sayıldı; das Gerihn (harf yer değiştirmesi) 'kelime yanlış' sayıldı. Feedback'te fast olarak yazıldı.
+- Yazma: kelime karışıkları (eigen/eignen ikinci kez, fließend/fleißig, drinnen/drüben, übrig/übrigens, verschreiben/unterschreiben, zuverlässig/zufällig, Behördengang/Beamte, Einwohnermeldeamt), boşluğa Türkçe "gölge" (Schatten). Artikel: Feuerwehr (der ×2 → leech), Geduld (der), Rezept (die), Gymnastik (das), Supermarkt (das), Dozent (die), Schatten (die), Einwohnermeldeamt (die).
+- Gramer: dönüşlü fiil edatları ×3 (sich bewerben um, sich vorbereiten auf, sich kümmern um), sich vorstellen mich/mir, kelime sırası ×5 (deshalb + fiil, Ich wohne seit Mai, dass-cümlesi başta / es düşer, als ich erwartet habe), nicht so / halb so + yalın sıfat, die neue Nachbarin. `öneri:` satzklammer-tekamolo:9 (Montan): itiraz haklı.
+- Bilmiyorum: Ehrenamt (yazma), bedürftig (yazma), g:vergleich:71 (nicht-so) → vergleich nicht-so'ya 5 yeni alıştırma; Ehrenamt ×3, bedürftig ×3 cümle. Diktat (w0011) boş gönderildi.
+- 19 yeni çeviri cümlesi + gloss (sich abmelden ×3 refl, Ehrenamt ×3, bedürftig ×3, Einwohnermeldeamt ×2, zuverlässig ×2, übrig ×2, Schatten, verantwortlich, sogar, ehrenamtlich). 5 kanca (Feuerwehr [leech], Apotheke, Kunst, Toleranz, Missverständnis).
+- Dikkat: turlar çok hızlı (12 cevap 1–2 dk), seçmelide sek:1–2; yarım cevaplar ("1", "a") Bilmiyorum ile birlikte, sorun değil.
+Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
+- 5.11 kontrol düzeltmeleri (Tuna: "çekiminde hata yapıyorum kelimeyi bilmiyorsun diyor", "morgem yazdım hata veriyor", "Apotheke / Rezept sürekli geliyor"):
+  boşluk sorularında doğru kelimenin yanlış eki 'yanlış' sayılıyordu (app.js `auswerten`: 'artikel/çekim' etiketi `tipAus`tan önce 'ek'e çevriliyordu; fett/fette, die Tablette/Tabletten …) → çekim (m2, küçük hata);
+  `G.yakin` (Damerau yazım + ek farkı çekim), `G.bosPruef` (boşluğa artikelle yazılan doğru isim → fazla artikel, m3), metin boşluğu `uPruef` (Aptheke → çekim; Apotheke'nin anlam hafızası 4.11'de bu yüzden S 10 → 1,4 düşmüştü),
+  isim yazma (der Schmerzen → çekim), gramer tam cümlesi ve dikte (tek kelimede yazım hatası artık küçük hata: önce 1712 alıştırmanın ~1700'ünde tam yanlıştı; ek farkı gramer hatası olarak kalır).
+  Noktalama: bütün gramer cümlelerinde nokta olmadan doğru (2519/2519). Ayarlar → yeni kelime / gün'e 10 seçeneği.
+  Tekrar yükü (5.11 05:48 kaydı): 270 öğe; vadeli 62 anlam + 37 artikel, yarına kadar 101 + 50. "Aynı kelimeler" çoğunlukla artikel flaşları: 21 isimde artikel ≥ 4 kez yanlış (Geduld 12, Rezept 11, Vorurteil 9, Praxis 8 …): artikel hafızası S ≈ 0 kalıp her gün geliyor (Rezept'in anlamı S 49, 30.11'e kadar sorulmaz).

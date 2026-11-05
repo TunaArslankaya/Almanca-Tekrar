@@ -339,3 +339,6 @@ v589 | Auf den Bus kann man sich morgens nicht verlassen, deshalb fahre ich mit 
 v278 | Viele Studenten fürchten sich vor der mündlichen Prüfung, weil sie frei sprechen müssen. | Birçok öğrenci serbest konuşmak zorunda oldukları için sözlü sınavdan korkuyor.
 v184 | Nach einer langen Diskussion haben wir uns auf einen gemeinsamen Termin geeinigt. || Wir haben uns nach einer langen Diskussion auf einen gemeinsamen Termin geeinigt. | Uzun bir tartışmadan sonra ortak bir tarihte anlaştık.
 v063 | Mein Mitbewohner regt sich auf, wenn jemand sein Essen aus dem Kühlschrank nimmt. || Wenn jemand sein Essen aus dem Kühlschrank nimmt, regt sich mein Mitbewohner auf. | Biri buzdolabından yemeğini alınca ev arkadaşım sinirleniyor.
+v690 | Bevor ich zurück in die Türkei ziehe, muss ich mich beim Einwohnermeldeamt abmelden. | Türkiye'ye geri taşınmadan önce adres kayıt dairesinden kaydımı sildirmem gerekiyor.
+v690 | Ich habe mich gestern vom Deutschkurs abgemeldet. | Dün Almanca kursundan kaydımı sildirdim.
+v690 | Wenn du krank bist, musst du dich von der Prüfung abmelden. | Hastaysan sınavdan kaydını sildirmen gerekir.

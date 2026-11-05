@@ -2935,3 +2935,19 @@ n0994 | das Rezept | Der Arzt hat mir ein Rezept für das Medikament gegeben. | 
 n0994 | das Rezept | Hast du ein gutes Rezept für Kartoffelsuppe? | Patates çorbası için iyi bir tarifin var mı?
 n0433 | die Geduld | Mit etwas Geduld lernt man jede Sprache. | Biraz sabırla her dil öğrenilir.
 n0360 | die Feuerwehr | Die Feuerwehr war nach zehn Minuten am Haus. | İtfaiye on dakika sonra evdeydi.
+x1562 | das Ehrenamt | Mein Vater hat ein Ehrenamt bei der Feuerwehr. | Babamın itfaiyede gönüllü bir görevi var.
+x1562 | das Ehrenamt | Für ein Ehrenamt bekommt man kein Geld. | Gönüllü bir görev için para alınmaz.
+x1562 | das Ehrenamt | Viele Studenten suchen ein Ehrenamt, weil sie anderen helfen möchten. | Birçok öğrenci başkalarına yardım etmek istediği için gönüllü bir görev arıyor.
+w0626 | bedürftig | Die Tafel verteilt Lebensmittel an bedürftige Menschen. | Gıda bankası muhtaç insanlara yiyecek dağıtıyor.
+w0626 | bedürftig | Wir sammeln Kleidung für bedürftige Familien. | Muhtaç aileler için giysi topluyoruz.
+w0626 | bedürftig | Im Winter brauchen bedürftige Menschen besonders viel Hilfe. | Kışın muhtaç insanların özellikle çok yardıma ihtiyacı var.
+x1570 | das Einwohnermeldeamt | Nach dem Umzug muss man sich beim Einwohnermeldeamt anmelden. | Taşındıktan sonra adres kayıt dairesine kayıt yaptırmak gerekir.
+x1570 | das Einwohnermeldeamt | Ich habe morgen einen Termin beim Einwohnermeldeamt. | Yarın adres kayıt dairesinde randevum var.
+w0586 | zuverlässig | Meine Mitbewohnerin ist sehr zuverlässig, sie bezahlt die Miete immer pünktlich. | Ev arkadaşım çok güvenilir, kirayı hep zamanında ödüyor.
+w0586 | zuverlässig | Die Busse in Bremen sind nicht immer zuverlässig. | Bremen'deki otobüsler her zaman güvenilir değil.
+w0627 | übrig | Vom Abendessen ist noch etwas übrig, willst du es haben? | Akşam yemeğinden biraz arttı, ister misin?
+w0627 | übrig | Am Ende des Monats bleibt mir kaum Geld übrig. | Ay sonunda bana neredeyse hiç para kalmıyor.
+n1028 | der Schatten | Es ist so heiß, lass uns in den Schatten gehen. | Çok sıcak, hadi gölgeye gidelim.
+w0504 | verantwortlich | Wer ist in der WG für den Müll verantwortlich? | WG'de çöpten kim sorumlu?
+w0445 | sogar | Er hat sogar am Sonntag gearbeitet. | Pazar günü bile çalıştı.
+w0625 | ehrenamtlich | Sie arbeitet zweimal pro Woche ehrenamtlich in einer Bibliothek. | Haftada iki kez bir kütüphanede gönüllü olarak çalışıyor.

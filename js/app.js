@@ -829,6 +829,7 @@
     const artIn = t.length > 1 && /^(der|die|das)$/i.test(t[0]) ? t[0].toLowerCase() : null;
     const r = G.pruefen(artIn ? t.slice(1).join(' ') : t.join(' '), n.lemma, n.alt || [], { lemma: true });
     const ganz = G.pruefen(inp, ziel);
+    // doğru isim, yanlış biçim (der Schmerzen → der Schmerz): G.pruefen lemma 'cekim' → fast (m2), artikel ayrıca değerlendirilir
     if (r.tip === 'yanlis') return { urteil: 'falsch', tip: 'yanlis', tags: ['kelime yanlış'], diff: ganz.diff, ziel };
     const artikel = n.plOnly ? null : { sinandi: true, dogru: artIn === art, verilen: artIn, dogrusu: art, eksik: !artIn };
     const artOk = !artikel || artikel.dogru;
@@ -936,7 +937,7 @@
         <div class="soru">${deHTML(l.text).replace(/_____/g, '<span class="bosluk">_____</span>')}</div>
         <div class="chips"><span class="chip vurgu">${esc(v.tr)}</span>${lv1 === 0 && l.answer.toLowerCase() !== v.inf.toLowerCase() ? `<span class="chip">${esc(v.anz)}</span>` : ''}${l.n > 1 ? `<span class="chip">${l.n} boşluk: sırayla, boşlukla ayırarak yaz</span>` : ''}</div>`,
       ziel: l.answer, input: true, placeholder: 'eksik kelime(ler)', kontext: l.text, modus: 'luecke', lvGercek: lv1,
-      pruef: inp => G.pruefen(inp, l.answer),
+      pruef: inp => G.bosPruef(inp, l.answer),
       loesungHTML: () => { const w = l.answer.split(' '); let i = 0; return deHTML(l.text.replace(/_____/g, () => w[i++] || '')); },
       erkl: () => [`${esc(v.anz)}: ${esc(v.tr)}`, kalipZeile(v.id)],
       frageText: l.text,
@@ -1030,7 +1031,7 @@
         <div class="soru">${deHTML(l.text).replace(/_____/g, '<span class="bosluk">_____</span>')}</div>
         ${lv === 0 && hinweisHTML ? `<div class="chips">${hinweisHTML}</div>` : ''}${l.n > 1 ? '<div class="soluk">2 boşluk: sırayla, aralarına boşluk koyarak yaz.</div>' : ''}`,
       ziel: l.answer, input: true, placeholder: 'boşluktaki kelime(ler)', kontext: x.de, modus, lvGercek: Math.min(lv, 1),
-      pruef: inp => G.pruefen(inp, l.answer),
+      pruef: inp => G.bosPruef(inp, l.answer),
       loesungHTML: () => deHTML(x.de),
       erkl: () => [`${deItemHTML(id)}: ${esc(trOf(id))}`],
       frageText: l.text,
@@ -1659,6 +1660,8 @@
       if (ohneArt !== c && /^(der|die|das) /.test(e) && e.replace(/^(der|die|das) /, '') === ohneArt) return { u: 'falsch', hinweis: 'artikel yanlış: ' + ziel };
       if (Math.abs(c.length - e.length) <= 1 && c.length > 4 && lev(c, e) <= 1) return { u: 'fast', hinweis: 'yazım: ' + ziel };
     }
+    // tek kelimelik boşlukta yer değiştirme / uzun kelimede iki harf (yazım) ya da aynı kelimenin başka eki (çekim; Aptheke → Apotheken)
+    if (!/\s/.test(e)) for (const c of cands) { if (/\s/.test(c)) continue; const k = G.yakin(e, c); if (k) return { u: 'fast', hinweis: (k === 'yazim' ? 'yazım: ' : 'çekim: ') + ziel, cekim: k === 'cekim' }; }
     return { u: 'falsch', hinweis: '' };
   }
   function lev(a, b) {
@@ -2042,7 +2045,7 @@
       q.werte = q.blanks.map((b, i) => (document.querySelector(`.u-luecke[data-al="${i}"]`) || {}).value || '');
       const sonuclar = q.blanks.map((b, i) => {
         const w = q.werte[i].trim(), r = uPruef(w, b.form);
-        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? 'yazim' : 'yanlis';
+        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? (r.cekim ? 'cekim' : 'yazim') : 'yanlis';
         const satz = (q.saetze[b.si] || {}).satz || '';
         const qq = { id: b.id, sel: { b: 3 }, bicim: 'metin', typ: Kern.eskiTur(b.id, 'metin'), antwort: w, ziel: b.form, frageText: satz.replace(b.form, '_____'), modus: 'luecke' };
         const r2 = hafizaYaz(qq, { bicim: 'metin', tip, etiketler: r.hinweis && tip !== 'dogru' ? [r.hinweis] : [] }, t, { yan: true, kaynak: T.id });
@@ -2815,7 +2818,12 @@
       return hedef.length && hedef.every(w => u.includes(' ' + w + ' ')) ? 'cumleFast' : 'cumleYanlis';
     }
     if (r.urteil === 'fast') return r.tags.includes('umlaut/ß') ? 'umlaut' : 'yazim';
-    if (r.tags.some(x => x === 'artikel/çekim' || x === 'yardımcı fiil' || x === 'çekim')) return 'cekim';
+    // çekim yalnız içerik kelimeleri (artikel / zamir / edat dışı) cevapta varsa ya da aynı kelimenin başka ekiyse (die Tür ↔ das Fenster çekim değil)
+    if (r.tags.some(x => x === 'artikel/çekim' || x === 'yardımcı fiil' || x === 'çekim')) {
+      const FW = /^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines|kein\w*|mein\w*|dein\w*|sein\w*|ihr\w*|unser\w*|eur\w*|am|im|zum|zur|vom|beim|ans|ins|hat|habe|hast|haben|habt|ist|bin|bist|sind|seid)$/i;
+      const ut = G.norm(q.antwort || '').split(' ').filter(Boolean), zt = G.norm(r.ziel || q.ziel || '').split(' ').filter(w => w && !FW.test(w));
+      if (zt.every(t => ut.some(x => x.toLowerCase() === t.toLowerCase() || G.yakin(x, t)))) return 'cekim';
+    }
     return 'yanlis';
   }
   // ---------- tam cümle: kademeli yardım (1. ilk kelime girdiye, 2. kelime bankası: cümlenin kelimeleri karışık çip) ----------
@@ -2870,9 +2878,10 @@
     q.antwort = input;
     q.sek = Math.round((now() - q.start) / 1000);
     const res = weissNicht ? { urteil: 'falsch', tags: [], diff: [], ziel: q.ziel, tip: q.bos ? 'bos' : 'bilmiyorum' } : q.pruef(input);
+    // tip etiketler adlandırılmadan önce (5.11: 'artikel/çekim' önce 'ek'e çevrildiği için tipAus görmüyor, doğru kelimenin yanlış eki 'yanlış' sayılıyordu)
+    let tip = weissNicht ? res.tip : tipAus(res, q);
     if (res.tags && !res.cumle) res.tags = res.tags.map(t => t !== 'artikel/çekim' ? t : kind(q.id) === 'v' ? 'çekim' : kind(q.id) === 'n' ? 'artikel / ek' : 'ek');
     q.res = res;
-    let tip = weissNicht ? res.tip : tipAus(res, q);
     // yoklama: kelime biliniyorsa (yazım / umlaut / hâl dahil) "zaten biliyorsun"; değilse tanıtım
     if (q.yoklama) tip = ['dogru', 'yazim', 'umlaut', 'hal', 'mastar'].includes(tip) ? 'yoklama' : weissNicht ? tip : 'yanlis';
     // tam cümle (G.cumleKontrol): etiketler olduğu gibi log'a (yazım dahil); zor: ipucusuz zor soru (Kern.notVer: doğruysa not 4)
@@ -3663,7 +3672,7 @@
     const satir = (et, alt, kontrol) => `<div class="ayar-satir"><div class="et"><b>${et}</b>${alt ? `<span>${alt}</span>` : ''}</div>${kontrol}</div>`;
     $('#a-satirlar').innerHTML = [
       satir('Tempo', 'hedef hatırlama: Rahat %80 · Dengeli %85 · Sıkı %90', seg('ret', [[0.8, 'Rahat'], [0.85, 'Dengeli'], [0.9, 'Sıkı']], ret)),
-      satir('Yeni kelime / gün', (() => { const kt = kota(); return `bugün ${kt.yapilan}${kt.sebep !== 'normal' && kt.q < yg ? ` · şu an günde ${kt.q} (${kt.sebep === 'göç' ? 'yeni düzenin ilk günleri' : kt.sebep === 'dönüş' ? 'aradan dönüş turu' : 'birikme / genç kelime çok'}); seçimin birikme eriyince geçerli` : ' · birikme varken kendiliğinden azalır'}`; })(), seg('yeni', [[4, '4'], [6, '6'], [8, '8']], yg)),
+      satir('Yeni kelime / gün', (() => { const kt = kota(); return `bugün ${kt.yapilan}${kt.sebep !== 'normal' && kt.q < yg ? ` · şu an günde ${kt.q} (${kt.sebep === 'göç' ? 'yeni düzenin ilk günleri' : kt.sebep === 'dönüş' ? 'aradan dönüş turu' : 'birikme / genç kelime çok'}); seçimin birikme eriyince geçerli` : ' · birikme varken kendiliğinden azalır'}`; })(), seg('yeni', [[4, '4'], [6, '6'], [8, '8'], [10, '10']], yg)),
       satir('Günlük hedef', `1 tur = ${turBoyu()} cevap`, seg('hedef', [[2, '2 tur'], [3, '3 tur'], [4, '4 tur'], [5, '5 tur']], th)),
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),

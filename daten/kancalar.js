@@ -49,4 +49,9 @@ window.KANCA = {
   v545: "übertreiben → ÜBER + treiben: bir şeyi fazla ileri itmek = abartmak (etwas übertreiben, Akk)",
   n1044: "der Schmerz → 'şmerts' diye bağırırsın, ağrının sesi bu; mavi (der) bir çekiç ağrıtır; çoğulu die Schmerzen",
   x1567: "der Pate → PATEs yerine vaftiz babası / destekçi; der Pate (mavi), kadın hâli die Patin",
+  n0360: "die Feuerwehr → Feuer (ateş) + Wehr (savunma): ateşe karşı savunma = itfaiye; die kırmızı: itfaiye arabası kıpkırmızı, die Feuerwehr (ama itfaiyeci der Feuerwehrmann, mavi)",
+  n0055: "die Apotheke → Almanya'da her eczanenin kapısında kırmızı bir 'A' var: kırmızı = die; -e ile biten isimler çoğunlukla die; yazımı Apo-TH-eke",
+  n0691: "die Kunst → können (yapabilmek) ile akraba: ustaca yapabilmek = sanat; müzedeki kırmızı (die) çerçeveli tablo; çoğulu die Künste",
+  x1547: "die Toleranz → Türkçedeki 'tolerans'; yabancı kökenli -anz / -enz ile biten isimler die (die Distanz, die Konferenz), kırmızı",
+  x1460: "das Missverständnis → miss (yanlış) + verstehen (anlamak); -nis ile bitenlerin çoğu das (das Ergebnis, das Zeugnis, das Erlebnis), yeşil; istisna die Erlaubnis, die Kenntnis",
 };

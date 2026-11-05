@@ -362,6 +362,11 @@
       const tk = x => kaynasAc(fold(norm(x))).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(Boolean);
       const g = tk(giris), cek = alts.map(tk).find(h => h.length === g.length && h.filter((w, i) => w !== g[i]).length === 1);
       if (cek) { const i = cek.findIndex((w, j) => w !== g[j]); if (CEKIM.some(c => c.has(cek[i]) && c.has(g[i]))) return { urteil: 'fast', tags: ['fiil çekimi (özne uyumu)'], diff: r.diff }; }
+      // tek kelimede yazım hatası (morgem, Hande → Hände değil: o umlaut; harf yer değiştirmesi dahil): kelime çekim / ek farkı değilse küçük hata
+      // (5.11, Tuna: "morgen yerine morgem yazmışım, hata veriyor"; önce 1711 alıştırmanın 1700'ünde tek yazım hatası tam yanlıştı)
+      const ham = x => norm(x).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(Boolean);
+      const gh = ham(giris), yz = alts.map(ham).find(h => h.length === gh.length && h.filter((w, i) => w.toLowerCase() !== gh[i].toLowerCase()).length === 1);
+      if (yz) { const i = yz.findIndex((w, j) => w.toLowerCase() !== gh[j].toLowerCase()); if (Gx().yakin && Gx().yakin(gh[i], yz[i]) === 'yazim') return { urteil: 'fast', tags: ['yazım'], diff: r.diff }; }
     }
     if (r.urteil === 'falsch' && alts.some(a => zarfsiz(a) === zarfsiz(giris))) {
       const ga = norm(giris).split(/\s+/).length;
@@ -386,7 +391,7 @@
       const ht = h.split(' ');
       if (ht.length !== ut.length) continue;
       const fark = ht.map((t, i) => [ut[i], t]).filter(([x, t]) => x !== t);
-      if (fark.length === 1) { const [x, t] = fark[0]; if (t.length >= 5 && lev(x, t) === 1 && x.slice(-2) === t.slice(-2)) return { urteil: 'fast', tags: ['yazım'] }; }
+      if (fark.length === 1) { const [x, t] = fark[0]; if ((t.length >= 5 && lev(x, t) === 1 && x.slice(-2) === t.slice(-2)) || (Gx().yakin && Gx().yakin(x, t) === 'yazim')) return { urteil: 'fast', tags: ['yazım'] }; }
     }
     const r = Gx().pruefen(u, hs[0], hs.slice(1));
     const tags = (r.tags || []).filter(t => t !== 'yazım' && t !== 'groß/klein');
