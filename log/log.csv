@@ -3685,3 +3685,33 @@
 2026-11-06 05:48:51;erk;n0538:erk;die Hitze;Nach extremen Temperaturen von über 40 Grad zeigt sich, wie schlecht Deutschland auf Hitze vorbereitet ist.;sıcaklık;richtig;sıcaklık (bunaltıcı);basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:46.3 | ısınma | kapı:7g | sek:2
 2026-11-06 09:45:10;wort;n1169:wort;der Sturm;fırtına;das storm;fast;der Sturm;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.99 | S:97.4 | kısmi | kapı:14g | yazım, artikel das → der | sek:17 | ipucu:2
 2026-11-06 09:45:13;nsatz;n0844:nsatz;der Nebel;Im Herbst liegt morgens oft _____ über der Weser.;Nebel;richtig;Nebel;basamak:B2 | bicim:bos0 | not:m3 | R:0.98 | S:79.2 | kapı:7g | sek:2 | ipucu:0
+2026-11-06 09:45:47;wort;n1359:wort;die Wärme;sıcaklık;die Weiß;falsch;die Wärme;basamak:B2 | bicim:yaz | not:m1 | R:0.98 | S:3.0 | kelime yanlış | sek:33 | ipucu:2
+2026-11-06 09:45:49;yeni;v588;verlassen;tanıtım;;neu;(bir yeri / birini) terk etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-06 09:45:50;yeni;x1571;die Anfrage;tanıtım;;neu;(resmî) soru, talep;basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-06 09:45:51;yeni;v400;nutzen;tanıtım;;neu;kullanmak, yararlanmak;basamak:B0 | bicim:tanit | not:- | parti | sek:1
+2026-11-06 09:45:55;erk;x1571:erk;die Anfrage;(resmî) soru, talep;die Anfrage;richtig;die Anfrage;basamak:B1 | bicim:sec | not:m3,a3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-06 09:45:58;bed;v400:bed;nutzen;kullanmak, yararlanmak;nutzen;richtig;nutzen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-06 09:46:01;bed;v588:bed;verlassen;(bir yeri / birini) terk etmek;verlassen;richtig;verlassen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:3
+2026-11-06 09:46:29;gram;g:vergleich:24;vergleich/satz;Das Essen war besser, als ich habe erwartet.;hata yok;falsch;Das Essen war besser, als ich erwartet habe.;tur:akis | tür:fehler | z:2 | kelime sırası | ghost:1 | sek:12
+2026-11-06 09:46:35;wort;x1571:wort;die Anfrage;(resmî) soru, talep;die Anfrage;richtig;die Anfrage;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-11-06 09:46:38;erk;n1359:erk;die Wärme;Neue Grünflächen würden weniger Wärme und mehr Wasser speichern.;sıcaklık;richtig;sıcaklık;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:3.0 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-06 09:46:41;abr;v400:abr;nutzen;kullanmak, yararlanmak;nutzen;richtig;nutzen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-06 09:46:45;abr;v588:abr;verlassen;(bir yeri / birini) terk etmek;verlassen;richtig;verlassen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-06 09:47:11;gram;g:es-korrelat:109;es-korrelat/wegfall;Es freut mich, dass du die Stelle bekommen hast. → Dass …;Dass du die Stelle bekommen hast, freut mich.;richtig;Dass du die Stelle bekommen hast, freut mich.;tur:akis | tür:umform | z:2 | ghost:2 | sek:25
+2026-11-06 09:47:11;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:91 | dk:2 | yeni:3 | seviye+:1 | tekrar:4 | gram:1/2
+2026-11-06 09:47:17;nsatz;n0629:nsatz;das Klima;Das _____ hingegen besagt, ob es an einem Ort normalerweise eher warm oder eher kalt ist, im Durchschnitt vieler Jahre.;das Klima;fast;Klima;basamak:B2 | bicim:bos0 | not:m3 | R:0.98 | S:57.0 | kısmi | kapı:7g | yazım, fazla artikel | sek:3 | ipucu:0
+2026-11-06 09:47:23;wort;n1207:wort;die Temperatur;sıcaklık;die Temperatur;richtig;die Temperatur;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.98 | S:56.2 | kapı:14g | sek:5 | ipucu:2
+2026-11-06 09:47:27;wort;n0587:wort;die Kälte;soğuk;die Kälte;richtig;die Kälte;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:62.3 | sek:4 | ipucu:2
+2026-11-06 09:47:30;yeni;v481;sorgen für;tanıtım;;neu;"(bir şeyi) sağlamak; (birine) bakmak";basamak:B0 | bicim:tanit | not:- | parti | sek:2
+2026-11-06 09:47:34;bed;v481:bed;sorgen für;(bir şeyi) sağlamak;sorgen nach;falsch;sorgen für;basamak:B1 | bicim:sec | not:m1 | R:0.00 | S:0.2 | parti | edat | sek:2
+2026-11-06 09:47:46;wort;n1307:wort;das Verhalten;davranış;das Bedürfnis;falsch;das Verhalten;basamak:B2 | bicim:yaz | not:m1 | R:0.97 | S:2.3 | kelime yanlış | sek:7 | ipucu:2
+2026-11-06 09:47:50;bed;v121:bed;sich beschäftigen mit;(bir şeyle) uğraşmak, ilgilenmek;sich beschäftigen mit;richtig;sich beschäftigen mit;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:34.7 | kapı:7g | sek:4
+2026-11-06 09:48:01;gram;g:vergleich:115;vergleich/je-desto;Je mehr ich arbeite, desto mehr Geld ich verdiene.;verdiene.;richtig;Je mehr ich arbeite, desto mehr Geld verdiene ich.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:9
+2026-11-06 09:48:12;abr;v481:abr;sorgen für;"(bir şeyi) sağlamak; (birine) bakmak";sorgen für;richtig;sorgen für (für + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | ikinci | hafıza:yazılmadı | sek:10 | ipucu:0
+2026-11-06 09:48:15;bed;v481:bed;sorgen für;(bir şeyi) sağlamak;sorgen für;richtig;sorgen für;basamak:B1 | bicim:sec | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:2
+2026-11-06 09:48:18;erk;n1307:erk;das Verhalten;davranış;das Verhalten;richtig;das Verhalten;basamak:B1 | bicim:sec | not:a3 | R:1.00 | S:2.3 | tekrar:1 | sek:3
+2026-11-06 09:48:34;gram;g:reflexiv:21;reflexiv/perfekt;Sie hat sich bei einer großen Firma beworben.;einer;falsch;Sie hat sich bei einer großen Firma beworben.;tur:akis | tür:fehler | z:2 | yardımcı fiil | ghost:1 | sek:13
+2026-11-06 09:48:41;erk;n0948:erk;die Quittung;makbuz, fiş;die Quittung;richtig;die Quittung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.74 | S:3.2 | kurtarma | sek:2
+2026-11-06 09:48:41;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:80 | dk:1 | yeni:1 | seviye+:1 | tekrar:8 | gram:1/2
+2026-11-06 09:48:51;abr;v127:abr;besichtigen;(görülecek yeri) gezmek;bescichtigen;fast;besichtigen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.96 | S:29.2 | kısmi | kapı:14g | yazım | sek:8 | ipucu:2
+2026-11-06 09:48:55;wort;n1389:wort;der Wohnsitz;ikametgâh;die Wohnsitz;fast;der Wohnsitz;basamak:B2 | bicim:yaz | not:m3,a1 | R:0.95 | S:44.0 | kapı:14g | artikel die → der | sek:3 | ipucu:2
