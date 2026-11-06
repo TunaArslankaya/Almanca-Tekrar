@@ -4457,3 +4457,8 @@ Es ist so heiß, lass uns in den Schatten gehen. | heiß = sıcak; lass uns … 
 Wer ist in der WG für den Müll verantwortlich? | die WG = paylaşımlı ev; der Müll = çöp
 Er hat sogar am Sonntag gearbeitet. | der Sonntag = pazar; arbeiten = çalışmak
 Sie arbeitet zweimal pro Woche ehrenamtlich in einer Bibliothek. | zweimal = iki kez; pro Woche = haftada; die Bibliothek = kütüphane
+Zuerst gehe ich zum Einwohnermeldeamt und melde meinen neuen Wohnsitz an. | zuerst = önce; anmelden = bildirmek
+Mein Wohnsitz ist seit Mai in Bremen. | seit = -den beri; der Mai = mayıs
+Sogar mein Bruder hat die Prüfung bestanden. | der Bruder = erkek kardeş; die Prüfung = sınav; bestehen = geçmek
+Mein Vater interessiert sich sehr für politische Themen. | der Vater = baba; sich interessieren für = ilgilenmek; das Thema = konu
+Mein Nachbar ist sehr zuverlässig: Er kommt immer pünktlich. | der Nachbar = komşu; pünktlich = zamanında; immer = hep

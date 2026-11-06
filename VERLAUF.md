@@ -417,3 +417,10 @@ Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
 **2026-11-05 (gece işi, otomatik)**
 - 5.11 05:45:35 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni aynı (Audi / USA); sözlüğündeki kelimelerden (Wahlkampf, Subvention, investieren, Vorsprung, betroffen, beitragen …) Goethe B1 listesinde yeni olan yok (Zoll, Druck zaten işlendi); yeni cümle eklenmedi.
 Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
+
+**2026-11-06 (gece işi, otomatik)**
+- 5.11 05:45:35 sonrası ~90 satır (6.11 sabah turları). 19 düzeltme `feedback.js`'e: Sturm / Wohnsitz artikel, Wärme/Weiß, Verhalten/Bedürfnis karışıkları, besichtigen / Einwohnermeldeamt yazımı, sogar, politisch, zuverlässig, verantwortlich, vor allem dikte, gramer (yan cümlede fiil sonda, fahren + sein, als in München, reflexiv cümlesi aslında doğruydu).
+- Bilmiyorum: verantwortlich, Bedürfnis (metin boşluğu), deutlich (yoklama sonrası yazma). `bilmiyorum` gram satırı yok. Leech / `öneri:` yok.
+- 5 yeni çeviri cümlesi + gloss (Einwohnermeldeamt, Wohnsitz, sogar, politisch, zuverlässig). DW metni yeni değil, yeni B1 kelimesi eklenmedi.
+- Dikkat: turlar ~2 dk; yanlış yazmaların çoğu yarım cevap (d, das E).
+Son incelenen log satırı: 2026-11-06 09:54:12 (tur akis).

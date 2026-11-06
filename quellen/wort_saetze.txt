@@ -2951,3 +2951,8 @@ n1028 | der Schatten | Es ist so heiß, lass uns in den Schatten gehen. | Çok s
 w0504 | verantwortlich | Wer ist in der WG für den Müll verantwortlich? | WG'de çöpten kim sorumlu?
 w0445 | sogar | Er hat sogar am Sonntag gearbeitet. | Pazar günü bile çalıştı.
 w0625 | ehrenamtlich | Sie arbeitet zweimal pro Woche ehrenamtlich in einer Bibliothek. | Haftada iki kez bir kütüphanede gönüllü olarak çalışıyor.
+x1570 | das Einwohnermeldeamt | Zuerst gehe ich zum Einwohnermeldeamt und melde meinen neuen Wohnsitz an. | Önce adres kayıt dairesine gidip yeni ikametgâhımı bildiriyorum.
+n1389 | der Wohnsitz | Mein Wohnsitz ist seit Mai in Bremen. | İkametgâhım Mayıstan beri Bremen'de.
+w0445 | sogar | Sogar mein Bruder hat die Prüfung bestanden. | Kardeşim bile sınavı geçti.
+w0388 | politisch | Mein Vater interessiert sich sehr für politische Themen. | Babam siyasi konularla çok ilgileniyor.
+w0586 | zuverlässig | Mein Nachbar ist sehr zuverlässig: Er kommt immer pünktlich. | Komşum çok güvenilir: Hep zamanında geliyor.
