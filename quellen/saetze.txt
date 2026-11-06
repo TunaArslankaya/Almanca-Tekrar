@@ -1301,3 +1301,50 @@ v256 | Ich stelle immer wieder fest, dass ich beim Sprechen die Artikel vergesse
 v257 | Ich finanziere mein Zimmer in Bremen mit einem Minijob im Supermarkt. || Mein Zimmer in Bremen finanziere ich mit einem Minijob im Supermarkt. | Bremen'deki odamı süpermarketteki bir mini işle finanse ediyorum.
 v257 | Das Projekt wird zur Hälfte von der EU finanziert. | Proje yarı yarıya AB tarafından finanse ediliyor.
 v257 | Ohne Stipendium hätte ich das Studium nicht finanzieren können. || Ich hätte das Studium ohne Stipendium nicht finanzieren können. | Burs olmadan eğitimimi finanse edemezdim.
+v686 | Als es in der Küche gebrannt hat, haben die Nachbarn sofort die Feuerwehr alarmiert. || Die Nachbarn haben sofort die Feuerwehr alarmiert, als es in der Küche gebrannt hat. | Mutfakta yangın çıkınca komşular hemen itfaiyeyi çağırdı.
+v686 | Wenn Sie einen Unfall sehen, müssen Sie sofort den Rettungsdienst alarmieren. || Wenn Sie einen Unfall sehen, müssen Sie den Rettungsdienst sofort alarmieren. | Bir kaza görürseniz hemen acil yardım servisini çağırmanız gerekir.
+v686 | Weil es im Keller nach Gas roch, alarmierte der Hausmeister die Feuerwehr. || Der Hausmeister alarmierte die Feuerwehr, weil es im Keller nach Gas roch. || Weil es im Keller nach Gas gerochen hat, hat der Hausmeister die Feuerwehr alarmiert. | Bodrumda gaz koktuğu için bina görevlisi itfaiyeyi çağırdı.
+v686 | Ein Passant hat den Notarzt alarmiert, weil eine Frau an der Haltestelle umgefallen ist. || Weil eine Frau an der Haltestelle umgefallen ist, hat ein Passant den Notarzt alarmiert. | Durakta bir kadın yere yığıldığı için yoldan geçen biri acil doktoru çağırdı.
+v686 | Obwohl die Party sehr laut war, wollte die Nachbarin nicht die Polizei alarmieren. || Die Nachbarin wollte nicht die Polizei alarmieren, obwohl die Party sehr laut war. || Obwohl die Party sehr laut war, wollte die Nachbarin die Polizei nicht alarmieren. | Parti çok gürültülü olmasına rağmen komşu kadın polisi çağırmak istemedi.
+v613 | Die Lehrerin hat am Anfang der Stunde die Arbeitsblätter verteilt. || Am Anfang der Stunde hat die Lehrerin die Arbeitsblätter verteilt. | Öğretmen dersin başında çalışma kâğıtlarını dağıttı.
+v613 | In unserer WG verteilen wir die Aufgaben jeden Monat neu. || Wir verteilen in unserer WG die Aufgaben jeden Monat neu. || Jeden Monat verteilen wir in unserer WG die Aufgaben neu. | WG'mizde görevleri her ay yeniden paylaştırıyoruz.
+v613 | Vor dem Bahnhof verteilte ein junger Mann Flyer für ein Konzert. || Ein junger Mann verteilte vor dem Bahnhof Flyer für ein Konzert. || Vor dem Bahnhof hat ein junger Mann Flyer für ein Konzert verteilt. | Tren istasyonunun önünde genç bir adam bir konser için el ilanı dağıttı.
+v613 | Kannst du den Kuchen so verteilen, dass jeder ein Stück bekommt? | Pastayı herkes bir parça alacak şekilde paylaştırabilir misin?
+v399 | Nennen Sie bitte drei Gründe für Ihre Meinung. | Lütfen fikriniz için üç gerekçe söyleyin.
+v399 | Wie nennt man das Ding auf Deutsch, mit dem man Wein öffnet? || Wie nennt man auf Deutsch das Ding, mit dem man Wein öffnet? | Şarap açmaya yarayan o şeye Almancada ne denir?
+v399 | Beim Bürgeramt musste ich meinen Namen und mein Geburtsdatum nennen. || Ich musste beim Bürgeramt meinen Namen und mein Geburtsdatum nennen. | Nüfus müdürlüğünde adımı ve doğum tarihimi söylemem gerekti.
+v399 | Die Zeitung hat den Namen des Täters nicht genannt. || Die Zeitung nannte den Namen des Täters nicht. | Gazete failin adını vermedi.
+v400 | Ich nutze die Bibliothek der Uni fast jeden Tag zum Lernen. || Fast jeden Tag nutze ich die Bibliothek der Uni zum Lernen. | Neredeyse her gün ders çalışmak için üniversitenin kütüphanesini kullanıyorum.
+v400 | Hast du die Pause genutzt, um deine Mutter anzurufen? | Molayı annene telefon etmek için kullandın mı?
+v400 | Viele Studenten nutzen das Semesterticket auch am Wochenende für Ausflüge. || Das Semesterticket nutzen viele Studenten auch am Wochenende für Ausflüge. | Birçok öğrenci sömestr biletini hafta sonu da geziler için kullanıyor.
+v400 | Du solltest die Chance nutzen und im Sommer ein Praktikum machen. | Bu fırsatı değerlendirip yazın staj yapmalısın.
+v429 | Wenn es morgen regnet, fällt das Grillfest im Park aus. || Das Grillfest im Park fällt aus, wenn es morgen regnet. | Yarın yağmur yağarsa parktaki mangal partisi iptal olur.
+v429 | Es regnete so stark, dass wir unter einer Brücke warten mussten. || Es hat so stark geregnet, dass wir unter einer Brücke warten mussten. | O kadar şiddetli yağmur yağdı ki bir köprünün altında beklemek zorunda kaldık.
+v429 | In Bremen regnet es im Herbst fast jeden Tag. || Im Herbst regnet es in Bremen fast jeden Tag. | Bremen'de sonbaharda neredeyse her gün yağmur yağıyor.
+v185 | Hast du schon für das Wochenende eingekauft? || Hast du für das Wochenende schon eingekauft? | Hafta sonu için alışveriş yaptın mı?
+v185 | Ich kaufe lieber auf dem Markt ein, weil das Gemüse dort frischer ist. | Pazardan alışveriş yapmayı tercih ediyorum, çünkü sebzeler orada daha taze.
+v185 | Wer ist diese Woche dran, für die WG einzukaufen? | Bu hafta WG için alışveriş yapma sırası kimde?
+v564 | Die Polizei untersucht noch, wie der Unfall passiert ist. | Polis kazanın nasıl olduğunu hâlâ araştırıyor.
+v564 | In meiner Hausarbeit untersuche ich, warum so viele Studenten das Studium abbrechen. || Ich untersuche in meiner Hausarbeit, warum so viele Studenten das Studium abbrechen. | Dönem ödevimde neden bu kadar çok öğrencinin okulu bıraktığını inceliyorum.
+v564 | Der Tierarzt untersuchte unsere Katze und fand nichts. || Der Tierarzt hat unsere Katze untersucht und nichts gefunden. | Veteriner kedimizi muayene etti ve hiçbir şey bulmadı.
+v378 | Hast du die Fotos von der Party schon gelöscht? || Hast du die Fotos von der Party gelöscht? | Partideki fotoğrafları sildin mi?
+v378 | Jeden Morgen lösche ich zuerst die Werbung aus meinem Postfach. || Ich lösche jeden Morgen zuerst die Werbung aus meinem Postfach. | Her sabah önce gelen kutumdaki reklamları siliyorum.
+v378 | Die Feuerwehr brauchte drei Stunden, um den Brand zu löschen. || Die Feuerwehr hat drei Stunden gebraucht, um den Brand zu löschen. | İtfaiyenin yangını söndürmesi üç saat sürdü.
+v099 | Kannst du mich morgen zur Ausländerbehörde begleiten? Mein Deutsch ist noch nicht so gut. | Yarın Yabancılar Dairesi'ne benimle gelebilir misin? Almancam henüz o kadar iyi değil.
+v099 | Der Pianist begleitete die Sängerin am Klavier. || Der Pianist hat die Sängerin am Klavier begleitet. | Piyanist piyanoda şarkıcıya eşlik etti.
+v099 | Unser Dozent hat uns bei der Exkursion nach Hamburg begleitet. || Bei der Exkursion nach Hamburg hat uns unser Dozent begleitet. | Öğretim görevlimiz Hamburg gezisinde bize eşlik etti.
+v447 | Die Prüfung schien leicht zu sein, aber am Ende hatte ich keine Zeit mehr. || Die Prüfung schien leicht, aber am Ende hatte ich keine Zeit mehr. | Sınav kolay görünüyordu ama sonunda vaktim kalmadı.
+v447 | Seit einer Woche hat die Sonne nicht mehr geschienen. || Die Sonne hat seit einer Woche nicht mehr geschienen. | Bir haftadır güneş hiç açmadı.
+v447 | Du scheinst heute gute Laune zu haben. Hast du die Prüfung bestanden? | Bugün keyfin yerinde görünüyor. Sınavı geçtin mi?
+v127 | Gestern haben wir mit dem Kurs das Bremer Rathaus besichtigt. || Wir haben gestern mit dem Kurs das Bremer Rathaus besichtigt. || Mit dem Kurs haben wir gestern das Bremer Rathaus besichtigt. | Dün kursla Bremen Belediye Sarayı'nı gezdik.
+v127 | In Istanbul solltest du unbedingt die Hagia Sophia besichtigen. || Du solltest in Istanbul unbedingt die Hagia Sophia besichtigen. | İstanbul'da mutlaka Ayasofya'yı gezmelisin.
+v127 | Die Touristen besichtigten zuerst den Dom und dann das Museum. || Die Touristen haben zuerst den Dom und dann das Museum besichtigt. | Turistler önce katedrali, sonra müzeyi gezdi.
+v242 | Ich habe heute noch nichts gegessen, weil ich keine Zeit hatte. || Weil ich keine Zeit hatte, habe ich heute noch nichts gegessen. | Vaktim olmadığı için bugün henüz hiçbir şey yemedim.
+v242 | Als Kind aß ich jeden Sonntag bei meiner Großmutter. || Als Kind habe ich jeden Sonntag bei meiner Großmutter gegessen. | Çocukken her pazar büyükannemde yemek yerdim.
+v242 | Du solltest mehr Gemüse essen und weniger Fast Food. || Du solltest weniger Fast Food und mehr Gemüse essen. | Daha çok sebze ve daha az fast food yemelisin.
+v423 | Die Firma hat erst nach drei Wochen auf meine Bewerbung reagiert. || Erst nach drei Wochen hat die Firma auf meine Bewerbung reagiert. || Die Firma hat auf meine Bewerbung erst nach drei Wochen reagiert. | Firma başvuruma ancak üç hafta sonra dönüş yaptı.
+v423 | Ich reagiere allergisch auf Katzen. || Auf Katzen reagiere ich allergisch. | Kedilere alerjim var.
+v423 | Der Busfahrer reagierte schnell auf das Kind auf der Straße und bremste. || Der Busfahrer hat schnell auf das Kind auf der Straße reagiert und gebremst. | Otobüs şoförü yoldaki çocuğa hızla tepki verdi ve fren yaptı.
+v232 | Die neue Regel soll ausländischen Studenten den Zugang zum Studium erleichtern. | Yeni kuralın yabancı öğrencilerin üniversiteye girişini kolaylaştırması amaçlanıyor.
+v232 | Du würdest mir die Sache sehr erleichtern, wenn du die Formulare übersetzen würdest. || Du würdest mir die Sache sehr erleichtern, wenn du die Formulare übersetzt. | Formları çevirsen işimi çok kolaylaştırırdın.
+v232 | Dass meine Nachbarin Türkisch spricht, hat mir den Anfang in Bremen sehr erleichtert. | Komşumun Türkçe konuşması Bremen'deki başlangıcımı çok kolaylaştırdı.

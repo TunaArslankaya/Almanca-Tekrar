@@ -49,7 +49,7 @@ def plural_form(lemma, pl):
     return base if suf == "-" else base + suf.lstrip("-")
 
 
-WEAK_LIST = {"Mensch", "Rabe", "Ehegatte", "Herr", "Nachbar", "Bauer", "Bär", "Held", "Prinz", "Graf", "Kamerad",
+WEAK_LIST = {"Mensch", "Pate", "Rabe", "Ehegatte", "Herr", "Nachbar", "Bauer", "Bär", "Held", "Prinz", "Graf", "Kamerad",
              "Soldat", "Automat", "Kandidat", "Pilot", "Architekt", "Präsident", "Student", "Patient",
              "Assistent", "Dozent", "Journalist", "Polizist", "Tourist", "Spezialist", "Praktikant",
              "Elefant", "Migrant", "Fotograf", "Typ", "Kunde", "Kollege", "Junge", "Name", "Experte",
