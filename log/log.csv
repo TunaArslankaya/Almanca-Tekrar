@@ -3790,3 +3790,32 @@
 2026-11-06 13:08:27;nsatz;n0536:nsatz;der Himmel;Das Wetter ist der Zustand am _____.;Himmel;richtig;Himmel;basamak:B3 | bicim:bos | not:m3 | R:0.89 | S:29.8 | sek:7 | ipucu:1
 2026-11-06 13:08:31;erk;w0170:erk;fließend;akıcı;fließend;richtig;fließend;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:1.4 | sek:3
 2026-11-06 13:08:39;nsatz;x1567:nsatz;der Pate;Mein Onkel ist der _____ meiner Tochter.;Patenscahft;falsch;Pate;basamak:B2 | bicim:bos0 | not:m1 | R:0.89 | S:1.0 | artikel / ek | sek:8 | ipucu:0
+2026-11-06 13:09:26;stamm;v119:stamm;sich beruhigen;Das Baby hat sich endlich _____.;beruhigt;richtig;beruhigt;basamak:K | bicim:kokSatz | not:k3 | R:0.35 | S:0.4 | kök:beruhigen | sek:7
+2026-11-06 13:09:33;art;n1303:art;der Verein;Verein;das;falsch;der Verein;basamak:A | bicim:artikel | not:a1 | R:0.56 | S:0.1 | artikel das → der | sek:3
+2026-11-06 13:09:37;wort;x1564:wort;das Hochwasser;sel, taşkın;das Hochwasser;richtig;das Hochwasser;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:3.9 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:10:01;abr;v278:abr;sich fürchten vor;Birçok öğrenci serbest konuşmak zorunda oldukları için sözlü sınavdan korkuyor. | (bir şeyden) korkmak;fürchten vor d;falsch;sich fürchten vor (vor + Dat);basamak:B2 | bicim:kalip | not:m1 | R:0.75 | S:0.6 | düzeltti | dönüşlü, sich eksik | sek:16 | ipucu:2
+2026-11-06 13:10:05;ayir;v177~w0595;sich eignen für ~ eigen;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:4
+2026-11-06 13:10:09;gram;g:vergleich:56;vergleich/als-wie;Unsere neue Wohnung ist viel heller ___ die alte.;als;richtig;als;tur:akis | tür:luecke | z:2 | ghost:2 | sek:3
+2026-11-06 13:10:17;duy;n1422:duy-kelime;das Ziel;ses: das Ziel;hedef;richtig;hedef;tür:kelime | hız:0.9 | tekrar:1 | sek:8
+2026-11-06 13:10:22;prod;w0479:prod;trocken;kuru;trocken;richtig;trocken;basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:8.7 | kurtarma | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:10:33;art;n1375:art;der Wetterbericht;Hast du schon ___ Wetterbericht gehört? [Akk];das;falsch;den;basamak:A | bicim:artOb | not:a1 | R:0.57 | S:0.1 | hâl:Akk | artikel das → den | sek:7
+2026-11-06 13:10:33;leech;n1375;der Wetterbericht;hava raporu;;takiliyor;;günler:2026-10-15,2026-10-28,2026-11-06
+2026-11-06 13:10:37;abr;v278:abr;sich fürchten vor;(bir şeyden) korkmak;sich fürchten vor;richtig;sich fürchten vor (vor + Dat);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:10:48;gram;g:es-korrelat:59;es-korrelat/wetter;Draußen wird schon dunkel.;hata yok;falsch;Draußen wird es schon dunkel.;tur:akis | tür:fehler | z:2 | eksik kelime | sek:7
+2026-11-06 13:10:55;hoer;hoer:w-f;warm/Farm;Farm;Farm;richtig;Farm;cift:warm/Farm | ses:Google Deutsch | dinleme:2 | sek:5 | kaynak:tur
+2026-11-06 13:10:56;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:93 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-06 13:11:10;stamm;v642:stamm;sich wenden an;wenden — Perfekt;wendet;falsch;gewendet;basamak:K | bicim:kokSatz | not:k1 | R:0.40 | S:0.1 | kök:wenden | Partizip: gewendet, biçim karıştı: Präsens er/sie | sek:9
+2026-11-06 13:11:14;art;n1082:art;der Service;Service;die;falsch;der Service;basamak:A | bicim:artikel | not:a1 | R:0.58 | S:0.3 | artikel die → der | sek:1
+2026-11-06 13:11:17;wort;n0602:wort;die Kasse;kasa;die Kasse;richtig;die Kasse;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:16.2 | kapı:7g | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:11:24;yeni;x1575;die Regierung;tanıtım;;neu;hükümet;basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-11-06 13:11:28;yeni;w0320;mehrere;tanıtım;;neu;birkaç, birçok;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-06 13:11:35;erk;x1575:erk;die Regierung;hükümet;die Regierung;richtig;die Regierung;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0972/n0973/n0974 | çeldirici:biçim/biçim/biçim | sek:6
+2026-11-06 13:11:38;erk;w0320:erk;mehrere;birkaç, birçok;mehrere;richtig;mehrere;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0051/w0551/w0315 | çeldirici:bilinen/havuz/bilinen | sek:2
+2026-11-06 13:11:41;ayir;n1372~x1555;der Wert ~ die Würde;değer;der Wert;richtig;der Wert;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-06 13:11:54;gram;g:satzklammer-tekamolo:67;satzklammer-tekamolo/tekamolo;Meine Eltern kommen ___ ___ nach Bremen. (mit dem Flugzeug · nächste Woche);"nachste Woche ; mit dem Flugzeug";fast;"nächste Woche ; mit dem Flugzeug";tur:akis | tür:luecke | z:2 | kelime sırası | sek:10
+2026-11-06 13:12:00;wort;x1575:wort;die Regierung;hükümet;die Regierung;richtig;die Regierung;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:12:02;prod;w0320:prod;mehrere;birkaç, birçok;mehrere;richtig;mehrere;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:12:19;duy;w0118:duy-bosluk;ebenfalls;Frau Schulz ist heute krank, Herr Becker fehlt _____.;ebenfalls;richtig;ebenfalls;tür:bosluk | hız:0.9 | tekrar:1 | sek:17
+2026-11-06 13:12:28;gram;g:n-deklination:60;n-deklination/erkennen;Für die Hochzeit suchen wir noch einen guten ___. (der Fotograf);Fotograf;falsch;Fotografen;tur:akis | tür:luecke | z:2 | artikel/çekim | sek:6
+2026-11-06 13:12:36;wort;n1376:wort;die Wettervorhersage;hava tahmini;die Wettervorhersage;richtig;die Wettervorhersage;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:8.7 | kurtarma | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:12:36;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:81 | dk:2 | yeni:2 | seviye+:0 | tekrar:5 | gram:0/2
