@@ -889,14 +889,10 @@ body.calis-modu .bar:hover .tabs { opacity: 1; }
 .seviye-nokta i.dolu { background: var(--accent); border-color: var(--accent); }
 .seviye-nokta span { margin-left: .35rem; }
 .seviye-cip { background: color-mix(in srgb, var(--gold) 26%, var(--surface)); color: var(--gold-ink); border-color: transparent; font-weight: 700; animation: belir var(--hiz) ease; }
-/* seçmeli: şıklar tam genişlik, alt alta; 1,2 sn dolum çizgisi; yer baştan ayrılır (kayma yok) */
+/* seçmeli: şıklar tam genişlik, alt alta; gizliyken yer baştan ayrılır (kayma yok), üstünde perde (.mc-perde) */
 .mc, .mc.kisa { grid-template-columns: 1fr !important; }
 .mc-opt { min-height: 56px; width: 100%; font-size: 1.1rem; }
 .mc.kapali { visibility: hidden; }
-.dolum-cizgi { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
-.dolum-cizgi span { display: block; height: 100%; width: 0; background: var(--accent); animation: dol 1.2s linear forwards; }
-.dolum-cizgi.bitti { visibility: hidden; }
-.mc-ipucu { color: var(--muted); font-size: .85rem; text-align: center; }
 .alt-sira { display: flex; gap: .5rem; align-items: center; justify-content: space-between; min-height: var(--hedef); }
 .alt-sira .bilmiyorum { color: var(--muted); }
 .alt-sira .btn.ana { flex: 1 1 auto; justify-content: center; }
@@ -1258,3 +1254,29 @@ body.calis-modu .yenile-cubuk { display: none; }
 .dn-anahtar .chip { font-size: 1rem; }
 .dn-ses-sec { display: inline-flex; gap: .4rem; align-items: center; max-width: 100%; }
 .dn-ses-sec select { max-width: 14rem; }
+/* seçmeli (6.11, S5): şıklar gizli, perde "Önce aklından söyle"; Enter / Boşluk / dokunuş açar */
+.mc-yer { position: relative; }
+.mc-perde { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; min-height: 48px; width: 100%;
+  border: 2px dashed var(--line); border-radius: var(--r); background: var(--surface-2); color: var(--ink); font: inherit; cursor: pointer; padding: .8rem; text-align: center; }
+.mc-perde:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.mc-perde-bas { font-family: var(--f-disp); font-weight: 700; font-size: 1.15rem; }
+.mc-perde-alt { color: var(--muted); font-size: .9rem; }
+@media (pointer: coarse) { .klavye-ipucu { display: none; } }
+.sec-anlam { margin-left: .3rem; }
+/* sonuç paneli (S6): yanlış / küçük hatada Devam 2,5 sn kilitli (geri sayım dolumu), tanıtım kartı 4 sn */
+.devam-btn.kilitli { opacity: .6; cursor: not-allowed; }
+.devam-btn .geri-sayim { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: color-mix(in srgb, var(--accent-ink, #fff) 28%, transparent); animation: dol 2.5s linear forwards; pointer-events: none; }
+.devam-btn.salla, .duzelt-kutu.salla { animation: salla .38s ease; }
+.duzelt-kutu.salla { position: relative; }
+/* "doğrusunu bir kez yaz" kutusu */
+.duzelt-kutu { display: grid; gap: .45rem; padding: .7rem .8rem; border: 2px dashed var(--accent); border-radius: var(--r); background: var(--surface); }
+.duzelt-kutu.ok { border-style: solid; border-color: var(--ok); background: var(--ok-soft); }
+.duzelt-kutu.ok .duzelt-et { color: var(--ok); }
+.duzelt-et { font-weight: 700; }
+.duzelt-alt { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-height: 0; }
+.duzelt-alt:empty { display: none; }
+.duzelt-not { font-size: .88rem; }
+.duzelt-gec { margin-left: auto; }
+.u-eski { color: var(--bad); opacity: .75; }
+.u-luecke.u-duzelt { border-style: dashed; border-color: var(--accent); }
+.u-luecke.u-duzelt.ok { border-style: solid; border-color: var(--ok); background: var(--ok-soft); }

@@ -1,6 +1,8 @@
 // Ortak Playwright adım sürücüsü (tests/e2e_smoke.js, tests/sim_akis.js, tools/film.js): ekrandaki kartı tanır ve cevaplar.
 // Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer,
 // gram (turdaki gramer sorusu), ses (turdaki ses yuvası: duy / soyle / hoer).
+// 6.11 (S5 / S6): seçmeli şıklar gizli (Enter ile açılır); yanlış / küçük hatada Devam 2,5 sn kilitli (Enter tekrarlanır);
+// yazma biçimlerinde yanlışta "doğrusunu bir kez yaz" kutusu doğru cevapla doldurulur; metinde yanlış boşlukların doğrusu yazılır; tanıtım kartı ≥ 4 sn (tıklama düğme açılınca).
 // Kullanım: const D = require('./surucu'); const b = await D.tarayici(); const p = await D.sayfa(b, { mobil: true, zustand }); await D.adim(p, { dogru: 0.8 });
 const path = require('path');
 const fs = require('fs');
@@ -55,7 +57,8 @@ const durum = p => p.evaluate(() => {
     : a.typ === 'akt' ? (a.art === 'luecke' ? 'metin' : a.art) : a.yoklama ? 'yoklama' : a.bicim === 'kokSatz' ? 'kok' : a.bicim || a.typ;
   const r = { tur: ad, typ: a.typ, id: a.id, bicim: a.bicim, neden: s.neden || null, kaynak: s.kaynak || null, mc: !!a.mc, art: !!a.artFrage, input: !!a.input,
     done: !!a.done, islendi: !!a.islendi, offen: !!a.offen, wartet: !!a.wartet, ziel: a.ziel, leerTeklif: !!a.teklif, sebep: a.sebep,
-    yoklama: !!a.yoklama, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, tuzakArt: a.optionen ? a.optionen.findIndex(o => o.tuzak === 'artikel') : -1, nopt: a.optionen ? a.optionen.length : 0, schritt: a.schritt, warte: !!a.warte, itirazVar: a.itirazVar && !a.itiraz };
+    yoklama: !!a.yoklama, ok: a.optionen ? a.optionen.findIndex(o => o.ok) : -1, tuzakArt: a.optionen ? a.optionen.findIndex(o => o.tuzak === 'artikel') : -1, nopt: a.optionen ? a.optionen.length : 0, schritt: a.schritt, warte: !!a.warte, itirazVar: a.itirazVar && !a.itiraz,
+    kilit: !!a.kilit, duzelt: !!(a.duzelt && !a.duzelt.ok && !a.duzelt.gec), dz: a.dz ? Object.keys(a.dz).filter(k => a.dz[k] !== true).map(Number) : null };
   if (a.typ === 'akt') { r.blanks = a.blanks ? a.blanks.map(b => b.form) : null; r.satz = a.satz ? a.satz.de : null; }
   if (a.typ === 'paket' && a.schritt === 'luecke') r.form = T.pById[a.pid].luecken[a.i].form;
   if (a.artFrage) r.artikel = T.byId[a.id].art;
@@ -68,7 +71,7 @@ const durum = p => p.evaluate(() => {
 const bekle = ms => new Promise(r => setTimeout(r, ms));
 // cevaptan sonra: doğruda kendiliğinden geçişi bekle, yoksa Devam (Enter); kart değişene kadar
 async function sonra(p, once) {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 80; i++) {
     const s = await durum(p);
     if (s.tur !== once.tur || s.id !== once.id || (!s.done && !s.wartet && once.done !== undefined && s.typ !== once.typ)) return s;
     if (s.done && !s.islendi && i > 3) await p.keyboard.press('Enter');
@@ -76,6 +79,23 @@ async function sonra(p, once) {
     await p.waitForTimeout(60);
   }
   return durum(p);
+}
+// "doğrusunu bir kez yaz" kutusu (S6): açıksa doğru cevabı yazar (canlı denetim input olayıyla); metinde yanlış boşlukların doğrusu
+async function duzelt(p, ziel) {
+  const s = await durum(p);
+  if (s.duzelt && ziel != null && await p.$('#duzelt-inp')) { await p.fill('#duzelt-inp', String(ziel)); await p.waitForTimeout(30); }
+}
+async function aktDuzelt(p, blanks) {
+  const s = await durum(p);
+  for (const i of s.dz || []) { const el = await p.$(`.u-duzelt[data-dz="${i}"]`); if (el) await el.fill(blanks[i]); }
+}
+// metin / dikte sonucu: kilit ve düzeltme bitene dek Enter
+async function aktGec(p) {
+  for (let i = 0; i < 60; i++) {
+    const t = await p.evaluate(() => { const a = window.__tekrar.aktuell; return a && a.typ === 'akt' && a.wartet; });
+    if (!t) return;
+    await p.keyboard.press('Enter'); await p.waitForTimeout(60);
+  }
 }
 // tek adım. o: { dogru: 0..1 (doğru cevap olasılığı), rnd, itiraz: true (yanlışta itiraz düğmesi varsa bas),
 //   artYanlis: 0..1 (yanlışta isimde yalnız artikeli yanlış ver: kelime ✓ · artikel ✗), sonucCek: async (durum) => {} (sonuç paneli açıkken, Devam'dan önce) }
@@ -114,16 +134,23 @@ async function adim(p, o) {
     for (let i = 0; i < s.blanks.length; i++) await p.fill(`.u-luecke[data-al="${i}"]`, rnd() < (o.dogru == null ? 1 : o.dogru) ? s.blanks[i] : 'xxxyz');
     await p.click('[data-akt="pruef"]'); await p.waitForTimeout(60);
     if (o.sonucCek) await o.sonucCek(await durum(p));
-    await p.keyboard.press('Enter'); await p.waitForTimeout(100);
+    await aktDuzelt(p, s.blanks);
+    await aktGec(p); await p.waitForTimeout(40);
     return { ad, s };
   }
   if (ad === 'diktat') {
     await p.fill('#cevap', dogruMu ? s.satz : 'ich weiß nicht'); await p.press('#cevap', 'Enter'); await p.waitForTimeout(60);
     if (o.sonucCek) await o.sonucCek(await durum(p));
-    await p.keyboard.press('Enter'); await p.waitForTimeout(100);
+    await aktGec(p); await p.waitForTimeout(40);
     return { ad, s };
   }
   if (s.mc) {
+    // şıklar gizli: önce aklından söyle, sonra Enter (soru açıldıktan ≥ 0,45 sn sonra açılır)
+    for (let i = 0; i < 40; i++) {
+      if (await p.evaluate(() => { const a = window.__tekrar.aktuell; return !a.mc || a.offen || a.done; })) break;
+      await p.waitForTimeout(i ? 120 : 480);
+      await p.keyboard.press(i % 2 ? 'Space' : 'Enter');
+    }
     await p.waitForFunction(() => { const a = window.__tekrar.aktuell; return !a.mc || a.offen || a.done; }, null, { timeout: 5000 });
     await p.waitForTimeout(460);   // açıldıktan sonra < 0,4 sn basış sayılmaz
     const yanlis = !dogruMu && s.tuzakArt >= 0 && rnd() < (o.artYanlis || 0) ? s.tuzakArt : (s.ok + 1) % s.nopt === s.tuzakArt && s.nopt > 2 ? (s.ok + 2) % s.nopt : (s.ok + 1) % s.nopt;
@@ -143,6 +170,7 @@ async function adim(p, o) {
     await p.waitForTimeout(60);
     const s2 = await durum(p);
     if (o.itiraz && s2.itirazVar) { await p.click('[data-act="itiraz"]'); await p.waitForTimeout(40); }
+    if (!dogruMu) await duzelt(p, s.ziel);
   } else return { ad: 'bilinmeyen:' + s.typ, s };
   if (o.sonucCek) { const s3 = await durum(p); if (s3.done && !s3.islendi) await o.sonucCek(s3); }
   await sonra(p, s);
@@ -159,4 +187,4 @@ const zustandOku = dosya => fs.readFileSync(dosya || path.resolve(__dirname, '..
 // göç senaryoları için dondurulmuş v3 kaydı (Tuna'nın cihazı 15.10'da v5'e geçti; gerçek log/zustand.json artık surum 4): tests/fixtures/zustand_v3.json
 const zustandV3 = () => { const f = path.resolve(__dirname, 'fixtures', 'zustand_v3.json'); return fs.existsSync(f) ? fs.readFileSync(f, 'utf8') : zustandOku(); };
 
-module.exports = { playwright, tarayici, sayfa, durum, adim, adimlar, ileri, URL, DAY, GORUNUM, zustandOku, zustandV3 };
+module.exports = { playwright, tarayici, sayfa, durum, adim, adimlar, ileri, duzelt, aktGec, URL, DAY, GORUNUM, zustandOku, zustandV3 };

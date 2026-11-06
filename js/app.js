@@ -14,7 +14,7 @@
   const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 
   // Hızlı tur zamanları (baştan savmaya karşı)
-  const DENKZEIT = 1200;     // seçenekler 1,2 sn sonra açılır (dokununca hemen): önce aklından söyle
+  const MC_AC_MIN = 450;     // seçmeli şıklar kendiliğinden açılmaz (önce aklından söyle); Enter / Boşluk / dokunuş soru açıldıktan en erken 0,45 sn sonra açar (çift Enter / çift dokunuş açmasın)
   // (seçenekler açıldıktan sonra 0,4 sn'den hızlı basış okunmamış sayılır: Kern.notVer 'sayılmadı')
   // (seçmelide yavaş-doğru artık "zor" değil: yalnız 15 sn üstü; okuma hızı cezalandırılmasın)
   // senkron koruması: bu kodun anladığı en yeni şema (uzaktaki S.surum bundan büyükse birleştirme ve yazma yok)
@@ -279,7 +279,7 @@
   // gizlenince (ekran kilidi, başka uygulama): cevap İŞLENMEZ (dönünce itiraz / kendiliğinden geçiş sürer), yalnız kalıcı kaydedilir;
   // uygulama arka planda öldürülürse sonraki açılışta bekleyenIsle işler
   const BEKLEYEN_KEY = 'almanca-tekrar-bekleyen';
-  const Q_ALAN = ['id', 'sel', 'bicim', 'antwort', 'ziel', 'frageText', 'typ', 'modus', 'mc', 'artFrage', 'bos', 'yoklama', 'ipucu', 'ipucuLv', 'sek', 'oneri', 'kontext', 'b', 'itiraz', 'yardim', 'voll', 'ipucuTur'];
+  const Q_ALAN = ['id', 'sel', 'bicim', 'antwort', 'ziel', 'frageText', 'typ', 'modus', 'mc', 'artFrage', 'bos', 'yoklama', 'ipucu', 'ipucuLv', 'sek', 'oneri', 'kontext', 'b', 'itiraz', 'yardim', 'voll', 'ipucuTur', 'sik', 'sikK', 'duzelt'];
   function bekleyenKaydet() {
     const q = aktuell;
     if (!(q && q.done && !q.islendi && q.sonuc)) return;
@@ -529,6 +529,8 @@
     q = Object.assign(base, q, { bicim: base.bicim });
     q.typ = Kern.eskiTur(id, q.bicim, q.uretecGercek || null) || F_TUR[q.bicim] || (k === 'v' ? 'bed' : 'erk');
     if (q.ipucuLv == null) q.ipucuLv = q.lvGercek != null ? q.lvGercek : IPUCU[q.bicim] != null ? IPUCU[q.bicim] : null;
+    // seçmeli: gösterilen çeldiriciler log'a (şık:a/b/c, çeldirici:kaynak/…)
+    if (q.mc && q.optionen) { const y = q.optionen.filter(o => !o.ok && o.id); q.sik = y.map(o => o.id).join('/'); q.sikK = y.map(o => o.kaynak || '?').join('/'); }
     return q;
   }
   // sade: yalnız Türkçe karşılık (yoklama); değilse ipucu türü dönüşümlü (yazIpucu)
@@ -549,38 +551,138 @@
   const ipucuHTML = s => `<div class="soluk">İpucu: <code>${esc(String(s).split(' ').map(w => w[0] + '·'.repeat(Math.max(0, w.length - 1))).join(' '))}</code> <span class="soluk">(${String(s).replace(/\s/g, '').length} harf)</span></div>`;
 
   // ---------- Tanıma (seçmeli) ----------
-  // Çeldiriciler: aynı türden, anlamdaşı olmayan; yarısı tanıdığın kelimelerden (daha zor)
-  // şık olarak son 10 soruda çıkan kelime yine şık olmasın (aynı kelimeyi her soruda görme)
+  // Çeldiriciler (6.11, sözleşme S5): aynı kelimenin yanlış artikelli / yanlış edatlı ikizi YOK (iki şık aynı kelimeyi taşıyınca cevap
+  // onlardan biriydi: seçmeli yanlışların 42/50'si). Aday puanı: 1) Tuna'nın karıştırdıkları (karismaTablosu) 2) biçimce benzer
+  // (ortak baş ≥ 4 harf, kısa kelimede 3, ya da lev ≤ 3; bildiği önce) 3) aynı konu + bildiği 4) bildiği 5) aynı konu 6) rastgele (hiç görülmemiş en son).
+  // Anlamdaş (aynı Türkçe karşılık ya da ortak uzun Türkçe kelime) ve aynı lemma (der See / die See, sorgen für / sich sorgen um) şık olmaz.
+  // Şıkların id'si ve kaynağı soruda (q.sik / q.sikK) → log notiz 'şık:a/b/c | çeldirici:…'
+  // şık olarak son 10 soruda çıkan kelime yine şık olmasın (karışma çiftleri hariç: onlar bilerek tekrar gelir)
   const ABLENK_PAUSE = 10;
   const ablenkFrei = x => { const a = session.ablenk || {}; return a[x] == null || session.q - a[x] >= ABLENK_PAUSE; };
   const ablenkMerke = ids => { const a = session.ablenk = session.ablenk || {}; ids.forEach(x => { a[x] = session.q; }); };
-  function optionen(id) {
-    const k = kind(id);
-    const richtig = optTr(trOf(id));
+  const kucuk = s => String(s == null ? '' : s).toLowerCase();
+  const umlKat = s => s.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+  // biçim karşılaştırmasında kelimenin özü: artikelsiz, sich'siz, küçük harf (verschreiben / unterschreiben, das Gedicht / die Geduld)
+  const _cek = new Map();
+  const cekirdek = id => { let c = _cek.get(id); if (c == null) { try { c = kucuk(lemmaOf(id)).replace(/^(der|die|das|sich)\s+/, '').replace(/\s*…\s*/g, ' ').trim(); } catch (e) { c = ''; } _cek.set(id, c); } return c; };
+  const ortakBas = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; };
+  function bicimYakin(a, b) {
+    if (!a || !b || a === b) return false;
+    const p = ortakBas(a, b);
+    if (p >= 4 || (p >= 3 && Math.min(a.length, b.length) <= 7)) return true;
+    if (Math.abs(a.length - b.length) > 3) return false;
+    const d = Kern.lev(a, b);
+    return d <= 3 && d <= Math.max(a.length, b.length) * 0.4;
+  }
+  const ogeVar = id => !!(id && (kind(id) === 'v' ? vById[id] : kind(id) === 'w' ? wById[id] : kind(id) === 'n' ? byId[id] : null));
+
+  // ---------- karışma tablosu (S5; ayir sorusu da kullanır): log'daki yanlış cevap (yazma / boşluk / metin / seçmeli) başka bir öğeye
+  // eşit ya da yakınsa (G.yakin: yazım / ek farkı; lev ≤ 2) iki yönlü çift. { id: [karıştırılan id …] } (sık karışan önce); S.log değişince yeniden kurulur.
+  const KAR_MODUS = new Set(['wort', 'abr', 'prod', 'satz', 'nsatz', 'ndek', 'refl', 'luecke', 'erk', 'bed']);
+  const kNorm = s => kucuk(s).replace(/[.,!?;:„“"()…]/g, ' ').replace(/\s+/g, ' ').trim();
+  const kAyikla = s => kNorm(s).replace(/^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|sich)\s+/, '').replace(/^sich\s+/, '').replace(/\s+(a|d|akk|dat)$/, '').trim();
+  let _kIdx = null, _karisma = null;
+  function karismaIdx() {
+    if (_kIdx) return _kIdx;
+    const ex = new Map(), harf = new Map(), lbl = new Map(), tr = new Map();
+    const ekle = (m, k, v) => { if (!k) return; const l = m.get(k); if (l) l.push(v); else m.set(k, [v]); };
+    NL.map(n => n.id).concat(VERBEN.map(v => v.id), WOERTER.map(w => w.id)).forEach(id => {
+      const c = cekirdek(id); if (!c) return;
+      const u = umlKat(c);
+      ekle(ex, u, id);
+      if (u.length >= 4) ekle(harf, u[0], { id, c: u });
+      try { ekle(lbl, kNorm(label(id)), id); ekle(tr, kNorm(optTr(trOf(id))), id); } catch (e) { /* yok */ }
+    });
+    return (_kIdx = { ex, harf, lbl, tr });
+  }
+  // tek cevap → karıştırılan öğe (yoksa null): seçmelide şıkkın metni (Almanca etiket / Türkçe anlam), yazmada lemma (eşit ya da yakın)
+  function karismaBul(ant, own) {
+    const I = karismaIdx(), a = kNorm(ant), ownC = umlKat(cekirdek(own));
+    if (!a || a.split(' ').length > 4) return null;
+    const tek = l => { const u = [...new Set((l || []).filter(x => x !== own && umlKat(cekirdek(x)) !== ownC))]; return u.length === 1 ? u[0] : null; };
+    if (I.lbl.has(a)) return tek(I.lbl.get(a));
+    if (I.tr.has(a)) return tek(I.tr.get(a));
+    const b = umlKat(kAyikla(ant)), aday = [b];
+    if (b.includes(' ')) aday.push(b.split(' ')[0]);   // fiil + edat: fiilin kendisi
+    for (const x of aday) {
+      if (!x || x === ownC || G.yakin(x, ownC)) return null;   // kendi kelimesinin yazım / ek hatası
+      if (I.ex.has(x)) return I.ex.get(x).find(y => y !== own && umlKat(cekirdek(y)) !== ownC) || null;
+      if (x.length < 4) continue;
+      let best = null, bd = 9;
+      for (const o of I.harf.get(x[0]) || []) {
+        if (o.id === own || o.c === ownC || Math.abs(o.c.length - x.length) > 3) continue;
+        const y = G.yakin(x, o.c), d = y ? 1 : Kern.lev(x, o.c);
+        if (d < bd && (y || (d <= 2 && o.c.length >= 5))) { bd = d; best = o.id; }
+      }
+      if (best) return best;
+    }
+    return null;
+  }
+  // artımlı: son işlenen satırdan (nesne kimliği) sonrası işlenir; log baştan kırpılınca sayımlar kalır (daha uzun geçmiş), satır bulunamazsa baştan
+  function karismaTablosu() {
+    const L = S.log || [];
+    let c = _karisma, j = c && c.son ? L.lastIndexOf(c.son) : -1;
+    if (!c || (c.son && j < 0)) { c = _karisma = { son: null, say: {}, t: null }; j = -1; }
+    if (c.t && j === L.length - 1) return c.t;
+    lexSet();
+    const say = c.say, ekle = (a, b) => { const m = say[a] = say[a] || {}; m[b] = (m[b] || 0) + 1; };
+    for (let i = j + 1; i < L.length; i++) {
+      const e = L[i];
+      if (!e || e.ergebnis !== 'falsch' || !e.antwort || !KAR_MODUS.has(e.modus)) continue;
+      const own = String(e.id || '').split(':')[0];
+      if (!ogeVar(own)) continue;
+      let x = null; try { x = karismaBul(e.antwort, own); } catch (err) { x = null; }
+      if (x && ogeVar(x)) { ekle(own, x); ekle(x, own); }
+    }
+    c.son = L[L.length - 1] || null;
+    const t = {};
+    Object.keys(say).forEach(a => { t[a] = Object.keys(say[a]).sort((x, y) => say[a][y] - say[a][x]); });
+    return (c.t = t);
+  }
+  window.karismaTablosu = karismaTablosu;   // modüller (Dinle / Konus / Cumle) ve testler için
+
+  // n çeldirici: [{ x, t, kaynak }]; metin(x) şıkta görünen yazı, hedef = doğru şıkkın yazısı
+  const trSozler = s => kucuk(s).split(/[^a-zçğıöşü]+/).filter(x => x.length >= 4);
+  function celdiriciler(id, metin, hedef, n) {
+    const k = kind(id), c0 = cekirdek(id), ths = new Set(THEMA_VON[id] || []);
     let pool;
     if (k === 'v') pool = VERBEN.map(v => v.id);
     else if (k === 'w') { const kl = wById[id].kl; pool = WOERTER.filter(w => w.kl === kl).map(w => w.id); if (pool.length < 12) pool = WOERTER.map(w => w.id); }
-    else pool = NL.map(n => n.id);
-    const verboten = new Set([trKey(trOf(id))]);
-    // önce aynı konudan, aynı türden (Wettervorhersage → Wetterbericht, Temperatur …); sonra genel havuz
-    const ths = THEMA_VON[id] || [];
-    const nah = shuffle([...new Set(ths.flatMap(t => thById[t].items))].filter(x => kind(x) === k && x !== id && gueltig(x + ':x') && ablenkFrei(x))).slice(0, 2);
-    const bekannt = shuffle(pool.filter(x => S.items[x] && ablenkFrei(x)));
-    const rest = shuffle(pool.filter(ablenkFrei)).concat(shuffle(pool));
-    const out = [], texte = new Set([richtig]), ids = [];
-    for (const x of nah.concat(bekannt.slice(0, 1), rest)) {
-      if (out.length >= 3) break;
-      if (x === id || verboten.has(trKey(trOf(x)))) continue;
-      const t = optTr(trOf(x));
-      // neredeyse anlamdaş olmasın: Türkçede ortak uzun kelime varsa (hava tahmini / hava raporu) atla
-      const w = s => s.toLowerCase().split(/[^a-zçğıöşü]+/).filter(x => x.length >= 4);
-      if (w(t).some(x => w(richtig).includes(x))) continue;
-      if (!t || texte.has(t)) continue;
-      texte.add(t); verboten.add(trKey(trOf(x)));
-      out.push({ t, ok: false }); ids.push(x);
+    else pool = NL.map(x => x.id);
+    const aday = [];
+    (karismaTablosu()[id] || []).forEach((x, i) => { if (ogeVar(x) && gueltig(x + ':x')) aday.push({ x, p: 10 - i * 0.01, kaynak: 'karışma' }); });
+    const kar = new Set(aday.map(a => a.x));
+    for (const x of pool) {
+      if (x === id || kar.has(x) || !ablenkFrei(x)) continue;
+      const bil = !!S.items[x], konu = (THEMA_VON[x] || []).some(t => ths.has(t)), jit = Math.random() * 0.4;
+      if (bicimYakin(c0, cekirdek(x))) aday.push({ x, p: 5 + (bil ? 0.5 : 0) + jit, kaynak: 'biçim' });
+      else if (konu && bil) aday.push({ x, p: 4 + jit, kaynak: 'konu' });
+      else if (bil) aday.push({ x, p: 3 + jit, kaynak: 'bilinen' });
+      else if (konu) aday.push({ x, p: 2 + jit, kaynak: 'konu' });
+      else aday.push({ x, p: jit, kaynak: 'havuz' });
     }
-    ablenkMerke(ids.concat([id]));
-    return shuffle(out.concat([{ t: richtig, ok: true }]));
+    // son 10 soruda çok kelime şık olduysa (küçük tür): hepsi yedek
+    if (aday.length < n + 6) pool.forEach(x => { if (x !== id && !kar.has(x)) aday.push({ x, p: -1 + Math.random() * 0.4, kaynak: 'havuz' }); });
+    aday.sort((a, b) => b.p - a.p);
+    const out = [], texte = new Set([hedef]), verboten = new Set([trKey(trOf(id))]), cekler = new Set([c0]), hw = trSozler(optTr(trOf(id)));
+    for (const a of aday) {
+      if (out.length >= n) break;
+      const x = a.x;
+      let t, tk, c;
+      try { t = metin(x); tk = trKey(trOf(x)); c = cekirdek(x); } catch (e) { continue; }
+      if (!t || texte.has(t) || verboten.has(tk) || cekler.has(c)) continue;   // ikiz (aynı lemma) ve anlamdaş yok
+      if (trSozler(optTr(trOf(x))).some(w => hw.includes(w))) continue;        // neredeyse anlamdaş (hava tahmini / hava raporu)
+      texte.add(t); verboten.add(tk); cekler.add(c);
+      out.push({ x, t, kaynak: a.kaynak });
+    }
+    ablenkMerke(out.map(o => o.x).concat([id]));
+    return out;
+  }
+  // DE → TR (anlamı ne? / metinde): Türkçe şıklar. Şık: { t, ok, id, kaynak } (Dinle de kullanır: api.optionen)
+  function optionen(id) {
+    const richtig = optTr(trOf(id));
+    const out = celdiriciler(id, x => optTr(trOf(x)), richtig, 3).map(c => ({ t: c.t, ok: false, id: c.x, kaynak: c.kaynak }));
+    return shuffle(out.concat([{ t: richtig, ok: true, id }]));
   }
 
   function erkPrompt(id, frageText, artikelsiz) {
@@ -591,46 +693,19 @@
     return `<div class="soru de buyuk-kelime">${de}${alt}</div>${frageText ? `<div class="soluk">${esc(frageText)}</div>` : ''}`;
   }
 
-  // TR → DE seçmeli (4 şık): isimde biri doğru ismin yanlış artikelli hâli (die / das isimde hep "der": en sık hata);
-  // edatlı fiilde biri aynı fiilin yanlış edatlısı (warten für); kalanlar aynı konudan / aynı türden
+  // TR → DE seçmeli (4 şık): her şık başka kelime, kendi doğru artikeliyle / edatıyla (artikel ayrıca sorulur: flaş, yazma)
   const EDATLAR = ['an', 'auf', 'aus', 'bei', 'für', 'gegen', 'in', 'mit', 'nach', 'über', 'um', 'unter', 'von', 'vor', 'zu', 'zwischen', 'durch', 'ohne'];
   function optionenDE(id) {
-    const k = kind(id);
     const ziel = label(id);
-    const ths = THEMA_VON[id] || [];
-    const nah = shuffle([...new Set(ths.flatMap(t => thById[t].items))].filter(x => kind(x) === k && x !== id && gueltig(x + ':x') && ablenkFrei(x))).slice(0, 2);
-    const pool0 = k === 'n' ? NL.map(n => n.id) : k === 'v' ? VERBEN.map(v => v.id) : WOERTER.map(w => w.id);
-    const pool = shuffle(pool0.filter(ablenkFrei)).concat(shuffle(pool0));
-    const out = [], texte = new Set([ziel]), verboten = new Set([trKey(trOf(id))]), ids = [];
-    if (k === 'n' && !byId[id].plOnly) {
-      const a = byId[id].art, fa = a === 'der' ? pick(['die', 'das']) : 'der', t = fa + ' ' + byId[id].lemma;
-      out.push({ t, ok: false, tuzak: 'artikel', verilen: fa }); texte.add(t);
-    }
-    if (k === 'v') {
-      const v = vById[id], p = (v.obj.find(o => o.p) || {}).p;
-      if (p) {
-        const yp = pick(['auf', 'für', 'an', 'über', 'mit', 'von', 'zu', 'nach'].filter(x => x !== p && !v.anz.split(' ').includes(x)));
-        const t = v.anz.replace(new RegExp('(^|\\s)' + p + '(?=\\s|$)'), '$1' + yp);
-        if (t !== ziel) { out.push({ t, ok: false, tuzak: 'edat' }); texte.add(t); }
-      }
-    }
-    for (const x of nah.concat(pool)) {
-      if (out.length >= 3) break;
-      if (verboten.has(trKey(trOf(x)))) continue;
-      const t = label(x);
-      if (texte.has(t)) continue;
-      texte.add(t); verboten.add(trKey(trOf(x)));
-      out.push({ t, ok: false }); ids.push(x);
-    }
-    ablenkMerke(ids.concat([id]));
-    return shuffle(out.concat([{ t: ziel, ok: true }]));
+    const out = celdiriciler(id, x => label(x), ziel, 3).map(c => ({ t: c.t, ok: false, id: c.x, kaynak: c.kaynak }));
+    return shuffle(out.concat([{ t: ziel, ok: true, id }]));
   }
   function frageSecDE(id) {
     const k = kind(id);
     return {
       mc: true, optionen: optionenDE(id),
-      html: `<div class="tur"><span>Almancası?${k === 'n' && !byId[id].plOnly ? ' · artikeliyle' : k === 'v' && vById[id].obj.some(o => o.p) ? ' · edatıyla' : ''}</span></div><div class="soru buyuk-kelime">${esc(maskTr(kurzTr(trOf(id)), lemmaOf(id)))}</div>`,
-      ziel: label(id), frageText: kurzTr(trOf(id)), modus: k === 'v' ? 'bed' : 'erk', artikelli: k === 'n' && !byId[id].plOnly,
+      html: `<div class="tur"><span>Almancası?</span></div><div class="soru buyuk-kelime">${esc(maskTr(kurzTr(trOf(id)), lemmaOf(id)))}</div>`,
+      ziel: label(id), frageText: kurzTr(trOf(id)), modus: k === 'v' ? 'bed' : 'erk',
       loesungHTML: () => `${deItemHTML(id)} = <b>${esc(trOf(id))}</b>${k === 'v' && vById[id].obj.length ? ` <span class="chip vurgu">${esc(G.objMuster(vById[id]))}</span>` : ''}`,
       erkl: () => (k === 'n' ? [regelHTML(byId[id])] : k === 'v' ? [hallerTR(vById[id])] : []).concat(infoZeilen(id)).filter(Boolean),
     };
@@ -1026,13 +1101,14 @@
     // tam çekim tablosu "çekim" düğmesinin arkasında (ilk bakışta yalnız Perfekt / 3 form)
     const cekim = k === 'v' ? `<details class="daha"><summary>çekim</summary>${cekimTablo(vById[id])}</details>` : '';
     const soyle = k === 'n' ? label(id) : k === 'v' ? vById[id].anz.replace('sich(D)', 'sich') : wById[id].de;
-    return {
-      typ: 'tanit', id, kisa: !!opts.kisa, start: now(),
+    // S6: kart en az 4 sn (hatırlatma 2,5 sn) ve kelimenin sesi bitene dek açık kalır (kilit render'da kurulur: tanitKilit)
+    const q = { typ: 'tanit', id, kisa: !!opts.kisa, start: now(), kilit: true, kilitT0: now(), kilitMs: opts.kisa ? TANIT_KISA_MS : TANIT_MIN_MS };
+    return Object.assign(q, {
       html: `<div class="q-ust"><div class="tur"><span class="yeni">${opts.kisa ? 'hatırlatma' : 'yeni kelime'}</span><span>${opts.kisa ? 'kısa bir bakış, birazdan sorulacak' : 'tanış'}</span></div>
         ${kopf}${chips}${formlar}${satz}${cekim}${kancaHTML(id)}
         <div class="sesli-soyle">🗣 Sesli söyle: <b>${esc(soyle)}</b></div></div>
-        <div class="q-alt">${devamBtn('act', 'tanit-devam')}${opts.kisa ? '' : '<div class="alt-sira" style="justify-content:center"><button class="btn mini bilmiyorum" data-act="tanit-sor" type="button">Biliyorum, sonra sor</button></div>'}</div>`,
-    };
+        <div class="q-alt">${devamKilitli(q, 'act', 'tanit-devam')}${opts.kisa ? '' : '<div class="alt-sira" style="justify-content:center"><button class="btn mini bilmiyorum" data-act="tanit-sor" type="button">Biliyorum, sonra sor</button></div>'}</div>`,
+    });
   }
   // tam çekim: Präsens (6 kişi), Präteritum, Perfekt; dönüşlüde zamirle
   function cekimTablo(v) {
@@ -2478,6 +2554,8 @@
         const w = q.werte ? q.werte[i] : '', b = q.blanks[i];
         // ipucu (anlam) kutuya sığsın: ilk anlam, en çok 24 harf (kelime sınırında); kutu ipucu kadar geniş (eskiden 18 harfte kesilip kutu kelime boyunda kalıyordu)
         const ip0 = kurzTr(trOf(b.id)).split(',')[0].trim(), ip = ip0.length <= 24 ? ip0 : ip0.slice(0, 24).replace(/\s+\S*$/, '') + '…';
+        // S6: yanlış boşluğun doğrusu bir kez yazdırılır (kutu açık kalır, doğru yazılınca kilitlenir)
+        if (q.ok && q.dz && q.dz[i] != null) return `${esc(vor)}<s class="u-eski">${esc(w || '—')}</s> <input class="u-luecke u-duzelt${q.dz[i] === true ? ' ok' : ''}" data-dz="${i}" size="${Math.max(6, b.form.length + 2)}" placeholder="doğrusunu yaz" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${q.dz[i] === true ? esc(b.form) : esc(typeof q.dz[i] === 'string' ? q.dz[i] : '')}"${q.dz[i] === true ? ' readonly' : ''}> <b class="u-dogru">${esc(b.form)}</b>${esc(nach)}`;
         return `${esc(vor)}<input class="u-luecke${q.ok ? (q.ok[i] ? ' ok' : ' yanlis') : ''}" data-al="${i}" size="${Math.max(6, t.c.length + 1, ip.length + 2)}" placeholder="${esc(ip)}" title="${esc(kurzTr(trOf(b.id)))}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w || '')}"${q.ok ? ' disabled' : ''}>${q.ok && !q.ok[i] ? ` <b class="u-dogru">${esc(b.form)}</b>` : ''}${esc(nach)}`;
       }).join(' ')).join(' ');
       ust += `<div class="soluk">${q.blanks.length} boşluk: daha önce öğrendiğin kelimeler, metindeki biçimiyle (soluk yazı = anlamı). Bilmediğin kelimeye bas, anlamı çıkar. · ${esc(T.quelle || '')}</div>
@@ -2496,6 +2574,8 @@
     tastatur();
     if (q.wartet) {
       if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      const dz = kart.querySelector('.u-duzelt:not([readonly])');
+      if (dz && window.matchMedia && matchMedia('(hover: hover)').matches) dz.focus({ preventScroll: true });
       const b = kart.querySelector('#sonuc .devam-btn');
       if (b) requestAnimationFrame(() => { const r = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (r.bottom > vh - 4 || r.top < 0) b.scrollIntoView({ block: 'end' }); });
       return;
@@ -2507,12 +2587,40 @@
   function aktAbschluss(q, urteil, antwort, loesung, notiz, gezaehlt) {
     if (!gezaehlt) { zaehlen({ typ: 'akt' }, urteil); session.q++; if (session.ot) { session.ot.adim = (session.ot.adim || 0) + 1; session.ot.gecmis.push({ id: q.satz && q.satz.id, bicim: 'diktat', tur: 'akt' }); } }
     fxCevap(urteil);
-    logEintrag({ modus: 'akt', id: q.art + (q.saetze ? ':' + q.saetze[0].q.id : q.satz ? ':' + q.satz.id : ''), item: AKT_AD[q.art], frage: q.saetze ? q.saetze.map(s => s.satz).join(' ').slice(0, 300) : q.satz ? q.satz.de : '', antwort: antwort || '', ergebnis: urteil, loesung: loesung || '', notiz: notiz || '' });
+    // özet satırı: düzeltme kutusu varsa çıkışta yazılır (notiz sonuna düzeltti / düzeltme:geç), yoksa hemen
+    q.aktLog = { modus: 'akt', id: q.art + (q.saetze ? ':' + q.saetze[0].q.id : q.satz ? ':' + q.satz.id : ''), item: AKT_AD[q.art], frage: q.saetze ? q.saetze.map(s => s.satz).join(' ').slice(0, 300) : q.satz ? q.satz.de : '', antwort: antwort || '', ergebnis: urteil, loesung: loesung || '', notiz: notiz || '' };
+    if (!q.dz) aktLogYaz(q);
     q.wartet = true;
-    q.ergHTML = `<div class="sonuc ${urteil}">${q.ergHTML || ''}<div class="notlar">${devamBtn('akt', 'weiter', urteil === 'richtig' ? 1200 : 0)}</div></div>`;
+    const kutu = q.dz ? `<div class="duzelt-kutu akt" id="duzelt"><span class="duzelt-et">✍ Yanlış boşlukların doğrusunu metinde bir kez yaz <span class="soluk">(not değişmez)</span></span>${UMLAUT_IC}<div class="duzelt-alt"><span class="soluk duzelt-not" id="duzelt-not"></span><button class="btn mini duzelt-gec" type="button" data-akt="duzelt-gec" hidden>geç</button></div></div>` : '';
+    q.ergHTML = `<div class="sonuc ${urteil}">${q.ergHTML || ''}${kutu}<div class="notlar">${urteil === 'richtig' ? devamBtn('akt', 'weiter', 1200) : devamKilitli(q, 'akt', 'weiter')}</div></div>`;
+    if (q.dz) setTimeout(() => { if (!q.dz) return; q.dzGecAcik = true; const g = aktuell === q && kart.querySelector('[data-akt="duzelt-gec"]'); if (g) g.hidden = false; }, DUZELT_GEC_MS);
     save(); renderHedef(); renderPlan();
     aktRender(q);
     if (urteil === 'richtig') later(() => { if (aktuell === q && q.wartet) zeige(); }, 1200);
+  }
+  // metin etkinliği düzeltmesi (S6): q.dz[i] = '' / yazılan (bekliyor) · true (doğru yazıldı); hepsi yazılınca (ya da "geç") Devam
+  const aktDzBitti = q => !q.dz || q.dzGec || Object.values(q.dz).every(x => x === true);
+  function aktDuzeltKontrol(inp) {
+    const q = aktuell; if (!q || q.typ !== 'akt' || !q.dz) return;
+    const i = +inp.dataset.dz, b = q.blanks[i]; if (!b || q.dz[i] === true) return;
+    q.dz[i] = inp.value;
+    if (uPruef(inp.value.trim(), b.form).u !== 'richtig') return;
+    q.dz[i] = true; inp.readOnly = true; inp.classList.add('ok');
+    if (aktDzBitti(q)) { const k = $('#duzelt'); if (k) { k.classList.add('ok'); const g = k.querySelector('.duzelt-gec'); if (g) g.remove(); } ton('tik'); kilitGuncelle(q); }
+    else { const nx = kart.querySelector('.u-duzelt:not([readonly])'); if (nx) nx.focus(); }
+  }
+  function aktLogYaz(q) {
+    if (!q || !q.aktLog || q.aktLogYazildi) return;
+    q.aktLogYazildi = true;
+    if (q.dz) q.aktLog.notiz = [q.aktLog.notiz, aktDzBitti(q) && !q.dzGec ? 'düzeltti' : 'düzeltme:geç'].filter(Boolean).join(' | ');
+    logEintrag(q.aktLog);
+  }
+  // metin sonucu panelinden çıkış (Devam / Enter): kilit ve düzeltme bitmeden geçmez
+  function aktWeiter() {
+    const q = aktuell; if (!q || q.typ !== 'akt' || !q.wartet) return;
+    if (!devamHazir(q)) { const b = kart.querySelector('.devam-btn.kilitli'); if (b) { b.classList.remove('salla'); void b.offsetWidth; b.classList.add('salla'); } if (!aktDzBitti(q)) { const n = $('#duzelt-not'); if (n) n.textContent = 'önce yanlış boşlukların doğrusunu yaz'; const i = kart.querySelector('.u-duzelt:not([readonly])'); if (i) i.focus(); } return; }
+    aktLogYaz(q);
+    zeige();
   }
   function aktPruef() {
     const q = aktuell; if (!q || q.typ !== 'akt' || q.wartet) return;
@@ -2534,6 +2642,8 @@
         return r2.ergebnis;
       });
       q.ok = sonuclar.map(x => x !== 'falsch');
+      // yanlış boşluklar: doğrusu bir kez yazılacak (S6)
+      q.ok.forEach((x, i) => { if (!x) (q.dz = q.dz || {})[i] = ''; });
       const r = sonuclar.filter(x => x === 'richtig').length, n = q.blanks.length;
       const dg = q.ok.filter(Boolean).length;
       q.ergHTML = `<div class="baslik">${dg === n ? '✓' : dg ? '≈' : '✗'} ${dg} / ${n} doğru</div>${r < n ? '<div class="soluk">yanlışların doğrusu metinde yeşil</div>' : ''}`;
@@ -2555,7 +2665,8 @@
   function aktAktion(a) {
     const q = aktuell; if (!q || q.typ !== 'akt') return;
     if (a === 'pruef') aktPruef();
-    else if (a === 'weiter') zeige();
+    else if (a === 'weiter') aktWeiter();
+    else if (a === 'duzelt-gec' && q.dz && q.dzGecAcik) { q.dzGec = true; const k = $('#duzelt'); if (k) k.remove(); kart.querySelectorAll('.u-duzelt').forEach(x => { x.readOnly = true; }); kilitGuncelle(q); }
   }
 
   // ================= Günün fiil metni =================
@@ -2882,6 +2993,7 @@
   // yalnız Çalış görünürken: açılışta gizli bir zeige() tur hakkı / soru yemez
   function zeige() {
     if (!calisAcik()) return;
+    if (aktuell && aktuell.typ === 'akt') aktLogYaz(aktuell);   // ertelenmiş metin özeti (düzeltme kutusu)
     clearTimers();
     renderHedef();
     renderPlan();
@@ -2972,6 +3084,7 @@
   // tanıtım bitti: öğe kaydı (kotaya sayılır; yarım öğe sayılmaz), 'yeni;neu' satırı; parti bittiyse mini sorular kuyruğa
   function tanitDevam() {
     const q = aktuell; if (!q || q.typ !== 'tanit') return;
+    if (q.kilit) { kilitUyar(q); return; }
     const ot = session.ot, t = now(), id = q.id, g = Kern.gun4(t);
     if (q.kisa && !(ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id)) { zeige(); return; }   // yeniden tanıtım: bekleyen soru
     const it = S.items[id], yarim = !!(it && it.yarim && !it.tanit);
@@ -3184,12 +3297,13 @@
     // öğenin adı burada gösterilmez: TR→DE sorularında cevabı ele verir
     $('#durum-satiri').innerHTML = info.join(' ');
     if (q.typ === 'paket') { paketRender(q); return; }
-    if (q.typ === 'tanit') { kart.classList.add('duzen'); kart.innerHTML = q.html; tastatur(); tanitSes(q); return; }
+    if (q.typ === 'tanit') { kart.classList.add('duzen'); kart.innerHTML = q.html; tastatur(); tanitSes(q); tanitKilit(q); return; }
     let alt = '';
     if (q.mc) {
-      alt = `<div class="dolum-cizgi" id="mc-dolum" aria-hidden="true"><span style="animation-duration:${DENKZEIT}ms"></span></div>
-        <div class="mc kapali" id="mc">${q.optionen.map((o, i) => `<button class="mc-opt" data-mc="${i}" type="button"><kbd>${i + 1}</kbd> ${esc(o.t)}</button>`).join('')}</div>
-        <div class="alt-sira"><button class="btn mini bilmiyorum" type="button" data-act="mc-weiss-nicht">Bilmiyorum <kbd>0</kbd></button><span class="mc-ipucu" id="mc-ipucu">önce aklından söyle · dokun: şıklar <kbd>Boşluk</kbd></span></div>`;
+      // şıklar gizli (S5): önce aklından söyle, sonra Enter / Boşluk / dokunuşla aç; açılmadan seçim yok, Bilmiyorum (0) her zaman
+      alt = `<div class="mc-yer"><div class="mc kapali" id="mc" aria-hidden="true">${q.optionen.map((o, i) => `<button class="mc-opt" data-mc="${i}" type="button" tabindex="-1"><kbd>${i + 1}</kbd> ${esc(o.t)}</button>`).join('')}</div>
+        <button class="mc-perde" id="mc-perde" type="button" data-act="mc-ac"><span class="mc-perde-bas">🗣 Önce aklından söyle</span><span class="mc-perde-alt">sonra şıkları aç: dokun<span class="klavye-ipucu"> ya da <kbd>Enter</kbd> / <kbd>Boşluk</kbd></span></span></button></div>
+        <div class="alt-sira"><button class="btn mini bilmiyorum" type="button" data-act="mc-weiss-nicht">Bilmiyorum <kbd>0</kbd></button></div>`;
     } else if (q.ayir) {
       alt = `<div class="ay-sec">${q.ayir.ids.map((x, i) => `<button class="btn ay-btn" data-ayir="${i}" type="button"><span class="ay-kelime">${deItemHTML(x)}</span><kbd>${i + 1}</kbd></button>`).join('')}</div>`;
     } else if (q.artFrage) {
@@ -3206,7 +3320,6 @@
     tastatur();
     // Almancası ekranda olan soruda (anlamı ne? / metinde) kelime soruyla birlikte okunur; cevaptan sonra tekrar okunmaz
     if ((q.bicim === 'anla' || q.bicim === 'metinde') && !q.sesCaldi && session.etkilesim && sesAcik() && S.einst.otoSes !== false && q.id && SES_TYP.has(q.typ) && kind(q.id) !== 'p') { q.sesCaldi = true; later(() => { if (aktuell === q) sprich(label(q.id).replace('sich(D)', 'sich')); }, 120); }
-    if (q.mc) later(() => mcAufdecken(q), DENKZEIT);
     if (q.artFrage || q.ayir) q.freiAb = now() + 400;
     const inp = $('#cevap');
     if (inp) inp.focus();
@@ -3222,6 +3335,17 @@
       const r = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight;
       if (r.bottom > vh - 4 || r.top < 0) b.scrollIntoView({ block: 'end' });
     });
+    // "doğrusunu bir kez yaz" kutusu: klavyeli cihazda odak (mobilde dokununca; klavye kendiliğinden açılıp paneli örtmesin)
+    const d = $('#duzelt-inp');
+    if (d && !d.readOnly && window.matchMedia && matchMedia('(hover: hover)').matches) d.focus({ preventScroll: true });
+  }
+  // tanıtım kartı kilidi (S6): en az kilitMs geçsin ve ses çalıyorsa bitsin (en çok 5 sn daha); sonra Devam açılır
+  function tanitKilit(q) {
+    if (!q.kilit || q.kilitBasladi) return;
+    q.kilitBasladi = true;
+    const bitir = () => { q.kilit = false; kilitGuncelle(q); };
+    const bak = t1 => { if (aktuell !== q) return; if (q.sesCaldi && sesCaliyor() && now() - t1 < 5000) setTimeout(() => bak(t1), 150); else bitir(); };
+    setTimeout(() => bak(now()), Math.max(0, q.kilitMs - (now() - q.kilitT0)));
   }
   // tanıtım: ses ilk dokunuştan sonra kendiliğinden (tarayıcı izni); her dokunuşta yeniden çalmaz
   function tanitSes(q) {
@@ -3306,20 +3430,19 @@
   }
 
   // ---------- seçmeli ----------
-  // şıklar 1,2 sn düşünme süresinden sonra açılır (yer baştan ayrılmış: kayma yok); karta dokunmak / Boşluk hemen açar
+  // şıklar gizli (yer baştan ayrılmış: kayma yok): perdeye / karta dokunmak, Enter ya da Boşluk açar (soru açıldıktan ≥ 0,45 sn sonra)
   function mcAufdecken(q) {
-    if (aktuell !== q || q.done || q.offen) return;
+    if (aktuell !== q || q.done || q.offen || now() - (q.start || 0) < MC_AC_MIN) return;
     q.offen = true; q.revealAt = now();
-    const mc = $('#mc'), d = $('#mc-dolum'), ip = $('#mc-ipucu');
-    if (mc) mc.classList.remove('kapali');
-    if (d) d.classList.add('bitti');
-    if (ip) ip.textContent = '';
+    const mc = $('#mc'), pd = $('#mc-perde');
+    if (mc) { mc.classList.remove('kapali'); mc.removeAttribute('aria-hidden'); mc.querySelectorAll('.mc-opt').forEach(b => b.removeAttribute('tabindex')); }
+    if (pd) pd.remove();
   }
-  // seçmeli cevap → sonuc (notu sistem verir): doğru · yanlış artikelli şık (kelime ✓ artikel ✗) · edat tuzağı · yanlış · bilmiyorum
+  // seçmeli cevap → sonuc (notu sistem verir): doğru · yanlış (başka kelime) · bilmiyorum. Şıklar artık hep farklı kelime: artikel / edat burada sınanmaz
   function mcWahl(i, weissNicht) {
     const q = aktuell;
     if (!q || !q.mc || q.done) return;
-    if (!weissNicht && !q.offen) return;
+    if (!weissNicht && (!q.offen || !q.optionen[i])) return;
     q.done = true;
     clearTimers();
     const t = now();
@@ -3328,18 +3451,15 @@
     const rt = q.revealAt ? t - q.revealAt : 99999;
     q.sek = Math.round((t - q.start) / 1000);
     q.antwort = weissNicht ? '' : opt.t;
-    // yanlış artikelli şık: kelime ✓ artikel ✗ (m3 / a1, fast); başka isim seçildiyse artikel güncellenmez
-    const tuzakArt = !!(opt && opt.tuzak === 'artikel');
-    const art = q.artikelli && (ok || tuzakArt) ? { sinandi: true, dogru: ok, verilen: tuzakArt ? opt.verilen : byId[q.id].art, dogrusu: byId[q.id].art } : null;
-    const tip = weissNicht ? 'bilmiyorum' : ok || tuzakArt ? 'dogru' : opt.tuzak === 'edat' ? 'edat' : 'yanlis';
-    const sonuc = { bicim: q.bicim, tip, sure: weissNicht ? null : rt, artikel: art, etiketler: [] };
+    const tip = weissNicht ? 'bilmiyorum' : ok ? 'dogru' : 'yanlis';
+    const sonuc = { bicim: q.bicim, tip, sure: weissNicht ? null : rt, artikel: null, etiketler: [] };
     const not = Kern.notVer(sonuc);
     q.sonuc = sonuc; q.not = not;
     const urteil = not.ergebnis || (ok ? 'richtig' : 'falsch');
     dikkatNotieren(urteil !== 'falsch', not.m == null && not.a == null);
     fxCevap(urteil);
     if (urteil === 'richtig') { panelGoster(sonucPanel(q, not, { kisa: true })); later(ilerleSesle, OTO_MS); return; }
-    panelGoster(sonucPanel(q, not, { weissNicht, secilen: weissNicht ? null : opt.t }));
+    panelGoster(sonucPanel(q, not, { weissNicht, secilen: weissNicht ? null : opt.t, secilenId: weissNicht || !opt.id || opt.id === q.id ? null : opt.id }));
   }
   const OTO_MS = 1000;   // doğru cevaptan sonra kendiliğinden geçiş (0,8–1,2 sn)
   // kendiliğinden geçiş: kelimenin sesi hâlâ okunuyor ya da başlamadıysa bitmesini bekler (en çok 2,5 sn), sonraki soru sesi kesmesin
@@ -3493,7 +3613,8 @@
     const diger = q.voll && yanlis ? (q.hedefler || []).filter(h => h !== asil) : [];
     if (yanlis && o.yazili && cumle) senin = `<div class="satir dikey"><span class="et">senin cümlen</span><span class="deger cfark">${cumleFarkHTML(q.res.diff)}</span></div>`;
     else if (yanlis && o.yazili) senin = `<div class="satir${q.voll ? ' dikey' : ''}"><span class="et">senin</span><span class="deger fark">${o.weissNicht ? '<span class="soluk">—</span>' : diffHTML(q.res || {})}</span></div>`;
-    else if (yanlis && o.secilen) senin = `<div class="satir"><span class="et">senin</span><span class="deger fark"><span class="h-fazla">${esc(o.secilen)}</span></span></div>`;
+    // seçmelide seçilen başka kelimenin anlamı da (karışan çifti ayırt etsin): TR → DE'de Türkçesi, DE → TR'de Almancası
+    else if (yanlis && o.secilen) senin = `<div class="satir"><span class="et">senin</span><span class="deger fark"><span class="h-fazla">${esc(o.secilen)}</span>${o.secilenId ? ` <span class="soluk sec-anlam">= ${q.bicim === 'sec' ? esc(kurzTr(trOf(o.secilenId))) : deItemHTML(o.secilenId)}</span>` : ''}</span></div>`;
     const dogru = !(yanlis || q.artFrage) ? '' : q.voll ? `<div class="satir dikey"><span class="et">doğrusu</span><span class="deger">${deHTML(asil)} ${sesBtn(asil)}</span></div>`
       : `<div class="satir"><span class="et">doğru</span><span class="deger">${q.loesungHTML()}</span></div>`;
     const digerHTML = diger.length ? `<div class="satir dikey"><span class="et">diğer doğru çeviriler</span><ul class="cd-alts">${diger.map(d => `<li>${deHTML(d)}</li>`).join('')}</ul></div>` : '';
@@ -3509,8 +3630,78 @@
       ${erkl.length && (yanlis || o.yazili) ? `<ul class="erkl">${erkl.map(e => `<li>${e}</li>`).join('')}</ul>` : ''}
       ${ornek}
       ${yanlis ? kancaHTML(q.id) : ''}
-      <div class="notlar">${itiraz}${devamBtn('act', 'devam', urteil === 'richtig' ? (o.oto || OTO_MS) : 0)}</div>
+      ${urteil === 'falsch' ? duzeltHTML(q) : ''}
+      <div class="notlar">${itiraz}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', o.oto || OTO_MS)}</div>
     </div>`;
+  }
+
+  // ---------- sonuç panelinde Devam kilidi + "doğrusunu bir kez yaz" (sözleşme S6) ----------
+  // Yanlış / küçük hatada Devam 2,5 sn kilitli (geri sayım dolumu): çift Enter düzeltmeyi atlamasın (log: panel medyanı 1–2 sn).
+  // Yazma biçimlerinde yanlışta doğrusunu bir kez yazdırır: doğru yazılmadan Devam açılmaz, "geç" 6 sn sonra; notu değiştirmez (log: düzeltti / düzeltme:geç).
+  // Zamanlayıcılar 'later' değil: clearTimers (itiraz, yeniden çizim) kilidi kapalı bırakmasın.
+  const KILIT_MS = 2500, DUZELT_GEC_MS = 6000, TANIT_MIN_MS = 4000, TANIT_KISA_MS = 2500;
+  const DUZELT_BICIM = new Set(['yaz0', 'yaz', 'bos0', 'bos', 'cumle', 'kalip']);
+  const devamHazir = q => !!q && !q.kilit && !(q.duzelt && !q.duzelt.ok && !q.duzelt.gec) && (q.typ !== 'akt' || aktDzBitti(q));
+  function kilitKur(q, ms) {
+    if (q.kilitT0) return;
+    q.kilit = true; q.kilitT0 = now(); q.kilitMs = ms;
+    setTimeout(() => { q.kilit = false; kilitGuncelle(q); }, ms);
+  }
+  // kilitli Devam düğmesi: ilk çizimde kilit kurulur; yeniden çizimde kalan süreyle (dolum = geri sayım)
+  function devamKilitli(q, attr, deger, ms, metin) {
+    kilitKur(q, ms || KILIT_MS);
+    if (devamHazir(q)) return devamBtn(attr, deger, 0, metin);
+    const kalan = q.kilit ? Math.max(200, q.kilitMs - (now() - q.kilitT0)) : 0;
+    return `<button class="btn ana devam-btn kilitli" data-${attr}="${deger}" type="button" disabled aria-disabled="true">${kalan ? `<span class="geri-sayim" style="animation-duration:${kalan}ms"></span>` : ''}<span>${metin || 'Devam'}</span> <kbd>Enter</kbd></button>`;
+  }
+  function kilitGuncelle(q) {
+    if (aktuell !== q) return;
+    const hazir = devamHazir(q);
+    kart.querySelectorAll('.devam-btn.kilitli').forEach(b => {
+      if (!q.kilit) { const g = b.querySelector('.geri-sayim'); if (g) g.remove(); }
+      if (!hazir) return;
+      b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('kilitli');
+    });
+  }
+  // kilitliyken Devam / Enter: düğme sallanır, düzeltme kutusu varsa ona odak
+  function kilitUyar(q) {
+    const b = kart.querySelector('.devam-btn.kilitli'); if (b) { b.classList.remove('salla'); void b.offsetWidth; b.classList.add('salla'); }
+    if (q.duzelt && !q.duzelt.ok && !q.duzelt.gec) { const i = $('#duzelt-inp'); if (i && !q.kilit) { i.focus(); duzeltNot('önce doğrusunu bir kez yaz'); } }
+  }
+  function duzeltHTML(q) {
+    if (!(q.input && !q.yoklama && DUZELT_BICIM.has(q.bicim) && typeof q.pruef === 'function')) return '';
+    if (!q.duzelt) {
+      q.duzelt = { ok: false, gec: false, t0: now() };
+      setTimeout(() => { if (!q.duzelt) return; q.duzelt.gecAcik = true; const g = aktuell === q && kart.querySelector('[data-act="duzelt-gec"]'); if (g) g.hidden = false; }, DUZELT_GEC_MS);
+    }
+    if (q.duzelt.ok) return '<div class="duzelt-kutu ok"><span class="duzelt-et">✓ doğrusunu yazdın</span></div>';
+    if (q.duzelt.gec) return '';
+    return `<div class="duzelt-kutu" id="duzelt"><label class="duzelt-et" for="duzelt-inp">✍ Doğrusunu bir kez yaz <span class="soluk">(not değişmez)</span></label>
+      <div class="yaz-kutu"><input id="duzelt-inp" class="duzelt-inp" type="text" enterkeyhint="done" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Doğrusunu yaz" placeholder="${q.voll ? 'doğru cümleyi yaz' : /^bos/.test(q.bicim) ? 'boşluğa gelen kelime' : 'doğrusunu yaz'}">${UMLAUT_IC}</div>
+      <div class="duzelt-alt"><span class="soluk duzelt-not" id="duzelt-not"></span><button class="btn mini duzelt-gec" type="button" data-act="duzelt-gec"${q.duzelt.gecAcik ? '' : ' hidden'}>geç</button></div></div>`;
+  }
+  const duzeltNot = t => { const n = $('#duzelt-not'); if (n) n.textContent = t; };
+  // canlı denetim (her tuşta) ve Enter: tam doğru (q.pruef richtig) yazılınca kutu ✓, Devam (kilit de bittiyse) açılır
+  function duzeltKontrol(enter) {
+    const q = aktuell, inp = $('#duzelt-inp');
+    if (!q || !q.duzelt || q.duzelt.ok || q.duzelt.gec || !inp) return false;
+    const v = inp.value.trim();
+    if (!v) { if (enter) duzeltNot('önce doğrusunu yaz'); return false; }
+    let ok = false; try { ok = (q.pruef(v) || {}).urteil === 'richtig'; } catch (e) { ok = false; }
+    if (!ok) { if (enter) { duzeltNot('tam aynısını yaz: yukarıdaki doğrusu'); const k = $('#duzelt'); if (k) { k.classList.remove('salla'); void k.offsetWidth; k.classList.add('salla'); } } return false; }
+    q.duzelt.ok = true; q.duzelt.sek = Math.round((now() - q.duzelt.t0) / 1000);
+    inp.readOnly = true;
+    const k = $('#duzelt'); if (k) { k.classList.add('ok'); const et = k.querySelector('.duzelt-et'); if (et) et.textContent = '✓ doğrusunu yazdın'; const g = k.querySelector('.duzelt-gec'); if (g) g.remove(); }
+    duzeltNot(q.kilit ? '' : 'Enter: devam');
+    ton('tik');
+    kilitGuncelle(q);
+    return true;
+  }
+  function duzeltGec() {
+    const q = aktuell; if (!q || !q.duzelt || q.duzelt.ok || !q.duzelt.gecAcik) return;
+    q.duzelt.gec = true;
+    const k = $('#duzelt'); if (k) k.remove();
+    kilitGuncelle(q);
   }
   // itiraz (soru başına bir kez): sistemin ilk kararı log'da 'öneri:' alanında kalır
   function itirazEt() {
@@ -3523,6 +3714,9 @@
     q.sonuc = Object.assign({}, q.sonuc, { tip: q.itirazVar === 'yazim' ? 'yazim' : 'dogru', zor: false, etiketler: q.voll && q.itirazVar === 'dogru' ? [] : (q.sonuc.etiketler || []).filter(x => !YANLIS_ET.includes(x)) });
     if (q.itirazVar === 'yazim' && q.sonuc.artikel && q.sonuc.artikel.sinandi && !q.sonuc.artikel.dogru && q.res && q.res.tip === 'yanlis') q.sonuc.artikel = null;
     q.not = yardimNot(notVerF(q.sonuc), q.sonuc);
+    // itirazla yanlış olmaktan çıktı: düzeltme kutusu yok; doğru sayıldıysa kilit de yok (kendiliğinden geçer)
+    if (q.not.ergebnis !== 'falsch') q.duzelt = null;
+    if (q.not.ergebnis === 'richtig') q.kilit = false;
     panelGoster(sonucPanel(q, q.not, { yazili: true }));
     fxCevap(q.not.ergebnis);
     // 'aslında doğru' → richtig: panelin Devam düğmesi dolum animasyonuyla çizilir, gerçekten de geçsin
@@ -3534,6 +3728,8 @@
     if (!q || !q.done) return;
     // arka planda (uygulama gizlenince) işlenmiş cevap: Devam yalnız sonraki karta geçer
     if (q.islendi) { if (q.arkaPlan) { q.arkaPlan = false; zeige(); } return; }
+    // yanlış / küçük hatada Devam kilidi (2,5 sn) ve düzeltme kutusu (S6)
+    if (!devamHazir(q)) { kilitUyar(q); return; }
     cevapIsle(q, q.sonuc);
   }
 
@@ -3602,6 +3798,8 @@
     if (yaz(out.m) && it && it.m && it.m.lastG >= 2) { const pk0 = it.m.pk || 0, ham = FSRS.intervalDays(it.m.S, S.einst.ret); if (pk0 < 2 && ham > (pk0 ? 14 : 7) && (it.m.due - t) / DAY <= (pk0 ? 14 : 7) + 0.01) n.push(`kapı:${pk0 ? 14 : 7}g`); }
     if (opt.kaynak) n.push('kaynak:' + opt.kaynak);
     if (opt.ek) n.push(opt.ek);
+    if (q.sik) n.push('şık:' + q.sik, 'çeldirici:' + (q.sikK || ''));
+    if (q.duzelt) n.push(q.duzelt.ok ? 'düzeltti' : 'düzeltme:geç');
     if (eski === 'stamm') n.push('kök:' + (vById[id] || {}).base);
     const et = (not.etiketler || []).filter(x => !['yoklama', 'yavaş', 'sayılmadı', 'bilmiyorum'].includes(x));
     if (et.length) n.push(et.join(', '));
@@ -5146,6 +5344,7 @@
   // cevaplanmış ama işlenmemiş soru (sonuç paneli açıkken çıkış): sistem notuyla kaydedilir, cevap kaybolmaz
   function cikisNotla() {
     const q = aktuell;
+    if (q && q.typ === 'akt') aktLogYaz(q);
     if (q && q.done && !q.islendi && q.sonuc) { try { cevapIsle(q, q.sonuc, true); } catch (e) { console.warn(e); } }
   }
   // uygulama gizlenirken / kapanırken: bekleyen cevap işlenir ama ekran kalır (dönünce Devam sonraki karta geçer)
@@ -5192,7 +5391,7 @@
   kart.addEventListener('mousedown', e => { if (e.target.closest('.klavye.ic, .kb-chip, .cy-btn')) e.preventDefault(); });
   kart.addEventListener('click', e => {
     const uk = e.target.closest('.klavye.ic button');
-    if (uk) { const i = letzteEingabe && kart.contains(letzteEingabe) && letzteEingabe.classList.contains('u-luecke') && !letzteEingabe.disabled ? letzteEingabe : $('#cevap'); if (i && !i.readOnly) { const p = i.selectionStart == null ? i.value.length : i.selectionStart; i.value = i.value.slice(0, p) + uk.dataset.c + i.value.slice(i.selectionEnd == null ? p : i.selectionEnd); i.setSelectionRange(p + 1, p + 1); i.focus(); } return; }
+    if (uk) { const i = uk.closest('.duzelt-kutu:not(.akt)') ? $('#duzelt-inp') : letzteEingabe && kart.contains(letzteEingabe) && letzteEingabe.classList.contains('u-luecke') && !letzteEingabe.disabled ? letzteEingabe : $('#cevap'); if (i && !i.readOnly) { const p = i.selectionStart == null ? i.value.length : i.selectionStart; i.value = i.value.slice(0, p) + uk.dataset.c + i.value.slice(i.selectionEnd == null ? p : i.selectionEnd); i.setSelectionRange(p + 1, p + 1); i.focus(); if (i.id === 'duzelt-inp') duzeltKontrol(false); else if (i.dataset && i.dataset.dz != null) aktDuzeltKontrol(i); } return; }
     if (aktuell && aktuell.typ === 'gramTur') { if (gramTurOlay(e, false)) return; }
     if (aktuell && aktuell.typ === 'sesTur') { if (sesTurOlay(e, false)) return; }
     if (aktuell && aktuell.typ === 'dinleMod') { if (window.Dinle && Dinle.modKlick(e)) return; }
@@ -5256,6 +5455,7 @@
     else if (act === 'ek-yeni') ekYeniAl();
     else if (act === 'weiss-nicht' || act === 'goster') auswerten('', true);
     else if (act === 'mc-weiss-nicht') mcWahl(-1, true);
+    else if (act === 'duzelt-gec') duzeltGec();
     else if (act === 'mc-ac' && aktuell && aktuell.mc && !aktuell.offen) mcAufdecken(aktuell);
     else if (act === 'paket-weiter') paketWeiter();
     else if (act === 'metin-gonder') metinGonder();
@@ -5321,7 +5521,7 @@
     }
     if (q.typ === 'akt') {
       if (e.key !== 'Enter') return;
-      if (q.wartet) { e.preventDefault(); zeige(); return; }
+      if (q.wartet) { e.preventDefault(); if (e.repeat) return; if (e.target.dataset && e.target.dataset.dz != null) { aktDuzeltKontrol(e.target); if (!devamHazir(q)) return; } aktWeiter(); return; }
       if (e.target.classList && e.target.classList.contains('u-luecke')) { e.preventDefault(); const nx = document.querySelector(`.u-luecke[data-al="${+e.target.dataset.al + 1}"]`); if (nx) nx.focus(); else aktPruef(); return; }
       if (q.art === 'diktat' && e.target.id === 'cevap') { e.preventDefault(); aktPruef(); return; }
       return;
@@ -5343,18 +5543,20 @@
     if (q.typ === 'lesen' && session.modus === 'fiilmetin' && /^[1-4]$/.test(e.key)) { const b = document.querySelectorAll('[data-fvt]:not([disabled])')[+e.key - 1]; if (b) { e.preventDefault(); fvTestAntwort(b.dataset.fvt); return; } }
     if (q.typ === 'yazma' || q.typ === 'lesen' || q.typ === 'kalip') return;
     if (q.typ === 'leer' && e.key === 'Enter' && !inInput) { e.preventDefault(); if (q.teklif) ekYeniAl(); return; }
-    if (q.typ === 'tanit') { if (e.key === 'Enter' && !inInput) { e.preventDefault(); tanitDevam(); } return; }
+    if (q.typ === 'tanit') { if (e.key === 'Enter' && !inInput) { e.preventDefault(); if (!e.repeat) tanitDevam(); } return; }
     if (q.typ === 'paket') {
       if (e.key === 'Enter' && (!inInput || q.warte)) { e.preventDefault(); paketWeiter(); }
       return;
     }
     // cevaplandı: Enter = Devam (doğruda zaten kendiliğinden geçer); not tuşları yok, not sistemin
-    if (q.done && (!q.islendi || q.arkaPlan)) { if (e.key === 'Enter') { e.preventDefault(); ilerle(); } return; }
+    // düzeltme kutusunda Enter: önce denetim (doğruysa ve kilit bittiyse devam); basılı tutulan Enter (repeat) hiçbir şey yapmaz
+    if (q.done && !q.islendi && e.target.id === 'duzelt-inp') { if (e.key === 'Enter') { e.preventDefault(); if (!e.repeat && (q.duzelt && q.duzelt.ok ? true : duzeltKontrol(true))) ilerle(); } return; }
+    if (q.done && (!q.islendi || q.arkaPlan)) { if (e.key === 'Enter') { e.preventDefault(); if (!e.repeat) ilerle(); } return; }
     if (q.mc) {
       if (inInput) return;
       if (/^[1-6]$/.test(e.key) && +e.key <= q.optionen.length) { e.preventDefault(); mcWahl(+e.key - 1); }
       else if (e.key === '0') { e.preventDefault(); mcWahl(-1, true); }
-      else if (e.key === ' ' && !q.offen) { e.preventDefault(); mcAufdecken(q); }
+      else if ((e.key === ' ' || e.key === 'Enter') && !q.offen) { e.preventDefault(); if (!e.repeat) mcAufdecken(q); }
       return;
     }
     if (q.artFrage) {
@@ -5367,9 +5569,11 @@
   // ä kısayolları
   const KURZ = { 'a:': 'ä', 'o:': 'ö', 'u:': 'ü', 's:': 'ß', 'A:': 'Ä', 'O:': 'Ö', 'U:': 'Ü' };
   kart.addEventListener('input', e => {
-    const i = e.target; if (i.id !== 'cevap' && !(i.classList && i.classList.contains('u-luecke'))) return;
+    const i = e.target; if (i.id !== 'cevap' && i.id !== 'duzelt-inp' && !(i.classList && i.classList.contains('u-luecke'))) return;
     const pos = i.selectionStart, two = i.value.slice(pos - 2, pos);
     if (KURZ[two]) { i.value = i.value.slice(0, pos - 2) + KURZ[two] + i.value.slice(pos); i.setSelectionRange(pos - 1, pos - 1); }
+    if (i.id === 'duzelt-inp') duzeltKontrol(false);
+    else if (i.dataset && i.dataset.dz != null) aktDuzeltKontrol(i);
   });
   $('#umlaut').addEventListener('mousedown', e => e.preventDefault());
   $('#umlaut').addEventListener('click', e => {
@@ -5553,7 +5757,7 @@
     Cumle.init({
       S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn,
       kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, fx: u => fxCevap(u), umlaut: UMLAUT_IC,
-      kind, label, trOf, wortLuecke, hilfe: (de, id) => hilfeHTML(de, id),
+      kind, label, trOf, wortLuecke, hilfe: (de, id) => hilfeHTML(de, id), karismaTablosu,
       sayac: urteil => { const d = heute(); d.n++; if (urteil) d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); },
     });
   })();
@@ -5697,7 +5901,7 @@
   ordnerLaden();
   window.__tekrar = { Kern: window.Kern, CODE_SURUM, get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, get ot() { return session.ot; },
     saat: ms => { saatOfs += +ms || 0; return now(); }, kota, aksamDurum, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
-    toast, konfeti, mesajEkle,
+    toast, konfeti, mesajEkle, karismaTablosu, optionen, optionenDE,
     // test (cümle çeşitliliği): cümle seçimi, geçmiş, yazma ipucu türü, kök cümlesi
     satzWahl, tazeCumle, kxSay, kxEkle, yazIpucu, frageYaz, kokSatz: id => frageStammSatz(vById[id]),
     // test: Kern seçimi (sel) ile soruyu doğrudan çiz (artOb / kalip / ayir / kok …); ayirCiftleri, artSetKur

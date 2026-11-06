@@ -4,6 +4,8 @@
 // "Başla" ve vadeli / borç sayısı yok · yatay kaydırma yok · etkileşimli öğeler ≥ 48 px · şıklar / artikel düğmeleri / yazma kutusu
 // görünür yüksekliğin ≥ %45'inde · .devam-btn görünür alanın alt %30'unda · #v-calis açıkken #toast hiç görünmez (kuyruk tur sonunda)
 // · Kelimeler ve tur sonu çiplerinde her isim artikelli · doğruluk "%NN" · prefers-reduced-motion'da konfeti canvas'ı yok · sayfa hatası 0.
+// 6.11 (S5 / S6): seçmeli şıklar gizli başlar (açılmadan seçim yok, Enter açar), ikiz şık yok, log notiz 'şık:a/b/c'; yanlışta Devam kilitli
+// (hemen Enter geçmez), yazmada "doğrusunu bir kez yaz" kutusu (yazılmadan Devam yok, log 'düzeltti'); tanıtım kartında Devam ≥ 4 sn kapalı.
 const D = require('./surucu');
 
 const fehler = [];
@@ -188,12 +190,93 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     if (s.cumle && !s.cfark) hata('cümle', 'G.cumleKontrol var ama kelime kelime fark çizilmedi');
     if (s.yatay > 1 || s.tasma) hata('cümle', `sonuç paneli taşıyor (yatay ${s.yatay}, öğe ${s.tasma})`);
     (await kucukler(c, '#sonuc')).forEach(x => hata('cümle sonuç ≥48', x));
+    if (await c.$('#duzelt-inp')) await c.fill('#duzelt-inp', await c.evaluate(() => window.__tekrar.aktuell.ziel));
     await c.click('#sonuc .devam-btn'); await c.waitForTimeout(150);
     const n = await c.evaluate(() => { const l = window.__tekrar.S.log; return (l[l.length - 1] || {}).notiz || ''; });
     if (!/bicim:cumle/.test(n) || !/yardım:ilk,banka/.test(n) || !/ipucu:0/.test(n) || /(^| )zor( |$)/.test(n)) hata('cümle', `log notiz: ${n}`);
     if (c.hatalar.length) hata('cümle sayfa', c.hatalar.join(' | '));
     console.log(`tam cümle: ${id} · banka ${y.cip} çip · cumleKontrol ${s.cumle ? 'var' : 'yok (eski yol)'} · ${n.split(' | ').slice(0, 2).join(' | ')}`);
     await c.ctx.close();
+  }
+
+  // ---- seçmeli (S5) ve sonuç paneli (S6) ----
+  {
+    const c = await D.sayfa(b, { mobil: false });
+    await c.evaluate(() => window.__tekrar.starte('akis')); await c.waitForTimeout(250);
+    const id = await c.evaluate(() => { const T = window.__tekrar; return Object.keys(T.byId).find(x => T.gueltig(x + ':x') && !T.byId[x].plOnly && T.byId[x].lemma.length >= 5); });
+    // TR → DE seçmeli: gizli başlar, ikiz şık yok, şık id'leri soruda
+    await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'sec', b: 1 }), id);
+    const m = await c.evaluate(() => { const a = window.__tekrar.aktuell, lem = o => o.t.replace(/^(der|die|das|sich) /, '').toLowerCase(); return { offen: !!a.offen, kapali: !!document.querySelector('#mc.kapali'), perde: !!document.querySelector('#mc-perde'), t: a.optionen.map(o => o.t), ikiz: new Set(a.optionen.map(lem)).size !== a.optionen.length, sik: a.sik }; });
+    if (m.offen || !m.kapali || !m.perde) hata('seçmeli', `şıklar açık başladı: ${JSON.stringify(m)}`);
+    if (m.ikiz) hata('seçmeli', `ikiz şık: ${m.t.join(' | ')}`);
+    if (!/^[^/]+\/[^/]+\/[^/]+$/.test(m.sik || '')) hata('seçmeli', `şık id'leri: ${m.sik}`);
+    (await kucukler(c, '#v-calis')).forEach(x => hata('seçmeli perde ≥48', x));
+    await c.waitForTimeout(500);
+    await c.keyboard.press('1'); await c.waitForTimeout(40);
+    if (await c.evaluate(() => window.__tekrar.aktuell.done)) hata('seçmeli', 'şıklar açılmadan cevaplandı');
+    await c.keyboard.press('Enter'); await c.waitForTimeout(60);
+    if (!(await c.evaluate(() => window.__tekrar.aktuell.offen))) hata('seçmeli', 'Enter şıkları açmadı');
+    await c.waitForTimeout(450);
+    const yi = await c.evaluate(() => window.__tekrar.aktuell.optionen.findIndex(o => !o.ok));
+    await c.keyboard.press(String(yi + 1)); await c.waitForTimeout(30);
+    await c.keyboard.press('Enter'); await c.waitForTimeout(30);   // çift Enter: düzeltme atlanmasın
+    const k1 = await c.evaluate(() => ({ islendi: !!window.__tekrar.aktuell.islendi, kilit: !!document.querySelector('#sonuc .devam-btn.kilitli[disabled]'), anlam: !!document.querySelector('#sonuc .sec-anlam') }));
+    if (k1.islendi || !k1.kilit) hata('panel', `yanlışta hemen Enter geçti ya da kilit yok: ${JSON.stringify(k1)}`);
+    if (!k1.anlam) hata('panel', 'seçilen yanlış şıkkın anlamı gösterilmedi');
+    await c.waitForFunction(() => !document.querySelector('#sonuc .devam-btn[disabled]'), null, { timeout: 5000 }).catch(() => hata('panel', 'kilit açılmadı'));
+    await c.keyboard.press('Enter'); await c.waitForTimeout(120);
+    const n1 = await c.evaluate(() => { const l = window.__tekrar.S.log; return (l[l.length - 1] || {}).notiz || ''; });
+    if (!/şık:[^ |/]+\/[^ |/]+\/[^ |/]+ \| çeldirici:/.test(n1)) hata('seçmeli', `log notiz: ${n1}`);
+    // yazma yanlış: düzeltme kutusu; doğrusu yazılmadan Devam yok; log 'düzeltti'
+    await c.evaluate(id => window.__tekrar.frageAc({ id, bicim: 'yaz', b: 2 }), id);
+    const ziel = await c.evaluate(() => window.__tekrar.aktuell.ziel);
+    await c.fill('#cevap', 'Quatschwort'); await c.press('#cevap', 'Enter'); await c.waitForTimeout(900);
+    const d1 = await c.evaluate(() => ({ kutu: !!document.querySelector('#duzelt-inp'), kapali: !!document.querySelector('#sonuc .devam-btn[disabled]'), odak: (document.activeElement || {}).id }));
+    if (!d1.kutu || !d1.kapali) hata('düzeltme', `kutu ya da kapalı Devam yok: ${JSON.stringify(d1)}`);
+    if (d1.odak !== 'duzelt-inp') hata('düzeltme', `masaüstünde odak kutuda değil: ${d1.odak}`);
+    (await kucukler(c, '#sonuc')).forEach(x => hata('düzeltme ≥48', x));
+    await c.keyboard.press('Enter'); await c.waitForTimeout(60);
+    if (await c.evaluate(() => window.__tekrar.aktuell.islendi)) hata('düzeltme', 'doğrusu yazılmadan geçti');
+    await c.fill('#duzelt-inp', ziel); await c.waitForTimeout(60);
+    if (await c.$('#sonuc .devam-btn[disabled]')) hata('düzeltme', 'doğrusu yazıldı ama Devam kapalı');
+    await c.press('#duzelt-inp', 'Enter'); await c.waitForTimeout(120);
+    const n2 = await c.evaluate(() => { const l = window.__tekrar.S.log; return (l[l.length - 1] || {}).notiz || ''; });
+    if (!/(^| )düzeltti( |$)/.test(n2) || !/bicim:yaz/.test(n2)) hata('düzeltme', `log notiz: ${n2}`);
+    // metin etkinliği: yanlış boşlukların doğrusu metinde yazılır; yazılmadan Devam yok; özet satırında 'düzeltti'
+    const cm = await D.sayfa(b, { mobil: true, zustand: D.zustandOku() });
+    await cm.evaluate(() => window.__tekrar.starte('akis')); await cm.waitForTimeout(200);
+    if (await cm.evaluate(() => window.__tekrar.metinAc('luecke'))) {
+      const bl = await cm.evaluate(() => window.__tekrar.aktuell.blanks.map(x => x.form));
+      for (let i = 0; i < bl.length; i++) await cm.fill(`.u-luecke[data-al="${i}"]`, i === 0 ? 'xxxyz' : bl[i]);
+      await cm.click('[data-akt="pruef"]'); await cm.waitForTimeout(60);
+      const a1 = await cm.evaluate(() => ({ dz: document.querySelectorAll('.u-duzelt').length, kapali: !!document.querySelector('#sonuc .devam-btn[disabled]') }));
+      if (a1.dz !== 1 || !a1.kapali) hata('metin düzeltme', JSON.stringify(a1));
+      await cm.waitForTimeout(900); await cm.keyboard.press('Enter'); await cm.waitForTimeout(60);
+      if (!(await cm.evaluate(() => window.__tekrar.aktuell.wartet))) hata('metin düzeltme', 'doğrusu yazılmadan geçti');
+      await cm.fill('.u-duzelt[data-dz="0"]', bl[0]); await cm.waitForTimeout(60);
+      await cm.keyboard.press('Enter'); await cm.waitForTimeout(150);
+      const ak = await cm.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'akt').pop() || {});
+      if (!/düzeltti/.test(ak.notiz || '')) hata('metin düzeltme', `özet satırı: ${ak.notiz}`);
+    } else console.log('metin düzeltme: metin açılmadı (atlandı)');
+    if (cm.hatalar.length) hata('metin sayfa', cm.hatalar.join(' | '));
+    await cm.ctx.close();
+    if (c.hatalar.length) hata('seçmeli sayfa', c.hatalar.join(' | '));
+    await c.ctx.close();
+    // tanıtım kartı: Devam ≥ 4 sn kapalı (test zamanlayıcıları ×0,25 → ≥ 1 sn)
+    const t = await D.sayfa(b, { mobil: true });
+    await t.evaluate(() => window.__tekrar.starte('akis')); await t.waitForTimeout(150);
+    for (let i = 0; i < 6; i++) { const s = await D.durum(t); if (s.tur === 'tanit') break; if (s.tur === 'leer' || s.tur === 'turSonu') break; await D.adim(t, { dogru: 1 }); }
+    const s0 = await D.durum(t);
+    if (s0.tur === 'tanit') {
+      const t0 = Date.now();
+      if (!(await t.$('[data-act="tanit-devam"][disabled]'))) hata('tanıtım', 'Devam baştan açık');
+      await t.keyboard.press('Enter'); await t.waitForTimeout(40);
+      if ((await D.durum(t)).id !== s0.id) hata('tanıtım', 'kilitliyken Enter geçti');
+      await t.waitForFunction(() => !document.querySelector('[data-act="tanit-devam"][disabled]'), null, { timeout: 12000 }).catch(() => hata('tanıtım', 'kilit açılmadı'));
+      if (Date.now() - t0 < 900) hata('tanıtım', `kilit çok kısa: ${Date.now() - t0} ms`);
+      console.log(`seçmeli / panel: şıklar ${m.t.join(' | ')} · tanıtım kilidi ${Date.now() - t0} ms`);
+    } else hata('tanıtım', `tanıtım kartı gelmedi (${s0.tur})`);
+    await t.ctx.close();
   }
 
   // ---- B2 hazırlık sprinti (S.sprint): geri sayım + üç blok, gramer bloğu sözleşme API'si, "Bugün tamam" üçü bitince,
