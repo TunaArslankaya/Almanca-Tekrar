@@ -3682,3 +3682,4 @@
 2026-11-05 05:45:35;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:1 | yanlış:3 | puan:93 | dk:2 | yeni:0 | seviye+:2 | tekrar:11 | gram:1/2
 2026-11-06 05:48:44;erk;n0244:erk;die Diskussion;tartışma;die Diskussion;richtig;die Diskussion;basamak:B1 | bicim:sec | not:m3,a3 | R:0.98 | S:59.2 | ısınma | kapı:7g | sek:4
 2026-11-06 05:48:48;wort;n1392:wort;die Wolke;bulut;die Wolke;richtig;die Wolke;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:129.1 | ısınma | sek:4 | ipucu:2
+2026-11-06 05:48:51;erk;n0538:erk;die Hitze;Nach extremen Temperaturen von über 40 Grad zeigt sich, wie schlecht Deutschland auf Hitze vorbereitet ist.;sıcaklık;richtig;sıcaklık (bunaltıcı);basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:46.3 | ısınma | kapı:7g | sek:2
