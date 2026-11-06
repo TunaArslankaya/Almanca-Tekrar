@@ -580,7 +580,8 @@
     // 1) oturum kuyruğu: yanlış (yeniden sorma), mini, ikinci; ilk gelen ilk çıkar
     const kuyrukSec = kq => {
       const it = S.items[kq.id] || {}, bc = kq.bicim ? { bicim: kq.bicim, uretec: null } : bicimSec(it, kq.b || 1, { id: kq.id, t, ipuclu: (kq.b || 1) === 2 }, rnd, []);
-      return { tur: 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq };
+      // artikel kuyruğu (artikel mini seti, artOb) 'art' sayılır: turda artikel sınırı (ART_TUR) ve art arda flaş kuralı onları da görür (6.11 denetim)
+      return { tur: bc.bicim === 'artikel' || bc.bicim === 'artOb' ? 'art' : 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq };
     };
     const kq = (o.kuyruk || []).filter(k => k.at <= adim && (!o.filtre || o.filtre(k.id))).sort((a, b) => a.at - b.at)[0];   // en erken sırası gelen
     if (kq) return kuyrukSec(kq);
@@ -930,7 +931,7 @@
   // hafızalarda last'ı büyük olan; tage gün başına en büyük (yerelde olmayan uzak gün korunur); unite idx/done birleşim;
   // xpToplam / seri.rekor / oyun.rekor en büyük; fehlTage birleşim, leech VEYA, seit en küçük; tageC cihaz başına (G-Counter),
   // tage[g] yalnız cihaz toplamı daha büyükse değişir (göç günü eski istemcinin saydığı cevaplar silinmez). normalize çağıran yapar.
-  const SADE = ['kontext', 'iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'fiilMetin', 'kontrol'];
+  const SADE = ['iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'fiilMetin', 'kontrol'];
   const TOP_ALAN = ['n', 'richtig', 'fast', 'falsch', 'xp'];
   function birlestir(lok, uz) {
     if (!uz || typeof uz !== 'object') return lok;
@@ -992,6 +993,28 @@
       Object.entries(lok.bilmedik || {}).forEach(([k, a]) => { const o = b[k]; b[k] = !o ? a : Object.assign({}, (a.son || 0) > (o.son || 0) || ((a.son || 0) === (o.son || 0) && (a.d || 0) >= (o.d || 0)) ? a : o, { ilk: Math.min(a.ilk || Infinity, o.ilk || Infinity), n: Math.max(a.n || 0, o.n || 0) }); });
       m.bilmedik = b;
     }
+    // 6.11: cümle geçmişi öğe başına birleşir ({ s, t }; eski düz metin t 0), son 24; duy-seç sayaçları kontrast başına büyük olan;
+    // konuşma / dinleme durumu ve yazma ipucu türü anahtar başına (yerel önce)
+    if (lok.kontext || uz.kontext) {
+      const kx = Object.assign({}, uz.kontext), liste = a => (Array.isArray(a) ? a : a ? [a] : []).map(e => (typeof e === 'string' ? { s: e, t: 0 } : e)).filter(e => e && typeof e.s === 'string');
+      Object.entries(lok.kontext || {}).forEach(([id, a]) => {
+        const m = new Map(); liste(kx[id]).concat(liste(a)).forEach(e => { const k = e.s + '|' + e.t; if (!m.has(k)) m.set(k, e); });
+        kx[id] = [...m.values()].sort((x, y) => x.t - y.t).slice(-24);
+      });
+      m.kontext = kx;
+    }
+    if (lok.hoer || uz.hoer) {
+      const h = Object.assign({}, uz.hoer);
+      Object.entries(lok.hoer || {}).forEach(([k, a]) => { const b = h[k] || {}; h[k] = Object.assign({}, b, a, { d: Math.max(a.d || 0, b.d || 0), y: Math.max(a.y || 0, b.y || 0), t: Math.max(a.t || 0, b.t || 0) }); });
+      m.hoer = h;
+    }
+    ['konus', 'dinle'].forEach(k => {
+      if (!lok[k] && !uz[k]) return;
+      const a = lok[k] || {}, b = uz[k] || {}, o = Object.assign({}, b, a);
+      Object.keys(o).forEach(x => { if (a[x] && b[x] && typeof a[x] === 'object' && typeof b[x] === 'object' && !Array.isArray(a[x])) o[x] = Object.assign({}, b[x], a[x]); });
+      m[k] = o;
+    });
+    if (lok.ipTur || uz.ipTur) m.ipTur = Object.assign({}, uz.ipTur, lok.ipTur);
     if (lok.xpTaban != null || uz.xpTaban != null) m.xpTaban = Math.max(lok.xpTaban || 0, uz.xpTaban || 0);
     if (lok.tageC || uz.tageC) {
       // cihaz başına, alan başına en büyük (her cihaz yalnız kendi sayacını artırır)

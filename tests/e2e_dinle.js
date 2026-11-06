@@ -54,7 +54,7 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   const hafiza = () => p.evaluate(() => JSON.stringify(Object.fromEntries(Object.entries(window.__tekrar.S.items).map(([k, v]) => [k, v.m || null]))));
   const h0 = await hafiza(), n0 = await p.evaluate(() => window.__tekrar.tur.n);
   // açılış ve "şıklar kapalı" denetimi aynı anda (ses hatası hızlı gelirse şıklar hemen açılabilir)
-  const k = await p.evaluate(() => { const T = window.__tekrar; if (!T.sesAc('duy', 'kelime')) return null; const a = T.aktuell; const lem = a.id[0] === 'n' ? T.byId[a.id].lemma : a.id[0] === 'v' ? T.VERBEN.find(v => v.id === a.id).inf : T.wById[a.id].de; return { typ: a.typ, id: a.id, lem, kapali: document.querySelector('#dn-sik').hidden, metin: document.querySelector('#kart').innerText }; });
+  const k = await p.evaluate(() => { const T = window.__tekrar; if (!T.sesAc('duy', 'kelime')) return null; const a = T.aktuell; const lem = T.byId[a.id] ? T.byId[a.id].lemma : a.id[0] === 'v' ? T.VERBEN.find(v => v.id === a.id).inf : T.wById[a.id].de;   // x… (nomen_extra) de isim return { typ: a.typ, id: a.id, lem, kapali: document.querySelector('#dn-sik').hidden, metin: document.querySelector('#kart').innerText }; });
   if (!k) hata('kelime', 'soru açılmadı');
   else {
     if (k.typ !== 'sesTur') hata('kelime', 'aktuell.typ ' + k.typ);

@@ -257,7 +257,7 @@
   let S = yukle();
   // günlük hedef: tur sayısı (Ayarlar, varsayılan 3) × tur boyu; uyarlamalı hedef kalktı. Günü kurtarmak (seri) ayrı: MIN_TAG.
   // Pazartesi (6.11, log: 5 pazartesinin 3'ü boş, kopmaların çoğu pazartesi): hedef 1 tur; seri her gün olduğu gibi MIN_TAG cevapla sayılır
-  function pazartesi(t) { return new Date(t == null ? now() : t).getDay() === 1; }
+  function pazartesi(t) { return new Date((t == null ? now() : t) - 4 * 3600000).getDay() === 1; }   // öğrenme günü 04:00'te başlar
   function turHedefAyar() { return Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2)); }
   function turHedefGun(t) { return pazartesi(t) ? 1 : turHedefAyar(); }
   function gunHedef(t) { return turHedefGun(t) * turBoyu(); }
@@ -424,7 +424,7 @@
     const bugun = Kern.gun4(now()), gunler = [];
     for (let i = 1; i <= 7; i++) { const g = Kern.gun4(now() - i * DAY); const n = (S.tage[g] && S.tage[g].n) || 0; if (n > 0 && g !== bugun) gunler.push(n); }
     const tempo = gunler.length ? gunler.reduce((a, b) => a + b, 0) / gunler.length : 0;
-    return Math.round(Math.max(gunHedef(), Math.min(150, tempo)));
+    return Math.round(Math.max(turHedefAyar() * turBoyu(), Math.min(150, tempo)));   // pazartesi 1 tur hedefi kota frenini düşürmesin
   }
   const kota = () => Kern.kota(durum4(), now());
   // ---- akşam tekrarı (Kern.aksamAdaylar / aksamUygun): bugün ilk cevap 13:00'ten önce, ≥ 8 saat geçti, aday ≥ 3 ----
@@ -650,7 +650,7 @@
     else if (k === 'w') { const kl = wById[id].kl; pool = WOERTER.filter(w => w.kl === kl).map(w => w.id); if (pool.length < 12) pool = WOERTER.map(w => w.id); }
     else pool = NL.map(x => x.id);
     const aday = [];
-    (karismaTablosu()[id] || []).forEach((x, i) => { if (ogeVar(x) && gueltig(x + ':x')) aday.push({ x, p: 10 - i * 0.01, kaynak: 'karışma' }); });
+    (karismaTablosu()[id] || []).forEach((x, i) => { if (ogeVar(x) && gueltig(x + ':x') && kind(x) === k) aday.push({ x, p: 10 - i * 0.01, kaynak: 'karışma' }); });   // aynı tür (isim sorusunda fiil şık olmasın)
     const kar = new Set(aday.map(a => a.x));
     for (const x of pool) {
       if (x === id || kar.has(x) || !ablenkFrei(x)) continue;
@@ -959,17 +959,18 @@
   }
   const ayirAnahtar = id => { const k = kind(id); return (k === 'n' ? byId[id].lemma : k === 'v' ? vById[id].anz.replace('sich(D)', 'sich').replace(/^sich /, '') : wById[id].de.replace(/ ….*$/, '')).toLowerCase(); };
   function ayirCiftleri() {
-    const n0 = S.log.length;
+    const n0 = S.log.length + '|' + ((S.log[S.log.length - 1] || {}).zeit || '');   // log 3000'de kırpılınca uzunluk sabit kalır: son satırın zamanı da anahtar
     if (_ayirC && _ayirC.n === n0) return _ayirC.l;
     const say = new Map();
-    const ekle = (a, b) => {
+    const ekle = (a, b, c) => {
       if (!a || !b || a === b || !gueltig(a + ':x') || !gueltig(b + ':x') || kind(a) === 'p' || kind(b) === 'p') return;
       if (kurzTr(trOf(a)) === kurzTr(trOf(b)) || synOf(a).includes(b)) return;   // aynı anlam: ayırt edilemez
       const k = a < b ? a + '~' + b : b + '~' + a;
-      say.set(k, (say.get(k) || 0) + 1);
+      say.set(k, (say.get(k) || 0) + (c || 1));
     };
     if (typeof karismaTablosu === 'function') {
-      try { const t = karismaTablosu() || {}; Object.keys(t).forEach(a => (t[a] || []).forEach(b => ekle(a, b))); } catch (e) { console.warn('karismaTablosu', e); }
+      // tablo iki yönlü: her çift bir kez (a < b), gerçek karışma sayısıyla (6.11 denetim: iki kez sayılınca n ≥ 2 süzgeci hep geçiyordu)
+      try { const t = karismaTablosu() || {}, kc = (_karisma && _karisma.say) || {}; Object.keys(t).forEach(a => (t[a] || []).forEach(b => { if (a < b) ekle(a, b, (kc[a] || {})[b] || 1); })); } catch (e) { console.warn('karismaTablosu', e); }
     } else {
       const { m, kova } = ayirIdx();
       S.log.forEach(e => {
@@ -3037,7 +3038,8 @@
       if (sel.tur === 'parti') { partiKur(sel); tanitGoster(); return; }
       if (sel.tur === 'metin') { ot.metin = true; const q = metinKur(sel); if (q) { aktuell = q; render(q); return; } continue; }
       if (sel.tur === 'gram') { const q = gramTurFrage(sel); if (q) { aktuell = q; gramTurRender(q); return; } ot.gramYok = true; continue; }
-      if (sel.tur === 'ses') { const q = sesTurFrage(sel); if (q) { aktuell = q; sesTurRender(q); return; } ot.sesYok = true; continue; }
+      // ses yuvası: söyle kurulamazsa (mikrofon yok / izin yok) duy-seç; o da yoksa yalnız bu pencere atlanır (ikinci yuva kalır; 6.11 denetim)
+      if (sel.tur === 'ses') { const q = sesTurFrage(sel) || (sel.alt === 'soyle' ? sesTurFrage(Object.assign({}, sel, { alt: 'hoer' })) : null); if (q) { aktuell = q; sesTurRender(q); return; } ot.sesAtlaA = ot.adim || 0; continue; }
       if (sel.tur === 'bitti') return leerGoster(sel);
       // uzun süredir görülmeyen (R < 0,35): önce kısa yeniden tanıtım
       if (sel.yenidenTanit && sel.tur === 'm') { ot.bekleyen = sel; aktuell = frageTanit(sel.id, { kisa: true }); render(aktuell); return; }
@@ -3198,6 +3200,7 @@
   const sesliAcik = () => S.einst.sesli !== false;
   const sesModul = alt => (alt === 'duy' ? window.Dinle : window.Konus) || null;
   function sesVarMi(ot) {
+    if (ot.sesAtlaA != null && (ot.adim || 0) - ot.sesAtlaA <= 2) return false;   // atlanan pencerenin geri kalanı
     return session.modus === 'akis' && !ot.klavyesiz && !ot.sesYok && sesliAcik() && !!window.speechSynthesis
       && !!((window.Dinle && typeof Dinle.turSorusu === 'function') || (window.Konus && typeof Konus.turSorusu === 'function'));
   }

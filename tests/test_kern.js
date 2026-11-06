@@ -1171,5 +1171,15 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(K.eskiTur('v2', 'kalip'), 'abr', 'eskiTur kalip → abr');
 }
 
+// ---------- 6.11 denetim: kontext / hoer / konus birleşir; artikel kuyruğu 'art' ----------
+{
+  const r = K.birlestir({ kontext: { n1: [{ s: 'A', t: 5 }, 'B'] }, hoer: { ch: { d: 3, y: 1, t: 9 } }, konus: { son: { x: 1 } } },
+    { kontext: { n1: [{ s: 'C', t: 7 }], n2: [{ s: 'D', t: 1 }] }, hoer: { ch: { d: 1, y: 4, t: 2 }, er: { d: 2, y: 0 } }, konus: { son: { y: 2 } } });
+  eq(r.kontext.n1.map(e => e.s).join(','), 'B,A,C', 'birleştirme: cümle geçmişi öğe başına birleşir (zaman sırası)');
+  eq(!!r.kontext.n2, true, 'birleştirme: uzaktaki cümle geçmişi kalır');
+  eq([r.hoer.ch.d, r.hoer.ch.y, !!r.hoer.er].join(), '3,4,true', 'birleştirme: duy-seç sayaçları kontrast başına büyük olan');
+  eq(Object.keys(r.konus.son).sort().join(), 'x,y', 'birleştirme: konuşma durumu anahtar başına');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);
