@@ -670,8 +670,8 @@
   // v5 §4.3 yazım hoşgörüsü (opts.lemma: tek kelime / kalıp cevabı): ae/oe/ue/ss yazımı tam doğru; umlaut farkı (Mutter/Mütter) 'umlaut';
   // 'yazım' yalnız lemma ≥ 5 harf ve lev 1 ya da ≥ 10 harf ve lev ≤ 2, fark umlaut değil ve yazılan sözlükte başka bir kelime değilse
   // (liegen/legen, Stadt/Staat ayrışır). Sözlük: opts.lex ya da lexSetzen() ile verilen küçük harfli küme (lemmalar + çoğullar + fiil biçimleri).
-  let LEX = null;
-  const lexSetzen = s => { LEX = s; };
+  let LEX = null, LEMMA = null;
+  const lexSetzen = (s, lem) => { LEX = s; LEMMA = lem || null; };
   const acik = s => s.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ß/g, 'ss');
   const umlFold = s => s.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
   // yer değiştirmiş iki komşu harf (Situaiton) tek hata sayılır (Damerau)
@@ -699,6 +699,8 @@
   function yakin(x, t, lex) {
     const a = acik(String(x || '')).toLowerCase(), b = acik(String(t || '')).toLowerCase();
     if (!a || !b || a === b) return null;
+    // ikisi de ayrı sözlük kelimesiyse (eignen / eigen, Gedicht / Geduld) yakın değil
+    if (LEMMA && LEMMA.has(String(x).toLowerCase()) && LEMMA.has(String(t).toLowerCase())) return null;
     // yalnız ek farklı (fett → fette, macht → mache, Schmerzen → Schmerz): ortak baştan sonra kalanlar ek; biri ötekinin sonuysa
     // (wartn → warten) harf atlamadır, yazım
     let p = 0; while (p < a.length && p < b.length && a[p] === b[p]) p++;

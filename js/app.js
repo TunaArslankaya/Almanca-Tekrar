@@ -353,7 +353,10 @@
     NL.forEach(n => { ekle(n.lemma); ekle(n.plf); });
     WOERTER.forEach(w => ekle(w.de));
     formIdx().forEach((id, f) => ekle(f));
-    G.lexSetzen(_lex);
+    // sözlük biçimleri (lemma): iki ayrı sözlük kelimesi birbirinin çekimi sayılmasın (eignen ≠ eigen; 6.11 log denetimi)
+    const lem = new Set(); const lk = x => { if (x) String(x).split(/[ /]+/).forEach(w => w.length > 1 && lem.add(w.toLowerCase())); };
+    NL.forEach(n => lk(n.lemma)); WOERTER.forEach(w => lk(w.de)); VERBEN.forEach(v => lk(v.inf));
+    G.lexSetzen(_lex, lem);
     return _lex;
   };
   // ünite kelimesi (aktif ünitenin dosya sırası) ve bütün ünite kelimeleri (tavan dışı)
