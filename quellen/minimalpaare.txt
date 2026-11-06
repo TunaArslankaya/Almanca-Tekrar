@@ -1,0 +1,158 @@
+# Dinle ve ayırt et (js/konus.js "hoer"): Türk konuşucuya zor ses karşıtlıkları. build → daten/minimalpaare.js
+# Kontrast tanımı:  @ kimlik | ad | Türkçe kanca (yanlışta gösterilir)
+# Minimal çift:     kimlik | kelime1 | kelime2 | Türkçe1 | Türkçe2      (isimler artikelli; ses artikelsiz okunur)
+# Vurgu:            vurgu | heceler (· ile, isim artikelli) | vurgulu hecenin sırası (1'den) | Türkçe
+# Kural: yalnız gerçek, yaygın kelimeler; iki kelimenin sesi yalnız bu kontrastta ayrılsın. Yeni satır sona.
+
+@ uzun-kisa | Uzun / kısa ünlü | Uzun ünlü "dağ"daki ğ gibi uzar (Sohn ≈ "soğn"); kısa ünlü gevşek ve kısadır, ardından ünsüz hemen gelir. Yazımda ipucu: çift ünsüz, ck, tz önünde kısa; h, çift ünlü, ie önünde uzun.
+@ ch | ch: ich / ach / sch / k | ich-Laut [ç] "ihtiyar"daki h gibidir, ş değil (dudakları yuvarlama, gülümse). a / o / u / au'dan sonra ach-Laut [x]: "sabah"ın h'si, daha arkadan. g ve k sonda [k].
+@ er-e | -er / -e | Sondaki -er kısa bir "a"dır, r söylenmez (Lehrer ≈ "leera", Messer ≈ "messa"); -e çok kısa, gevşek bir ı'dır (bitte ≈ "bittı").
+@ e-en | -e / -en | -en'de e neredeyse yutulur, yalnız n kalır (fragen ≈ "fraagn"); -e kısa bir ı gibi biter.
+@ kume | Ünsüz kümesi | Kümenin içine ünlü sokma: "şırank" değil Schrank, "pılatz" değil Platz. Ünsüzü uzatarak başla ("ssss-trand"), fısıltıyla dene.
+@ z-s | z / s | z her yerde [ts]'dir (Zeit ≈ "tsayt", kurz ≈ "kurts"); ünlüden önce s Türkçe z gibidir (sieht ≈ "ziit"); ß / ss sert s.
+@ ei-ie | ei / ie / eu | ei = "ay" (nein), ie = uzun i (Lied ≈ "liit"), eu / äu = "oy" (neun ≈ "noyn"). Yazıya bakıp okuma: ei ile ie'yi ters okuma.
+@ w-f | w / v / f | w Türkçe v'dir (Wein ≈ "vayn"); v çoğu Almanca kelimede f'dir (vier ≈ "fiir", Vetter ≈ "fetta").
+@ vurgu | Kelime vurgusu | Vurgu çoğunlukla kökün ilk hecesinde: ayrılan ön ek (an-, auf-, ein-, zu-, vor-) vurgulu; be-, ge-, er-, ver-, ent- vurgusuz. -ei, -tion, -tät, -ieren ve çoğu yabancı kelimede vurgu sonda. Vurgulu heceyi daha uzun, daha yüksek ve net söyle, ötekileri küçült.
+
+uzun-kisa | die Miete | die Mitte | kira | orta
+uzun-kisa | die Hüte | die Hütte | şapkalar | kulübe
+uzun-kisa | der Staat | die Stadt | devlet | şehir
+uzun-kisa | der Ofen | offen | fırın, soba | açık
+uzun-kisa | das Beet | das Bett | çiçek tarhı | yatak
+uzun-kisa | fühlen | füllen | hissetmek | doldurmak
+uzun-kisa | die Höhle | die Hölle | mağara | cehennem
+uzun-kisa | wen | wenn | kimi | -dığında, eğer
+uzun-kisa | den | denn | -i (artikel) | çünkü
+uzun-kisa | die Saat | satt | tohum, ekin | tok
+uzun-kisa | der Kahn | kann | kayık | -abilir
+uzun-kisa | das Mus | muss | püre | zorunda
+uzun-kisa | bieten | bitten | sunmak | rica etmek
+uzun-kisa | schief | das Schiff | eğri | gemi
+uzun-kisa | stehlen | stellen | çalmak | koymak
+uzun-kisa | der Schal | der Schall | atkı | ses, yankı
+uzun-kisa | die Rate | die Ratte | taksit | sıçan
+uzun-kisa | lahm | das Lamm | topal | kuzu
+uzun-kisa | spuken | spucken | (hayalet) dolaşmak | tükürmek
+uzun-kisa | die Kehle | die Kelle | gırtlak | kepçe
+uzun-kisa | der Ruhm | der Rum | şöhret | rom
+uzun-kisa | die Wahl | der Wall | seçim | sur, set
+uzun-kisa | Polen | die Pollen | Polonya | polenler
+uzun-kisa | ihn | in | onu | içinde
+uzun-kisa | kam | der Kamm | geldi | tarak
+uzun-kisa | der Stahl | der Stall | çelik | ahır
+uzun-kisa | die Wüste | wüsste | çöl | bilseydi
+ch | die Kirche | die Kirsche | kilise | kiraz
+ch | mich | misch | beni | karıştır!
+ch | die Fichte | fischte | ladin ağacı | balık tuttu
+ch | der Teich | der Teig | gölet | hamur
+ch | lachen | das Laken | gülmek | çarşaf
+ch | die Nacht | nackt | gece | çıplak
+ch | der Fluch | der Flug | lanet | uçuş
+er-e | der Lehrer | die Lehre | öğretmen | çıraklık, öğreti
+er-e | bitte | bitter | lütfen | acı (tat)
+er-e | die Liebe | lieber | sevgi | daha çok, tercihen
+er-e | die Messe | das Messer | fuar | bıçak
+er-e | die Wette | das Wetter | bahis | hava (durumu)
+er-e | die Kelle | der Keller | kepçe | bodrum
+er-e | die Lage | das Lager | durum, konum | depo
+er-e | die Dichte | der Dichter | yoğunluk | şair
+er-e | die Rinde | die Rinder | ağaç kabuğu | sığırlar
+er-e | die Wunde | das Wunder | yara | mucize
+e-en | die Frage | fragen | soru | sormak
+e-en | die Lampe | die Lampen | lamba | lambalar
+e-en | die Seite | die Seiten | sayfa | sayfalar
+e-en | die Reise | reisen | yolculuk | seyahat etmek
+e-en | die Tante | die Tanten | teyze, hala | teyzeler, halalar
+e-en | die Sache | die Sachen | şey, iş | eşyalar
+kume | der Preis | der Reis | fiyat | pirinç
+kume | die Klasse | die Kasse | sınıf | kasa
+kume | das Glas | das Gas | cam, bardak | gaz
+kume | das Brot | rot | ekmek | kırmızı
+kume | der Grund | rund | sebep, temel | yuvarlak
+kume | der Schmerz | der Scherz | ağrı | şaka
+kume | schmal | der Schal | dar | atkı
+kume | das Kleid | das Leid | elbise | acı, keder
+kume | der Brief | rief | mektup | çağırdı
+kume | der Strand | der Stand | plaj | stant, durum
+kume | die Platte | die Latte | plak, tabak | çıta
+kume | die Frau | rau | kadın | kaba, pürüzlü
+kume | der Flug | der Pflug | uçuş | saban
+kume | das Pfund | der Fund | yarım kilo | buluntu
+z-s | die Zeit | seit | zaman | -den beri
+z-s | der Zoll | soll | gümrük | -meli
+z-s | die Zahl | der Saal | sayı | salon
+z-s | zieht | sieht | çekiyor | görüyor
+z-s | der Zeh | der See | ayak parmağı | göl
+z-s | reizen | reisen | cezbetmek, kışkırtmak | seyahat etmek
+z-s | heizen | heißen | ısıtmak | adı olmak
+z-s | kurz | der Kurs | kısa | kurs
+z-s | die Ziege | die Siege | keçi | zaferler
+ei-ie | das Lied | das Leid | şarkı | acı, keder
+ei-ie | Wien | der Wein | Viyana | şarap
+ei-ie | die Biene | die Beine | arı | bacaklar
+ei-ie | die Feier | das Feuer | kutlama | ateş
+ei-ie | die Eule | die Eile | baykuş | acele
+ei-ie | neun | nein | dokuz | hayır
+ei-ie | die Leute | die Laute | insanlar | sesler
+ei-ie | leiten | läuten | yönetmek | (zil) çalmak
+ei-ie | die Weise | die Wiese | yol, yöntem | çayır
+ei-ie | bleiben | blieben | kalmak | kaldılar
+ei-ie | schreiben | schrieben | yazmak | yazdılar
+ei-ie | vier | für | dört | için
+w-f | wir | vier | biz | dört
+w-f | das Wetter | der Vetter | hava (durumu) | kuzen
+w-f | die Wolle | volle | yün | dolu
+w-f | der Wein | fein | şarap | ince, zarif
+w-f | die Wand | fand | duvar | buldu
+w-f | warm | die Farm | sıcak | çiftlik
+w-f | was | das Fass | ne | fıçı
+
+vurgu | an·ru·fen | 1 | telefon etmek
+vurgu | auf·ste·hen | 1 | kalkmak
+vurgu | ein·kau·fen | 1 | alışveriş yapmak
+vurgu | zu·hö·ren | 1 | dinlemek
+vurgu | vor·stel·len | 1 | tanıtmak
+vurgu | ar·bei·ten | 1 | çalışmak
+vurgu | die Ab·fahrt | 1 | kalkış
+vurgu | die Ant·wort | 1 | cevap
+vurgu | der Un·ter·richt | 1 | ders
+vurgu | der Bahn·hof | 1 | istasyon
+vurgu | das Kran·ken·haus | 1 | hastane
+vurgu | der Fern·se·her | 1 | televizyon
+vurgu | der Ur·laub | 1 | tatil
+vurgu | die Prü·fung | 1 | sınav
+vurgu | die Woh·nung | 1 | daire, ev
+vurgu | die Zei·tung | 1 | gazete
+vurgu | die Le·bens·mit·tel | 1 | gıda
+vurgu | die Ka·me·ra | 1 | fotoğraf makinesi
+vurgu | das Ki·no | 1 | sinema
+vurgu | be·su·chen | 2 | ziyaret etmek
+vurgu | ver·ste·hen | 2 | anlamak
+vurgu | er·zäh·len | 2 | anlatmak
+vurgu | ent·schul·di·gen | 2 | özür dilemek
+vurgu | stu·die·ren | 2 | üniversitede okumak
+vurgu | der Ge·burts·tag | 2 | doğum günü
+vurgu | die Fa·mi·lie | 2 | aile
+vurgu | der Stu·dent | 2 | (erkek) öğrenci
+vurgu | das Ho·tel | 2 | otel
+vurgu | die Ba·na·ne | 2 | muz
+vurgu | die To·ma·te | 2 | domates
+vurgu | die Kar·tof·fel | 2 | patates
+vurgu | das Ge·mü·se | 2 | sebze
+vurgu | das Ge·schenk | 2 | hediye
+vurgu | der Be·ruf | 2 | meslek
+vurgu | die Mu·sik | 2 | müzik
+vurgu | die Er·fah·rung | 2 | deneyim
+vurgu | die Ge·sund·heit | 2 | sağlık
+vurgu | der Ter·min | 2 | randevu
+vurgu | der Ver·kehr | 2 | trafik
+vurgu | der Spa·zier·gang | 2 | yürüyüş
+vurgu | die A·po·the·ke | 3 | eczane
+vurgu | re·pa·rie·ren | 3 | tamir etmek
+vurgu | das Res·tau·rant | 3 | restoran
+vurgu | der Ap·pe·tit | 3 | iştah
+vurgu | die Po·li·zei | 3 | polis
+vurgu | die Bä·cke·rei | 3 | fırın (dükkân)
+vurgu | die In·for·ma·tion | 4 | bilgi
+vurgu | das Me·di·ka·ment | 4 | ilaç
+vurgu | die U·ni·ver·si·tät | 5 | üniversite

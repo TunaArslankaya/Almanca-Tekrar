@@ -238,3 +238,14 @@ formell | Ich möchte mich über … beschweren. | … hakkında şikâyette bul
 formell | Ich wäre Ihnen dankbar, wenn Sie … | … yaparsanız minnettar olurum.
 formell | Ich erwarte, dass … | … olmasını bekliyorum.
 formell | Für eine baldige Antwort wäre ich Ihnen dankbar. | Yakında cevap verirseniz minnettar olurum.
+# sprechen0 = zaman kazanma ve kurtarma (her bölümde; Konuşma → Kalıplar drilinde sesli)
+sprechen0 | Moment, lass mich kurz überlegen. | Bir saniye, kısa bir düşüneyim.
+sprechen0 | Wie sagt man das auf Deutsch? | Bu Almancada nasıl denir?
+sprechen0 | Ich weiß das Wort nicht, aber es ist so etwas wie … | Kelimeyi bilmiyorum ama … gibi bir şey.
+sprechen0 | Kannst du das bitte wiederholen? | Bunu lütfen tekrar eder misin?
+sprechen0 | Wie bitte? Das habe ich nicht ganz verstanden. | Efendim? Bunu tam anlamadım.
+sprechen0 | Was ich damit sagen will: … | Bununla demek istediğim şu: …
+sprechen0 | Lass mich das anders sagen. | Bunu başka türlü söyleyeyim.
+sprechen0 | Ich bin mir nicht ganz sicher, aber ich glaube, … | Tam emin değilim ama sanırım …
+sprechen0 | Das ist eine schwierige Frage. | Bu zor bir soru.
+sprechen0 | Wie gesagt, … | Dediğim gibi, …

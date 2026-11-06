@@ -1031,6 +1031,50 @@ for _gid, _g in grammatik.items():
 dump("grammatik.js", "GRAMMATIK", grammatik)
 print(f"gramer: {len(grammatik)} konu, {sum(len(g['uebungen']) for g in grammatik.values())} alıştırma")
 
+# Dinle ve ayırt et (js/konus.js "hoer"): quellen/minimalpaare.txt → daten/minimalpaare.js
+def minimalpaare_lesen():
+    fp = P("quellen", "minimalpaare.txt")
+    out = {"kontrast": {}, "ciftler": [], "vurgu": []}
+    if not os.path.exists(fp):
+        return out
+    gor = set()
+    for i, line in enumerate(open(fp, encoding="utf-8"), 1):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.startswith("@"):
+            p = [x.strip() for x in line[1:].split("|")]
+            if len(p) != 3 or not all(p):
+                errors.append(f"minimalpaare.txt:{i}: '@ kimlik | ad | kanca' olmalı"); continue
+            out["kontrast"][p[0]] = {"ad": p[1], "kanca": p[2]}
+            continue
+        p = [x.strip() for x in line.split("|")]
+        if p and p[0] == "vurgu":
+            if len(p) != 4 or not all(p) or not p[2].isdigit():
+                errors.append(f"minimalpaare.txt:{i}: 'vurgu | he·ce·ler | sıra | Türkçe' olmalı"); continue
+            art, _, w = p[1].rpartition(" ") if re.match(r"^(der|die|das) ", p[1]) else ("", "", p[1])
+            h = w.split("·")
+            if not (1 <= int(p[2]) <= len(h)) or len(h) < 2:
+                errors.append(f"minimalpaare.txt:{i}: vurgu sırası hece sayısı dışında"); continue
+            out["vurgu"].append({"art": art, "h": h, "v": int(p[2]) - 1, "tr": p[3]})
+            continue
+        if len(p) != 5 or not all(p):
+            errors.append(f"minimalpaare.txt:{i}: 'kontrast | kelime1 | kelime2 | Türkçe1 | Türkçe2' olmalı"); continue
+        if p[0] not in out["kontrast"]:
+            errors.append(f"minimalpaare.txt:{i}: kontrast '{p[0]}' tanımlı değil (@ satırı)"); continue
+        a, b = p[1], p[2]
+        bare = lambda x: re.sub(r"^(der|die|das) ", "", x)
+        if bare(a).lower() == bare(b).lower() or (p[0], a, b) in gor:
+            errors.append(f"minimalpaare.txt:{i}: aynı kelime / tekrar eden çift"); continue
+        gor.add((p[0], a, b))
+        out["ciftler"].append({"k": p[0], "a": a, "b": b, "ta": p[3], "tb": p[4]})
+    if out["vurgu"] and "vurgu" not in out["kontrast"]:
+        errors.append("minimalpaare.txt: '@ vurgu' tanımı yok")
+    return out
+_mp = minimalpaare_lesen()
+dump("minimalpaare.js", "MINIMALPAARE", _mp)
+print(f"minimal çift: {len(_mp['ciftler'])} çift, {len(_mp['vurgu'])} vurgu kelimesi, {len(_mp['kontrast'])} kontrast")
+
 # index.html: js/css/daten dosyalarına içerik özeti (?v=) → tarayıcı önbelleği eski sürümü göstermez
 import hashlib
 def _surum(m):
