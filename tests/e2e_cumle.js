@@ -23,7 +23,9 @@ const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147
     if (!window.KALIPLAR || !window.KALIPLAR.satz || !Object.keys(window.KALIPLAR.satz).length) h('KALIPLAR.satz yok');
     if (!window.CAPRAZ || !Object.keys(window.CAPRAZ).length) h('CAPRAZ yok');
     let kalip = 0, capraz = 0;
-    ids.forEach(id => T.satzPool(id).own.forEach(x => {
+    // çalışılan öğeler (kalıp) + çapraz dizindeki öğeler (6.11: içerik ajanları çalışılan her öğeye ≥ 5 kendi cümlesi yazdı, çapraz yalnız < 5'te devreye girer)
+    const capIds = Object.keys(window.CAPRAZ || {}).filter(id => T.byId[id] || T.wById[id]).slice(0, 80);
+    [...new Set(ids.concat(capIds))].forEach(id => T.satzPool(id).own.forEach(x => {
       if (x.quelle === 'kalip') kalip++;
       if (x.capraz) { capraz++; if (!T.wortLuecke(id, x.de)) h(`çapraz cümlede kelime yok: ${id} ${x.de}`); }
     }));
