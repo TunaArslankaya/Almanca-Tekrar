@@ -3819,3 +3819,9 @@
 2026-11-06 13:12:28;gram;g:n-deklination:60;n-deklination/erkennen;Für die Hochzeit suchen wir noch einen guten ___. (der Fotograf);Fotograf;falsch;Fotografen;tur:akis | tür:luecke | z:2 | artikel/çekim | sek:6
 2026-11-06 13:12:36;wort;n1376:wort;die Wettervorhersage;hava tahmini;die Wettervorhersage;richtig;die Wettervorhersage;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:8.7 | kurtarma | sek:7 | ipucu:0 | ipucu-tür:tr
 2026-11-06 13:12:36;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:81 | dk:2 | yeni:2 | seviye+:0 | tekrar:5 | gram:0/2
+2026-11-06 13:12:44;stamm;v643:stamm;werden;Mein Bruder ist letzte Woche 20 _____.;geworden;richtig;geworden;basamak:K | bicim:kokSatz | not:k3 | R:0.47 | S:0.9 | kök:werden | sek:7
+2026-11-06 13:12:50;art;n1325:art;der Vertrag;mit ___ Vertrag [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.61 | S:2.2 | hâl:Dat | sek:6
+2026-11-06 13:12:54;wort;n1077:wort;das Seminar;seminer;das Seminar;richtig;das Seminar;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:8.7 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:12:57;wort;n1179:wort;die Tablette;tablet (ilaç);die Tablette;richtig;die Tablette;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:8.7 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-06 13:13:00;ayir;w0290~w0272;kühl ~ kalt;serin;kühl;richtig;kühl;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-06 13:13:10;gram;g:modalverben:56;modalverben/praeteritum;Früher durfte ich abends nicht allein ausgehen.;;falsch;Früher durfte ich abends nicht allein ausgehen.;tur:akis | tür:fehler | z:2 | zaman | bilmiyorum | sek:8
