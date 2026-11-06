@@ -1,5 +1,5 @@
 // Ortak Playwright adım sürücüsü (tests/e2e_smoke.js, tests/sim_akis.js, tools/film.js): ekrandaki kartı tanır ve cevaplar.
-// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, kok (kok / kokSatz), itiraz, turSonu, paket, leer.
+// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer.
 // Kullanım: const D = require('./surucu'); const b = await D.tarayici(); const p = await D.sayfa(b, { mobil: true, zustand }); await D.adim(p, { dogru: 0.8 });
 const path = require('path');
 const fs = require('fs');
@@ -58,6 +58,7 @@ const durum = p => p.evaluate(() => {
   if (a.typ === 'akt') { r.blanks = a.blanks ? a.blanks.map(b => b.form) : null; r.satz = a.satz ? a.satz.de : null; }
   if (a.typ === 'paket' && a.schritt === 'luecke') r.form = T.pById[a.pid].luecken[a.i].form;
   if (a.artFrage) r.artikel = T.byId[a.id].art;
+  if (a.ayir) { r.ayir = true; r.ok = a.ayir.ok; r.nopt = 2; }
   // fiil yazma: fiil + edat + hâl (warten auf A)
   if (a.input && a.typ === 'abr' && !a.yoklama) { const v = T.VERBEN.find(v => v.id === a.id); r.ziel = v.anz.replace('sich(D)', 'sich').split(' ').map(w => { const o = v.obj.find(o => o.p === w); return o ? w + ' ' + o.k : w; }).join(' '); }
   if (a.input && a.yoklama && a.typ === 'abr') { const v = T.VERBEN.find(v => v.id === a.id); r.ziel = v.anz.replace('sich(D)', 'sich'); }
@@ -119,6 +120,9 @@ async function adim(p, o) {
     await p.waitForTimeout(460);   // açıldıktan sonra < 0,4 sn basış sayılmaz
     const yanlis = !dogruMu && s.tuzakArt >= 0 && rnd() < (o.artYanlis || 0) ? s.tuzakArt : (s.ok + 1) % s.nopt === s.tuzakArt && s.nopt > 2 ? (s.ok + 2) % s.nopt : (s.ok + 1) % s.nopt;
     await p.keyboard.press(String((dogruMu ? s.ok : yanlis) + 1));
+  } else if (s.ayir) {
+    await p.waitForTimeout(460);
+    await p.keyboard.press(String((dogruMu ? s.ok : 1 - s.ok) + 1));
   } else if (s.art) {
     await p.waitForTimeout(480);
     const a = dogruMu ? s.artikel : ['der', 'die', 'das'].find(x => x !== s.artikel);
