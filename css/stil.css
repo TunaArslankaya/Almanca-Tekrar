@@ -1180,3 +1180,32 @@ body.calis-modu .yenile-cubuk { display: none; }
 .ud-hucre small { grid-column: 1 / -1; color: var(--muted); font-size: .72rem; line-height: 1; min-height: .72rem; }
 .ud-hucre.s .sd-cubuk span { background: var(--muted); }
 .ud-kart + .soluk { font-size: .82rem; margin-top: .35rem; }
+/* dinleme (js/dinle.js, 6.11): tur ses yuvası 'duy' + Okuma'da Dinleme modu */
+.dn-ses { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; align-items: center; }
+.dn-ses .btn { min-height: var(--hedef); }
+.dn-ses .dn-cal { min-width: 9rem; justify-content: center; }
+.dn-bekle { text-align: center; }
+.dn-sik { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+.dn-sik[hidden] { display: none; }
+.dn-opt { display: flex; align-items: center; gap: .6rem; text-align: left; padding: .7rem .9rem; min-height: var(--birincil, 56px); border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); cursor: pointer; font: inherit; font-size: 1.02rem; color: inherit; }
+@media (hover: hover) { .dn-opt:hover:not(:disabled) { border-color: var(--accent); background: var(--surface); } }
+.dn-opt:disabled { cursor: default; opacity: .55; }
+.dn-opt.dogru { opacity: 1; background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 700; }
+.dn-opt.yanlis { opacity: 1; background: var(--bad-soft); border-color: var(--bad); color: var(--bad); text-decoration: line-through; }
+.dn-opt kbd { flex: none; }
+@media (max-width: 420px) { .dn-sik { grid-template-columns: 1fr; } }
+.dn-satz { line-height: 1.55; }
+.dn-eksik { color: var(--ok); }
+.dn-fazla { color: var(--bad); }
+.dn-yer { text-decoration: underline wavy var(--warn); }
+.dn-mod { display: grid; gap: .8rem; }
+.dn-mod .btn, .dn-mod-ac { min-height: var(--hedef); }
+.dn-mod-ac { align-self: flex-start; }
+.dn-mod-alt { display: flex; gap: .5rem; flex-wrap: wrap; }
+.dn-oynat { display: grid; gap: .5rem; }
+.dn-oynat audio { width: 100%; max-width: 480px; }
+.dn-dugmeler { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.dn-tahmin { width: 100%; font: inherit; padding: .6rem .7rem; border-radius: 12px; border: 1px solid var(--line); background: var(--surface-2); color: inherit; resize: vertical; }
+.dn-anahtar .chip { font-size: 1rem; }
+.dn-ses-sec { display: inline-flex; gap: .4rem; align-items: center; max-width: 100%; }
+.dn-ses-sec select { max-width: 14rem; }

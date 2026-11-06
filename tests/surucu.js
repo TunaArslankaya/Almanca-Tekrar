@@ -1,5 +1,6 @@
 // Ortak Playwright adım sürücüsü (tests/e2e_smoke.js, tests/sim_akis.js, tools/film.js): ekrandaki kartı tanır ve cevaplar.
-// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer.
+// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer,
+// gram (turdaki gramer sorusu), ses (turdaki ses yuvası: duy / soyle / hoer).
 // Kullanım: const D = require('./surucu'); const b = await D.tarayici(); const p = await D.sayfa(b, { mobil: true, zustand }); await D.adim(p, { dogru: 0.8 });
 const path = require('path');
 const fs = require('fs');
@@ -95,6 +96,13 @@ async function adim(p, o) {
     else { const b = await p.$('#kart [data-g="bilmiyorum"]'); if (b) await b.click(); else await p.evaluate(() => { const a = window.__tekrar.aktuell; if (a && a.bitti) a.bitti({ urteil: 'falsch', antwort: 'test' }); }); }
     for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'gramTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
     return { ad: 'gram', s };
+  }
+  // turdaki ses sorusu (sözleşme S2: Dinle 'duy', Konus 'soyle' / 'hoer'): soru.test(dogru) varsa onunla (gerçek DOM cevabı), yoksa bitti; sonra Devam (Enter)
+  if (s.typ === 'sesTur') {
+    await p.waitForTimeout(120);
+    await p.evaluate(d => { const a = window.__tekrar.aktuell, so = a && a.soru; if (so && typeof so.test === 'function') so.test(d); else if (a && a.bitti) a.bitti({ urteil: d ? 'richtig' : 'falsch', antwort: 'test' }); }, dogruMu);
+    for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'sesTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
+    return { ad: 'ses', s };
   }
   if (ad === 'paket') {
     if (s.schritt === 'luecke' && !s.warte) await p.fill('#cevap', dogruMu ? s.form : 'xxxyz');
