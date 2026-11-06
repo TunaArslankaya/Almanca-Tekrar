@@ -3777,3 +3777,16 @@
 2026-11-06 13:06:49;abr;v466:abr;schweigen;susmak;scweigen;fast;schweigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:2.7 | kısmi | yazım | sek:7 | ipucu:0
 2026-11-06 13:06:51;art;n0957:art;der Rat;Rat;der;richtig;der Rat;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:8.9 | sek:2
 2026-11-06 13:06:55;nsatz;x1549:nsatz;die Ehrlichkeit;Ich schätze an meiner besten Freundin vor allem ihre _____.;Ehrlichkeit;richtig;Ehrlichkeit;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:9.8 | kapı:7g | sek:4 | ipucu:0
+2026-11-06 13:07:17;gram;g:reflexiv:48;reflexiv/perfekt;Dün sınava kaydoldum.;Ich habe gestern an einer Prüfung anmeldet;falsch;Ich habe mich gestern für die Prüfung angemeldet.;tur:akis | tür:ceviri | z:2 | yardımcı fiil | dönüşlü zamir | edat | artikel/çekim | ghost:1 | sek:18
+2026-11-06 13:07:26;erk;n0341:erk;der Fall;In bestimmten Fällen kann der Arzt Medikamente verschreiben, die helfen.;durum, vaka;richtig;durum, vaka;basamak:B1 | bicim:metinde | not:m3 | R:0.75 | S:7.9 | kurtarma | kapı:7g | sek:8
+2026-11-06 13:07:46;satz;v590:satz;sich verlaufen;Im Nebel haben wir uns auf dem Weg zur Burg _____.;vergelauft;falsch;verlaufen;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:0.5 | zor | çekim | sek:15 | ipucu:1
+2026-11-06 13:07:52;erk;n1028:erk;der Schatten;gölge;der Schatten;richtig;der Schatten;basamak:B1 | bicim:sec | not:m3,a3 | R:0.89 | S:1.5 | sek:6
+2026-11-06 13:07:54;prod;w0172:prod;frech;arsız, şımarık;frech;richtig;frech;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:3.0 | sek:2 | ipucu:0
+2026-11-06 13:08:05;gram;g:tuerkisch-fallen:109;tuerkisch-fallen/hilfsverb;Ich steige in Bremen um. → Perfekt;Ich habe in Bremen umgesteigt;falsch;Ich bin in Bremen umgestiegen.;tur:akis | tür:umform | z:2 | yardımcı fiil | artikel/çekim | ghost:1 | sek:7
+2026-11-06 13:08:12;nsatz;n0746:nsatz;die Luft;Öffne bitte das Fenster, hier im Zimmer ist die _____ ganz schlecht.;Luft;richtig;Luft;basamak:B3 | bicim:bos | not:m3 | R:0.89 | S:29.8 | sek:6 | ipucu:1
+2026-11-06 13:08:16;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0
+2026-11-06 13:08:16;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:1 | yanlış:3 | puan:100 | dk:2 | yeni:0 | seviye+:2 | tekrar:11 | gram:0/2
+2026-11-06 13:08:20;art;n0341:art;der Fall;Fall;der;richtig;der Fall;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:48.7 | sek:2
+2026-11-06 13:08:27;nsatz;n0536:nsatz;der Himmel;Das Wetter ist der Zustand am _____.;Himmel;richtig;Himmel;basamak:B3 | bicim:bos | not:m3 | R:0.89 | S:29.8 | sek:7 | ipucu:1
+2026-11-06 13:08:31;erk;w0170:erk;fließend;akıcı;fließend;richtig;fließend;basamak:B1 | bicim:sec | not:m3 | R:0.89 | S:1.4 | sek:3
+2026-11-06 13:08:39;nsatz;x1567:nsatz;der Pate;Mein Onkel ist der _____ meiner Tochter.;Patenscahft;falsch;Pate;basamak:B2 | bicim:bos0 | not:m1 | R:0.89 | S:1.0 | artikel / ek | sek:8 | ipucu:0
