@@ -311,7 +311,7 @@
   function soyleCiz(q) {
     const v = q.veri; q.durum = 'kayit'; q.t0 = now();
     q.kart.innerHTML = `<div class="kn kn-soyle" data-kn-kok>
-      <div class="kn-ust"><span class="chip vurgu">söyle</span><span class="soluk">Almancasını yüksek sesle söyle · not yok</span></div>
+      <div class="kn-ust">${q.kaynak === 'tur' ? '' : '<span class="chip vurgu">söyle</span>'}<span class="soluk">Almancasını yüksek sesle söyle · not yok</span></div>
       <div class="soru kn-tr">${esc(v.tr)}</div>
       <div class="kn-ipucu">kelime: <b>${deH(lab(v.id))}</b></div>
       ${MIK_HTML}
@@ -432,7 +432,8 @@
       return false;
     }
     if (k === 'Enter') {
-      if (q.durum === 'kayit') return q.eylem('dur');
+      // kayıt başladıktan sonraki ilk 1,5 sn Enter yok sayılır (önceki karttan kalan çift Enter konuşma denemesini kesmesin; 6.11 denetim)
+      if (q.durum === 'kayit') return q.t0 && now() - q.t0 < 1500 ? true : q.eylem('dur');
       if (q.durum === 'sonuc') return q.eylem(q.kaynak === 'tur' ? 'gec' : 'sonraki');
     }
     return false;

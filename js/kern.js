@@ -710,10 +710,16 @@
     o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
     // S4 (6.11): yanlış sonrası yeniden sorma üretimde kalır: deneme 2 ve 3 yaz0 (ipuçlu yazma; eskiden bir alt basamak / seçmeli:
     // tekrarların 122/131'i seçmeliydi, düzeltme tanıma düzeyinde kalıyordu). Klavyesiz turda seçmeli.
+    // 6.11 denetim: öğe başına turda en çok 2 yeniden sorma; bekleyen sorusu (yanlış tekrarı ya da yeni kelimenin ikinci hatırlaması) varsa
+    // yenisi eklenmez (yeni kelime aynı turda 6 kez, ikisi art arda soruluyordu); son deneme en az 3 soru sonra
     if (yanlis && secim.tur === 'm') {
       const d = secim.deneme || 1, bk = o.klavyesiz ? { b: 1, bicim: 'sec' } : { b: 2, bicim: 'yaz0' };
-      if (d === 1) o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), yer: o.adim - 1, deneme: 2 }, bk));
-      else if (d === 2) o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 1, (o.boy || 12) - 1), yer: o.adim - 1, deneme: 3 }, bk));
+      const tn = o.tekrarN = o.tekrarN || {}, n = tn[secim.id] || 0, bekleyen = o.kuyruk.some(k => k.id === secim.id && (k.neden === 'yanlis' || k.neden === 'ikinci'));
+      if (n < 2 && d < 3 && !bekleyen) {
+        tn[secim.id] = n + 1;
+        if (d === 1 && n === 0) o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), yer: o.adim - 1, deneme: 2 }, bk));
+        else o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 3, (o.boy || 12) - 1), yer: o.adim - 1, deneme: 3 }, bk));
+      }
     }
     return o;
   }

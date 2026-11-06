@@ -444,11 +444,20 @@ const oturum = x => Object.assign({ adim: 0, boy: 12, kuyruk: [], gecmis: [] }, 
   const s1 = K.sec({ S, kap: 36 }, o, T, R99);
   eq(s1.neden, 'mini', 'kuyruk: mini'); eq(s1.bicim, 'sec', 'mini sec');
   K.oturumIsle(o, s1, { ergebnis: 'falsch' }, R99);
-  const y = o.kuyruk.find(k => k.neden === 'yanlis');
-  ok(y && y.at >= 4 + 3 && y.at <= 4 + 5 && y.deneme === 2, 'yanlış → 3–5 soru sonra yeniden', y);
-  ok(y.bicim === 'yaz0' && y.b === 2, 'yanlış (mini sec da olsa) → yeniden sorma yaz0 (S4)', y);
+  // 6.11 denetim: bekleyen ikinci hatırlama (yaz0) yeniden sorma yerine geçer: ek 'yanlis' girdisi yok
+  eq(o.kuyruk.filter(k => k.neden === 'yanlis' && k.id === s1.id).length, 0, 'mini yanlış: ikinci hatırlama bekliyorsa ek yeniden sorma yok');
+  eq(o.kuyruk.filter(k => k.neden === 'ikinci' && k.id === s1.id).length, 1, 'mini yanlış: ikinci hatırlama kalır');
   eq(o.kuyruk.filter(k => k.neden === 'mini').length, 1, 'cevaplanan kuyruk girdisi silinir');
   eq(o.yanlisSeri, 1, 'art arda yanlış sayılır');
+  // bekleyen yoksa: 3–5 soru sonra yaz0; öğe başına turda en çok 2 yeniden sorma
+  const o2 = oturum({ adim: 4 }), sel2 = { tur: 'm', id: 'n9', b: 2, bicim: 'yaz', deneme: 1 };
+  K.oturumIsle(o2, sel2, { ergebnis: 'falsch' }, R99);
+  const y = o2.kuyruk.find(k => k.neden === 'yanlis');
+  ok(y && y.at >= 5 + 3 && y.at <= 5 + 5 && y.deneme === 2, 'yanlış → 3–5 soru sonra yeniden', y);
+  ok(y.bicim === 'yaz0' && y.b === 2, 'yanlış → yeniden sorma yaz0 (S4)', y);
+  K.oturumIsle(o2, Object.assign({}, y, { tur: 'm', _k: y }), { ergebnis: 'falsch' }, R99);
+  K.oturumIsle(o2, Object.assign({}, o2.kuyruk[0], { tur: 'm', _k: o2.kuyruk[0] }), { ergebnis: 'falsch' }, R99);
+  eq(o2.kuyruk.filter(k => k.id === 'n9').length, 0, 'öğe başına turda en çok 2 yeniden sorma');
 }
 // aynı öğe ≥ 8 soru arayla; tohumla belirlenimcilik
 function simTur(seed, gun) {

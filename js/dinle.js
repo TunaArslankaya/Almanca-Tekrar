@@ -92,7 +92,7 @@
   // ---------- ortak kart parçaları ----------
   function sesUst(baslik, alt) {
     return `<div class="tur"><span class="yeni">dinle</span><span>${esc(baslik)}</span></div>${alt || ''}
-      <div class="dn-ses"><button class="btn buyuk dn-cal" data-dn="cal" type="button">🔊 Dinle <kbd>Boşluk</kbd></button><button class="btn dn-yavas" data-dn="yavas" type="button">🐢 yavaş</button></div>`;
+      <div class="dn-ses"><button class="btn buyuk dn-cal" data-dn="cal" type="button">🔊 Dinle <kbd>Boşluk</kbd> / <kbd>↑</kbd></button><button class="btn dn-yavas" data-dn="yavas" type="button">🐢 yavaş</button></div>`;
   }
   const yazKutu = ph => `<div class="yaz-kutu"><input id="cevap" type="text" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(ph)}" aria-label="Cevap">${A.umlaut || ''}</div>`;
 
@@ -127,6 +127,8 @@
   function ortakTus(q, e) {
     if (q.cevaplandi) return false;
     if ((e.key === ' ' || e.code === 'Space') && !inInput(e)) { e.preventDefault(); q.cal(false); return true; }
+    // yazı kutusundayken: ↑ tekrar dinle (Boşluk boşluk yazar; 6.11 denetim)
+    if (e.key === 'ArrowUp' && inInput(e)) { e.preventDefault(); q.cal(false); return true; }
     if (e.key === '0' && !inInput(e)) { e.preventDefault(); q.bilmiyorum(); return true; }
     return false;
   }
@@ -323,7 +325,7 @@
   }
   function oynatici() {
     const L = M.L;
-    return `<div class="dn-oynat"><audio id="dn-audio" controls preload="auto" src="${esc(L.audio)}"></audio>
+    return `<div class="dn-oynat"><audio id="dn-audio" controls preload="auto" src="${esc(L.audio)}" onerror="this.insertAdjacentHTML('afterend','<div class=&quot;soluk dn-ses-hata&quot;>Ses yüklenemedi (bağlantı ya da DW). Metinle okumaya geçebilirsin.</div>')"></audio>
       <div class="dn-dugmeler"><button class="btn dn-geri" data-dnm="geri" type="button">⟲ 5 sn</button>
         <div class="seg dn-hiz" role="radiogroup" aria-label="Hız">${[0.75, 1].map(h => `<button type="button" data-dnm-hiz="${h}" aria-pressed="${M.hiz === h}">${h === 1 ? '1,0' : '0,75'}</button>`).join('')}</div></div></div>`;
   }

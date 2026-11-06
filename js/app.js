@@ -1185,13 +1185,15 @@
     }
     return toks.join(' ');
   }
+  // boşluklu cümlede cevap kelimesi başka yerde açıkça geçiyorsa (… oder sogar mehrere Wohnungen; warme Luft) ipucu cümlesi olmaz (6.11 denetim)
+  const lemmaGorunur = (id, text) => { const l = String(lemmaOf(id) || '').replace(/^sich\s+/, '').split(/\s+/)[0]; if (!l || l.length < 3) return false; const k = l.toLowerCase().slice(0, Math.max(3, l.length - 2)); return String(text).toLowerCase().split(/[^\p{L}]+/u).some(w => w.length >= 3 && w.startsWith(k)); };
   function yazIpucu(id, sade) {
     if (sade) return { tur: 'tr', sade: true };
     const son = (S.ipTur || {})[id], m = kxSay(id), p = satzPool(id);
     // Türkçesiz örnek: fiilde yalnız Goethe örneği (okuma metninde aynı biçim başka anlam olabilir: scheinen), en çok 16 kelime
     const deUygun = x => x.de.split(/\s+/).length <= 16 && (kind(id) !== 'v' || x.quelle === 'Goethe-Wortliste');
     const aday = tur => (tur === 'trcumle' ? p.own.filter(x => x.tr) : p.extra.filter(deUygun)).filter(x => kxSerbest(m, x.de))
-      .map(x => ({ de: x.de, tr: x.tr, quelle: x.quelle, capraz: x.capraz, text: yazBosluk(id, x.de) })).filter(o => o.text);
+      .map(x => ({ de: x.de, tr: x.tr, quelle: x.quelle, capraz: x.capraz, text: yazBosluk(id, x.de) })).filter(o => o.text && !lemmaGorunur(id, o.text));
     const i0 = IPUCU_TUR.indexOf(son);
     for (const tur of IPUCU_TUR.slice(i0 + 1).concat(IPUCU_TUR.slice(0, i0 + 1))) {
       if (tur === son) continue;
@@ -3254,8 +3256,9 @@
     save(); renderHedef(); renderPlan();
     if (!kart.querySelector('.devam-btn')) {
       const yer = kart.querySelector('#sonuc .sonuc') || kart.querySelector('#sonuc') || kart;
-      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${devamBtn('stur', 'devam', urteil === 'richtig' && !(r && r.bekle) ? 1200 : 0)}</div>`);
-    }
+      // yanlış / küçük hatada Devam 2,5 sn kilitli (S6; 6.11 denetim: ses yuvasında tek Enter düzeltmeyi atlıyordu)
+      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil !== 'richtig' && !notsuz ? devamKilitli(q, 'stur', 'devam') : devamBtn('stur', 'devam', urteil === 'richtig' && !(r && r.bekle) ? 1200 : 0)}</div>`);
+    } else if (urteil !== 'richtig' && !notsuz) kilitKur(q, KILIT_MS);
     const b = kart.querySelector('.devam-btn');
     if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
     if (urteil === 'richtig' && !(r && r.bekle)) later(() => { if (aktuell === q) zeige(); }, 1200);
@@ -3263,7 +3266,7 @@
   // tıklama / tuş: önce modül (soru.tus / soru.klick, yoksa modülün turTus / turKlick); cevaplanmış soruda Devam ya da Enter sıradaki soruya
   function sesTurOlay(e, tus) {
     const q = aktuell, so = q.soru;
-    if (!tus && e.target.closest('[data-stur]')) { if (q.wartet) zeige(); return true; }
+    if (!tus && e.target.closest('[data-stur]')) { if (q.wartet) { if (devamHazir(q)) zeige(); else kilitUyar(q); } return true; }
     let tuk = false;
     try {
       const f = tus ? (typeof so.tus === 'function' ? so.tus : q.modul.turTus) : (typeof so.klick === 'function' ? so.klick : q.modul.turKlick);
@@ -3272,7 +3275,7 @@
     if (aktuell !== q) return true;
     const ayniOlay = q.bittiT != null && q.bittiT >= e.timeStamp;
     const devam = tus ? e.key === 'Enter' && !e.repeat : !!e.target.closest('.devam-btn');
-    if (q.wartet && devam && !ayniOlay) { if (tus) e.preventDefault(); zeige(); return true; }
+    if (q.wartet && devam && !ayniOlay) { if (tus) e.preventDefault(); if (devamHazir(q)) zeige(); else kilitUyar(q); return true; }
     return tuk;
   }
 
@@ -4885,7 +4888,7 @@
     const d = new Date(now()), sr = seriDurum();
     if (sr.onarim && sr.onarim.bis === tag()) return '';
     if (pazartesi() && !tamam) return `<div class="ana-bilgi pazartesi">Pazartesi: bugün <b>1 tur</b> yeter. Seri sayılır, vadesi gelenler işlenir; istersen devam edersin.</div>`;
-    if (d.getDay() === 0 && d.getHours() >= 17) return `<div class="ana-bilgi pazartesi">Yarın pazartesi: <b>1 tur</b> yeter. Seriyi pazartesi koparma.</div>`;
+    if (d.getDay() === 0 && d.getHours() >= 17 && tamam) return `<div class="ana-bilgi pazartesi">Yarın pazartesi: <b>1 tur</b> yeter. Seriyi pazartesi koparma.</div>`;
     return '';
   }
   function gunOzeti(k) {
@@ -5132,7 +5135,7 @@
       ${ilkGun ? '' : aksamKarti()}
       ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs() : ''}
       ${bugunKarti()}
-      ${ilkGun ? '' : konusKarti()}
+      ${ilkGun || spA ? '' : konusKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
       ${hs ? `<div class="hafta-seviye">Bu hafta <b>+${hs}</b> seviye</div>` : ''}
@@ -5500,7 +5503,8 @@
   if (window.visualViewport) { const vv = () => document.documentElement.style.setProperty('--vvh', Math.round(visualViewport.height) + 'px'); visualViewport.addEventListener('resize', vv); vv(); }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && !$('#alt-sayfa').hidden) { altKapat(); return; }
-    if (!$('#v-ana').hidden && e.key === 'Enter' && !/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(e.target.tagName)) { e.preventDefault(); calisBasla('akis'); return; }
+    // Bugün'de Enter: ekrandaki birincil düğme (sprintte sıradaki blok: Gramer / Beceri olabilir; 6.11 denetim), yoksa Çalış
+    if (!$('#v-ana').hidden && e.key === 'Enter' && !/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(e.target.tagName)) { e.preventDefault(); const b = $('#v-ana .basla-btn'); if (b) b.click(); else calisBasla('akis'); return; }
     if ($('#v-calis').hidden || !aktuell) return;
     const q = aktuell;
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);

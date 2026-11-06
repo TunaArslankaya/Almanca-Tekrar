@@ -1280,3 +1280,6 @@ body.calis-modu .yenile-cubuk { display: none; }
 .u-eski { color: var(--bad); opacity: .75; }
 .u-luecke.u-duzelt { border-style: dashed; border-color: var(--accent); }
 .u-luecke.u-duzelt.ok { border-style: solid; border-color: var(--ok); background: var(--ok-soft); }
+/* 6.11 denetim: Konuşma İlerleme tablosu dar ekranda yatay kaysın, sayfa taşmasın */
+.kn-tablo-kap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.kn-tablo { min-width: max-content; }
