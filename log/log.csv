@@ -3680,3 +3680,5 @@
 2026-11-05 05:45:33;abr;v589:abr;sich verlassen auf;(birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf (auf + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.85 | S:5.5 | sek:5 | ipucu:0
 2026-11-05 05:45:35;erk;w0627:erk;übrig;artan, kalan;übrig;richtig;übrig;basamak:B1 | bicim:sec | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | sek:2
 2026-11-05 05:45:35;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:1 | yanlış:3 | puan:93 | dk:2 | yeni:0 | seviye+:2 | tekrar:11 | gram:1/2
+2026-11-06 05:48:44;erk;n0244:erk;die Diskussion;tartışma;die Diskussion;richtig;die Diskussion;basamak:B1 | bicim:sec | not:m3,a3 | R:0.98 | S:59.2 | ısınma | kapı:7g | sek:4
+2026-11-06 05:48:48;wort;n1392:wort;die Wolke;bulut;die Wolke;richtig;die Wolke;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:129.1 | ısınma | sek:4 | ipucu:2
