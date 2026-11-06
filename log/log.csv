@@ -3745,3 +3745,30 @@
 2026-11-06 09:51:54;nsatz;n1374:nsatz;das Wetter;Bei schönem _____ könnten wir ein Picknick machen.;Wetter;richtig;Wetter;basamak:B3 | bicim:bos | not:m3 | R:0.94 | S:58.2 | sek:5 | ipucu:1
 2026-11-06 09:51:56;art;n0994:art;das Rezept;Rezept;die;falsch;das Rezept;basamak:A | bicim:artikel | not:a1 | R:0.66 | S:0.1 | artikel die → das | sek:2
 2026-11-06 09:52:02;nsatz;n1379:nsatz;der Wind;Zum Wetter gehören _____, Stürme, Regen, Schnee und manches mehr.;Wind;richtig;Wind;basamak:B3 | bicim:bos | not:m3 | R:0.94 | S:58.2 | sek:5 | ipucu:1
+2026-11-06 09:52:07;gram;g:vergleich:89;vergleich/satz;Die Reparatur war teurer, als wir haben gedacht.;haben;richtig;Die Reparatur war teurer, als wir gedacht haben.;tur:akis | tür:fehler | z:2 | ghost:2 | sek:4
+2026-11-06 09:52:11;erk;x1566:erk;die Patenschaft;(gönüllü) destekçilik;die Patenschaft;richtig;die Patenschaft;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:2.1 | kurtarma | sek:3
+2026-11-06 09:52:15;art;n0433:art;die Geduld;Geduld;der;falsch;die Geduld;basamak:A | bicim:artikel | not:a1 | R:0.64 | S:0.0 | artikel der → die | sek:3
+2026-11-06 09:52:23;luecke;v643:satz;werden;Deswegen _____ oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;werden;falsch;wird;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.5 | kaynak:dw77708174
+2026-11-06 09:52:23;luecke;x1560:nsatz;das Bedürfnis;Deswegen wird oft nicht an diese Menschen und ihre _____ gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;;falsch;Bedürfnisse;basamak:B3 | bicim:metin | not:m1 | R:0.90 | S:0.5 | kaynak:dw77708174 | bilmiyorum
+2026-11-06 09:52:23;akt;luecke:dw77708174;metinde boşluk;Deswegen wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;werden / ;falsch;wird / Bedürfnisse;puan:0/2 | boşluk:2
+2026-11-06 09:52:31;gram;g:reflexiv:126;reflexiv/kontrast;Kannst du das Kind anziehen? Ich muss ___ noch schnell umziehen.;mich;richtig;mich;tur:akis | tür:luecke | z:2 | sek:7
+2026-11-06 09:52:33;erk;w0108:erk;drinnen;içeride;drinnen;richtig;drinnen;basamak:B1 | bicim:sec | not:m3 | R:0.92 | S:1.8 | sek:2
+2026-11-06 09:52:33;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:91 | dk:1 | yeni:0 | seviye+:0 | tekrar:10 | gram:2/2
+2026-11-06 09:52:38;art;n1374:art;das Wetter;Wetter;das;richtig;das Wetter;basamak:A | bicim:artikel | not:a3 | R:0.80 | S:1.2 | sek:3
+2026-11-06 09:52:41;erk;n0830:erk;die Nachhilfe;özel ders (takviye);die Nachhilfe;richtig;die Nachhilfe;basamak:B1 | bicim:sec | not:m3,a3 | R:0.91 | S:1.9 | sek:3
+2026-11-06 09:52:51;wort;x1552:wort;die Hilfsbereitschaft;yardımseverlik;die Hilfsbereitschaft;richtig;die Hilfsbereitschaft;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.91 | S:3.5 | zor | sek:9 | ipucu:2
+2026-11-06 09:52:56;yeni;w0095;deutlich;tanıtım;;neu;açık, belirgin;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-06 09:53:00;yeni;w0368;nun;tanıtım;;neu;şimdi, işte;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-06 09:53:03;erk;w0368:erk;nun;şimdi, işte;nun;richtig;nun;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:4
+2026-11-06 09:53:06;erk;w0095:erk;deutlich;açık, belirgin;deutlich;richtig;deutlich;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | sek:2
+2026-11-06 09:53:21;gram;g:verbstellung:17;verbstellung/inversion;Ich arbeite am Wochenende im Supermarkt. → Am Wochenende …;Am Wochenende arbeite ich im Supermarkt.;richtig;Am Wochenende arbeite ich im Supermarkt.;tur:akis | tür:umform | z:2 | sek:14
+2026-11-06 09:53:24;erk;x1503:erk;die Erwartung;beklenti;die Erwartung;richtig;die Erwartung;basamak:B1 | bicim:sec | not:m3,a3 | R:0.75 | S:3.3 | kurtarma | sek:2
+2026-11-06 09:53:26;prod;w0368:prod;nun;şimdi, işte;nun;richtig;nun;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-06 09:53:32;prod;w0095:prod;deutlich;açık, belirgin;d;falsch;deutlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0 | bilmiyorum
+2026-11-06 09:53:35;art;n0360:art;die Feuerwehr;Feuerwehr;die;richtig;die Feuerwehr;basamak:A | bicim:artikel | not:a3 | R:0.58 | S:0.1 | sek:2
+2026-11-06 09:53:57;gram;g:vergleich:8;vergleich/als-wie;Bremen'de kiralar Münih'tekinden daha ucuz.;Die Miete in Bremen ist günstiger als Münih;falsch;Die Mieten in Bremen sind billiger als in München.;tur:akis | tür:ceviri | z:2 | bağlaç | yardımcı fiil | edat | artikel/çekim | sek:18
+2026-11-06 09:54:04;prod;w0522:prod;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:5.5 | zor | sek:6 | ipucu:2
+2026-11-06 09:54:06;art;n1173:art;der Supermarkt;Supermarkt;das;falsch;der Supermarkt;basamak:A | bicim:artikel | not:a1 | R:0.94 | S:0.6 | artikel das → der | sek:2
+2026-11-06 09:54:09;prod;w0209:prod;glatt;"kaygan; pürüzsüz";glatt;richtig;glatt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:3.5 | sek:2 | ipucu:0
+2026-11-06 09:54:12;erk;w0095:erk;deutlich;Es gibt viele verschiedene Arten von Wald, darum ist auch nicht immer deutlich, was ein Wald genau ist.;açık, belirgin;richtig;açık, belirgin;basamak:B1 | bicim:metinde | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:3
+2026-11-06 09:54:12;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:0 | yanlış:3 | puan:96 | dk:2 | yeni:2 | seviye+:2 | tekrar:9 | gram:1/2
