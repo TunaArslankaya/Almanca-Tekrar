@@ -5135,7 +5135,7 @@
       ${ilkGun ? '' : aksamKarti()}
       ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs() : ''}
       ${bugunKarti()}
-      ${ilkGun || spA ? '' : konusKarti()}
+      ${ilkGun ? '' : konusKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
       ${hs ? `<div class="hafta-seviye">Bu hafta <b>+${hs}</b> seviye</div>` : ''}

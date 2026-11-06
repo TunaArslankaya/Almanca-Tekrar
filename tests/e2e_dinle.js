@@ -54,7 +54,7 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   const hafiza = () => p.evaluate(() => JSON.stringify(Object.fromEntries(Object.entries(window.__tekrar.S.items).map(([k, v]) => [k, v.m || null]))));
   const h0 = await hafiza(), n0 = await p.evaluate(() => window.__tekrar.tur.n);
   // açılış ve "şıklar kapalı" denetimi aynı anda (ses hatası hızlı gelirse şıklar hemen açılabilir)
-  const k = await p.evaluate(() => { const T = window.__tekrar; if (!T.sesAc('duy', 'kelime')) return null; const a = T.aktuell; const lem = T.byId[a.id] ? T.byId[a.id].lemma : a.id[0] === 'v' ? T.VERBEN.find(v => v.id === a.id).inf : T.wById[a.id].de;   // x… (nomen_extra) de isim return { typ: a.typ, id: a.id, lem, kapali: document.querySelector('#dn-sik').hidden, metin: document.querySelector('#kart').innerText }; });
+  const k = await p.evaluate(() => { const T = window.__tekrar; if (!T.sesAc('duy', 'kelime')) return null; const a = T.aktuell; const lem = T.byId[a.id] ? T.byId[a.id].lemma : a.id[0] === 'v' ? T.VERBEN.find(v => v.id === a.id).inf : T.wById[a.id].de; return { typ: a.typ, id: a.id, lem, kapali: document.querySelector('#dn-sik').hidden, metin: document.querySelector('#kart').innerText }; });
   if (!k) hata('kelime', 'soru açılmadı');
   else {
     if (k.typ !== 'sesTur') hata('kelime', 'aktuell.typ ' + k.typ);
@@ -80,7 +80,10 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
     const l = await sonLog(p);
     if (!l || l.ergebnis !== 'falsch' || !/bilmiyorum/.test(l.notiz)) hata('bilmiyorum', JSON.stringify(l));
     if (!(await p.$('#kart .devam-btn'))) hata('bilmiyorum', 'Devam yok');
-    await p.waitForTimeout(150); await p.keyboard.press('Enter');
+    // yanlış / bilmiyorum: Devam 2,5 sn kilitli (S6); hemen Enter geçmez, kilitten sonra geçer
+    await p.waitForTimeout(150); await p.keyboard.press('Enter'); await p.waitForTimeout(150);
+    if (await p.evaluate(() => (window.__tekrar.aktuell || {}).typ === 'sesTur' && !!(window.__tekrar.aktuell || {}).wartet) !== true) hata('bilmiyorum', 'kilitliyken Enter geçirdi');
+    await p.waitForTimeout(2500); await p.keyboard.press('Enter');
     if (!(await bekleTyp(p, 'sesTur', 2000))) hata('bilmiyorum', 'Enter sıradaki soruya geçirmedi');
   }
   // ---- duy-bosluk ----

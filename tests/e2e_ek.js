@@ -49,7 +49,8 @@ const satir = (zeit, modus, ergebnis, notiz) => ({ zeit, modus, id: 'x', item: '
   await p.ctx.close();
   // pazar akşamı: "yarın pazartesi" notu; cumartesi: not yok, hedef asıl seçim
   p = await ac('2026-11-15T19:00:00');
-  ok(/Yarın pazartesi/.test(await metin(p, '.ana-bilgi.pazartesi') || ''), 'pazar akşamı notu yok');
+  // 6.11 denetim: hedef bitmeden "yarın 1 tur yeter" yanıltıcı → not yalnız pazarın hedefi bitince
+  ok(!/Yarın pazartesi/.test(await metin(p, '.ana-bilgi.pazartesi') || ''), 'pazar akşamı hedef bitmeden not var');
   await p.ctx.close();
   p = await ac('2026-11-14T10:00:00');
   ok(!(await metin(p, '.ana-bilgi.pazartesi')), 'cumartesi pazartesi notu çıktı');

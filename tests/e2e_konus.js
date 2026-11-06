@@ -217,7 +217,7 @@ async function bekleKosul(p, fn, arg, ms) { try { await p.waitForFunction(fn, ar
     const q = Konus.turSorusu({}, { tur: 'ses', alt: 'soyle' });
     if (!q) return { yok: true };
     q.render(document.querySelector('#kart'), () => {});
-    await new Promise(r => setTimeout(r, 400));
+    for (let i = 0; i < 30 && !document.querySelector('.kn-hoer'); i++) await new Promise(r => setTimeout(r, 100));   // yavaş yükte 400 ms yetmiyordu
     return { alt: q.alt, hoerKart: !!document.querySelector('.kn-hoer'), sonra: Konus.turSorusu({}, { tur: 'ses', alt: 'soyle' }) === null };
   });
   if (red.yok) hata('ret testi: soyle sorusu yok');
