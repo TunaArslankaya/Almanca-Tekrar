@@ -1151,3 +1151,19 @@ body.calis-modu .yenile-cubuk { display: none; }
 /* gramer konu satırı: düğmeler dar ekranda alt satıra (Kural · 5 alıştırma · Boylu boyuna) */
 .g-oge .yan { flex-wrap: wrap; justify-content: flex-end; }
 @media (max-width: 560px) { .g-oge { grid-template-columns: 1fr; } .g-oge .yan { grid-row: auto; grid-column: 1; justify-content: flex-start; } }
+/* G (6.11): Bugün aktif süre çizgisi, pazartesi notu, İlerleme üretim doğruluğu */
+.dk-satir { display: grid; grid-template-columns: auto 1fr auto; gap: .5rem; align-items: center; font-size: .85rem; margin: -.35rem 0 .7rem; opacity: .95; }
+.dk-satir b { font-variant-numeric: tabular-nums; }
+.dk-cubuk { height: 6px; border-radius: 3px; background: rgba(255,255,255,.22); overflow: hidden; min-width: 2.5rem; }
+.dk-cubuk span { display: block; height: 100%; background: #7ee0a8; }
+.dk-satir.ok .dk-cubuk span { background: var(--gold); }
+.ana-bilgi.pazartesi { background: var(--ok-soft); }
+.ud-ozet { font-size: .92rem; margin-bottom: .2rem; }
+.ud-satir { display: grid; grid-template-columns: 6.2rem 1fr 1fr; gap: .6rem; align-items: center; font-size: .88rem; }
+.ud-satir.bu > span:first-child { font-weight: 700; }
+.ud-bas { color: var(--muted); font-size: .78rem; }
+.ud-hucre { display: grid; grid-template-columns: 1fr auto; gap: .1rem .4rem; align-items: center; min-width: 0; }
+.ud-hucre b { font-variant-numeric: tabular-nums; text-align: right; min-width: 2.4rem; }
+.ud-hucre small { grid-column: 1 / -1; color: var(--muted); font-size: .72rem; line-height: 1; min-height: .72rem; }
+.ud-hucre.s .sd-cubuk span { background: var(--muted); }
+.ud-kart + .soluk { font-size: .82rem; margin-top: .35rem; }

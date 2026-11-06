@@ -256,9 +256,11 @@
   }
   let S = yukle();
   // günlük hedef: tur sayısı (Ayarlar, varsayılan 3) × tur boyu; uyarlamalı hedef kalktı. Günü kurtarmak (seri) ayrı: MIN_TAG.
-  function gunHedef() {
-    return Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2)) * turBoyu();
-  }
+  // Pazartesi (6.11, log: 5 pazartesinin 3'ü boş, kopmaların çoğu pazartesi): hedef 1 tur; seri her gün olduğu gibi MIN_TAG cevapla sayılır
+  function pazartesi(t) { return new Date(t == null ? now() : t).getDay() === 1; }
+  function turHedefAyar() { return Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2)); }
+  function turHedefGun(t) { return pazartesi(t) ? 1 : turHedefAyar(); }
+  function gunHedef(t) { return turHedefGun(t) * turBoyu(); }
   const ziel = m => m === 'akis' ? gunHedef() : S.einst.modi[m].ziel;
   const neuMax = m => S.einst.modi[m].neu;
   // log yalnız değiştiyse yazılır (son satır ve uzunluk)
@@ -3574,6 +3576,35 @@
     return l.length ? `<div class="seviye-dagilim">${l.map(([x, o]) => `<div class="sd-satir"><span>${esc(BICIM_TR[x])}</span><span class="sd-cubuk"><span style="width:${Math.round(o.ok / o.n * 100)}%"></span></span><b>%${Math.round(o.ok / o.n * 100)}</b></div>`).join('')}</div><div class="soluk">son 30 gün · küçük hata yarım sayılır</div>`
       : '<p class="soluk">Henüz yeterli cevap yok: birkaç turdan sonra her soru biçimindeki başarın burada görünür.</p>';
   }
+  // üretim doğruluğu (6.11): son 4 hafta (pazartesiden), üretim (yazma / boşluk / tam cümle / metin / kalıp) ile seçmeli yan yana.
+  // Artikel flaşı (artikel, artOb), kök ve gramer hariç; aynı turdaki yanlış sonrası tekrar (tekrar:) sayılmaz; küçük hata (fast) yarım.
+  const URETIM_B = new Set(['yaz0', 'yaz', 'bos0', 'bos', 'cumle', 'metin', 'kalip']), SECMELI_B = new Set(['sec', 'anla', 'metinde']);
+  function uretimHaftalari(t) {
+    const p = new Date(t == null ? now() : t); p.setHours(12, 0, 0, 0); p.setDate(p.getDate() - ((p.getDay() + 6) % 7));
+    const hf = [3, 2, 1, 0].map(w => { const a = new Date(p); a.setDate(a.getDate() - 7 * w); const b = new Date(a); b.setDate(b.getDate() + 7); return { w, a: tag(a.getTime()), b: tag(b.getTime()), u: { n: 0, ok: 0 }, s: { n: 0, ok: 0 } }; });
+    S.log.forEach(e => {
+      if (!e.zeit || e.zeit < hf[0].a || !['richtig', 'fast', 'falsch'].includes(e.ergebnis)) return;
+      const nz = e.notiz || '', x = (/bicim:([a-zA-Z0-9]+)/.exec(nz) || [])[1]; if (!x || /\btekrar:/.test(nz)) return;
+      const g = URETIM_B.has(x) ? 'u' : SECMELI_B.has(x) ? 's' : null; if (!g) return;
+      const k = e.zeit.slice(0, 10), h = hf.find(y => k >= y.a && k < y.b); if (!h) return;
+      h[g].n++; h[g].ok += e.ergebnis === 'richtig' ? 1 : e.ergebnis === 'fast' ? 0.5 : 0;
+    });
+    return hf;
+  }
+  function uretimDogrulugu() {
+    const hf = uretimHaftalari(), yuzde = o => o.n ? Math.round(o.ok / o.n * 100) : null;
+    if (!hf.some(h => h.u.n + h.s.n)) return '<p class="soluk">Henüz yeterli cevap yok: yazarak cevapladıkça haftalık üretim doğruluğun burada görünür.</p>';
+    const ad = h => h.w === 0 ? 'bu hafta' : h.w === 1 ? 'geçen hafta' : (() => { const d = new Date(h.a + 'T12:00:00'); return `${d.getDate()}.${d.getMonth() + 1} haftası`; })();
+    const hucre = (o, sinif) => { const y = yuzde(o); return `<span class="ud-hucre ${sinif}" title="${o.n} cevap"><span class="sd-cubuk"><span style="width:${y || 0}%"></span></span><b>${y == null ? '–' : '%' + y}</b><small>${o.n || ''}</small></span>`; };
+    const bu = hf[3], yu = yuzde(bu.u), ys = yuzde(bu.s);
+    const ozet = yu != null ? `Bu hafta üretim <b>%${yu}</b>${ys != null ? ` · seçmeli %${ys}` : ''}${ys != null && ys - yu >= 25 ? ': seçmeli kolay, kelimeyi kendin yazabilmek asıl iş.' : ''}` : 'Bu hafta henüz yazarak cevap yok.';
+    return `<div class="seviye-dagilim ud-kart">
+        <div class="ud-ozet">${ozet}</div>
+        <div class="ud-satir ud-bas"><span></span><span>üretim</span><span>seçmeli</span></div>
+        ${hf.map(h => `<div class="ud-satir${h.w === 0 ? ' bu' : ''}"><span>${ad(h)}</span>${hucre(h.u, 'u')}${hucre(h.s, 's')}</div>`).join('')}
+      </div>
+      <div class="soluk">Asıl ölçü üretim: kelimeyi kendin yazdığın sorular (yazma, boşluk, tam cümle, metin). Seçmeli yalnız tanıma; artikel flaşı ve gramer hariç · küçük hata yarım · yanlıştan sonra aynı turdaki tekrar sayılmaz · küçük sayı: cevap adedi.</div>`;
+  }
   // gramer haritası: konu durumları (Gramer.sprintDurum; yoksa açık / denenmedi), sözleşme sırasıyla
   const GH_AD = { biliyor: 'biliyor', ogreniliyor: 'öğreniliyor', zayif: 'zayıf', denenmedi: 'denenmedi' };
   function gramerHaritasi() {
@@ -3607,10 +3638,9 @@
     // son 5 hafta ısı haritası (pazartesiden başlar; seri takvimi geçmişten)
     const bugun = new Date(t); bugun.setHours(12, 0, 0, 0);
     const pzt = new Date(bugun); pzt.setDate(pzt.getDate() - ((pzt.getDay() + 6) % 7) - 28);
-    const z = gunHedef();
     let hucre = '';
     for (let i = 0; i < 35; i++) {
-      const d = new Date(pzt); d.setDate(pzt.getDate() + i); const k = tag(d.getTime()), x = S.tage[k], n = x ? x.n : 0;
+      const d = new Date(pzt); d.setDate(pzt.getDate() + i); const k = tag(d.getTime()), x = S.tage[k], n = x ? x.n : 0, z = gunHedef(d.getTime());
       const sev = d > bugun ? 'gelecek' : n >= z ? 's4' : n >= z / 2 ? 's3' : gunAktif(k) ? 's2' : n > 0 || gunEs(x) > 0 ? 's1' : sr.donmus[k] ? 'donmus' : 's0';
       hucre += `<i class="${sev}${k === tag() ? ' bugun' : ''}" title="${k}: ${n} cevap${sr.donmus[k] ? ' (dondurucu)' : ''}"></i>`;
     }
@@ -3624,6 +3654,8 @@
         <div><b>%${b1}</b><span>B1 yolu</span></div>
       </div>
       ${spA ? spBolum : ''}
+      <h2>Üretim doğruluğu</h2>
+      ${uretimDogrulugu()}
       <h2>Son 14 gün</h2>
       <table class="gun-tablo"><thead><tr><th>gün</th><th>cevap</th><th>doğru</th><th>yeni</th><th>dk</th><th>puan</th></tr></thead><tbody>${gunSatirlari(14)}</tbody></table>
       <h2>Seri takvimi · son 5 hafta</h2>
@@ -3669,14 +3701,14 @@
   }
   // Ayarlar: satır + anahtar; tempo (hedef hatırlama), yeni kelime / gün, günlük hedef (tur), tur uzunluğu, ses, titreşim
   function renderAyar() {
-    const th = turHedefi(), yg = S.ayar4.yeniGunluk || 6, ret = S.einst.ret;
+    const th = turHedefAyar(), yg = S.ayar4.yeniGunluk || 6, ret = S.einst.ret;
     const seg = (ad, l, sec) => `<div class="seg" role="radiogroup" data-ayar="${ad}">${l.map(([v, t]) => `<button type="button" data-val="${v}" aria-pressed="${String(v) === String(sec)}">${t}</button>`).join('')}</div>`;
     const anahtar = (id, on) => `<label class="anahtar"><input id="${id}" type="checkbox"${on ? ' checked' : ''}><i></i></label>`;
     const satir = (et, alt, kontrol) => `<div class="ayar-satir"><div class="et"><b>${et}</b>${alt ? `<span>${alt}</span>` : ''}</div>${kontrol}</div>`;
     $('#a-satirlar').innerHTML = [
       satir('Tempo', 'hedef hatırlama: Rahat %80 · Dengeli %85 · Sıkı %90', seg('ret', [[0.8, 'Rahat'], [0.85, 'Dengeli'], [0.9, 'Sıkı']], ret)),
       satir('Yeni kelime / gün', (() => { const kt = kota(); return `bugün ${kt.yapilan}${kt.sebep !== 'normal' && kt.q < yg ? ` · şu an günde ${kt.q} (${kt.sebep === 'göç' ? 'yeni düzenin ilk günleri' : kt.sebep === 'dönüş' ? 'aradan dönüş turu' : 'birikme / genç kelime çok'}); seçimin birikme eriyince geçerli` : ' · birikme varken kendiliğinden azalır'}`; })(), seg('yeni', [[4, '4'], [6, '6'], [8, '8'], [10, '10']], yg)),
-      satir('Günlük hedef', `1 tur = ${turBoyu()} cevap`, seg('hedef', [[2, '2 tur'], [3, '3 tur'], [4, '4 tur'], [5, '5 tur']], th)),
+      satir('Günlük hedef', `1 tur = ${turBoyu()} cevap · pazartesi 1 tur`, seg('hedef', [[2, '2 tur'], [3, '3 tur'], [4, '4 tur'], [5, '5 tur']], th)),
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),
       satir('Titreşim', 'Android', anahtar('a-titresim', titresimAcik())),
@@ -3855,7 +3887,7 @@
     $('#ses-btn').innerHTML = sesAcik() ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/></svg>' : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>';
   }
   // günlük hedef (tur) ve bugün yapılan tur
-  const turHedefi = () => Math.max(1, Math.min(8, +(S.ayar4 && S.ayar4.turHedef) || 2));
+  const turHedefi = () => turHedefGun();   // bugünün hedefi (pazartesi 1); Ayarlar'daki seçim turHedefAyar
   const turYapildi = () => Math.floor(bugun().n / turBoyu());
   // log'daki en sık çalışma saati (çeyreğe yuvarlı): hatırlatıcı önerisi
   function sikSaat() {
@@ -4057,6 +4089,28 @@
   // ---------- günün özeti: "Bugün ne yaptın" (Bugün kartı) ve son 14 gün (İlerleme) ----------
   const MODUS_AD = m => (MODI[m] && MODI[m].ad) || m;
   const YAZ_MODUS = new Set(['wort', 'prod', 'abr', 'satz', 'nsatz', 'luecke', 'stamm', 'frm', 'paket']);
+  // aktif süre (sn, 6.11): günün log satırları arasındaki boşlukların toplamı; 3 dk'dan uzun ara sayılmaz (mola),
+  // aradan sonraki ilk satırda yalnız sorunun kendi süresi (sek, ≤ 60). Gramer, okuma, Cümle atölyesi de sayılır (yalnız bu cihazın log'u).
+  const AKTIF_ARA = 180;
+  function aktifSn(k) {
+    const ts = S.log.filter(e => e.zeit && e.zeit.startsWith(k)).map(e => ({ t: Date.parse(e.zeit.replace(' ', 'T')), s: +((/sek:(\d+)/.exec(e.notiz || '') || [])[1] || 0) })).filter(x => !isNaN(x.t)).sort((a, b) => a.t - b.t);
+    return ts.reduce((top, x, i) => { const ara = i ? (x.t - ts[i - 1].t) / 1000 : Infinity; return top + (ara <= AKTIF_ARA ? ara : Math.min(60, x.s || 5)); }, 0);
+  }
+  const DK_HEDEF = 20;
+  const dkHedef = () => Math.max(5, +(S.ayar4 && S.ayar4.dkHedef) || DK_HEDEF);
+  // Bugün: "bugün X dk" + hedef çizgisi (tur halkasının yanında; cevap hedefi halkada)
+  function dkSatiri() {
+    const dk = Math.round(aktifSn(tag()) / 60), h = dkHedef(), ok = dk >= h;
+    return `<div class="dk-satir${ok ? ' ok' : ''}" title="Aktif çalışma süresi: cevaplar arası 3 dakikadan uzun aralar sayılmaz"><span>bugün <b>${dk} dk</b></span><span class="dk-cubuk"><span style="width:${Math.min(100, Math.round(dk / h * 100))}%"></span></span><span>${ok ? '✓ ' : ''}${h} dk</span></div>`;
+  }
+  // pazartesi notu (Bugün): pazartesi 1 tur yeter; pazar akşamı hatırlatma. Seri onarımı varken (2 tur) gösterilmez.
+  function pazartesiNotu(tamam) {
+    const d = new Date(now()), sr = seriDurum();
+    if (sr.onarim && sr.onarim.bis === tag()) return '';
+    if (pazartesi() && !tamam) return `<div class="ana-bilgi pazartesi">Pazartesi: bugün <b>1 tur</b> yeter. Seri sayılır, vadesi gelenler işlenir; istersen devam edersin.</div>`;
+    if (d.getDay() === 0 && d.getHours() >= 17) return `<div class="ana-bilgi pazartesi">Yarın pazartesi: <b>1 tur</b> yeter. Seriyi pazartesi koparma.</div>`;
+    return '';
+  }
   function gunOzeti(k) {
     const d = S.tage[k] || GUN0(), rows = S.log.filter(e => e.zeit && e.zeit.startsWith(k));
     const sayi = (re, e) => +((re.exec(e.notiz || '') || [0, 0])[1]);
@@ -4064,7 +4118,7 @@
     const yanlis = rows.filter(e => e.ergebnis === 'falsch' && YAZ_MODUS.has(e.modus) && !/\| (ikinci|parti)/.test(e.notiz || '')).map(e => ({ item: e.item || e.id, antwort: e.antwort, loesung: e.loesung }));
     const secYanlis = rows.filter(e => e.ergebnis === 'falsch' && ['erk', 'bed', 'art'].includes(e.modus)).length;
     const turlar = rows.filter(e => e.modus === 'tur');
-    const dk = turlar.reduce((s, e) => s + sayi(/dk:(\d+)/, e), 0), seviye = turlar.reduce((s, e) => s + sayi(/seviye\+:(\d+)/, e), 0);
+    const dk = Math.round(aktifSn(k) / 60) || turlar.reduce((s, e) => s + sayi(/dk:(\d+)/, e), 0), seviye = turlar.reduce((s, e) => s + sayi(/seviye\+:(\d+)/, e), 0);
     const bolum = Object.entries(d.modi || {}).filter(([, x]) => x && x.n > 0).map(([m, x]) => `${MODUS_AD(m)} ${x.n}`);
     const ek = [['lesen', 'okuma'], ['gram', 'gramer'], ['text', 'yazma'], ['sprechen', 'konuşma'], ['pruefung', 'prüfung'], ['fiilmetin', 'fiil metni']]
       .map(([m, ad]) => { const n = rows.filter(e => e.modus === m && !(m === 'lesen' && e.ergebnis !== 'gelesen')).length; return n && !(d.modi && d.modi[m] && d.modi[m].n) ? `${ad} ${n}` : ''; }).filter(Boolean);
@@ -4277,7 +4331,7 @@
         <b>Ne değişti?</b><ul><li>"Biliyor musun?" yok; notu sistem verir.</li><li>Soru, kelimeyi ne kadar bildiğine göre zorlaşır: seç → yaz → cümlede.</li><li>Artikel ayrı izlenir: kelime ✓ · artikel ✗.</li></ul>
         <div class="sira" style="margin:0"><button class="btn" data-act-ana="guven-tamam" type="button">Anladım</button></div></div>` : '';
     const onarim = sr.onarim && sr.onarim.bis === tag() ? `<div class="ana-bilgi onarim">🔧 Dün seriyi kaçırdın. Bugün <b>2 tur</b> yaparsan serin geri gelir.</div>` : '';
-    const bilgi = (session.mesajlar || []).map(m => `<div class="ana-bilgi">${esc(m)}</div>`).join('') + onarim;
+    const bilgi = (session.mesajlar || []).map(m => `<div class="ana-bilgi">${esc(m)}</div>`).join('') + onarim + (ilkGun ? '' : pazartesiNotu(tamam));
     const hs = haftaSeviye();
     const sk = session.senkron || {};
     const senkron = ghToken() ? (sk.hata ? `<div class="senkron hata">Eşitlenemedi: ${esc(sk.hata)}</div>` : `<div class="senkron">${sk.t ? 'eşitlendi ' + dkOnce(sk.t) : 'eşitleniyor…'}</div>`) : '<div class="senkron">yalnız bu cihazda kayıtlı · <button class="btn mini" data-git="ayar" type="button">eşitle</button></div>';
@@ -4293,6 +4347,7 @@
         <div class="hero-metin">
           <div class="hero-baslik">${baslik}</div>
           <div class="merak">${esc(merak)}</div>
+          ${ilkGun ? '' : dkSatiri()}
           <button class="btn ana buyuk basla-btn${sabit ? ' basla-sabit' : ''}" ${btnAct} type="button">${btnMetin}</button>
           ${toparlanma}
         </div>
