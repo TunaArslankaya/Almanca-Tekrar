@@ -19,7 +19,19 @@ const ok = (kosul, ad, m) => { if (!kosul) hata(ad, m); };
   await p.waitForTimeout(200);
   const sonLog = () => p.evaluate(() => { const l = window.__tekrar.S.log; return l[l.length - 1]; });
   const cevapla = async metin => { await p.fill('#cevap', metin); await p.keyboard.press('Enter'); await p.waitForTimeout(80); };
-  const devam = async () => { await p.evaluate(() => { const a = window.__tekrar.aktuell; if (a && a.done && !a.islendi) document.querySelector('#sonuc .devam-btn') && document.querySelector('#sonuc .devam-btn').click(); }); await p.waitForTimeout(120); };
+  // Devam: yanlış / küçük hatada 2,5 sn kilit (S6) ve varsa "doğrusunu bir kez yaz" kutusu: kilit açılana dek dene
+  const devam = async () => {
+    for (let i = 0; i < 60; i++) {
+      const st = await p.evaluate(() => {
+        const a = window.__tekrar.aktuell; if (!a || !a.done || a.islendi) return 'ok';
+        const d = document.querySelector('#duzelt-inp'); if (d && !d.value) { d.value = a.ziel; d.dispatchEvent(new Event('input', { bubbles: true })); }
+        const b = document.querySelector('#sonuc .devam-btn'); if (b && !b.disabled) b.click(); return 'bekle';
+      });
+      if (st === 'ok') break;
+      await p.waitForTimeout(100);
+    }
+    await p.waitForTimeout(120);
+  };
   const aktuell = () => p.evaluate(() => { const a = window.__tekrar.aktuell; return a && { bicim: a.bicim, typ: a.typ, ziel: a.ziel, done: !!a.done, urteil: a.not && a.not.ergebnis, et: a.not && a.not.etiketler, html: document.querySelector('#kart').innerText }; });
 
   // ---- artOb ----
