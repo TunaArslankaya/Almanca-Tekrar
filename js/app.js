@@ -478,7 +478,7 @@
       for (const id of ad) {
         const it = S.items[id];
         if (!(it.m && it.m.S)) return { tur: 'art', kaynak: 'zayif', id, b: 0, bicim: 'artikel', R: R0(id) };
-        const bs = Kern.basamak(it, { id, t }, Math.random), bc = Kern.bicimSec(it, bs.b, { id, t }, Math.random, []);
+        const bs = Kern.basamak(it, { id, t }, Math.random), bc = Kern.bicimSec(it, bs.b, { id, t, ipuclu: bs.ipuclu }, Math.random, []);
         if (bc) return { tur: 'm', kaynak: 'zayif', id, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, R: R0(id) };
       }
     }
