@@ -2951,3 +2951,138 @@ n1028 | der Schatten | Es ist so heiß, lass uns in den Schatten gehen. | Çok s
 w0504 | verantwortlich | Wer ist in der WG für den Müll verantwortlich? | WG'de çöpten kim sorumlu?
 w0445 | sogar | Er hat sogar am Sonntag gearbeitet. | Pazar günü bile çalıştı.
 w0625 | ehrenamtlich | Sie arbeitet zweimal pro Woche ehrenamtlich in einer Bibliothek. | Haftada iki kez bir kütüphanede gönüllü olarak çalışıyor.
+x1569 | der Behördengang | Der Behördengang hat mich den ganzen Vormittag gekostet. | Resmi daireye gitmek bütün sabahımı aldı.
+x1569 | der Behördengang | Viele Behördengänge kann man heute auch online erledigen. || Heute kann man viele Behördengänge auch online erledigen. | Bugün birçok resmi daire işi internetten de halledilebiliyor.
+x1569 | der Behördengang | Für den Behördengang brauche ich einen Termin und meinen Pass. | Resmi daireye gitmek için randevuya ve pasaportuma ihtiyacım var.
+x1569 | der Behördengang | Nach dem Umzug musste ich viele Behördengänge machen, zum Beispiel zum Bürgeramt. | Taşındıktan sonra birçok resmi daireye gitmem gerekti, örneğin Bürgeramt'a.
+x1569 | der Behördengang | Meine Mitbewohnerin hilft mir bei Behördengängen, weil sie besser Deutsch spricht. | Ev arkadaşım resmi daire işlerinde bana yardım ediyor, çünkü daha iyi Almanca konuşuyor.
+w0186 | geehrt | Sehr geehrter Herr Schmidt, vielen Dank für Ihre schnelle Antwort. | Sayın Bay Schmidt, hızlı cevabınız için çok teşekkür ederim.
+w0186 | geehrt | Sehr geehrte Frau Becker, ich schicke Ihnen die fehlenden Unterlagen im Anhang. | Sayın Bayan Becker, eksik belgeleri ekte size gönderiyorum.
+w0186 | geehrt | Sehr geehrter Herr Professor Lange, könnten Sie mir bitte meine Note mitteilen? | Sayın Profesör Lange, notumu bana bildirebilir misiniz lütfen?
+w0186 | geehrt | Ich fühle mich sehr geehrt, dass Sie mich eingeladen haben. | Beni davet etmenizden büyük onur duydum.
+x1555 | die Würde | Auch alte und kranke Menschen haben ein Recht auf ein Leben in Würde. | Yaşlı ve hasta insanların da onurlu bir yaşam hakkı vardır.
+x1555 | die Würde | Das Pflegeheim muss die Würde der Bewohner respektieren. | Huzurevi, orada yaşayanların onuruna saygı göstermek zorunda.
+x1555 | die Würde | Er hat trotz der Kündigung seine Würde nicht verloren. || Trotz der Kündigung hat er seine Würde nicht verloren. || Sie hat trotz der Kündigung ihre Würde nicht verloren. | İşten çıkarılmasına rağmen onurunu kaybetmedi.
+x1555 | die Würde | Arbeitslosigkeit verletzt oft die Würde der Menschen. | İşsizlik çoğu zaman insanların onurunu zedeler.
+x1563 | der Feuerwehrmann | Mein Nachbar arbeitet seit zwanzig Jahren als Feuerwehrmann. || Seit zwanzig Jahren arbeitet mein Nachbar als Feuerwehrmann. | Komşum yirmi yıldır itfaiyeci olarak çalışıyor.
+x1563 | der Feuerwehrmann | Die Feuerwehrmänner waren nach zehn Minuten am Unfallort. || Nach zehn Minuten waren die Feuerwehrmänner am Unfallort. | İtfaiyeciler on dakika sonra kaza yerindeydi.
+x1563 | der Feuerwehrmann | Als Kind wollte mein Bruder unbedingt Feuerwehrmann werden. || Mein Bruder wollte als Kind unbedingt Feuerwehrmann werden. | Erkek kardeşim çocukken mutlaka itfaiyeci olmak istiyordu.
+x1563 | der Feuerwehrmann | Ein Feuerwehrmann hat uns erklärt, wie man einen Brand in der Küche löscht. | Bir itfaiyeci bize mutfakta çıkan bir yangının nasıl söndürüldüğünü anlattı.
+w0522 | vor allem | Ich lerne vor allem abends, weil ich tagsüber arbeite. || Weil ich tagsüber arbeite, lerne ich vor allem abends. | Gündüz çalıştığım için özellikle akşamları ders çalışıyorum.
+w0522 | vor allem | In Bremen regnet es viel, vor allem im Herbst. || Es regnet in Bremen viel, vor allem im Herbst. | Bremen'de çok yağmur yağar, özellikle sonbaharda.
+w0522 | vor allem | Bei der Prüfung ist vor allem der schriftliche Teil schwierig. || Vor allem der schriftliche Teil ist bei der Prüfung schwierig. | Sınavda özellikle yazılı bölüm zor.
+w0522 | vor allem | Vor allem müssen wir eine bezahlbare Wohnung finden. || Wir müssen vor allem eine bezahlbare Wohnung finden. | Her şeyden önce uygun fiyatlı bir daire bulmalıyız.
+n0587 | die Kälte | Trotz der Kälte sind viele Menschen zum Weihnachtsmarkt gegangen. || Viele Menschen sind trotz der Kälte zum Weihnachtsmarkt gegangen. | Soğuğa rağmen birçok insan Noel pazarına gitti.
+n0587 | die Kälte | Ein dicker Schal schützt gut vor der Kälte. | Kalın bir atkı soğuğa karşı iyi korur.
+n0587 | die Kälte | Die Kälte im Hörsaal war unangenehm, weil die Heizung kaputt war. | Kalorifer bozuk olduğu için amfideki soğuk rahatsız ediciydi.
+n1392 | die Wolke | Plötzlich kamen dunkle Wolken, und es fing an zu regnen. || Plötzlich kamen dunkle Wolken und es fing an zu regnen. | Birden kara bulutlar geldi ve yağmur yağmaya başladı.
+n1392 | die Wolke | Die Sonne ist hinter einer Wolke verschwunden. | Güneş bir bulutun arkasında kayboldu.
+n1392 | die Wolke | Aus dem Flugzeug haben wir die Wolken von oben gesehen. || Wir haben die Wolken aus dem Flugzeug von oben gesehen. | Uçaktan bulutları yukarıdan gördük.
+w0566 | bewölkt | Am Wochenende soll es bewölkt und kühl sein. || Es soll am Wochenende bewölkt und kühl sein. | Hafta sonu hava bulutlu ve serin olacakmış.
+w0566 | bewölkt | Gestern war der Himmel den ganzen Tag bewölkt. || Der Himmel war gestern den ganzen Tag bewölkt. | Dün gökyüzü bütün gün bulutluydu.
+w0566 | bewölkt | An bewölkten Tagen bin ich oft müde und schlecht gelaunt. | Bulutlu günlerde çoğu zaman yorgun ve keyifsiz olurum.
+n0536 | der Himmel | Heute Nacht kann man viele Sterne am Himmel sehen. || Man kann heute Nacht viele Sterne am Himmel sehen. | Bu gece gökyüzünde birçok yıldız görülebilir.
+n0536 | der Himmel | Der Himmel wird dunkel, wir sollten lieber nach Hause gehen. | Gökyüzü kararıyor, eve gitsek iyi olur.
+n0536 | der Himmel | Nach dem Gewitter war der Himmel wieder klar. || Der Himmel war nach dem Gewitter wieder klar. | Fırtınadan sonra gökyüzü yine açıktı.
+n1048 | der Schnee | Wegen des Schnees fahren heute keine Straßenbahnen. || Heute fahren wegen des Schnees keine Straßenbahnen. | Kar yüzünden bugün tramvaylar çalışmıyor.
+n1048 | der Schnee | Als ich aufgewacht bin, lag überall Schnee. | Uyandığımda her yer kar kaplıydı.
+n1048 | der Schnee | Ich hoffe, dass es dieses Jahr zu Weihnachten Schnee gibt. | Umarım bu yıl Noel'de kar olur.
+n0028 | die Änderung | Gibt es noch Änderungen am Vertrag? | Sözleşmede başka değişiklik var mı?
+n0028 | die Änderung | Bitte informieren Sie uns sofort über jede Änderung Ihrer Adresse. || Informieren Sie uns bitte sofort über jede Änderung Ihrer Adresse. | Lütfen adresinizdeki her değişikliği bize hemen bildirin.
+n0028 | die Änderung | Die Lehrerin hat in meinem Text nur kleine Änderungen gemacht. | Öğretmen metnimde yalnızca küçük değişiklikler yaptı.
+n1390 | die Wohnung | Meine neue Wohnung liegt im dritten Stock, aber es gibt keinen Aufzug. | Yeni dairem üçüncü katta ama asansör yok.
+n1390 | die Wohnung | Wir müssen die Wohnung sauber machen, bevor der Vermieter kommt. || Bevor der Vermieter kommt, müssen wir die Wohnung sauber machen. | Ev sahibi gelmeden önce daireyi temizlememiz lazım.
+n1390 | die Wohnung | In den Wohnungen in diesem Haus darf man nicht rauchen. | Bu binadaki dairelerde sigara içmek yasak.
+n0025 | das Amt | Ich muss morgen aufs Amt, um meinen Pass abzuholen. || Ich muss morgen zum Amt, um meinen Pass abzuholen. | Pasaportumu almak için yarın resmî daireye gitmem lazım.
+n0025 | das Amt | Das Amt hat meinen Antrag noch nicht bearbeitet. | Resmî daire başvurumu henüz işleme almadı.
+n0025 | das Amt | Bei welchem Amt kann ich das Kindergeld beantragen? | Çocuk parası için hangi resmî daireye başvurabilirim?
+x1549 | die Ehrlichkeit | Vielen Dank für deine Ehrlichkeit, auch wenn die Wahrheit wehtut. | Gerçek acıtsa da dürüstlüğün için çok teşekkürler.
+x1549 | die Ehrlichkeit | Der Chef hat die Ehrlichkeit des neuen Mitarbeiters gelobt. | Şef yeni çalışanın dürüstlüğünü övdü.
+x1549 | die Ehrlichkeit | Mit etwas mehr Ehrlichkeit hätte es keinen Streit gegeben. | Biraz daha dürüstlük olsaydı hiç kavga çıkmazdı.
+x1556 | die Bildung | Die Regierung will mehr Geld für Bildung ausgeben. || Die Regierung will mehr Geld für die Bildung ausgeben. | Hükümet eğitime daha fazla para harcamak istiyor.
+x1556 | die Bildung | Eine gute Bildung öffnet viele Türen. | İyi bir eğitim birçok kapı açar.
+x1556 | die Bildung | Das Thema Bildung spielt im Wahlkampf eine große Rolle. || Im Wahlkampf spielt das Thema Bildung eine große Rolle. | Eğitim konusu seçim kampanyasında büyük rol oynuyor.
+w0627 | übrig | Es sind noch zwei Stücke Kuchen übrig. | Hâlâ iki dilim pasta kaldı.
+w0627 | übrig | Wenn noch Geld übrig ist, kaufen wir neue Stühle für die Küche. | Para artarsa mutfak için yeni sandalyeler alırız.
+w0627 | übrig | Mir blieb nichts anderes übrig, als den Kurs zu wiederholen. | Kursu tekrarlamaktan başka çarem kalmadı.
+w0084 | damit | Ich lege dir den Schlüssel unter die Matte, damit du in die Wohnung kommst. | Daireye girebilesin diye anahtarı sana paspasın altına bırakıyorum.
+w0084 | damit | Ich erkläre es dir noch einmal langsam, damit du es verstehst. | Anlayasın diye sana bir kez daha yavaşça açıklıyorum.
+w0084 | damit | Wir haben die Besprechung verschoben, damit alle Kollegen kommen können. | Bütün iş arkadaşları gelebilsin diye toplantıyı erteledik.
+w0079 | dabei | Ich koche gern und höre dabei Musik. | Yemek yapmayı severim ve bu sırada müzik dinlerim.
+w0079 | dabei | Hast du heute deinen Studentenausweis dabei? | Bugün öğrenci kimliğin yanında mı?
+w0079 | dabei | Beim Fußballspiel am Samstag war ich leider nicht dabei. || Ich war beim Fußballspiel am Samstag leider nicht dabei. | Maalesef cumartesi günkü futbol maçında ben yoktum.
+w0388 | politisch | Mein Mitbewohner interessiert sich sehr für politische Themen. | Ev arkadaşım siyasi konulara çok ilgi duyuyor.
+w0388 | politisch | Die politische Lage in vielen Ländern ist zurzeit schwierig. || Zurzeit ist die politische Lage in vielen Ländern schwierig. | Birçok ülkedeki siyasi durum şu sıralar zor.
+w0388 | politisch | Meine Großmutter war ihr ganzes Leben lang politisch aktiv. || Meine Großmutter war ihr ganzes Leben politisch aktiv. | Büyükannem bütün hayatı boyunca siyasi olarak aktifti.
+n1028 | der Schatten | Die großen Bäume geben im Sommer viel Schatten. || Im Sommer geben die großen Bäume viel Schatten. | Büyük ağaçlar yazın çok gölge yapar.
+n1028 | der Schatten | Am späten Nachmittag werden die Schatten immer länger. | Öğleden sonra geç saatlerde gölgeler gittikçe uzar.
+n1028 | der Schatten | Auf dem Foto sieht man nur meinen Schatten an der Wand. | Fotoğrafta duvarda sadece benim gölgem görünüyor.
+n0248 | der Donner | Mein Hund hat große Angst vor dem Donner. | Köpeğim gök gürültüsünden çok korkuyor.
+n0248 | der Donner | Nach dem Blitz zähle ich immer die Sekunden bis zum Donner. | Şimşekten sonra hep gök gürültüsüne kadar saniyeleri sayarım.
+n0248 | der Donner | Den Donner konnte man bis in die Bibliothek hören. || Man konnte den Donner bis in die Bibliothek hören. | Gök gürültüsü kütüphanenin içine kadar duyuluyordu.
+n0973 | der Regen | Ich habe meinen Regenschirm vergessen und bin im Regen nach Hause gelaufen. | Şemsiyemi unuttum ve yağmurda eve yürüdüm.
+n0973 | der Regen | Der Wetterbericht hat für morgen Regen angesagt. | Hava durumu yarın için yağmur bildirdi.
+n0973 | der Regen | Die Pflanzen im Garten brauchen dringend Regen. | Bahçedeki bitkilerin acilen yağmura ihtiyacı var.
+n0313 | die Erlaubnis | Für diese Arbeit brauchen Sie eine Erlaubnis vom Amt. | Bu iş için resmî daireden bir izne ihtiyacınız var.
+n0313 | die Erlaubnis | Der Lehrer hat uns die Erlaubnis gegeben, früher nach Hause zu gehen. | Öğretmen bize eve erken gitme izni verdi.
+n0313 | die Erlaubnis | Mit Erlaubnis der Lehrerin dürfen wir im Test ein Wörterbuch benutzen. || Mit der Erlaubnis der Lehrerin dürfen wir im Test ein Wörterbuch benutzen. | Öğretmenin izniyle sınavda sözlük kullanabiliyoruz.
+n0596 | die Karriere | Viele Frauen müssen sich zwischen Familie und Karriere entscheiden. | Birçok kadın aile ile kariyer arasında seçim yapmak zorunda kalıyor.
+n0596 | die Karriere | Nach der Verletzung war seine Karriere als Fußballspieler zu Ende. || Seine Karriere als Fußballspieler war nach der Verletzung zu Ende. || Nach der Verletzung war ihre Karriere als Fußballspielerin zu Ende. | Sakatlıktan sonra futbolcu olarak kariyeri sona erdi.
+n0596 | die Karriere | Gute Kontakte können bei der Karriere sehr helfen. | İyi bağlantılar kariyerde çok yardımcı olabilir.
+n1424 | das Zimmer | Mein Zimmer im Studentenwohnheim ist nur zwölf Quadratmeter groß. | Öğrenci yurdundaki odam sadece on iki metrekare.
+n1424 | das Zimmer | Kannst du bitte die Musik in deinem Zimmer leiser machen? | Odandaki müziğin sesini kısabilir misin lütfen?
+n1424 | das Zimmer | In der WG sind zwei Zimmer frei, eins davon hat einen Balkon. | Paylaşımlı evde iki oda boş, bunlardan birinin balkonu var.
+w0056 | bereit | Sind alle bereit? Dann fangen wir mit der Prüfung an. | Herkes hazır mı? O zaman sınava başlıyoruz.
+w0056 | bereit | Die Firma ist bereit, mir einen Deutschkurs zu bezahlen. | Şirket bana bir Almanca kursunun parasını ödemeye hazır.
+w0056 | bereit | Halten Sie bitte Ihren Ausweis bereit. || Bitte halten Sie Ihren Ausweis bereit. | Lütfen kimliğinizi hazır bulundurun.
+x1554 | die Solidarität | Die Gewerkschaft ruft zur Solidarität mit den streikenden Arbeitern auf. | Sendika grevdeki işçilerle dayanışmaya çağırıyor.
+x1554 | die Solidarität | Ohne Solidarität funktioniert eine Gesellschaft nicht. || Eine Gesellschaft funktioniert ohne Solidarität nicht. | Dayanışma olmadan bir toplum işlemez.
+x1554 | die Solidarität | In unserer WG gibt es viel Solidarität: Wer krank ist, bekommt Suppe. | Paylaşımlı evimizde dayanışma çok: Hasta olana çorba yapılır.
+n0552 | der Humor | Sie hat einen besonderen Humor, den nicht jeder versteht. || Er hat einen besonderen Humor, den nicht jeder versteht. | Herkesin anlamadığı özel bir mizah anlayışı var.
+n0552 | der Humor | Mit Humor ist der Alltag viel leichter. || Der Alltag ist mit Humor viel leichter. | Mizahla günlük hayat çok daha kolay.
+n0552 | der Humor | Mein Vater hat in der schwierigen Zeit nie seinen Humor verloren. || In der schwierigen Zeit hat mein Vater nie seinen Humor verloren. | Babam zor dönemde espri anlayışını hiç kaybetmedi.
+n0076 | die Aufnahme | Für die Aufnahme an der Universität braucht man ein Sprachzertifikat. | Üniversiteye kabul için bir dil sertifikası gerekiyor.
+n0076 | die Aufnahme | Darf ich eine Aufnahme von unserem Gespräch machen? | Konuşmamızın kaydını alabilir miyim?
+n0076 | die Aufnahme | Die Aufnahmen vom Konzert sind leider sehr schlecht geworden. | Konser kayıtları maalesef çok kötü çıktı.
+n0830 | die Nachhilfe | Ich gebe zwei Schülern Nachhilfe in Mathe, um Geld zu verdienen. | Para kazanmak için iki öğrenciye matematik özel dersi veriyorum.
+n0830 | die Nachhilfe | Seit sie Nachhilfe nimmt, sind ihre Noten viel besser. || Seit er Nachhilfe nimmt, sind seine Noten viel besser. | Özel ders aldığından beri notları çok daha iyi.
+n0830 | die Nachhilfe | Die Nachhilfe kostet zwanzig Euro pro Stunde. | Özel dersin saati yirmi avro.
+n1320 | die Versichertenkarte | Die Krankenkasse schickt Ihnen die neue Versichertenkarte per Post. | Sağlık sigortası yeni sigorta kartınızı size postayla gönderiyor.
+n1320 | die Versichertenkarte | Auf der Versichertenkarte muss ein Foto von Ihnen sein. | Sigorta kartında sizin bir fotoğrafınız olmalı.
+n1320 | die Versichertenkarte | Ich habe meine Versichertenkarte verloren und brauche schnell eine neue. | Sigorta kartımı kaybettim, hemen yenisine ihtiyacım var.
+x1478 | das Frühjahr | Ab dem Frühjahr arbeite ich in einer Bäckerei. || Ich arbeite ab dem Frühjahr in einer Bäckerei. | İlkbahardan itibaren bir fırında çalışacağım.
+x1478 | das Frühjahr | Im Laufe des Frühjahrs werden die Tage länger. || Die Tage werden im Laufe des Frühjahrs länger. | İlkbahar boyunca günler uzar.
+x1478 | das Frühjahr | Bis zum Frühjahr muss ich meine Abschlussarbeit fertig schreiben. || Ich muss meine Abschlussarbeit bis zum Frühjahr fertig schreiben. | İlkbahara kadar bitirme tezimi yazıp bitirmem lazım.
+n1307 | das Verhalten | Ich entschuldige mich für mein Verhalten von gestern. | Dünkü davranışım için özür dilerim.
+n1307 | das Verhalten | Nach dem Spiel hat die Polizei das Verhalten einiger Fans kritisiert. || Die Polizei hat nach dem Spiel das Verhalten einiger Fans kritisiert. | Maçtan sonra polis bazı taraftarların davranışını eleştirdi.
+n1307 | das Verhalten | Im Kurs lernen wir auch, welches Verhalten bei einem Vorstellungsgespräch wichtig ist. | Kursta iş görüşmesinde hangi davranışın önemli olduğunu da öğreniyoruz.
+w0172 | frech | Auf meine Frage hat er mir eine freche Antwort gegeben. || Er hat mir auf meine Frage eine freche Antwort gegeben. || Auf meine Frage hat sie mir eine freche Antwort gegeben. | Soruma arsızca bir cevap verdi.
+w0172 | frech | Unsere freche Katze hat schon wieder Wurst vom Tisch gestohlen. | Arsız kedimiz yine masadan sosis çaldı.
+w0172 | frech | Mein Mitbewohner isst ständig mein Essen, das finde ich frech. | Ev arkadaşım sürekli benim yemeğimi yiyor, bence bu arsızlık.
+n1088 | die Situation | Die Situation auf dem Wohnungsmarkt hat sich in den letzten Jahren verschlechtert. | Konut piyasasındaki durum son yıllarda kötüleşti.
+n1088 | die Situation | Kannst du dir meine Situation vorstellen? | Benim durumumu hayal edebiliyor musun?
+n1088 | die Situation | In solchen Situationen weiß ich nie, was ich sagen soll. | Böyle durumlarda ne söyleyeceğimi hiç bilmiyorum.
+n1325 | der Vertrag | Der Vertrag läuft zwei Jahre, danach kann man kündigen. | Sözleşme iki yıl sürüyor, ondan sonra feshedilebilir.
+n1325 | der Vertrag | Im Vertrag steht, dass die Kaution drei Monatsmieten beträgt. | Sözleşmede depozitonun üç aylık kira olduğu yazıyor.
+n1325 | der Vertrag | Mein Arbeitgeber will meinen Vertrag um ein Jahr verlängern. | İşverenim sözleşmemi bir yıl uzatmak istiyor.
+n0869 | die Operation | Die Operation ist gut verlaufen, und der Patient ist wieder wach. || Die Operation ist gut verlaufen und der Patient ist wieder wach. | Ameliyat iyi geçti ve hasta yeniden uyandı.
+n0869 | die Operation | Mein Opa hat Angst vor der Operation nächste Woche. | Dedem gelecek haftaki ameliyattan korkuyor.
+n0869 | die Operation | Dieser Chirurg hat schon über tausend Operationen durchgeführt. | Bu cerrah şimdiye kadar binden fazla ameliyat yaptı.
+n0384 | das Formular | Ich habe das Formular unterschrieben und in den Briefkasten geworfen. | Formu imzalayıp posta kutusuna attım.
+n0384 | das Formular | Die Formulare für den Antrag finden Sie auf unserer Website. || Sie finden die Formulare für den Antrag auf unserer Website. | Başvuru formlarını web sitemizde bulabilirsiniz.
+n0384 | das Formular | In diesem Formular fehlt noch Ihre Unterschrift. | Bu formda imzanız hâlâ eksik.
+x1484 | der Kommilitone | Meine Kommilitonen kommen aus über zwanzig Ländern. | Sınıf arkadaşlarım yirmiden fazla ülkeden geliyor.
+x1484 | der Kommilitone | Mit einem Kommilitonen habe ich eine Präsentation über Klimaschutz vorbereitet. || Ich habe mit einem Kommilitonen eine Präsentation über Klimaschutz vorbereitet. | Bir sınıf arkadaşımla iklim koruma hakkında bir sunum hazırladım.
+x1484 | der Kommilitone | Kennst du den Kommilitonen, der immer in der ersten Reihe sitzt? | Hep ön sırada oturan o sınıf arkadaşını tanıyor musun?
+n0948 | die Quittung | Ich brauche eine Quittung für meine Steuererklärung. | Vergi beyannamem için bir makbuza ihtiyacım var.
+n0948 | die Quittung | Der Kellner hat vergessen, mir die Quittung zu geben. | Garson bana fişi vermeyi unuttu.
+n0948 | die Quittung | Alle Quittungen sammle ich in einem Ordner. || Ich sammle alle Quittungen in einem Ordner. | Bütün fişleri bir klasörde topluyorum.
+x1503 | die Erwartung | Die Erwartungen an die neue Regierung sind sehr hoch. | Yeni hükümetten beklentiler çok yüksek.
+x1503 | die Erwartung | Ich bin mit großen Erwartungen nach Deutschland gekommen. | Almanya'ya büyük beklentilerle geldim.
+x1503 | die Erwartung | Was sind Ihre Erwartungen an diese Stelle? | Bu pozisyondan beklentileriniz neler?
+w0100 | digital | Die Schule möchte den Unterricht digitaler machen. | Okul dersleri daha dijital hâle getirmek istiyor.
+w0100 | digital | Viele Ämter in Deutschland sind noch nicht digital genug. | Almanya'daki birçok resmî daire henüz yeterince dijital değil.
+w0100 | digital | In der digitalen Welt ist es schwer, ohne Smartphone zu leben. | Dijital dünyada akıllı telefon olmadan yaşamak zor.
+x1560 | das Bedürfnis | Die Wohnung passt gut zu unseren Bedürfnissen. | Daire ihtiyaçlarımıza çok uygun.
+x1560 | das Bedürfnis | Die Bedürfnisse der Kunden stehen bei uns an erster Stelle. | Bizde müşterilerin ihtiyaçları ilk sırada gelir.
+x1560 | das Bedürfnis | Kinder haben andere Bedürfnisse als Erwachsene. | Çocukların ihtiyaçları yetişkinlerinkinden farklıdır.

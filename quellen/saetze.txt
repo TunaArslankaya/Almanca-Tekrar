@@ -1220,3 +1220,31 @@ v545 | Übertreib doch nicht so! | Bu kadar abartma!
 v584 | Wie können wir das Problem verhindern? | Bu sorunu nasıl önleyebiliriz?
 v584 | Der Regen hat den Unfall nicht verhindert. | Yağmur kazayı engellemedi.
 v305 | Heute Nacht soll es hageln. | Bu gece dolu yağacakmış.
+v687 | Die Firma bildet jedes Jahr fünf junge Leute aus. || Jedes Jahr bildet die Firma fünf junge Leute aus. | Şirket her yıl beş gence meslek eğitimi veriyor.
+v687 | Herr Krause hat in seiner Werkstatt schon viele Lehrlinge ausgebildet. | Bay Krause atölyesinde şimdiye kadar birçok çırak yetiştirdi.
+v687 | Deutschland muss mehr Ärzte und Pflegekräfte ausbilden. | Almanya daha fazla doktor ve bakım personeli yetiştirmeli.
+v687 | Ich suche einen Betrieb, der mich zum Elektriker ausbildet. | Bana elektrikçilik eğitimi verecek bir işletme arıyorum.
+v687 | Früher bildete die Firma nur Männer aus, heute auch viele Frauen. || Die Firma bildete früher nur Männer aus, heute auch viele Frauen. | Şirket eskiden yalnızca erkeklere meslek eğitimi veriyordu, bugün birçok kadına da veriyor.
+v145 | Kann ich hier auch mit Karte bezahlen? | Burada kartla da ödeyebilir miyim?
+v145 | Wir haben im Restaurant getrennt bezahlt. || Im Restaurant haben wir getrennt bezahlt. | Restoranda hesabı ayrı ayrı ödedik.
+v145 | Mein Mitbewohner hat gefragt, ob ich die Stromrechnung schon bezahlt habe. | Ev arkadaşım elektrik faturasını ödeyip ödemediğimi sordu.
+v145 | Früher bezahlte man in Deutschland fast alles bar. || In Deutschland bezahlte man früher fast alles bar. | Eskiden Almanya'da neredeyse her şey nakit ödenirdi.
+v481 | Die Musik hat für gute Stimmung gesorgt. | Müzik iyi bir atmosfer sağladı.
+v481 | Der Hausmeister sorgt für Ordnung im Haus. || Im Haus sorgt der Hausmeister für Ordnung. | Kapıcı binada düzeni sağlıyor.
+v481 | Während meine Mutter im Krankenhaus war, habe ich für meine kleinen Geschwister gesorgt. || Ich habe für meine kleinen Geschwister gesorgt, während meine Mutter im Krankenhaus war. | Annem hastanedeyken küçük kardeşlerime ben baktım.
+v481 | Die Stadt muss für mehr Sicherheit am Bahnhof sorgen. | Belediye garda daha fazla güvenlik sağlamalı.
+v117 | Die Nachrichten berichten heute über das Hochwasser in Süddeutschland. || Heute berichten die Nachrichten über das Hochwasser in Süddeutschland. | Haberler bugün Güney Almanya'daki selden bahsediyor.
+v117 | Können Sie kurz über Ihre Erfahrungen im Praktikum berichten? | Stajdaki deneyimlerinizi kısaca anlatabilir misiniz?
+v117 | Die Zeitung berichtete ausführlich über die Wahl in Bremen. | Gazete Bremen'deki seçim hakkında ayrıntılı haber yaptı.
+v149 | Hat es eben geblitzt? Ich habe ein helles Licht gesehen. | Az önce şimşek mi çaktı? Parlak bir ışık gördüm.
+v149 | Weil es stark blitzte, durften die Kinder nicht im See schwimmen. || Die Kinder durften nicht im See schwimmen, weil es stark blitzte. | Şiddetli şimşek çaktığı için çocukların gölde yüzmesine izin verilmedi.
+v149 | Am Horizont blitzt es schon, gleich kommt das Gewitter. || Es blitzt schon am Horizont, gleich kommt das Gewitter. | Ufukta şimdiden şimşek çakıyor, birazdan fırtına geliyor.
+v157 | Der Postbote brachte gestern ein Paket aus der Türkei. || Gestern brachte der Postbote ein Paket aus der Türkei. | Postacı dün Türkiye'den bir paket getirdi.
+v157 | Weißt du, wer die Kinder morgen in den Kindergarten bringt? | Yarın çocukları anaokuluna kimin götüreceğini biliyor musun?
+v157 | Am Samstag bringe ich die leeren Flaschen zum Supermarkt. || Ich bringe am Samstag die leeren Flaschen zum Supermarkt. | Cumartesi boş şişeleri süpermarkete götüreceğim.
+v089 | Ich habe BAföG beantragt, aber noch keine Antwort bekommen. | BAföG için başvurdum ama henüz cevap almadım.
+v089 | Wenn Sie Wohngeld beantragen möchten, brauchen Sie dieses Formular. || Sie brauchen dieses Formular, wenn Sie Wohngeld beantragen möchten. | Kira yardımı için başvurmak istiyorsanız bu forma ihtiyacınız var.
+v089 | Meine Kollegin beantragt jedes Jahr im Januar ihren Urlaub für den Sommer. | İş arkadaşım her yıl ocakta yaz izni için başvuruyor.
+v211 | Die ersten Häuser in diesem Viertel entstanden vor hundert Jahren. | Bu semtteki ilk evler yüz yıl önce inşa edildi.
+v211 | Bei der Arbeit am Computer können schnell Rückenschmerzen entstehen. | Bilgisayarda çalışırken çabucak sırt ağrısı oluşabilir.
+v211 | Im Film sieht man, wie ein Gewitter entsteht. || Man sieht im Film, wie ein Gewitter entsteht. | Filmde bir fırtınanın nasıl oluştuğu görülüyor.

@@ -4457,3 +4457,166 @@ Es ist so heiß, lass uns in den Schatten gehen. | heiß = sıcak; lass uns … 
 Wer ist in der WG für den Müll verantwortlich? | die WG = paylaşımlı ev; der Müll = çöp
 Er hat sogar am Sonntag gearbeitet. | der Sonntag = pazar; arbeiten = çalışmak
 Sie arbeitet zweimal pro Woche ehrenamtlich in einer Bibliothek. | zweimal = iki kez; pro Woche = haftada; die Bibliothek = kütüphane
+Die Firma bildet jedes Jahr fünf junge Leute aus. | die Firma = şirket; jung = genç
+Herr Krause hat in seiner Werkstatt schon viele Lehrlinge ausgebildet. | die Werkstatt = atölye; der Lehrling, -e = çırak
+Deutschland muss mehr Ärzte und Pflegekräfte ausbilden. | die Pflegekraft, -¨e = bakım personeli
+Ich suche einen Betrieb, der mich zum Elektriker ausbildet. | der Betrieb = işletme; der Elektriker = elektrikçi
+Früher bildete die Firma nur Männer aus, heute auch viele Frauen. | früher = eskiden; die Firma = şirket
+Kann ich hier auch mit Karte bezahlen? | die Karte = (banka) kartı
+Wir haben im Restaurant getrennt bezahlt. | getrennt = ayrı ayrı
+Mein Mitbewohner hat gefragt, ob ich die Stromrechnung schon bezahlt habe. | der Mitbewohner = ev arkadaşı; die Stromrechnung = elektrik faturası; ob = -ip -mediğini
+Früher bezahlte man in Deutschland fast alles bar. | früher = eskiden; fast = neredeyse; bar = nakit
+Die Musik hat für gute Stimmung gesorgt. | die Stimmung = hava, atmosfer
+Der Hausmeister sorgt für Ordnung im Haus. | der Hausmeister = kapıcı; die Ordnung = düzen
+Während meine Mutter im Krankenhaus war, habe ich für meine kleinen Geschwister gesorgt. | während = -iken; das Krankenhaus = hastane; die Geschwister (Pl.) = kardeşler
+Die Stadt muss für mehr Sicherheit am Bahnhof sorgen. | die Sicherheit = güvenlik; der Bahnhof = gar
+Die Nachrichten berichten heute über das Hochwasser in Süddeutschland. | die Nachrichten (Pl.) = haberler; das Hochwasser = sel
+Können Sie kurz über Ihre Erfahrungen im Praktikum berichten? | die Erfahrung, -en = deneyim; das Praktikum = staj
+Die Zeitung berichtete ausführlich über die Wahl in Bremen. | ausführlich = ayrıntılı; die Wahl = seçim
+Hat es eben geblitzt? Ich habe ein helles Licht gesehen. | eben = az önce; hell = parlak; das Licht = ışık
+Weil es stark blitzte, durften die Kinder nicht im See schwimmen. | stark = şiddetli; der See = göl
+Am Horizont blitzt es schon, gleich kommt das Gewitter. | der Horizont = ufuk; gleich = birazdan; das Gewitter = (gök gürültülü) fırtına
+Der Postbote brachte gestern ein Paket aus der Türkei. | der Postbote = postacı; das Paket = paket
+Weißt du, wer die Kinder morgen in den Kindergarten bringt? | der Kindergarten = anaokulu
+Am Samstag bringe ich die leeren Flaschen zum Supermarkt. | leer = boş; die Flasche, -n = şişe
+Ich habe BAföG beantragt, aber noch keine Antwort bekommen. | das BAföG = devlet öğrenim desteği; bekommen = almak
+Wenn Sie Wohngeld beantragen möchten, brauchen Sie dieses Formular. | das Wohngeld = kira yardımı; das Formular = form
+Meine Kollegin beantragt jedes Jahr im Januar ihren Urlaub für den Sommer. | die Kollegin = (kadın) iş arkadaşı; der Urlaub = izin, tatil
+Die ersten Häuser in diesem Viertel entstanden vor hundert Jahren. | das Viertel = semt, mahalle
+Bei der Arbeit am Computer können schnell Rückenschmerzen entstehen. | die Rückenschmerzen (Pl.) = sırt ağrısı
+Im Film sieht man, wie ein Gewitter entsteht. | das Gewitter = (gök gürültülü) fırtına
+Der Behördengang hat mich den ganzen Vormittag gekostet. | der Vormittag = öğleden önce, sabah; kosten = (zaman) almak
+Viele Behördengänge kann man heute auch online erledigen. | erledigen = halletmek
+Für den Behördengang brauche ich einen Termin und meinen Pass. | der Termin = randevu; der Pass = pasaport
+Nach dem Umzug musste ich viele Behördengänge machen, zum Beispiel zum Bürgeramt. | der Umzug = taşınma; das Bürgeramt = vatandaşlık işleri dairesi
+Meine Mitbewohnerin hilft mir bei Behördengängen, weil sie besser Deutsch spricht. | die Mitbewohnerin = (kadın) ev arkadaşı
+Sehr geehrter Herr Schmidt, vielen Dank für Ihre schnelle Antwort. | die Antwort = cevap
+Sehr geehrte Frau Becker, ich schicke Ihnen die fehlenden Unterlagen im Anhang. | fehlen = eksik olmak; die Unterlagen (Pl.) = belgeler; der Anhang = ek
+Sehr geehrter Herr Professor Lange, könnten Sie mir bitte meine Note mitteilen? | die Note = not; mitteilen = bildirmek
+Ich fühle mich sehr geehrt, dass Sie mich eingeladen haben. | sich fühlen = hissetmek; einladen = davet etmek
+Auch alte und kranke Menschen haben ein Recht auf ein Leben in Würde. | das Recht auf = -e hakkı
+Das Pflegeheim muss die Würde der Bewohner respektieren. | das Pflegeheim = bakımevi, huzurevi; der Bewohner, - = sakin; respektieren = saygı göstermek
+Er hat trotz der Kündigung seine Würde nicht verloren. | trotz = -e rağmen; die Kündigung = işten çıkarılma; verlieren = kaybetmek
+Arbeitslosigkeit verletzt oft die Würde der Menschen. | die Arbeitslosigkeit = işsizlik; verletzen = zedelemek, yaralamak
+Mein Nachbar arbeitet seit zwanzig Jahren als Feuerwehrmann. | der Nachbar = komşu
+Die Feuerwehrmänner waren nach zehn Minuten am Unfallort. | der Unfallort = kaza yeri
+Als Kind wollte mein Bruder unbedingt Feuerwehrmann werden. | unbedingt = mutlaka
+Ein Feuerwehrmann hat uns erklärt, wie man einen Brand in der Küche löscht. | erklären = açıklamak; der Brand = yangın; löschen = söndürmek
+Ich lerne vor allem abends, weil ich tagsüber arbeite. | tagsüber = gündüz
+In Bremen regnet es viel, vor allem im Herbst. | der Herbst = sonbahar
+Bei der Prüfung ist vor allem der schriftliche Teil schwierig. | die Prüfung = sınav; schriftlich = yazılı; der Teil = bölüm
+Vor allem müssen wir eine bezahlbare Wohnung finden. | bezahlbar = uygun fiyatlı
+Trotz der Kälte sind viele Menschen zum Weihnachtsmarkt gegangen. | trotz = -e rağmen; der Weihnachtsmarkt = Noel pazarı
+Ein dicker Schal schützt gut vor der Kälte. | dick = kalın; der Schal = atkı; schützen vor = -den korumak
+Die Kälte im Hörsaal war unangenehm, weil die Heizung kaputt war. | der Hörsaal = amfi; unangenehm = rahatsız edici; die Heizung = kalorifer
+Plötzlich kamen dunkle Wolken, und es fing an zu regnen. | plötzlich = birden; dunkel = karanlık, kara; anfangen = başlamak
+Die Sonne ist hinter einer Wolke verschwunden. | verschwinden = kaybolmak
+Aus dem Flugzeug haben wir die Wolken von oben gesehen. | das Flugzeug = uçak; von oben = yukarıdan
+Am Wochenende soll es bewölkt und kühl sein. | kühl = serin
+Gestern war der Himmel den ganzen Tag bewölkt. | der Himmel = gökyüzü
+An bewölkten Tagen bin ich oft müde und schlecht gelaunt. | schlecht gelaunt = keyifsiz
+Heute Nacht kann man viele Sterne am Himmel sehen. | der Stern, -e = yıldız
+Der Himmel wird dunkel, wir sollten lieber nach Hause gehen. | dunkel = karanlık; lieber = daha iyi (olur)
+Nach dem Gewitter war der Himmel wieder klar. | das Gewitter = (gök gürültülü) fırtına; klar = açık, berrak
+Wegen des Schnees fahren heute keine Straßenbahnen. | wegen = yüzünden; die Straßenbahn, -en = tramvay
+Als ich aufgewacht bin, lag überall Schnee. | aufwachen = uyanmak; überall = her yerde
+Ich hoffe, dass es dieses Jahr zu Weihnachten Schnee gibt. | hoffen = ummak; Weihnachten = Noel
+Gibt es noch Änderungen am Vertrag? | der Vertrag = sözleşme
+Bitte informieren Sie uns sofort über jede Änderung Ihrer Adresse. | informieren über = hakkında bilgi vermek; sofort = hemen
+Die Lehrerin hat in meinem Text nur kleine Änderungen gemacht. | der Text = metin
+Meine neue Wohnung liegt im dritten Stock, aber es gibt keinen Aufzug. | der Stock = kat; der Aufzug = asansör
+Wir müssen die Wohnung sauber machen, bevor der Vermieter kommt. | sauber machen = temizlemek; bevor = -meden önce; der Vermieter = ev sahibi
+In den Wohnungen in diesem Haus darf man nicht rauchen. | rauchen = sigara içmek
+Ich muss morgen aufs Amt, um meinen Pass abzuholen. | der Pass = pasaport; abholen = (gidip) almak
+Das Amt hat meinen Antrag noch nicht bearbeitet. | der Antrag = başvuru; bearbeiten = işleme almak
+Bei welchem Amt kann ich das Kindergeld beantragen? | das Kindergeld = çocuk parası; beantragen = başvurmak
+Vielen Dank für deine Ehrlichkeit, auch wenn die Wahrheit wehtut. | auch wenn = -se de; die Wahrheit = gerçek; wehtun = acıtmak
+Der Chef hat die Ehrlichkeit des neuen Mitarbeiters gelobt. | der Mitarbeiter = çalışan; loben = övmek
+Mit etwas mehr Ehrlichkeit hätte es keinen Streit gegeben. | der Streit = kavga
+Die Regierung will mehr Geld für Bildung ausgeben. | die Regierung = hükümet; ausgeben = harcamak
+Eine gute Bildung öffnet viele Türen. | öffnen = açmak; die Tür, -en = kapı
+Das Thema Bildung spielt im Wahlkampf eine große Rolle. | das Thema = konu; der Wahlkampf = seçim kampanyası; eine Rolle spielen = rol oynamak
+Es sind noch zwei Stücke Kuchen übrig. | das Stück, -e = dilim, parça
+Wenn noch Geld übrig ist, kaufen wir neue Stühle für die Küche. | der Stuhl, -¨e = sandalye
+Mir blieb nichts anderes übrig, als den Kurs zu wiederholen. | übrig bleiben = kalmak; wiederholen = tekrarlamak
+Ich lege dir den Schlüssel unter die Matte, damit du in die Wohnung kommst. | der Schlüssel = anahtar; die Matte = paspas
+Ich erkläre es dir noch einmal langsam, damit du es verstehst. | erklären = açıklamak
+Wir haben die Besprechung verschoben, damit alle Kollegen kommen können. | die Besprechung = toplantı; verschieben = ertelemek
+Ich koche gern und höre dabei Musik. | kochen = yemek yapmak
+Hast du heute deinen Studentenausweis dabei? | der Studentenausweis = öğrenci kimliği
+Beim Fußballspiel am Samstag war ich leider nicht dabei. | das Fußballspiel = futbol maçı
+Mein Mitbewohner interessiert sich sehr für politische Themen. | sich interessieren für = -e ilgi duymak; das Thema, Themen = konu
+Die politische Lage in vielen Ländern ist zurzeit schwierig. | die Lage = durum; zurzeit = şu sıralar
+Meine Großmutter war ihr ganzes Leben lang politisch aktiv. | aktiv = aktif, etkin
+Die großen Bäume geben im Sommer viel Schatten. | der Baum, -¨e = ağaç
+Am späten Nachmittag werden die Schatten immer länger. | spät = geç; immer länger = gittikçe daha uzun
+Auf dem Foto sieht man nur meinen Schatten an der Wand. | die Wand = duvar
+Mein Hund hat große Angst vor dem Donner. | Angst haben vor = -den korkmak
+Nach dem Blitz zähle ich immer die Sekunden bis zum Donner. | der Blitz = şimşek; zählen = saymak; die Sekunde, -n = saniye
+Den Donner konnte man bis in die Bibliothek hören. | die Bibliothek = kütüphane
+Ich habe meinen Regenschirm vergessen und bin im Regen nach Hause gelaufen. | der Regenschirm = şemsiye; laufen = yürümek
+Der Wetterbericht hat für morgen Regen angesagt. | der Wetterbericht = hava durumu; ansagen = bildirmek
+Die Pflanzen im Garten brauchen dringend Regen. | die Pflanze, -n = bitki; dringend = acilen
+Für diese Arbeit brauchen Sie eine Erlaubnis vom Amt. | das Amt = resmî daire
+Der Lehrer hat uns die Erlaubnis gegeben, früher nach Hause zu gehen. | früher = daha erken
+Mit Erlaubnis der Lehrerin dürfen wir im Test ein Wörterbuch benutzen. | das Wörterbuch = sözlük; benutzen = kullanmak
+Viele Frauen müssen sich zwischen Familie und Karriere entscheiden. | sich entscheiden = karar vermek; zwischen = arasında
+Nach der Verletzung war seine Karriere als Fußballspieler zu Ende. | die Verletzung = sakatlık; zu Ende sein = bitmek
+Gute Kontakte können bei der Karriere sehr helfen. | der Kontakt, -e = bağlantı, tanıdık
+Mein Zimmer im Studentenwohnheim ist nur zwölf Quadratmeter groß. | das Studentenwohnheim = öğrenci yurdu; der Quadratmeter = metrekare
+Kannst du bitte die Musik in deinem Zimmer leiser machen? | leiser machen = sesini kısmak
+In der WG sind zwei Zimmer frei, eins davon hat einen Balkon. | die WG = paylaşımlı ev; eins davon = bunlardan biri
+Sind alle bereit? Dann fangen wir mit der Prüfung an. | anfangen mit = -e başlamak; die Prüfung = sınav
+Die Firma ist bereit, mir einen Deutschkurs zu bezahlen. | die Firma = şirket
+Halten Sie bitte Ihren Ausweis bereit. | der Ausweis = kimlik; bereithalten = hazır bulundurmak
+Die Gewerkschaft ruft zur Solidarität mit den streikenden Arbeitern auf. | die Gewerkschaft = sendika; aufrufen zu = -e çağırmak; streiken = grev yapmak; der Arbeiter, - = işçi
+Ohne Solidarität funktioniert eine Gesellschaft nicht. | funktionieren = işlemek; die Gesellschaft = toplum
+In unserer WG gibt es viel Solidarität: Wer krank ist, bekommt Suppe. | die WG = paylaşımlı ev; die Suppe = çorba
+Sie hat einen besonderen Humor, den nicht jeder versteht. | besonders = özel
+Mit Humor ist der Alltag viel leichter. | der Alltag = günlük hayat; leicht = kolay
+Mein Vater hat in der schwierigen Zeit nie seinen Humor verloren. | verlieren = kaybetmek
+Für die Aufnahme an der Universität braucht man ein Sprachzertifikat. | das Sprachzertifikat = dil sertifikası
+Darf ich eine Aufnahme von unserem Gespräch machen? | das Gespräch = konuşma
+Die Aufnahmen vom Konzert sind leider sehr schlecht geworden. | das Konzert = konser
+Ich gebe zwei Schülern Nachhilfe in Mathe, um Geld zu verdienen. | der Schüler, - = öğrenci; verdienen = kazanmak
+Seit sie Nachhilfe nimmt, sind ihre Noten viel besser. | die Note, -n = not
+Die Nachhilfe kostet zwanzig Euro pro Stunde. | pro Stunde = saatine
+Die Krankenkasse schickt Ihnen die neue Versichertenkarte per Post. | die Krankenkasse = sağlık sigortası
+Auf der Versichertenkarte muss ein Foto von Ihnen sein. | das Foto = fotoğraf
+Ich habe meine Versichertenkarte verloren und brauche schnell eine neue. | verlieren = kaybetmek
+Ab dem Frühjahr arbeite ich in einer Bäckerei. | ab = -den itibaren; die Bäckerei = fırın
+Im Laufe des Frühjahrs werden die Tage länger. | im Laufe = boyunca
+Bis zum Frühjahr muss ich meine Abschlussarbeit fertig schreiben. | die Abschlussarbeit = bitirme tezi; fertig schreiben = yazıp bitirmek
+Ich entschuldige mich für mein Verhalten von gestern. | sich entschuldigen für = için özür dilemek
+Nach dem Spiel hat die Polizei das Verhalten einiger Fans kritisiert. | der Fan, -s = taraftar; kritisieren = eleştirmek
+Im Kurs lernen wir auch, welches Verhalten bei einem Vorstellungsgespräch wichtig ist. | das Vorstellungsgespräch = iş görüşmesi
+Auf meine Frage hat er mir eine freche Antwort gegeben. | die Antwort = cevap
+Unsere freche Katze hat schon wieder Wurst vom Tisch gestohlen. | die Wurst = sosis; stehlen = çalmak
+Mein Mitbewohner isst ständig mein Essen, das finde ich frech. | der Mitbewohner = ev arkadaşı; ständig = sürekli
+Die Situation auf dem Wohnungsmarkt hat sich in den letzten Jahren verschlechtert. | der Wohnungsmarkt = konut piyasası; sich verschlechtern = kötüleşmek
+Kannst du dir meine Situation vorstellen? | sich vorstellen = hayal etmek
+In solchen Situationen weiß ich nie, was ich sagen soll. | solch- = böyle
+Der Vertrag läuft zwei Jahre, danach kann man kündigen. | laufen = (süre) geçerli olmak; kündigen = feshetmek
+Im Vertrag steht, dass die Kaution drei Monatsmieten beträgt. | die Kaution = depozito; die Monatsmiete, -n = aylık kira; betragen = tutmak
+Mein Arbeitgeber will meinen Vertrag um ein Jahr verlängern. | der Arbeitgeber = işveren; verlängern = uzatmak
+Die Operation ist gut verlaufen, und der Patient ist wieder wach. | verlaufen = geçmek; der Patient = hasta; wach = uyanık
+Mein Opa hat Angst vor der Operation nächste Woche. | Angst haben vor = -den korkmak
+Dieser Chirurg hat schon über tausend Operationen durchgeführt. | der Chirurg = cerrah; durchführen = yapmak, gerçekleştirmek
+Ich habe das Formular unterschrieben und in den Briefkasten geworfen. | unterschreiben = imzalamak; der Briefkasten = posta kutusu; werfen = atmak
+Die Formulare für den Antrag finden Sie auf unserer Website. | der Antrag = başvuru; die Website = web sitesi
+In diesem Formular fehlt noch Ihre Unterschrift. | fehlen = eksik olmak; die Unterschrift = imza
+Meine Kommilitonen kommen aus über zwanzig Ländern. | das Land, -¨er = ülke
+Mit einem Kommilitonen habe ich eine Präsentation über Klimaschutz vorbereitet. | die Präsentation = sunum; der Klimaschutz = iklim koruma; vorbereiten = hazırlamak
+Kennst du den Kommilitonen, der immer in der ersten Reihe sitzt? | die Reihe = sıra
+Ich brauche eine Quittung für meine Steuererklärung. | die Steuererklärung = vergi beyannamesi
+Der Kellner hat vergessen, mir die Quittung zu geben. | der Kellner = garson
+Alle Quittungen sammle ich in einem Ordner. | sammeln = toplamak; der Ordner = klasör
+Die Erwartungen an die neue Regierung sind sehr hoch. | die Regierung = hükümet
+Ich bin mit großen Erwartungen nach Deutschland gekommen. | groß = büyük
+Was sind Ihre Erwartungen an diese Stelle? | die Stelle = pozisyon, iş
+Die Schule möchte den Unterricht digitaler machen. | der Unterricht = ders
+Viele Ämter in Deutschland sind noch nicht digital genug. | das Amt, -¨er = resmî daire; genug = yeterince
+In der digitalen Welt ist es schwer, ohne Smartphone zu leben. | die Welt = dünya; das Smartphone = akıllı telefon
+Die Wohnung passt gut zu unseren Bedürfnissen. | passen zu = -e uymak
+Die Bedürfnisse der Kunden stehen bei uns an erster Stelle. | der Kunde, -n = müşteri; an erster Stelle = ilk sırada
+Kinder haben andere Bedürfnisse als Erwachsene. | der Erwachsene, -n = yetişkin
