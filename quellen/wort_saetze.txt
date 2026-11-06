@@ -3086,3 +3086,144 @@ w0100 | digital | In der digitalen Welt ist es schwer, ohne Smartphone zu leben.
 x1560 | das Bedürfnis | Die Wohnung passt gut zu unseren Bedürfnissen. | Daire ihtiyaçlarımıza çok uygun.
 x1560 | das Bedürfnis | Die Bedürfnisse der Kunden stehen bei uns an erster Stelle. | Bizde müşterilerin ihtiyaçları ilk sırada gelir.
 x1560 | das Bedürfnis | Kinder haben andere Bedürfnisse als Erwachsene. | Çocukların ihtiyaçları yetişkinlerinkinden farklıdır.
+x1523 | das Gehirn | Beim Lernen braucht das Gehirn regelmäßig Pausen. || Das Gehirn braucht beim Lernen regelmäßig Pausen. | Öğrenirken beynin düzenli olarak molaya ihtiyacı vardır.
+x1523 | das Gehirn | Wenn ich zu wenig schlafe, arbeitet mein Gehirn in der Prüfung langsamer. || Mein Gehirn arbeitet in der Prüfung langsamer, wenn ich zu wenig schlafe. | Az uyuduğumda sınavda beynim daha yavaş çalışıyor.
+x1523 | das Gehirn | Im Krankenhaus haben die Ärzte sein Gehirn genau untersucht. || Die Ärzte haben im Krankenhaus sein Gehirn genau untersucht. | Hastanede doktorlar onun beynini ayrıntılı olarak muayene etti.
+x1523 | das Gehirn | In der Vorlesung haben wir viel über die Funktion des Gehirns gelernt. || Wir haben in der Vorlesung viel über die Funktion des Gehirns gelernt. | Derste beynin işlevi hakkında çok şey öğrendik.
+x1523 | das Gehirn | Sport ist nicht nur gut für den Körper, sondern auch für das Gehirn. | Spor sadece vücut için değil, beyin için de iyidir.
+x1568 | das Vorhaben | Mein Vorhaben ist, nach dem Kurs an der Universität Bremen zu studieren. | Planım, kurstan sonra Bremen Üniversitesi'nde okumak.
+x1568 | das Vorhaben | Meine Eltern unterstützen mein Vorhaben, in Deutschland eine Ausbildung zu machen. | Ailem Almanya'da mesleki eğitim alma planımı destekliyor.
+x1568 | das Vorhaben | Wegen der hohen Kosten mussten wir unser Vorhaben aufgeben. || Wir mussten wegen der hohen Kosten unser Vorhaben aufgeben. | Yüksek masraflar yüzünden planımızdan vazgeçmek zorunda kaldık.
+x1568 | das Vorhaben | Von deinem Vorhaben habe ich erst gestern erfahren. || Ich habe erst gestern von deinem Vorhaben erfahren. | Planını ancak dün öğrendim.
+x1568 | das Vorhaben | Für dieses Vorhaben brauchen wir die Hilfe von vielen Freiwilligen. || Wir brauchen für dieses Vorhaben die Hilfe von vielen Freiwilligen. | Bu plan için birçok gönüllünün yardımına ihtiyacımız var.
+x1571 | die Anfrage | Vielen Dank für Ihre Anfrage, wir antworten Ihnen innerhalb von drei Tagen. | Talebiniz için çok teşekkürler, size üç gün içinde cevap veriyoruz.
+x1571 | die Anfrage | Ich habe per E-Mail eine Anfrage an das Bürgeramt geschickt. || Ich habe eine Anfrage per E-Mail an das Bürgeramt geschickt. | Nüfus müdürlüğüne e-postayla bir talep gönderdim.
+x1571 | die Anfrage | Auf meine Anfrage habe ich noch keine Antwort bekommen. || Ich habe auf meine Anfrage noch keine Antwort bekommen. | Talebime henüz cevap almadım.
+x1571 | die Anfrage | Wegen der vielen Anfragen dauert die Bearbeitung zurzeit sechs Wochen. || Die Bearbeitung dauert zurzeit wegen der vielen Anfragen sechs Wochen. | Çok sayıda talep yüzünden işlem şu anda altı hafta sürüyor.
+x1571 | die Anfrage | Kannst du mir helfen, die Anfrage an die Krankenkasse auf Deutsch zu schreiben? | Sağlık sigortasına gönderilecek talebi Almanca yazmama yardım edebilir misin?
+n1173 | der Supermarkt | Der Supermarkt an der Ecke hat bis 22 Uhr geöffnet. || Der Supermarkt an der Ecke ist bis 22 Uhr geöffnet. | Köşedeki süpermarket saat 22'ye kadar açık.
+n1173 | der Supermarkt | Im Supermarkt habe ich zufällig meinen Deutschlehrer getroffen. || Ich habe im Supermarkt zufällig meinen Deutschlehrer getroffen. | Süpermarkette tesadüfen Almanca öğretmenime rastladım.
+n1173 | der Supermarkt | Am Sonntag sind in Deutschland fast alle Supermärkte geschlossen. || In Deutschland sind am Sonntag fast alle Supermärkte geschlossen. | Almanya'da pazar günü neredeyse bütün süpermarketler kapalıdır.
+n1173 | der Supermarkt | Neben dem Studium arbeite ich zehn Stunden pro Woche in einem Supermarkt. || Ich arbeite neben dem Studium zehn Stunden pro Woche in einem Supermarkt. | Okulun yanında haftada on saat bir süpermarkette çalışıyorum.
+w0600 | vor Gericht gehen | Mein Nachbar will wegen des Lärms vor Gericht gehen. || Wegen des Lärms will mein Nachbar vor Gericht gehen. | Komşum gürültü yüzünden mahkemeye gitmek istiyor.
+w0600 | vor Gericht gehen | Weil die Firma meinen Lohn nicht bezahlt hat, bin ich vor Gericht gegangen. || Ich bin vor Gericht gegangen, weil die Firma meinen Lohn nicht bezahlt hat. | Firma maaşımı ödemediği için mahkemeye gittim.
+w0600 | vor Gericht gehen | Lohnt es sich wirklich, wegen hundert Euro vor Gericht zu gehen? | Yüz avro için mahkemeye gitmeye gerçekten değer mi?
+w0600 | vor Gericht gehen | Meine Anwältin sagt, dass wir nicht sofort vor Gericht gehen müssen. | Avukatım hemen mahkemeye gitmek zorunda olmadığımızı söylüyor.
+w0636 | sich Mühe geben | Die Kellnerin hat sich wirklich viel Mühe gegeben. || Die Kellnerin hat sich wirklich große Mühe gegeben. | Garson kadın gerçekten çok çaba gösterdi.
+w0636 | sich Mühe geben | Wenn man sich Mühe gibt, kann man in einem Jahr gut Deutsch lernen. || Man kann in einem Jahr gut Deutsch lernen, wenn man sich Mühe gibt. | İnsan çaba gösterirse bir yılda iyi Almanca öğrenebilir.
+w0636 | sich Mühe geben | Mein Mitbewohner gibt sich keine Mühe, die Küche sauber zu halten. | Ev arkadaşım mutfağı temiz tutmak için hiç çaba göstermiyor.
+w0636 | sich Mühe geben | Bei der Präsentation gaben sich die Studenten große Mühe. || Die Studenten gaben sich bei der Präsentation große Mühe. | Öğrenciler sunumda çok çaba gösterdiler.
+x1564 | das Hochwasser | Wegen des Hochwassers ist die Straße zum Bahnhof gesperrt. || Die Straße zum Bahnhof ist wegen des Hochwassers gesperrt. | Sel yüzünden tren istasyonuna giden yol kapalı.
+x1564 | das Hochwasser | Nach dem Hochwasser haben viele Freiwillige beim Aufräumen geholfen. || Viele Freiwillige haben nach dem Hochwasser beim Aufräumen geholfen. | Selden sonra birçok gönüllü temizlikte yardım etti.
+x1564 | das Hochwasser | Im Radio haben sie gesagt, dass es an der Weser Hochwasser geben kann. | Radyoda Weser'de sel olabileceğini söylediler.
+x1564 | das Hochwasser | Das Hochwasser hat viele Häuser und Geschäfte beschädigt. | Sel birçok evi ve dükkânı hasara uğrattı.
+w0490 | um … zu | Ich lerne jeden Abend Vokabeln, um die B1-Prüfung zu bestehen. || Um die B1-Prüfung zu bestehen, lerne ich jeden Abend Vokabeln. | B1 sınavını geçmek için her akşam kelime çalışıyorum.
+w0490 | um … zu | Sie ist nach Bremen gezogen, um dort zu studieren. | O (kadın) orada okumak için Bremen'e taşındı.
+w0490 | um … zu | Um Geld zu sparen, kocht mein Mitbewohner jeden Tag selbst. || Mein Mitbewohner kocht jeden Tag selbst, um Geld zu sparen. | Para biriktirmek için ev arkadaşım her gün kendisi yemek yapıyor.
+w0490 | um … zu | Ich rufe morgen beim Bürgeramt an, um einen Termin zu vereinbaren. || Um einen Termin zu vereinbaren, rufe ich morgen beim Bürgeramt an. | Randevu almak için yarın nüfus müdürlüğünü arıyorum.
+w0095 | deutlich | Können Sie bitte etwas deutlicher sprechen? Ich verstehe Sie nicht. | Biraz daha anlaşılır konuşabilir misiniz lütfen? Sizi anlamıyorum.
+w0095 | deutlich | Die Ärztin hat mir deutlich gesagt, dass ich mit dem Rauchen aufhören soll. | Doktor bana sigarayı bırakmam gerektiğini açıkça söyledi.
+w0095 | deutlich | Seit dem Kurs ist mein Deutsch deutlich besser geworden. || Mein Deutsch ist seit dem Kurs deutlich besser geworden. | Kurstan beri Almancam belirgin şekilde daha iyi oldu.
+w0095 | deutlich | Es gibt einen deutlichen Unterschied zwischen den beiden Wohnungen. || Zwischen den beiden Wohnungen gibt es einen deutlichen Unterschied. | İki daire arasında belirgin bir fark var.
+n1359 | die Wärme | Im Winter vermisse ich die Wärme meiner Heimat. || Ich vermisse im Winter die Wärme meiner Heimat. | Kışın memleketimin sıcaklığını özlüyorum.
+n1359 | die Wärme | Nach dem langen Winter freuen sich alle auf die Wärme der Sonne. | Uzun kıştan sonra herkes güneşin sıcaklığını dört gözle bekliyor.
+n1359 | die Wärme | Die Wärme in der Bibliothek macht mich nach dem Mittagessen immer müde. || Nach dem Mittagessen macht mich die Wärme in der Bibliothek immer müde. | Öğle yemeğinden sonra kütüphanedeki sıcaklık hep uykumu getiriyor.
+n0474 | das Gewitter | Während des Gewitters sind wir im Café geblieben. || Wir sind während des Gewitters im Café geblieben. | Fırtına sırasında kafede kaldık.
+n0474 | das Gewitter | Für heute Abend sind starke Gewitter angesagt. | Bu akşam için şiddetli fırtınalar bekleniyor.
+n0474 | das Gewitter | Bei Gewitter sollte man nicht unter einem Baum stehen. || Man sollte bei Gewitter nicht unter einem Baum stehen. | Fırtınada bir ağacın altında durmamak gerekir.
+w0448 | sonnig | Morgen soll es in ganz Norddeutschland sonnig werden. || In ganz Norddeutschland soll es morgen sonnig werden. | Yarın bütün Kuzey Almanya'da havanın güneşli olacağı söyleniyor.
+w0448 | sonnig | Wir suchen eine sonnige Wohnung mit Balkon. | Balkonlu, güneş alan bir daire arıyoruz.
+w0448 | sonnig | Nach einer Woche Regen hatten wir endlich einen sonnigen Tag. || Wir hatten nach einer Woche Regen endlich einen sonnigen Tag. | Bir haftalık yağmurdan sonra nihayet güneşli bir günümüz oldu.
+w0290 | kühl | Bewahren Sie das Medikament bitte kühl und trocken auf. || Bitte bewahren Sie das Medikament kühl und trocken auf. | İlacı lütfen serin ve kuru bir yerde saklayın.
+w0290 | kühl | Nach dem Regen war die Luft angenehm kühl. || Die Luft war nach dem Regen angenehm kühl. | Yağmurdan sonra hava hoş bir şekilde serindi.
+w0290 | kühl | Im Sommer trinke ich gern ein kühles Getränk auf dem Balkon. || Ich trinke im Sommer gern ein kühles Getränk auf dem Balkon. | Yazın balkonda serin bir içecek içmeyi severim.
+n0660 | die Kosten | Die Krankenkasse übernimmt die Kosten für die Behandlung. | Sağlık sigortası tedavinin masraflarını karşılıyor.
+n0660 | die Kosten | Wer trägt die Kosten, wenn die Waschmaschine kaputt ist? | Çamaşır makinesi bozulursa masrafları kim karşılıyor?
+n0660 | die Kosten | Die Kosten für den Sprachkurs sind dieses Jahr gestiegen. || Dieses Jahr sind die Kosten für den Sprachkurs gestiegen. | Dil kursunun masrafları bu yıl arttı.
+n1354 | die Wahrheit | Ich glaube nicht, dass er die Wahrheit gesagt hat. | Onun (erkek) doğruyu söylediğine inanmıyorum.
+n1354 | die Wahrheit | In der Zeitung stand nicht die ganze Wahrheit über den Unfall. | Gazetede kazayla ilgili gerçeğin tamamı yazmıyordu.
+n1354 | die Wahrheit | Die Wahrheit ist, dass ich keine Lust auf die Party habe. | Gerçek şu ki partiye hiç hevesim yok.
+n1279 | die Universität | Nach dem Abitur hat sie sich an drei Universitäten beworben. || Sie hat sich nach dem Abitur an drei Universitäten beworben. | Liseyi bitirdikten sonra üç üniversiteye başvurdu.
+n1279 | die Universität | Die Universität liegt etwas außerhalb des Stadtzentrums. | Üniversite şehir merkezinin biraz dışında.
+n1279 | die Universität | Mit dem Semesterticket fahre ich jeden Tag mit der Straßenbahn zur Universität. || Jeden Tag fahre ich mit dem Semesterticket mit der Straßenbahn zur Universität. | Dönem biletiyle her gün tramvayla üniversiteye gidiyorum.
+x1550 | die Gerechtigkeit | Für mich bedeutet Gerechtigkeit, dass alle die gleichen Chancen haben. | Benim için adalet, herkesin aynı şanslara sahip olması demek.
+x1550 | die Gerechtigkeit | Im Unterricht haben wir über Gerechtigkeit zwischen Männern und Frauen diskutiert. || Wir haben im Unterricht über Gerechtigkeit zwischen Männern und Frauen diskutiert. | Derste kadınlarla erkekler arasındaki adalet üzerine tartıştık.
+x1550 | die Gerechtigkeit | Das Gericht soll für Gerechtigkeit sorgen. | Mahkemenin adaleti sağlaması gerekir.
+x1561 | die Not | Zur Not kann ich auch bei meinem Freund übernachten. || Ich kann zur Not auch bei meinem Freund übernachten. | Gerekirse (erkek) arkadaşımda da kalabilirim.
+x1561 | die Not | Nach dem Krieg war die Not in der Stadt groß. || Die Not in der Stadt war nach dem Krieg groß. | Savaştan sonra şehirde sıkıntı büyüktü.
+x1561 | die Not | Wegen der hohen Miete sind viele Studenten in finanzieller Not. || Viele Studenten sind wegen der hohen Miete in finanzieller Not. | Yüksek kira yüzünden birçok öğrenci maddi sıkıntıda.
+w0315 | manche | Manche Leute im Kurs sprechen schon sehr gut Deutsch. | Kurstaki bazı kişiler şimdiden çok iyi Almanca konuşuyor.
+w0315 | manche | Manches verstehe ich noch nicht, aber ich lerne jeden Tag dazu. || Ich verstehe manches noch nicht, aber ich lerne jeden Tag dazu. | Bazı şeyleri henüz anlamıyorum ama her gün yeni şeyler öğreniyorum.
+w0315 | manche | In manchen Städten ist der Nahverkehr für Studenten kostenlos. || Der Nahverkehr ist in manchen Städten für Studenten kostenlos. | Bazı şehirlerde toplu taşıma öğrenciler için ücretsiz.
+w0504 | verantwortlich | Herr Klein ist in unserer Firma für die Ausbildung verantwortlich. || In unserer Firma ist Herr Klein für die Ausbildung verantwortlich. | Bay Klein firmamızda mesleki eğitimden sorumlu.
+w0504 | verantwortlich | Ich fühle mich für meine kleine Schwester verantwortlich. | Kendimi küçük kız kardeşimden sorumlu hissediyorum.
+w0504 | verantwortlich | Die Polizei weiß noch nicht, wer für den Unfall verantwortlich ist. | Polis kazadan kimin sorumlu olduğunu henüz bilmiyor.
+w0368 | nun | Der Vermieter hat uns gekündigt, nun müssen wir eine neue Wohnung suchen. | Ev sahibi kira sözleşmemizi feshetti, şimdi yeni bir ev aramak zorundayız.
+w0368 | nun | Ich wohne nun schon seit drei Jahren in Bremen. | Artık üç yıldır Bremen'de yaşıyorum.
+w0368 | nun | Was machen wir nun mit dem ganzen Essen von der Party? | Şimdi partiden kalan bunca yemeği ne yapacağız?
+n0746 | die Luft | Ich gehe kurz an die frische Luft, mir ist schlecht. | Biraz temiz hava almaya çıkıyorum, midem bulanıyor.
+n0746 | die Luft | In Großstädten ist die Luft oft schmutzig. || Die Luft ist in Großstädten oft schmutzig. | Büyük şehirlerde hava çoğu zaman kirli.
+n0746 | die Luft | Der Reifen an meinem Fahrrad hat keine Luft mehr. | Bisikletimin lastiğinde hiç hava kalmamış.
+w0536 | warm | Ist das Wasser im Schwimmbad warm genug? | Yüzme havuzundaki su yeterince sıcak mı?
+w0536 | warm | Die Mensa bietet jeden Tag drei warme Gerichte an. || Jeden Tag bietet die Mensa drei warme Gerichte an. | Yemekhane her gün üç sıcak yemek sunuyor.
+w0536 | warm | Heute ist es so warm, dass wir im Park grillen können. | Bugün hava o kadar sıcak ki parkta mangal yapabiliriz.
+n0297 | die Entscheidung | Die Entscheidung liegt ganz bei dir. | Karar tamamen sana kalmış.
+n0297 | die Entscheidung | Im Leben muss man oft schwierige Entscheidungen treffen. || Man muss im Leben oft schwierige Entscheidungen treffen. | Hayatta insan çoğu zaman zor kararlar vermek zorundadır.
+n0297 | die Entscheidung | Ich warte noch auf die Entscheidung der Ausländerbehörde. | Hâlâ Yabancılar Dairesi'nin kararını bekliyorum.
+w0169 | flexibel | Bei der Arbeit muss man heute sehr flexibel sein. || Heute muss man bei der Arbeit sehr flexibel sein. | Bugün iş hayatında çok esnek olmak gerekiyor.
+w0169 | flexibel | Ich kann meine Zeit flexibel einteilen, weil ich von zu Hause arbeite. || Weil ich von zu Hause arbeite, kann ich meine Zeit flexibel einteilen. | Evden çalıştığım için zamanımı esnek bir şekilde ayarlayabiliyorum.
+w0169 | flexibel | Bist du beim Termin flexibel? Am Montag habe ich nämlich keine Zeit. | Randevu konusunda esnek misin? Çünkü pazartesi vaktim yok.
+n0691 | die Kunst | In diesem Museum gibt es Kunst aus aller Welt. || Es gibt in diesem Museum Kunst aus aller Welt. | Bu müzede dünyanın her yerinden sanat eserleri var.
+n0691 | die Kunst | Gut zu kochen ist eine Kunst. | İyi yemek yapmak bir sanattır.
+n0691 | die Kunst | Die Stadt gibt jedes Jahr viel Geld für Kunst und Kultur aus. || Jedes Jahr gibt die Stadt viel Geld für Kunst und Kultur aus. | Şehir her yıl sanat ve kültür için çok para harcıyor.
+n0790 | die Miete | Die Miete muss bis zum dritten Tag des Monats auf dem Konto sein. | Kiranın ayın üçüncü gününe kadar hesapta olması gerekiyor.
+n0790 | die Miete | Seit Januar ist unsere Miete um 50 Euro gestiegen. || Unsere Miete ist seit Januar um 50 Euro gestiegen. | Ocaktan beri kiramız 50 avro arttı.
+n0790 | die Miete | Kannst du mir diesen Monat bei der Miete helfen? | Bu ay kirada bana yardım edebilir misin?
+n0322 | die Erziehung | Über Erziehung haben meine Eltern oft unterschiedliche Meinungen. || Meine Eltern haben über Erziehung oft unterschiedliche Meinungen. | Annemle babamın terbiye konusunda sık sık farklı fikirleri var.
+n0322 | die Erziehung | Zu einer guten Erziehung gehört auch, dass Kinder Grenzen kennen. | Çocukların sınırları bilmesi de iyi bir terbiyenin parçasıdır.
+n0322 | die Erziehung | Im Kurs haben wir über die Erziehung in Deutschland und in der Türkei gesprochen. || Wir haben im Kurs über die Erziehung in Deutschland und in der Türkei gesprochen. | Kursta Almanya'da ve Türkiye'de çocuk eğitimi hakkında konuştuk.
+w0626 | bedürftig | Wer bedürftig ist, bekommt vom Staat Unterstützung. | Muhtaç olan kişi devletten destek alır.
+w0626 | bedürftig | Mit dem Geld vom Flohmarkt haben wir einer bedürftigen Familie geholfen. || Wir haben mit dem Geld vom Flohmarkt einer bedürftigen Familie geholfen. | Bit pazarından gelen parayla muhtaç bir aileye yardım ettik.
+w0626 | bedürftig | Für ein Stipendium musst du nachweisen, dass du bedürftig bist. || Du musst für ein Stipendium nachweisen, dass du bedürftig bist. | Burs için muhtaç olduğunu kanıtlaman gerekiyor.
+n0875 | die Organisation | Wer kümmert sich um die Organisation der Abschlussfeier? | Mezuniyet kutlamasının organizasyonuyla kim ilgileniyor?
+n0875 | die Organisation | Viele Organisationen suchen junge Leute für ein Ehrenamt. | Birçok kuruluş gönüllü görev için genç insanlar arıyor.
+n0875 | die Organisation | Bei der Organisation des Umzugs hat mir meine Schwester geholfen. || Meine Schwester hat mir bei der Organisation des Umzugs geholfen. | Taşınmanın organizasyonunda bana kız kardeşim yardım etti.
+w0586 | zuverlässig | Wir suchen eine zuverlässige Person für die Betreuung unserer Kinder am Nachmittag. | Öğleden sonraları çocuklarımıza bakacak güvenilir birini arıyoruz.
+w0586 | zuverlässig | Ist diese Information aus dem Internet wirklich zuverlässig? | İnternetten gelen bu bilgi gerçekten güvenilir mi?
+w0586 | zuverlässig | Mein altes Fahrrad ist nicht schön, aber zuverlässig. | Eski bisikletim güzel değil ama güvenilir.
+w0325 | mild | Ich wasche mir die Haare mit einem milden Shampoo. | Saçlarımı yumuşak bir şampuanla yıkıyorum.
+w0325 | mild | Dieser Käse ist sehr mild, den mögen auch Kinder. | Bu peynirin tadı çok hafif, onu çocuklar da sever.
+w0325 | mild | Für November war das Wetter heute ungewöhnlich mild. || Das Wetter war heute für November ungewöhnlich mild. | Kasım ayına göre bugün hava alışılmadık derecede ılıktı.
+n1374 | das Wetter | Bei diesem Wetter bleibe ich lieber zu Hause. || Ich bleibe bei diesem Wetter lieber zu Hause. | Bu havada evde kalmayı tercih ederim.
+n1374 | das Wetter | Wie war das Wetter in Istanbul, als du deine Familie besucht hast? | Aileni ziyaret ettiğinde İstanbul'da hava nasıldı?
+n1374 | das Wetter | Das Fußballspiel findet bei jedem Wetter statt. | Futbol maçı her havada yapılır.
+w0199 | gerecht | Ein guter Lehrer ist streng, aber gerecht. | İyi bir öğretmen sert ama adildir.
+w0199 | gerecht | Wir suchen eine gerechte Lösung für alle Mitbewohner. | Bütün ev arkadaşları için adil bir çözüm arıyoruz.
+w0199 | gerecht | War die Note für deine Hausarbeit gerecht? | Ödevine verilen not adil miydi?
+n0433 | die Geduld | Langsam verliere ich die Geduld mit meinem Vermieter. || Ich verliere langsam die Geduld mit meinem Vermieter. | Ev sahibime karşı yavaş yavaş sabrımı kaybediyorum.
+n0433 | die Geduld | Danke für Ihre Geduld, Sie sind gleich an der Reihe. | Sabrınız için teşekkürler, birazdan sıra size geliyor.
+n0433 | die Geduld | Für diese Arbeit fehlt mir einfach die Geduld. || Mir fehlt für diese Arbeit einfach die Geduld. | Bu iş için bende yeterince sabır yok.
+n0111 | der Balkon | Vom Balkon aus kann man die Weser sehen. || Man kann vom Balkon aus die Weser sehen. | Balkondan Weser'i görebiliyorsun.
+n0111 | der Balkon | In diesem Haus haben alle Wohnungen große Balkone. || Alle Wohnungen in diesem Haus haben große Balkone. | Bu binada bütün dairelerin büyük balkonları var.
+n0111 | der Balkon | Stell die Pflanzen im Winter bitte nicht auf den Balkon. | Kışın bitkileri lütfen balkona koyma.
+w0171 | folgend | Für die Anmeldung brauchen Sie die folgenden Unterlagen. || Für die Anmeldung brauchen Sie folgende Unterlagen. | Kayıt için aşağıdaki belgelere ihtiyacınız var.
+w0171 | folgend | Im folgenden Text geht es um das Leben in einer WG. | Aşağıdaki metin bir WG'deki hayat hakkında.
+w0171 | folgend | Das folgende Beispiel zeigt, wie man den Antrag richtig ausfüllt. | Aşağıdaki örnek, başvurunun nasıl doğru doldurulacağını gösteriyor.
+x1479 | die Aussage | Ich bin mit dieser Aussage nicht einverstanden. | Bu ifadeye katılmıyorum.
+x1479 | die Aussage | Lesen Sie die Aussagen und entscheiden Sie, ob sie richtig oder falsch sind. | İfadeleri okuyun ve doğru mu yanlış mı olduklarına karar verin.
+x1479 | die Aussage | Der Politiker hat seine Aussage später zurückgenommen. | Politikacı sonradan ifadesini geri aldı.
+n0781 | die Mensa | Die Mensa ist am Wochenende geschlossen. || Am Wochenende ist die Mensa geschlossen. | Yemekhane hafta sonu kapalı.
+n0781 | die Mensa | Nach der Vorlesung gehen wir zusammen in die Mensa. || Wir gehen nach der Vorlesung zusammen in die Mensa. | Dersten sonra birlikte yemekhaneye gidiyoruz.
+n0781 | die Mensa | Heute war die Schlange vor der Mensa besonders lang. || Die Schlange vor der Mensa war heute besonders lang. | Bugün yemekhanenin önündeki kuyruk özellikle uzundu.
+x1501 | die Clique | In der Schule hatte ich eine feste Clique. || Ich hatte in der Schule eine feste Clique. | Okulda sabit bir arkadaş grubum vardı.
+x1501 | die Clique | In der Pause stehen die Schüler in kleinen Cliquen zusammen. | Teneffüste öğrenciler küçük gruplar hâlinde bir arada duruyor.
+x1501 | die Clique | Meine neue Mitbewohnerin hat mich ihrer Clique vorgestellt. | Yeni ev arkadaşım (kadın) beni arkadaş grubuyla tanıştırdı.
+x1504 | die Behauptung | In dem Artikel gibt es mehrere Behauptungen, die nicht stimmen. || Im Artikel gibt es mehrere Behauptungen, die nicht stimmen. | Makalede doğru olmayan birkaç iddia var.
+x1504 | die Behauptung | Die Zeitung hat ihre Behauptung inzwischen korrigiert. | Gazete bu arada iddiasını düzeltti.
+x1504 | die Behauptung | Ich glaube seiner Behauptung nicht, weil er oft lügt. | Sık sık yalan söylediği için onun (erkek) iddiasına inanmıyorum.
+n1372 | der Wert | Der Wert meines alten Autos ist sehr gering. | Eski arabamın değeri çok düşük.
+n1372 | der Wert | Welche Werte sind dir in einer Freundschaft wichtig? | Bir arkadaşlıkta hangi değerler senin için önemli?
+n1372 | der Wert | Die Kette hat für mich einen großen persönlichen Wert. | Kolyenin benim için büyük bir manevi değeri var.
+x1562 | das Ehrenamt | Ich möchte gern ein Ehrenamt übernehmen, zum Beispiel in einem Altersheim. | Gönüllü bir görev üstlenmek istiyorum, örneğin bir huzurevinde.
+x1562 | das Ehrenamt | Im Rathaus gibt es eine Liste mit Ehrenämtern für Jugendliche. | Belediye binasında gençler için gönüllü görevlerin bir listesi var.
+x1562 | das Ehrenamt | Durch mein Ehrenamt habe ich viele nette Leute kennengelernt. || Ich habe durch mein Ehrenamt viele nette Leute kennengelernt. | Gönüllü görevim sayesinde birçok hoş insanla tanıştım.

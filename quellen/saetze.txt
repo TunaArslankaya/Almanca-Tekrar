@@ -1248,3 +1248,30 @@ v089 | Meine Kollegin beantragt jedes Jahr im Januar ihren Urlaub für den Somme
 v211 | Die ersten Häuser in diesem Viertel entstanden vor hundert Jahren. | Bu semtteki ilk evler yüz yıl önce inşa edildi.
 v211 | Bei der Arbeit am Computer können schnell Rückenschmerzen entstehen. | Bilgisayarda çalışırken çabucak sırt ağrısı oluşabilir.
 v211 | Im Film sieht man, wie ein Gewitter entsteht. || Man sieht im Film, wie ein Gewitter entsteht. | Filmde bir fırtınanın nasıl oluştuğu görülüyor.
+v347 | Kannst du mir morgen beim Umzug helfen? | Yarın taşınmada bana yardım edebilir misin?
+v347 | Ich bin froh, dass ich jetzt einfache Zeitungsartikel lesen kann. | Artık basit gazete makalelerini okuyabildiğim için mutluyum.
+v347 | Wegen des Streiks konnten wir gestern nicht mit dem Bus zur Uni fahren. || Wir konnten gestern wegen des Streiks nicht mit dem Bus zur Uni fahren. | Grev yüzünden dün otobüsle üniversiteye gidemedik.
+v688 | Wie bewältigst du den Stress vor den Prüfungen? | Sınavlardan önceki stresin üstesinden nasıl geliyorsun?
+v688 | Allein kann man so ein Problem kaum bewältigen. || Man kann so ein Problem allein kaum bewältigen. | İnsan böyle bir sorunun üstesinden tek başına zor gelir.
+v688 | Nach dem Hochwasser bewältigten die Helfer die Arbeit in nur einer Woche. || Die Helfer bewältigten die Arbeit nach dem Hochwasser in nur einer Woche. | Selden sonra yardımcılar işin üstesinden sadece bir haftada geldi.
+v272 | Letzte Nacht hat es gefroren, deshalb ist der Radweg glatt. | Dün gece don oldu, bu yüzden bisiklet yolu kaygan.
+v272 | An der Bushaltestelle froren wir eine halbe Stunde lang. || Wir froren eine halbe Stunde lang an der Bushaltestelle. | Otobüs durağında yarım saat boyunca üşüdük.
+v272 | Frierst du bei dieser Kälte nicht ohne Jacke? | Bu soğukta ceketsiz üşümüyor musun?
+v140 | Der Film hat mich sehr bewegt. | Film beni çok duygulandırdı.
+v140 | Bitte bewegen Sie den Kopf nicht, während ich das Foto mache. || Bewegen Sie bitte den Kopf nicht, während ich das Foto mache. | Lütfen ben fotoğrafı çekerken başınızı oynatmayın.
+v140 | Der Physiotherapeut hat gesagt, dass ich das Knie jeden Tag vorsichtig bewegen soll. | Fizyoterapist dizimi her gün dikkatlice hareket ettirmem gerektiğini söyledi.
+v605 | Gegen Rückenschmerzen verschreibt der Arzt oft Massagen. || Der Arzt verschreibt gegen Rückenschmerzen oft Massagen. | Doktor sırt ağrısına karşı genellikle masaj yazar.
+v605 | Weil das Fieber nach drei Tagen noch hoch war, verschrieb ihm die Ärztin ein Antibiotikum. || Die Ärztin verschrieb ihm ein Antibiotikum, weil das Fieber nach drei Tagen noch hoch war. | Ateşi üç gün sonra hâlâ yüksek olduğu için doktor ona (erkek) antibiyotik yazdı.
+v605 | Nimm die Tabletten genau so, wie der Arzt sie dir verschrieben hat. | Hapları tam olarak doktorun sana yazdığı gibi al.
+v561 | Der Präsident unterschrieb das neue Gesetz am Montag. || Am Montag unterschrieb der Präsident das neue Gesetz. | Cumhurbaşkanı yeni yasayı pazartesi günü imzaladı.
+v561 | Die Eltern müssen das Formular für den Schulausflug unterschreiben. | Veliler okul gezisi formunu imzalamak zorunda.
+v561 | Mein Vermieter will, dass ich den neuen Vertrag bis Freitag unterschreibe. | Ev sahibim yeni sözleşmeyi cumaya kadar imzalamamı istiyor.
+v425 | Mit einer Antwort rechne ich erst in zwei Wochen. || Ich rechne erst in zwei Wochen mit einer Antwort. | Ancak iki hafta sonra bir cevap bekliyorum.
+v425 | Bei der Bahn muss man immer mit Verspätungen rechnen. || Man muss bei der Bahn immer mit Verspätungen rechnen. | Trenle giderken her zaman gecikmeleri hesaba katmak gerekir.
+v425 | Rechnest du bei deiner Geburtstagsfeier mit vielen Gästen? | Doğum günü partinde çok misafir bekliyor musun?
+v069 | Ich füllte den Antrag aus und gab ihn sofort ab. || Ich habe den Antrag ausgefüllt und sofort abgegeben. | Başvuru formunu doldurdum ve hemen teslim ettim.
+v069 | Ich weiß nicht, wie ich dieses Feld ausfüllen soll. | Bu alanı nasıl doldurmam gerektiğini bilmiyorum.
+v069 | Der Fragebogen muss in Großbuchstaben ausgefüllt werden. | Anketin büyük harflerle doldurulması gerekiyor.
+v262 | Bitte folgen Sie mir, ich zeige Ihnen Ihr Zimmer. || Folgen Sie mir bitte, ich zeige Ihnen Ihr Zimmer. | Lütfen beni takip edin, size odanızı göstereyim.
+v262 | Die Polizei folgte dem Auto bis zur Autobahn. | Polis arabayı otobana kadar takip etti.
+v262 | Ich kann der Diskussion im Seminar nicht immer folgen, weil alle so schnell sprechen. | Herkes çok hızlı konuştuğu için seminerdeki tartışmayı her zaman takip edemiyorum.
