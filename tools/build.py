@@ -440,9 +440,11 @@ SUFFIXE = ["ung", "heit", "keit", "schaft", "ion", "tät", "ei", "ik", "enz", "a
            "chen", "lein", "ment", "um", "nis", "ma", "ling", "ismus", "ig", "or", "ent", "ant", "ist", "er", "ich", "en", "el"]
 lern = [x for x in nomen if not x.get("skip") and not x.get("plOnly") and not x.get("adjN")]
 stat = {}
+# kesin ama listede az örnekli kurallar: 5 örnek şartı yok (‑anz / ‑enz → die: Toleranz, Distanz, Konferenz, Intelligenz; Tanz kısa, kurala girmez)
+AZ_ORNEKLI = {"anz", "enz"}
 for suf in SUFFIXE:
     hits = [x for x in lern if x["lemma"].lower().endswith(suf) and len(x["lemma"]) > len(suf) + 2]
-    if len(hits) < 5:
+    if len(hits) < (1 if suf in AZ_ORNEKLI else 5):
         continue
     cnt = {}
     for x in hits:
@@ -964,7 +966,66 @@ for fn, ziel, gecerli in (("redemittel.txt", redemittel, None), ("kaliplar.txt",
             errors.append(f"{fn}:{i}: 'anahtar | Almanca | Türkçe' olmalı")
             continue
         ziel.setdefault(parts[0], []).append({"de": parts[1], "tr": parts[2]})
-dump("kaliplar.js", "KALIPLAR", {"yazma": redemittel, "fiil": kaliplar})
+# Kalıp cümleleri fiilin cümle havuzunda (6.11): KALIPLAR.satz = { fiil: [KALIPLAR.fiil[fiil] içindeki sıra, …] }.
+# Yalnız tam cümle ([.!?] ile biter, 4–22 kelime) ve saetze.txt'te aynısı olmayan; uygulama (satzPool) fiili G.luecke ile ayrıca arar.
+def cumle_mi(de, en_az=4):
+    return bool(re.search(r"[.!?]$", de.strip())) and en_az <= len(de.split()) <= 22
+kalip_satz = {}
+for vid, l in kaliplar.items():
+    var = {x["de"] for x in saetze.get(vid, [])}
+    ix = [i for i, x in enumerate(l) if cumle_mi(x["de"]) and x["de"] not in var]
+    if ix:
+        kalip_satz[vid] = ix
+dump("kaliplar.js", "KALIPLAR", {"yazma": redemittel, "fiil": kaliplar, "satz": kalip_satz})
+print(f"kalıp cümlesi fiil havuzunda: {sum(len(x) for x in kalip_satz.values())} ({len(kalip_satz)} fiil)")
+
+# Çapraz cümle dizini (6.11): kendi cümlesi az (< CAPRAZ_ESIK) isim / diğer kelime için başka öğelerin Türkçeli cümleleri,
+# kelime orada açıkça geçiyorsa (isim: tekil / çoğul / -n -en -s -es -e eki; diğer: tek kelime, küçük harfle, sıfat eki).
+# daten/capraz.js: CAPRAZ = { öğe: [[kaynak, anahtar, sıra], …] }; kaynak s = SAETZE, r = SAETZE_REFL, n = NSAETZE, k = KALIPLAR.fiil.
+# Uygulama (satzPool) her cümleyi wortLuecke ile yeniden sınar; dizin yalnız aday listesi.
+CAPRAZ_ESIK, CAPRAZ_EN_COK = 5, 6
+_kaynak = []   # (kaynak, anahtar, sıra, de)
+for src, d in (("n", nsaetze), ("s", saetze), ("r", saetze_refl)):
+    for key, l in d.items():
+        for i, x in enumerate(l):
+            if cumle_mi(x["de"]):
+                _kaynak.append((src, key, i, x["de"]))
+for vid, ix in kalip_satz.items():
+    for i in ix:
+        _kaynak.append(("k", vid, i, kaliplar[vid][i]["de"]))
+_temiz = lambda t: re.sub(r"^[„“\"(‚]+|[.,!?;:“\"”)…’‘]+$", "", t)
+_tok_idx = {}   # temiz kelime (büyük harf korunur) → {(kaynak sırası, kelimenin yeri)}
+for j, (src, key, i, de) in enumerate(_kaynak):
+    for pos, t in enumerate(de.split()):
+        c = _temiz(t)
+        if c:
+            _tok_idx.setdefault(c, set()).add((j, pos))
+def _capraz_sec(oid, adaylar):
+    secili = sorted((j for j in adaylar if not (_kaynak[j][0] == "n" and _kaynak[j][1] == oid)),
+                    key=lambda j: ("nsrk".index(_kaynak[j][0]), len(_kaynak[j][3].split()), j))
+    if secili:
+        capraz[oid] = [list(_kaynak[j][:3]) for j in secili[:CAPRAZ_EN_COK]]
+capraz = {}
+for n in nomen:
+    if n.get("skip") or " " in n["lemma"] or len(n["lemma"]) < 3 or len(nsaetze.get(n["id"], [])) >= CAPRAZ_ESIK:
+        continue
+    l, pl = n["lemma"], n.get("plf")
+    bicim = {l} | {l + e for e in ("n", "en", "s", "es", "e", "ns", "ens")} | ({pl, pl + "n"} if pl else set())
+    # cümle başındaki büyük harfli kelime isim olmayabilir (Vergleich dich … = emir), alınmaz
+    _capraz_sec(n["id"], {j for f in bicim for j, pos in _tok_idx.get(f, ()) if pos > 0})
+for w in woerter:
+    de = w["de"]
+    # tek kelime, küçük harf (isim gibi yazılanlar ve çok kelimeli kalıplar dışarıda)
+    if not re.fullmatch(r"[a-zäöüß]{3,}", de) or len(nsaetze.get(w["id"], [])) >= CAPRAZ_ESIK:
+        continue
+    adaylar = set()
+    for ek in (("", "e", "en", "em", "er", "es") if w.get("kl") == "adj" and len(de) >= 4 else ("",)):
+        f = de + ek
+        adaylar |= {j for j, _ in _tok_idx.get(f, ())}
+        adaylar |= {j for j, pos in _tok_idx.get(f.capitalize(), ()) if pos == 0}   # büyük harf yalnız cümle başında (ortada = isim)
+    _capraz_sec(w["id"], adaylar)
+dump("capraz.js", "CAPRAZ", capraz)
+print(f"çapraz cümle dizini: {len(capraz)} öğe, {sum(len(x) for x in capraz.values())} cümle")
 
 # Serbest yazma görevleri
 aufgaben = []
