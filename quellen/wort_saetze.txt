@@ -3480,3 +3480,8 @@ n0496 | die Gymnastik | Meine Oma geht zweimal pro Woche zur Gymnastik ins Senio
 n0448 | die Gemeinschaft | Die türkische Gemeinschaft in Bremen organisiert jedes Jahr ein großes Fest. || Jedes Jahr organisiert die türkische Gemeinschaft in Bremen ein großes Fest. | Bremen'deki Türk topluluğu her yıl büyük bir şenlik düzenliyor.
 n0448 | die Gemeinschaft | Sport im Verein stärkt das Gefühl der Gemeinschaft. | Kulüpte spor yapmak topluluk duygusunu güçlendirir.
 n0448 | die Gemeinschaft | In einer WG muss jeder Rücksicht auf die Gemeinschaft nehmen. || In einer WG muss jeder auf die Gemeinschaft Rücksicht nehmen. | WG'de herkes ortak yaşamı gözetmek zorunda.
+x1570 | das Einwohnermeldeamt | Zuerst gehe ich zum Einwohnermeldeamt und melde meinen neuen Wohnsitz an. | Önce adres kayıt dairesine gidip yeni ikametgâhımı bildiriyorum.
+n1389 | der Wohnsitz | Mein Wohnsitz ist seit Mai in Bremen. | İkametgâhım Mayıstan beri Bremen'de.
+w0445 | sogar | Sogar mein Bruder hat die Prüfung bestanden. | Kardeşim bile sınavı geçti.
+w0388 | politisch | Mein Vater interessiert sich sehr für politische Themen. | Babam siyasi konularla çok ilgileniyor.
+w0586 | zuverlässig | Mein Nachbar ist sehr zuverlässig: Er kommt immer pünktlich. | Komşum çok güvenilir: Hep zamanında geliyor.

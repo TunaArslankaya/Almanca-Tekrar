@@ -418,6 +418,13 @@ Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
 - 5.11 05:45:35 sonrası yeni log satırı yok; düzeltme / kanca yazılmadı. DW metni aynı (Audi / USA); sözlüğündeki kelimelerden (Wahlkampf, Subvention, investieren, Vorsprung, betroffen, beitragen …) Goethe B1 listesinde yeni olan yok (Zoll, Druck zaten işlendi); yeni cümle eklenmedi.
 Son incelenen log satırı: 2026-11-05 05:45:35 (tur akis).
 
+**2026-11-06 (gece işi, otomatik)**
+- 5.11 05:45:35 sonrası ~90 satır (6.11 sabah turları). 19 düzeltme `feedback.js`'e: Sturm / Wohnsitz artikel, Wärme/Weiß, Verhalten/Bedürfnis karışıkları, besichtigen / Einwohnermeldeamt yazımı, sogar, politisch, zuverlässig, verantwortlich, vor allem dikte, gramer (yan cümlede fiil sonda, fahren + sein, als in München, reflexiv cümlesi aslında doğruydu).
+- Bilmiyorum: verantwortlich, Bedürfnis (metin boşluğu), deutlich (yoklama sonrası yazma). `bilmiyorum` gram satırı yok. Leech / `öneri:` yok.
+- 5 yeni çeviri cümlesi + gloss (Einwohnermeldeamt, Wohnsitz, sogar, politisch, zuverlässig). DW metni yeni değil, yeni B1 kelimesi eklenmedi.
+- Dikkat: turlar ~2 dk; yanlış yazmaların çoğu yarım cevap (d, das E).
+Son incelenen log satırı: 2026-11-06 09:54:12 (tur akis).
+
 **2026-11-06 (Tuna B1 kur sınavında B1.2'de kaldı: Sprechen kötü, Hören / Lesen iyi, yazılı çok iyi; "uygulama yardım etmiyor, şıklar kolay, cevabı ezberliyorum") — 10 araştırma ajanı + 7 kod ajanı + 4 içerik ajanı**
 - Araştırma (3 kelime, 4 konuşma / telaffuz / dinleme / ses-teknik, 3 log analizi) teşhisi: son 14 günde cevapların %40'ı seçmeli (%93 doğru; şıkların ikisi aynı kelime: yanlış artikelli / edatlı ikiz, kalanı görülmemiş rastgele kelime), seçmeli doğrusu hafızayı büyütüyor (yazmada R 0,90 beklenip gerçek %53), yanlıştan sonraki tekrar / ısınma / kurtarma hep seçmeli (276 öğenin ~110'u hiç üretilmedi), aynı cümle 8 kez (kök sorusu geçmişe bakmıyordu), düzeltme panelinde medyan 2 sn, günlük aktif süre 28 → 8 dk, konuşma bölümü hiç açılmamış, dinleme günde 1 dikte. Artikel tekrarla düzelmiyor (%68 → %67; yanlışların yarısı "der").
 - Uygulandı: seçmeli yalnız tanıtım günü / ilk tekrar; zayıflıkta ipuçlu yazma; çeldiriciler karışma tablosundan + biçimce benzer; şıklar gizli ("önce aklından söyle"); Devam kilidi + "doğrusunu bir kez yaz"; cümle 30 günde ≤ 2, kalıp cümleleri ve çapraz dizin havuzda, ipucu dönüşümü; artOb, kalip, kök tek biçim, artikel mini seti, ayır; turda ses yuvası (duy / söyle / duy-seç), Konuşma bölümü (Kalıplar, Teil 2 4/3/2, shadowing), Dinleme modu, dikte kontrolü; Bugün dk çizgisi, pazartesi 1 tur, üretim doğruluğu kartı. 206 öğeye 660 yeni çeviri cümlesi + gloss (her çalışılan öğe ≥ 5 cümle); der Pate n-Deklination.
