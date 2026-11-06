@@ -342,3 +342,6 @@ v063 | Mein Mitbewohner regt sich auf, wenn jemand sein Essen aus dem Kühlschra
 v690 | Bevor ich zurück in die Türkei ziehe, muss ich mich beim Einwohnermeldeamt abmelden. | Türkiye'ye geri taşınmadan önce adres kayıt dairesinden kaydımı sildirmem gerekiyor.
 v690 | Ich habe mich gestern vom Deutschkurs abgemeldet. | Dün Almanca kursundan kaydımı sildirdim.
 v690 | Wenn du krank bist, musst du dich von der Prüfung abmelden. | Hastaysan sınavdan kaydını sildirmen gerekir.
+v690 | Meine Mitbewohnerin meldet sich nächste Woche beim Einwohnermeldeamt ab, weil sie nach Spanien zieht. || Nächste Woche meldet sich meine Mitbewohnerin beim Einwohnermeldeamt ab, weil sie nach Spanien zieht. | Ev arkadaşım İspanya'ya taşındığı için gelecek hafta adres kayıt dairesinden kaydını sildiriyor.
+v690 | Wir haben uns vom Sportkurs abgemeldet, weil er so spät am Abend stattfindet. || Weil er so spät am Abend stattfindet, haben wir uns vom Sportkurs abgemeldet. | Akşam çok geç saatte yapıldığı için spor kursundan kaydımızı sildirdik.
+v690 | Wenn du nicht mitkommen kannst, melde dich bitte bis Mittwoch vom Ausflug ab. || Melde dich bitte bis Mittwoch vom Ausflug ab, wenn du nicht mitkommen kannst. | Gelemeyeceksen lütfen çarşambaya kadar geziden kaydını sildir.

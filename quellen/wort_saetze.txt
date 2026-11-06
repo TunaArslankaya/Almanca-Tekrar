@@ -3227,3 +3227,140 @@ n1372 | der Wert | Die Kette hat für mich einen großen persönlichen Wert. | K
 x1562 | das Ehrenamt | Ich möchte gern ein Ehrenamt übernehmen, zum Beispiel in einem Altersheim. | Gönüllü bir görev üstlenmek istiyorum, örneğin bir huzurevinde.
 x1562 | das Ehrenamt | Im Rathaus gibt es eine Liste mit Ehrenämtern für Jugendliche. | Belediye binasında gençler için gönüllü görevlerin bir listesi var.
 x1562 | das Ehrenamt | Durch mein Ehrenamt habe ich viele nette Leute kennengelernt. || Ich habe durch mein Ehrenamt viele nette Leute kennengelernt. | Gönüllü görevim sayesinde birçok hoş insanla tanıştım.
+n0361 | das Fieber | Wenn das Fieber nicht sinkt, musst du morgen zum Arzt gehen. || Du musst morgen zum Arzt gehen, wenn das Fieber nicht sinkt. | Ateşin düşmezse yarın doktora gitmen gerekiyor.
+n0361 | das Fieber | Mit Fieber solltest du nicht zur Arbeit gehen, sondern im Bett bleiben. | Ateşin varken işe gitmemeli, yatakta kalmalısın.
+n0361 | das Fieber | Meine Mitbewohnerin liegt seit zwei Tagen mit hohem Fieber im Bett. | Ev arkadaşım iki gündür yüksek ateşle yatıyor.
+n0361 | das Fieber | Das Fieber ist über Nacht gestiegen, jetzt habe ich fast 40 Grad. || Über Nacht ist das Fieber gestiegen, jetzt habe ich fast 40 Grad. | Ateşim gece boyunca yükseldi, şimdi neredeyse 40 derece.
+n0449 | das Gemüse | Auf dem Wochenmarkt ist das Gemüse frischer als im Supermarkt. || Das Gemüse ist auf dem Wochenmarkt frischer als im Supermarkt. | Pazarda sebze süpermarkettekinden daha taze.
+n0449 | das Gemüse | Meine Ärztin hat gesagt, dass ich mehr Obst und Gemüse essen soll. || Mein Arzt hat gesagt, dass ich mehr Obst und Gemüse essen soll. || Meine Ärztin hat gesagt, dass ich mehr Obst und Gemüse essen sollte. | Doktorum daha çok meyve ve sebze yemem gerektiğini söyledi.
+n0449 | das Gemüse | Schneidest du bitte das Gemüse für die Suppe? || Schneidest du das Gemüse für die Suppe bitte? | Çorba için sebzeleri doğrar mısın lütfen?
+n0449 | das Gemüse | Seit ich in Bremen wohne, koche ich fast nur noch mit Gemüse aus der Region. | Bremen'de yaşadığımdan beri neredeyse yalnızca yöresel sebzelerle yemek yapıyorum.
+x1548 | die Fairness | Auch wenn sie verlieren, erwartet der Trainer von allen Spielern Fairness. || Der Trainer erwartet von allen Spielern Fairness, auch wenn sie verlieren. | Antrenör bütün oyunculardan, kaybetseler bile, fair play bekliyor.
+x1548 | die Fairness | In unserer WG ist uns Fairness bei der Hausarbeit wichtig. || Fairness bei der Hausarbeit ist uns in unserer WG wichtig. | WG'mizde ev işlerinde hakkaniyet bizim için önemli.
+x1548 | die Fairness | Viele Arbeitnehmer kritisieren, dass es bei den Gehältern keine Fairness gibt. | Birçok çalışan maaşlarda hakkaniyet olmadığını eleştiriyor.
+x1548 | die Fairness | Aus Fairness hat die Lehrerin allen Kursteilnehmern mehr Zeit gegeben. || Die Lehrerin hat aus Fairness allen Kursteilnehmern mehr Zeit gegeben. || Aus Fairness hat der Lehrer allen Kursteilnehmern mehr Zeit gegeben. | Öğretmen hakkaniyet gereği bütün kurs katılımcılarına daha fazla süre verdi.
+w0625 | ehrenamtlich | Mein Nachbar arbeitet ehrenamtlich bei der Feuerwehr. || Mein Nachbar arbeitet bei der Feuerwehr ehrenamtlich. | Komşum itfaiyede gönüllü olarak çalışıyor.
+w0625 | ehrenamtlich | Für ehrenamtliche Arbeit bekommt man kein Geld, aber viel Erfahrung. | Gönüllü çalışma için para alınmaz ama çok deneyim kazanılır.
+w0625 | ehrenamtlich | Der Sportverein sucht dringend ehrenamtliche Trainer für Kinder. | Spor kulübü çocuklar için acilen gönüllü antrenörler arıyor.
+w0625 | ehrenamtlich | Seit dem Sommer engagiere ich mich ehrenamtlich in einem Sprachcafé. || Ich engagiere mich seit dem Sommer ehrenamtlich in einem Sprachcafé. | Yazdan beri bir dil kafesinde gönüllü olarak görev alıyorum.
+n1303 | der Verein | In Bremen gibt es viele Vereine für Studierende aus dem Ausland. | Bremen'de yurt dışından gelen öğrenciler için birçok dernek var.
+n1303 | der Verein | Letzten Monat bin ich in einen Verein eingetreten, der Wanderungen organisiert. || Ich bin letzten Monat in einen Verein eingetreten, der Wanderungen organisiert. | Geçen ay yürüyüş düzenleyen bir kulübe üye oldum.
+n1303 | der Verein | Die Mitglieder des Vereins treffen sich jeden Donnerstagabend im Café am Marktplatz. | Derneğin üyeleri her perşembe akşamı meydandaki kafede buluşuyor.
+n1303 | der Verein | Der Verein hat mir bei der Wohnungssuche geholfen. || Der Verein hat mir bei der Suche nach einer Wohnung geholfen. | Dernek ev aramamda bana yardım etti.
+n0055 | die Apotheke | Mit diesem Rezept bekommen Sie das Medikament in jeder Apotheke. || Mit diesem Rezept können Sie das Medikament in jeder Apotheke bekommen. | Bu reçeteyle ilacı her eczaneden alırsınız.
+n0055 | die Apotheke | Ich war gestern in drei Apotheken, aber keine hatte das Spray. || Gestern war ich in drei Apotheken, aber keine hatte das Spray. | Dün üç eczaneye gittim ama hiçbirinde sprey yoktu.
+n0055 | die Apotheke | Kannst du mir aus der Apotheke Halstabletten mitbringen? || Kannst du mir Halstabletten aus der Apotheke mitbringen? | Eczaneden bana boğaz pastili getirebilir misin?
+n0538 | die Hitze | Wegen der Hitze schlafe ich im Sommer schlecht. || Im Sommer schlafe ich wegen der Hitze schlecht. || Ich schlafe im Sommer wegen der Hitze schlecht. | Sıcak yüzünden yazın kötü uyuyorum.
+n0538 | die Hitze | Bei 35 Grad ist die Hitze in der Dachwohnung kaum auszuhalten. || Bei 35 Grad ist die Hitze in der Dachwohnung kaum zu ertragen. | 35 derecede çatı katındaki dairede sıcağa neredeyse dayanılmıyor.
+n0538 | die Hitze | Letzten Sommer haben viele ältere Menschen unter der Hitze gelitten. || Viele ältere Menschen haben letzten Sommer unter der Hitze gelitten. | Geçen yaz birçok yaşlı insan sıcaktan çok çekti.
+n1038 | der Schirm | Nimm lieber einen Schirm mit, es sieht nach Regen aus. | Yanına şemsiye alsan iyi olur, yağmur yağacak gibi görünüyor.
+n1038 | der Schirm | Bei diesem Wind nützt der Schirm gar nichts. || Der Schirm nützt bei diesem Wind gar nichts. | Bu rüzgârda şemsiye hiç işe yaramıyor.
+n1038 | der Schirm | Mein Schirm ist kaputt, kann ich mir deinen leihen? || Mein Schirm ist kaputt, kann ich mir deinen ausleihen? | Şemsiyem bozuk, seninkini ödünç alabilir miyim?
+n0286 | das Eis | Möchtest du Eis in deine Cola? || Willst du Eis in deine Cola? | Kolana buz ister misin?
+n0286 | das Eis | Leg ein bisschen Eis auf dein Knie, dann wird es nicht so dick. | Dizine biraz buz koy, o zaman o kadar şişmez.
+n0286 | das Eis | Auf dem See ist das Eis noch zu dünn, man darf nicht darauf gehen. || Das Eis auf dem See ist noch zu dünn, man darf nicht darauf gehen. | Göldeki buz henüz çok ince, üzerinde yürümek yasak.
+n1379 | der Wind | In der Nacht war der Wind so laut, dass ich nicht schlafen konnte. || Der Wind war in der Nacht so laut, dass ich nicht schlafen konnte. | Gece rüzgâr o kadar gürültülüydü ki uyuyamadım.
+n1379 | der Wind | An der Küste weht fast immer ein kalter Wind. || An der Küste weht fast immer kalter Wind. | Kıyıda neredeyse her zaman soğuk bir rüzgâr eser.
+n1379 | der Wind | Wegen des Windes fallen heute einige Fähren aus. || Wegen des Winds fallen heute einige Fähren aus. || Heute fallen wegen des Windes einige Fähren aus. | Rüzgâr yüzünden bugün bazı feribot seferleri iptal.
+n0617 | die Kindheit | Dieses Lied erinnert mich an meine Kindheit in Izmir. | Bu şarkı bana İzmir'deki çocukluğumu hatırlatıyor.
+n0617 | die Kindheit | Meine Oma erzählt gern von ihrer Kindheit auf dem Bauernhof. || Meine Großmutter erzählt gern von ihrer Kindheit auf dem Bauernhof. | Babaannem çiftlikteki çocukluğunu anlatmayı seviyor.
+n0617 | die Kindheit | Seit meiner Kindheit habe ich Angst vor Hunden. || Ich habe seit meiner Kindheit Angst vor Hunden. | Çocukluğumdan beri köpeklerden korkarım.
+n1077 | das Seminar | Für dieses Seminar muss man sich bis Freitag online anmelden. || Man muss sich bis Freitag online für dieses Seminar anmelden. | Bu seminer için cumaya kadar internetten kayıt yaptırmak gerekiyor.
+n1077 | das Seminar | Gestern ist das Seminar ausgefallen, weil die Dozentin krank war. || Das Seminar ist gestern ausgefallen, weil die Dozentin krank war. || Gestern ist das Seminar ausgefallen, weil der Dozent krank war. | Dün öğretim görevlisi hasta olduğu için seminer yapılmadı.
+n1077 | das Seminar | In den Seminaren sind wir meistens nur fünfzehn Studenten. || Wir sind in den Seminaren meistens nur fünfzehn Studenten. | Seminerlerde çoğunlukla sadece on beş öğrenciyiz.
+n0925 | die Präsentation | Vor jeder Präsentation bin ich sehr nervös. || Ich bin vor jeder Präsentation sehr nervös. | Her sunumdan önce çok gerginim.
+n0925 | die Präsentation | Kannst du mir helfen, die Präsentation für Montag vorzubereiten? | Pazartesi için sunumu hazırlamama yardım edebilir misin?
+n0925 | die Präsentation | Die Präsentationen dürfen höchstens zehn Minuten dauern. | Sunumlar en fazla on dakika sürebilir.
+n0941 | die Prüfung | Ich bin leider durch die Prüfung gefallen. || Leider bin ich durch die Prüfung gefallen. | Maalesef sınavdan kaldım.
+n0941 | die Prüfung | Vor der mündlichen Prüfung konnte ich nicht schlafen. || Ich konnte vor der mündlichen Prüfung nicht schlafen. | Sözlü sınavdan önce uyuyamadım.
+n0941 | die Prüfung | Wann bekommen wir die Ergebnisse der Prüfungen? | Sınavların sonuçlarını ne zaman alacağız?
+x1552 | die Hilfsbereitschaft | Vielen Dank für Ihre Hilfsbereitschaft! | Yardımseverliğiniz için çok teşekkürler!
+x1552 | die Hilfsbereitschaft | Für die Arbeit im Krankenhaus sind Geduld und Hilfsbereitschaft sehr wichtig. | Hastanede çalışmak için sabır ve yardımseverlik çok önemli.
+x1552 | die Hilfsbereitschaft | Meine Mitbewohnerin ist für ihre Hilfsbereitschaft bekannt. | Ev arkadaşım yardımseverliğiyle tanınır.
+n0813 | die Mühe | Danke, aber das ist doch nicht nötig. Mach dir keine Mühe! || Danke, aber das ist nicht nötig. Mach dir keine Mühe! | Teşekkürler ama gerek yok. Zahmet etme!
+n0813 | die Mühe | Die Mühe hat sich gelohnt: Ich habe die Prüfung bestanden. | Zahmete değdi: Sınavı geçtim.
+n0813 | die Mühe | Ich habe mir große Mühe mit dem Bewerbungsschreiben gegeben. || Ich habe mir mit dem Bewerbungsschreiben große Mühe gegeben. | Başvuru mektubuma çok emek verdim.
+x1565 | das Vereinsmitglied | Nur Vereinsmitglieder dürfen den Tennisplatz benutzen. || Den Tennisplatz dürfen nur Vereinsmitglieder benutzen. | Tenis kortunu sadece kulüp üyeleri kullanabilir.
+x1565 | das Vereinsmitglied | Bei der Versammlung haben alle Vereinsmitglieder über den neuen Vorstand abgestimmt. || Alle Vereinsmitglieder haben bei der Versammlung über den neuen Vorstand abgestimmt. | Toplantıda bütün dernek üyeleri yeni yönetim kurulu için oy verdi.
+x1565 | das Vereinsmitglied | Als Vereinsmitglied kannst du an allen Kursen kostenlos teilnehmen. || Als Vereinsmitglied kannst du kostenlos an allen Kursen teilnehmen. | Dernek üyesi olarak bütün kurslara ücretsiz katılabilirsin.
+n0067 | die Art | Auf diese Art lernst du die Wörter viel schneller. || Auf diese Art und Weise lernst du die Wörter viel schneller. || Du lernst die Wörter auf diese Art viel schneller. | Bu şekilde kelimeleri çok daha hızlı öğrenirsin.
+n0067 | die Art | Was für eine Art von Job suchst du? || Welche Art von Job suchst du? | Ne tür bir iş arıyorsun?
+n0067 | die Art | Mir gefällt die ruhige Art meiner neuen Kollegin. || Die ruhige Art meiner neuen Kollegin gefällt mir. || Mir gefällt die ruhige Art meines neuen Kollegen. | Yeni iş arkadaşımın sakin tavrı hoşuma gidiyor.
+x1570 | das Einwohnermeldeamt | Das Einwohnermeldeamt ist am Mittwochnachmittag geschlossen. || Am Mittwochnachmittag ist das Einwohnermeldeamt geschlossen. | Adres kayıt dairesi çarşamba öğleden sonra kapalı.
+x1570 | das Einwohnermeldeamt | Beim Einwohnermeldeamt musste ich fast zwei Stunden warten. || Ich musste beim Einwohnermeldeamt fast zwei Stunden warten. | Adres kayıt dairesinde neredeyse iki saat beklemek zorunda kaldım.
+x1570 | das Einwohnermeldeamt | Die Meldebescheinigung bekommst du direkt beim Einwohnermeldeamt. || Die Meldebescheinigung bekommst du direkt im Einwohnermeldeamt. | İkamet belgesini doğrudan adres kayıt dairesinden alırsın.
+n0926 | die Praxis | Ich habe in der Praxis angerufen und einen Termin für Dienstag bekommen. || Ich habe bei der Praxis angerufen und einen Termin für Dienstag bekommen. | Muayenehaneyi aradım ve salı için randevu aldım.
+n0926 | die Praxis | In der Praxis war das Wartezimmer total voll. || Das Wartezimmer in der Praxis war total voll. | Muayenehanede bekleme odası tıklım tıklımdı.
+n0926 | die Praxis | Ich suche eine Praxis in der Nähe, die auch abends geöffnet hat. | Yakınlarda akşamları da açık olan bir muayenehane arıyorum.
+n0629 | das Klima | An das feuchte Klima hier habe ich mich noch nicht gewöhnt. || Ich habe mich noch nicht an das feuchte Klima hier gewöhnt. | Buradaki nemli iklime henüz alışmadım.
+n0629 | das Klima | Für Oliven ist das Klima in Deutschland zu kalt. || Das Klima in Deutschland ist für Oliven zu kalt. | Zeytin için Almanya'nın iklimi fazla soğuk.
+n0629 | das Klima | Viele Menschen demonstrieren für den Schutz des Klimas. | Birçok insan iklimin korunması için gösteri yapıyor.
+w0479 | trocken | Häng die Wäsche lieber draußen auf, da wird sie schneller trocken. || Häng die Wäsche lieber draußen auf, dort wird sie schneller trocken. | Çamaşırları dışarı assan iyi olur, orada daha çabuk kurur.
+w0479 | trocken | Ich habe sehr trockene Haut, deshalb brauche ich im Winter eine gute Creme. | Cildim çok kuru, bu yüzden kışın iyi bir kreme ihtiyacım var.
+w0479 | trocken | Der Kuchen ist leider etwas trocken geworden. || Leider ist der Kuchen etwas trocken geworden. | Kek maalesef biraz kuru olmuş.
+w0272 | kalt | Ist dir kalt? Soll ich das Fenster zumachen? || Ist dir kalt? Soll ich das Fenster schließen? | Üşüyor musun? Pencereyi kapatayım mı?
+w0272 | kalt | Das Essen ist schon kalt, ich mache es noch einmal warm. || Das Essen ist schon kalt, ich mache es noch mal warm. | Yemek soğumuş, bir daha ısıtıyorum.
+w0272 | kalt | Im Wohnheim gibt es morgens oft nur kaltes Wasser. | Yurtta sabahları sık sık sadece soğuk su oluyor.
+w0118 | ebenfalls | Mein Zug hatte Verspätung, und der Anschlusszug hatte ebenfalls Verspätung. | Trenim rötar yaptı, aktarma treni de rötar yaptı.
+w0118 | ebenfalls | Frau Schulz ist heute krank, Herr Becker fehlt ebenfalls. | Schulz Hanım bugün hasta, Becker Bey de yok.
+w0118 | ebenfalls | Ich habe die Prüfung bestanden, und meine Freundin hat sie ebenfalls bestanden. | Sınavı geçtim, kız arkadaşım da geçti.
+n1336 | das Visum | Ich habe mein Visum bei der deutschen Botschaft in Ankara beantragt. || Mein Visum habe ich bei der deutschen Botschaft in Ankara beantragt. | Vizeme Ankara'daki Alman büyükelçiliğinde başvurdum.
+n1336 | das Visum | Ohne gültiges Visum dürfen Sie nicht einreisen. | Geçerli bir vize olmadan ülkeye giremezsiniz.
+n1336 | das Visum | Die Ausländerbehörde hat mein Visum um ein Jahr verlängert. | Yabancılar dairesi vizemi bir yıl uzattı.
+w0170 | fließend | Für die Stelle sind fließende Englischkenntnisse erforderlich. | Bu iş için akıcı İngilizce bilgisi gerekli.
+w0170 | fließend | Er liest schon ziemlich fließend, obwohl er erst sechs ist. || Sie liest schon ziemlich fließend, obwohl sie erst sechs ist. | Henüz altı yaşında olmasına rağmen oldukça akıcı okuyor.
+w0170 | fließend | In meinem Lebenslauf habe ich geschrieben, dass ich fließend Türkisch und Englisch spreche. || Ich habe in meinem Lebenslauf geschrieben, dass ich fließend Türkisch und Englisch spreche. | Özgeçmişime Türkçe ve İngilizceyi akıcı konuştuğumu yazdım.
+n1082 | der Service | Wenn das Handy kaputtgeht, können Sie sich an unseren Service wenden. | Telefon bozulursa servisimize başvurabilirsiniz.
+n1082 | der Service | Für diesen Service müssen Sie extra bezahlen. || Sie müssen für diesen Service extra bezahlen. | Bu hizmet için ayrıca ödeme yapmanız gerekiyor.
+n1082 | der Service | Die Bahn bietet einen kostenlosen Service für Reisende mit Rollstuhl an. || Die Bahn bietet Reisenden mit Rollstuhl einen kostenlosen Service an. | Demiryolu tekerlekli sandalyeli yolcular için ücretsiz bir hizmet sunuyor.
+n0991 | der Respekt | Man muss alle Menschen mit Respekt behandeln. | Bütün insanlara saygıyla davranmak gerekir.
+n0991 | der Respekt | Ich finde, dass der Chef keinen Respekt vor seinen Mitarbeitern hat. || Ich finde, der Chef hat keinen Respekt vor seinen Mitarbeitern. | Bence şefin çalışanlarına hiç saygısı yok.
+n0991 | der Respekt | Aus Respekt vor den Nachbarn machen wir nach 22 Uhr keine laute Musik. || Wir machen aus Respekt vor den Nachbarn nach 22 Uhr keine laute Musik. | Komşulara saygımızdan dolayı saat 22'den sonra yüksek sesle müzik açmıyoruz.
+x1558 | das Zusammenleben | Das Zusammenleben mit meinem Freund ist schwieriger, als ich dachte. | Erkek arkadaşımla birlikte yaşamak düşündüğümden daha zor.
+x1558 | das Zusammenleben | Der Kurs informiert über das Zusammenleben in Deutschland. | Kurs Almanya'da birlikte yaşam hakkında bilgi veriyor.
+x1558 | das Zusammenleben | Viele Vereine engagieren sich für das friedliche Zusammenleben der Kulturen. || Für das friedliche Zusammenleben der Kulturen engagieren sich viele Vereine. | Birçok dernek kültürlerin barış içinde birlikte yaşaması için çalışıyor.
+n0360 | die Feuerwehr | Die Feuerwehr hat die Katze vom Baum geholt. | İtfaiye kediyi ağaçtan indirdi.
+n0360 | die Feuerwehr | Wegen eines Brandes in der Küche musste die Feuerwehr kommen. || Die Feuerwehr musste wegen eines Brandes in der Küche kommen. | Mutfakta çıkan bir yangın yüzünden itfaiye gelmek zorunda kaldı.
+n0360 | die Feuerwehr | Mein Cousin arbeitet seit fünf Jahren bei der Feuerwehr. || Seit fünf Jahren arbeitet mein Cousin bei der Feuerwehr. || Meine Cousine arbeitet seit fünf Jahren bei der Feuerwehr. | Kuzenim beş yıldır itfaiyede çalışıyor.
+x1566 | die Patenschaft | Im Sprachcafé gibt es Patenschaften für neue Studierende aus dem Ausland. | Dil kafesinde yurt dışından gelen yeni öğrenciler için destekçilik programları var.
+x1566 | die Patenschaft | Durch die Patenschaft habe ich eine deutsche Familie kennengelernt. || Ich habe durch die Patenschaft eine deutsche Familie kennengelernt. | Destekçilik sayesinde bir Alman aileyle tanıştım.
+x1566 | die Patenschaft | Meine Patenschaft für den kleinen Ali macht mir viel Freude. | Küçük Ali için üstlendiğim destekçilik bana çok keyif veriyor.
+n1376 | die Wettervorhersage | Die Wettervorhersage hat sich leider wieder geirrt. || Leider hat sich die Wettervorhersage wieder geirrt. | Hava tahmini maalesef yine yanıldı.
+n1376 | die Wettervorhersage | Vor dem Ausflug schauen wir uns die Wettervorhersage im Internet an. || Wir schauen uns vor dem Ausflug die Wettervorhersage im Internet an. | Geziden önce internetten hava tahminine bakıyoruz.
+n1376 | die Wettervorhersage | Die Wettervorhersagen für das Wochenende sind sehr unterschiedlich. | Hafta sonu için hava tahminleri birbirinden çok farklı.
+w0209 | glatt | Meine Oma ist auf dem glatten Gehweg ausgerutscht. || Meine Großmutter ist auf dem glatten Gehweg ausgerutscht. | Babaannem kaygan kaldırımda kaydı.
+w0209 | glatt | Nach dem Bügeln ist das Hemd schön glatt. | Ütüledikten sonra gömlek dümdüz oldu.
+w0209 | glatt | Die Fliesen im Bad sind sehr glatt, wenn sie nass sind. || Wenn sie nass sind, sind die Fliesen im Bad sehr glatt. | Banyodaki fayanslar ıslakken çok kaygan oluyor.
+n0682 | die Kritik | Ich bin dir dankbar für deine ehrliche Kritik. || Für deine ehrliche Kritik bin ich dir dankbar. | Dürüst eleştirin için sana minnettarım.
+n0682 | die Kritik | In der Zeitung habe ich eine Kritik über den neuen Film gelesen. || Ich habe in der Zeitung eine Kritik über den neuen Film gelesen. | Gazetede yeni film hakkında bir eleştiri okudum.
+n0682 | die Kritik | Warum reagierst du so empfindlich auf Kritik? | Eleştiriye neden bu kadar alıngan tepki veriyorsun?
+w0103 | doppelt | Für den Nachtdienst bekommt er den doppelten Lohn. || Er bekommt für den Nachtdienst den doppelten Lohn. | Gece nöbeti için iki kat ücret alıyor.
+w0103 | doppelt | Ich habe die Datei zur Sicherheit doppelt gespeichert. || Zur Sicherheit habe ich die Datei doppelt gespeichert. | Dosyayı güvenlik için iki kez kaydettim.
+w0103 | doppelt | Dieser Kurs hat für dich einen doppelten Vorteil: Er ist billig und in der Nähe. | Bu kursun senin için çifte avantajı var: ucuz ve yakın.
+n1316 | der Vermieter | Der Vermieter hat mir die Kaution noch nicht zurückgezahlt. || Mein Vermieter hat mir die Kaution noch nicht zurückgezahlt. | Ev sahibi depozitomu henüz geri ödemedi.
+n1316 | der Vermieter | Du brauchst die Erlaubnis des Vermieters, wenn du eine Katze haben willst. || Wenn du eine Katze haben willst, brauchst du die Erlaubnis des Vermieters. || Du brauchst die Erlaubnis vom Vermieter, wenn du eine Katze haben willst. | Kedi beslemek istiyorsan ev sahibinin iznine ihtiyacın var.
+n1316 | der Vermieter | Ich habe dem Vermieter wegen des Schimmels im Bad eine E-Mail geschrieben. || Wegen des Schimmels im Bad habe ich dem Vermieter eine E-Mail geschrieben. | Banyodaki küf yüzünden ev sahibine bir e-posta yazdım.
+w0139 | entschlossen | Der Bürgermeister will entschlossen gegen die Wohnungsnot kämpfen. | Belediye başkanı konut sıkıntısına karşı kararlılıkla mücadele etmek istiyor.
+w0139 | entschlossen | Meine Schwester ist eine sehr entschlossene Frau: Was sie will, schafft sie auch. | Kız kardeşim çok kararlı bir kadın: ne isterse başarır.
+w0139 | entschlossen | Kurz entschlossen sind wir am Wochenende nach Hamburg gefahren. || Wir sind am Wochenende kurz entschlossen nach Hamburg gefahren. | Ani bir kararla hafta sonu Hamburg'a gittik.
+n0047 | der Antrag | Im Moment gibt es so viele Anträge, dass die Bearbeitung drei Monate dauert. | Şu anda o kadar çok başvuru var ki işlem üç ay sürüyor.
+n0047 | der Antrag | Für den Antrag brauchen Sie eine Kopie Ihres Passes. || Sie brauchen für den Antrag eine Kopie Ihres Passes. | Başvuru için pasaportunuzun bir kopyasına ihtiyacınız var.
+n0047 | der Antrag | Ich habe einen Antrag auf Verlängerung meiner Aufenthaltserlaubnis gestellt. || Ich habe einen Antrag auf die Verlängerung meiner Aufenthaltserlaubnis gestellt. | Oturma iznimin uzatılması için başvuru yaptım.
+n0155 | die Bestätigung | Haben Sie meine Anmeldung bekommen? Ich habe noch keine Bestätigung erhalten. | Kaydımı aldınız mı? Henüz bir onay almadım.
+n0155 | die Bestätigung | Bitte bringen Sie die Bestätigung Ihres Arbeitgebers mit. | Lütfen işvereninizin onay belgesini getirin.
+n0155 | die Bestätigung | Ich habe die Bestätigung für das Hotel ausgedruckt. || Die Bestätigung für das Hotel habe ich ausgedruckt. | Otelin onay belgesini yazıcıdan çıkardım.
+n1076 | das Semester | Wie viele Semester dauert dein Studium? | Eğitimin kaç dönem sürüyor?
+n1076 | das Semester | Am Ende des Semesters schreiben wir drei Klausuren. || Wir schreiben am Ende des Semesters drei Klausuren. | Dönem sonunda üç sınava giriyoruz.
+n1076 | das Semester | Letztes Semester habe ich neben dem Studium in einem Café gearbeitet. || Im letzten Semester habe ich neben dem Studium in einem Café gearbeitet. || Ich habe letztes Semester neben dem Studium in einem Café gearbeitet. | Geçen dönem okulun yanı sıra bir kafede çalıştım.
+n0169 | die Bibliothek | Kann man in der Bibliothek auch Filme ausleihen? | Kütüphaneden film de ödünç alınabiliyor mu?
+n0169 | die Bibliothek | Ohne Studentenausweis darfst du die Bibliothek nicht benutzen. || Ohne Studentenausweis kannst du die Bibliothek nicht benutzen. | Öğrenci kartı olmadan kütüphaneyi kullanamazsın.
+n0169 | die Bibliothek | In unserem Stadtteil haben sie letztes Jahr zwei Bibliotheken geschlossen. || Letztes Jahr haben sie in unserem Stadtteil zwei Bibliotheken geschlossen. | Semtimizde geçen yıl iki kütüphaneyi kapattılar.
+n0753 | die Mahnung | In der Mahnung steht, dass ich fünf Euro Gebühren zahlen muss. | İhtarnamede beş euro masraf ödemem gerektiği yazıyor.
+n0753 | die Mahnung | Die Mahnung muss ein Fehler sein, ich habe die Rechnung schon bezahlt. | İhtar bir hata olmalı, faturayı zaten ödedim.
+n0753 | die Mahnung | Ich habe die Mahnung leider erst nach dem Urlaub gelesen. || Leider habe ich die Mahnung erst nach dem Urlaub gelesen. | İhtarı maalesef ancak tatilden sonra okudum.
+x1460 | das Missverständnis | Um Missverständnisse zu vermeiden, schreibe ich dir alles noch einmal per E-Mail. || Ich schreibe dir alles noch einmal per E-Mail, um Missverständnisse zu vermeiden. | Yanlış anlaşılmaları önlemek için sana her şeyi bir kez daha e-postayla yazıyorum.
+x1460 | das Missverständnis | Wir haben das Missverständnis schnell geklärt. || Das Missverständnis haben wir schnell geklärt. | Yanlış anlaşılmayı hızlıca çözdük.
+x1460 | das Missverständnis | Wegen eines Missverständnisses hat der Handwerker am falschen Tag geklingelt. || Der Handwerker hat wegen eines Missverständnisses am falschen Tag geklingelt. | Bir yanlış anlaşılma yüzünden usta yanlış günde zili çaldı.
+n0795 | die Minderheit | In vielen Ländern werden Minderheiten diskriminiert. || Minderheiten werden in vielen Ländern diskriminiert. | Birçok ülkede azınlıklar ayrımcılığa uğruyor.
+n0795 | die Minderheit | Nur eine kleine Minderheit hat gegen den Vorschlag gestimmt. | Öneriye sadece küçük bir azınlık karşı oy verdi.
+n0795 | die Minderheit | Die Rechte von Minderheiten sind durch das Gesetz geschützt. || Die Rechte der Minderheiten sind durch das Gesetz geschützt. || Die Rechte von Minderheiten sind gesetzlich geschützt. | Azınlıkların hakları yasayla korunuyor.

@@ -1275,3 +1275,29 @@ v069 | Der Fragebogen muss in Großbuchstaben ausgefüllt werden. | Anketin büy
 v262 | Bitte folgen Sie mir, ich zeige Ihnen Ihr Zimmer. || Folgen Sie mir bitte, ich zeige Ihnen Ihr Zimmer. | Lütfen beni takip edin, size odanızı göstereyim.
 v262 | Die Polizei folgte dem Auto bis zur Autobahn. | Polis arabayı otobana kadar takip etti.
 v262 | Ich kann der Diskussion im Seminar nicht immer folgen, weil alle so schnell sprechen. | Herkes çok hızlı konuştuğu için seminerdeki tartışmayı her zaman takip edemiyorum.
+v685 | Jedes Jahr vor Weihnachten spende ich Geld an eine Hilfsorganisation. || Ich spende jedes Jahr vor Weihnachten Geld an eine Hilfsorganisation. | Her yıl Noel'den önce bir yardım kuruluşuna para bağışlıyorum.
+v685 | Nach dem Umzug haben wir unsere alten Möbel dem Roten Kreuz gespendet. || Wir haben nach dem Umzug unsere alten Möbel dem Roten Kreuz gespendet. || Nach dem Umzug haben wir unsere alten Möbel an das Rote Kreuz gespendet. | Taşındıktan sonra eski mobilyalarımızı Kızılhaç'a bağışladık.
+v685 | Mein Mitbewohner spendet zweimal im Jahr Blut. || Mein Mitbewohner spendet im Jahr zweimal Blut. | Ev arkadaşım yılda iki kez kan bağışlıyor.
+v685 | Nach dem Erdbeben spendeten viele Menschen in Bremen Kleidung und Decken. || Viele Menschen in Bremen spendeten nach dem Erdbeben Kleidung und Decken. || Nach dem Erdbeben haben viele Menschen in Bremen Kleidung und Decken gespendet. | Depremden sonra Bremen'de birçok insan giysi ve battaniye bağışladı.
+v685 | Wenn du deine alten Bücher nicht mehr brauchst, kannst du sie der Bibliothek spenden. || Wenn du deine alten Bücher nicht mehr brauchst, kannst du sie an die Bibliothek spenden. | Eski kitaplarına artık ihtiyacın yoksa onları kütüphaneye bağışlayabilirsin.
+v689 | Die Uni führt im Dezember eine Umfrage unter allen Studierenden durch. || Im Dezember führt die Uni eine Umfrage unter allen Studierenden durch. | Üniversite aralıkta bütün öğrenciler arasında bir anket yapıyor.
+v689 | Im Krankenhaus haben die Ärzte mehrere Untersuchungen durchgeführt. || Die Ärzte haben im Krankenhaus mehrere Untersuchungen durchgeführt. | Hastanede doktorlar birkaç tetkik yaptı.
+v689 | Wir müssen das Projekt bis zum Ende des Semesters durchführen. || Bis zum Ende des Semesters müssen wir das Projekt durchführen. | Projeyi dönem sonuna kadar gerçekleştirmemiz gerekiyor.
+v689 | Die Polizei führte am Bahnhof eine Kontrolle durch. || Am Bahnhof führte die Polizei eine Kontrolle durch. || Die Polizei hat am Bahnhof eine Kontrolle durchgeführt. | Polis tren istasyonunda bir kontrol yaptı.
+v689 | Bevor wir das Experiment durchführen, müssen wir die Sicherheitsregeln lesen. || Wir müssen die Sicherheitsregeln lesen, bevor wir das Experiment durchführen. | Deneyi yapmadan önce güvenlik kurallarını okumamız gerekiyor.
+v588 | Wegen des Feueralarms mussten alle Studenten das Gebäude verlassen. || Alle Studenten mussten wegen des Feueralarms das Gebäude verlassen. | Yangın alarmı yüzünden bütün öğrenciler binayı terk etmek zorunda kaldı.
+v588 | Mein Bruder hat mit 18 sein Dorf verlassen und ist nach Istanbul gezogen. || Mit 18 hat mein Bruder sein Dorf verlassen und ist nach Istanbul gezogen. | Erkek kardeşim 18 yaşında köyünü terk edip İstanbul'a taşındı.
+v588 | Er verließ die Wohnung, ohne ein Wort zu sagen. || Er hat die Wohnung verlassen, ohne ein Wort zu sagen. || Sie verließ die Wohnung, ohne ein Wort zu sagen. | Tek kelime söylemeden evi terk etti.
+v588 | Bevor du das Haus verlässt, mach bitte alle Fenster zu. || Mach bitte alle Fenster zu, bevor du das Haus verlässt. | Evden çıkmadan önce lütfen bütün pencereleri kapat.
+v459 | Es schneit schon seit heute Morgen. || Seit heute Morgen schneit es schon. | Bu sabahtan beri kar yağıyor.
+v459 | Als ich ein Kind war, schneite es im Winter viel mehr. || Als ich ein Kind war, hat es im Winter viel mehr geschneit. | Ben çocukken kışın çok daha fazla kar yağardı.
+v459 | Morgen soll es in ganz Norddeutschland schneien. || In ganz Norddeutschland soll es morgen schneien. | Yarın bütün Kuzey Almanya'da kar yağacakmış.
+v197 | Nächsten Monat zieht eine neue Mitbewohnerin bei uns ein. || Eine neue Mitbewohnerin zieht nächsten Monat bei uns ein. || Nächsten Monat zieht ein neuer Mitbewohner bei uns ein. | Gelecek ay evimize yeni bir ev arkadaşı taşınıyor.
+v197 | Nach der Hochzeit zogen sie in eine größere Wohnung ein. || Nach der Hochzeit sind sie in eine größere Wohnung eingezogen. | Düğünden sonra daha büyük bir daireye taşındılar.
+v197 | Bevor wir einziehen, muss die Küche noch renoviert werden. || Die Küche muss noch renoviert werden, bevor wir einziehen. | Biz taşınmadan önce mutfağın yenilenmesi gerekiyor.
+v256 | Bei der Kontrolle stellte der Mechaniker fest, dass die Bremsen kaputt waren. || Bei der Kontrolle hat der Mechaniker festgestellt, dass die Bremsen kaputt waren. || Bei der Kontrolle hat der Mechaniker festgestellt, dass die Bremsen kaputt sind. | Kontrolde tamirci frenlerin bozuk olduğunu tespit etti.
+v256 | Die Polizei konnte nicht feststellen, wer den Unfall verursacht hat. || Die Polizei konnte nicht feststellen, wer den Unfall verursacht hatte. | Polis kazaya kimin sebep olduğunu tespit edemedi.
+v256 | Ich stelle immer wieder fest, dass ich beim Sprechen die Artikel vergesse. || Immer wieder stelle ich fest, dass ich beim Sprechen die Artikel vergesse. | Konuşurken artikelleri unuttuğumu tekrar tekrar fark ediyorum.
+v257 | Ich finanziere mein Zimmer in Bremen mit einem Minijob im Supermarkt. || Mein Zimmer in Bremen finanziere ich mit einem Minijob im Supermarkt. | Bremen'deki odamı süpermarketteki bir mini işle finanse ediyorum.
+v257 | Das Projekt wird zur Hälfte von der EU finanziert. | Proje yarı yarıya AB tarafından finanse ediliyor.
+v257 | Ohne Stipendium hätte ich das Studium nicht finanzieren können. || Ich hätte das Studium ohne Stipendium nicht finanzieren können. | Burs olmadan eğitimimi finanse edemezdim.

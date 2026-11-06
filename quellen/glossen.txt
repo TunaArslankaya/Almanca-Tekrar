@@ -4788,3 +4788,169 @@ Der Fragebogen muss in Großbuchstaben ausgefüllt werden. | der Fragebogen = an
 Bitte folgen Sie mir, ich zeige Ihnen Ihr Zimmer. | zeigen = göstermek
 Die Polizei folgte dem Auto bis zur Autobahn. | die Autobahn = otoban
 Ich kann der Diskussion im Seminar nicht immer folgen, weil alle so schnell sprechen. | die Diskussion = tartışma; das Seminar = seminer
+Jedes Jahr vor Weihnachten spende ich Geld an eine Hilfsorganisation. | Weihnachten = Noel; die Hilfsorganisation = yardım kuruluşu
+Nach dem Umzug haben wir unsere alten Möbel dem Roten Kreuz gespendet. | der Umzug = taşınma; die Möbel = mobilya; das Rote Kreuz = Kızılhaç
+Mein Mitbewohner spendet zweimal im Jahr Blut. | der Mitbewohner = ev arkadaşı; zweimal = iki kez; das Blut = kan
+Nach dem Erdbeben spendeten viele Menschen in Bremen Kleidung und Decken. | das Erdbeben = deprem; die Kleidung = giysi; die Decke = battaniye
+Wenn du deine alten Bücher nicht mehr brauchst, kannst du sie der Bibliothek spenden. | die Bibliothek = kütüphane
+Die Uni führt im Dezember eine Umfrage unter allen Studierenden durch. | die Umfrage = anket; unter = arasında; die Studierenden = öğrenciler
+Im Krankenhaus haben die Ärzte mehrere Untersuchungen durchgeführt. | das Krankenhaus = hastane; mehrere = birkaç; die Untersuchung = muayene, tetkik
+Wir müssen das Projekt bis zum Ende des Semesters durchführen. | das Projekt = proje; das Semester = dönem
+Die Polizei führte am Bahnhof eine Kontrolle durch. | die Polizei = polis; der Bahnhof = tren istasyonu; die Kontrolle = kontrol, denetim
+Bevor wir das Experiment durchführen, müssen wir die Sicherheitsregeln lesen. | bevor = -meden önce; das Experiment = deney; die Sicherheitsregel = güvenlik kuralı
+Wenn das Fieber nicht sinkt, musst du morgen zum Arzt gehen. | sinken = düşmek, inmek; der Arzt = doktor
+Mit Fieber solltest du nicht zur Arbeit gehen, sondern im Bett bleiben. | sollte = -meli; sondern = bilakis, aksine
+Meine Mitbewohnerin liegt seit zwei Tagen mit hohem Fieber im Bett. | die Mitbewohnerin = ev arkadaşı (kadın); hoch = yüksek
+Das Fieber ist über Nacht gestiegen, jetzt habe ich fast 40 Grad. | über Nacht = gece boyunca; steigen = yükselmek; fast = neredeyse; der Grad = derece
+Auf dem Wochenmarkt ist das Gemüse frischer als im Supermarkt. | der Wochenmarkt = semt pazarı; frisch = taze
+Meine Ärztin hat gesagt, dass ich mehr Obst und Gemüse essen soll. | die Ärztin = doktor (kadın); das Obst = meyve
+Schneidest du bitte das Gemüse für die Suppe? | schneiden = kesmek, doğramak; die Suppe = çorba
+Seit ich in Bremen wohne, koche ich fast nur noch mit Gemüse aus der Region. | fast = neredeyse; die Region = bölge, yöre
+Auch wenn sie verlieren, erwartet der Trainer von allen Spielern Fairness. | auch wenn = -se bile; verlieren = kaybetmek; erwarten = beklemek; der Trainer = antrenör; der Spieler = oyuncu
+In unserer WG ist uns Fairness bei der Hausarbeit wichtig. | die WG = paylaşımlı ev; die Hausarbeit = ev işi
+Viele Arbeitnehmer kritisieren, dass es bei den Gehältern keine Fairness gibt. | der Arbeitnehmer = çalışan, işçi; kritisieren = eleştirmek; das Gehalt = maaş
+Aus Fairness hat die Lehrerin allen Kursteilnehmern mehr Zeit gegeben. | aus = -den dolayı; der Kursteilnehmer = kurs katılımcısı
+Mein Nachbar arbeitet ehrenamtlich bei der Feuerwehr. | der Nachbar = komşu; die Feuerwehr = itfaiye
+Für ehrenamtliche Arbeit bekommt man kein Geld, aber viel Erfahrung. | die Erfahrung = deneyim
+Der Sportverein sucht dringend ehrenamtliche Trainer für Kinder. | der Sportverein = spor kulübü; dringend = acilen; der Trainer = antrenör
+Seit dem Sommer engagiere ich mich ehrenamtlich in einem Sprachcafé. | sich engagieren = (bir işte) görev almak, emek vermek; das Sprachcafé = dil kafesi
+In Bremen gibt es viele Vereine für Studierende aus dem Ausland. | die Studierenden = öğrenciler; das Ausland = yurt dışı
+Letzten Monat bin ich in einen Verein eingetreten, der Wanderungen organisiert. | eintreten in = (bir kuruluşa) girmek, üye olmak; die Wanderung = doğa yürüyüşü; organisieren = düzenlemek
+Die Mitglieder des Vereins treffen sich jeden Donnerstagabend im Café am Marktplatz. | das Mitglied = üye; sich treffen = buluşmak; der Marktplatz = pazar meydanı
+Der Verein hat mir bei der Wohnungssuche geholfen. | die Wohnungssuche = ev arama
+Wegen des Feueralarms mussten alle Studenten das Gebäude verlassen. | wegen = yüzünden; der Feueralarm = yangın alarmı; das Gebäude = bina
+Mein Bruder hat mit 18 sein Dorf verlassen und ist nach Istanbul gezogen. | das Dorf = köy; ziehen = taşınmak
+Er verließ die Wohnung, ohne ein Wort zu sagen. | ohne … zu = -meden
+Bevor du das Haus verlässt, mach bitte alle Fenster zu. | bevor = -meden önce; zumachen = kapatmak
+Mit diesem Rezept bekommen Sie das Medikament in jeder Apotheke. | das Rezept = reçete; das Medikament = ilaç
+Ich war gestern in drei Apotheken, aber keine hatte das Spray. | das Spray = sprey
+Kannst du mir aus der Apotheke Halstabletten mitbringen? | die Halstablette = boğaz pastili; mitbringen = (yanında) getirmek
+Wegen der Hitze schlafe ich im Sommer schlecht. | wegen = yüzünden
+Bei 35 Grad ist die Hitze in der Dachwohnung kaum auszuhalten. | der Grad = derece; die Dachwohnung = çatı katı dairesi; kaum = neredeyse hiç; aushalten = dayanmak
+Letzten Sommer haben viele ältere Menschen unter der Hitze gelitten. | leiden unter = -den çekmek, muzdarip olmak; älter = yaşlıca
+Nimm lieber einen Schirm mit, es sieht nach Regen aus. | mitnehmen = yanına almak; aussehen nach = gibi görünmek; der Regen = yağmur
+Bei diesem Wind nützt der Schirm gar nichts. | der Wind = rüzgâr; nützen = işe yaramak
+Mein Schirm ist kaputt, kann ich mir deinen leihen? | kaputt = bozuk; sich leihen = ödünç almak
+Möchtest du Eis in deine Cola? | die Cola = kola
+Leg ein bisschen Eis auf dein Knie, dann wird es nicht so dick. | legen = koymak; das Knie = diz; dick = şiş, kalın
+Auf dem See ist das Eis noch zu dünn, man darf nicht darauf gehen. | der See = göl; dünn = ince; darauf = üzerinde
+In der Nacht war der Wind so laut, dass ich nicht schlafen konnte. | laut = gürültülü; so … dass = o kadar … ki
+An der Küste weht fast immer ein kalter Wind. | die Küste = kıyı, sahil; wehen = esmek
+Wegen des Windes fallen heute einige Fähren aus. | ausfallen = iptal olmak, yapılmamak; die Fähre = feribot; einige = bazı
+Dieses Lied erinnert mich an meine Kindheit in Izmir. | das Lied = şarkı; erinnern an = -i hatırlatmak
+Meine Oma erzählt gern von ihrer Kindheit auf dem Bauernhof. | erzählen von = anlatmak; der Bauernhof = çiftlik
+Seit meiner Kindheit habe ich Angst vor Hunden. | die Angst vor = -den korku; der Hund = köpek
+Für dieses Seminar muss man sich bis Freitag online anmelden. | sich anmelden = kayıt yaptırmak; online = internetten
+Gestern ist das Seminar ausgefallen, weil die Dozentin krank war. | ausfallen = iptal olmak, yapılmamak; die Dozentin = öğretim görevlisi (kadın)
+In den Seminaren sind wir meistens nur fünfzehn Studenten. | meistens = çoğunlukla
+Vor jeder Präsentation bin ich sehr nervös. | nervös = gergin, heyecanlı
+Kannst du mir helfen, die Präsentation für Montag vorzubereiten? | vorbereiten = hazırlamak
+Die Präsentationen dürfen höchstens zehn Minuten dauern. | höchstens = en fazla; dauern = sürmek
+Ich bin leider durch die Prüfung gefallen. | durchfallen = (sınavdan) kalmak
+Vor der mündlichen Prüfung konnte ich nicht schlafen. | mündlich = sözlü
+Wann bekommen wir die Ergebnisse der Prüfungen? | das Ergebnis = sonuç
+Vielen Dank für Ihre Hilfsbereitschaft! | -
+Für die Arbeit im Krankenhaus sind Geduld und Hilfsbereitschaft sehr wichtig. | das Krankenhaus = hastane; die Geduld = sabır
+Meine Mitbewohnerin ist für ihre Hilfsbereitschaft bekannt. | die Mitbewohnerin = ev arkadaşı (kadın); bekannt für = -siyle tanınan
+Danke, aber das ist doch nicht nötig. Mach dir keine Mühe! | nötig = gerekli; sich Mühe machen = zahmet etmek
+Die Mühe hat sich gelohnt: Ich habe die Prüfung bestanden. | sich lohnen = değmek; bestehen = (sınavı) geçmek
+Ich habe mir große Mühe mit dem Bewerbungsschreiben gegeben. | sich Mühe geben = emek vermek, çabalamak; das Bewerbungsschreiben = başvuru mektubu
+Nur Vereinsmitglieder dürfen den Tennisplatz benutzen. | der Tennisplatz = tenis kortu; benutzen = kullanmak
+Bei der Versammlung haben alle Vereinsmitglieder über den neuen Vorstand abgestimmt. | die Versammlung = toplantı, genel kurul; der Vorstand = yönetim kurulu; abstimmen über = oylamak
+Als Vereinsmitglied kannst du an allen Kursen kostenlos teilnehmen. | kostenlos = ücretsiz; teilnehmen an = -e katılmak
+Auf diese Art lernst du die Wörter viel schneller. | das Wort (Pl. die Wörter) = kelime
+Was für eine Art von Job suchst du? | der Job = iş
+Mir gefällt die ruhige Art meiner neuen Kollegin. | ruhig = sakin; die Kollegin = iş arkadaşı (kadın)
+Das Einwohnermeldeamt ist am Mittwochnachmittag geschlossen. | geschlossen = kapalı
+Beim Einwohnermeldeamt musste ich fast zwei Stunden warten. | fast = neredeyse
+Die Meldebescheinigung bekommst du direkt beim Einwohnermeldeamt. | die Meldebescheinigung = ikamet (adres kayıt) belgesi; direkt = doğrudan
+Ich habe in der Praxis angerufen und einen Termin für Dienstag bekommen. | anrufen = telefon etmek; der Termin = randevu
+In der Praxis war das Wartezimmer total voll. | das Wartezimmer = bekleme odası; total = tamamen
+Ich suche eine Praxis in der Nähe, die auch abends geöffnet hat. | in der Nähe = yakında; geöffnet = açık
+An das feuchte Klima hier habe ich mich noch nicht gewöhnt. | feucht = nemli; sich gewöhnen an = -e alışmak
+Für Oliven ist das Klima in Deutschland zu kalt. | die Olive = zeytin
+Viele Menschen demonstrieren für den Schutz des Klimas. | demonstrieren = gösteri yapmak; der Schutz = koruma
+Häng die Wäsche lieber draußen auf, da wird sie schneller trocken. | aufhängen = asmak; die Wäsche = çamaşır; draußen = dışarıda
+Ich habe sehr trockene Haut, deshalb brauche ich im Winter eine gute Creme. | die Haut = cilt; die Creme = krem
+Der Kuchen ist leider etwas trocken geworden. | der Kuchen = kek, pasta
+Ist dir kalt? Soll ich das Fenster zumachen? | zumachen = kapatmak
+Das Essen ist schon kalt, ich mache es noch einmal warm. | warm machen = ısıtmak
+Im Wohnheim gibt es morgens oft nur kaltes Wasser. | das Wohnheim = öğrenci yurdu
+Mein Zug hatte Verspätung, und der Anschlusszug hatte ebenfalls Verspätung. | die Verspätung = gecikme, rötar; der Anschlusszug = aktarma treni
+Frau Schulz ist heute krank, Herr Becker fehlt ebenfalls. | fehlen = (orada) olmamak, eksik olmak
+Ich habe die Prüfung bestanden, und meine Freundin hat sie ebenfalls bestanden. | bestehen = (sınavı) geçmek
+Ich habe mein Visum bei der deutschen Botschaft in Ankara beantragt. | die Botschaft = büyükelçilik; beantragen = başvurmak
+Ohne gültiges Visum dürfen Sie nicht einreisen. | gültig = geçerli; einreisen = ülkeye girmek
+Die Ausländerbehörde hat mein Visum um ein Jahr verlängert. | die Ausländerbehörde = yabancılar dairesi; verlängern = uzatmak
+Für die Stelle sind fließende Englischkenntnisse erforderlich. | die Stelle = iş, kadro; die Englischkenntnisse = İngilizce bilgisi; erforderlich = gerekli
+Er liest schon ziemlich fließend, obwohl er erst sechs ist. | ziemlich = oldukça; obwohl = -e rağmen; erst = daha, henüz
+In meinem Lebenslauf habe ich geschrieben, dass ich fließend Türkisch und Englisch spreche. | der Lebenslauf = özgeçmiş
+Wenn das Handy kaputtgeht, können Sie sich an unseren Service wenden. | kaputtgehen = bozulmak; sich wenden an = -e başvurmak
+Für diesen Service müssen Sie extra bezahlen. | extra = ayrıca
+Die Bahn bietet einen kostenlosen Service für Reisende mit Rollstuhl an. | die Bahn = demiryolu; anbieten = sunmak; kostenlos = ücretsiz; der Reisende = yolcu; der Rollstuhl = tekerlekli sandalye
+Man muss alle Menschen mit Respekt behandeln. | behandeln = davranmak
+Ich finde, dass der Chef keinen Respekt vor seinen Mitarbeitern hat. | der Chef = şef, patron; der Mitarbeiter = çalışan
+Aus Respekt vor den Nachbarn machen wir nach 22 Uhr keine laute Musik. | der Nachbar = komşu; laut = yüksek sesli
+Das Zusammenleben mit meinem Freund ist schwieriger, als ich dachte. | schwierig = zor; dachte = düşündüm (denken)
+Der Kurs informiert über das Zusammenleben in Deutschland. | informieren über = hakkında bilgi vermek
+Viele Vereine engagieren sich für das friedliche Zusammenleben der Kulturen. | der Verein = dernek; sich engagieren für = için çalışmak, emek vermek; friedlich = barışçıl; die Kultur = kültür
+Die Feuerwehr hat die Katze vom Baum geholt. | die Katze = kedi; der Baum = ağaç; holen = almak, getirmek
+Wegen eines Brandes in der Küche musste die Feuerwehr kommen. | der Brand = yangın; die Küche = mutfak
+Mein Cousin arbeitet seit fünf Jahren bei der Feuerwehr. | der Cousin = kuzen
+Im Sprachcafé gibt es Patenschaften für neue Studierende aus dem Ausland. | das Sprachcafé = dil kafesi; die Studierenden = öğrenciler; das Ausland = yurt dışı
+Durch die Patenschaft habe ich eine deutsche Familie kennengelernt. | durch = sayesinde; kennenlernen = tanışmak
+Meine Patenschaft für den kleinen Ali macht mir viel Freude. | die Freude = sevinç, keyif
+Meine Mitbewohnerin meldet sich nächste Woche beim Einwohnermeldeamt ab, weil sie nach Spanien zieht. | die Mitbewohnerin = ev arkadaşı (kadın); das Einwohnermeldeamt = adres kayıt dairesi; ziehen = taşınmak
+Wir haben uns vom Sportkurs abgemeldet, weil er so spät am Abend stattfindet. | der Sportkurs = spor kursu; stattfinden = yapılmak, gerçekleşmek
+Wenn du nicht mitkommen kannst, melde dich bitte bis Mittwoch vom Ausflug ab. | mitkommen = birlikte gelmek; der Ausflug = gezi
+Die Wettervorhersage hat sich leider wieder geirrt. | sich irren = yanılmak
+Vor dem Ausflug schauen wir uns die Wettervorhersage im Internet an. | der Ausflug = gezi; sich etwas anschauen = -e bakmak
+Die Wettervorhersagen für das Wochenende sind sehr unterschiedlich. | unterschiedlich = farklı
+Meine Oma ist auf dem glatten Gehweg ausgerutscht. | der Gehweg = kaldırım; ausrutschen = kaymak
+Nach dem Bügeln ist das Hemd schön glatt. | bügeln = ütülemek; das Hemd = gömlek
+Die Fliesen im Bad sind sehr glatt, wenn sie nass sind. | die Fliese = fayans; das Bad = banyo; nass = ıslak
+Es schneit schon seit heute Morgen. | seit = -den beri
+Als ich ein Kind war, schneite es im Winter viel mehr. | als = -dığında
+Morgen soll es in ganz Norddeutschland schneien. | sollen = -mış (duyulan haber); ganz = bütün
+Ich bin dir dankbar für deine ehrliche Kritik. | dankbar = minnettar; ehrlich = dürüst
+In der Zeitung habe ich eine Kritik über den neuen Film gelesen. | die Zeitung = gazete
+Warum reagierst du so empfindlich auf Kritik? | reagieren auf = -e tepki vermek; empfindlich = alıngan, hassas
+Für den Nachtdienst bekommt er den doppelten Lohn. | der Nachtdienst = gece nöbeti; der Lohn = ücret
+Ich habe die Datei zur Sicherheit doppelt gespeichert. | die Datei = dosya; zur Sicherheit = güvenlik için; speichern = kaydetmek
+Dieser Kurs hat für dich einen doppelten Vorteil: Er ist billig und in der Nähe. | der Vorteil = avantaj; in der Nähe = yakında
+Der Vermieter hat mir die Kaution noch nicht zurückgezahlt. | die Kaution = depozito; zurückzahlen = geri ödemek
+Du brauchst die Erlaubnis des Vermieters, wenn du eine Katze haben willst. | die Erlaubnis = izin; die Katze = kedi
+Ich habe dem Vermieter wegen des Schimmels im Bad eine E-Mail geschrieben. | der Schimmel = küf; das Bad = banyo
+Nächsten Monat zieht eine neue Mitbewohnerin bei uns ein. | die Mitbewohnerin = ev arkadaşı (kadın)
+Nach der Hochzeit zogen sie in eine größere Wohnung ein. | die Hochzeit = düğün; größer = daha büyük
+Bevor wir einziehen, muss die Küche noch renoviert werden. | bevor = -meden önce; die Küche = mutfak; renovieren = yenilemek, tadilat yapmak
+Der Bürgermeister will entschlossen gegen die Wohnungsnot kämpfen. | der Bürgermeister = belediye başkanı; die Wohnungsnot = konut sıkıntısı; kämpfen gegen = -e karşı mücadele etmek
+Meine Schwester ist eine sehr entschlossene Frau: Was sie will, schafft sie auch. | schaffen = başarmak
+Kurz entschlossen sind wir am Wochenende nach Hamburg gefahren. | kurz entschlossen = ani bir kararla
+Im Moment gibt es so viele Anträge, dass die Bearbeitung drei Monate dauert. | im Moment = şu anda; die Bearbeitung = (dosyanın) işlenmesi; dauern = sürmek
+Für den Antrag brauchen Sie eine Kopie Ihres Passes. | die Kopie = kopya, fotokopi; der Pass = pasaport
+Ich habe einen Antrag auf Verlängerung meiner Aufenthaltserlaubnis gestellt. | einen Antrag stellen = başvuru yapmak; die Verlängerung = uzatma; die Aufenthaltserlaubnis = oturma izni
+Haben Sie meine Anmeldung bekommen? Ich habe noch keine Bestätigung erhalten. | die Anmeldung = kayıt; erhalten = almak
+Bitte bringen Sie die Bestätigung Ihres Arbeitgebers mit. | mitbringen = (yanında) getirmek; der Arbeitgeber = işveren
+Ich habe die Bestätigung für das Hotel ausgedruckt. | ausdrucken = yazıcıdan çıkarmak
+Wie viele Semester dauert dein Studium? | dauern = sürmek; das Studium = üniversite eğitimi
+Am Ende des Semesters schreiben wir drei Klausuren. | das Ende = son; die Klausur = yazılı sınav
+Letztes Semester habe ich neben dem Studium in einem Café gearbeitet. | neben = yanı sıra; das Studium = üniversite eğitimi
+Kann man in der Bibliothek auch Filme ausleihen? | ausleihen = ödünç almak
+Ohne Studentenausweis darfst du die Bibliothek nicht benutzen. | der Studentenausweis = öğrenci kartı; benutzen = kullanmak
+In unserem Stadtteil haben sie letztes Jahr zwei Bibliotheken geschlossen. | der Stadtteil = semt; schließen = kapatmak
+In der Mahnung steht, dass ich fünf Euro Gebühren zahlen muss. | die Gebühr = ücret, masraf
+Die Mahnung muss ein Fehler sein, ich habe die Rechnung schon bezahlt. | der Fehler = hata; die Rechnung = fatura
+Ich habe die Mahnung leider erst nach dem Urlaub gelesen. | erst = ancak; der Urlaub = tatil
+Bei der Kontrolle stellte der Mechaniker fest, dass die Bremsen kaputt waren. | die Kontrolle = kontrol; der Mechaniker = tamirci; die Bremse = fren
+Die Polizei konnte nicht feststellen, wer den Unfall verursacht hat. | der Unfall = kaza; verursachen = sebep olmak
+Ich stelle immer wieder fest, dass ich beim Sprechen die Artikel vergesse. | immer wieder = tekrar tekrar; der Artikel = artikel
+Um Missverständnisse zu vermeiden, schreibe ich dir alles noch einmal per E-Mail. | um … zu = -mek için; vermeiden = önlemek, kaçınmak
+Wir haben das Missverständnis schnell geklärt. | klären = açıklığa kavuşturmak, çözmek
+Wegen eines Missverständnisses hat der Handwerker am falschen Tag geklingelt. | der Handwerker = usta, zanaatkâr; klingeln = zili çalmak
+In vielen Ländern werden Minderheiten diskriminiert. | diskriminieren = ayrımcılık yapmak
+Nur eine kleine Minderheit hat gegen den Vorschlag gestimmt. | der Vorschlag = öneri; stimmen gegen = -e karşı oy vermek
+Die Rechte von Minderheiten sind durch das Gesetz geschützt. | das Recht = hak; das Gesetz = yasa; schützen = korumak
+Ich finanziere mein Zimmer in Bremen mit einem Minijob im Supermarkt. | der Minijob = mini iş (küçük yarı zamanlı iş)
+Das Projekt wird zur Hälfte von der EU finanziert. | das Projekt = proje; die Hälfte = yarı; die EU = AB
+Ohne Stipendium hätte ich das Studium nicht finanzieren können. | das Stipendium = burs; hätte … können = -ebilirdim
