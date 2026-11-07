@@ -3887,3 +3887,14 @@
 2026-11-07 17:25:30;gram;g:reflexiv:85;reflexiv/dat;ich / sehe / mir / heute Abend / einen Film / an;heute Abend sehe ich mir an einen Film;falsch;Ich sehe mir heute Abend einen Film an.;tur:akis | tür:ordnen | z:2 | dönüşlü zamir | kelime sırası | edat | groß/klein | sek:12
 2026-11-07 17:25:31;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:87 | dk:2 | yeni:0 | seviye+:0 | tekrar:9 | gram:1/2
 2026-11-07 17:25:44;art;n1372:art;der Wert;mit ___ Wert [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.66 | S:1.1 | hâl:Dat | sek:3
+2026-11-07 17:26:14;prod;w0165:prod;feucht;nemli;feucht;richtig;feucht;basamak:B2 | bicim:yaz | not:m4 | R:0.75 | S:4.6 | zor | sek:29 | ipucu:2 | ipucu-tür:tr
+2026-11-07 17:26:24;stamm;v173:stamm;dürfen;Früher _____ man hier nicht rauchen.;durfter;falsch;durfte;basamak:K | bicim:kokSatz | not:k1 | R:0.75 | S:0.6 | kök:dürfen | Präteritum: durfte | sek:5
+2026-11-07 17:26:28;yeni;v276;führen;tanıtım;;neu;"yönetmek; (birini bir yere) götürmek";basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-07 17:26:33;yeni;w0597;selbe;tanıtım;;neu;aynı (im selben Haus);basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-07 17:26:38;bed;v276:bed;führen;yönetmek;erfahren von;falsch;führen;basamak:B1 | bicim:sec | not:m1 | R:0.00 | S:0.2 | parti | şık:v278/v243/v215 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-07 17:26:40;erk;w0597:erk;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0320/w0315/w0051 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-07 17:26:45;gram;g:vergleich:86;vergleich/satz;Das Wetter war schöner, als die Leute im Radio ___. (sagen · Perfekt);gesagt;falsch;gesagt haben;tur:akis | tür:luecke | z:2 | kelime sırası | ghost:1 | sek:5
+2026-11-07 17:26:54;duy;n0781:duy-bosluk;die Mensa;Nach der Vorlesung gehen wir zusammen in die _____.;Mensa;richtig;Mensa;tür:bosluk | hız:0.9 | tekrar:0 | sek:5
+2026-11-07 17:27:32;abr;v276:abr;führen;"yönetmek; (birini bir yere) götürmek";führen;richtig;führen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | ikinci | hafıza:yazılmadı | sek:37 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:28:05;prod;w0597:prod;selbe;aynı (im selben Haus);selben;fast;selbe;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | çekim | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:28:09;hoer;hoer:z-s;Zeh/See;Zeh;See;falsch;Zeh;cift:Zeh/See | ses:Google Deutsch | dinleme:1 | sek:4 | kaynak:tur
