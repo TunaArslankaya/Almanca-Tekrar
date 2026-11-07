@@ -3869,3 +3869,21 @@
 2026-11-07 17:21:36;wort;x1563:wort;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrman;fast;der Feuerwehrmann;basamak:B2 | bicim:yaz0 | not:m2 | R:0.74 | S:3.3 | kurtarma | çekim | sek:18 | ipucu:0 | ipucu-tür:tr
 2026-11-07 17:22:07;akt;diktat:n0994;dinle–yaz;Diese Schmerztabletten gibt es nur auf Rezept.;Diese schmerz Tabletten gibt es nur auf Rezept;falsch;Diese Schmerztabletten gibt es nur auf Rezept.;fazla kelime | yanlış kelime | dikte:kelime
 2026-11-07 17:22:27;hoer;hoer:ch;Fichte/fischte;fischte;fischte;richtig;fischte;cift:Fichte/fischte | ses:Google Deutsch | dinleme:1 | sek:4 | kaynak:tur
+2026-11-07 17:23:46;gram;g:vergleich:90;vergleich/satz;Ich habe viel Arbeit erwartet. Es gab aber noch mehr Arbeit. → als;Es gab mehr Arbeit als ich erwartet habe.;richtig;Es gab mehr Arbeit, als ich erwartet habe.;tur:akis | tür:umform | z:2 | kaynaştırma | ghost:0 | öneri:fast | sek:68
+2026-11-07 17:23:54;art;n0207:art;die Burg;mit ___ Burg [Dat];dem;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.90 | S:0.7 | hâl:Dat | artikel dem → der | sek:2
+2026-11-07 17:23:54;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:1 | yanlış:4 | puan:85 | dk:5 | yeni:0 | seviye+:0 | tekrar:7 | gram:1/2
+2026-11-07 17:24:02;art;n1374:art;das Wetter;Ich habe Radio gehört. ___ Wetter soll schön werden. [Nom/Akk];Das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:1.9 | hâl:Nom/Akk | sek:7
+2026-11-07 17:24:05;abr;v347:abr;können;-ebilmek;können;richtig;können;basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:1.3 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:24:15;stamm;v157:stamm;bringen;Die Abendzeitung hat einen Bericht über den Unfall _____.;gebracht;richtig;gebracht;basamak:K | bicim:kokSatz | not:k3 | R:0.74 | S:2.7 | kök:bringen | sek:9
+2026-11-07 17:24:35;art;n0474:art;das Gewitter;ohne ___ Gewitter [Akk];die;falsch;das;basamak:A | bicim:artOb | not:a1 | R:0.88 | S:0.7 | hâl:Akk | artikel die → das | sek:6
+2026-11-07 17:24:35;leech;n0474;das Gewitter;fırtına (gök gürültülü);;takiliyor;;günler:2026-10-15,2026-10-31,2026-11-07
+2026-11-07 17:24:40;duy;n0830:duy-kelime;die Nachhilfe;ses: die Nachhilfe;özel ders;richtig;özel ders;tür:kelime | hız:0.9 | tekrar:0 | sek:5
+2026-11-07 17:24:48;gram;g:vergleich:6;vergleich/als-wie;Deutsch ist mehr schwer als Englisch.;schwer;richtig;Deutsch ist schwerer als Englisch.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:7
+2026-11-07 17:24:54;abr;v256:abr;feststellen;tespit etmek;feststellen;richtig;feststellen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:2.4 | kurtarma | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:24:59;art;n0552:art;der Humor;Humor;das;falsch;der Humor;basamak:A | bicim:artikel | not:a1 | R:0.63 | S:0.3 | artikel das → der | sek:2
+2026-11-07 17:25:02;art;n0933:art;der Professor;Professor;der;richtig;der Professor;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:-or | hafıza:yazılmadı | sek:1
+2026-11-07 17:25:04;art;n0242:art;der Direktor;Direktor;der;richtig;der Direktor;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:-or | hafıza:yazılmadı | sek:2
+2026-11-07 17:25:09;art;n0810:art;der Monitor;Monitor;die;falsch;der Monitor;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:-or | hafıza:yazılmadı | artikel die → der | sek:2
+2026-11-07 17:25:30;gram;g:reflexiv:85;reflexiv/dat;ich / sehe / mir / heute Abend / einen Film / an;heute Abend sehe ich mir an einen Film;falsch;Ich sehe mir heute Abend einen Film an.;tur:akis | tür:ordnen | z:2 | dönüşlü zamir | kelime sırası | edat | groß/klein | sek:12
+2026-11-07 17:25:31;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:87 | dk:2 | yeni:0 | seviye+:0 | tekrar:9 | gram:1/2
+2026-11-07 17:25:44;art;n1372:art;der Wert;mit ___ Wert [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.66 | S:1.1 | hâl:Dat | sek:3
