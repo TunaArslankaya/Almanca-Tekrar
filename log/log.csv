@@ -3859,3 +3859,13 @@
 2026-11-07 17:19:10;art;n0994:art;das Rezept;___ Rezept für den Kuchen habe ich von meiner Oma. [Nom/Akk];Das;richtig;Das;basamak:A | bicim:artOb | not:a3 | R:0.60 | S:0.3 | hâl:Nom/Akk | sek:5
 2026-11-07 17:19:21;prod;w0109:prod;drüben;karşıda, öte tarafta | Ich warte _____ vor der Bäckerei auf dich.;drüben;richtig;drüben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:0 | ipucu-tür:trcumle
 2026-11-07 17:19:21;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:115 | dk:2 | yeni:1 | seviye+:0 | tekrar:9 | gram:2/2
+2026-11-07 17:19:42;art;n0360:art;die Feuerwehr;wegen ___ Feuerwehr [Gen];des;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.70 | S:0.1 | hâl:Gen | artikel des → der | sek:5
+2026-11-07 17:19:48;stamm;v642:stamm;sich wenden an;wenden — Perfekt;gewendet;richtig;gewendet;basamak:K | bicim:kokSatz | not:k3 | R:0.65 | S:0.4 | kök:wenden | sek:6
+2026-11-07 17:19:54;bed;v481:bed;sorgen für;sorgen für;sağlamak;richtig;(bir şeyi) sağlamak;basamak:B1 | bicim:anla | not:m3 | R:0.74 | S:1.4 | şık:v262/v210/v129 | çeldirici:biçim/biçim/biçim | sek:6
+2026-11-07 17:20:03;art;x1561:art;die Not;In ___ Not helfen sich Nachbarn oft gegenseitig. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:2.0 | hâl:Dat | sek:8
+2026-11-07 17:20:06;ayir;w0119~w0117;eher ~ eben;daha çok, daha ziyade;eher;richtig;eher;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-07 17:20:33;gram;g:es-korrelat:113;es-korrelat/wegfall;Kursun iptal olmasına üzüldüm. (Dass … ile başla);Dass ich habe;falsch;Dass der Kurs ausgefallen ist, finde ich schade.;tur:akis | tür:ceviri | z:2 | kelime sırası | artikel/çekim | ghost:1 | sek:17
+2026-11-07 17:21:05;duy;n0248:duy-dikte;der Donner;Den Donner konnte man bis in die Bibliothek hören.;Den Donner konnte man bis in die Bibliothek hören;richtig;Den Donner konnte man bis in die Bibliothek hören.;tür:dikte | hız:0.9 | tekrar:4 | sek:32
+2026-11-07 17:21:36;wort;x1563:wort;der Feuerwehrmann;itfaiyeci (çoğul ayrıca: die Feuerwehrleute);der Feuerwehrman;fast;der Feuerwehrmann;basamak:B2 | bicim:yaz0 | not:m2 | R:0.74 | S:3.3 | kurtarma | çekim | sek:18 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:22:07;akt;diktat:n0994;dinle–yaz;Diese Schmerztabletten gibt es nur auf Rezept.;Diese schmerz Tabletten gibt es nur auf Rezept;falsch;Diese Schmerztabletten gibt es nur auf Rezept.;fazla kelime | yanlış kelime | dikte:kelime
+2026-11-07 17:22:27;hoer;hoer:ch;Fichte/fischte;fischte;fischte;richtig;fischte;cift:Fichte/fischte | ses:Google Deutsch | dinleme:1 | sek:4 | kaynak:tur
