@@ -3898,3 +3898,23 @@
 2026-11-07 17:27:32;abr;v276:abr;führen;"yönetmek; (birini bir yere) götürmek";führen;richtig;führen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | ikinci | hafıza:yazılmadı | sek:37 | ipucu:0 | ipucu-tür:tr
 2026-11-07 17:28:05;prod;w0597:prod;selbe;aynı (im selben Haus);selben;fast;selbe;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | çekim | sek:2 | ipucu:0 | ipucu-tür:tr
 2026-11-07 17:28:09;hoer;hoer:z-s;Zeh/See;Zeh;See;falsch;Zeh;cift:Zeh/See | ses:Google Deutsch | dinleme:1 | sek:4 | kaynak:tur
+2026-11-07 17:29:59;gram;g:es-korrelat:139;es-korrelat/wegfall;Es ärgert mich, dass der Bus so spät kommt. → Dass …;Dass der Bus so spät kommt, ärgert es mich;falsch;Dass der Bus so spät kommt, ärgert mich.;tur:akis | tür:umform | z:2 | kelime sırası | farklı | ghost:1 | sek:98
+2026-11-07 17:30:18;prod;w0056:prod;bereit;hazır;bereit;richtig;bereit;basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:8.1 | kurtarma | sek:19 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:30:18;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:1 | yanlış:5 | puan:73 | dk:5 | yeni:2 | seviye+:2 | tekrar:4 | gram:0/2
+2026-11-07 17:30:23;art;n1303:art;der Verein;wegen ___ Vereins [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.66 | S:0.4 | hâl:Gen | sek:4
+2026-11-07 17:30:32;wort;n0991:wort;der Respekt;saygı;das Respekt;fast;der Respekt;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.75 | S:8.1 | artikel das → der | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:30:39;prod;w0026:prod;anwesend;orada bulunan, hazır;allerding;falsch;anwesend;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.4 | düzeltti | farklı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:30:45;yeni;n0436;das Gefühl;tanıtım;;neu;duygu, his;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-11-07 17:30:55;yeni;w0227;häufig;tanıtım;;neu;sık;basamak:B0 | bicim:tanit | not:- | parti | sek:10
+2026-11-07 17:30:57;erk;w0227:erk;häufig;sık;häufig;richtig;häufig;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0095/w0056/w0186 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-07 17:31:00;erk;n0436:erk;das Gefühl;duygu, his;das Gefühl;richtig;das Gefühl;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0429/n0434/n0435 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-07 17:31:05;gram;g:vergleich:57;vergleich/als-wie;Mein Handy ist genauso alt ___ deins.;wie;richtig;wie;tur:akis | tür:luecke | z:2 | ghost:0 | sek:4
+2026-11-07 17:31:13;prod;w0026:prod;anwesend;orada bulunan, hazır | Im Deutschkurs muss man mindestens 80 Prozent der Zeit _____ sein.;anwesend;richtig;anwesend;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-07 17:31:19;prod;w0227:prod;häufig;sık;häufig;richtig;häufig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:31:24;wort;n0436:wort;das Gefühl;duygu, his;gefühl;fast;das Gefühl;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | artikel eksik | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:31:32;duy;x1504:duy-dikte;die Behauptung;Ich verstehe deine Behauptung nicht.;Ich verstehe deine Behauptung nicht;richtig;Ich verstehe deine Behauptung nicht.;tür:dikte | hız:0.9 | tekrar:0 | sek:9
+2026-11-07 17:31:40;gram;g:reflexiv:36;reflexiv/dat;Ich muss ___ das Video noch einmal ansehen.;mich;falsch;mir;tur:akis | tür:luecke | z:2 | dönüşlü zamir | ghost:1 | sek:6
+2026-11-07 17:32:19;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichbereitgung;falsch;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.4 | kurtarma | düzeltti | kelime yanlış | sek:12 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:32:19;leech;x1551;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);;takiliyor;;günler:2026-10-18,2026-10-19,2026-11-07
+2026-11-07 17:32:24;abr;v646:abr;widersprechen;(birine) itiraz etmek, karşı çıkmak;widersprechen;richtig;widersprechen (Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.95 | S:47.8 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:32:31;art;n1003:art;der Roman;Roman;das;falsch;der Roman;basamak:A | bicim:artikel | not:a1 | R:0.67 | S:0.5 | artikel das → der | sek:2
