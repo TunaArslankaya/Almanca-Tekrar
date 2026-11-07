@@ -3,8 +3,10 @@
 // Ayarlar'da "Sesli sorular" (varsayılan açık) / "Ses hızı" / "Almanca ses" · ot.sesVar (sec sarmalayıcısı) · ses yuvası (Kern.sec'ten bağımsız
 // __tekrar.sesAc ile): duy-kelime (yazı gizli, şıklar sesten sonra; doğru → kendiliğinden geçer), duy-bosluk, duy-dikte (hâl hatası yazım sayılmaz),
 // Bilmiyorum, log satırları (modus duy, id <öğe>:duy-…, notiz tür / hız / tekrar / sek), öğe hafızası değişmez, tur sayacı ilerler ·
-// Kern.sec { tur:'ses' } verince zeige() dalı (Kern.sec geçici sarmalayıcıyla) ve Konus yoksa yuvanın atlanması · eski dikte (metin etkinliği)
-// G.cumleKontrol ile · Okuma'da Dinleme modu (4 adım, boşluk puanı, log lesen <metin>:dinle) · etkileşimli öğeler ≥ 48 px · sayfa hatası 0.
+// Kern.sec { tur:'ses' } verince zeige() dalı (Kern.sec geçici sarmalayıcıyla): Almanca ses yokken hoer yuvası duy'a düşer · eski dikte (metin etkinliği)
+// G.cumleKontrol ile · Okuma'da Dinleme modu (4 adım, boşluk puanı, log lesen <metin>:dinle) · duy-seç (hoer, sahte iki Almanca TTS sesiyle: doğru / yanlış,
+// S.hoer sayımı, log hoer;hoer:<kontrast>, yanlışta kanca, hafıza değişmez; 7.11'de e2e_konus.js'ten taşındı) · konuşma kalıntısı yok (window.Konus, Bugün kartı,
+// Diğer satırı, Prüfung Sprechen) · etkileşimli öğeler ≥ 48 px · sayfa hatası 0.
 const D = require('./surucu');
 
 const fehler = [];
@@ -120,14 +122,14 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   }
   if (await hafiza() !== h0) hata('hafıza', 'ses yuvası öğe hafızasına yazdı');
 
-  // ---- Kern.sec { tur:'ses' } → zeige() dalı (geçici sarmalayıcı); Konus yoksa soyle yuvası atlanır ----
+  // ---- Kern.sec { tur:'ses' } → zeige() dalı (geçici sarmalayıcı); Almanca ses yokken hoer yuvası duy'a düşer ----
   await p.evaluate(() => {
     const K = window.Kern, orig = K.sec;
     window.__kernOrig = orig;
     K.sec = (S, o, t, r) => {
       if (o.sesVar === true && !o.sesYok) {
         if ((o.adim || 0) >= 1 && !o.__duy) { o.__duy = 1; return { tur: 'ses', alt: 'duy', kaynak: 'ses' }; }
-        if ((o.adim || 0) >= 3 && !o.__soyle) { o.__soyle = 1; return { tur: 'ses', alt: 'soyle', kaynak: 'ses' }; }
+        if ((o.adim || 0) >= 3 && !o.__hoer) { o.__hoer = 1; return { tur: 'ses', alt: 'hoer', kaynak: 'ses' }; }
       }
       return orig(S, o, t, r);
     };
@@ -137,9 +139,7 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   const adlar = [];
   for (let i = 0; i < 16; i++) { const r = await D.adim(p, { dogru: 1 }); adlar.push(r.ad); if (r.ad === 'leer' || r.ad === 'turSonu' || /^bilinmeyen/.test(r.ad) || (adlar.includes('ses') && adlar.length - adlar.indexOf('ses') > 3)) break; }
   if (!adlar.includes('ses')) hata('Kern dalı', 'Kern.sec ses verdi ama ses sorusu gelmedi: ' + adlar.join(' '));
-  const konus = await p.evaluate(() => !!window.Konus);
-  const yok = await p.evaluate(() => !!window.__tekrar.ot.sesYok);
-  if (!konus && !yok) hata('Kern dalı', 'Konus yokken soyle yuvası atlanmadı (ot.sesYok)');
+  if (adlar.filter(a => a === 'ses').length < 2 && !(await p.evaluate(() => Dinle.hoerVar()))) hata('Kern dalı', 'Almanca ses yokken hoer yuvası duy\'a düşmedi: ' + adlar.join(' '));
   if (adlar.some(a => /^bilinmeyen/.test(a))) hata('Kern dalı', 'sürücü tanımadı: ' + adlar.join(' '));
   await p.evaluate(() => { window.Kern.sec = window.__kernOrig; });
 
@@ -189,6 +189,55 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
       if ((await typ(p)) !== 'lesen') hata('dinleme modu', 'Okumaya dönmedi');
     }
   }
+
+  // ---- duy-seç (hoer): sahte TTS (iki Almanca ses, okuma ~40 ms) ----
+  await p.evaluate(() => {
+    const V = [{ name: 'Test Deutsch A', lang: 'de-DE', localService: true, default: false, voiceURI: 'a' }, { name: 'Test Deutsch B', lang: 'de-DE', localService: true, default: false, voiceURI: 'b' }];
+    window.__okunan = [];
+    const ss = { getVoices: () => V, speaking: false, pending: false, cancel() {}, pause() {}, resume() {}, addEventListener() {}, removeEventListener() {},
+      speak(u) { window.__okunan.push(u.text); setTimeout(() => { if (u.onstart) u.onstart(); setTimeout(() => { if (u.onend) u.onend(); }, 40); }, 10); } };
+    Object.defineProperty(window, 'speechSynthesis', { value: ss, configurable: true });
+    window.SpeechSynthesisUtterance = function (t) { this.text = t; this.lang = ''; this.rate = 1; this.voice = null; };
+    window.__tekrar.starte('akis', 12);
+  });
+  await p.waitForTimeout(200);
+  if (!(await p.evaluate(() => Dinle.hoerVar()))) hata('hoer', 'sahte Almanca sesle hoerVar false');
+  for (const dogruMu of [true, false]) {
+    const h0h = await hafiza();
+    const h = await p.evaluate(() => {
+      const T = window.__tekrar; if (!T.sesAc('hoer')) return null;
+      const a = T.aktuell, m = a.soru.veri, st = (T.S.hoer || {})[m.k] || {};
+      return { typ: a.typ, alt: a.alt, k: m.k, dogru: m.dogru, d0: st.d || 0, y0: st.y || 0, n0: T.tur.n, sik: document.querySelectorAll('#kart [data-hr-sik]').length };
+    });
+    if (!h) { hata('hoer', 'soru açılmadı'); break; }
+    if (h.typ !== 'sesTur' || h.alt !== 'hoer') hata('hoer', 'aktuell ' + JSON.stringify(h));
+    if (h.sik !== 2) hata('hoer', `şık sayısı ${h.sik}`);
+    await p.waitForTimeout(120);
+    if (!(await p.evaluate(() => window.__okunan.length > 0))) hata('hoer', 'kelime okunmadı');
+    if (dogruMu) await p.keyboard.press(String(h.dogru + 1));
+    else await p.click(`#kart [data-hr-sik="${1 - h.dogru}"]`);
+    await p.waitForTimeout(150);
+    const r = await p.evaluate(k => { const T = window.__tekrar; return { st: T.S.hoer[k], n: T.tur.n, wartet: !!(T.aktuell && T.aktuell.wartet), kanca: !!document.querySelector('#kart .hr-kanca'), devam: !!document.querySelector('#kart .devam-btn') }; }, h.k);
+    if (dogruMu ? r.st.d !== h.d0 + 1 : r.st.y !== h.y0 + 1) hata('hoer', 'S.hoer sayımı ' + JSON.stringify(r.st));
+    if (r.n !== h.n0 + 1) hata('hoer', `tur sayacı ${h.n0} → ${r.n}`);
+    if (!dogruMu && h.k !== 'vurgu' && !r.kanca) hata('hoer', 'yanlışta kanca yok');
+    const e = await sonLog(p);
+    if (!e || e.modus !== 'hoer' || e.id !== 'hoer:' + h.k || e.ergebnis !== (dogruMu ? 'richtig' : 'falsch') || !/^cift:.+ \| ses:Test Deutsch [AB] \| dinleme:\d+ \| sek:\d+ \| kaynak:tur$/.test(e.notiz)) hata('hoer', 'log ' + JSON.stringify(e));
+    if (await hafiza() !== h0h) hata('hoer', 'öğe hafızasına yazdı');
+    if (!dogruMu) { await p.waitForTimeout(800); await p.keyboard.press('Enter'); }
+    await bekleTyp(p, 'sesTur', 3000);
+  }
+
+  // ---- konuşma kalıntısı yok (7.11) ----
+  if (await p.evaluate(() => 'Konus' in window)) hata('konuşma', 'window.Konus hâlâ var');
+  await p.keyboard.press('Escape'); await p.waitForTimeout(150);
+  await p.click('.alt-nav [data-v="ana"]'); await p.waitForTimeout(150);
+  if (/data-kn-ana|2 dk konuş/.test(await p.evaluate(() => document.querySelector('#v-ana').innerHTML))) hata('konuşma', 'Bugün\'de "2 dk konuş" kartı var');
+  await p.click('.alt-nav [data-v="diger"]'); await p.waitForTimeout(150);
+  if (/Konuşma/.test(await p.evaluate(() => document.querySelector('#diger').innerText))) hata('konuşma', 'Diğer\'de Konuşma satırı var');
+  await p.evaluate(() => window.__tekrar.starte('pruefung')); await p.waitForTimeout(150);
+  const pr = await p.evaluate(() => document.querySelector('#kart').innerHTML);
+  if (/data-p="sprechen"|Sprechen/.test(pr)) hata('konuşma', 'Prüfung\'da Sprechen kartı / taktiği var');
 
   if (p.hatalar.length) hata('sayfa', p.hatalar.slice(0, 5).join(' | '));
   await b.close();

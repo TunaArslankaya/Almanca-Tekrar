@@ -1073,11 +1073,11 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   ok(!ses(d({ adim: 7, sesVar: true })), 'ses: pencere dışı (7) yok');
   const gec = (n, at) => Array.from({ length: n }, (_, i) => at.includes(i) ? { tur: 'ses', alt: 'duy', a: i } : { id: 'x' + i, tur: 'm' });
   ok(!ses(d({ adim: 5, sesVar: true, gecmis: gec(5, [4]) })), 'ses: pencerede tek');
+  // 7.11: konuşma kaldırıldı → ikinci yuva her gün hoer (duy-seç; uygulama hoer yoksa duy sorar)
   const cift = new Date(2026, 9, 16, 19, 0).getTime(), tek = new Date(2026, 9, 15, 19, 0).getTime();
-  const gn = t => Math.round(new Date(K.gun4(t) + 'T12:00:00').getTime() / DAY) % 2;
-  const s9c = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, gn(cift) === 0 ? cift : tek), s9t = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, gn(cift) === 0 ? tek : cift);
-  ok(ses(s9c) && s9c.alt === 'soyle', 'ses: ikinci yuva çift günde soyle', s9c);
-  ok(ses(s9t) && s9t.alt === 'hoer', 'ses: ikinci yuva tek günde hoer', s9t);
+  const s9c = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, cift), s9t = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, tek);
+  ok(ses(s9c) && s9c.alt === 'hoer', 'ses: ikinci yuva hoer (gün 1)', s9c);
+  ok(ses(s9t) && s9t.alt === 'hoer', 'ses: ikinci yuva hoer (gün 2)', s9t);
   const s9i = d({ adim: 9, sesVar: true, gecmis: gec(9, []) });
   ok(ses(s9i) && s9i.alt === 'duy', 'ses: ilk yuva kaçtıysa turun ilk ses sorusu duy', s9i);
   ok(!ses(d({ adim: 11, sesVar: true, gecmis: gec(11, [4, 9]) })), 'ses: turda en çok 2');
@@ -1110,7 +1110,7 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
       K.uygula(S, s.id, s.tur === 'art' ? K.notVer({ bicim: s.bicim, tip: 'flas', dogru: true, sure: 2000 }) : K.notVer({ bicim: s.bicim, tip: 'dogru', sure: 3000 }), t, { b: s.b });
       K.oturumIsle(o, s, { ergebnis: 'richtig' }, rnd); dz.push(s.id);
     }
-    eq(dz.filter(x => /@/.test(x)).map(x => x.replace(/:(soyle|hoer)/, ':2')).join(' '), 'ses:duy@4 gram@5 ses:2@9 gram@10', 'tam tur: ses 4 / 9, gram 5 / 10');
+    eq(dz.filter(x => /@/.test(x)).join(' '), 'ses:duy@4 gram@5 ses:hoer@9 gram@10', 'tam tur: ses 4 / 9, gram 5 / 10');
     eq(dz.length, 12, 'tam tur: ses + gram tur boyuna sayılır');
   }
 }
@@ -1187,7 +1187,7 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(r.kontext.n1.map(e => e.s).join(','), 'B,A,C', 'birleştirme: cümle geçmişi öğe başına birleşir (zaman sırası)');
   eq(!!r.kontext.n2, true, 'birleştirme: uzaktaki cümle geçmişi kalır');
   eq([r.hoer.ch.d, r.hoer.ch.y, !!r.hoer.er].join(), '3,4,true', 'birleştirme: duy-seç sayaçları kontrast başına büyük olan');
-  eq(Object.keys(r.konus.son).sort().join(), 'x,y', 'birleştirme: konuşma durumu anahtar başına');
+  eq(Object.keys(r.konus.son).sort().join(), 'x,y', 'birleştirme: eski konuşma kaydı (S.konus, 7.11 kaldırıldı) hatasız taşınır');
 }
 
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);

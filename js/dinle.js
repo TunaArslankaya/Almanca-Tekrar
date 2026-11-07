@@ -1,5 +1,5 @@
-// Dinleme (6.11; sözleşme S2): turdaki ses yuvası 'duy' ve Okuma'da DW "Dinleme modu". Uygulamaya Dinle.init(api) ile bağlı.
-// Tur yuvası: uygulama (js/app.js sesTurFrage) Kern.sec { tur:'ses', alt:'duy' } verince Dinle.turSorusu(api, sel) çağırır → soru nesnesi
+// Dinleme (6.11; sözleşme S2): turdaki ses yuvası 'duy' / 'hoer' (duy-seç) ve Okuma'da DW "Dinleme modu". Uygulamaya Dinle.init(api) ile bağlı.
+// Tur yuvası: uygulama (js/app.js sesTurFrage) Kern.sec { tur:'ses', alt:'duy' | 'hoer' } verince Dinle.turSorusu(api, sel) çağırır → soru nesnesi
 // { id, tur, render(kartEl, bitti), tus(e), klick(e), test(dogru) } ya da null (yuva atlanır). Soru kendini çizer, notu verir, log satırını yazar
 // ve bitti({ urteil, antwort }) ile döner; sayaç / puan / oturumIsle / Devam uygulamanın. Öğe hafızasına YAZMAZ.
 // duy türleri (bildiği kelimeler: m.S ≥ 1):
@@ -7,6 +7,9 @@
 //   bosluk  cümle tam okunur, ekranda boşluklu; duyduğu çekimli biçimi yazar (G.bosPruef)
 //   dikte   bildiği kelimenin cümlesi dinlenip yazılır (diktePruef: G.cumleKontrol; hâl / çekim / yanlış kelime yazım sayılmaz)
 // Log: modus duy, id <öğe>:duy-kelime|duy-bosluk|duy-dikte, notiz `tür:kelime | hız:0.9 | tekrar:N | sek:N` (+ etiketler, dikte:ek|işlev|kelime).
+// hoer (duy-seç; 7.11'de js/konus.js'ten taşındı, konuşma kaldırıldı): minimal çift / vurgu (daten/minimalpaare.js); TTS iki kelimeden birini okur
+// (her soruda başka Almanca ses), hangisi duyuldu; sistem notlar. Almanca ses ya da çift yoksa null (uygulama duy sorar). S.hoer[kontrast] = { d, y, t },
+// son 40 madde S.dinle.hoerSon. Log modus hoer, id hoer:<kontrast>, notiz `cift:a/b | ses:<ad> | dinleme:N | sek:N | kaynak:tur`.
 // Dinleme modu (Okuma, ses adresi olan DW metni): tahmin (başlık + 3 anahtar kelime) → metinsiz dinle → boşluklu metin (bildiği + B1 kelimeleri)
 // → metinle dinle; hız 0,75 / 1,0; 5 sn geri. Log modus lesen, id <metin>:dinle, ergebnis gelesen, notiz `puan:x/y | hız:… | geri:N | dk:N`.
 (function (root) {
@@ -265,12 +268,130 @@
     return q;
   }
 
+  // ---------- (d) duy-seç: minimal çift / vurgu ----------
+  const MP = () => root.MINIMALPAARE || { kontrast: {}, ciftler: [], vurgu: [] };
+  const ARTRE = /^(der|die|das) /;
+  const ttsVar = () => !!(root.speechSynthesis && root.SpeechSynthesisUtterance);
+  const deSesler = () => { try { return ttsVar() ? root.speechSynthesis.getVoices().filter(v => /^de/i.test(v.lang)) : []; } catch (e) { return []; } };
+  const hoerVar = () => deSesler().length > 0 && (MP().ciftler.length + MP().vurgu.length) > 0;
+  const hoerSt = () => { const S = A.S(); return (S.hoer = S.hoer && typeof S.hoer === 'object' ? S.hoer : {}); };
+  const kontrastAd = k => ((MP().kontrast[k] || {}).ad || k);
+  function hoerMadde(x) {
+    const mp = MP();
+    if (x.tip === 'vurgu') {
+      const v = mp.vurgu[x.i], yanlis = v.v === v.h.length - 1 ? 0 : v.h.length - 1;
+      const yaz = j => v.h.map((h, i) => (i === j ? h.toUpperCase() : h)).join('·');
+      const d = { yaz: yaz(v.v), art: v.art, tr: v.tr }, w = { yaz: yaz(yanlis), art: v.art, tr: v.tr };
+      const ilk = Math.random() < 0.5;
+      return { k: 'vurgu', anahtar: 'v' + x.i, item: v.h.join('·'), ses: v.h.join(''), sec: ilk ? [d, w] : [w, d], dogru: ilk ? 0 : 1 };
+    }
+    const c = mp.ciftler[x.i], o = w => ({ yaz: w.replace(ARTRE, ''), art: (ARTRE.exec(w) || [])[1] || '' });
+    const a = Object.assign(o(c.a), { tr: c.ta }), b = Object.assign(o(c.b), { tr: c.tb }), d = Math.random() < 0.5 ? 0 : 1;
+    return { k: c.k, anahtar: 'c' + x.i, item: `${a.yaz}/${b.yaz}`, ses: (d ? b : a).yaz, sec: [a, b], dogru: d };
+  }
+  // en zayıf kontrast önce (az görülen öne), içinde son 40 soruda olmayan madde
+  function hoerSec() {
+    const mp = MP(), hs = hoerSt(), gr = {}, st = durum();
+    mp.ciftler.forEach((c, i) => (gr[c.k] = gr[c.k] || []).push({ tip: 'cift', i }));
+    if (mp.vurgu.length) gr.vurgu = mp.vurgu.map((v, i) => ({ tip: 'vurgu', i }));
+    const ks = Object.keys(gr); if (!ks.length) return null;
+    const puan = k => { const x = hs[k] || {}, n = (x.d || 0) + (x.y || 0); return ((x.d || 0) + 1) / (n + 2) - (n < 3 ? 0.3 : 0) + Math.random() * 0.35; };
+    const k = ks.map(x => [x, puan(x)]).sort((a, b) => a[1] - b[1])[0][0];
+    const son = st.hoerSon = Array.isArray(st.hoerSon) ? st.hoerSon : [];
+    let aday = gr[k].filter(x => !son.includes(x.tip[0] + x.i));
+    if (!aday.length) aday = gr[k];
+    const x = aday[Math.floor(Math.random() * aday.length)];
+    son.push(x.tip[0] + x.i); if (son.length > 40) son.splice(0, son.length - 40);
+    return hoerMadde(x);
+  }
+  // seçilen Almanca sesle okur (her soruda başka ses); bitince ya da zaman aşımında çözülür
+  function hoerOku(q, text) {
+    return new Promise(res => {
+      if (!ttsVar() || !text) { res(); return; }
+      let bitti = false, zt = null;
+      const u = new root.SpeechSynthesisUtterance(text);
+      const son = () => { if (bitti) return; bitti = true; clearTimeout(zt); res(); };
+      u.lang = 'de-DE'; u.rate = Math.min(hiz(), 0.95); if (q.ses) u.voice = q.ses;
+      u.onend = u.onerror = son;
+      zt = setTimeout(son, 2500 + text.length * 110 / u.rate);
+      try { root.speechSynthesis.cancel(); } catch (e) { /* yok */ }
+      setTimeout(() => { if (!bitti) { try { root.speechSynthesis.speak(u); } catch (e) { son(); } } }, 40);
+    });
+  }
+  function hoerSoru() {
+    if (!hoerVar()) return null;
+    const m = hoerSec(); if (!m) return null;
+    const q = { id: 'hoer:' + m.k, tur: 'hoer', veri: m, el: null, kok: null, bitti: null, dinleme: 0, start: 0, cevaplandi: false, ses: null };
+    const canli = () => !!(q.kok && q.kok.isConnected);
+    q.cal = () => { q.dinleme++; return hoerOku(q, m.ses); };
+    q.render = (el, bitti) => {
+      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now();
+      const l = deSesler(); q.ses = l.length ? l[Math.floor(Math.random() * l.length)] : null;
+      el.classList.add('duzen');
+      el.innerHTML = `<div class="q-ust dn-kart" data-dn-tur="hoer"><div class="tur"><span class="yeni">duy ve seç</span><span>${esc(kontrastAd(m.k))}</span></div>
+          <div class="soru">${m.k === 'vurgu' ? 'Vurgu hangi hecede?' : 'Hangisini duydun?'}</div>
+          <div class="dn-ses"><button class="btn buyuk dn-cal" data-dn="cal" type="button">🔊 Tekrar dinle <kbd>Boşluk</kbd></button></div></div>
+        <div class="q-alt" id="q-alt"><div class="dn-sik">${m.sec.map((o, i) => `<button class="dn-opt" data-hr-sik="${i}" type="button"><kbd>${i + 1}</kbd> <span class="hr-kelime">${o.art ? `<small class="hr-art">${esc(o.art)}</small> ` : ''}${esc(o.yaz)}</span></button>`).join('')}</div></div>
+        <div id="sonuc" class="sonuc-yer"></div>`;
+      q.kok = el.querySelector('[data-dn-tur="hoer"]');
+      q.cal();
+    };
+    q.sec = i => {
+      if (q.cevaplandi) return;
+      const o = m.sec[i]; if (!o) return;
+      q.cevaplandi = true;
+      const dogru = i === m.dogru, hs = hoerSt(), x = hs[m.k] = hs[m.k] || { d: 0, y: 0 }, urteil = dogru ? 'richtig' : 'falsch';
+      if (dogru) x.d = (x.d || 0) + 1; else x.y = (x.y || 0) + 1;
+      x.t = A.now();
+      A.logEintrag({ modus: 'hoer', id: 'hoer:' + m.k, item: m.item, frage: m.sec[m.dogru].yaz, antwort: o.yaz, ergebnis: urteil, loesung: m.sec[m.dogru].yaz,
+        notiz: `cift:${m.item} | ses:${q.ses ? q.ses.name : 'yok'} | dinleme:${q.dinleme} | sek:${Math.round((A.now() - q.start) / 1000)} | kaynak:tur` });
+      if (q.el) {
+        q.el.querySelectorAll('[data-hr-sik]').forEach((b, j) => { b.disabled = true; if (j === m.dogru) b.classList.add('dogru'); else if (j === i) b.classList.add('yanlis'); });
+        const yer = q.el.querySelector('#sonuc'), kanca = (MP().kontrast[m.k] || {}).kanca || '';
+        if (yer) yer.innerHTML = `<div class="sonuc ${urteil} dn-sonuc"><div class="baslik">${dogru ? '✓ Doğru' : `✗ Duyduğun: <b>${esc(m.sec[m.dogru].yaz)}</b>`}</div>
+          <div class="hr-ciftler">${m.sec.map((s2, j) => `<button class="btn mini" data-hr-kelime="${j}" type="button">🔊 ${s2.art ? esc(s2.art) + ' ' : ''}${esc(s2.yaz)} <span class="soluk">${esc(s2.tr || '')}</span></button>`).join('')}</div>
+          ${!dogru && kanca ? `<div class="hr-kanca">${esc(kanca)}</div>` : ''}</div>`;
+        q.el.classList.add('cevaplandi');
+      }
+      if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      A.save();
+      // yanlışta iki kelime art arda (vurguda doğru vurguyla bir kez daha)
+      if (!dogru) (async () => {
+        await new Promise(r => setTimeout(r, 250)); if (!canli()) return;
+        if (m.k === 'vurgu') { await hoerOku(q, m.ses); return; }
+        await hoerOku(q, m.sec[0].yaz); if (!canli()) return;
+        await new Promise(r => setTimeout(r, 350)); if (!canli()) return;
+        await hoerOku(q, m.sec[1].yaz);
+      })();
+      if (q.bitti) q.bitti({ urteil, antwort: o.yaz });
+    };
+    q.tus = e => {
+      if (q.cevaplandi || e.repeat) return false;
+      if (e.key === '1' || e.key === '2') { e.preventDefault(); q.sec(+e.key - 1); return true; }
+      if (e.key === ' ' || e.code === 'Space' || e.key === 'r') { e.preventDefault(); q.cal(); return true; }
+      return false;
+    };
+    q.klick = e => {
+      const k = e.target.closest('[data-hr-kelime]');
+      if (k) { const o = m.sec[+k.dataset.hrKelime]; if (o) hoerOku(q, m.k === 'vurgu' ? m.ses : o.yaz); return true; }
+      if (q.cevaplandi) return false;
+      const b = e.target.closest('[data-hr-sik]'); if (b) { q.sec(+b.dataset.hrSik); return true; }
+      if (e.target.closest('[data-dn="cal"]')) { q.cal(); return true; }
+      return false;
+    };
+    q.test = dogru => q.sec(dogru ? m.dogru : 1 - m.dogru);
+    q.cevap = () => m.dogru;
+    return q;
+  }
+
   // ---------- tur yuvası ----------
-  // tür sırası dönüşümlü (kelime → boşluk → dikte); seçilen türde aday yoksa sıradaki tür. sel.dinleTur (test) türü zorlar.
+  // sel.alt 'hoer' → duy-seç (yoksa null: uygulama duy sorar). duy: tür sırası dönüşümlü (kelime → boşluk → dikte);
+  // seçilen türde aday yoksa sıradaki tür. sel.dinleTur (test) türü zorlar.
   function turSorusu(api, sel) {
     if (api) A = api;
     if (!A) return null;
     sel = sel || {};
+    if (sel.alt === 'hoer') { try { return hoerSoru(); } catch (e) { console.warn('Dinle hoer', e); return null; } }
     const st = durum(), ad = adaylar();
     if (!ad.length) return null;
     const bas = (st.i || 0) % TURLER.length;
@@ -429,7 +550,7 @@
 
   const Dinle = {
     init(api) { A = api; },
-    turSorusu, diktePruef, farkHTML, modAc, modKlick, modTus,
+    turSorusu, diktePruef, farkHTML, modAc, modKlick, modTus, hoerVar,
     get mod() { return M; },
     modAcik: () => !!M,
     TURLER,

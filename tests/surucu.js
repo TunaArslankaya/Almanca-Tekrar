@@ -1,6 +1,6 @@
 // Ortak Playwright adım sürücüsü (tests/e2e_smoke.js, tests/sim_akis.js, tools/film.js): ekrandaki kartı tanır ve cevaplar.
 // Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer,
-// gram (turdaki gramer sorusu), ses (turdaki ses yuvası: duy / soyle / hoer).
+// gram (turdaki gramer sorusu), ses (turdaki ses yuvası: duy / hoer).
 // 6.11 (S5 / S6): seçmeli şıklar gizli (Enter ile açılır); yanlış / küçük hatada Devam 2,5 sn kilitli (Enter tekrarlanır);
 // yazma biçimlerinde yanlışta "doğrusunu bir kez yaz" kutusu doğru cevapla doldurulur; metinde yanlış boşlukların doğrusu yazılır; tanıtım kartı ≥ 4 sn (tıklama düğme açılınca).
 // Kullanım: const D = require('./surucu'); const b = await D.tarayici(); const p = await D.sayfa(b, { mobil: true, zustand }); await D.adim(p, { dogru: 0.8 });
@@ -117,7 +117,7 @@ async function adim(p, o) {
     for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'gramTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
     return { ad: 'gram', s };
   }
-  // turdaki ses sorusu (sözleşme S2: Dinle 'duy', Konus 'soyle' / 'hoer'): soru.test(dogru) varsa onunla (gerçek DOM cevabı), yoksa bitti; sonra Devam (Enter)
+  // turdaki ses sorusu (sözleşme S2: Dinle 'duy' / 'hoer'): soru.test(dogru) varsa onunla (gerçek DOM cevabı), yoksa bitti; sonra Devam (Enter)
   if (s.typ === 'sesTur') {
     await p.waitForTimeout(120);
     await p.evaluate(d => { const a = window.__tekrar.aktuell, so = a && a.soru; if (so && typeof so.test === 'function') so.test(d); else if (a && a.bitti) a.bitti({ urteil: d ? 'richtig' : 'falsch', antwort: 'test' }); }, dogruMu);

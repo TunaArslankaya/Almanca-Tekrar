@@ -25,6 +25,7 @@ Site: https://tunaarslankaya.github.io/Almanca-Tekrar/ (yeni sürüm gelmezse Ct
 | 31.10 | "10 alıştırma bile az, konuyu boylu boyuna çalışmak istiyorum" | Gramer 3208 → 6359 alıştırma, boylu boyuna (derin) mod |
 | 5.11 | "Aynı kelimeler geliyor, morgem hata veriyor, çekim hatasına bilmiyorsun diyor" | Kontrol adaleti: yazım / çekim / fazla artikel ayrıldı |
 | 6.11 | "B1.2'de kaldım, Sprechen kötü, şıklar kolay, cevabı ezberliyorum" | 10 araştırma ajanı → üretim merkezli tur, ses yuvası, Konuşma, Dinleme |
+| 7.11 | "Konuşma kısmı berbat, hepsini kaldır, ayrı uygulamadan çalışıyorum" | Konuşma kaldırıldı; duy-seç dinlemeye taşındı |
 
 ---
 
@@ -217,9 +218,16 @@ Site: https://tunaarslankaya.github.io/Almanca-Tekrar/ (yeni sürüm gelmezse Ct
 
 ### Testler (son koşu, hepsi geçti)
 
-`test_grammatik`, `test_kern` (665), `test_goc` (76), `test_dinle` (13), `e2e_smoke`, `e2e_ui`, `e2e_aksam`, `e2e_cumle`, `e2e_fiil_artikel`, `e2e_dinle`, `e2e_konus`, `e2e_ek`, `sim_akis`.
+`test_grammatik`, `test_kern` (665), `test_goc` (76), `test_dinle` (13), `e2e_smoke`, `e2e_ui`, `e2e_aksam`, `e2e_cumle`, `e2e_fiil_artikel`, `e2e_dinle`, `e2e_konus` (7.11'de kaldırıldı), `e2e_ek`, `sim_akis`.
 
 ---
+
+## 7.11 — Konuşma kaldırıldı
+
+- Tuna konuşmayı ayrı uygulamada çalışıyor: Konuşma bölümü (Kalıplar, Söyle, Shadowing, Teil 2 4/3/2, Teil 1 / 3, İlerleme, kayıt arşivi), turdaki "söyle" sorusu, mikrofon kodu, Bugün'deki "2 dk konuş" kartı ve Prüfung → Sprechen kaldırıldı (`js/konus.js`, `tests/e2e_konus.js` silindi).
+- Duy-seç (minimal çift / vurgu, log `hoer`) dinleme sorusu olarak `js/dinle.js`'e taşındı; turun ikinci ses sorusu artık her gün duy-seç (Almanca ses yoksa dinleme).
+- Sprint "Beceri" bloğunda konuşma günü yerine DW Dinleme modu.
+- Eski `sprechen` log satırları ve kayıtlı konuşma verisi dokunulmadan duruyor.
 
 ## Senin için öneriler (raporlardan)
 

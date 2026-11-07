@@ -552,10 +552,8 @@
   // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
   // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
   const ARA = 8, ART_TUR = 3, ZOR_TUR = 3, GRAM_ADIM = [5, 10];   // gramer sorusu: turun 1. ve 2. gramer adımı (S3)
-  // ses yuvası (6.11, sözleşme S1): pencere [4..6] → duy (dinleme), [9..11] → soyle / hoer (konuşma / ses ayırt etme)
+  // ses yuvası (6.11, sözleşme S1; 7.11 konuşma kaldırıldı): pencere [4..6] → duy (dinleme), [9..11] → hoer (duy-seç: minimal çift / vurgu)
   const SES_ADIM = [4, 9];
-  // öğrenme gününün sırası (ikinci ses yuvası: çift gün soyle, tek gün hoer)
-  const gunNo = t => Math.round(new Date(gun4(t) + 'T12:00:00').getTime() / DAY);
   // vadeli sırası (6.11, log-hafiza §8: en çok gecikenler R ≈ 0,66 ile haftalarca bekliyordu): R < 0,8 olan vadeliler en düşük R'den,
   // sonra kalanlar R azalan (eski sıra)
   const VAD_DUSUK = 0.8;
@@ -609,11 +607,11 @@
       if (ga != null && gi.length < GRAM_ADIM.length && !gi.some(i => i >= ga)) return { tur: 'gram', kaynak: 'gram' };
     }
     // 2c) ses yuvası (sözleşme S1): o.sesVar === true (uygulama: "Sesli sorular" açık, modül yüklü), o.sesYok değil (modül soru vermedi);
-    //     pencere [4..6] ve [9..11], pencere başına 1, turda en çok 2; turdaki ilk ses sorusu 'duy', ikincisi çift günde 'soyle', tek günde 'hoer'.
+    //     pencere [4..6] ve [9..11], pencere başına 1, turda en çok 2; turdaki ilk ses sorusu 'duy', ikincisi 'hoer' (uygulama: hoer yoksa duy).
     //     Klavyesiz / akşam / odak / momentum (art arda 2 yanlış) turunda yok. Cevap tur adımına sayılır, kuyruk / hafıza değişmez (oturumIsle).
     if (o.sesVar === true && !o.sesYok && !o.klavyesiz && !o.aksam && !o.odak && (o.yanlisSeri || 0) < 2) {
       const si = gecmis.reduce((a, x, i) => (x.tur === 'ses' ? a.concat(x.a != null ? x.a : i) : a), []), sa = SES_ADIM.find(a => adim >= a && adim <= a + 2);
-      if (sa != null && si.length < SES_ADIM.length && !si.some(i => i >= sa)) return { tur: 'ses', alt: si.length === 0 ? 'duy' : gunNo(t) % 2 === 0 ? 'soyle' : 'hoer', kaynak: 'ses' };
+      if (sa != null && si.length < SES_ADIM.length && !si.some(i => i >= sa)) return { tur: 'ses', alt: si.length === 0 ? 'duy' : 'hoer', kaynak: 'ses' };
     }
     const vad = vadeliler(S, t, o.filtre).filter(v => !yakin(v.id));
     const mVad = vad.filter(v => v.tur === 'm');
@@ -1000,7 +998,7 @@
       m.bilmedik = b;
     }
     // 6.11: cümle geçmişi öğe başına birleşir ({ s, t }; eski düz metin t 0), son 24; duy-seç sayaçları kontrast başına büyük olan;
-    // konuşma / dinleme durumu ve yazma ipucu türü anahtar başına (yerel önce)
+    // dinleme durumu (ve 7.11'de kaldırılan konuşmanın eski S.konus kaydı: dokunulmaz, yalnız taşınır) ve yazma ipucu türü anahtar başına (yerel önce)
     if (lok.kontext || uz.kontext) {
       const kx = Object.assign({}, uz.kontext), liste = a => (Array.isArray(a) ? a : a ? [a] : []).map(e => (typeof e === 'string' ? { s: e, t: 0 } : e)).filter(e => e && typeof e.s === 'string');
       Object.entries(lok.kontext || {}).forEach(([id, a]) => {

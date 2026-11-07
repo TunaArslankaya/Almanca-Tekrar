@@ -93,7 +93,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   if (await yatay(p) > 1) hata('ilerleme', 'yatay kaydırma');
   await p.click('.alt-nav [data-v="diger"]'); await p.waitForTimeout(200);
   const diger = await p.$eval('#diger', e => e.innerText);
-  ['Paketler', 'Fiil metni', 'Okuma', 'Yazma', 'Konuşma', 'Kalıplar', 'Artikel 60 sn', 'Gramer', 'Prüfung', 'Zayıflar', 'Serbest pratik', 'Geçmiş', 'Ayarlar'].forEach(x => { if (!diger.includes(x)) hata('diğer', `${x} yok`); });
+  ['Paketler', 'Fiil metni', 'Okuma', 'Yazma', 'Kalıplar', 'Artikel 60 sn', 'Gramer', 'Prüfung', 'Zayıflar', 'Serbest pratik', 'Geçmiş', 'Ayarlar'].forEach(x => { if (!diger.includes(x)) hata('diğer', `${x} yok`); });
   (await kucukler(p, '#v-diger')).forEach(x => hata('diğer ≥48', x));
   await p.click('#diger [data-git="ayar"]'); await p.waitForTimeout(200);
   if (!(await p.$eval('#v-ayar', e => !e.hidden))) hata('ayarlar', 'Diğer → Ayarlar açılmadı');

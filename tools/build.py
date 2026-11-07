@@ -1092,7 +1092,7 @@ for _gid, _g in grammatik.items():
 dump("grammatik.js", "GRAMMATIK", grammatik)
 print(f"gramer: {len(grammatik)} konu, {sum(len(g['uebungen']) for g in grammatik.values())} alıştırma")
 
-# Dinle ve ayırt et (js/konus.js "hoer"): quellen/minimalpaare.txt → daten/minimalpaare.js
+# Duy-seç (js/dinle.js "hoer"): quellen/minimalpaare.txt → daten/minimalpaare.js
 def minimalpaare_lesen():
     fp = P("quellen", "minimalpaare.txt")
     out = {"kontrast": {}, "ciftler": [], "vurgu": []}

@@ -436,3 +436,9 @@ Son incelenen log satırı: 2026-11-06 09:54:12 (tur akis).
 - Bilmiyorum: modalverben/praeteritum (gram) → 5 yeni alıştırma. Yoklamada bilinen yok (yeni: Regierung, mehrere ikinci hatırlamada doğru).
 - Yeni cümle: Regierung ×3, Währung ×3, einführen ×2 (DW KI metninden: Währung, einführen; diğer glossar kelimeleri B1 listesinde değil / kimlik emin değil, eklenmedi) + gloss.
 - Son incelenen log satırı: 2026-11-06 13:13:10 (gram modalverben).
+
+**2026-11-07 — konuşma kaldırıldı (Tuna: "konuşma kısmı berbat, hepsini kaldır, ayrı uygulamadan çalışıyorum")**
+- Silindi: `js/konus.js` (Konuşma bölümü: Kalıplar / Söyle / Shadowing / Teil 2 4/3/2 / Teil 1 / 3 / İlerleme, IndexedDB kayıt arşivi, mikrofon / MediaRecorder, turdaki `soyle`, Bugün "2 dk konuş" kartı), Prüfung Sprechen modülü ve taktik satırı, Diğer / Serbest pratik satırları, ilgili CSS, `tests/e2e_konus.js`.
+- Duy-seç (`hoer`) `js/dinle.js`'e taşındı; Kern ses yuvası: ilk `duy`, ikinci her gün `hoer` (yoksa `duy`). Sprint Beceri: konuşma günü → DW Dinleme modu.
+- Eski `sprechen` satırları ve `S.konus` kaydı dokunulmadan duruyor; `Kern.birlestir` eski alanı taşır. Log incelemesi yapılmadı.
+- Son incelenen log satırı: 2026-11-06 13:13:10 (gram modalverben) (değişmedi).
