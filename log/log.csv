@@ -3825,3 +3825,7 @@
 2026-11-06 13:12:57;wort;n1179:wort;die Tablette;tablet (ilaç);die Tablette;richtig;die Tablette;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:8.7 | sek:3 | ipucu:0 | ipucu-tür:tr
 2026-11-06 13:13:00;ayir;w0290~w0272;kühl ~ kalt;serin;kühl;richtig;kühl;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
 2026-11-06 13:13:10;gram;g:modalverben:56;modalverben/praeteritum;Früher durfte ich abends nicht allein ausgehen.;;falsch;Früher durfte ich abends nicht allein ausgehen.;tur:akis | tür:fehler | z:2 | zaman | bilmiyorum | sek:8
+2026-11-07 17:16:02;prod;w0213:prod;gleichzeitig;aynı anda;gleichzeitig;richtig;gleichzeitig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.96 | S:39.7 | ısınma | kapı:7g | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:16:08;wort;x1555:wort;die Würde;onur, (insan) haysiyeti;die Würde;richtig;die Würde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:38.1 | ısınma | kapı:7g | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:16:11;nsatz;n0037:nsatz;die Anmeldung;Die Frist für die _____ endet am 15. Januar.;Anmeldung;richtig;Anmeldung;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:61.5 | ısınma | sek:2 | ipucu:0
+2026-11-07 17:16:16;yeni;n0229;die Daten;tanıtım;;neu;veriler (çoğul);basamak:B0 | bicim:tanit | not:- | parti | sek:5
