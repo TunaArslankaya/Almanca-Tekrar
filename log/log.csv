@@ -3924,3 +3924,6 @@
 2026-11-07 17:34:50;sprechen;shadow:w0117;eben;Ich habe eben eine E-Mail von der Ausländerbehörde bekommen.;kayıt:yok;gemacht;Ich habe eben eine E-Mail von der Ausländerbehörde bekommen.;gecikme:yok | süre:0sn | model:4.8sn
 2026-11-07 17:35:42;sprechen;shadow:w0164;fett;Die Suppe im Restaurant war viel zu fett und salzig.;kayıt:yok;gemacht;Die Suppe im Restaurant war viel zu fett und salzig.;gecikme:yok | süre:0sn | model:4.3sn
 2026-11-07 17:40:02;sprechen;shadow:n0067;die Art;Seine Art gefällt mir nicht.;kayıt:yok;gemacht;Seine Art gefällt mir nicht.;gecikme:yok | süre:0sn | model:2.4sn
+2026-11-07 17:41:03;art;n0844:art;der Nebel;Wegen ___ dichten Nebels fahren die Züge heute langsamer. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.73 | S:3.2 | hâl:Gen | sek:3
+2026-11-07 17:41:09;wort;n0432:wort;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.75 | S:4.1 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-07 17:41:15;abr;v111:abr;sich bemühen um;(bir şey için) çabalamak;sich bemühen um;richtig;sich bemühen um (um + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:3.2 | sek:5 | ipucu:0 | ipucu-tür:tr
