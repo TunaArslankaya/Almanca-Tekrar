@@ -3918,3 +3918,5 @@
 2026-11-07 17:32:19;leech;x1551;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);;takiliyor;;günler:2026-10-18,2026-10-19,2026-11-07
 2026-11-07 17:32:24;abr;v646:abr;widersprechen;(birine) itiraz etmek, karşı çıkmak;widersprechen;richtig;widersprechen (Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.95 | S:47.8 | sek:4 | ipucu:0 | ipucu-tür:tr
 2026-11-07 17:32:31;art;n1003:art;der Roman;Roman;das;falsch;der Roman;basamak:A | bicim:artikel | not:a1 | R:0.67 | S:0.5 | artikel das → der | sek:2
+2026-11-07 17:33:06;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği) | Meine Großmutter sagt, dass es in ihrer Jugend kaum _____ gab.;die Gleichberichtigung;fast;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.4 | tekrar:1 | kısmi | yazım | sek:25 | ipucu:0 | ipucu-tür:trcumle
+2026-11-07 17:33:06;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:8 | küçük:3 | yanlış:4 | puan:101 | dk:3 | yeni:2 | seviye+:1 | tekrar:8 | gram:1/2
