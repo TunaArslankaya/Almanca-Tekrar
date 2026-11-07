@@ -5122,3 +5122,11 @@ Mein Wohnsitz ist seit Mai in Bremen. | seit = -den beri; der Mai = mayıs
 Sogar mein Bruder hat die Prüfung bestanden. | der Bruder = erkek kardeş; die Prüfung = sınav; bestehen = geçmek
 Mein Vater interessiert sich sehr für politische Themen. | der Vater = baba; sich interessieren für = ilgilenmek; das Thema = konu
 Mein Nachbar ist sehr zuverlässig: Er kommt immer pünktlich. | der Nachbar = komşu; pünktlich = zamanında; immer = hep
+Die Regierung will die Studiengebühren nicht erhöhen. | die Studiengebühr = harç; erhöhen = artırmak; wollen = istemek
+Die neue Regierung hat gestern ihr Programm vorgestellt. | das Programm = program; vorstellen = tanıtmak; gestern = dün
+Viele Menschen sind mit der Politik der Regierung nicht zufrieden. | die Politik = politika; zufrieden = memnun; der Mensch = insan
+In der Türkei ist die Währung die Lira, in Deutschland der Euro. | die Lira = lira; der Euro = avro; die Türkei = Türkiye
+Vor der Reise habe ich mich über die Währung im Urlaubsland informiert. | die Reise = seyahat; sich informieren = bilgi almak; das Urlaubsland = tatil ülkesi
+Wegen der Inflation verliert die Währung an Wert. | die Inflation = enflasyon; verlieren = kaybetmek; der Wert = değer
+Die Uni will nächstes Jahr ein neues Anmeldesystem einführen. | das Anmeldesystem = kayıt sistemi; nächstes Jahr = gelecek yıl; neu = yeni
+In Deutschland hat man den Mindestlohn 2015 eingeführt. | der Mindestlohn = asgari ücret; Deutschland = Almanya

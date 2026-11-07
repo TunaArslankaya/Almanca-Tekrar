@@ -3485,3 +3485,9 @@ n1389 | der Wohnsitz | Mein Wohnsitz ist seit Mai in Bremen. | İkametgâhım Ma
 w0445 | sogar | Sogar mein Bruder hat die Prüfung bestanden. | Kardeşim bile sınavı geçti.
 w0388 | politisch | Mein Vater interessiert sich sehr für politische Themen. | Babam siyasi konularla çok ilgileniyor.
 w0586 | zuverlässig | Mein Nachbar ist sehr zuverlässig: Er kommt immer pünktlich. | Komşum çok güvenilir: Hep zamanında geliyor.
+x1575 | die Regierung | Die Regierung will die Studiengebühren nicht erhöhen. | Hükümet harç ücretlerini artırmak istemiyor.
+x1575 | die Regierung | Die neue Regierung hat gestern ihr Programm vorgestellt. | Yeni hükümet dün programını tanıttı.
+x1575 | die Regierung | Viele Menschen sind mit der Politik der Regierung nicht zufrieden. | Birçok insan hükümetin politikasından memnun değil.
+x1582 | die Währung | In der Türkei ist die Währung die Lira, in Deutschland der Euro. | Türkiye'de para birimi lira, Almanya'da avro.
+x1582 | die Währung | Vor der Reise habe ich mich über die Währung im Urlaubsland informiert. | Seyahatten önce tatil ülkesinin para birimi hakkında bilgi aldım.
+x1582 | die Währung | Wegen der Inflation verliert die Währung an Wert. | Enflasyon yüzünden para birimi değer kaybediyor.

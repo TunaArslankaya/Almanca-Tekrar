@@ -53,5 +53,6 @@ window.KANCA = {
   n0055: "die Apotheke → Almanya'da her eczanenin kapısında kırmızı bir 'A' var: kırmızı = die; -e ile biten isimler çoğunlukla die; yazımı Apo-TH-eke",
   n0691: "die Kunst → können (yapabilmek) ile akraba: ustaca yapabilmek = sanat; müzedeki kırmızı (die) çerçeveli tablo; çoğulu die Künste",
   x1547: "die Toleranz → Türkçedeki 'tolerans'; yabancı kökenli -anz / -enz ile biten isimler die (die Distanz, die Konferenz), kırmızı",
+  n1375: "der Wetterbericht → Wetter (hava) + Bericht (rapor); bileşikte son parça artikeli belirler: der Bericht → der Wetterbericht, mavi",
   x1460: "das Missverständnis → miss (yanlış) + verstehen (anlamak); -nis ile bitenlerin çoğu das (das Ergebnis, das Zeugnis, das Erlebnis), yeşil; istisna die Erlaubnis, die Kenntnis",
 };

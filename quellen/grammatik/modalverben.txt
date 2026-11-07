@@ -194,3 +194,10 @@ umform | 3 | Es ist nicht nötig, dass du mich abholst. → müssen kullan | Du 
 umform | 3 | Es ist verboten, im Kurs zu essen. → dürfen kullan | Im Kurs darf man nicht essen. / Man darf im Kurs nicht essen. / Im Kurs dürfen wir nicht essen. / Wir dürfen im Kurs nicht essen. | | Kursta yemek yemek yasak. | verboten → nicht dürfen; man darf nicht … essen. | der Kurs; essen; dürfen
 fehler | 3 | Sie müssen hier nicht parken, der Parkplatz ist nur für Ärzte. | Sie dürfen hier nicht parken, der Parkplatz ist nur für Ärzte. | müssen | Burada park edemezsiniz, otopark yalnızca doktorlar için. | Yasak → nicht dürfen. "müssen nicht parken" = park etmenize gerek yok (anlam yanlış). | der Arzt; dürfen
 fehler | 3 | Ihr müsst nicht leise sein, das Baby schläft noch nicht. | Ihr müsst nicht leise sein, das Baby schläft noch nicht. | - | Sessiz olmanıza gerek yok, bebek daha uyumuyor. | Hata yok: bebek uyumuyor → sessiz olmak gerekli değil: nicht müssen. | leise; schlafen; müssen
+
+@teil praeteritum
+luecke | 2 | Als Kind ___ ich abends nicht lange fernsehen, meine Eltern waren streng. | durfte | durfte / musste / konnte | Çocukken akşamları uzun süre televizyon izleyemezdim, ailem katıydı. | İzin yok → dürfen: Präteritum durfte (Umlaut yok). | dürfen
+luecke | 2 | Gestern ___ wir lange auf den Bus warten, er kam erst nach 30 Minuten. | mussten | mussten / müssen / müssten | Dün otobüsü uzun beklemek zorunda kaldık, ancak 30 dakika sonra geldi. | Geçmiş + zorunluluk → müssen: wir mussten (Umlaut yok). | warten; müssen
+luecke | 2 | Mit 16 ___ ich noch nicht Auto fahren, das ist erst ab 18 erlaubt. | durfte | durfte / konnte / wollte | 16 yaşında henüz araba kullanamazdım, bu ancak 18'den itibaren serbest. | Yasak / izin → dürfen: ich durfte. | dürfen
+fehler | 2 | Früher dürfte ich abends nicht allein ausgehen. | Früher durfte ich abends nicht allein ausgehen. | dürfte | Eskiden akşamları tek başıma dışarı çıkamazdım. | Präteritum durfte (Umlaut yok); dürfte Konjunktiv II'dir. | dürfen
+umform | 2 | Ich kann gut schwimmen. → Präteritum | Ich konnte gut schwimmen. | | İyi yüzebiliyorum. | können → konnte: Umlaut düşer. | schwimmen; können

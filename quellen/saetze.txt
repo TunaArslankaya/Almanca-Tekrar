@@ -1348,3 +1348,5 @@ v423 | Der Busfahrer reagierte schnell auf das Kind auf der Straße und bremste.
 v232 | Die neue Regel soll ausländischen Studenten den Zugang zum Studium erleichtern. | Yeni kuralın yabancı öğrencilerin üniversiteye girişini kolaylaştırması amaçlanıyor.
 v232 | Du würdest mir die Sache sehr erleichtern, wenn du die Formulare übersetzen würdest. || Du würdest mir die Sache sehr erleichtern, wenn du die Formulare übersetzt. | Formları çevirsen işimi çok kolaylaştırırdın.
 v232 | Dass meine Nachbarin Türkisch spricht, hat mir den Anfang in Bremen sehr erleichtert. | Komşumun Türkçe konuşması Bremen'deki başlangıcımı çok kolaylaştırdı.
+v183 | Die Uni will nächstes Jahr ein neues Anmeldesystem einführen. | Üniversite gelecek yıl yeni bir kayıt sistemi başlatmak istiyor.
+v183 | In Deutschland hat man den Mindestlohn 2015 eingeführt. | Almanya'da asgari ücret 2015'te getirildi.
