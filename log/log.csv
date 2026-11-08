@@ -4002,3 +4002,27 @@
 2026-11-08 05:51:52;prod;w0199:prod;gerecht;adaletli;gerecht;richtig;gerecht;basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:4.3 | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-08 05:52:03;abr;v125:abr;sich beschweren bei;Ev sahibine şikâyette bulunabilirsiniz. | (birine) şikâyette bulunmak;sich wenden an;falsch;sich beschweren bei (bei + Dat);basamak:B2 | bicim:kalip | not:m1 | R:0.78 | S:0.8 | düzeltti | sek:5 | ipucu:2
 2026-11-08 05:52:11;wort;n0248:wort;der Donner;gök gürültüsü;donnern;falsch;der Donner;basamak:B2 | bicim:yaz | not:m1 | R:0.78 | S:0.6 | zor | düzeltti | kelime yanlış | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-08 05:52:25;yeni;v288;gelten;tanıtım;;neu;geçerli olmak;basamak:B0 | bicim:tanit | not:- | parti | sek:14
+2026-11-08 05:52:30;yeni;w0515;verwandt;tanıtım;;neu;akraba;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-08 05:52:33;erk;w0515:erk;verwandt;akraba;verwandt;richtig;verwandt;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0479/w0139/w0325 | çeldirici:bilinen/bilinen/bilinen | sek:3
+2026-11-08 05:52:37;bed;v288:bed;gelten;geçerli olmak;gelten;richtig;gelten;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v316/v369/v683 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-08 05:52:45;abr;v125:abr;sich beschweren bei;(birine) şikâyette bulunmak;sich beschweren bei;richtig;sich beschweren bei (bei + Dat);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:52:56;gram;g:modalverben:106;modalverben/kontrast;Bei Rot ___ man nicht über die Straße gehen.;Ampel;falsch;darf;tur:akis | tür:luecke | z:2 | yardımcı fiil | sek:7
+2026-11-08 05:53:07;wort;n0248:wort;der Donner;gök gürültüsü | … laut… _____ hat die Kinder erschreckt.;der Donner;richtig;der Donner;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 05:53:21;prod;w0515:prod;verwandt;akraba;;falsch;verwandt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | sek:7 | ipucu:0 | ipucu-tür:tr | bilmiyorum
+2026-11-08 05:53:29;abr;v288:abr;gelten;geçerli olmak;geltig;falsch;gelten;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:53:33;nsatz;w0011:nsatz;allerdings;_____ ist nicht jeder Ort eine Stadt.;allerdings;richtig;Allerdings;basamak:B2 | bicim:bos0 | not:m3 | R:0.78 | S:4.4 | kurtarma | sek:4 | ipucu:0
+2026-11-08 05:53:43;gram;g:adjektiv:5;adjektiv/bestimmt;Ich habe den neue Kollegen noch nicht kennengelernt.;hata yok;falsch;Ich habe den neuen Kollegen noch nicht kennengelernt.;tur:akis | tür:fehler | z:2 | artikel/çekim | sek:5
+2026-11-08 05:53:49;prod;w0515:prod;verwandt;akraba | Sind Sie mit Frau Meyer _____?;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 05:53:52;abr;v288:abr;gelten;geçerli olmak;gelten;richtig;gelten;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:53:52;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:8 | küçük:0 | yanlış:6 | puan:89 | dk:2 | yeni:2 | seviye+:2 | tekrar:8 | gram:0/2
+2026-11-08 05:54:01;prod;w0595:prod;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:3.0 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:54:19;wort;x1569:wort;der Behördengang;resmi daireye gidiş;das Behördengang;fast;der Behördengang;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.78 | S:3.0 | artikel das → der | sek:14 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:55:18;abr;v117:abr;berichten über;Haberler bugün Güney Almanya'daki selden bahsediyor. | (bir şey hakkında) haber vermek, anlatmak;;falsch;berichten über (über + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.79 | S:0.9 | düzeltti | sek:52 | ipucu:2 | bilmiyorum
+2026-11-08 05:55:18;leech;v117;berichten über;(bir şey hakkında) haber vermek, anlatmak;;takiliyor;;günler:2026-10-08,2026-10-13,2026-11-08
+2026-11-08 05:55:25;yeni;n1358;die Ware;tanıtım;;neu;mal, ürün;basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-11-08 05:55:31;yeni;w0274;kaum;tanıtım;;neu;neredeyse hiç;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-11-08 05:55:34;erk;w0274:erk;kaum;neredeyse hiç;kaum;richtig;kaum;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0114/w0149/w0119 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-08 05:55:39;erk;n1358:erk;die Ware;mal, ürün;die Ware;richtig;die Ware;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1359/n0344/x1555 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-08 05:55:46;gram;g:pronomen:64;pronomen/kontrast;"Ich habe ___ Auto, aber mein Bruder hat ___. (ein ; kein)";"ein ; keins";richtig;"ein ; keins";tur:akis | tür:luecke | z:2 | sek:7
+2026-11-08 05:55:51;duy;x1555:duy-bosluk;die Würde;Das Pflegeheim muss die _____ der Bewohner respektieren.;Würde;richtig;Würde;tür:bosluk | hız:0.9 | tekrar:0 | sek:4
