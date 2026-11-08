@@ -4092,3 +4092,13 @@
 2026-11-08 06:05:31;duy;v399:duy-kelime;nennen;ses: nennen;adlandırmak, söylemek;richtig;adlandırmak, söylemek;tür:kelime | hız:0.9 | tekrar:0 | sek:4
 2026-11-08 06:06:10;gram;g:adjektiv:82;adjektiv/bestimmt;ich / finde / den / blauen / Rock / schöner / als / den / roten;ich finde den roten Rock schöner als den blauen;richtig;Ich finde den blauen Rock schöner als den roten.;tur:akis | tür:ordnen | z:3 | kelime sırası | groß/klein | öneri:falsch | sek:28
 2026-11-08 06:06:16;wort;n0286:wort;das Eis;buz;das Eis;richtig;das Eis;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.81 | S:8.9 | kurtarma | kapı:7g | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:06:35;prod;w0095:prod;deutlich;açık, belirgin;drinnen?;falsch;deutlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.91 | S:0.6 | düzeltti | farklı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:06:46;nsatz;n1094:nsatz;das Sonderangebot;Diesen Fernseher habe ich im _____ gekauft.;Sonnenangebot;fast;Sonderangebot;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:4.1 | kısmi | yazım | sek:8 | ipucu:0
+2026-11-08 06:07:01;wort;n1307:wort;das Verhalten;davranış | Im Kurs lernen wir auch, … _____ bei einem Vorstellungsgespräch wichtig ist.;das Verhalten;richtig;das Verhalten;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:14 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 06:07:19;gram;g:pronomen:29;pronomen/dieser;diese / Schuhe / sind / bequemer / als / meine alten;diese sind bequemer als meine alten Schuhe;richtig;Diese Schuhe sind bequemer als meine alten.;tur:akis | tür:ordnen | z:2 | kelime sırası | groß/klein | öneri:falsch | sek:14
+2026-11-08 06:07:26;hoer;hoer:vurgu;U·ni·ver·si·tät;U·ni·ver·si·TÄT;U·ni·ver·si·TÄT;richtig;U·ni·ver·si·TÄT;cift:U·ni·ver·si·tät | ses:Google Deutsch | dinleme:1 | sek:6 | kaynak:tur
+2026-11-08 06:07:33;prod;w0095:prod;deutlich;açık, belirgin | Schreiben Sie bitte _____!;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 06:07:33;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:10 | küçük:1 | yanlış:2 | puan:118 | dk:3 | yeni:0 | seviye+:0 | tekrar:9 | gram:2/2
+2026-11-08 06:07:38;prod;w0368:prod;nun;şimdi, işte;nun;richtig;nun;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:7.4 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:07:44;abr;v588:abr;verlassen;(bir yeri / birini) terk etmek;verlassen;richtig;verlassen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:7.4 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:07:47;art;n1389:art;der Wohnsitz;wegen ___ Wohnsitzes [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:3.7 | hâl:Gen | sek:3
