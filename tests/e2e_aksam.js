@@ -4,6 +4,8 @@
 // adaylar yalnız bugün yeni / yanlış-fast / R < 0,9 öğeler (≤ 15), bugün doğru bilinen ve R ≥ 0,9 öğe yok;
 // akşam turu: her cevap satırında 'akşam', tur satırı id 'aksam'; bugün yeni / yanlış öğe (aksamIst) hafızaya bir kez daha yazılır
 // (m.aksam = gün, vade ≤ yarın 04:00), bugün doğru cevaplanmış diğer öğeler 'hafıza:yazılmadı'; gün sayacı artar; sonra kart ✓; sayfa hatası 0.
+// 8.11: "bugün yanlış" yalnız öğe hafızasına yazan satırlardan (dinleme, Cümle atölyesi, kök, ayırt etme, gramer değil); istisna hafıza başına
+// (yalnız artikeli yanlış öğede anlam yeniden yazılmaz); vade yarına yalnız bugün yeni / sabah kaydı ya da akşam cevabı yanlış-fast iken çekilir.
 const D = require('./surucu');
 const fs = require('fs');
 const path = require('path');
@@ -57,7 +59,10 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
     const T = window.__tekrar, S = T.S, t = Date.now(), K = T.Kern, g = K.gun4(t), d = T.aksamDurum();
     const bas = new Date(K.gunBas4(t)), z = x => `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')} ${String(x.getHours()).padStart(2, '0')}:${String(x.getMinutes()).padStart(2, '0')}:00`;
     const bugunLog = S.log.filter(e => e.zeit >= z(bas));
-    const yanlisLog = new Set(bugunLog.filter(e => e.ergebnis === 'falsch' || e.ergebnis === 'fast').map(e => e.id.split(':')[0]));
+    const HAF = new Set(['erk', 'bed', 'wort', 'prod', 'abr', 'nsatz', 'satz', 'luecke', 'refl', 'ndek', 'art']);
+    const yanlisLog = new Set(bugunLog.filter(e => (e.ergebnis === 'falsch' || e.ergebnis === 'fast') && HAF.has(e.modus)).map(e => e.id.split(':')[0]));
+    // hafızaya yazmayan biçimlerin yanlışı tek başına aday yapmaz
+    const yalnizYan = [...new Set(bugunLog.filter(e => (e.ergebnis === 'falsch' || e.ergebnis === 'fast') && !HAF.has(e.modus)).map(e => e.id.split(':')[0]))].filter(id => !yanlisLog.has(id));
     const dogruLog = new Set(bugunLog.filter(e => e.ergebnis === 'richtig').map(e => e.id.split(':')[0]));
     const neden = id => {
       const it = S.items[id] || {}, h = it.m;
@@ -69,11 +74,13 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
     const ad = d.adaylar.map(x => ({ id: x.id, neden: x.neden, bekl: neden(x.id) }));
     // bugün doğru bilinen, oturmuş (R ≥ 0,9), yeni / yanlış olmayan öğeler
     const oturmus = [...dogruLog].filter(id => S.items[id] && !neden(id));
-    return { ad, oturmus, goster: d.goster, g, n0: (S.tage[T.Kern.gun4(t)] || {}).n || 0, items0: JSON.parse(JSON.stringify(S.items)) };
+    const yeni = Object.keys(S.items).filter(id => S.items[id].tanit && K.gun4(S.items[id].tanit) === g);
+    return { ad, oturmus, yalnizYan, yeni, goster: d.goster, g, n0: (S.tage[T.Kern.gun4(t)] || {}).n || 0, items0: JSON.parse(JSON.stringify(S.items)) };
   });
   console.log(`  adaylar: ${A.ad.length} (${['yeni', 'yanlis', 'dusukR'].map(k => `${k} ${A.ad.filter(x => x.neden === k).length}`).join(', ')}) · bugün doğru + oturmuş: ${A.oturmus.length}`);
   if (A.ad.length < 3 || A.ad.length > 15) hata(`aday sayısı ${A.ad.length} (3–15)`);
   A.ad.forEach(x => { if (!x.bekl) hata(`aday kurala uymuyor: ${x.id} (${x.neden})`); else if (x.bekl !== x.neden) hata(`aday nedeni ${x.neden}, beklenen ${x.bekl}: ${x.id}`); });
+  console.log(`  yalnız hafızaya yazmayan satırda yanlış (aday olmamalı, 'yanlis' nedeniyle): ${A.yalnizYan.length}`);
   if (!A.ad.some(x => x.neden === 'yeni')) hata('bugün tanıtılan öğe aday değil');
   const adSet = new Set(A.ad.map(x => x.id));
   A.oturmus.forEach(id => { if (adSet.has(id)) hata('oturmuş, bugün doğru öğe aday: ' + id); });
@@ -85,7 +92,9 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
   const logBas = await p.evaluate(() => window.__tekrar.S.log.length);
   await p.click('#aksam-kart');
   await p.waitForTimeout(200);
-  const ist = await p.evaluate(() => (window.__tekrar.ot.aksamIst || []).slice());
+  const { ist, istM } = await p.evaluate(() => ({ ist: (window.__tekrar.ot.aksamIst || []).slice(), istM: (window.__tekrar.ot.aksamM || []).slice() }));
+  // anlam hafızası istisnası: bugün yeni, log'da anlam yanlış / fast ya da sabahki anlam kaydı yanlış / fast
+  const mIst = id => { const it = A.items0[id] || {}; return ist.includes(id) && (A.yeni.includes(id) || istM.includes(id) || !!(it.m && it.m.gun === A.g && it.m.lastG <= 2)); };
   let ilkFoto = false, son = null;
   for (let i = 0; i < 40; i++) {
     const s = await D.durum(p);
@@ -111,7 +120,8 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
     const yazilmadi = et.includes('hafıza:yazılmadı'), notM = /not:([^ |]*)/.exec(e.notiz)[1];
     const once = A.items0[id] || {}, bugunYazildi = once.m && once.m.gun === A.g;
     const ilk = !gorulen.has(id); gorulen.add(id);
-    if (ilk && ist.includes(id) && bugunYazildi && !/m\d/.test(notM) && !et.includes('sayılmadı')) hata(`akşam istisnası yazmadı: ${id} ${e.notiz}`);
+    if (ilk && mIst(id) && bugunYazildi && !/m\d/.test(notM) && !et.includes('sayılmadı')) hata(`akşam istisnası yazmadı: ${id} ${e.notiz}`);
+    if (ilk && ist.includes(id) && !mIst(id) && bugunYazildi && /m\d/.test(notM)) hata(`yalnız artikel istisnasında anlam yazıldı: ${id} ${e.notiz}`);
     if (ilk && !ist.includes(id) && bugunYazildi && !yazilmadi) hata(`istisna dışı, bugün yazılmış öğe yazıldı: ${id} ${e.notiz}`);
     if (ilk && !bugunYazildi && /m\d/.test(notM) && et.includes('hafıza:yazılmadı')) hata(`çelişkili satır: ${e.notiz}`);
     if (!ilk && /m\d/.test(notM)) hata(`akşamda aynı öğe ikinci kez yazıldı: ${id} ${e.notiz}`);
@@ -121,7 +131,9 @@ const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!win
   ist.forEach(id => {
     const h = B.items[id] && B.items[id].m, h0 = A.items0[id] && A.items0[id].m;
     if (!h || !h0 || !gorulen.has(id) || h0.gun !== A.g) return;
-    if (h.aksam === A.g) { istYazilan++; if (h.due > B.ertesi) hata(`istisna yazımında vade yarın 04:00'ten sonra: ${id}`); }
+    const satir = B.log.find(e => e.id.split(':')[0] === id && /basamak:/.test(e.notiz || ''));
+    const kisa = (h0.lastG || 3) <= 2 || A.yeni.includes(id) || (satir && satir.ergebnis !== 'richtig');
+    if (h.aksam === A.g) { istYazilan++; if (kisa && h.due > B.ertesi) hata(`istisna yazımında vade yarın 04:00'ten sonra: ${id}`); }
   });
   console.log(`  istisnayla yazılan: ${istYazilan} / aday içinde yeni-yanlış: ${ist.length}`);
   if (!istYazilan) hata('hiçbir öğe akşam istisnasıyla yazılmadı');

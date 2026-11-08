@@ -9,7 +9,10 @@
   let saatOfs = 0;
   const now = () => Date.now() + saatOfs;
   const DAY = 86400000;
-  const tag = (t = now()) => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  // takvim günü (yalnız log zaman damgası) ve öğrenme günü (04:00'te başlar; gün sayaçları, seri, hedef, Kern.gun4 ile aynı).
+  // 8.11: önceden sayaçlar 00:00'da, hafıza / kota / ısınma 04:00'te gün değiştiriyordu (gece yarısını geçen tur iki güne bölünüyordu)
+  const takvim = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  const tag = (t = now()) => takvim(t - 4 * 3600000);
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const shuffle = a => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
 
@@ -264,17 +267,51 @@
   const neuMax = m => S.einst.modi[m].neu;
   // log yalnız değiştiyse yazılır (son satır ve uzunluk)
   let logYazilan = { n: -1, son: null };
+  // klasör (File System Access, js aşağıda "Klasör"): bağlı klasör, yazım sürüyor, izin bekleyen, klasör durumu açılışta belirlendi mi
+  let ordner = null, schreibt = false, ordnerWartet = null, ordnerBilindi = false;
+  // 8.11 (7.11 denetim): klasör kuyruğu (pending) ve GitHub kuyruğu (ghPending) en çok KUYRUK_MAX satır (S.log ile aynı); kota dolarsa
+  // önce yerel log kopyası kısaltılıp yeniden denenir (satırlar GitHub'da / klasörde; ilerleme önce gelir), olmazsa ekranda uyarı
+  const KUYRUK_MAX = 3000;
+  let kayitHata = false;
+  function kayitUyari(acik) {
+    if (acik === kayitHata) return;
+    kayitHata = acik;
+    let c = document.getElementById('kayit-cubuk');
+    if (!c && acik) {
+      c = document.createElement('div'); c.id = 'kayit-cubuk'; c.className = 'yenile-cubuk'; c.setAttribute('role', 'alert');
+      c.innerHTML = '<span>⚠ İlerleme bu cihaza kaydedilemiyor (tarayıcı depolaması dolu). Uygulamayı kapatmadan GitHub\'a gönder.</span><button class="btn ana" type="button">Gönder</button>';
+      c.querySelector('button').addEventListener('click', () => { if (ghToken()) ghSync(true, { zorla: true }); else toast('Ayarlar → GitHub anahtarı yok: ilerleme yalnız bu cihazda.'); });
+      document.body.appendChild(c);
+    }
+    if (c) { c.hidden = !acik; c.style.display = acik ? 'flex' : 'none'; }   // satır içi display: tur ekranında da görünür (veri kaybı uyarısı)
+  }
   function save() {
-    try {
-      tageTuret(tag());
-      if (S.log.length > 3000) S.log = S.log.slice(-3000);
+    const yaz = () => {
       localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { log: [] })));
       const son = S.log[S.log.length - 1] || null;
       if (logYazilan.n !== S.log.length || logYazilan.son !== son) { localStorage.setItem(LOG_KEY, JSON.stringify(S.log)); logYazilan = { n: S.log.length, son }; }
-    } catch (e) { console.warn('kaydedilemedi', e); }
+    };
+    try {
+      tageTuret(tag());
+      if (S.log.length > 3000) S.log = S.log.slice(-3000);
+      if (S.pending.length > KUYRUK_MAX) S.pending = S.pending.slice(-KUYRUK_MAX);
+      if ((S.ghPending || []).length > KUYRUK_MAX) S.ghPending = S.ghPending.slice(-KUYRUK_MAX);
+      yaz();
+      kayitUyari(false);
+    } catch (e) {
+      console.warn('kaydedilemedi', e);
+      try {
+        localStorage.removeItem(LOG_KEY); logYazilan = { n: -1, son: null };
+        if (S.log.length > 1000) S.log = S.log.slice(-1000);
+        if (!ordner) S.pending = [];
+        localStorage.setItem(KEY, JSON.stringify(Object.assign({}, S, { log: [] })));
+        try { yaz(); } catch (e3) { /* log kopyası sığmadı: ilerleme kaydedildi */ }
+        kayitUyari(false);
+      } catch (e2) { kayitUyari(true); }
+    }
   }
   // sayfa kapanırken (Android uygulamayı öldürür, geri tuşu, yenileme): bekleyen cevap (sonuç paneli açık) önce işlenir
-  window.addEventListener('pagehide', () => { try { arkaPlanNotla(); } catch (e) { console.warn(e); } save(); });
+  window.addEventListener('pagehide', () => { try { arkaPlanNotla(); } catch (e) { console.warn(e); } save(); try { ghSync(true, { zorla: true }); } catch (e) { /* yok */ } });
   // gizlenince (ekran kilidi, başka uygulama): cevap İŞLENMEZ (dönünce itiraz / kendiliğinden geçiş sürer), yalnız kalıcı kaydedilir;
   // uygulama arka planda öldürülürse sonraki açılışta bekleyenIsle işler
   const BEKLEYEN_KEY = 'almanca-tekrar-bekleyen';
@@ -282,7 +319,8 @@
   function bekleyenKaydet() {
     const q = aktuell;
     if (!(q && q.done && !q.islendi && q.sonuc)) return;
-    try { const r = {}; Q_ALAN.forEach(k => { if (q[k] !== undefined) r[k] = q[k]; }); r.sonuc = q.sonuc; r.t = now(); r.modusB = session.modus; localStorage.setItem(BEKLEYEN_KEY, JSON.stringify(r)); } catch (e) { /* yok */ }
+    // r.t = cevap anı (soru açılışı + süre; log satırı ve hafıza bu zamanla yazılır: ertesi sabah açılınca dünün cevabı bugüne düşmesin)
+    try { const r = {}; Q_ALAN.forEach(k => { if (q[k] !== undefined) r[k] = q[k]; }); r.sonuc = q.sonuc; r.t = q.start && q.sek != null ? Math.min(now(), q.start + q.sek * 1000) : now(); r.modusB = session.modus; localStorage.setItem(BEKLEYEN_KEY, JSON.stringify(r)); } catch (e) { /* yok */ }
   }
   const bekleyenSil = () => { try { localStorage.removeItem(BEKLEYEN_KEY); } catch (e) { /* yok */ } };
 
@@ -376,6 +414,8 @@
     uluslararasi: id => { try { return uluslararasi(id); } catch (e) { return false; } },
     uniteKonu: id => uniteIds().has(id), konu: id => (THEMA_VON[id] || [])[0] || '',
     ablaut, stark: id => !!(vById[id] || {}).stark, uniteSira, lesenWort: lesenWortIds,
+    // düzenli fiil (Präteritum = kök + -te / -ete): kök sorusu sorulmaz (8.11: S.kok'a göçten / Partizip hatasından düşen düzenli fiiller)
+    duzenli: id => { const v = vById[id]; if (!v) return false; const st = G.stemOf ? G.stemOf(v.base) : ''; return !!v.ptForm && /te$/.test(v.ptForm) && !!st && (v.ptForm === st + 'te' || v.ptForm === st + 'ete'); },
     BLITZ_ORDER: BLITZ_ORDER.map(x => x.id), VERB_ORDER: VERB_ORDER.map(x => x.id),
     tazeCumle: id => tazeCumle(id),
     goetheLuecke: id => !!(vById[id] && vById[id].lueckenListe.length),
@@ -397,10 +437,13 @@
     return !!it && (!!it.leech || !!(it.m && it.m.S && ((it.m.lapses || 0) > 0 || it.m.lastG === 1)) || !!(it.art && it.art.lastG === 1));
   }
   // Bilmediklerim (Zayıflar): "Bilmiyorum" denen kelime (öğe kimliği) ve gramer teil'i (g:<konu>:<teil>); S.bilmedik[anahtar] = { ad, ilk, son, n, d, dt }.
-  // Sonra başka günlerde iki doğru cevap (d ≥ 2, günde en çok bir) → "artık biliyorsun"; yeniden "Bilmiyorum" d'yi sıfırlar
+  // Sonra başka günlerde iki doğru cevap (d ≥ 2, günde en çok bir) → "artık biliyorsun"; yeniden "Bilmiyorum" d'yi sıfırlar.
+  // 8.11: dogru === 'yanlis' (listede olan anahtara sonradan yanlış cevap): d sıfırlanır (n artmaz, y = zaman; birleştirmede kazanır).
+  // Kelimede yalnız üretim (yazma / boşluk / cümle) doğrusu sayılır (hafizaYaz); seçmeli doğrusu kapatmaz.
   const BILMEDIK_TAMAM = 2;
   function bilmedikIsle(key, ad, dogru) {
     const b = S.bilmedik || (S.bilmedik = {}), x = b[key], t = now();
+    if (dogru === 'yanlis') { if (x) { x.d = 0; x.dt = 0; x.y = t; } return; }
     if (!dogru) { b[key] = Object.assign({ ilk: t }, x, { ad: ad || (x && x.ad) || key, son: t, n: ((x && x.n) || 0) + 1, d: 0, dt: 0 }); return; }
     if (x && (x.d || 0) < BILMEDIK_TAMAM && tag(t) !== tag(x.son) && (!x.dt || tag(t) !== tag(x.dt))) { x.d = (x.d || 0) + 1; x.dt = t; }
   }
@@ -429,6 +472,10 @@
   // ---- akşam tekrarı (Kern.aksamAdaylar / aksamUygun): bugün ilk cevap 13:00'ten önce, ≥ 8 saat geçti, aday ≥ 3 ----
   // log (bu cihaz) + hafıza (cihazlar arası): ilk cevap, bugün yanlış / fast olanlar, bu akşam sorulanlar, akşam turu bitti mi
   const AKSAM_ET = 'akşam';
+  // öğe anlam hafızasına yazan log biçimleri (modus): seçmeli, yazma, cümlede boşluk / tam cümle, metin boşluğu
+  const AKSAM_MODI = new Set(['erk', 'bed', 'wort', 'prod', 'abr', 'nsatz', 'satz', 'luecke', 'refl', 'ndek']);
+  // notiz etiketleri ' | ' ya da ', ' ile ayrılır: artikel hatası / kelimenin kendisinde küçük hata
+  const AKSAM_ART = /(^|\| |, )artikel (eksik|\S+ → )/, AKSAM_KELIME = /(^|\| |, )(yazım|umlaut|çekim|hâl|mastar eki|artikel \/ ek|ek)(?=,| \||$)/;
   const notizEt = (e, et) => String(e.notiz || '').split(' | ').includes(et);
   function aksamDurum() {
     const t = now(), bas = zeitStr(Kern.gunBas4(t)), bit = zeitStr(t + 60000);
@@ -436,24 +483,33 @@
     let ilk = Kern.ilkCevap(S, t);
     const ilkLog = bugunLog.find(e => ['richtig', 'fast', 'falsch', 'neu', 'bekannt'].includes(e.ergebnis));
     if (ilkLog) { const x = new Date(ilkLog.zeit.replace(' ', 'T')).getTime(); if (isFinite(x) && (ilk == null || x < ilk)) ilk = x; }
-    const yanlis = new Set(), haric = new Set();
+    // 8.11: "bugün yanlış" yalnız öğe hafızasına yazan biçimlerden: anlam (yanlis) ve artikel (yanlisArt) ayrı; dinleme (duy / hoer),
+    // Cümle atölyesi, kök (stamm), ayırt etme, gramer, paket satırları öğeyi aday yapmaz (önceden bir dinleme hatası 52 günlük vadeyi yarına çekiyordu)
+    const yanlis = new Set(), yanlisArt = new Set(), haric = new Set();
     bugunLog.forEach(e => {
       const id = itemOf(e.id || '');
       if (notizEt(e, AKSAM_ET)) haric.add(id);
-      else if (e.ergebnis === 'falsch' || e.ergebnis === 'fast') yanlis.add(id);
+      else if (e.ergebnis === 'falsch' || e.ergebnis === 'fast') {
+        const nz = String(e.notiz || ''), art = AKSAM_ART.test(nz);
+        if (e.modus === 'art' || (art && AKSAM_MODI.has(e.modus))) yanlisArt.add(id);
+        // yalnız artikel hatası (kelime doğru: fast + 'artikel der → die') anlamı yanlış yapmaz
+        if (AKSAM_MODI.has(e.modus) && !(e.ergebnis === 'fast' && art && !AKSAM_KELIME.test(nz))) yanlis.add(id);
+      }
     });
     // bir akşamda en çok 15 öğe (sorulanlar dahil): R < 0,9 birikmesi akşamı bitmeyen tura çevirmesin
-    const adaylar = Kern.aksamAdaylar(S, t, { yanlis, haric, filtre: id => gueltig(id + ':x'), max: Kern.AKSAM.MAX - haric.size });
+    const adaylar = Kern.aksamAdaylar(S, t, { yanlis: new Set([...yanlis, ...yanlisArt]), haric, filtre: id => gueltig(id + ':x'), max: Kern.AKSAM.MAX - haric.size });
     const yapildi = bugunLog.some(e => e.modus === 'tur' && e.id === 'aksam');
     const zaman = Kern.aksamUygun(ilk, t, Kern.AKSAM.MIN);   // saat koşulu (aday sayısından bağımsız)
-    return { ilk, adaylar, yanlis, yapildi, zaman, goster: zaman && (yapildi || adaylar.length >= Kern.AKSAM.MIN) };
+    return { ilk, adaylar, yanlis, yanlisArt, yapildi, zaman, goster: zaman && (yapildi || adaylar.length >= Kern.AKSAM.MIN) };
   }
   // akşam cevabı hafızaya yazılabilir mi (Kern.uygula opts.aksam): turun adaylarından bugün yeni / yanlış olanlar;
   // oturum yoksa (arka planda kapanan cevap) log'dan
+  // → { ist (aday: bugün yeni ya da yanlış), m (log: anlam bugün yanlış / fast), a (log: artikel bugün yanlış) }; Kern.uygula hafıza başına karar verir
   function aksamIst(id) {
     const ot = session.ot;
-    if (ot && ot.aksamIst) return ot.aksamIst.includes(id);
-    return aksamDurum().yanlis.has(id) || !!(S.items[id] && S.items[id].tanit && Kern.gun4(S.items[id].tanit) === Kern.gun4(now()));
+    if (ot && ot.aksamIst) return { ist: ot.aksamIst.includes(id), m: (ot.aksamM || []).includes(id), a: (ot.aksamA || []).includes(id) };
+    const d = aksamDurum();
+    return { ist: d.yanlis.has(id) || d.yanlisArt.has(id) || !!(S.items[id] && S.items[id].tanit && Kern.gun4(S.items[id].tanit) === Kern.gun4(now())), m: d.yanlis.has(id), a: d.yanlisArt.has(id) };
   }
   // "öğrenmeye ekle": yeni sıranın başına (yarım öğe: kısa tanıtım + mini soru, günde en çok 3)
   function ogeYarim(id, quelle) { if (S.items[id] || !gueltig(id + ':x')) return false; S.items[id] = { seit: now(), quelle, yarim: 1 }; return true; }
@@ -462,13 +518,14 @@
     const ot = session.ot, m = session.modus, f = FILTER[m] || FILTER.akis;
     ot.boy = buTurBoyu(); ot.klavyesiz = m === 'blitz';
     ot.filtre = id => gueltig(id + ':x') && f(id);
-    ot.odak = m !== 'akis'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
+    ot.odak = m !== 'akis'; ot.zayif = m === 'zayif'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
     if (m === 'akis' && !ot.ayirVar && (ot.adim || 0) >= 4 && (ot.adim || 0) <= (ot.boy || 12) - 2) ayirKoy(ot);   // karışan çift: turda en çok 1
     ot.sesVar = sesVarMi(ot);   // ses yuvası (Kern.sec adım 4–6 duy, 9–11 duy-seç): "Sesli sorular" açık ve modül yüklü
     if (m === 'aksam' && !ot.aksam) {
-      const ad = aksamDurum().adaylar;
+      const d = aksamDurum(), ad = d.adaylar;
       ot.aksam = ad.map(x => x.id);
       ot.aksamIst = ad.filter(x => x.neden !== 'dusukR').map(x => x.id);   // hafıza istisnası: bugün yeni ya da yanlış
+      ot.aksamM = [...d.yanlis]; ot.aksamA = [...d.yanlisArt];
     }
     const r = Kern.sec(durum4(), ot, now(), Math.random);
     // Zayıflar: vadesi gelmemiş zayıflar da sorulur (R'si en düşük önce; aynı öğe turda aralıklı; hafıza günde tek yazım kuralıyla)
@@ -2027,7 +2084,7 @@
     logEintrag({ modus: 'text', id: a.id, item: a.thema, frage: a.de, antwort: text.replace(/\s*\n+\s*/g, ' ¶ '), ergebnis: 'neu', loesung: '',
       notiz: `kelime:${n} | zorunlu:${session.pflicht.map(label).join(', ')} | kullandı:${kullan.length}/${session.pflicht.length}` });
     try { localStorage.removeItem('almanca-tekrar-taslak-' + a.id); } catch (e) { /* yok */ }
-    ghSync(true);
+    ghSync(true, { zorla: true });
     save();
     session.aufgabe = null;
     kart.innerHTML = `<div class="bos"><div class="buyuk">Gönderildi ✓</div><div class="soluk">${n} kelime. Claude cümle cümle düzeltir; düzeltme birkaç dakika sonra Geçmiş'te görünür (gece de kendiliğinden bakar).</div>
@@ -2674,7 +2731,7 @@
   // ================= Günün fiil metni =================
   // Her gün (sabah 4'te değişir) gerçek bir metin (DW / Klexikon / Goethe): tam bilmediğin düzensiz fiillerin çekimli hâllerini en çok içeren.
   // Fiil formları işaretli; basınca mastar + zaman + üç form. Sonra kısa test (hangi zaman?). Görülen fiillerin çekim sorusu ancak bundan sonra açılır.
-  const fvTag = () => tag(now() - 4 * 3600000);
+  const fvTag = () => tag();   // tag() zaten öğrenme günü (04:00)
   let _fvIdx = null;
   function fvIndex() {
     if (_fvIdx) return _fvIdx;
@@ -3566,6 +3623,7 @@
     const sonuc = { bicim: q.bicim, tip, artikel: res.artikel || null, etiketler: (res.tags || []).filter(x => !/^bilgi/.test(x) && (res.cumle || !['yazım', 'umlaut', 'umlaut/ß'].includes(x))), yanlis: res.yanlis, kokYanlis: res.kokYanlis,
       zor: !!(q.sel && q.sel.zor) && !(q.ipucu > 0) && !yardim };
     if (yardim) sonuc.yardim = yardim;
+    if (!weissNicht && q.start) sonuc.sure = now() - q.start;   // 8.11: zor soruda yavaşlık (ZOR_YAVAS) için; yazma biçimlerinde başka etkisi yok
     if (res.artOb) Object.assign(sonuc, res.artOb, { sure: now() - q.start });   // artikel öbek içinde: cinsiyet (dogru), hâl (fastEt)
     q.sonuc = sonuc; q.not = yardimNot(notVerF(sonuc), sonuc);
     // tek itiraz: yanlışta hedefe uzaklık ≤ 2 → "yazım hatasıydı"; tam cümlede fast ya da yanlış → "aslında doğru" (başka doğru çeviri)
@@ -3765,8 +3823,8 @@
     }
     let out = { yazildi: false };
     const aksam = session.modus === 'aksam' && !opt.yan;
-    const ist = aksam && aksamIst(id);
-    if (yazilabilir) out = Kern.uygula(S, id, not, t, { b: sel.b, ipucu: (q.ipucu || 0) > 0, itiraz: !!q.itiraz, aksam: ist, aksamYanlis: ist });
+    const ai = aksam ? aksamIst(id) : { ist: false }, ist = !!ai.ist;
+    if (yazilabilir) out = Kern.uygula(S, id, not, t, { b: sel.b, ipucu: (q.ipucu || 0) > 0, itiraz: !!q.itiraz, aksam: ist, aksamYanlis: ist && !!ai.m, aksamArtYanlis: ist && !!ai.a });
     const it = S.items[id];
     const uretec = q.typ === 'ndek' || q.typ === 'refl' ? q.typ : null;
     const golge = (tur, h, x) => { if (x && x.yazildi && h) Kern.golge(S, id, tur, h, t); };
@@ -3810,16 +3868,17 @@
     if ((not.etiketler || []).includes('yavaş')) n.push('yavaş');
     if ((not.etiketler || []).includes('bilmiyorum')) n.push('bilmiyorum');
     if ((not.etiketler || []).includes('bilmiyorum') && !q.yoklama) bilmedikIsle(id, label(id), false);
-    else if (ergebnis === 'richtig') bilmedikIsle(id, null, true);
-    if (opt.log !== false) logEintrag({ modus, id: id + ':' + (modus === 'luecke' ? (kind(id) === 'v' ? 'satz' : 'nsatz') : eski), item: label(id), frage: q.frageText || '', antwort: q.antwort || '', ergebnis, loesung: q.ziel || '', notiz: n.join(' | ') });
+    else if (ergebnis === 'richtig' && URETIM_B.has(bicim)) bilmedikIsle(id, null, true);
+    else if (ergebnis === 'falsch' && !artB && !KOK_BICIM.has(bicim) && !q.yoklama) bilmedikIsle(id, null, 'yanlis');
+    if (opt.log !== false) logEintrag({ modus, id: id + ':' + (modus === 'luecke' ? (kind(id) === 'v' ? 'satz' : 'nsatz') : eski), item: label(id), frage: q.frageText || '', antwort: q.antwort || '', ergebnis, loesung: q.ziel || '', notiz: n.join(' | ') }, opt.zeit);
     return { not, out, ergebnis, kopf: n.slice(0, 5).join(' | ') + (n.includes('hafıza:yazılmadı') ? ' | hafıza:yazılmadı' : ''), sayilmadi: (not.etiketler || []).includes('sayılmadı') };
   }
 
   // cevap işlendi: hafıza + gölge + log, sayaçlar (tur, gün, puan, seri), oturum kuyruğu (yanlış → 3–5 soru sonra), takılan kelime
   const KOK_BICIM = new Set(['kok', 'kokSatz', 'kokSec']);
   // yoklamada bildi: 'yeni;bekannt' satırı + bekannt bayrağı (cevapIsle ve açılıştaki bekleyenIsle'den)
-  function yoklamaBildi(id, q, r) {
-    logEintrag({ modus: 'yeni', id, item: label(id), frage: 'yoklama', antwort: q.antwort || '', ergebnis: 'bekannt', loesung: trOf(id), notiz: `basamak:B2 | bicim:yoklama | not:${[r.out.m && r.out.m.yazildi ? 'm4' : '', r.out.a && r.out.a.yazildi ? 'a' + r.not.a : ''].filter(Boolean).join(',') || '-'} | yoklama${r.ergebnis === 'fast' ? ' | ' + (r.not.etiketler || []).filter(x => /^artikel/.test(x)).join(', ') : ''}` });
+  function yoklamaBildi(id, q, r, zeit) {
+    logEintrag({ modus: 'yeni', id, item: label(id), frage: 'yoklama', antwort: q.antwort || '', ergebnis: 'bekannt', loesung: trOf(id), notiz: `basamak:B2 | bicim:yoklama | not:${[r.out.m && r.out.m.yazildi ? 'm4' : '', r.out.a && r.out.a.yazildi ? 'a' + r.not.a : ''].filter(Boolean).join(',') || '-'} | yoklama${r.ergebnis === 'fast' ? ' | ' + (r.not.etiketler || []).filter(x => /^artikel/.test(x)).join(', ') : ''}` }, zeit);
     if (S.items[id]) S.items[id].bekannt = true;
   }
   function cevapIsle(q, sonuc, sessiz) {
@@ -3866,21 +3925,53 @@
   // ================= Log =================
   const CSV_KOPF = 'zeit;modus;id;item;frage;antwort;ergebnis;loesung;notiz';
   const csvZelle = s => { s = String(s == null ? '' : s).replace(/\r?\n/g, ' '); return /[;"]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
-  function zeitStr(t) { const d = new Date(t); return `${tag(t)} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`; }
-  function logEintrag(e) {
-    e.zeit = zeitStr(now());
+  function zeitStr(t) { const d = new Date(t); return `${takvim(t)} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')}`; }
+  // t: isteğe bağlı cevap zamanı (arka planda kapanan cevap ertesi açılışta işlenince satır cevap anıyla yazılır)
+  function logEintrag(e, t) {
+    e.zeit = zeitStr(t != null ? t : now());
     S.log.push(e);
-    S.pending.push(e);
+    // klasör kuyruğu yalnız klasör bağlıyken / izin beklerken / açılışta klasör durumu henüz bilinmezken (8.11: klasörsüz cihazda — telefon —
+    // S.pending hiç boşalmıyor, bütün log ana kayıtta birikip localStorage kotasını dolduruyordu; satırlar zaten S.log'da ve GitHub kuyruğunda)
+    if (ordner || ordnerWartet || !ordnerBilindi) S.pending.push(e);
     // GitHub'a toplu yazım: her 30 satırda bir (log + ilerleme birlikte); sık commit GitHub Pages yayınını sürekli iptal ettiriyordu
-    // (her push yeni yayın başlatır, öncekini iptal eder: dakikada bir commit varken yeni sürüm hiç yayınlanamıyor). Ayrıca 3 dk'lık zamanlayıcı ve gizlenme yazıyor.
+    // (her push yeni yayın başlatır, öncekini iptal eder: dakikada bir commit varken yeni sürüm hiç yayınlanamıyor). Ayrıca 3 dk'lık zamanlayıcı ve gizlenme yazıyor
+    // (gizlenme / zamanlayıcı en az GH_ARA arayla; ilerleme yalnız değiştiyse: ghSync).
     if (ghToken()) { (S.ghPending = S.ghPending || []).push(e); if (S.ghPending.length >= 30) ghSync(true); }
     save();
     dateiSchreiben();
   }
   const csvZeile = e => [e.zeit, e.modus, e.id, e.item, e.frage, e.antwort, e.ergebnis, e.loesung, e.notiz].map(csvZelle).join(';');
+  // 8.11 (7.11 denetim: telefonda karışma tablosu, üretim doğruluğu, dk, ikinci iş durumu boştu): GitHub'daki log.csv'nin öbür cihaz
+  // satırları yerel S.log'a karışır (zaman sırasıyla, son 3000; aynı satır bir kez). Yalnız yerel kopya: GitHub / klasör kuyruğuna girmez.
+  function csvAyir(l) {
+    const out = []; let c = '', q = false;
+    for (let i = 0; i < l.length; i++) {
+      const ch = l[i];
+      if (q) { if (ch === '"') { if (l[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+      else if (ch === '"') q = true; else if (ch === ';') { out.push(c); c = ''; } else c += ch;
+    }
+    out.push(c); return out;
+  }
+  function logBirlestir(text) {
+    if (!text) return 0;
+    const satir = text.replace(/^\uFEFF/, '').split('\n').map(l => l.replace(/\r$/, '')).filter(l => l && !l.startsWith('zeit;'));
+    const sinir = S.log.length >= 3000 ? S.log[0].zeit || '' : '', var_ = new Set(S.log.map(csvZeile)), yeni = [];
+    satir.forEach(l => {
+      if (var_.has(l)) return;
+      const f = csvAyir(l);
+      if (f.length < 9 || !/^\d{4}-\d\d-\d\d /.test(f[0]) || f[0] < sinir) return;
+      var_.add(l);
+      yeni.push({ zeit: f[0], modus: f[1], id: f[2], item: f[3], frage: f[4], antwort: f[5], ergebnis: f[6], loesung: f[7], notiz: f.slice(8).join(';') });
+    });
+    if (!yeni.length) return 0;
+    S.log = S.log.concat(yeni).sort((a, b) => (a.zeit < b.zeit ? -1 : a.zeit > b.zeit ? 1 : 0)).slice(-3000);
+    return yeni.length;
+  }
 
   // ---- Klasör (File System Access API, Chrome/Edge) ----
-  let ordner = null, schreibt = false, ordnerWartet = null;
+  // (ordner, schreibt, ordnerWartet, ordnerBilindi: Durum bölümünde tanımlı)
+  // klasör yoksa (tarayıcı desteklemiyor ya da bağlanmamış) klasör kuyruğu boşaltılır: satırlar S.log'da ve GitHub kuyruğunda
+  const klasorYok = () => { ordnerBilindi = true; if (S.pending.length) { S.pending = []; save(); } };
   const idb = (mode, fn) => new Promise((res, rej) => {
     const r = indexedDB.open('almanca-tekrar', 1);
     r.onupgradeneeded = () => r.result.createObjectStore('kv');
@@ -3888,14 +3979,15 @@
     r.onsuccess = () => { const tx = r.result.transaction('kv', mode); const st = tx.objectStore('kv'); const q = fn(st); tx.oncomplete = () => res(q && q.result); tx.onerror = () => rej(tx.error); };
   });
   async function ordnerLaden() {
-    if (!window.showDirectoryPicker) { $('#klasor-durum').textContent = 'Bu tarayıcı klasöre yazamıyor. Chrome ya da Edge kullan; ya da log.csv indir.'; return; }
+    if (!window.showDirectoryPicker) { klasorYok(); $('#klasor-durum').textContent = 'Bu tarayıcı klasöre yazamıyor. Chrome ya da Edge kullan; ya da log.csv indir.'; return; }
     try {
       const h = await idb('readonly', st => st.get('ordner'));
-      if (!h) { $('#klasor-durum').textContent = 'Bağlı klasör yok.'; return; }
+      if (!h) { klasorYok(); $('#klasor-durum').textContent = 'Bağlı klasör yok.'; return; }
       const p = await h.queryPermission({ mode: 'readwrite' });
+      ordnerBilindi = true;
       if (p === 'granted') { ordner = h; $('#klasor-durum').textContent = `Bağlı: ${h.name}`; dateiSchreiben(); renderPlan(); }
       else { ordnerWartet = h; $('#klasor-durum').textContent = `${h.name}: izin gerekiyor. "Klasörü bağla"ya bas.`; $('#klasor').textContent = 'İzni yenile'; }
-    } catch (e) { $('#klasor-durum').textContent = 'Klasör okunamadı.'; }
+    } catch (e) { ordnerBilindi = true; $('#klasor-durum').textContent = 'Klasör okunamadı.'; }
   }
   async function ordnerVerbinden() {
     try {
@@ -3938,7 +4030,7 @@
     } catch (e) { console.warn('log yazılamadı', e); $('#klasor-durum').textContent = 'Yazılamadı: ' + e.message; }
     schreibt = false;
   }
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { bekleyenKaydet(); dateiSchreiben(true); ghSync(true); } else bekleyenSil(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) { bekleyenKaydet(); dateiSchreiben(true); ghSync(true); } else bekleyenSil(); });   // ghSync: değişiklik yoksa / az önce yazıldıysa yazmaz
 
   // ---- GitHub'a doğrudan kayıt (site olarak açıldığında push gerekmez) ----
   // depo sahibi site adresinden (sahip.github.io): GitHub kullanıcı adı değişince (24.10: mahmutarsla → TunaArslankaya) kendiliğinden doğru depo
@@ -3993,14 +4085,18 @@
       if (!S.goc4) S.goc4 = { zaman: now(), rapor: { oge: 0 }, v3Yedek: true, bos: true };
     }
     const n = Kern.v3Yetis(S, now());
+    if (Kern.kontextOnar) Kern.kontextOnar(S);   // 8.11: t 0 / düz metin cümle geçmişi "30 günde ≤ 2" sayımına girsin
     tageTuret();
     return n;
   }
   function uzakBirlestir(uz) {
+    // yerel durum son yazılandan / birleştirilenden beri değişmediyse birleşik durum uzaktakinden yeni bir şey taşımaz: "temiz" kalır
+    const temiz = !!ghOzet && durumOzet() === ghOzet;
     S = zustandBirlestir(S, uz);
     kernAc();
     ghUzakZaman = uz.gespeichert || '';
     save();
+    if (temiz) ghOzetKoy(durumOzet());
   }
   let ghUzakZaman = '';  // en son birleştirilen uzak kaydın zamanı
   // "Uygulamayı yenile" çubuğu: yeni SW sürümü devraldıysa ya da GitHub'daki kayıt bu koddan yeni şemadaysa
@@ -4037,7 +4133,7 @@
   // Uygulamadan Claude'a "bak" demek: gece iş akışını (geribildirim görevi) tetikler; düzeltme birkaç dakika sonra feedback.json'a düşer
   async function claudeGonder() {
     if (!ghToken()) { toast('Önce Ayarlar → GitHub anahtarı.'); return false; }
-    await ghSync(true);
+    await ghSync(true, { zorla: true });
     try {
       const r = await fetch(`https://api.github.com/repos/${GH.repo}/actions/workflows/gece.yml/dispatches`, { method: 'POST', cache: 'no-store',
         headers: { Authorization: 'Bearer ' + ghToken(), Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' },
@@ -4048,9 +4144,11 @@
     } catch (e) { toast('Gönderilemedi: ' + e.message, 4000); }
     return false;
   }
+  let ghLogCekT = 0;   // log.csv en çok yarım saatte bir çekilir (öbür cihazın satırları; ~600 KB)
   async function ghCek(sessiz) {
     if (!ghToken()) return false;
     fbCek();
+    if (now() - ghLogCekT > 30 * 60000) { ghLogCekT = now(); ghLesen('log/log.csv').then(l => { if (logBirlestir(l.text)) save(); }).catch(() => {}); }
     try {
       const z = await ghLesen('log/zustand.json');
       session.senkron = { t: now() };
@@ -4075,17 +4173,36 @@
     S.goc4.v3Yedek = true;
     save();
   }
+  // 8.11 (7.11: 37 dakikada 21 "ilerleme" commit'i, çoğu değişiklik yokken her gizlenmede): zustand.json yalnız içerik son yazılandan
+  // (ya da son birleştirilenden) farklıysa yazılır (özet: log / kuyruklar / gespeichert hariç bütün durum); otomatik senkronlar
+  // (gizlenme, zamanlayıcı, 30 satır) son yazımdan en az GH_ARA sonra, arada gelenler birleşip bir sonrakine kalır.
+  // opt.zorla (düğmeler, metin gönderme, Claude'a gönder, sayfa kapanırken): aralık beklenmez (yine yalnız değiştiyse yazar).
+  const GH_ARA = 120000, OZET_KEY = 'almanca-tekrar-ghozet';
+  function durumOzet() {
+    const j = JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: '' }));
+    let h = 0x811c9dc5; for (let i = 0; i < j.length; i++) { h ^= j.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0).toString(36) + ':' + j.length;
+  }
+  let ghOzet = ''; try { ghOzet = localStorage.getItem(OZET_KEY) || ''; } catch (e) { /* yok */ }
+  const ghOzetKoy = o => { ghOzet = o; try { localStorage.setItem(OZET_KEY, o); } catch (e) { /* yok */ } };
+  let ghYazT = 0, ghZamanlaT = null;
+  const ghZamanla = () => { if (!ghZamanlaT) ghZamanlaT = setTimeout(() => { ghZamanlaT = null; ghSync(true); }, Math.max(1000, GH_ARA - (now() - ghYazT))); };
   let ghLaeuft = false, ghZuletzt = 0, ghSemaUyari = false, ghBosYerel = false;
-  async function ghSync(zustandAuch) {
+  async function ghSync(zustandAuch, opt) {
+    opt = opt || {};
     if (!ghToken() || ghLaeuft) return;
     const batch = (S.ghPending || []).slice();
-    if (!batch.length && !zustandAuch) return;
+    const kirli = zustandAuch && durumOzet() !== ghOzet;
+    if (!batch.length && !kirli) return;
+    if (!opt.zorla && ghYazT && now() - ghYazT < GH_ARA) { ghZamanla(); return; }
     ghLaeuft = true; ghSemaUyari = ghBosYerel = false;
     try {
       if (batch.length) {
         for (let versuch = 0; versuch < 2; versuch++) {
           try {
             const alt = await ghLesen('log/log.csv');
+            if (logBirlestir(alt.text)) save();   // öbür cihazın satırları yerel log'a (yalnız okuma)
+            ghLogCekT = now();
             // zaten dosyada olan satırları tekrar yazma (ilk bağlanışta eski log da gönderilir)
             const vorhanden = new Set((alt.text || '').split('\n'));
             const neu = batch.map(csvZeile).filter(l => !vorhanden.has(l));
@@ -4093,13 +4210,14 @@
             const basis = alt.text ? alt.text.replace(/\n?$/, '\n') : '\uFEFF' + CSV_KOPF + '\n';
             const text = basis + neu.join('\n') + '\n';
             await ghSchreiben('log/log.csv', text, alt.sha, `log: ${batch.length} cevap`);
+            ghYazT = now();
             break;
           } catch (e) { if (versuch || !/^(409|422)/.test(e.message)) throw e; }
         }
         S.ghPending.splice(0, batch.length);
         save();
       }
-      if (zustandAuch) {
+      if (kirli) {
         for (let versuch = 0; versuch < 2; versuch++) {
           try {
             const alt = await ghLesen('log/zustand.json');
@@ -4116,10 +4234,14 @@
             }
             if (karar.sebep === 'yeni-sema') { yenileGoster('GitHub\'daki ilerleme daha yeni bir sürümle kaydedilmiş.'); ghSemaUyari = true; break; }
             if (!karar.yaz) { ghBosYerel = true; break; }
+            // birleştirmeden sonra yerelde yeni bir şey kalmadıysa (yerel temizdi) yazma
+            const oz = durumOzet();
+            if (oz === ghOzet) break;
             await v3Yedekle(alt.text, uzSurum);
             const zaman = zeitStr(now());
             await ghSchreiben('log/zustand.json', JSON.stringify(Object.assign({}, S, { log: [], pending: [], ghPending: [], gespeichert: zaman })), alt.sha, 'ilerleme');
-            ghUzakZaman = zaman;
+            ghUzakZaman = zaman; ghYazT = now();
+            ghOzetKoy(oz);
             break;
           } catch (e) { if (versuch || !/^(409|422)/.test(e.message)) throw e; }
         }
@@ -5359,7 +5481,7 @@
     else if (act === 'sprint-gecis') { (S.ayar4.gosterildi = S.ayar4.gosterildi || {}).sprintGecis = S.sprint && S.sprint.hedef; save(); renderAna(); }
     else if (act === 'gecmis') zeigView('kayit');
     else if (act === 'notlar-tamam' || act === 'notlar-hepsi') { S.ayar4.fbGorulen = feedbackListe().length; save(); if (act === 'notlar-hepsi') zeigView('kayit'); else renderAna(); }
-    else if (act === 'token-kopya') { ghSync(true); try { navigator.clipboard.writeText(ghToken()).then(() => toast('Anahtar kopyalandı: ana ekran uygulamasında "Getir"e yapıştır.')); } catch (e) { toast('Kopyalanamadı: Ayarlar → GitHub\'dan al.'); } }
+    else if (act === 'token-kopya') { ghSync(true, { zorla: true }); try { navigator.clipboard.writeText(ghToken()).then(() => toast('Anahtar kopyalandı: ana ekran uygulamasında "Getir"e yapıştır.')); } catch (e) { toast('Kopyalanamadı: Ayarlar → GitHub\'dan al.'); } }
     else if (act === 'getir') {
       const v = ($('#getir-token').value || '').trim(); if (!v) return;
       try { localStorage.setItem('almanca-tekrar-gh', v); } catch (e) { /* yok */ }
@@ -5652,10 +5774,10 @@
     try { localStorage.setItem('almanca-tekrar-gh', v); } catch (e) { /* yok */ }
     $('#gh-token').value = '••••••••';
     ghDurum('Deneniyor…');
-    try { await ghApi(''); S.ghPending = S.log.slice(); save(); await ghSync(true); }
+    try { await ghApi(''); S.ghPending = S.log.slice(); save(); await ghSync(true, { zorla: true }); }
     catch (e) { ghDurum('Anahtar çalışmadı: ' + e.message); }
   });
-  $('#gh-simdi').addEventListener('click', () => ghSync(true));
+  $('#gh-simdi').addEventListener('click', () => ghSync(true, { zorla: true }));
   $('#v-ayar').addEventListener('click', e => {
     const b = e.target.closest('[data-unite-ac]'); if (!b) return;
     const U = UNITEN.find(u => u.id === b.dataset.uniteAc); if (!U) return;
@@ -5867,12 +5989,12 @@
     const m0 = session.modus;
     try {
       if (r.modusB && MODI[r.modusB]) session.modus = r.modusB;
-      const h = hafizaYaz(r, r.sonuc, r.t, { ek: 'arka planda kapandı' });
+      const h = hafizaYaz(r, r.sonuc, r.t, { ek: 'arka planda kapandı', zeit: r.t });
       // gün sayacı yalnız aynı öğrenme günündeyse (dün kapanıp bugün açıldıysa dünün cevabı bugünün hedefine sayılmaz)
       if (Kern.gun4(r.t) === Kern.gun4(now())) { r.ungezaehlt = h.sayilmadi; zaehlen(r, h.ergebnis); }
       if (r.kontext) kxEkle(r.id, r.kontext, r.t);
       if (r.ipucuTur) (S.ipTur = S.ipTur || {})[r.id] = r.ipucuTur;
-      if (r.yoklama) { if (h.ergebnis !== 'falsch' && !r.bos) yoklamaBildi(r.id, r, h); }
+      if (r.yoklama) { if (h.ergebnis !== 'falsch' && !r.bos) yoklamaBildi(r.id, r, h, r.t); }
       else if (h.ergebnis === 'falsch' && !KOK_BICIM.has(r.bicim) && r.modus !== 'stamm' && r.bicim !== 'ayir') leechPruefen(r.id);
     } catch (e) { console.warn('bekleyen cevap işlenemedi', e); }
     finally { session.modus = m0; save(); }
