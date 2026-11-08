@@ -44,7 +44,8 @@ const ok = (kosul, ad, m) => { if (!kosul) fehler.push(`[${ad}] ${m}`); };
   r = await T('uPruef', 'können', 'kann', null, v347);
   ok(r.u === 'fast' && r.cekim, 'uPruef', `können → kann: ${JSON.stringify(r)}`);
   r = await T('uPruef', 'können', 'kann');
-  ok(r.u === 'falsch', 'uPruef', `id'siz können → kann yanlış kalmalı: ${r.u}`);
+  // 8.11 birleştirme: G.kelimeSinifi sözlükten aynı fiilin biçimini tanıyor → öğe kimliği olmadan da çekim (küçük hata)
+  ok(r.u === 'fast', 'uPruef', `id'siz können → kann çekim olmalı: ${r.u}`);
 
   // G.kelimeSinifi (kontrol ajanının sözlüklü sınıflandırıcısı) varsa tek kelimede onun kararı; yoksa eski yol (yukarıdaki denetimler)
   const ks = await p.evaluate(() => {
