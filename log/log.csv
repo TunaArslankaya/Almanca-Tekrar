@@ -3963,3 +3963,22 @@
 2026-11-08 05:45:03;gram;g:vergleich:23;vergleich/satz;er / spricht / besser Deutsch / als / ich / dachte;er spricht besser Deutsch als ich dachte;richtig;Er spricht besser Deutsch, als ich dachte.;tur:akis | tür:ordnen | z:2 | ghost:2 | sek:14
 2026-11-08 05:45:16;wort;x1547:wort;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.76 | S:3.4 | kurtarma | artikel der → die | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-08 05:45:22;art;n0474:art;das Gewitter;ohne ___ Gewitter [Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.92 | S:1.0 | hâl:Akk | sek:5
+2026-11-08 05:45:41;akt;diktat:v688;dinle–yaz;Nach dem Hochwasser bewältigten die Helfer die Arbeit in nur einer Woche.;Nach dem Hochwasser bewewewewe;falsch;Nach dem Hochwasser bewältigten die Helfer die Arbeit in nur einer Woche.;farklı cümle | dikte:kelime,işlev
+2026-11-08 05:45:53;hoer;hoer:ei-ie;Eule/Eile;Eule;Eule;richtig;Eule;cift:Eule/Eile | ses:Google Deutsch | dinleme:2 | sek:4 | kaynak:tur
+2026-11-08 05:46:07;gram;g:verbstellung:4;verbstellung/v2;meine Schwester und ich / telefonieren / jeden Sonntag / miteinander;meine Schwester und ich telefonieren jeden Sonntag miteinander;richtig;Meine Schwester und ich telefonieren jeden Sonntag miteinander.;tur:akis | tür:ordnen | z:2 | sek:12
+2026-11-08 05:46:11;abr;v429:abr;regnen;yağmur yağmak;regnen;richtig;regnen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:3.6 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:46:11;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:114 | dk:3 | yeni:0 | seviye+:2 | tekrar:7 | gram:2/2
+2026-11-08 05:46:20;art;n1082:art;der Service;___ Service in diesem Café ist sehr freundlich, deshalb lerne ich oft hier. [Nom];Das;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.74 | S:0.1 | hâl:Nom | artikel das → der | sek:5
+2026-11-08 05:46:20;leech;n1082;der Service;hizmet, servis;;takiliyor;;günler:2026-10-21,2026-11-06,2026-11-08
+2026-11-08 05:46:35;abr;v620:abr;verzichten auf;Soğuk yüzünden geziden vazgeçiyoruz. | (bir şeyden) vazgeçmek;verzichten auf;richtig;verzichten auf (auf + Akk);basamak:B2 | bicim:kalip | not:m3 | R:0.76 | S:5.5 | sek:15 | ipucu:2
+2026-11-08 05:46:38;abr;v169:abr;donnern;gök gürlemek;donnern;richtig;donnern;basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:1.6 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:46:46;abr;v686:abr;alarmieren;(itfaiye, polis) çağırmak;alermieren;fast;alarmieren (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:10.3 | kısmi | kapı:7g | yazım | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:46:51;duy;w0117:duy-kelime;eben;ses: eben;az önce;richtig;az önce;tür:kelime | hız:0.9 | tekrar:0 | sek:5
+2026-11-08 05:46:56;gram;g:vergleich:4;vergleich/als-wie;Heute ist es genauso kalt ___ gestern.;wie;richtig;wie;tur:akis | tür:luecke | z:2 | sek:3
+2026-11-08 05:47:35;wort;x1550:wort;die Gerechtigkeit;adalet;das Gerechtigkeit;fast;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.77 | S:9.9 | kurtarma | kapı:7g | artikel das → die | sek:33 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:47:48;wort;n0448:wort;die Gemeinschaft;topluluk;die Gemeinsam?;falsch;die Gemeinschaft;basamak:B2 | bicim:yaz0 | not:m1 | R:0.77 | S:0.5 | düzeltti | kelime yanlış | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:47:57;stamm;v148:stamm;bleiben;Wir sind drei Tage in Berlin _____.;geblieben;richtig;geblieben;basamak:K | bicim:kokSatz | not:k3 | R:0.77 | S:0.3 | kök:bleiben | sek:8
+2026-11-08 05:48:01;hoer;hoer:er-e;Wunde/Wunder;Wunder;Wunder;richtig;Wunder;cift:Wunde/Wunder | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-08 05:48:13;gram;g:es-korrelat:96;es-korrelat/finden-es;Ich halte ___ für keine gute Idee, im Winter zu campen.;es;richtig;es;tur:akis | tür:luecke | z:2 | sek:10
+2026-11-08 05:48:38;wort;n0448:wort;die Gemeinschaft;topluluk | … türkisch… _____ in Bremen organisiert jedes Jahr ein großes Fest.;Gemeischaft;fast;die Gemeinschaft;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:0.5 | tekrar:1 | kısmi | yazım, artikel eksik | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 05:48:38;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:3 | yanlış:2 | puan:107 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:2/2
