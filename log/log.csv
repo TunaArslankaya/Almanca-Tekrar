@@ -3940,3 +3940,6 @@
 2026-11-07 17:45:46;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:118 | dk:5 | yeni:0 | seviye+:2 | tekrar:9 | gram:2/2
 2026-11-07 17:47:53;sprechen;teil2:10:t1;teil2;Müll trennen – wichtig oder nicht?;kayıt:60sn;gemacht;;gecikme:0.5sn | süre:60.0sn | konuşma:59.0sn | oran:%63 | duraklama:7 | akış:3.9sn | mod:kisa | tur:1/3 | hedef:60sn
 2026-11-07 17:53:07;sprechen;teil2:10:t2;teil2;Müll trennen – wichtig oder nicht?;kayıt:3sn;gemacht;;gecikme:yok | süre:3.2sn | konuşma:0.0sn | oran:%0 | duraklama:0 | akış:0.0sn | mod:kisa | tur:2/3 | hedef:45sn
+2026-11-08 05:41:38;erk;n0436:erk;das Gefühl;duygu, his;das Gefühl;richtig;das Gefühl;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | ısınma | şık:n0435/n0434/n0429 | çeldirici:biçim/biçim/biçim | sek:4
+2026-11-08 05:41:45;erk;w0227:erk;häufig;Seit Jahren liegen die Temperaturen immer häufiger über 40 Grad, und das hat Folgen: Asphalt verformt sich, Beton platzt auf, Fahrstreifen werden gesperrt.;sık;richtig;sık;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:4.0 | ısınma | şık:w0536/w0115/w0209 | çeldirici:bilinen/bilinen/bilinen | sek:5
+2026-11-08 05:41:51;erk;w0597:erk;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | ısınma | şık:w0051/w0320/w0315 | çeldirici:bilinen/bilinen/bilinen | sek:5
