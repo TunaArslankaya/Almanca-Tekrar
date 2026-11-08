@@ -4042,3 +4042,12 @@
 2026-11-08 05:57:57;wort;x1554:wort;die Solidarität;dayanışma;die Solidärität;fast;die Solidarität;basamak:B2 | bicim:yaz0 | not:m2 | R:0.79 | S:5.1 | umlaut | sek:12 | ipucu:0 | ipucu-tür:tr
 2026-11-08 05:58:00;art;n0536:art;der Himmel;wegen ___ Himmels [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.79 | S:10.0 | hâl:Gen | sek:3
 2026-11-08 05:58:02;hoer;hoer:z-s;heizen/heißen;heißen;heizen;falsch;heißen;cift:heizen/heißen | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-08 05:58:43;gram;g:verbstellung:15;verbstellung/inversion;Nach dem Kurs ___ ___ in die Bibliothek. (wir · gehen);"gehen ; wir";richtig;"gehen ; wir";tur:akis | tür:luecke | z:2 | sek:5
+2026-11-08 05:58:51;wort;n0137:wort;die Behörde;resmî kurum;die Behörde;richtig;die Behörde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.79 | S:7.1 | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:58:51;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:114 | dk:3 | yeni:0 | seviye+:0 | tekrar:8 | gram:2/2
+2026-11-08 05:58:56;abr;v346:abr;kommen;gelmek;kommen;richtig;kommen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:6.3 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:59:01;art;x1554:art;die Solidarität;wegen ___ Solidarität [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.80 | S:6.7 | hâl:Gen | sek:4
+2026-11-08 05:59:21;wort;x1559:wort;der Umgang;"(biriyle) ilişki; (bir şeyle) başa çıkma";das Umhalt;falsch;der Umgang;basamak:B2 | bicim:yaz0 | not:m1 | R:0.79 | S:0.6 | düzeltti | kelime yanlış | sek:16 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:59:32;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich argern über;falsch;sich aufregen über (über + Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.80 | S:1.0 | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:59:35;bed;v317:bed;herstellen;herstellen;üretmek;richtig;üretmek;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:4.1 | şık:v629/v256/v610 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-08 05:59:45;gram;g:adjektiv:4;adjektiv/bestimmt;Die ___ Schuhe haben 120 Euro gekostet. (schwarz);schwarzen;richtig;schwarzen;tur:akis | tür:luecke | z:2 | ghost:2 | sek:8
