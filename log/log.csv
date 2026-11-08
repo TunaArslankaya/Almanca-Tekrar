@@ -4065,3 +4065,20 @@
 2026-11-08 06:00:50;leech;n1173;der Supermarkt;süpermarket;;takiliyor;;günler:2026-11-05,2026-11-06,2026-11-08
 2026-11-08 06:00:56;art;n0372:art;der Flohmarkt;Flohmarkt;das;falsch;der Flohmarkt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | artikel das → der | sek:2
 2026-11-08 06:00:59;art;n0764:art;der Markt;Markt;der;richtig;der Markt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | sek:3
+2026-11-08 06:01:14;gram;g:es-korrelat:58;es-korrelat/wetter;Gestern ___ ___ den ganzen Tag geregnet. (es · haben);"haben ; es";falsch;"hat ; es";tur:akis | tür:luecke | z:2 | eksik kelime | sek:10
+2026-11-08 06:01:27;wort;n0179:wort;der Blitz;şimşek;der Blitzt;fast;der Blitz;basamak:B2 | bicim:yaz0 | not:m2 | R:0.80 | S:20.3 | kurtarma | kapı:14g | çekim | sek:9 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:01:29;abr;v643:abr;werden;olmak (… hâline gelmek);werden;richtig;werden;basamak:B2 | bicim:yaz0 | not:m3 | R:0.80 | S:1.4 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:01:32;duy;v169:duy-bosluk;donnern;Es _____ schon, wir sollten schnell nach Hause gehen.;donnert;richtig;donnert;tür:bosluk | hız:0.9 | tekrar:0 | sek:3
+2026-11-08 06:01:46;gram;g:satzklammer-tekamolo:15;satzklammer-tekamolo/tekamolo;Wir fahren ___ ___. (in die Türkei · im Sommer);"im Sommer ; in der Türkei";falsch;"im Sommer ; in die Türkei";tur:akis | tür:luecke | z:2 | kelime sırası | sek:11
+2026-11-08 06:01:58;stamm;v069:stamm;ausfüllen;ausfüllen — Perfekt | Ich ___ den Fragebogen schon ___.;habe ausgefüllt;richtig;habe ausgefüllt;basamak:K | bicim:kok | not:k3 | R:0.96 | S:34.8 | kök:füllen | sek:11
+2026-11-08 06:01:58;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:2 | yanlış:4 | puan:75 | dk:1 | yeni:0 | seviye+:0 | tekrar:9 | gram:0/2
+2026-11-08 06:02:08;wort;x1460:wort;das Missverständnis;yanlış anlaşılma;das Missverständnis;richtig;das Missverständnis;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.94 | S:28.0 | sek:9 | ipucu:2 | ipucu-tür:tr
+2026-11-08 06:02:20;stamm;v629:stamm;sich(D) vorstellen;vorstellen — Perfekt | So ___ ich mir Bremen nicht ___.;habe vorgestellt;richtig;habe vorgestellt;basamak:K | bicim:kok | not:k3 | R:0.94 | S:23.5 | kök:stellen | sek:12
+2026-11-08 06:02:24;wort;n0384:wort;das Formular;form;das Formular;richtig;das Formular;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.93 | S:40.2 | kapı:14g | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-08 06:02:35;wort;n1359:wort;die Wärme;sıcaklık;witze;falsch;die Wärme;basamak:B2 | bicim:yaz0 | not:m1 | R:0.93 | S:0.7 | düzeltti | kelime yanlış | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:02:55;duy;n0914:duy-dikte;die Politik;Ich interessiere mich nicht für Politik.;Ich interesiere mich nicht für Politik;fast;Ich interessiere mich nicht für Politik.;tür:dikte | hız:0.9 | tekrar:0 | yazım | dikte:yazım | sek:20
+2026-11-08 06:03:06;gram;g:n-deklination:115;n-deklination/gen;Für den Antrag brauchen wir die Unterschrift eines ___. (der Zeuge);Zeugen;richtig;Zeugen;tur:akis | tür:luecke | z:2 | sek:7
+2026-11-08 06:03:13;prod;w0566:prod;bewölkt;bulutlu;bewölkt;richtig;bewölkt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.81 | S:8.9 | kurtarma | kapı:7g | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:03:17;wort;n0520:wort;der Hausmeister;kapıcı, apartman görevlisi;der Hausmeister;richtig;der Hausmeister;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.93 | S:24.3 | kapı:14g | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-08 06:03:31;wort;n1359:wort;die Wärme;sıcaklık | Nach dem langen Winter freuen sich alle auf … _____ der Sonne.;Wärme;fast;die Wärme;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:0.7 | tekrar:1 | artikel eksik | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 06:03:34;hoer;hoer:vurgu;an·ru·fen;AN·ru·fen;AN·ru·fen;richtig;AN·ru·fen;cift:an·ru·fen | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
