@@ -3515,3 +3515,7 @@ n0436 | das Gefühl | Es ist ein schönes Gefühl, wieder zu Hause zu sein. | Ye
 n0436 | das Gefühl | Er spricht nicht gern über seine Gefühle. | Duyguları hakkında konuşmayı sevmez.
 x1575 | die Regierung | Die Regierung will die Steuern senken. | Hükümet vergileri düşürmek istiyor.
 x1575 | die Regierung | Die Regierung hat ein neues Gesetz beschlossen. | Hükümet yeni bir yasa kabul etti.
+w0515 | verwandt | Mein Cousin und ich sind eng verwandt. | Kuzenimle ben yakın akrabayız.
+w0515 | verwandt | Ich bin mit dem neuen Nachbarn nicht verwandt. | Yeni komşuyla akraba değilim.
+n1428 | der Zoll | Am Flughafen muss man beim Zoll eine Kiste anmelden. | Havalimanında gümrükte bir kolinin bildirilmesi gerekir.
+n0255 | der Druck | Vor der Prüfung stehe ich immer unter Druck. | Sınavdan önce hep baskı altındayım.

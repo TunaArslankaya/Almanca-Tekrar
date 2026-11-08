@@ -1362,3 +1362,5 @@ v276 | Seine Frau führt seit zehn Jahren ein kleines Hotel. | Karısı on yıld
 v276 | Der Kellner führt uns an unseren Tisch. | Garson bizi masamıza götürüyor.
 v276 | Wer führt hier das Geschäft? | Burada dükkânı kim yönetiyor?
 v276 | Ein freundlicher Mitarbeiter hat uns durch die Fabrik geführt. | Güler yüzlü bir çalışan bize fabrikayı gezdirdi.
+v117 | Die Nachrichten berichten heute über die Flut in Süddeutschland. | Haberler bugün Güney Almanya'daki sel hakkında haber veriyor.
+v117 | Unsere Lehrerin berichtet im Unterricht oft über ihre Reisen. | Öğretmenimiz derste sık sık gezilerini anlatıyor.

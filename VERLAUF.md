@@ -448,3 +448,13 @@ Son incelenen log satırı: 2026-11-06 09:54:12 (tur akis).
 - Düzeltildi (CLAUDE.md "8.11 denetimi"): hepsi; geçiş Ayarlar'da 1 / 2 / 3,5 sn / elle (varsayılan 2 sn). Bilerek bırakılanlar: fiil + edat yazmada hâl zorunlu değil (14.10 kararı), Aphoteke gibi iki harf kayması yanlış (≥ 10 harf kuralı), nesne önde diziliş küçük hata, B4 tam cümle seyrek (pk / bm / tier-3 kapıları: tasarım).
 - Testler: test_kern 707, test_gramer 71 (yeni), test_dinle 32, e2e_soru / e2e_not / e2e_senkron yeni.
 Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
+
+**2026-11-08 (gece işi, otomatik) — 7–8.11 oturumları (277 satır)**
+- Yazma / cümle / boşluk / gramer / dikte yanlışları tek tek `daten/feedback.js`'e (~55 düzeltme). Seçmeli yanlışları toplu: artikel flaşı ve artOb: das ↔ der karışıyor (Humor, Roman, Supermarkt, Flohmarkt → der; Gewitter → das; Burg / Feuerwehr dişil Genitiv/Dativ → der), Monitor die → der; erk dagegen ↔ allerdings; bed führen ↔ erfahren von. `hoer`: z–s kontrastı 2 yanlış (Zeh/See, heizen/heißen), kurz/Kurs doğru. `dikte:` türleri: yazım ×2 (stelte, interesiere), kelime ×2 (schmerz Tabletten bitişik değil, bewäl… yarım).
+- Sık hata türleri: artikel yanlışı wort satırlarında (der/die/das ×11: Vorurteil, Toleranz, Gerechtigkeit, Bedürfnis, Behördengang…), yazım (tek harf: Schirm, alarmieren, Feuerwehrmann, Gemeischaft), karışan kelimeler (eben ↔ eher, drinnen ↔ drüben ↔ deutlich ×3, Verhalten ↔ Verhältnis, Donner ↔ donnern), dönüşlü Dativ (mir / mich), kelime sırası (gramer es-korrelat).
+- Karar: sistem haksızlığı bulunmadı. Gleichberechtigung ilk deneme (lev 3) falsch, ikinci deneme fast: tutarlı. İki gramer `ordnen` satırı (Rock / Schuhe) `richtig` verilmiş ama dizilişler asıl cümleden farklı: ilkinde anlam değişiyor (roten ↔ blauen yer değiştirmiş), sistem bunu doğru saymış; kod tarafı için not (bu iş koda dokunmaz).
+- Baştan savma: bir dikte (v688) anlamsız harf yığını; suçlama yok, yavaş dinlemeyi öneriyoruz. `itiraz` (öneri:) yok.
+- Bilmiyorum: Erziehung, verwandt, berichten über → verwandt ×2, berichten über ×2 yeni cümle (Erziehung zaten 6). Gram'da `bilmiyorum` yok. Yoklamada bilinen (`yeni;bekannt`) yok. Cümle atölyesi satırı yok.
+- Leech kancaları: drüben, Gewitter, Gleichberechtigung, der Service, eben, berichten über, der Supermarkt.
+- Günün içeriği: DW metinleri (Audi / KI) glossarındaki B1 kelimelerinden Goethe listesinde olanlar çoğunlukla yok (yalnız der Zoll, der Druck): +1 cümle her biri; yeni liste dışı kimlik eklenmedi.
+- Son incelenen log satırı: 2026-11-08 06:07:47 (art n1389).

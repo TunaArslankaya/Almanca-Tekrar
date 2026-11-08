@@ -5167,3 +5167,9 @@ Seine Frau führt seit zehn Jahren ein kleines Hotel. | das Hotel = otel
 Der Kellner führt uns an unseren Tisch. | der Kellner = garson; der Tisch = masa
 Wer führt hier das Geschäft? | das Geschäft = dükkân, işyeri
 Ein freundlicher Mitarbeiter hat uns durch die Fabrik geführt. | freundlich = güler yüzlü; der Mitarbeiter = çalışan; die Fabrik = fabrika
+Mein Cousin und ich sind eng verwandt. | der Cousin = kuzen; eng = yakın
+Ich bin mit dem neuen Nachbarn nicht verwandt. | der Nachbar = komşu; neu = yeni
+Am Flughafen muss man beim Zoll eine Kiste anmelden. | der Flughafen = havalimanı; die Kiste = koli, kasa; anmelden = bildirmek
+Vor der Prüfung stehe ich immer unter Druck. | die Prüfung = sınav
+Die Nachrichten berichten heute über die Flut in Süddeutschland. | die Nachrichten = haberler; die Flut = sel, taşkın; Süddeutschland = Güney Almanya
+Unsere Lehrerin berichtet im Unterricht oft über ihre Reisen. | die Lehrerin = öğretmen (kadın); der Unterricht = ders; die Reise = yolculuk

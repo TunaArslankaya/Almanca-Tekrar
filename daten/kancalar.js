@@ -55,4 +55,11 @@ window.KANCA = {
   x1547: "die Toleranz → Türkçedeki 'tolerans'; yabancı kökenli -anz / -enz ile biten isimler die (die Distanz, die Konferenz), kırmızı",
   n1375: "der Wetterbericht → Wetter (hava) + Bericht (rapor); bileşikte son parça artikeli belirler: der Bericht → der Wetterbericht, mavi",
   x1460: "das Missverständnis → miss (yanlış) + verstehen (anlamak); -nis ile bitenlerin çoğu das (das Ergebnis, das Zeugnis, das Erlebnis), yeşil; istisna die Erlaubnis, die Kenntnis",
+  w0109: "drüben = karşıda → „drüben“ ü'lü: köprünün (über) öte yakası; drinnen ise in = içeride. Üstü ü = öte taraf, in = iç",
+  n0474: "das Gewitter → Türkçe 'gevit' gibi duy: gök gürültüsü gevitliyor, fırtına. Artikel için kural yok, ezberle: yeşil (das) bulut",
+  x1551: "die Gleichberechtigung → Recht (hak) içinde: Gleich + be-RECHT-igung = eşit hak; ortada 'recht' (rehtigung değil, richtig değil)",
+  n1082: "der Service → İngilizce 'servis' gibi okunur ama Almancada der: garson mavi önlükle servis yapıyor, mavi = der",
+  w0117: "eben = az önce, işte tam öyle (Das ist es eben). eher = daha çok: 'er' ile biter, karşılaştırma gibi: Ich mag eher Krimis. İkisi karışıyor: eben = an, eher = tercih",
+  v117: "berichten über → Bericht (rapor) ile aynı kök: rapor bir şeyin ÜBER'ine (hakkında) verilir; edat hep über + Akk",
+  n1173: "der Supermarkt → Markt (der) son parça: pazaryeri mavi şemsiyeli tezgâh, süpermarket de der",
 };
