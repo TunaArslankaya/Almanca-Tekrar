@@ -36,6 +36,8 @@
   let gocGerek = false;
   // açılış göçü: kartı olmayan, bir günden eski açılış (tanıtım okunmuş, giriş seti yapılmamış: tuerkisch-fallen 18.10) kapanır;
   // vadeli sayılmaz, yeniden "yeni konu" olur (eskiden kartsız açık konu hep vadeliydi: ikinci iş her gün "Gramer tekrarı")
+  // doğru cevapta kendiliğinden geçiş: Ayarlar → Doğru cevapta geçiş (app.js otoMs; 0 = elle); yoksa 1,4 sn
+  const otoSure = () => (api && api.otoMs ? api.otoMs() : 1400);
   function goc(g) { const t = now(); Object.values(g.konu || {}).forEach(k => { if (k && k.acildi && !k.karte && t - k.acildi > DAY) { k.acildi = 0; k.yarim = (k.yarim || 0) + 1; } }); }
   const konuSt = id => { const g = st(); return g.konu[id] || (g.konu[id] = { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 0 }); };
   const now = () => api.now();
@@ -759,7 +761,7 @@
     if (u.tur === 'kategori') el().querySelectorAll('.g-kat-oge').forEach(r => { const x = q.ogeler[+r.dataset.k]; r.classList.add(q.kat[+r.dataset.k] === x.gi ? 'dogru' : 'yanlis'); r.querySelectorAll('button').forEach(b => { b.disabled = true; if (+b.dataset.gi === x.gi) b.classList.add('g-hedef'); }); });
     sonucCiz(u, g, q);
     if (ses.art !== 'tur') api.fx && api.fx(urteil);   // turda fx app'te (bitti)
-    if (urteil === 'richtig') api.later(() => { if (ses && ses.q === q) notla(); }, 1400);
+    if (urteil === 'richtig' && otoSure()) api.later(() => { if (ses && ses.q === q) notla(); }, otoSure());
     else if (q.kilitBis) api.later(() => kilitAc(q), KILIT_MS);
   }
   const KILIT_MS = 2500;
@@ -821,7 +823,7 @@
     if (q.urteil === 'richtig') q.kilitBis = 0;   // küçük hatada kilit sürer (ana turdaki gibi)
     sonucCiz(u, GR[ses.id], q);
     if (ses.art !== 'tur') api.fx && api.fx(q.urteil);
-    if (q.urteil === 'richtig') api.later(() => { if (ses && ses.q === q) notla(); }, 1400);
+    if (q.urteil === 'richtig' && otoSure()) api.later(() => { if (ses && ses.q === q) notla(); }, otoSure());
   }
   // not = sistemin kararı (q.son: ilk karar ya da tek itirazdan sonraki). zorla: kilidi aşar (Bitir)
   function notla(_, zorla) {

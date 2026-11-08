@@ -31,6 +31,8 @@
   const istEkle = (k, p) => { const l = st().ist[k]; if (!l) return; l.push(p); if (l.length > 20) l.splice(0, l.length - 20); };
 
   // ---------- kaynak: öğrenilmiş öğeler + çeviri cümleleri ----------
+  // doğru cevapta kendiliğinden geçiş: Ayarlar → Doğru cevapta geçiş (app.js otoMs; 0 = elle); yoksa 1,4 sn
+  const otoSure = () => (api && api.otoMs ? api.otoMs() : 1400);
   function cumleler(id) {
     const k = api.kind(id);
     const l = k === 'v' ? (root.SAETZE && root.SAETZE[id] || []).concat(root.SAETZE_REFL && root.SAETZE_REFL[id] || []) : (root.NSAETZE && root.NSAETZE[id] || []);
@@ -465,7 +467,7 @@
       ${neden.length || kural.length ? `<div class="satir"><span class="et">neden</span><span class="deger ca-neden">${neden.concat(kural).map(esc).join('<br>')}</span></div>` : ''}
       ${g.itiraz ? `<div class="soluk">İtiraz kaydedildi (sistem: ${esc(g.oneri)}); Claude gece bakar.</div>` : ''}
       ${!g.bilmiyorum && u !== 'richtig' && (r.diff || []).some(x => x.t !== 'ok') ? `<div class="soluk ca-lejant">${g.kademe === 'diz' ? '' : '<ins class="ca-eksik">eksik</ins> · <s class="ca-fazla">fazla</s> · '}<span class="ca-yer">yeri yanlış</span></div>` : ''}
-      <div class="notlar">${api.devamBtn('ca', 'devam', u === 'richtig' && !g.itiraz ? 1400 : 0)}${itiraz}</div></div>`;
+      <div class="notlar">${api.devamBtn('ca', 'devam', u === 'richtig' && !g.itiraz ? otoSure() : 0)}${itiraz}</div></div>`;
   }
 
   // ---------- cevap ----------
@@ -532,7 +534,7 @@
     g.oneri = g.urteil;
     render();
     if (api.fx) api.fx(g.urteil);
-    if (g.urteil === 'richtig') { const q = g; api.later(() => { if (ses && ses.gorevler && ses.gorevler[ses.i] === q && q.done && !q.loglandi) ilerle(); }, 1400); }
+    if (g.urteil === 'richtig' && otoSure()) { const q = g; api.later(() => { if (ses && ses.gorevler && ses.gorevler[ses.i] === q && q.done && !q.loglandi) ilerle(); }, otoSure()); }
   }
   const ESNEK = /^(schon|auch|noch|heute|morgen|gestern|oft|immer|nie|gern|gerne|bitte|wieder|jetzt|dann|hier|dort|leider|vielleicht|wirklich|bald|gerade|sofort|endlich|natürlich|zusammen|manchmal|selten|abends|morgens|eigentlich|ja|doch|mal|trotzdem|deshalb|danach|später|zuerst)$/i;
   function zarfEsnek(u, t) {

@@ -823,8 +823,8 @@
           // büyük harfle küçültme yalnız cümle başında; dönüşlü fiil zamirsiz cümlede eşleşmez (metinEsle)
           const x = metinEsle(c, cumleBasi(ws, i), satz);
           if (!x || gesehen.has(x)) return;
-          // çok anlamlı öğe (Türkçesinde ';': scheinen = parlamak; … gibi görünmek): metindeki anlam bilinemez → metin cümlesi yok
-          if (/;/.test(trOf(x))) return;
+          // çok anlamlı öğe (Türkçesinde ';' ya da ' / ': scheinen = (güneş) parlamak / … gibi görünmek): metindeki anlam bilinemez → metin cümlesi yok
+          if (/;|\s\/\s/.test(trOf(x))) return;
           // cümle bir bileşiği açıklıyorsa (der Stadtrat oder Rat: belediye meclisi) kelime o bileşiğin anlamındadır: kullanma
           const lc = c.toLowerCase();
           if (kind(x) === 'n' && lc.length >= 3 && kucukWs.some((y, j) => j !== i && y.length > lc.length + 2 && y.endsWith(lc))) return;
