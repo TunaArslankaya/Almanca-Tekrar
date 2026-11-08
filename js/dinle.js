@@ -4,8 +4,11 @@
 // ve bitti({ urteil, antwort }) ile döner; sayaç / puan / oturumIsle / Devam uygulamanın. Öğe hafızasına YAZMAZ.
 // duy türleri (bildiği kelimeler: m.S ≥ 1):
 //   kelime  sesten tanıma: yazı gizli, ses 1 kez kendiliğinden (+ tekrar / yavaş), şıklar (Türkçe anlam, api.optionen) ses bitince açılır
-//   bosluk  cümle tam okunur, ekranda boşluklu; duyduğu çekimli biçimi yazar (G.bosPruef)
-//   dikte   bildiği kelimenin cümlesi dinlenip yazılır (diktePruef: G.cumleKontrol; hâl / çekim / yanlış kelime yazım sayılmaz)
+//   bosluk  cümle tam okunur, ekranda boşluklu; duyduğu çekimli biçimi yazar (boslukPruef: G.bosPruef + ae/oe/ue/ss doğru, umlaut düşürme
+//           küçük hata 'umlaut', sözlükte başka kelime yanlış)
+//   dikte   bildiği kelimenin cümlesi dinlenip yazılır (diktePruef: G.cumleKontrol; hâl / çekim / yanlış kelime yazım sayılmaz; bileşiği ayrı yazmak
+//           küçük hata 'yazım'; isimde büyük / küçük harf not düşürmez, söylenir; rakamlı cümle seçilmez)
+//   Boş Enter / Kontrol bir şey yapmaz; soru açıldıktan sonraki ilk ENTER_BEKLE ms'de Enter yok sayılır (önceki sorudan taşan Enter). Bilmiyorum yalnız düğme / 0.
 // Log: modus duy, id <öğe>:duy-kelime|duy-bosluk|duy-dikte, notiz `tür:kelime | hız:0.9 | tekrar:N | sek:N` (+ etiketler, dikte:ek|işlev|kelime).
 // hoer (duy-seç; 7.11'de js/konus.js'ten taşındı, konuşma kaldırıldı): minimal çift / vurgu (daten/minimalpaare.js); TTS iki kelimeden birini okur
 // (her soruda başka Almanca ses), hangisi duyuldu; sistem notlar. Almanca ses ya da çift yoksa null (uygulama duy sorar). S.hoer[kontrast] = { d, y, t },
@@ -38,26 +41,73 @@
     return c >= 2 && D_EK.test(a.slice(c)) && D_EK.test(b.slice(c));
   }
   const dNorm = s => String(s || '').toLowerCase().replace(/[.,!?;:„“"()…«»‚‘’]/g, ' ').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').split(/\s+/).filter(Boolean);
+  // karşılaştırma anahtarları: acikL ae/oe/ue/ss = ä/ö/ü/ß (küçük harf, noktalama ve tire yok); umlF umlaut düşürülmüş (Prufung = Prüfung)
+  const acik = s => String(s || '').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
+  const tokTemiz = w => String(w || '').replace(/^[„“"(‚‘»«]+|[.,!?;:“"”)…’‘»«]+$/g, '');
+  const acikL = s => acik(tokTemiz(s)).toLowerCase().replace(/-/g, '');
+  const umlF = s => acikL(s).replace(/ae/g, 'a').replace(/oe/g, 'o').replace(/ue/g, 'u');
+  const ilkKucuk = s => s.charAt(0).toLowerCase() + s.slice(1);
+  // bileşik kelime ayrı ("schmerz Tabletten" → Schmerztabletten) ya da ayrı yazılan bitişik ("zuhause" → zu Hause): duyduğu doğru, yalnız yazım.
+  // Girdiyi hedefin token sınırlarına uydurur; döner { metin, bitisik: [{ d: 'Schmerztabletten', w: 'schmerz Tabletten' }], ayri: [{ d: 'zu Hause', w: 'zuhause' }] }
+  function bitisikUydur(eingabe, ziel) {
+    const P = String(eingabe || '').trim().split(/\s+/).filter(Boolean), T = String(ziel || '').trim().split(/\s+/).filter(Boolean);
+    const tk = new Set(T.map(acikL)), bitisik = [], ayri = [], out = [];
+    const ciftler = new Map(); for (let j = 0; j + 1 < T.length; j++) ciftler.set(acikL(T[j]) + acikL(T[j + 1]), [T[j], T[j + 1]]);
+    for (let i = 0; i < P.length; i++) {
+      const k1 = acikL(P[i]);
+      if (i + 1 < P.length && k1.length >= 2) {
+        const k12 = k1 + acikL(P[i + 1]), hedef = T.find(t => acikL(t) === k12);
+        if (hedef && (!tk.has(k1) || !tk.has(acikL(P[i + 1])))) { out.push(P[i] + ilkKucuk(P[i + 1])); bitisik.push({ d: tokTemiz(hedef), w: tokTemiz(P[i]) + ' ' + tokTemiz(P[i + 1]) }); i++; continue; }
+      }
+      const c = !tk.has(k1) && ciftler.get(k1);
+      if (c) {
+        let k = 1; while (k < P[i].length && acikL(P[i].slice(0, k)) !== acikL(c[0])) k++;
+        if (k < P[i].length) { out.push(P[i].slice(0, k), P[i].slice(k)); ayri.push({ d: tokTemiz(c[0]) + ' ' + tokTemiz(c[1]), w: tokTemiz(P[i]) }); continue; }
+      }
+      out.push(P[i]);
+    }
+    return { metin: out.join(' '), bitisik, ayri };
+  }
   function diktePruef(G, eingabe, ziel) {
     G = G || root.G;
     if (!String(eingabe || '').trim()) return { u: 'falsch', tags: ['bilmiyorum'], kat: [], diff: [], hinweis: 'bilmiyorum' };
-    const r = G.cumleKontrol(eingabe, [ziel]);
+    const bu = bitisikUydur(eingabe, ziel), birlesik = bu.bitisik.length + bu.ayri.length > 0;
+    const r = G.cumleKontrol(birlesik ? bu.metin : eingabe, [ziel]);
     let u = r.urteil;
     const tags = r.tags.filter(t => t !== 'farklı cümle' || u === 'falsch');
     if (u === 'richtig') {
       const a = dNorm(eingabe), b = dNorm(ziel);
       if (a.join(' ') !== b.join(' ') && a.slice().sort().join(' ') === b.slice().sort().join(' ')) { u = 'fast'; tags.push('kelime sırası'); }
     }
+    let diff = (r.diff || []).map(x => Object.assign({}, x));
+    // bitişik / ayrı yazım: küçük hata (yazım); farkta tek kalem
+    if (birlesik) {
+      if (u === 'richtig') u = 'fast';
+      if (!tags.includes('yazım')) tags.unshift('yazım');
+      bu.bitisik.forEach(b => { const x = diff.find(y => (y.t === 'ok' || y.t === 'yazim') && !y.bitisik && acikL(y.d) === acikL(b.d)); if (x) Object.assign(x, { t: 'yazim', w: b.w, bitisik: true }); });
+      bu.ayri.forEach(b => {
+        const [a1, a2] = b.d.split(' '), i = diff.findIndex((x, j) => j + 1 < diff.length && acikL(x.d) === acikL(a1) && acikL(diff[j + 1].d) === acikL(a2));
+        if (i >= 0) diff.splice(i, 2, { t: 'yazim', w: b.w, d: b.d, bitisik: true });
+      });
+    }
     const kat = new Set();
-    (r.diff || []).forEach(x => {
+    diff.forEach(x => {
       if (x.t === 'ok' || x.t === 'yer') return;
       if (x.t === 'yazim') { kat.add('yazım'); return; }
       const w = x.w || '', d = x.d || '';
       if (w && d) kat.add(D_PRAEP.test(w) && D_PRAEP.test(d) ? 'işlev' : ekFark(w, d) ? 'ek' : D_ISLEV.test(d) || D_ISLEV.test(w) ? 'işlev' : 'kelime');
       else kat.add(D_ISLEV.test(d || w) ? 'işlev' : 'kelime');
     });
-    const tl = tags.filter(t => t !== 'büyük/küçük harf' || u !== 'richtig');
-    return { u, tags: tl, kat: [...kat], diff: r.diff || [], hinweis: tl.join(', ') };
+    // büyük / küçük harf: not düşürmez (cümle başı hariç), ama söylenir: diktede isim büyük harfi asıl beceri (7.11 inceleme)
+    const harf = [];
+    diff.forEach((x, i) => {
+      if (i === 0 || x.bitisik || (x.t !== 'ok' && x.t !== 'yazim') || !x.w || !x.d) return;
+      const a = tokTemiz(x.w).charAt(0), b = tokTemiz(x.d).charAt(0);
+      if (a && b && a !== b && a.toLowerCase() === b.toLowerCase()) harf.push(tokTemiz(x.d));
+    });
+    const tl = tags.filter(t => t !== 'büyük/küçük harf');
+    if (harf.length) tl.push('büyük/küçük harf');
+    return { u, tags: tl, kat: [...kat], diff, hinweis: tl.join(', '), harf, bitisik: bu.bitisik.map(b => b.d), ayri: bu.ayri.map(b => b.d) };
   }
   // fark gösterimi: doğru kelime düz, yanlış yazılan üstü çizili + doğrusu, eksik yeşil, fazla üstü çizili
   function farkHTML(diff) {
@@ -84,9 +134,10 @@
     return shuffle(l).sort((a, b) => (t - son(a) < 3 * DAY) - (t - son(b) < 3 * DAY) || son(a) - son(b));
   }
   // cümle: kendi çeviri cümleleri (Türkçesiyle) önce, sonra Goethe / metin cümleleri; 20 günde dinlenmemiş; boşluğu bulunabilen
-  function cumleSec(id, maxW) {
+  // rakamsiz (dikte): rakamlı cümle yok (TTS "10"u "zehn" okur, yazılan "zehn" yanlış kelime sayılırdı; 7.11 inceleme)
+  function cumleSec(id, maxW, rakamsiz) {
     const st = durum(), t = A.now(), p = A.satzPool(id) || { own: [], extra: [] };
-    const uygun = x => { const n = x.de.split(/\s+/).length; return n >= 4 && n <= maxW && !(st.satz[x.de] && t - st.satz[x.de] < 20 * DAY) && /[.!?]$/.test(x.de.trim()); };
+    const uygun = x => { const n = x.de.split(/\s+/).length; return n >= 4 && n <= maxW && !(rakamsiz && /\d/.test(x.de)) && !(st.satz[x.de] && t - st.satz[x.de] < 20 * DAY) && /[.!?]$/.test(x.de.trim()); };
     const own = shuffle((p.own || []).filter(uygun)), ext = shuffle((p.extra || []).filter(uygun));
     for (const x of own.concat(ext)) { const l = A.wortLuecke(id, x.de); if (l && l.answer) return { de: x.de, tr: x.tr || '', l }; }
     return null;
@@ -95,8 +146,40 @@
   // ---------- ortak kart parçaları ----------
   function sesUst(baslik, alt) {
     return `<div class="tur"><span class="yeni">dinle</span><span>${esc(baslik)}</span></div>${alt || ''}
-      <div class="dn-ses"><button class="btn buyuk dn-cal" data-dn="cal" type="button">🔊 Dinle <kbd>Boşluk</kbd> / <kbd>↑</kbd></button><button class="btn dn-yavas" data-dn="yavas" type="button">🐢 yavaş</button></div>`;
+      <div class="dn-ses"><button class="btn buyuk dn-cal" data-dn="cal" type="button">🔊 Dinle<span class="klavye-ipucu"> <kbd>Boşluk</kbd> / <kbd>↑</kbd></span></button><button class="btn dn-yavas" data-dn="yavas" type="button">🐢 yavaş</button></div>`;
   }
+  // soru açıldıktan sonraki ilk ENTER_BEKLE ms'de Enter yok sayılır: önceki sorudan (doğru cevap, turdaki gramer sorusunun ikinci Enter'ı)
+  // taşan hızlı Enter yeni dinleme sorusunu yakmasın (7.11 inceleme: sek:0 "bilmiyorum"); gerçek saat (test saati kaydırılabilir)
+  const ENTER_BEKLE = 600;
+  const saat = () => (root.performance && root.performance.now ? root.performance.now() : Date.now());
+  const erkenEnter = (q, e) => e.key === 'Enter' && saat() - (q.acilis || 0) < ENTER_BEKLE;
+  // tek kelimelik boşlukta "yazım" denen cevap sözlükte başka bir kelime mi (verschieben ↔ verschrieben, legt ↔ liegt, Staat ↔ Stadt):
+  // CLAUDE.md yazım hoşgörüsü "yazılan sözlükte başka kelime değilse". Umlaut / ae farkı ve büyük / küçük harf başka kelime sayılmaz.
+  function baskaKelime(w, hedef, id, G0) {
+    w = tokTemiz(String(w || '').trim()); hedef = tokTemiz(String(hedef || '').trim());
+    if (!w || !hedef || /\s/.test(w) || /\s/.test(hedef) || acikL(w) === acikL(hedef) || umlF(w) === umlF(hedef)) return false;
+    const bul = x => { try { return (A && A.wortSuchen && (A.wortSuchen(x) || A.wortSuchen(x.charAt(0).toUpperCase() + x.slice(1)))) || null; } catch (e) { return null; } };
+    const a = bul(w), b = bul(hedef) || id || null;
+    if (a && b && a !== b) return true;
+    try { const G = G0 || (A && A.G) || root.G; return !!(G && G.yakin && G.yakin(w, hedef) == null); } catch (e) { return false; }
+  }
+  // ilk harfin büyük / küçük farkı (cümle ortasındaki boşluk): not düşürmez, söylenir
+  // bas: boşluk cümle başında (ilk kelimenin büyük harfi konumdan)
+  const harfFarki = (v, z, bas) => { const a = String(v || '').split(/\s+/), b = String(z || '').split(/\s+/); return a.length === b.length ? b.filter((x, i) => !(bas && i === 0) && a[i] && a[i].charAt(0) !== x.charAt(0) && a[i].charAt(0).toLowerCase() === x.charAt(0).toLowerCase()) : []; };
+  // sesli boşluk kontrolü: G.bosPruef + ae/oe/ue/ss tam doğru (CLAUDE.md), umlaut düşürme küçük hata 'umlaut', sözlükte başka kelime yazım değil yanlış
+  function boslukPruef(G, v, ziel, id) {
+    G = G || (A && A.G) || root.G;
+    const n = s => acik(String(s || '').trim().replace(/\s+/g, ' ').replace(/[.,!?;:]+$/, ''));
+    if (n(v) === n(ziel) || ilkKucuk(n(v)) === ilkKucuk(n(ziel))) return { urteil: 'richtig', tags: [] };
+    const r = G.bosPruef(v, ziel) || {};
+    let urteil = r.urteil === 'richtig' ? 'richtig' : r.urteil === 'fast' ? 'fast' : 'falsch', tags = (r.tags || []).slice();
+    if (urteil === 'richtig') return { urteil, tags: [] };
+    const vt = String(v).trim().split(/\s+/), zt = String(ziel).trim().split(/\s+/);
+    if (vt.length === zt.length && vt.every((x, i) => umlF(x) === umlF(zt[i])) && vt.some((x, i) => acikL(x) !== acikL(zt[i]))) return { urteil: 'fast', tags: ['umlaut'] };
+    if (urteil === 'fast' && tags.includes('yazım') && baskaKelime(v, ziel, id, G)) return { urteil: 'falsch', tags: ['yanlış kelime'] };
+    return { urteil, tags };
+  }
+  const harfNot = l => (l && l.length ? `<div class="kural dn-harf">büyük / küçük harf: <b>${l.map(esc).join(', ')}</b>${l.some(x => /^\p{Lu}/u.test(x)) ? ' (isimler büyük harfle)' : ''}</div>` : '');
   const yazKutu = ph => `<div class="yaz-kutu"><input id="cevap" type="text" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="${esc(ph)}" aria-label="Cevap">${A.umlaut || ''}</div>`;
 
   // soru nesnesi: ortak akış (ses, tekrar sayısı, süre, bitti, log)
@@ -107,7 +190,8 @@
       q.calindi = true;
       A.sprich(q.metin, yavas ? Math.max(0.55, hiz() - 0.25) : hiz(), () => { if (q.sesBitti) q.sesBitti(); });
     };
-    q.sonuc = (urteil, antwort, loesung, etiket, html) => {
+    // bekle: doğru ama okunacak not var (büyük / küçük harf): uygulama kendiliğinden geçmez, Devam beklenir
+    q.sonuc = (urteil, antwort, loesung, etiket, html, bekle) => {
       if (q.cevaplandi) return;
       q.cevaplandi = true;
       const st = durum(), sek = Math.round((A.now() - q.start) / 1000);
@@ -118,11 +202,11 @@
       A.logEintrag({ modus: 'duy', id: `${id}:duy-${tur}`, item: A.label(id), frage: o.frage || '', antwort: antwort || '', ergebnis: urteil, loesung: loesung || '', notiz });
       const yer = q.el && q.el.querySelector('#sonuc'), alt = q.el && q.el.querySelector('#q-alt');
       if (alt) alt.hidden = true;
-      if (yer) yer.innerHTML = `<div class="sonuc ${urteil} dn-sonuc"><div class="baslik">${urteil === 'richtig' ? '✓ Doğru' : urteil === 'fast' ? '≈ Küçük hata' : '✗ Yanlış'}${(etiket || []).filter(x => !/^(dikte:|şık:)/.test(x)).length ? `<span class="etiketler">${(etiket || []).filter(x => !/^(dikte:|şık:)/.test(x)).map(x => `<span class="etiket">${esc(x)}</span>`).join('')}</span>` : ''}</div>${html || ''}</div>`;
+      if (yer) yer.innerHTML = `<div class="sonuc ${urteil} dn-sonuc"><div class="baslik">${urteil === 'richtig' ? '✓ Doğru' : urteil === 'fast' ? '≈ Küçük hata' : '✗ Yanlış'}${(etiket || []).filter(x => !/^(dikte:|şık:|bitişik:|ayrı:)/.test(x)).length ? `<span class="etiketler">${(etiket || []).filter(x => !/^(dikte:|şık:|bitişik:|ayrı:)/.test(x)).map(x => `<span class="etiket">${esc(x)}</span>`).join('')}</span>` : ''}</div>${html || ''}</div>`;
       if (q.el) q.el.classList.add('cevaplandi');
       if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
       A.save();
-      if (q.bitti) q.bitti({ urteil, antwort: antwort || '' });
+      if (q.bitti) q.bitti(Object.assign({ urteil, antwort: antwort || '' }, bekle ? { bekle: true } : {}));
     };
     return q;
   }
@@ -159,12 +243,12 @@
     };
     q.sesBitti = () => { if (A.later) A.later(ac, 250); else ac(); };
     q.render = (el, bitti) => {
-      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now();
+      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now(); q.acilis = saat();
       el.classList.add('duzen');
       el.innerHTML = `<div class="q-ust dn-kart" data-dn-tur="kelime">${sesUst('sesten tanı: duyduğun kelime ne demek?', '')}
           <div class="soluk dn-bekle" id="dn-bekle">yazısı gizli · şıklar ses bitince açılır</div></div>
         <div class="q-alt" id="q-alt"><div class="dn-sik" id="dn-sik" hidden>${q.opts.map((o, i) => `<button class="dn-opt" data-dn-sik="${i}" type="button"><kbd>${i + 1}</kbd> ${esc(o.t)}</button>`).join('')}</div>
-          <div class="alt-sira"><button class="btn mini bilmiyorum" data-dn="bilmiyorum" type="button">Bilmiyorum <kbd>0</kbd></button><span class="soluk">tekrar dinle: <kbd>Boşluk</kbd></span></div></div>
+          <div class="alt-sira"><button class="btn mini bilmiyorum" data-dn="bilmiyorum" type="button">Bilmiyorum <kbd>0</kbd></button><span class="soluk klavye-ipucu">tekrar dinle: <kbd>Boşluk</kbd></span></div></div>
         <div id="sonuc" class="sonuc-yer"></div>`;
       q.cal(false);
       // ses gelmezse (TTS yok / izin yok) şıklar yine açılır
@@ -201,7 +285,7 @@
     q.ziel = c.l.answer;
     const satzHTML = () => A.deHTML(c.l.text).replace(/_____/g, '<span class="bosluk">_____</span>');
     q.render = (el, bitti) => {
-      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now();
+      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now(); q.acilis = saat();
       el.classList.add('duzen');
       el.innerHTML = `<div class="q-ust dn-kart" data-dn-tur="bosluk">${sesUst('cümleyi dinle, boşluğa duyduğunu yaz', '')}
           <div class="soru de dn-satz">${satzHTML()}</div>${c.l.n > 1 ? `<div class="soluk">${c.l.n} boşluk: sırayla, boşlukla ayırarak yaz</div>` : ''}</div>
@@ -211,17 +295,21 @@
       const i = el.querySelector('#cevap'); if (i) i.focus();
       q.cal(false);
     };
+    // boş Enter / Kontrol hiçbir şey yapmaz (yalnız odak): "Bilmiyorum" yalnız düğmeyle (7.11 inceleme: boş Enter anında yanlış yazıyordu)
     q.kontrol = () => {
       if (q.cevaplandi) return;
       const i = q.el.querySelector('#cevap'), v = i ? i.value.trim() : '';
-      if (!v) { q.bilmiyorum(); return; }
-      const r = A.G.bosPruef(v, q.ziel);
-      const urteil = r.urteil === 'richtig' ? 'richtig' : r.urteil === 'fast' ? 'fast' : 'falsch';
-      q.sonuc(urteil, v, q.ziel, urteil === 'richtig' ? [] : (r.tags || []), loesHTML());
+      if (!v) { if (i) i.focus(); return; }
+      const r = boslukPruef(A.G, v, q.ziel, id);
+      const urteil = r.urteil;
+      const harf = urteil === 'richtig' ? harfFarki(v, q.ziel, /^\s*_____/.test(c.l.text)) : [];
+      const senin = urteil !== 'richtig' ? `<div class="satir"><span class="et">senin</span><span class="deger fark"><s class="dn-fazla">${esc(v)}</s> → <b class="dn-eksik">${esc(q.ziel)}</b></span></div>` : '';
+      q.sonuc(urteil, v, q.ziel, urteil === 'richtig' ? (harf.length ? ['büyük/küçük harf'] : []) : r.tags, senin + loesHTML() + harfNot(harf), harf.length > 0);
     };
     const loesHTML = () => { const w = q.ziel.split(' '); let k = 0; return `<div class="satir"><span class="et">cümle</span><span class="deger">${A.deHTML(c.l.text.replace(/_____/g, () => w[k++] || ''))} <button class="btn mini ses-mini" data-sprich="${esc(c.de)}" type="button" aria-label="Dinle">🔊</button></span></div>${c.tr ? `<div class="soluk">${esc(c.tr)}</div>` : ''}<div class="soluk">${A.deItemHTML(id)} = ${esc(A.kurzTr(A.trOf(id)))}</div>`; };
     q.bilmiyorum = () => q.sonuc('falsch', '', q.ziel, ['bilmiyorum'], loesHTML());
     q.tus = e => {
+      if (!q.cevaplandi && erkenEnter(q, e)) { e.preventDefault(); return true; }
       if (ortakTus(q, e)) return true;
       if (e.key === 'Enter' && !q.cevaplandi && !e.repeat) { e.preventDefault(); q.kontrol(); return true; }
       return false;
@@ -234,11 +322,11 @@
 
   // ---------- (c) cümle diktesi ----------
   function dikteSoru(id) {
-    const c = cumleSec(id, 12); if (!c) return null;
+    const c = cumleSec(id, 12, true); if (!c) return null;
     const q = soruYap('dikte', id, { metin: c.de, frage: c.de, satz: c.de });
     q.ziel = c.de;
     q.render = (el, bitti) => {
-      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now();
+      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now(); q.acilis = saat();
       el.classList.add('duzen');
       el.innerHTML = `<div class="q-ust dn-kart" data-dn-tur="dikte">${sesUst('dinle–yaz: duyduğun cümleyi yaz', '<div class="soluk">istediğin kadar dinle; ekleri ve kısa kelimeleri (den / dem, zu, ist) dikkatle dinle</div>')}</div>
         <div class="q-alt" id="q-alt">${yazKutu('duyduğun cümle')}
@@ -247,17 +335,24 @@
       const i = el.querySelector('#cevap'); if (i) i.focus();
       q.cal(false);
     };
+    const yazimNot = r => {
+      const l = (r && r.bitisik || []).map(x => `<b>${esc(x)}</b> bitişik yazılır`).concat((r && r.ayri || []).map(x => `<b>${esc(x)}</b> ayrı yazılır`));
+      return l.length ? `<div class="kural dn-bitisik">${l.join(' · ')}</div>` : '';
+    };
     const loesHTML = (r, v) => `${v && r && r.u !== 'richtig' ? `<div class="satir"><span class="et">senin</span><span class="deger fark">${farkHTML(r.diff)}</span></div>` : ''}
-      <div class="satir"><span class="et">${r && r.u === 'richtig' ? 'cümle' : 'doğru'}</span><span class="deger">${A.deHTML(c.de)} <button class="btn mini ses-mini" data-sprich="${esc(c.de)}" type="button" aria-label="Dinle">🔊</button></span></div>${c.tr ? `<div class="soluk">${esc(c.tr)}</div>` : ''}`;
+      <div class="satir"><span class="et">${r && r.u === 'richtig' ? 'cümle' : 'doğru'}</span><span class="deger">${A.deHTML(c.de)} <button class="btn mini ses-mini" data-sprich="${esc(c.de)}" type="button" aria-label="Dinle">🔊</button></span></div>${c.tr ? `<div class="soluk">${esc(c.tr)}</div>` : ''}${yazimNot(r)}${harfNot(r && r.harf)}`;
     q.kontrol = () => {
       if (q.cevaplandi) return;
       const i = q.el.querySelector('#cevap'), v = i ? i.value.trim() : '';
-      if (!v) { q.bilmiyorum(); return; }
+      if (!v) { if (i) i.focus(); return; }
       const r = diktePruef(A.G, v, q.ziel);
-      q.sonuc(r.u, v, q.ziel, r.u === 'richtig' ? [] : r.tags.concat(r.kat.length ? ['dikte:' + r.kat.join(',')] : []), loesHTML(r, v));
+      const ek = [].concat(r.bitisik && r.bitisik.length ? ['bitişik:' + r.bitisik.join(',')] : [], r.ayri && r.ayri.length ? ['ayrı:' + r.ayri.join(',')] : []);
+      const etiket = r.u === 'richtig' ? r.tags.filter(t => t === 'büyük/küçük harf') : r.tags.concat(ek, r.kat.length ? ['dikte:' + r.kat.join(',')] : []);
+      q.sonuc(r.u, v, q.ziel, etiket, loesHTML(r, v), r.u === 'richtig' && r.harf && r.harf.length > 0);
     };
     q.bilmiyorum = () => q.sonuc('falsch', '', q.ziel, ['bilmiyorum'], loesHTML(null, ''));
     q.tus = e => {
+      if (!q.cevaplandi && erkenEnter(q, e)) { e.preventDefault(); return true; }
       if (ortakTus(q, e)) return true;
       if (e.key === 'Enter' && !q.cevaplandi && !e.repeat) { e.preventDefault(); q.kontrol(); return true; }
       return false;
@@ -325,7 +420,7 @@
     const canli = () => !!(q.kok && q.kok.isConnected);
     q.cal = () => { q.dinleme++; return hoerOku(q, m.ses); };
     q.render = (el, bitti) => {
-      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now();
+      q.el = el; if (bitti) q.bitti = bitti; q.start = A.now(); q.acilis = saat();
       const l = deSesler(); q.ses = l.length ? l[Math.floor(Math.random() * l.length)] : null;
       el.classList.add('duzen');
       el.innerHTML = `<div class="q-ust dn-kart" data-dn-tur="hoer"><div class="tur"><span class="yeni">duy ve seç</span><span>${esc(kontrastAd(m.k))}</span></div>
@@ -416,16 +511,24 @@
     const paras = L.text.split('\n');
     const toks = [];
     paras.forEach((par, pi) => par.split(/(\s+)/).forEach(raw => { toks.push({ raw, pi, ws: !/\S/.test(raw) }); }));
-    let satzNo = 0, satzBlank = -1;
+    let satzNo = 0, satzBlank = -1, basta = true, pi0 = 0;
+    // 7.11 inceleme: aynı kelime iki kez boşluk olmasın; işlev kelimesi (sich …) ve çok kelimeli ifadenin tek parçası (sich → sich Mühe geben) boşluk olmaz;
+    // cümle ortasında büyük harfli kelime yalnız isme bağlanır (Schienen ≠ scheinen, Weile ≠ weil)
+    const gor = new Set();
+    const cokKelime = id => { try { return A.kind(id) === 'w' && /[\s…]/.test(A.label(id)); } catch (e) { return false; } };
     toks.forEach((t, i) => {
       if (t.ws) return;
+      if (t.pi !== pi0) { pi0 = t.pi; basta = true; }
       k++;
-      const c = tokRein(t.raw), id = c.length >= 3 ? A.wortSuchen(c) : null;
+      const c = tokRein(t.raw);
+      let id = c.length >= 3 && !D_ISLEV.test(c) ? A.wortSuchen(c) : null;
+      if (id && (gor.has(id) || cokKelime(id) || (!basta && /^\p{Lu}/u.test(c) && A.kind(id) !== 'n'))) id = null;
       const bilinen = id && S.items[id] && S.items[id].m && (S.items[id].m.S || 0) >= 1 && !S.items[id].a1;
       const b1 = id && A.tierOf(id) === 3;
       if (id && (bilinen || b1) && satzBlank !== satzNo && k - son >= 7 && out.length < 12 && /^[A-Za-zÄÖÜäöüß-]+$/.test(c)) {
-        out.push({ i, id, form: c, bilinen: !!bilinen }); son = k; satzBlank = satzNo;
+        out.push({ i, id, form: c, bilinen: !!bilinen }); son = k; satzBlank = satzNo; gor.add(id);
       }
+      basta = /[.!?:]["“”»]?$/.test(t.raw);
       if (/[.!?]["“”»]?$/.test(t.raw)) satzNo++;
     });
     return { toks, blanks: out };
@@ -440,7 +543,9 @@
       if (n == null) { out += `<span class="lw">${esc(t.raw)}</span>`; return; }
       const b = M.blanks[n], c = b.form, vor = t.raw.slice(0, t.raw.indexOf(c)), nach = t.raw.slice(t.raw.indexOf(c) + c.length);
       const w = M.werte ? M.werte[n] || '' : '';
-      out += `${esc(vor)}<input class="u-luecke${M.ok ? (M.ok[n] ? ' ok' : ' yanlis') : ''}" data-dl="${n}" size="${Math.max(5, c.length + 1)}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w)}"${M.ok ? ' disabled' : ''}>${M.ok && !M.ok[n] ? ` <b class="u-dogru">${esc(c)}</b>` : ''}${esc(nach)}`;
+      // üç durum (7.11 inceleme: küçük hata yeşil "doğru" görünüyordu, doğrusu gösterilmiyordu): doğru yeşil, küçük hata sarı + doğrusu, yanlış kırmızı + doğrusu
+      const d = M.sonuc ? M.sonuc[n] : null, sinif = d === 'richtig' ? ' ok' : d === 'fast' ? ' dn-yakin' : d ? ' yanlis' : '';
+      out += `${esc(vor)}<input class="u-luecke${sinif}" data-dl="${n}" size="${Math.max(5, c.length + 1)}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w)}"${M.ok ? ' disabled' : ''}>${d && d !== 'richtig' ? ` <b class="u-dogru">${esc(c)}</b>` : ''}${esc(nach)}`;
     });
     return out + '</p>';
   }
@@ -453,7 +558,7 @@
   const ADIM_AD = ['tahmin', 'metinsiz dinle', 'boşluklu metin', 'metinle dinle', 'bitti'];
   function modRender() {
     const el = A.kart(), L = M.L;
-    const ust = `<div class="tur"><span class="yeni">dinleme modu</span><span>${M.adim + 1} / 4 · ${esc(ADIM_AD[M.adim])}</span></div><div class="soru">${esc(L.titel)}</div>`;
+    const ust = `<div class="tur"><span class="yeni">dinleme modu</span><span>${M.adim < 4 ? `${M.adim + 1} / 4 · ` : ''}${esc(ADIM_AD[M.adim])}</span></div><div class="soru">${esc(L.titel)}</div>`;
     let govde = '', alt = '';
     if (M.adim === 0) {
       const kw = M.anahtar.map(w => `<span class="chip">${esc(w)}</span>`).join('');
@@ -465,7 +570,7 @@
       alt = `<button class="btn ana" data-dnm="ileri" type="button">Boşluklu metne geç</button>`;
     } else if (M.adim === 2) {
       govde = `<div class="soluk">Yeniden dinle ve boşlukları duyduğun biçimle doldur (${M.blanks.length} boşluk: bildiğin ve B1 kelimeleri).</div>${oynatici()}
-        <div class="paket-text u-text-body" id="lesen-text">${modMetinHTML('luecke')}</div>${M.ok ? `<div class="sonuc ${M.puan.x === M.puan.y ? 'richtig' : M.puan.x >= M.puan.y * 0.6 ? 'fast' : 'falsch'}"><div class="baslik">${M.puan.x} / ${M.puan.y} doğru</div>${M.puan.x < M.puan.y ? '<div class="soluk">doğrusu yeşil</div>' : ''}</div>` : ''}`;
+        <div class="paket-text u-text-body" id="lesen-text">${modMetinHTML('luecke')}</div>${M.ok ? `<div class="sonuc ${M.puan.x === M.puan.y && !M.puan.k ? 'richtig' : M.puan.x >= M.puan.y * 0.6 ? 'fast' : 'falsch'}"><div class="baslik">${M.puan.x} / ${M.puan.y} doğru${M.puan.k ? ` · ${M.puan.k} küçük hata` : ''}</div>${M.puan.x < M.puan.y || M.puan.k ? '<div class="soluk">doğrusu yanında yeşil (sarı kutu: küçük hata)</div>' : ''}</div>` : ''}`;
       alt = M.ok ? `<button class="btn ana" data-dnm="ileri" type="button">Metinle dinle</button>` : `<button class="btn ana" data-dnm="kontrol" type="button">Kontrol</button>`;
     } else if (M.adim === 3) {
       govde = `<div class="soluk">Son kez metinle birlikte dinle. Bilmediğin kelimeye bas.</div>${oynatici()}
@@ -495,10 +600,19 @@
     return true;
   }
   function modKaydet() { const au = audio(); if (au) { M.zaman = au.currentTime || 0; try { au.pause(); } catch (e) { /* yok */ } } const t = document.getElementById('dn-tahmin'); if (t) M.tahmin = t.value; }
+  // boşluk kontrolü: uygulamanın metin boşluğu kontrolü (uPruef); "yazım" denen cevap sözlükte başka kelimeyse yanlış (verschieben ↔ verschrieben)
+  function modPruef(w, form, id) {
+    w = String(w || '').trim();
+    if (!w) return 'falsch';
+    const r = A.uPruef(w, form) || {};
+    if (r.u === 'fast' && /^yazım/.test(r.hinweis || '') && baskaKelime(w, form, id)) return 'falsch';
+    return r.u === 'richtig' ? 'richtig' : r.u === 'fast' ? 'fast' : 'falsch';
+  }
   function modKontrol() {
     M.werte = M.blanks.map((b, n) => (document.querySelector(`.u-luecke[data-dl="${n}"]`) || {}).value || '');
-    M.ok = M.blanks.map((b, n) => { const w = M.werte[n].trim(); return !!w && A.uPruef(w, b.form).u !== 'falsch'; });
-    M.puan = { x: M.ok.filter(Boolean).length, y: M.blanks.length };
+    M.sonuc = M.blanks.map((b, n) => modPruef(M.werte[n], b.form, b.id));
+    M.ok = M.sonuc.map(u => u !== 'falsch');
+    M.puan = { x: M.ok.filter(Boolean).length, y: M.blanks.length, k: M.sonuc.filter(u => u === 'fast').length };
     modKaydet(); modRender();
   }
   function modBitir() {
@@ -510,7 +624,7 @@
     A.heuteM('lesen').n++;
     A.xpEkle(25);
     A.logEintrag({ modus: 'lesen', id: `${L.id}:dinle`, item: L.titel, frage: L.thema || '', antwort: (M.werte || []).join(' / '), ergebnis: 'gelesen', loesung: M.blanks.map(b => b.form).join(' / '),
-      notiz: [`puan:${M.puan.x}/${M.puan.y}`, `hız:${M.hiz}`, `geri:${M.geri}`, `dk:${M.dk}`].concat(M.tahmin && M.tahmin.trim() ? ['tahmin'] : []).join(' | ') });
+      notiz: [`puan:${M.puan.x}/${M.puan.y}`, `hız:${M.hiz}`, `geri:${M.geri}`, `dk:${M.dk}`].concat(M.puan.k ? [`küçük:${M.puan.k}`] : []).concat(M.tahmin && M.tahmin.trim() ? ['tahmin'] : []).join(' | ') });
     A.save();
     M.adim = 4; M.zaman = 0;
     modRender();
@@ -550,7 +664,7 @@
 
   const Dinle = {
     init(api) { A = api; },
-    turSorusu, diktePruef, farkHTML, modAc, modKlick, modTus, hoerVar,
+    turSorusu, diktePruef, boslukPruef, baskaKelime, bitisikUydur, farkHTML, modAc, modKlick, modTus, hoerVar, ENTER_BEKLE,
     get mod() { return M; },
     modAcik: () => !!M,
     TURLER,

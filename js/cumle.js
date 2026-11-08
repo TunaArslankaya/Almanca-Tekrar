@@ -167,6 +167,9 @@
     });
     let urteil = r.urteil, tags = (r.tags || []).map(t => t === 'groß/klein' ? 'büyük/küçük harf' : t);
     if (urteil === 'fast' && tags.every(t => t === 'büyük/küçük harf')) { urteil = 'richtig'; tags = []; }
+    // ae / oe / ue / ss = ä / ö / ü / ß tam doğru (ETIKET_TR 'umlaut' metni ve cumleKontrol ile aynı; G.pruefen bunu 'umlaut/ß' sayıyordu)
+    const acikK = s => String(s || '').toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss').replace(/[.,!?;:„“"]/g, '').replace(/\s+/g, ' ').trim();
+    if (urteil === 'fast' && hedefler.some(h => acikK(h) === acikK(giris))) { urteil = 'richtig'; tags = []; }
     const h = opts && opts.hedefKelime;
     if (h && urteil !== 'richtig' && !hedefVar(giris, h)) { urteil = 'falsch'; if (!tags.includes('hedef kelime')) tags.push('hedef kelime'); }
     const ok = out.filter(x => x.t === 'ok').length;
@@ -207,7 +210,8 @@
     dienst: ['Bürgeramt\'ta randevu ve belgeler hakkında konuşuyorsun.', 'Bankaya ya da postaneye bir sorunu anlatıyorsun.'],
     arbeit: ['Bir iş görüşmesinde kendinden bahsediyorsun.', 'Şefine bir rica yazıyorsun.'],
     ausbildung: ['Uni Bremen\'deki danışmana bir soru soruyorsun.', 'Kurs arkadaşına ödev ve sınavı anlatıyorsun.'],
-    sprache: ['Kurs arkadaşına Almanca öğrenme yöntemini anlatıyorsun.', 'Öğretmenine bir kelimeyi soruyorsun.'],
+    // "sprache" konusunda iletişim kelimeleri de var (geehrt, widersprechen, sich entschuldigen …): yazışma ve tartışma durumları da (7.11 inceleme)
+    sprache: ['Kurs arkadaşına Almanca öğrenme yöntemini anlatıyorsun.', 'Öğretmenine bir kelimeyi soruyorsun.', 'Bir kuruma resmî bir e-posta yazıyorsun.', 'Kurs arkadaşınla tartışıyorsun; onun fikrine katılmıyorsun.'],
     medien: ['Arkadaşına telefonundaki ya da bilgisayarındaki bir sorunu anlatıyorsun.', 'Bir haberi arkadaşına aktarıyorsun.'],
     freizeit: ['Arkadaşına hafta sonu planını anlatıyorsun.', 'Bir kulübe (spor, müzik) üye olmak istiyorsun.'],
     gesellschaft: ['Kursta bir toplumsal konu hakkında fikrini söylüyorsun.', 'Arkadaşınla bir haberi tartışıyorsun.'],

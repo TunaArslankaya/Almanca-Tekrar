@@ -82,6 +82,14 @@ const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147
     return out;
   });
   r.hata.forEach(hata);
+  // 4b) Cümle atölyesi kontrolü (7.11): etiket metni "ae / oe / ue / ss de doğru sayılır" davranışla uyumlu: ae doğru, umlaut düşürme fast 'umlaut'
+  const ck = await p.evaluate(() => {
+    const C = window.Cumle, z = ['Ich habe die Prüfung gestern bestanden.'];
+    const a = C.kontrol('Ich habe die Pruefung gestern bestanden.', z, {}), b2 = C.kontrol('Ich habe die Prufung gestern bestanden.', z, {}), c = C.kontrol('Die Strasse ist heute gross.', ['Die Straße ist heute groß.'], {});
+    return { a: a.urteil, b: b2.urteil, bt: b2.tags, c: c.urteil };
+  });
+  if (ck.a !== 'richtig' || ck.c !== 'richtig') hata('atölye: ae / ss doğru sayılmadı ' + JSON.stringify(ck));
+  if (ck.b !== 'fast' || !ck.bt.some(t => /^umlaut/.test(t))) hata('atölye: umlaut düşürme fast umlaut değil ' + JSON.stringify(ck));
   // 5) tur: yazma satırlarında ipucu-tür
   const p2 = await D.sayfa(b, { mobil: true, zustand: D.zustandOku() });
   const log0 = await p2.evaluate(() => window.__tekrar.S.log.length);

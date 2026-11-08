@@ -32,6 +32,38 @@ ok(r.u === 'fast' && r.tags.includes('kelime sırası'), 'başka diziliş: fast 
 // eksik işlev kelimesi (zu)
 r = P('Ich habe keine Lust, ins Kino gehen.', 'Ich habe keine Lust, ins Kino zu gehen.');
 ok(r.u !== 'richtig' && r.kat.includes('işlev'), 'eksik zu: işlev', r);
+// 7.11 inceleme: bileşiği ayrı yazmak (duyduğu doğru) küçük hata 'yazım', yanlış kelime değil
+r = P('Diese schmerz Tabletten gibt es nur auf Rezept', 'Diese Schmerztabletten gibt es nur auf Rezept.');
+ok(r.u === 'fast' && r.tags.includes('yazım') && !r.tags.includes('yanlış kelime') && r.kat.join() === 'yazım' && r.bitisik.join() === 'Schmerztabletten', 'schmerz Tabletten: fast yazım (bitişik)', r);
+ok(/schmerz Tabletten/.test(Dinle.farkHTML(r.diff)) && r.diff.length === 7, 'bitişik: farkta tek kalem', r.diff);
+r = P('Im nächsten Semester belege ich einen Deutsch Kurs', 'Im nächsten Semester belege ich einen Deutschkurs.');
+ok(r.u === 'fast' && r.tags.includes('yazım'), 'Deutsch Kurs: fast yazım', r);
+r = P('Ich bin heute zuhause', 'Ich bin heute zu Hause.');
+ok(r.u === 'fast' && r.tags.includes('yazım') && r.ayri.join() === 'zu Hause', 'zuhause → zu Hause: fast yazım (ayrı)', r);
+r = P('Das ist die Haustür', 'Das ist die Haustür.');
+ok(r.u === 'richtig' && !r.bitisik.length, 'doğru bileşik: birleştirme yok', r);
+// büyük / küçük harf: not düşürmez ama söylenir (cümle başı hariç)
+r = P('wegen des dichten nebels fahren die züge heute langsamer', 'Wegen des dichten Nebels fahren die Züge heute langsamer.');
+ok(r.u === 'richtig' && r.tags.includes('büyük/küçük harf') && r.harf.join() === 'Nebels,Züge', 'küçük harfli isimler söylenir', r);
+r = P('ich gehe morgen zum Arzt', 'Ich gehe morgen zum Arzt.');
+ok(r.u === 'richtig' && !r.harf.length && !r.tags.length, 'yalnız cümle başı küçük: not yok', r);
+// ae/oe/ue/ss tam doğru, umlaut düşürme küçük hata
+r = P('Die Strasse ist heute gross', 'Die Straße ist heute groß.'); ok(r.u === 'richtig', 'ss = ß', r);
+r = P('Ich habe die Prufung bestanden', 'Ich habe die Prüfung bestanden.'); ok(r.u === 'fast' && r.tags.includes('umlaut'), 'Prufung: fast umlaut', r);
+
+// sesli boşluk (boslukPruef): ae/oe/ue/ss doğru; umlaut düşürme fast 'umlaut'; sözlükte başka kelime yanlış
+const B = (v, z) => Dinle.boslukPruef(G, v, z);
+r = B('Pruefung', 'Prüfung'); ok(r.urteil === 'richtig', 'boşluk: Pruefung = Prüfung', r);
+r = B('Strasse', 'Straße'); ok(r.urteil === 'richtig', 'boşluk: Strasse = Straße', r);
+r = B('Prufung', 'Prüfung'); ok(r.urteil === 'fast' && r.tags.join() === 'umlaut', 'boşluk: Prufung fast umlaut', r);
+r = B('Bremen', 'Bremen'); ok(r.urteil === 'richtig', 'boşluk: doğru', r);
+G.lexSetzen(new Set(['verschieben', 'verschrieben', 'kindheit', 'liegt', 'legt']), new Set(['verschieben', 'verschreiben']));
+r = B('verschieben', 'verschrieben'); ok(r.urteil === 'falsch', 'boşluk: verschieben ≠ verschrieben (sözlükte başka kelime)', r);
+r = B('legt', 'liegt'); ok(r.urteil === 'falsch', 'boşluk: legt ≠ liegt', r);
+r = B('verschriben', 'verschrieben'); ok(r.urteil === 'fast' && r.tags.includes('yazım'), 'boşluk: verschriben yazım', r);
+ok(Dinle.baskaKelime('Kindhiet', 'Kindheit', null, G) === false && Dinle.baskaKelime('verschieben', 'verschrieben', null, G) === true, 'baskaKelime');
+ok(Dinle.baskaKelime('Prufung', 'Prüfung', null, G) === false && Dinle.baskaKelime('stadt', 'Stadt', null, G) === false, 'baskaKelime: umlaut / harf büyüklüğü başka kelime değil');
+ok(Dinle.ENTER_BEKLE >= 400 && Dinle.ENTER_BEKLE <= 800, 'erken Enter penceresi');
 // fark gösterimi
 const h = Dinle.farkHTML(P('Ich mag von allem Obst.', 'Ich mag vor allem Obst.').diff);
 ok(/dn-fazla/.test(h) && /dn-eksik/.test(h), 'farkHTML', h);

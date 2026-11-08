@@ -752,6 +752,7 @@ mark { background: var(--warn-soft); color: inherit; border-radius: 3px; padding
 .pr-teiller { margin: .3rem 0 .6rem; }
 .pr-teiller .chip.aktif { background: var(--accent); color: var(--accent-ink, #fff); border-color: var(--accent); }
 .gl-opt.secili { border-color: var(--accent); background: var(--accent-soft); font-weight: 700; }
+.gl-opt.pr-kullanildi { opacity: .4; text-decoration: line-through; }
 .pr-alt { margin-top: 1rem; }
 .pr-text { width: 100%; font: inherit; font-size: 1.05rem; line-height: 1.6; padding: .8rem; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface-2); resize: vertical; }
 .pr-madde { display: grid; gap: .3rem; margin: .4rem 0; }
@@ -1183,6 +1184,8 @@ body.calis-modu .yenile-cubuk { display: none; }
 .dn-eksik { color: var(--ok); }
 .dn-fazla { color: var(--bad); }
 .dn-yer { text-decoration: underline wavy var(--warn); }
+.u-luecke.dn-yakin { border-color: var(--warn); background: var(--warn-soft); }
+.dn-harf, .dn-bitisik { margin-top: .4rem; }
 .dn-mod { display: grid; gap: .8rem; }
 .dn-mod .btn, .dn-mod-ac { min-height: var(--hedef); }
 .dn-mod-ac { align-self: flex-start; }
