@@ -252,3 +252,16 @@ Site: https://tunaarslankaya.github.io/Almanca-Tekrar/ (yeni sürüm gelmezse Ct
 ## Güvenlik
 
 - GitHub anahtarı yalnız tarayıcıda (`localStorage`), Claude anahtarı yalnız GitHub Secrets'ta; repoda anahtar yok. Anahtarları sohbete yapıştırma.
+
+## 8.11 — 10 ajanlık denetim + düzeltme
+
+- **İnceleme:** 4 ajan uygulamayı kullanarak, 3 ajan cevaplarını, 3 ajan kodu ve içeriği inceledi (aynı iş birden çok ajanda: biri kaçırırsa öbürü görsün). ~180 bulgu; raporlar `arastirma/2026-11-08-denetim/`.
+- **Düzeltme (7 ajan):** cevap kontrolü, Gramer, ana tur notlaması, soru üretimi, hafıza / senkron, dinleme, içerik. Ayrıntı CLAUDE.md "8.11 denetimi" ve VERLAUF.md.
+- **Senin için en önemlileri:**
+  - Doğru kelimenin yazım / çekim / umlaut hatası artık küçük hata; ae/oe/ue/ss her yerde doğru; sözlükte başka kelime (liegt/legt) yanlış.
+  - Geçerli devrik cümleler doğru; gramerde virgül hata değil; 1/2/3 tuşuyla not yükseltme yok (tek itiraz düğmesi).
+  - "mit ___ Geduld"de der → artikel hatası (hafıza artık ödüllendirmiyor).
+  - Metin boşluğunda isim fiile karışmıyor; "vor allem" bütün boşluk.
+  - Aynı cümle 30 günde en çok 2 (eski geçmiş de sayılıyor).
+  - Doğru cevapta geçiş: Ayarlar → "Doğru cevapta geçiş" (1 / 2 / 3,5 sn / elle), varsayılan 2 sn; fareyi panele getir ya da Boşluk'a bas: durur.
+  - Gece Claude'un yanlış düzeltmeleri düzeltildi; artık emin olmadığı kuralı yazmayacak.

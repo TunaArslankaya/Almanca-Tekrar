@@ -123,6 +123,13 @@
   - Dikte kontrolü `G.cumleKontrol` ile (`diktatPruef`): hâl / çekim / yanlış kelime artık "yazım" sayılmaz.
   - Bugün: "bugün X dk" aktif süre çizgisi (`aktifSn`, hedef 20 dk), pazartesi 1 tur yeter. İlerleme: haftalık "üretim doğruluğu" (seçmeli hariç) kartı.
   - Testler: `node tests/test_dinle.js`, e2e: `e2e_cumle`, `e2e_fiil_artikel`, `e2e_dinle` (duy-seç sahte TTS sesiyle, konuşma kalıntısı denetimi), `e2e_ek`.
+- **8.11 denetimi** (10 inceleme ajanı + 7 düzeltme ajanı; bulgu raporları `arastirma/2026-11-08-denetim/`):
+  - Cevap kontrolü: `G.kelimeSinifi(yazılan, hedef)` → `dogru | buyukKucuk | umlaut | yazim | cekim | null` (null = başka kelime); ae/oe/ue/ss her yerde doğru, umlaut düşürme `umlaut`, ünlü değişimi / ge- biçimi (kann/können, geregnet) `çekim`, sözlükte başka kelime (liegt/legt, Stadt/Staat) yanlış, devrik dizilişler doğru, zehn = 10. Boşluk ve paket ortak son adım `bosSon`. Sözlüğe (lex) yalnız gerçek biçimler girer.
+  - Gramer: 1/2/3 tuşu not değiştirmez; soru başına tek itiraz düğmesi. Tam cümle `G.cumleKontrol` ile (virgül hata değil). Log'a teil'in sabit etiketi yazılmaz. `Gramer.bugunYapildi()`, `Gramer.turBitir()`. Test `node tests/test_gramer.js`.
+  - Doğru cevapta geçiş: `S.einst.otoGecis` (Ayarlar "Doğru cevapta geçiş": 1 / 2 / 3,5 sn / elle; varsayılan 2 sn; `otoMs()` / `otoGec`), ses çalıyor ya da kuyruktaysa bekler (+0,6 sn, en çok 6 sn), panel üstünde fare / dokunma / Boşluk durdurur. Gramer, Cümle atölyesi, Dinle aynı ayarı kullanır.
+  - Gün: `tag()` öğrenme günü (04:00), log zamanı takvim saati; log satırının günü `logGun(e)`. Senkron: zustand.json yalnız içerik değişince ve en az 2 dk arayla yazılır; `S.pending` yalnız klasör bağlıyken; kuyruklar ≤ 3000 satır; kota dolarsa uyarı çubuğu `#kayit-cubuk`. Öbür cihazın log satırları yerel `S.log`'a karışır.
+  - Kök: düzensiz fiillerde (`v.duzensiz`); yardımcı fiil sınanır; ikinci doğru biçim `p2Alt` / `pt3Alt` (build). Metinde sorusu çok anlamlı öğede (Türkçede `;` ya da ` / `) ve Goethe sınav metinlerinde yok. Çok kelimeli öğede bütün ifade boşluk (`ifadeBosPruef`).
+  - Yeni testler: `tests/e2e_soru.js`, `tests/e2e_not.js`, `tests/e2e_senkron.js` (sahte GitHub API).
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde
