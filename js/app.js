@@ -981,7 +981,11 @@
     const z = ziel.toLowerCase(), g = n.art, ks = kasus.split('');
     const base = { ziel, diff: G.pruefen(inp, ziel).diff, tip: 'flas' };
     if (u === z) return Object.assign(base, { urteil: 'richtig', tags: [], artOb: { dogru: true, kasus, verilen: u } });
-    const cift = AO_BICIM[u] || [], cinsOk = cift.some(c => c.startsWith(g)), halOk = cift.some(c => c.startsWith(g) && ks.includes(c.slice(-1)));
+    const cift = AO_BICIM[u] || [], halOk = cift.some(c => c.startsWith(g) && ks.includes(c.slice(-1)));
+    // sorulan hâlde başka bir cinsiyetin biçimi (dişil isme Nom/Akk'de der = eril Nom; die-isme Dat'ta dem) → cinsiyet (artikel) hatası,
+    // hâl değil (7.11 log: die Geduld ← der, fast + a3 almıştı). Yalnız doğru cinsiyetin başka hâli (der-isme Akk'ta dem) 'hâl'.
+    const baskaCins = cift.some(c => !c.startsWith(g) && ks.includes(c.slice(-1)));
+    const cinsOk = !baskaCins && cift.some(c => c.startsWith(g));
     if (cinsOk) {
       const tags = [];
       if (!halOk) tags.push('hâl');
@@ -1000,6 +1004,11 @@
     const n = Kern.notVer(s);
     if (s && s.bicim === 'artOb' && s.tip === 'flas' && s.dogru && (s.fastEt || []).length && n.ergebnis === 'richtig')
       return Object.assign({}, n, { ergebnis: 'fast', etiketler: s.fastEt.concat((n.etiketler || []).filter(x => !s.fastEt.includes(x))) });
+    // 8.11: isimde umlaut / çekim / hâl hatasıyla birlikte yanlış artikel panelde ve log'da kayboluyordu (Kern.notVer bu dallarda artikeli yazmıyor):
+    // etiket eklenir (artikel hafızası notu Kern'in işi)
+    const a = s && s.artikel;
+    if (a && a.sinandi && !a.dogru && n.ergebnis && n.ergebnis !== 'richtig' && !(n.etiketler || []).some(x => /^artikel (eksik|\S+ → )/.test(x)))
+      return Object.assign({}, n, { etiketler: (n.etiketler || []).concat(a.eksik || !a.verilen ? 'artikel eksik' : `artikel ${a.verilen} → ${a.dogrusu}`) });
     return n;
   }
 
@@ -1125,7 +1134,7 @@
     if (sesAcik()) sprich(ayirSoyle(q.id));
     fxCevap(ok ? 'richtig' : 'falsch');
     panelGoster(sonucPanel(q, q.not, ok ? { kisa: true } : { secilen: label(secilen) }));
-    if (ok) later(ilerleSesle, OTO_MS);
+    if (ok) otoGec(q, ilerle);
   }
   // ayir log satırı (hafizaYaz'dan): modus ayir, id <hedef>~<diğer>, not:- (hafızaya yazılmaz); çok hızlı (< 0,4 sn) sayılmaz
   function ayirLog(q, sonuc, opt) {
@@ -1310,13 +1319,25 @@
   // isim: kelime (yazım hoşgörüsüyle) ve artikel ayrı değerlendirilir → kelime ✓ artikel ✗ = m3 / a1 (fast)
   function pruefWort(n, inp) {
     const art = n.plOnly ? 'die' : n.art, ziel = art + ' ' + n.lemma;
-    const t = G.norm(inp).split(' ').filter(Boolean);
+    let t = G.norm(inp).split(' ').filter(Boolean);
+    let ekTag = null;
+    // 8.11: bitişik artikel (dasVorurteil, telefonda sık) → boşluk eksik: küçük hata, kelime yanlış değil
+    if (t.length === 1) { const m = /^(der|die|das)([A-ZÄÖÜ].*)$/.exec(t[0]); if (m) { t = [m[1], m[2]]; ekTag = 'boşluk eksik'; } }
+    // belirsiz artikel (ein Vorurteil): kelime doğru, belirli artikel yok → artikelsiz gibi (fast, 'artikel eksik')
+    const belirsiz = t.length > 1 && /^(ein|eine|einen|einem|einer|eines|kein|keine)$/i.test(t[0]);
     const artIn = t.length > 1 && /^(der|die|das)$/i.test(t[0]) ? t[0].toLowerCase() : null;
-    const r = G.pruefen(artIn ? t.slice(1).join(' ') : t.join(' '), n.lemma, n.alt || [], { lemma: true });
+    const kelime = artIn || belirsiz ? t.slice(1).join(' ') : t.join(' ');
+    let r = G.pruefen(kelime, n.lemma, n.alt || [], { lemma: true });
     const ganz = G.pruefen(inp, ziel);
     // doğru isim, yanlış biçim (der Schmerzen → der Schmerz): G.pruefen lemma 'cekim' → fast (m2), artikel ayrıca değerlendirilir
     if (r.tip === 'yanlis') return { urteil: 'falsch', tip: 'yanlis', tags: ['kelime yanlış'], diff: ganz.diff, ziel };
-    const artikel = n.plOnly ? null : { sinandi: true, dogru: artIn === art, verilen: artIn, dogrusu: art, eksik: !artIn };
+    // doğru çoğul (die Vorurteile): Almancası doğru, yalnız tekil istenmişti → çekim (fast); die çoğulun artikeli, cinsiyet sınanmadı
+    const cogul = !n.plOnly && n.plf && artIn === 'die' && r.tip !== 'dogru' && aeEsit(kelime, n.plf) && !aeEsit(n.plf, n.lemma);
+    if (cogul) r = Object.assign({}, r, { tip: 'cekim', tags: [`çoğul yazdın: tekil ${art} ${n.lemma}`] });
+    // isim küçük harfle (die toleranz): her modülde küçük hata, seviye atlatmaz (8.11 tutarlılık)
+    if (r.tip === 'dogru' && /^[a-zäöü]/.test(kelime) && /^[A-ZÄÖÜ]/.test(n.lemma)) r = Object.assign({}, r, { tip: 'yazim', tags: ['büyük harf'] });
+    if (ekTag && r.tip === 'dogru') r = Object.assign({}, r, { tip: 'yazim', tags: [ekTag] });
+    const artikel = n.plOnly || cogul ? null : { sinandi: true, dogru: artIn === art, verilen: artIn, dogrusu: art, eksik: !artIn };
     const artOk = !artikel || artikel.dogru;
     return { urteil: r.tip === 'dogru' && artOk ? 'richtig' : 'fast', tip: r.tip, artikel, tags: r.tags.filter(x => x !== 'groß/klein' || r.tip !== 'dogru'), diff: ganz.diff, ziel };
   }
@@ -1402,6 +1423,8 @@
     const kas = {}, out = [];
     toks.forEach((t, i) => {
       if (/^(a|akk|akkusativ|d|dat|dativ)\.?$/i.test(t) && i > 0 && EDATLAR.includes(toks[i - 1].toLowerCase())) kas[toks[i - 1].toLowerCase()] = t[0].toUpperCase();
+      // edatsız nesne hâli (untersuchen Akk, verschreiben D A): panelde gösterilen doğrusu bunu içeriyor, yazan yanlış almasın (8.11)
+      else if (i > 0 && /^\(?(a|akk|akkusativ|d|dat|dativ)\)?[.,]?$/i.test(t)) return;
       else out.push(t);
     });
     const ziel = v.anz.replace('sich(D)', 'sich');
@@ -1424,10 +1447,16 @@
         else { tip = cr.tip; tags = cr.tags.slice(); }
       }
     }
+    // mastar eki eksik (warte auf ← warten auf): G.pruefen lemma 5.11'den beri 'cekim' veriyor; sözleşme mastar (m3, +0,7)
+    if (tip === 'cekim') {
+      const ZT = ziel.split(' '), coreZ = ZT.filter(w => w !== 'sich' && !zPrep.has(w)), coreU = out.filter(w => !/^sich$/i.test(w) && !EDATLAR.includes(w.toLowerCase()));
+      const sonU = (coreU[coreU.length - 1] || '').toLowerCase(), sonZ = (coreZ[coreZ.length - 1] || '').toLowerCase();
+      if (coreU.length === coreZ.length && sonU.length >= 3 && (sonU + 'n' === sonZ || sonU + 'en' === sonZ)) { tip = 'mastar'; tags = []; }
+    }
     if (['dogru', 'yazim', 'umlaut', 'mastar'].includes(tip)) {
       preps.forEach(p => { if (kas[p.p] && kas[p.p] !== p.k) { tip = 'hal'; tags.push(`hâl: ${p.p} + ${p.k === 'A' ? 'Akk' : 'Dat'}`); } });
     }
-    const urteil = tip === 'dogru' ? 'richtig' : ['yazim', 'umlaut', 'mastar', 'hal'].includes(tip) ? 'fast' : 'falsch';
+    const urteil = tip === 'dogru' ? 'richtig' : ['yazim', 'umlaut', 'mastar', 'hal', 'cekim'].includes(tip) ? 'fast' : 'falsch';
     return { urteil, tip, tags, diff: ganz.diff, ziel };
   }
 
@@ -1761,16 +1790,18 @@
     const m = kxSay(v.id), ks = (SAETZE[v.id] || []).concat(kalipSaetze(v.id), (v.bsp || []).map(de => ({ de, tr: '' })))
       .filter(x => re.test(x.de) && x.de.split(/\s+/).length <= 18 && kxSerbest(m, x.de));
     // tek biçim kontrolü (stammTekPruef): yardımcı fiili de yazdıysa (cümlede zaten var) atılır; başka biçim yazdıysa 'biçim karıştı'
-    const pr = inp => stammTekPruef(v, hedef, inp, modal ? 'fin' : 'p2', modal ? 'Präteritum' : 'Partizip');
+    // auxK: cümledeki yardımcı fiil (yazılan yardımcı fiil bununla karşılaştırılır; fahren: "Wir sind … gefahren" → hat yanlış)
+    const pr = (inp, auxK) => stammTekPruef(v, hedef, inp, modal ? 'fin' : 'p2', modal ? 'Präteritum' : 'Partizip', null, auxK);
     const p2Not = modal ? 'Modal fiil: geçmişte Präteritum' : p2Kural(v);
     const kopf = `<div class="tur"><span>fiil · ${modal ? 'Präteritum' : 'Perfekt'} · cümlede</span></div>`;
     if (ks.length) {
       const x = kxSec(v.id, ks, null, m), text = x.de.replace(re, '$1_____');
+      const onTk = text.split('_____')[0].split(/\s+/).map(w => aoTemiz(w).toLowerCase()), auxK = onTk.map(auxLemma).filter(Boolean).pop() || null;
       return {
         html: `${kopf}${x.tr ? `<div class="soluk">${esc(x.tr)}</div>` : ''}<div class="soru">${deHTML(text).replace(/_____/g, '<span class="bosluk">_____</span>')}</div>
           <div class="chips"><span class="chip vurgu">${esc(v.inf)}</span><span class="chip">${modal ? 'Präteritum' : 'Partizip II (Perfekt)'}</span></div>`,
         ziel: hedef, input: true, placeholder: modal ? 'z. B. konnte' : 'z. B. gefahren', modus: 'stamm', kontext: x.de,
-        pruef: pr, loesungHTML: () => deHTML(x.de),
+        pruef: inp => pr(inp, auxK), loesungHTML: () => deHTML(x.de),
         erkl: () => [`${esc(v.anz)}: ${stammFormen(v).map(f => 'er ' + esc(f.soll)).join(' · ')}`, p2Not, modal ? '' : v.aux === 'ist' ? 'Perfekt <b>sein</b> ile (hareket / durum değişikliği)' : 'Perfekt <b>haben</b> ile'].filter(Boolean),
         frageText: text,
       };
@@ -1779,7 +1810,7 @@
     return {
       html: `${kopf.replace(' · cümlede', '')}<div class="soru de">er / sie ${modal ? '' : esc(v.aux) + (v.refl ? ' sich' : '') + ' '}_____ <span class="soluk">(${esc(v.inf)})</span></div><div class="soluk">${esc(v.tr)}</div>`,
       ziel: hedef, input: true, placeholder: modal ? 'z. B. konnte' : 'z. B. gefahren', modus: 'stamm',
-      pruef: pr, loesungHTML: () => `er ${modal ? '' : esc(v.aux) + ' '}<b>${esc(hedef)}</b>`,
+      pruef: inp => pr(inp, modal ? null : v.aux), loesungHTML: () => `er ${modal ? '' : esc(v.aux) + ' '}<b>${esc(hedef)}</b>`,
       erkl: () => [`${esc(v.anz)}: ${stammFormen(v).map(f => 'er ' + esc(f.soll)).join(' · ')}`, p2Not],
       frageText: `${v.inf} — ${modal ? 'Präteritum' : 'Perfekt'}`,
     };
@@ -1799,18 +1830,50 @@
     return /en$/.test(p) ? `Partizip: <b>ge-…-en</b> (düzensiz): ${esc(p)}` : `Partizip: <b>ge-…-t</b>: ${esc(p)}`;
   }
   // tek biçim kontrolü. tur: 'fin' (çekimli tek kelime) | 'p2' (yalnız Partizip; yardımcı fiil cümlede) | 'perf' (yardımcı fiil + Partizip)
-  function stammTekPruef(v, hedef, inp, tur, et, auxAlt) {
+  // Konjunktiv II biçimleri: umlaut farkıyla Präteritum'a benzer (könnte / konnte) ama başka biçim (8.11: yalnız 'umlaut' küçük hatası sayılıyordu)
+  const K2_BICIM = new Set(['könnte', 'könntest', 'könnten', 'könntet', 'müsste', 'müsstest', 'müssten', 'müsstet', 'dürfte', 'dürftest', 'dürften', 'dürftet', 'hätte', 'hättest', 'hätten', 'hättet', 'wäre', 'wärst', 'wären', 'wärt', 'würde', 'würdest', 'würden', 'würdet', 'wüsste', 'wüssten', 'möchte', 'möchtest', 'möchten', 'möchtet']);
+  // ikinci doğru biçim (build: v.p2Alt / v.pt3Alt dizileri; sich wenden an: gewandt / gewendet, wandte / wendete): hedefteki biçim yerine konur
+  function stammAltHedef(v, hedef) {
+    const out = [], bw = (h, a, b) => { if (!a || !b || a === b) return; const re = new RegExp('(^|\\s)' + a.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=\\s|$)', 'i'); if (re.test(h)) out.push(h.replace(re, '$1' + b)); };
+    [].concat(v.p2Alt || []).forEach(x => bw(hedef, v.p2s, String(x || '').trim()));
+    [].concat(v.pt3Alt || []).forEach(x => bw(hedef, v.ptForm, String(x || '').trim()));
+    return out.filter((h, i, a) => h !== hedef && a.indexOf(h) === i);
+  }
+  function stammTekPruef(v, hedef, inp, tur, et, auxAlt, auxK) {
+    const r0 = stammTek1(v, hedef, inp, tur, et, auxAlt, auxK);
+    if (!r0.yanlis) return r0;
+    // alternatif biçimle de dene; en iyisi (doğrusu gösterimi asıl biçimde kalır)
+    const rs = stammAltHedef(v, hedef).map(h => stammTek1(v, h, inp, tur, et, auxAlt, auxK)).filter(r => r.yanlis < r0.yanlis);
+    if (!rs.length) return r0;
+    const en = rs.reduce((a, b) => b.yanlis < a.yanlis ? b : a);
+    return Object.assign({}, en, { ziel: hedef, diff: r0.diff });
+  }
+  function stammTek1(v, hedef, inp, tur, et, auxAlt, auxK) {
+    // 8.11: birden çok biçim yazıldıysa (nimmt, nahm, hat genommen): en iyi tutan parça notlanır, en çok küçük hata + 'tek biçim yaz'
+    const parcalar = String(inp || '').split(/[,;/]/).map(x => x.trim()).filter(Boolean);
+    if (parcalar.length > 1) {
+      const rs = parcalar.map(x => stammTekPruef(v, hedef, x, tur, et, auxAlt, auxK)), en = rs.reduce((a, b) => b.yanlis < a.yanlis ? b : a);
+      const yanlis = Math.max(en.yanlis, 1);
+      return Object.assign({}, en, { urteil: yanlis === 1 ? 'fast' : 'falsch', yanlis, tags: en.tags.concat('tek biçim yaz'), diff: G.pruefen(inp, hedef).diff });
+    }
     let t = G.norm(inp).split(' ').filter(w => w && !/^sich$/i.test(w));
     if (t.length > 1 && /^(er|sie|es|ich|du|wir|ihr)$/i.test(t[0])) t = t.slice(1);
     if (v.pre && t.length > 1 && t[t.length - 1].toLowerCase() === v.pre) t = t.slice(0, -1);   // ayrılan önek (fährt … ab) yazıldıysa
     const ht = G.norm(hedef).split(' ').filter(w => w && !/^sich$/i.test(w));
-    const tags = [], derece = r => r.tip === 'dogru' ? 0 : (r.tip === 'yazim' || r.tip === 'umlaut') ? 1 : 2;
+    // yazım / umlaut farkı ancak yazılan sözlükte başka bir biçim değilse küçük hata (fährst ← fährt, konnte ← könnte: başka biçim → yanlış)
+    const tags = [], derece = (r, u) => {
+      if (r.tip === 'dogru') return 0;
+      if (r.tip !== 'yazim' && r.tip !== 'umlaut') return 2;
+      const w = String(u || '').toLowerCase();
+      if (w && ht.join(' ').toLowerCase() !== w && (K2_BICIM.has(w) || (r.tip === 'yazim' && !/\s/.test(w) && lexSet().has(w)))) { if (K2_BICIM.has(w)) tags.push('biçim karıştı: Konjunktiv II'); return 2; }
+      return 1;
+    };
     let yanlis = 0, govde = t;
     if (tur === 'perf') {
       const hAux = ht[0].toLowerCase(), hP2 = ht.slice(1).join(' ');
       const uAux = t[0] && auxLemma(t[0].toLowerCase()) ? t[0].toLowerCase() : null;
       govde = uAux ? t.slice(1) : t;
-      yanlis = derece(G.pruefen(govde.join(' '), hP2, [], { lemma: true }));
+      yanlis = derece(G.pruefen(govde.join(' '), hP2, [], { lemma: true }), govde.join(' '));
       if (yanlis) tags.push(`Partizip: ${hP2}`);
       if (!uAux) { yanlis = Math.max(yanlis, 1); tags.push(`yardımcı fiil eksik: ${hAux}`); }
       else if (uAux !== hAux && !(auxAlt && auxLemma(uAux) === auxAlt && auxLemma(hAux) !== auxAlt)) {
@@ -1818,9 +1881,17 @@
         tags.push(auxLemma(uAux) !== auxLemma(hAux) ? `yardımcı fiil: ${auxLemma(hAux) === 'ist' ? 'sein' : 'haben'}` : `çekim: ${hAux}`);
       }
     } else {
-      if (tur === 'p2' && t.length > 1 && auxLemma(t[0].toLowerCase())) govde = t = t.slice(1);   // yardımcı fiil zaten cümlede
-      yanlis = derece(G.pruefen(t.join(' '), ht.join(' '), [], { lemma: true }));
+      // yardımcı fiil zaten cümlede: yazıldıysa atılır, ama yanlışsa (hat gefahren ← sind … gefahren) hata (8.11: denetlenmeden atılıyordu)
+      let auxHata = null;
+      if (tur === 'p2' && t.length > 1 && auxLemma(t[0].toLowerCase())) {
+        const ua = auxLemma(t[0].toLowerCase());
+        const izin = auxK ? [auxK] : [v.aux, v.auxAlt].filter(Boolean), dogruAux = auxK || v.aux;
+        if (izin.length && !izin.includes(ua)) auxHata = `yardımcı fiil: ${dogruAux === 'ist' ? 'sein' : 'haben'}`;
+        govde = t = t.slice(1);
+      }
+      yanlis = derece(G.pruefen(t.join(' '), ht.join(' '), [], { lemma: true }), t.join(' '));
       if (yanlis) tags.push(`${et}: ${hedef}`);
+      if (auxHata) { yanlis = Math.max(yanlis, 1); tags.push(auxHata); }
     }
     // biçim karıştı: fiilin başka bir biçimini yazdı (Partizip yerine Präteritum …)
     if (yanlis === 2) {
@@ -2037,6 +2108,7 @@
   function paketWeiter() {
     const q = aktuell;
     if (!q || q.typ !== 'paket') return;
+    q.oto = null;   // elle geçildiyse eski geri sayım sonraki boşluğa taşınmasın
     const t = now();
     if (q.schritt === 'liste' || q.schritt === 'lesen') {
       // okumadan geçmeye karşı: liste 3 sn, metin kelime başına 0,15 sn (6–15 sn)
@@ -2060,18 +2132,13 @@
     if (!q || q.schritt !== 'luecke' || q.warte) return;
     const p = pById[q.pid], l = p.luecken[q.i];
     const leer = istMuell(input);
-    let r = leer ? { urteil: 'falsch', tags: ['boş / rastgele'] } : G.pruefen(input, l.form);
-    if (r.urteil === 'falsch' && !leer) {
-      const ohne = input.trim().replace(/^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines)\s+/i, '');
-      if (ohne !== input.trim()) { const r2 = G.pruefen(ohne, l.form); if (r2.urteil !== 'falsch') r = { urteil: r2.urteil, tags: ['artikel metinde zaten var'] }; }
-    }
-    // doğru kelime, yanlış biçim (Schmerz → Schmerzen, untersuchen → untersucht): küçük hata
-    if (r.urteil === 'falsch' && !leer) {
-      const a = G.norm(input).toLowerCase(), b = l.form.toLowerCase(), n = Math.min(5, b.length - 1);
-      if (a.length >= 4 && !a.includes(' ') && a.slice(0, n) === b.slice(0, n)) { r.urteil = 'fast'; r.tags = [`biçim: metinde ${l.form}`]; }
-    }
-    // isim küçük harfle yazıldıysa: küçük hata (pruefen ilk harfi cümle başı sayıp affeder)
-    if (r.urteil === 'richtig' && kind(l.id) === 'n' && /^[a-zäöü]/.test(input.trim()) && /^[A-ZÄÖÜ]/.test(l.form)) { r.urteil = 'fast'; r.tags = ['groß/klein: isim büyük harfle']; }
+    // 8.11: turdaki boşluk kontrolüyle aynı kurallar (bosA → G.bosPruef): yazım / harf yer değiştirmesi → fast 'yazım', aynı kelimenin başka eki →
+    // fast 'çekim', başına artikel → fast 'fazla artikel' (isimde de fiilde de en çok küçük hata), başka kelime (Zugx, Zucker) → yanlış;
+    // ae / oe / ue / ss tam doğru, umlaut eksik → 'umlaut'; isim küçük harfle (artikel atılmış hâliyle bakılır) → fast 'büyük harf'
+    let r = leer ? { urteil: 'falsch', tags: ['boş / rastgele'] } : bosA(input, l.form, null, l.id);
+    if (!leer && r.urteil === 'falsch') { const r2 = uPruef(input, l.form, null, l.id); if (r2.cekim) r = { urteil: 'fast', tip: 'cekim', tags: ['çekim'] }; }
+    // yanlışta "artikel/çekim" (ilk üç harfi aynı başka kelime: Zugx) yanıltıcı: farklı kelime
+    if (!leer && r.urteil === 'falsch') { const t2 = (r.tags || []).filter(x => !['artikel/çekim', 'yazım', 'umlaut/ß', 'groß/klein'].includes(x)); r = Object.assign({}, r, { tags: t2.length ? t2 : ['farklı'] }); }
     q.erg[q.i] = { urteil: r.urteil, input };
     q.warte = true;
     session.q++;
@@ -2079,17 +2146,17 @@
     dikkatNotieren(r.urteil !== 'falsch', leer);
     let kopf = '';
     if (!leer && S.items[l.id] && gueltig(l.id + ':x')) {
-      const tip = r.urteil === 'richtig' ? 'dogru' : r.urteil === 'fast' ? 'yazim' : 'yanlis';
+      const tip = r.urteil === 'richtig' ? 'dogru' : r.urteil === 'fast' ? (r.tip || 'yazim') : 'yanlis';
       kopf = hafizaYaz({ id: l.id, sel: { b: 3 }, bicim: 'metin', antwort: input, ziel: l.form }, { bicim: 'metin', tip }, now(), { yan: true, log: false, kaynak: q.pid }).kopf;
     }
     logEintrag({ modus: 'paket', id: q.pid + ':' + q.i, item: label(l.id), frage: p.titel, antwort: input, ergebnis: r.urteil, loesung: l.form, notiz: [kopf].concat(r.tags, leer ? ['sayılmadı'] : []).filter(Boolean).join(' | ') });
     paketRender(q);
     $('#cevap').disabled = true;
-    $('#sonuc').innerHTML = `<div class="sonuc ${r.urteil}"><div class="baslik">${{ richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[r.urteil]}</div>
+    $('#sonuc').innerHTML = `<div class="sonuc ${r.urteil}"><div class="baslik">${{ richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: '✗ Yanlış' }[r.urteil]}${r.urteil === 'fast' && (r.tags || []).length ? `<span class="etiketler">${r.tags.map(t => `<span class="etiket">${esc(t)}</span>`).join('')}</span>` : ''}</div>
       ${r.urteil !== 'richtig' ? `<div class="satir"><span class="et">doğrusu</span><span class="deger">${deHTML(l.form)} <span class="soluk">(${esc(label(l.id))})</span></span></div>${kancaHTML(l.id)}` : ''}
-      ${devamBtn('act', 'paket-weiter', r.urteil === 'richtig' ? OTO_MS : 0)}</div>`;
+      ${devamBtn('act', 'paket-weiter', r.urteil === 'richtig' ? otoMs() : 0)}</div>`;
     kart.classList.add('cevaplandi');
-    if (r.urteil === 'richtig') { const i0 = q.i; later(() => { if (aktuell === q && q.warte && q.i === i0) paketWeiter(); }, OTO_MS); }
+    if (r.urteil === 'richtig') { const i0 = q.i; otoGec(q, () => { if (q.warte && q.i === i0) paketWeiter(); }); }
     save();
   }
   function paketAbschluss(q) {
@@ -2380,7 +2447,27 @@
   const uNorm = s => (s || '').toLowerCase().replace(/[.,!?;:„“"()…]/g, '').replace(/\s+/g, ' ').trim()
     .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss');
   // yazma kontrolü: tam doğru / küçük hata (artikel eksik, tek harf, umlaut) / yanlış
-  function uPruef(eingabe, ziel, alts) {
+  // id (isteğe bağlı: metin / dinleme boşluğu): aynı öğenin başka biçimi (können → kann, regnet → geregnet) → çekim (küçük hata)
+  // 8.11: sözlükte başka kelime olan yazım (legt → liegt, Staat → Stadt, verschieben → verschrieben) yazım değil, yanlış;
+  // isim boşluğuna başına artikelle yazılan doğru isim (die Luft) → fast 'fazla artikel'
+  const U_ART = /^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines) /;
+  function uPruef(eingabe, ziel, alts, id) {
+    const r = uPruef0(eingabe, ziel, alts);
+    if (r.u !== 'falsch' || !id) return r;
+    const w = String(eingabe || '').trim();
+    if (w.length >= 3 && !/\s/.test(w)) {
+      const fi = formIdx(), bul = fi.get(w) || fi.get(w.toLowerCase()) || fi.get(w.charAt(0).toUpperCase() + w.slice(1));
+      if (bul === id) return { u: 'fast', hinweis: 'çekim: ' + ziel, cekim: true };
+    }
+    return r;
+  }
+  // yazılanın hedeften farklı kelimesi sözlükte var mı (lemma / çoğul / fiil biçimi): öyleyse yazım hoşgörüsü yok (başka kelime ya da çekim → G.yakin)
+  function uBaskaKelime(eingabe, c) {
+    const L = lexSet(), ut = String(eingabe || '').toLowerCase().replace(/[.,!?;:„“"()…]/g, ' ').split(/\s+/).filter(Boolean), ct = String(c).split(' ');
+    const fark = ut.length === ct.length ? ut.filter((w, i) => uNorm(w) !== ct[i]) : ut;
+    return fark.some(w => L.has(w));
+  }
+  function uPruef0(eingabe, ziel, alts) {
     const e = uNorm(eingabe), cands = [ziel].concat(alts || []).map(uNorm);
     if (cands.includes(e)) {
       // noktalama ve ae/oe/ue/ss farkı hata değil (27.10: "…angekommen" noktasız küçük hata sayılıyordu); yalnız büyük/küçük harf farkı küçük hata
@@ -2388,11 +2475,26 @@
       const tam = [ziel].concat(alts || []).some(c => yal(c) === yal(eingabe));
       return { u: tam ? 'richtig' : 'fast', hinweis: tam ? '' : 'büyük/küçük harf' };
     }
+    // tek kelime: G.kelimeSinifi varsa (kontrol ajanı, 8.11) sözlüklü tek karar: yazım / umlaut / çekim / başka kelime (null)
+    const w1 = String(eingabe || '').trim();
+    if (typeof G.kelimeSinifi === 'function' && w1 && !/\s/.test(w1)) {
+      for (const c0 of [ziel].concat(alts || [])) {
+        if (/\s/.test(String(c0).trim())) continue;
+        const k = G.kelimeSinifi(w1, String(c0).trim());
+        if (k === 'dogru') return { u: 'richtig', hinweis: '' };
+        if (k === 'buyukKucuk') return { u: 'fast', hinweis: 'büyük/küçük harf' };
+        if (k === 'umlaut') return { u: 'fast', hinweis: 'umlaut: ' + ziel, umlaut: true };
+        if (k === 'yazim') return { u: 'fast', hinweis: 'yazım: ' + ziel };
+        if (k === 'cekim') return { u: 'fast', hinweis: 'çekim: ' + ziel, cekim: true };
+      }
+      if (![ziel].concat(alts || []).some(c0 => /\s/.test(String(c0).trim()))) return { u: 'falsch', hinweis: '' };
+    }
     for (const c of cands) {
       const ohneArt = c.replace(/^(der|die|das) /, '');
       if (ohneArt !== c && e === ohneArt) return { u: 'fast', hinweis: 'artikel eksik: ' + ziel };
       if (ohneArt !== c && /^(der|die|das) /.test(e) && e.replace(/^(der|die|das) /, '') === ohneArt) return { u: 'falsch', hinweis: 'artikel yanlış: ' + ziel };
-      if (Math.abs(c.length - e.length) <= 1 && c.length > 4 && lev(c, e) <= 1) return { u: 'fast', hinweis: 'yazım: ' + ziel };
+      if (ohneArt === c && !/\s/.test(c) && U_ART.test(e) && e.replace(U_ART, '') === c && /^[A-ZÄÖÜ]/.test(String(ziel).trim())) return { u: 'fast', hinweis: 'fazla artikel: ' + ziel };
+      if (Math.abs(c.length - e.length) <= 1 && c.length > 4 && lev(c, e) <= 1 && !uBaskaKelime(eingabe, c)) return { u: 'fast', hinweis: 'yazım: ' + ziel };
     }
     // tek kelimelik boşlukta yer değiştirme / uzun kelimede iki harf (yazım) ya da aynı kelimenin başka eki (çekim; Aptheke → Apotheken)
     if (!/\s/.test(e)) for (const c of cands) { if (/\s/.test(c)) continue; const k = G.yakin(e, c); if (k) return { u: 'fast', hinweis: (k === 'yazim' ? 'yazım: ' : 'çekim: ') + ziel, cekim: k === 'cekim' }; }
@@ -2748,7 +2850,9 @@
         const ip0 = kurzTr(trOf(b.id)).split(',')[0].trim(), ip = ip0.length <= 24 ? ip0 : ip0.slice(0, 24).replace(/\s+\S*$/, '') + '…';
         // S6: yanlış boşluğun doğrusu bir kez yazdırılır (kutu açık kalır, doğru yazılınca kilitlenir)
         if (q.ok && q.dz && q.dz[i] != null) return `${esc(vor)}<s class="u-eski">${esc(w || '—')}</s> <input class="u-luecke u-duzelt${q.dz[i] === true ? ' ok' : ''}" data-dz="${i}" size="${Math.max(6, b.form.length + 2)}" placeholder="doğrusunu yaz" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${q.dz[i] === true ? esc(b.form) : esc(typeof q.dz[i] === 'string' ? q.dz[i] : '')}"${q.dz[i] === true ? ' readonly' : ''}> <b class="u-dogru">${esc(b.form)}</b>${esc(nach)}`;
-        return `${esc(vor)}<input class="u-luecke${q.ok ? (q.ok[i] ? ' ok' : ' yanlis') : ''}" data-al="${i}" size="${Math.max(6, t.c.length + 1, ip.length + 2)}" placeholder="${esc(ip)}" title="${esc(kurzTr(trOf(b.id)))}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w || '')}"${q.ok ? ' disabled' : ''}>${q.ok && !q.ok[i] ? ` <b class="u-dogru">${esc(b.form)}</b>` : ''}${esc(nach)}`;
+        // 8.11: küçük hata (yazım / çekim / fazla artikel) sarı ve doğrusu yanında; eskiden yeşil "doğru" görünüyordu, doğrusu gösterilmiyordu
+        const yakin = q.ok && q.ok[i] && q.durum && q.durum[i] === 'fast';
+        return `${esc(vor)}<input class="u-luecke${q.ok ? (yakin ? ' yakin' : q.ok[i] ? ' ok' : ' yanlis') : ''}"${yakin ? ' style="border-color:var(--warn);background:var(--warn-soft)"' : ''} data-al="${i}" size="${Math.max(6, t.c.length + 1, ip.length + 2)}" placeholder="${esc(ip)}" title="${esc(kurzTr(trOf(b.id)))}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" value="${esc(w || '')}"${q.ok ? ' disabled' : ''}>${q.ok && (!q.ok[i] || yakin) ? ` <b class="u-dogru">${esc(b.form)}</b>` : ''}${esc(nach)}`;
       }).join(' ')).join(' ');
       ust += `<div class="soluk">${q.blanks.length} boşluk: daha önce öğrendiğin kelimeler, metindeki biçimiyle (soluk yazı = anlamı). Bilmediğin kelimeye bas, anlamı çıkar. · ${esc(T.quelle || '')}</div>
         <div class="soru">${esc(T.titel || '')}</div>
@@ -2784,11 +2888,11 @@
     if (!q.dz) aktLogYaz(q);
     q.wartet = true;
     const kutu = q.dz ? `<div class="duzelt-kutu akt" id="duzelt"><span class="duzelt-et">✍ Yanlış boşlukların doğrusunu metinde bir kez yaz <span class="soluk">(not değişmez)</span></span>${UMLAUT_IC}<div class="duzelt-alt"><span class="soluk duzelt-not" id="duzelt-not"></span><button class="btn mini duzelt-gec" type="button" data-akt="duzelt-gec" hidden>geç</button></div></div>` : '';
-    q.ergHTML = `<div class="sonuc ${urteil}">${q.ergHTML || ''}${kutu}<div class="notlar">${urteil === 'richtig' ? devamBtn('akt', 'weiter', 1200) : devamKilitli(q, 'akt', 'weiter')}</div></div>`;
+    q.ergHTML = `<div class="sonuc ${urteil}">${q.ergHTML || ''}${kutu}<div class="notlar">${urteil === 'richtig' ? devamBtn('akt', 'weiter', otoMs()) : devamKilitli(q, 'akt', 'weiter')}</div></div>`;
     if (q.dz) setTimeout(() => { if (!q.dz) return; q.dzGecAcik = true; const g = aktuell === q && kart.querySelector('[data-akt="duzelt-gec"]'); if (g) g.hidden = false; }, DUZELT_GEC_MS);
     save(); renderHedef(); renderPlan();
     aktRender(q);
-    if (urteil === 'richtig') later(() => { if (aktuell === q && q.wartet) zeige(); }, 1200);
+    if (urteil === 'richtig') otoGec(q, () => { if (q.wartet) zeige(); });
   }
   // metin etkinliği düzeltmesi (S6): q.dz[i] = '' / yazılan (bekliyor) · true (doğru yazıldı); hepsi yazılınca (ya da "geç") Devam
   const aktDzBitti = q => !q.dz || q.dzGec || Object.values(q.dz).every(x => x === true);
@@ -2820,8 +2924,11 @@
       const t = now(), T = q.saetze[0].q;
       q.werte = q.blanks.map((b, i) => (document.querySelector(`.u-luecke[data-al="${i}"]`) || {}).value || '');
       const sonuclar = q.blanks.map((b, i) => {
-        const w = q.werte[i].trim(), r = uPruef(w, b.form);
-        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? (r.cekim ? 'cekim' : 'yazim') : 'yanlis';
+        const w = q.werte[i].trim();
+        let r = uPruef(w, b.form, null, b.id);
+        // cümle başındaki boşlukta yalnız büyük / küçük harf farkı hata değil (manche → Manche)
+        if (r.u === 'fast' && r.hinweis === 'büyük/küçük harf' && b.ti === 0) r = { u: 'richtig', hinweis: '' };
+        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? (r.cekim ? 'cekim' : r.umlaut ? 'umlaut' : 'yazim') : 'yanlis';
         const satz = (q.saetze[b.si] || {}).satz || '';
         const qq = { id: b.id, sel: { b: 3 }, bicim: 'metin', typ: Kern.eskiTur(b.id, 'metin'), antwort: w, ziel: b.form, frageText: satz.replace(b.form, '_____'), modus: 'luecke' };
         const r2 = hafizaYaz(qq, { bicim: 'metin', tip, etiketler: r.hinweis && tip !== 'dogru' ? [r.hinweis] : [] }, t, { yan: true, kaynak: T.id });
@@ -2833,12 +2940,13 @@
         if (session.tur) { session.tur.tekrar = (session.tur.tekrar || 0) + 1; if (r2.ergebnis !== 'falsch') session.tur.tekrarOk = (session.tur.tekrarOk || 0) + (r2.ergebnis === 'richtig' ? 1 : 0.5); }
         return r2.ergebnis;
       });
-      q.ok = sonuclar.map(x => x !== 'falsch');
+      q.ok = sonuclar.map(x => x !== 'falsch'); q.durum = sonuclar;
       // yanlış boşluklar: doğrusu bir kez yazılacak (S6)
       q.ok.forEach((x, i) => { if (!x) (q.dz = q.dz || {})[i] = ''; });
       const r = sonuclar.filter(x => x === 'richtig').length, n = q.blanks.length;
       const dg = q.ok.filter(Boolean).length;
-      q.ergHTML = `<div class="baslik">${dg === n ? '✓' : dg ? '≈' : '✗'} ${dg} / ${n} doğru</div>${r < n ? '<div class="soluk">yanlışların doğrusu metinde yeşil</div>' : ''}`;
+      const kh = sonuclar.filter(x => x === 'fast').length;
+      q.ergHTML = `<div class="baslik">${r === n ? '✓' : dg ? '≈' : '✗'} ${r} / ${n} doğru${kh ? ` · ${kh} küçük hata` : ''}</div>${r < n ? '<div class="soluk">yanlışların ve küçük hataların doğrusu metinde yeşil</div>' : ''}`;
       aktAbschluss(q, r === n ? 'richtig' : q.ok.filter(Boolean).length >= n * 0.6 ? 'fast' : 'falsch', q.werte.join(' / '), q.blanks.map(b => b.form).join(' / '), `puan:${q.ok.filter(Boolean).length}/${n} | boşluk:${n}`, true);
     } else if (q.art === 'diktat') {
       const i = $('#cevap'); q.eingabe = i ? i.value : '';
@@ -3380,23 +3488,51 @@
     save(); renderHedef(); renderPlan();
     if (!kart.querySelector('.devam-btn')) {
       const yer = kart.querySelector('#g-sonuc .sonuc') || kart.querySelector('#g-sonuc') || kart;
-      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${devamBtn('gtur', 'devam', urteil === 'richtig' ? 1200 : 0)}</div>`);
-    }
+      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil === 'richtig' ? devamBtn('gtur', 'devam', otoMs()) : devamKilitli(q, 'gtur', 'devam')}</div>`);
+    } else if (urteil === 'richtig') otoDolum(gramKalan());
     const b = kart.querySelector('.devam-btn');
     if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
-    if (urteil === 'richtig') later(() => { if (aktuell === q) zeige(); }, 1200);
+    if (urteil === 'richtig') otoGec(q, () => zeige(), gramKalan());
+  }
+  // Gramer doğru cevabı kendi dolumuyla (GRAM_OTO_MS) notlayıp bitti() çağırır; uygulama ayarın kalanını bekler (toplam ≈ ayar, en az 0,5 sn)
+  const GRAM_OTO_MS = 1400;
+  const gramKalan = () => (otoMs() > 0 ? Math.max(500, otoMs() - GRAM_OTO_MS) : 0);
+  // ekrandaki (modülün çizdiği) Devam'ın dolumunu verilen süreyle yeniden başlatır; 0 → dolum kalkar (elle)
+  function otoDolum(ms) {
+    kart.querySelectorAll('.devam-btn').forEach(b => {
+      const d = b.querySelector('.dolum'); if (d) d.remove();
+      if (!(ms > 0)) { b.classList.remove('otomatik'); return; }
+      b.classList.add('otomatik');
+      b.insertAdjacentHTML('afterbegin', `<span class="dolum" style="animation-duration:${ms}ms"></span>`);
+    });
   }
   // tıklama / tuş: önce Gramer; cevaplanmış soruda Devam (bizim ya da Gramer'in .devam-btn'i) ya da Enter sıradaki soruya geçirir
   // (bitti bu olayın içinde çağrıldıysa geçmez: cevabı gösteren basış Devam sayılmaz)
+  // 8.11 (diğer sorular gibi): Gramer'in sonuç paneli görününce yanlış / küçük hatada Devam 2,5 sn kilitli (KILIT_MS; Gramer'in Devam'ı da kilitlenir);
+  // panel görünürken basılan tek Enter / Devam hem notlatır (Gramer bitti) hem geçer (eskiden ikinci Enter gerekiyordu). Cevabı veren basış Devam sayılmaz.
+  function gramSonucGor(q) {
+    if (q.sonucT != null) return;
+    const so = kart.querySelector('#g-sonuc .sonuc'); if (!so) return;
+    q.sonucT = now();
+    if (so.classList.contains('richtig')) return;
+    kilitKur(q, KILIT_MS);
+    kart.querySelectorAll('#g-sonuc .devam-btn').forEach(b => {
+      b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('kilitli');
+      if (!b.querySelector('.geri-sayim')) b.insertAdjacentHTML('afterbegin', `<span class="geri-sayim" style="animation-duration:${KILIT_MS}ms"></span>`);
+    });
+  }
   function gramTurOlay(e, tus) {
     const q = aktuell;
-    if (!tus && e.target.closest('[data-gtur]')) { if (q.wartet) zeige(); return true; }
+    if (!tus && e.target.closest('[data-gtur]')) { if (q.wartet) { if (devamHazir(q)) zeige(); else kilitUyar(q); } return true; }
+    const once = q.sonucT != null;   // sonuç paneli bu olaydan önce görünüyordu
+    const devam = tus ? e.key === 'Enter' && !e.repeat : !!(e.target.closest && e.target.closest('.devam-btn'));
+    if (once && devam && q.kilit) { if (tus) e.preventDefault(); kilitUyar(q); return true; }
     let tuk = false;
     try { tuk = !!(tus ? typeof Gramer.turTus === 'function' && Gramer.turTus(e) : typeof Gramer.turKlick === 'function' && Gramer.turKlick(e)); } catch (err) { console.warn('Gramer tur olayı', err); }
     if (aktuell !== q) return true;
+    gramSonucGor(q);
     const ayniOlay = q.bittiT != null && q.bittiT >= e.timeStamp;
-    const devam = tus ? e.key === 'Enter' && !e.repeat : !!e.target.closest('.devam-btn');
-    if (q.wartet && devam && !ayniOlay) { if (tus) e.preventDefault(); zeige(); return true; }
+    if (q.wartet && devam && (!ayniOlay || once)) { if (tus) e.preventDefault(); if (devamHazir(q)) zeige(); else kilitUyar(q); return true; }
     return tuk;
   }
 
@@ -3413,7 +3549,7 @@
   }
   let _sesApi = null;
   const sesApi = () => _sesApi || (_sesApi = {
-    S: () => S, save, logEintrag, sprich, sesKes, sesHiz: sesHizi, almancaSes, esc, deHTML, deItemHTML, now, tag, G, Kern: window.Kern, later, tastatur, devamBtn, flash, toast,
+    S: () => S, save, logEintrag, sprich, sesKes, sesHiz: sesHizi, almancaSes, esc, deHTML, deItemHTML, now, tag, G, Kern: window.Kern, later, tastatur, devamBtn, flash, toast, otoMs,
     kind, label, trOf, kurzTr, tierOf, gueltig: id => gueltig(id + ':x'), optionen, satzPool, wortLuecke, wortSuchen, uPruef, diktePruef: diktatPruef,
     umlaut: UMLAUT_IC, ot: () => session.ot, kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
     heuteM, xpEkle, bilmedik: bilmedikIsle, renderPlan, lesenGoster: anders => { aktuell = null; lesenRender(anders); },
@@ -3457,15 +3593,18 @@
     if (!kart.querySelector('.devam-btn')) {
       const yer = kart.querySelector('#sonuc .sonuc') || kart.querySelector('#sonuc') || kart;
       // yanlış / küçük hatada Devam 2,5 sn kilitli (S6; 6.11 denetim: ses yuvasında tek Enter düzeltmeyi atlıyordu)
-      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil !== 'richtig' ? devamKilitli(q, 'stur', 'devam') : devamBtn('stur', 'devam', urteil === 'richtig' && !(r && r.bekle) ? 1200 : 0)}</div>`);
+      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil !== 'richtig' ? devamKilitli(q, 'stur', 'devam') : devamBtn('stur', 'devam', urteil === 'richtig' && !(r && r.bekle) ? otoMs() : 0)}</div>`);
     } else if (urteil !== 'richtig') kilitKur(q, KILIT_MS);
+    else if (!(r && r.bekle)) otoDolum(otoMs());
     const b = kart.querySelector('.devam-btn');
     if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
-    if (urteil === 'richtig' && !(r && r.bekle)) later(() => { if (aktuell === q) zeige(); }, 1200);
+    if (urteil === 'richtig' && !(r && r.bekle)) otoGec(q, () => zeige());
   }
   // tıklama / tuş: önce modül (soru.tus / soru.klick, yoksa modülün turTus / turKlick); cevaplanmış soruda Devam ya da Enter sıradaki soruya
   function sesTurOlay(e, tus) {
     const q = aktuell, so = q.soru;
+    // önceki sorunun Devam'ı için basılan Enter yeni dinleme sorusuna düşmesin (7.11: boş girdi 0 sn'de "bilmiyorum" oluyordu): ilk 0,4 sn boş Enter yok
+    if (tus && e.key === 'Enter' && !q.wartet && now() - q.start < 400 && !String((e.target && e.target.value) || '').trim()) { e.preventDefault(); return true; }
     if (!tus && e.target.closest('[data-stur]')) { if (q.wartet) { if (devamHazir(q)) zeige(); else kilitUyar(q); } return true; }
     let tuk = false;
     try {
@@ -3664,16 +3803,72 @@
     const urteil = not.ergebnis || (ok ? 'richtig' : 'falsch');
     dikkatNotieren(urteil !== 'falsch', not.m == null && not.a == null);
     fxCevap(urteil);
-    if (urteil === 'richtig') { panelGoster(sonucPanel(q, not, { kisa: true })); later(ilerleSesle, OTO_MS); return; }
+    if (urteil === 'richtig') { panelGoster(sonucPanel(q, not, { kisa: true })); otoGec(q, ilerle); return; }
     panelGoster(sonucPanel(q, not, { weissNicht, secilen: weissNicht ? null : opt.t, secilenId: weissNicht || !opt.id || opt.id === q.id ? null : opt.id }));
   }
-  const OTO_MS = 1000;   // doğru cevaptan sonra kendiliğinden geçiş (0,8–1,2 sn)
-  // kendiliğinden geçiş: kelimenin sesi hâlâ okunuyor ya da başlamadıysa bitmesini bekler (en çok 2,5 sn), sonraki soru sesi kesmesin
-  function ilerleSesle() {
-    const q = aktuell, t0 = now();
-    const dene = () => { if (aktuell !== q) return; if (sesCaliyor() && now() - t0 < 2500) later(dene, 100); else ilerle(); };
-    dene();
+  // ---------- doğru cevapta kendiliğinden geçiş (8.11, Tuna: "otomatik geçme çok hızlı oluyor bazen") ----------
+  // Tek ayar S.einst.otoGecis (Ayarlar → "Doğru cevapta geçiş": 1 sn / 2 sn / 3,5 sn / 0 = elle, yalnız Enter / Devam); varsayılan 2 sn.
+  // Bütün doğru-geçişler (soru, seçmeli, artikel, ayır, itiraz, metin, paket, turdaki gramer / ses) otoGec'ten: Devam'ın dolum çizgisi aynı süre.
+  // Ses çalıyor ya da sırada (TTS gecikmesi, speechSynthesis.pending) ise bekler; ses bitince en az OTO_SES_SONRA daha; en çok OTO_EN_COK.
+  // Panelde fare gezinince sayaç durur (çıkınca sürer); panele dokunma / tıklama ya da Boşluk sayacı kapatır (elle: Enter / Devam).
+  // Süre zamanlayıcı adımlarıyla sayılır (OTO_ADIM): testte hızlandırılmış zamanlayıcıyla da tutarlı.
+  const OTO_SECENEK = [1000, 2000, 3500, 0], OTO_VARSAYILAN = 2000;
+  const otoMs = () => (S.einst && OTO_SECENEK.includes(S.einst.otoGecis) ? S.einst.otoGecis : OTO_VARSAYILAN);
+  const OTO_SES_SONRA = 600, OTO_EN_COK = 6000, OTO_ADIM = 100;
+  const sesSirada = () => { try { return !!window.speechSynthesis && !!(speechSynthesis.speaking || speechSynthesis.pending); } catch (e) { return false; } };
+  // gec: süre dolunca çağrılır (q hâlâ ekrandaysa); ms verilmezse ayar (otoMs)
+  function otoGec(q, gec, ms) {
+    if (!q) return;
+    ms = ms == null ? otoMs() : ms;
+    const o = q.oto = { ms, gecen: 0, sesSon: -1, dur: ms > 0 ? '' : 'elle' };
+    if (!(ms > 0)) return;
+    const tik = () => {
+      if (aktuell !== q || q.oto !== o || o.dur === 'elle') return;
+      if (o.dur === 'fare') { later(tik, OTO_ADIM); return; }
+      o.gecen += OTO_ADIM;
+      const ses = sesCaliyor() || sesSirada();
+      if (ses) o.sesSon = o.gecen;
+      const sesBekle = ses || (o.sesSon >= 0 && o.gecen - o.sesSon < OTO_SES_SONRA);
+      if ((o.gecen >= o.ms && !sesBekle) || o.gecen >= Math.max(OTO_EN_COK, o.ms)) { q.oto = null; gec(); return; }
+      later(tik, OTO_ADIM);
+    };
+    later(tik, OTO_ADIM);
   }
+  // sayaç durdu ('fare': geçici, dolum duraklar) ya da kapandı ('elle': dolum kalkar, Enter / Devam bekler)
+  function otoDur(neden) {
+    const o = aktuell && aktuell.oto;
+    if (!o || o.dur === 'elle' || o.dur === neden) return;
+    o.dur = neden;
+    kart.querySelectorAll('.devam-btn .dolum').forEach(d => {
+      if (neden === 'elle') { const b = d.closest('.devam-btn'); d.remove(); if (b) b.classList.remove('otomatik'); } else d.style.animationPlayState = 'paused';
+    });
+  }
+  function otoSurdur() {
+    const o = aktuell && aktuell.oto;
+    if (!o || o.dur !== 'fare') return;
+    o.dur = '';
+    kart.querySelectorAll('.devam-btn .dolum').forEach(d => { d.style.animationPlayState = 'running'; });
+  }
+  const OTO_PANEL = '.sonuc, #sonuc, #g-sonuc';
+  // fare: panel üstünde gerçekten hareket edince (yerinde duran imleç sayılmaz) durur, panelden çıkınca sürer
+  kart.addEventListener('pointermove', e => {
+    const o = aktuell && aktuell.oto;
+    if (!o || o.dur === 'elle' || e.pointerType !== 'mouse' || !(e.target.closest && e.target.closest(OTO_PANEL))) return;
+    if (o.fx == null) { o.fx = e.clientX; o.fy = e.clientY; return; }
+    if (Math.abs(e.clientX - o.fx) + Math.abs(e.clientY - o.fy) > 4) otoDur('fare');
+  });
+  kart.addEventListener('pointerout', e => {
+    const o = aktuell && aktuell.oto;
+    if (!o || o.dur !== 'fare' || e.pointerType !== 'mouse') return;
+    const r = e.relatedTarget;
+    if (!(r && r.closest && r.closest(OTO_PANEL))) { o.fx = null; otoSurdur(); }
+  });
+  // dokunma / tıklama (Devam dışında): sayaç kapanır
+  kart.addEventListener('pointerdown', e => {
+    const o = aktuell && aktuell.oto;
+    if (!o || o.dur === 'elle' || !(e.target.closest && e.target.closest(OTO_PANEL)) || e.target.closest('.devam-btn')) return;
+    otoDur('elle');
+  }, true);
 
   // artikel flaşı: ≤ 8 sn doğru → 3; daha yavaş → 3 (+0,7); yanlış → 1
   function artWahl(a) {
@@ -3688,10 +3883,46 @@
     q.sonuc = sonuc; q.not = Kern.notVer(sonuc);
     dikkatNotieren(ok, rt < 450);
     fxCevap(ok ? 'richtig' : 'falsch');
-    panelGoster(sonucPanel(q, q.not, ok ? { oto: /istisna/.test(regelHTML(n)) ? 1200 : 900 } : { secilen: a }));
-    if (ok) later(ilerle, /istisna/.test(regelHTML(n)) ? 1200 : 900);
+    panelGoster(sonucPanel(q, q.not, ok ? {} : { secilen: a }));
+    if (ok) otoGec(q, ilerle);
   }
 
+  // ---------- boşluk / cümle kontrolünün ortak son adımı (8.11 tutarlılık; G.bosPruef / G.cumleKontrol'ün üstünde) ----------
+  // ae / oe / ue / ss her yerde tam doğru; yalnız umlaut farkı 'umlaut' (yazım değil); umlaut farkıyla sözlükte başka kelime (schon / schön) yanlış,
+  // aynı öğenin başka biçimi (Bruder / Brüder) çekim; ismi küçük harfle yazmak her modülde küçük hata 'büyük harf' (tip yazim: seviye atlatmaz)
+  const aeAc = s => String(s || '').replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ß/g, 'ss');
+  const cNorm = s => G.norm(String(s || '')).replace(/[.,!?;:„“"()…]/g, '').replace(/\s+/g, ' ').trim();
+  const aeEsit = (a, b) => aeAc(cNorm(a)).toLowerCase() === aeAc(cNorm(b)).toLowerCase();
+  const umlEsit = (a, b) => { const f = s => cNorm(s).toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss'); return f(a) === f(b); };
+  const FW_ART = /^(der|die|das|den|dem|des|ein|eine|einen|einem|einer|eines)$/i;
+  // hedefte büyük harfli (isim) kelime, yazılanda aynı kelime küçük harfle (artikeller atlanır)
+  function kucukIsim(input, ziel) {
+    const ut = cNorm(input).split(' ').filter(w => w && !FW_ART.test(w)), zt = cNorm(ziel).split(' ').filter(w => w && !FW_ART.test(w));
+    return zt.some(z => /^[A-ZÄÖÜ]/.test(z) && ut.some(u => /^[a-zäöü]/.test(u) && aeAc(u).toLowerCase() === aeAc(z).toLowerCase()));
+  }
+  const fiBul = w => { const fi = formIdx(), x = String(w || '').trim(); return fi.get(x) || fi.get(x.toLowerCase()) || fi.get(x.charAt(0).toUpperCase() + x.slice(1)) || null; };
+  // boşluk sonucu (G.bosPruef) → düzeltilmiş sonuç. id: sorulan öğe (isim mi; umlaut farkı başka kelime mi)
+  function bosSon(r, input, ziel, id) {
+    if (!r || !input) return r;
+    const isim = id ? kind(id) === 'n' : /^[A-ZÄÖÜ]/.test(String(ziel).trim());
+    if (r.urteil !== 'richtig' && aeEsit(input, ziel)) r = Object.assign({}, r, { urteil: 'richtig', tip: 'dogru', tags: [] });
+    else if (r.urteil !== 'richtig' && umlEsit(input, ziel)) {
+      const tek = !/\s/.test(cNorm(input)), fid = tek ? fiBul(cNorm(input)) : null;
+      if (fid && id && fid !== id) r = Object.assign({}, r, { urteil: 'falsch', tip: 'yanlis', tags: ['farklı kelime'] });
+      else if (fid && id && fid === id) r = Object.assign({}, r, { urteil: 'fast', tip: 'cekim', tags: ['çekim'] });
+      else r = Object.assign({}, r, { urteil: 'fast', tip: 'umlaut', tags: ['umlaut'] });
+    }
+    if (isim && r.urteil !== 'falsch' && kucukIsim(input, ziel)) r = Object.assign({}, r, { urteil: 'fast', tip: r.tip === 'dogru' || !r.tip ? 'yazim' : r.tip, tags: (r.tags || []).filter(x => x !== 'groß/klein').concat('büyük harf') });
+    return r;
+  }
+  const bosA = (input, ziel, alts, id) => bosSon(G.bosPruef(input, ziel, alts), input, ziel, id);
+  // auswerten'in son adımı: boşluk soruları (bos0 / bos / Goethe boşluğu) ve tam cümle (isim küçük harfle → küçük hata)
+  function kontrolSon(q, r, input) {
+    if (!r || q.yoklama) return r;
+    if (q.voll && r.cumle && r.urteil === 'richtig' && (r.tags || []).includes('büyük/küçük harf')) return Object.assign({}, r, { urteil: 'fast', tip: 'yazim' });
+    if (!q.voll && (/^bos/.test(q.bicim || '') || q.modus === 'luecke') && q.ziel) return bosSon(r, input, q.ziel, q.id);
+    return r;
+  }
   // yazılı cevabın türü (cümle / boşluk): G.pruefen sonucundan; tam cümlede hedef kelime varsa hata başka yerde (m3, fast)
   function tipAus(r, q) {
     if (r.tip) return r.tip;
@@ -3761,13 +3992,14 @@
     q.done = true;
     q.antwort = input;
     q.sek = Math.round((now() - q.start) / 1000);
-    const res = weissNicht ? { urteil: 'falsch', tags: [], diff: [], ziel: q.ziel, tip: q.bos ? 'bos' : 'bilmiyorum' } : q.pruef(input);
+    const res = weissNicht ? { urteil: 'falsch', tags: [], diff: [], ziel: q.ziel, tip: q.bos ? 'bos' : 'bilmiyorum' } : kontrolSon(q, q.pruef(input), input);
     // tip etiketler adlandırılmadan önce (5.11: 'artikel/çekim' önce 'ek'e çevrildiği için tipAus görmüyor, doğru kelimenin yanlış eki 'yanlış' sayılıyordu)
     let tip = weissNicht ? res.tip : tipAus(res, q);
-    if (res.tags && !res.cumle) res.tags = res.tags.map(t => t !== 'artikel/çekim' ? t : kind(q.id) === 'v' ? 'çekim' : kind(q.id) === 'n' ? 'artikel / ek' : 'ek');
+    // yanlış kararın yanında "çekim / ek" etiketi çelişir (8.11: Patenscahft → "artikel / ek", wunder → "çekim"): başka kelime
+    if (res.tags && !res.cumle) res.tags = res.tags.map(t => t !== 'artikel/çekim' ? t : tip === 'yanlis' ? 'farklı kelime' : kind(q.id) === 'v' ? 'çekim' : kind(q.id) === 'n' ? 'artikel / ek' : 'ek').filter((t, i, a) => a.indexOf(t) === i);
     q.res = res;
     // yoklama: kelime biliniyorsa (yazım / umlaut / hâl dahil) "zaten biliyorsun"; değilse tanıtım
-    if (q.yoklama) tip = ['dogru', 'yazim', 'umlaut', 'hal', 'mastar'].includes(tip) ? 'yoklama' : weissNicht ? tip : 'yanlis';
+    if (q.yoklama) tip = ['dogru', 'yazim', 'umlaut', 'hal', 'mastar', 'cekim'].includes(tip) ? 'yoklama' : weissNicht ? tip : 'yanlis';
     // tam cümle (G.cumleKontrol): etiketler olduğu gibi log'a (yazım dahil); zor: ipucusuz zor soru (Kern.notVer: doğruysa not 4)
     const yardim = (q.yardim || []).length;
     const sonuc = { bicim: q.bicim, tip, artikel: res.artikel || null, etiketler: (res.tags || []).filter(x => !/^bilgi/.test(x) && (res.cumle || !['yazım', 'umlaut', 'umlaut/ß'].includes(x))), yanlis: res.yanlis, kokYanlis: res.kokYanlis,
@@ -3779,13 +4011,13 @@
     // tek itiraz: yanlışta hedefe uzaklık ≤ 2 → "yazım hatasıydı"; tam cümlede fast ya da yanlış → "aslında doğru" (başka doğru çeviri)
     const urteil = q.not.ergebnis || 'falsch';
     if (!weissNicht && !q.yoklama && urteil === 'falsch' && sonuc.tip !== 'stamm' && sonuc.tip !== 'flas' && Kern.lev(G.norm(input), G.norm(String(q.ziel || ''))) <= 2) q.itirazVar = 'yazim';
-    else if (!weissNicht && urteil === 'fast' && sonuc.tip === 'cumleFast') q.itirazVar = 'dogru';
+    // geçerli başka diziliş "kelime sırası / fiil yeri" (cumleYapi) sayılabiliyor: ona da "aslında doğru"
+    else if (!weissNicht && urteil === 'fast' && (sonuc.tip === 'cumleFast' || sonuc.tip === 'cumleYapi')) q.itirazVar = 'dogru';
     else if (!weissNicht && !q.bos && urteil === 'falsch' && q.voll && res.cumle) q.itirazVar = 'dogru';
     const input$ = $('#cevap'); if (input$) { input$.readOnly = true; input$.blur(); }
-    const oto = urteil === 'richtig' ? ((q.erkl && q.erkl().filter(Boolean).length) ? 1200 : 900) : 0;
-    panelGoster(sonucPanel(q, q.not, { weissNicht, yazili: true, oto }));
+    panelGoster(sonucPanel(q, q.not, { weissNicht, yazili: true }));
     fxCevap(urteil);
-    if (oto) later(ilerle, oto);
+    if (urteil === 'richtig') otoGec(q, ilerle);
   }
   // örnek cümle + Türkçesi; bilinmeyen kelimeler glossen'den (hilfeHTML)
   function ornekHTML(id) {
@@ -3798,14 +4030,17 @@
     o = o || {};
     const urteil = not.ergebnis || (q.sonuc && q.sonuc.tip === 'dogru' ? 'richtig' : 'falsch');
     const etiket = (not.etiketler || []).filter(x => x !== 'sayılmadı');
-    const artYanlis = !!(q.sonuc && q.sonuc.artikel && q.sonuc.artikel.sinandi && !q.sonuc.artikel.dogru && not.m >= 3);
-    const titel = artYanlis ? 'kelime ✓ · artikel ✗' : { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: o.weissNicht ? '✗ Bilmiyorum' : '✗ Yanlış' }[urteil];
-    if (o.kisa) return `<div class="sonuc richtig"><div class="baslik">${titel}</div>${devamBtn('act', 'devam', OTO_MS)}</div>`;
+    // artikel hatası umlaut / çekim hatasıyla birlikte de (Kern notVer m2 + a1): başlık kelimenin durumunu da söyler
+    const artYanlis = !!(q.sonuc && q.sonuc.artikel && q.sonuc.artikel.sinandi && !q.sonuc.artikel.dogru && not.m >= 2);
+    const titel = artYanlis ? (not.m >= 3 ? 'kelime ✓ · artikel ✗' : 'kelime ≈ · artikel ✗') : { richtig: '✓ Doğru', fast: '≈ Küçük hata', falsch: o.weissNicht ? '✗ Bilmiyorum' : '✗ Yanlış' }[urteil]
+      + ((not.etiketler || []).includes('sayılmadı') ? ' · çok hızlı: sayılmadı' : '');
+    if (o.kisa) return `<div class="sonuc richtig"><div class="baslik">${titel}</div>${devamBtn('act', 'devam', otoMs())}</div>`;
     const k = q.id ? kind(q.id) : null;
     const yanlis = urteil !== 'richtig';
     const halStr = k === 'v' && vById[q.id] ? hallerTR(vById[q.id]) : '';
     const ornek = yanlis && q.id && k !== 'p' && !q.voll ? ornekHTML(q.id) : '';
-    const erkl = (q.erkl ? q.erkl() : []).filter(Boolean).filter(e => !/class="kural/.test(e) && !(halStr && e === halStr) && !(ornek && /^Örnek:/.test(e))).slice(0, 3);
+    // "aslında doğru de" notu yalnız yanlış / küçük hatada (doğru panelde okunacak tek satır oydu)
+    const erkl = (q.erkl ? q.erkl() : []).filter(Boolean).filter(e => !/class="kural/.test(e) && !(halStr && e === halStr) && !(ornek && /^Örnek:/.test(e)) && (yanlis || !/aslında doğru/.test(e))).slice(0, 3);
     const itiraz = q.itirazVar && !q.itiraz ? `<button class="btn mini itiraz" data-act="itiraz" type="button">${q.itirazVar === 'yazim' ? 'yazım hatasıydı' : 'aslında doğru'}</button>` : '';
     // isim: kural (sonek / bileşik) ya da "kural yok: kanca" — artikel sınandıysa ya da yanlışsa
     // artikel yanlışı (flaş ya da yazma / seçmeli artikel sınaması): karşıt not + kısa kural (artikelNotHTML)
@@ -3832,13 +4067,12 @@
     return `<div class="sonuc ${urteil}${artYanlis ? ' art-hata' : ''}">
       <div class="baslik">${titel}${etiket.length || zorEt ? `<span class="etiketler">${zorEt}${etiket.map(t => `<span class="etiket">${esc(t)}</span>`).join('')}</span>` : ''}</div>
       ${senin}
-      ${dogru}${digerHTML}${acikHTML}${yardimNotu}
+      ${dogru}${urteil === 'falsch' ? duzeltHTML(q) : ''}${digerHTML}${acikHTML}${yardimNotu}
       ${kural}${hal}
       ${erkl.length && (yanlis || o.yazili) ? `<ul class="erkl">${erkl.map(e => `<li>${e}</li>`).join('')}</ul>` : ''}
       ${ornek}
       ${yanlis ? kancaHTML(q.id) : ''}
-      ${urteil === 'falsch' ? duzeltHTML(q) : ''}
-      <div class="notlar">${itiraz}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', o.oto || OTO_MS)}</div>
+      <div class="notlar">${itiraz}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', otoMs())}</div>
     </div>`;
   }
 
@@ -3916,7 +4150,7 @@
     q.itiraz = true;
     q.oneri = q.not.ergebnis;
     // itirazla tanı değişti: "kelime yanlış" / "farklı" gibi yanlış tanısı etiketleri kalmaz (panelde ve log'da çelişmesin)
-    const YANLIS_ET = ['kelime yanlış', 'farklı', 'eksik kelime'];
+    const YANLIS_ET = ['kelime yanlış', 'farklı', 'eksik kelime', 'farklı kelime', 'yanlış kelime', 'hedef kelime', 'farklı cümle'];
     // itirazla kazanılan cevap zor soru notu (4) almaz: bedava seviye yok; tam cümlede "aslında doğru" bütün hata etiketlerini düşürür
     q.sonuc = Object.assign({}, q.sonuc, { tip: q.itirazVar === 'yazim' ? 'yazim' : 'dogru', zor: false, etiketler: q.voll && q.itirazVar === 'dogru' ? [] : (q.sonuc.etiketler || []).filter(x => !YANLIS_ET.includes(x)) });
     if (q.itirazVar === 'yazim' && q.sonuc.artikel && q.sonuc.artikel.sinandi && !q.sonuc.artikel.dogru && q.res && q.res.tip === 'yanlis') q.sonuc.artikel = null;
@@ -3927,7 +4161,7 @@
     panelGoster(sonucPanel(q, q.not, { yazili: true }));
     fxCevap(q.not.ergebnis);
     // 'aslında doğru' → richtig: panelin Devam düğmesi dolum animasyonuyla çizilir, gerçekten de geçsin
-    if (q.not.ergebnis === 'richtig') later(ilerleSesle, OTO_MS);
+    if (q.not.ergebnis === 'richtig') otoGec(q, ilerle);
   }
   // Devam / kendiliğinden geçiş: cevap işlenir (tek kez), sonraki soru
   function ilerle() {
@@ -4758,6 +4992,8 @@
       satir('Yeni kelime / gün', (() => { const kt = kota(); return `bugün ${kt.yapilan}${kt.sebep !== 'normal' && kt.q < yg ? ` · şu an günde ${kt.q} (${kt.sebep === 'göç' ? 'yeni düzenin ilk günleri' : kt.sebep === 'dönüş' ? 'aradan dönüş turu' : 'birikme / genç kelime çok'}); seçimin birikme eriyince geçerli` : ' · birikme varken kendiliğinden azalır'}`; })(), seg('yeni', [[4, '4'], [6, '6'], [8, '8'], [10, '10']], yg)),
       satir('Günlük hedef', `1 tur = ${turBoyu()} cevap · pazartesi 1 tur`, seg('hedef', [[2, '2 tur'], [3, '3 tur'], [4, '4 tur'], [5, '5 tur']], th)),
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
+      // 8.11: doğru cevaptan sonra kendiliğinden geçiş süresi (S.einst.otoGecis; 0 = elle, Enter / Devam); panelde fare / dokunuş / Boşluk durdurur
+      satir('Doğru cevapta geçiş', 'sonraki soruya kendiliğinden · panele dokun ya da Boşluk: durur', seg('otogecis', [[1000, '1 sn'], [2000, '2 sn'], [3500, '3,5 sn'], [0, 'Elle']], otoMs())),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),
       // dinleme (6.11): turda sesli sorular, okuma hızı, Almanca ses
       satir('Sesli sorular', 'turda 1–2 soru: dinle · duy ve seç (kulaklık yoksa kapat)', anahtar('a-sesli', sesliAcik())),
@@ -5791,6 +6027,8 @@
     if ($('#v-calis').hidden || !aktuell) return;
     const q = aktuell;
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
+    // doğru cevabın geri sayımı: Boşluk durdurur (sonra Enter / Devam); dinleme / gramer modülü Boşluk'u yine alır (tekrar dinle)
+    if (e.key === ' ' && q.oto && q.oto.dur !== 'elle' && !inInput) { otoDur('elle'); if (q.typ !== 'sesTur' && q.typ !== 'gramTur') { e.preventDefault(); return; } }
     if (q.typ === 'pruefung') { if (e.key === 'Escape') { e.preventDefault(); if (pruefungCik()) { clearTimers(); zeigView('ana'); } } return; }
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
@@ -5914,6 +6152,7 @@
     if (ad === 'ret') { S.einst.ret = v || 0.85; S.einst.retSecildi = true; }
     else if (ad === 'yeni') { S.ayar4.yeniGunluk = Math.max(2, Math.min(10, v || 6)); S.ayar4.secildi = true; }
     else if (ad === 'seshiz') { S.einst.sesHiz = SES_HIZLAR.includes(v) ? v : 0.9; sprich(SES_ORNEK); }
+    else if (ad === 'otogecis') S.einst.otoGecis = OTO_SECENEK.includes(v) ? v : OTO_VARSAYILAN;
     else if (ad === 'hedef') { S.ayar4.turHedef = Math.max(1, Math.min(8, v || 2)); S.ayar4.secildi = true; }
     save(); renderAyar();
   });
@@ -6030,7 +6269,7 @@
     const labelIdx = {};
     try { NL.forEach(n => { labelIdx[label(n.id)] = n.id; }); VERBEN.forEach(v => { labelIdx[v.anz || v.inf] = v.id; if (v.inf) labelIdx[v.inf] = labelIdx[v.inf] || v.id; }); WOERTER.forEach(w => { labelIdx[w.de] = w.id; }); } catch (e) { console.warn(e); }
     Gramer.init({
-      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle: n => { if (!gramTurAcik()) xpEkle(n); }, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur, devamBtn,
+      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle: n => { if (!gramTurAcik()) xpEkle(n); }, heuteM, toast, sprich, esc, deHTML, now, tag, FSRS, G, later, konfeti, tastatur, devamBtn, otoMs,
       kart: () => kart, ret: () => S.einst.ret, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
       // turdaki gram sorusunda (gramTur) sayaç / puan / fx uygulamanın (gramTurBitti): Gramer çağırsa da iki kez sayılmasın
       fx: u => { if (!gramTurAcik()) fxCevap(u); }, soruSayisi: () => session.q, odakla: () => !!(window.matchMedia && matchMedia('(hover: hover)').matches),
@@ -6045,7 +6284,7 @@
   (function cumleBagla() {
     if (!window.Cumle) return;
     Cumle.init({
-      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn,
+      S: () => S, save, logEintrag, bilmedik: bilmedikIsle, xpEkle, heuteM, toast, sprich, esc, deHTML, deItemHTML, harfFark, now, tag, G, later, konfeti, tastatur, devamBtn, otoMs,
       kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, fx: u => fxCevap(u), umlaut: UMLAUT_IC,
       kind, label, trOf, wortLuecke, hilfe: (de, id) => hilfeHTML(de, id), karismaTablosu,
       sayac: urteil => { const d = heute(); d.n++; if (urteil) d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); },
@@ -6201,6 +6440,12 @@
     // test: Okuma bölümünde verilen metni aç (id: dw…)
     lesenAc: id => { const L = LT.find(x => x.id === id); if (!L) return false; setModus('lesen'); zeigView('calis'); session.lesen = L; session.lesenCevap = {}; session.lesenFv = false; lesenRender(); return true; },
     LT,
+    // test (tests/e2e_not.js): cevap kontrolü ve kendiliğinden geçiş
+    // test: turdaki gramer sorusunu doğrudan aç (önce bir tur başlatılmış olmalı)
+    gramAc: () => { const ot = session.ot; if (!ot || !gramApi()) return false; let soru = null; try { soru = Gramer.turSorusu(now(), []); } catch (e) { soru = null; } if (!soru) return false; ot.gramSoru = soru; const q = gramTurFrage({ tur: 'gram', kaynak: 'test' }); if (!q) return false; aktuell = q; gramTurRender(q); return true; },
+    _not: { artObPruef: (id, inp, ziel, kasus) => artObPruef(byId[id], inp, ziel, kasus), uPruef, bosA, notVerF, otoMs,
+      pruefWort: (id, inp) => pruefWort(byId[id], inp), pruefAbr: (id, inp) => pruefAbr(vById[id], inp),
+      stammTekPruef: (id, hedef, inp, tur, et, auxK) => stammTekPruef(vById[id], hedef, inp, tur, et, null, auxK), vById: id => vById[id] },
     _testOrdner: h => { ordner = h; return dateiSchreiben(true); } };
   }
 })();

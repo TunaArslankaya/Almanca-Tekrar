@@ -268,13 +268,15 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     for (let i = 0; i < 6; i++) { const s = await D.durum(t); if (s.tur === 'tanit') break; if (s.tur === 'leer' || s.tur === 'turSonu') break; await D.adim(t, { dogru: 1 }); }
     const s0 = await D.durum(t);
     if (s0.tur === 'tanit') {
-      const t0 = Date.now();
+      // süre kartın kendi kilit başlangıcından (kilitT0, sayfa saati): sürücünün kartı fark etme gecikmesi ölçüye girmesin (8.11: geçiş zamanlaması değişince 950 → 900 ms sınırına düşüyordu)
+      const t0p = await t.evaluate(() => window.__tekrar.aktuell.kilitT0 || Date.now()), gecen = () => t.evaluate(x => Date.now() - x, t0p);
       if (!(await t.$('[data-act="tanit-devam"][disabled]'))) hata('tanıtım', 'Devam baştan açık');
       await t.keyboard.press('Enter'); await t.waitForTimeout(40);
       if ((await D.durum(t)).id !== s0.id) hata('tanıtım', 'kilitliyken Enter geçti');
       await t.waitForFunction(() => !document.querySelector('[data-act="tanit-devam"][disabled]'), null, { timeout: 12000 }).catch(() => hata('tanıtım', 'kilit açılmadı'));
-      if (Date.now() - t0 < 900) hata('tanıtım', `kilit çok kısa: ${Date.now() - t0} ms`);
-      console.log(`seçmeli / panel: şıklar ${m.t.join(' | ')} · tanıtım kilidi ${Date.now() - t0} ms`);
+      const sure = await gecen();
+      if (sure < 900) hata('tanıtım', `kilit çok kısa: ${sure} ms`);
+      console.log(`seçmeli / panel: şıklar ${m.t.join(' | ')} · tanıtım kilidi ${sure} ms`);
     } else hata('tanıtım', `tanıtım kartı gelmedi (${s0.tur})`);
     await t.ctx.close();
   }

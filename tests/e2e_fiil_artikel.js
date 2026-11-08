@@ -66,7 +66,10 @@ const ok = (kosul, ad, m) => { if (!kosul) hata(ad, m); };
       ok(m0 === m1, 'artOb', 'anlam hafızası değişti');
       gorduOb++;
     } else if (deneme === 1) {   // cinsiyet doğru, hâl yanlış
-      const ks = Object.keys(FORM[art]).filter(k => FORM[art][k] !== ziel);
+      // 8.11: sorulan hâlde başka cinsiyetin biçimi olan yazım (dişil isme Nom/Akk'de der) cinsiyet hatasıdır (falsch); hâl yanlışı için öyle olmayan biçim
+      const KAS = { Nom: 'N', Akk: 'A', Dat: 'D', Gen: 'G' }, sor = kas.split('/').map(x => KAS[x]).filter(Boolean);
+      const baska = new Set(['der', 'die', 'das'].filter(g => g !== art).flatMap(g => sor.map(c => FORM[g][c])));
+      const ks = Object.keys(FORM[art]).filter(k => FORM[art][k] !== ziel && !baska.has(FORM[art][k]));
       if (!ks.length) continue;
       await cevapla(FORM[art][ks[0]]);
       const a = await aktuell();
