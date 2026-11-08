@@ -22,6 +22,15 @@ def lines(path):
 
 
 goethe = json.load(open(P("daten", "goethe_b1.json"), encoding="utf-8"))
+# Goethe PDF ayrıştırma artıkları (8.11 inceleme): bozuk harf, yanlış maddeye düşmüş ya da öğenin anlamına uymayan örnek
+GOETHE_BSP_FIX = {"Die Rechnung ist Énde des Monats fällig.": "Die Rechnung ist Ende des Monats fällig."}
+GOETHE_BSP_AUS = {
+    "Warst du schon mal an der Nord/Ostsee?",   # "sehen" maddesine düşmüş: cümlede sehen yok
+    "Ich stehe meist eher auf als mein Mann.",  # eher = daha erken; öğe "daha çok, daha ziyade"
+}
+for _e in goethe:
+    if _e.get("bsp"):
+        _e["bsp"] = [GOETHE_BSP_FIX.get(b, b) for b in _e["bsp"] if b not in GOETHE_BSP_AUS]
 g_verbs = {}
 for e in goethe:
     if e["typ"] == "verb":
@@ -88,8 +97,8 @@ def genitiv(art, lemma, weak):
         return lemma + ("n" if lemma.endswith("e") or lemma in ("Nachbar", "Bauer") else "en")
     if re.search(r"(s|ß|x|z|sch)$", lemma):
         return lemma + ("ses" if lemma.endswith("us") else "es")
-    if re.search(r"[aeiouäöü]$", lemma):
-        return lemma + "s"  # des Sees, des Käses → Käse: -s
+    if re.search(r"[aeiouäöüé]$", lemma):
+        return lemma + "s"  # des Sees, des Käses → Käse: -s; des Cafés
     # tek heceli: des Arztes, des Mannes (‑s de olur: des Manns)
     if len(re.findall(r"[aeiouäöü]+", lemma.lower())) == 1:
         return lemma + "es"
@@ -109,7 +118,8 @@ LEMMA_FIX = {"Hinweise": "Hinweis", "Erdgeschoss/ Ergeschoß": "Erdgeschoss", "H
              "Fantasie/Phantasie": "Fantasie", "Rezeption/Reception": "Rezeption"}
 LEMMA_ALT = {"Zahncreme": ["Zahnpasta"], "Hähnchen": ["Hühnchen"], "Soße": ["Sauce"], "Ski": ["Schi"],
              "Fantasie": ["Phantasie"], "Erdgeschoss": ["Erdgeschoß"], "Müsli": ["Müesli"],
-             "Familienname": ["Nachname"]}
+             "Familienname": ["Nachname"],
+             "Änderung": ["Veränderung"]}  # 3.11 log: die Veränderung da "değişiklik"
 SKIP = {"Bancomat/Bankomat", "Bankomat-Karte", "Coiffeur", "Fleischhauer", "Gehsteig", "Trottoir",
         "Serviceangestellte", "Portemonnaie/Port-", "Nord-/Ostsee", "Phantasie/Fantasie"}
 
@@ -140,6 +150,16 @@ for (n, s), g in zip(tr_lines, g_nouns):
         "weak": is_weak(g["art"], lemma, pl), "adjN": lemma in ADJ_NOUNS,
         "plOnly": plural_only, "bsp": g["bsp"][:4], "g": g["id"],
     })
+# Aynı lemmalı iki maddede nomen.txt Türkçesi Goethe örneklerinin tersine (kimlik ve öğrenilen anlam sabit kalsın diye
+# Türkçe değil örnekler yer değiştirir): n0115 banka ↔ n0116 bank (oturak), n0285 dondurma ↔ n0286 buz,
+# n0951 bisiklet ↔ n0952 tekerlek, n0926 muayenehane ↔ n0927 uygulama
+BSP_TAUSCH = [("n0115", "n0116"), ("n0285", "n0286"), ("n0951", "n0952"), ("n0926", "n0927")]
+_nid = {x["id"]: x for x in nomen}
+for _a, _b in BSP_TAUSCH:
+    if _a in _nid and _b in _nid and _nid[_a]["lemma"] == _nid[_b]["lemma"] and not _nid[_a].get("skip") and not _nid[_b].get("skip"):
+        _nid[_a]["bsp"], _nid[_b]["bsp"] = _nid[_b]["bsp"], _nid[_a]["bsp"]
+    else:
+        errors.append(f"BSP_TAUSCH: {_a} / {_b} aynı lemmalı iki madde değil")
 known = {(x["art"], x["lemma"]) for x in nomen}
 for n, s in lines(P("quellen", "nomen_extra.txt")):
     parts = [x.strip() for x in s.split("|")]
@@ -186,13 +206,18 @@ def split_forms(g, override=None):
         praes, praet, perf = [x.strip() for x in override.split(",")]
     else:
         praes, praet, perf = g["praes"], g["praet"], g["perf"]
-    strip = lambda s: [t for t in s.split() if t not in ("sich", "etwas", "es")]
+    # sondaki noktalama Goethe PDF artığı ("hat übernommen.")
+    strip = lambda s: [t.rstrip(".,;") for t in s.split() if t not in ("sich", "etwas", "es")]
     pr = strip(praes.split("/")[0])
     pt = strip(praet.split("/")[0])
     pf = strip(perf)
     aux = pf[0].split("/")[0]
-    p2 = " ".join(pf[1:]).split("/")[0]
-    return pr, pt, aux, p2
+    p2_teil = " ".join(pf[1:]).split("/")
+    p2 = p2_teil[0]
+    # kabul edilen ikinci biçim ("sendete/sandte", "hat gesendet/gesandt"): pt3Alt / p2Alt
+    pt_alt = [x[0] for x in (strip(y) for y in praet.split("/")[1:]) if x and x[0] != (pt[0] if pt else "")]
+    p2_alt = [y.split()[-1] for y in p2_teil[1:] if y.split() and y.split()[-1] != p2]
+    return pr, pt, aux, p2, pt_alt, p2_alt
 
 
 verben = []
@@ -228,7 +253,7 @@ for n, s in lines(P("quellen", "verben.txt")):
     if not g and not override:
         errors.append(f"verben.txt:{n}: '{lemma}' Goethe listesinde yok")
         continue
-    pr, pt, aux, p2 = split_forms(g, override)
+    pr, pt, aux, p2, pt_alt, p2_alt = split_forms(g, override)
     inf = lemma
     finite = pr[0]
     pre, sp = "", ""
@@ -254,6 +279,11 @@ for n, s in lines(P("quellen", "verben.txt")):
         "aux": aux, "auxAlt": aux_alt, "p2": p2, "refl": refl, "obj": objs,
         "bsp": (g["bsp"][:4] if g else []), "goethe": (g["head"] if g else ""),
     }
+    # ikinci doğru biçim (sich wenden an: wandte / wendete, gewandt / gewendet); uygulama kök sorusunda kabul edebilir
+    if pt_alt:
+        v["pt3Alt"] = pt_alt
+    if p2_alt:
+        v["p2Alt"] = p2_alt
     if not re.match(r"^(hat|ist)$", aux):
         errors.append(f"verben.txt:{n}: yardımcı fiil okunamadı: {aux}")
     verben.append(v)
@@ -858,16 +888,63 @@ dump("nsaetze.js", "NSAETZE", nsaetze)
 # Cümle sözlüğü: Almanca cümle | "die Regierung = hükümet; …" (tam cümle sorusunda bilinmeyen kelimelere yardım)
 glossen = {}
 gp = P("quellen", "glossen.txt")
+_gsatir = []  # (satır no, cümle, gloss): kayma denetimi için dosya sırasıyla
 if os.path.exists(gp):
-    for line in open(gp, encoding="utf-8"):
+    for _gn, line in enumerate(open(gp, encoding="utf-8"), 1):
         line = line.rstrip("\n")
         if not line.strip() or line.startswith("#") or "|" not in line:
             continue
         de, g = line.rsplit("|", 1)
         de, g = de.split(" || ")[0].strip(), g.strip()
+        _gsatir.append((_gn, de, g))
         if g and g != "-":
             glossen[de] = g
 dump("glossen.js", "GLOSSEN", glossen)
+
+
+# Gloss kayması denetimi (8.11: glossen.txt 841–942 bir satır kaymıştı, tam cümle "Yardım" çipleri başka cümlenindi).
+# Uyarı: glossun hiçbir kelimesi kendi cümlesinde yok AMA komşu cümlede var VE komşunun glossu bu cümleye uyuyor.
+# Kaba eşleme (umlautsuz kök, ayrılan ön ek); çekim / ablaut yüzünden tek tük yanlış alarm olabilir.
+def _g_norm(s):
+    return re.findall(r"[a-z]+", s.lower().replace("ä", "a").replace("ö", "o").replace("ü", "u").replace("ß", "ss"))
+_G_FUNK = set("der die das den dem des ein eine einen einem einer eines sich mit auf von für fur über uber an um zu in aus bei nach vor unter jemandem jemanden etwas etw jdm jdn es sein haben werden nicht".split())
+_G_SEP = ["zuruck", "zusammen", "wieder", "weiter", "kennen", "fest", "fern", "frei", "hin", "her", "los", "weg",
+          "ab", "an", "auf", "aus", "bei", "ein", "mit", "nach", "vor", "zu", "um", "dar", "durch", "teil", "bereit"]
+def _g_keys(g):
+    out = []
+    for part in g.split(";"):
+        k = re.sub(r",.*$", "", re.sub(r"\(.*?\)", "", part.split("=")[0]))
+        ws = [w for w in _g_norm(k) if len(w) >= 3 and w not in _G_FUNK]
+        if ws:
+            out.append(ws)
+    return out
+def _g_var(ws, satz):
+    T = _g_norm(satz)
+    for w in ws:
+        st = w[:max(3, len(w) - 3)]
+        if any(st in t for t in T):
+            return True
+        for p in _G_SEP:
+            if w.startswith(p) and len(w) - len(p) >= 3:
+                r = w[len(p):]
+                if any(r[:max(2, len(r) - 3)] in t for t in T) and any(t.startswith(p) for t in T):
+                    return True
+    return False
+def _g_uyar(i):
+    return bool(_gsatir[i][2]) and _gsatir[i][2] != "-"
+for _i, (_gn, _de, _g) in enumerate(_gsatir):
+    if not _g_uyar(_i):
+        continue
+    _ks = _g_keys(_g)
+    if not _ks or any(_g_var(k, _de) for k in _ks):
+        continue
+    # aşağı kaymada glossun sahibi bir önceki cümle, bu cümlenin glossu bir sonraki satırda (yukarı kaymada tersi)
+    for _j, _k in ((_i - 1, _i + 1), (_i + 1, _i - 1)):
+        if not (0 <= _j < len(_gsatir)) or not any(_g_var(k, _gsatir[_j][1]) for k in _ks):
+            continue
+        if not (0 <= _k < len(_gsatir)) or not _g_uyar(_k) or any(_g_var(k, _de) for k in _g_keys(_gsatir[_k][2])):
+            warnings.append(f"glossen.txt:{_gn}: gloss kaymış olabilir ('{_g[:40]}' bu cümlede yok, {_gsatir[_j][0]}. satırın cümlesinde var)")
+            break
 
 # Okuma soruları: "## p01" + "ifade | r/f"
 lesen, cur = {}, None

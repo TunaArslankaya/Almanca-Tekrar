@@ -135,8 +135,8 @@ n0111 | der Balkon | Die Wohnung hat auch einen kleinen Balkon. | Evin küçük 
 n0112 | der Ball | Ich spiele gern mit meinen Kindern Ball. | Çocuklarımla top oynamayı severim.
 n0113 | das Ballett | Meine Tochter möchte gern Ballett tanzen. | Kızım bale yapmak istiyor.
 n0114 | die Banane | 1 Kilo Bananen, bitte. | 1 kilo muz, lütfen.
-n0115 | die Bank | Kommt, wir setzen uns auf die Bank da vorne. | Gelin, şuradaki banka oturalım.
-n0116 | die Bank | Bei welcher Bank haben Sie Ihr Konto? | Hesabınız hangi bankada?
+n0116 | die Bank | Kommt, wir setzen uns auf die Bank da vorne. | Gelin, şuradaki banka oturalım.
+n0115 | die Bank | Bei welcher Bank haben Sie Ihr Konto? | Hesabınız hangi bankada?
 n0118 | die Bankleitzahl | Bitte geben Sie Ihre Bankleitzahl an. | Lütfen banka kodunuzu belirtin.
 n0120 | die Bar | Setzen wir uns doch an die Bar! | Hadi bara oturalım!
 n0120 | die Bar | Ich treffe meine Freundin in der Hotelbar. | Kız arkadaşımla otelin barında buluşuyorum.
@@ -337,9 +337,9 @@ n0281 | der Eintritt | Der Eintritt ist frei. | Giriş ücretsiz.
 n0282 | der Einwohner | Berlin hat über drei Millionen Einwohner. | Berlin'in üç milyondan fazla nüfusu var.
 n0283 | die Einzahlung | Sie sollten die Einzahlung pünktlich machen. | Ödemeyi zamanında yapmalısınız.
 n0284 | die Einzelheit | Du musst mir das in allen Einzelheiten erzählen. | Bunu bana bütün ayrıntılarıyla anlatmalısın.
-n0285 | das Eis | Im Winter gibt es Eis und Schnee. | Kışın buz ve kar olur.
-n0285 | das Eis | Bitte eine Cola ohne Eis. | Buzsuz bir kola lütfen.
-n0286 | das Eis | Zum Nachtisch gibt es Schokoladeneis. | Tatlı olarak çikolatalı dondurma var.
+n0286 | das Eis | Im Winter gibt es Eis und Schnee. | Kışın buz ve kar olur.
+n0286 | das Eis | Bitte eine Cola ohne Eis. | Buzsuz bir kola lütfen.
+n0285 | das Eis | Zum Nachtisch gibt es Schokoladeneis. | Tatlı olarak çikolatalı dondurma var.
 n0287 | die Eisenbahn | Die Kinder wünschen sich eine elektrische Eisenbahn. | Çocuklar elektrikli bir oyuncak tren istiyor.
 n0288 | die Eltern | Ich wohne noch bei meinen Eltern. | Hâlâ annemlerin yanında oturuyorum.
 n0289 | der Empfang | Bitte den Empfang bestätigen! | Lütfen teslim aldığınızı onaylayın!
@@ -1102,7 +1102,7 @@ n0922 | die Postleitzahl | Weißt du die Postleitzahl der Kollwitzstraße in Ber
 n0923 | das Praktikum | Ich mache diesen Sommer drei Monate ein Praktikum bei einer Firma. | Bu yaz bir firmada üç aylık staj yapıyorum.
 n0924 | der Praktikant | Bei dieser Firma habe ich zwei Jahre als Praktikantin gearbeitet. | Bu firmada iki yıl stajyer olarak çalıştım.
 n0925 | die Präsentation | Die Schülerin hat für ihre Präsentation eine gute Note bekommen. | Kız öğrenci sunumu için iyi bir not aldı.
-n0926 | die Praxis | Das ist die Theorie. In der Praxis ist vieles ganz anders. | Bu teori. Pratikte birçok şey bambaşka.
+n0927 | die Praxis | Das ist die Theorie. In der Praxis ist vieles ganz anders. | Bu teori. Pratikte birçok şey bambaşka.
 n0928 | der Preis | Die Preise sind schon wieder gestiegen. | Fiyatlar yine arttı.
 n0928 | der Preis | Wer hat den ersten Preis gewonnen? | Birincilik ödülünü kim kazandı?
 n0929 | die Presse | Darüber konnte sich jeder in der Presse informieren. | Bu konuda herkes basından bilgi alabilirdi.
@@ -1119,7 +1119,7 @@ n0937 | das Projekt | Der Staat fördert Projekte für Kinder und Jugendliche. |
 n0938 | der Prospekt | Bitte schicken Sie mir einen Prospekt von Ihrem Hotel. | Lütfen bana otelinizin bir broşürünü gönderin.
 n0939 | der Protest | Alle Proteste haben nichts genützt. | Bütün protestolar hiçbir işe yaramadı.
 n0940 | der Prozess | Der Prozess wird direkt aus dem Gerichtssaal im Fernsehen übertragen. | Dava doğrudan mahkeme salonundan televizyonda yayınlanıyor.
-n0941 | die Prüfung | Mein Freund hat die Prüfung bestanden. || Meine Freundin hat die Prüfung bestanden. | Arkadaşım sınavı geçti.
+n0941 | die Prüfung | Mein Freund hat die Prüfung bestanden. || Meine Freundin hat die Prüfung bestanden. || Mein Freund bestand die Prüfung. || Meine Freundin bestand die Prüfung. | Arkadaşım sınavı geçti.
 n0942 | das Publikum | Es war ein tolles Konzert. Das Publikum war begeistert. | Harika bir konserdi. Seyirciler çok coşkuluydu.
 n0943 | der Pullover | Ich habe mir einen Pullover gekauft. | Kendime bir kazak aldım.
 n0944 | der Punkt | Das Konzert beginnt um Punkt 20 Uhr. | Konser tam saat 20'de başlıyor.
@@ -1130,9 +1130,9 @@ n0947 | die Qualität | Für mich ist nicht nur der Preis wichtig, sondern auch 
 n0948 | die Quittung | Brauchen Sie eine Quittung? | Makbuz ister misiniz?
 n0949 | das Quiz | Er hat beim Quiz gewonnen. | Bilgi yarışmasını kazandı.
 n0950 | der Rabatt | Sie bekommen zehn Prozent Rabatt. | Yüzde on indirim alıyorsunuz.
-n0951 | das Rad | Hast du noch ein Rad? Ich bin durch Glas gefahren und jetzt ist mein Rad kaputt. | Bir tekerleğin daha var mı? Cam kırıklarının üzerinden geçtim ve şimdi tekerleğim bozuk.
-n0952 | das Rad | Sie fährt jeden Morgen mit dem Rad zur Arbeit. | Her sabah bisikletle işe gidiyor.
-n0952 | das Rad | Am Sonntag fahren wir oft Rad. | Pazar günleri sık sık bisiklete biniyoruz.
+n0952 | das Rad | Hast du noch ein Rad? Ich bin durch Glas gefahren und jetzt ist mein Rad kaputt. | Bir tekerleğin daha var mı? Cam kırıklarının üzerinden geçtim ve şimdi tekerleğim bozuk.
+n0951 | das Rad | Sie fährt jeden Morgen mit dem Rad zur Arbeit. | Her sabah bisikletle işe gidiyor.
+n0951 | das Rad | Am Sonntag fahren wir oft Rad. | Pazar günleri sık sık bisiklete biniyoruz.
 n0953 | der Radfahrer | Achtung! Da kommt eine Radfahrerin. | Dikkat! Bir bisikletli geliyor.
 n0954 | das Radio | Ich möchte mir ein neues Radio kaufen. | Kendime yeni bir radyo almak istiyorum.
 n0954 | das Radio | Ich höre gern Radio. | Radyo dinlemeyi severim.
@@ -1290,7 +1290,7 @@ n1078 | der Sender | Welchen Sender siehst du am liebsten? | En çok hangi kanal
 n1078 | der Sender | Ich höre im Radio am liebsten Sender mit moderner Musik. | Radyoda en çok modern müzik çalan kanalları dinlerim.
 n1080 | die Senioren | Dieser Computerkurs ist für Senioren. | Bu bilgisayar kursu yaşlılar için.
 n1081 | die Serie | Meine Tochter liebt es, im Fernsehen Serien zu schauen. | Kızım televizyonda dizi izlemeye bayılıyor.
-n1082 | der Service | Rufst du beim Pizza-Service an? | Pizza servisini arıyor musun?
+n1082 | der Service | Rufst du beim Pizza-Service an? || Rufst du den Pizza-Service an? | Pizza servisini arıyor musun?
 n1082 | der Service | Ich war mit dem Service in der Werkstatt nicht zufrieden. | Tamirhanedeki hizmetten memnun kalmadım.
 n1084 | die Sicherheit | Sicherheit ist für mich sehr wichtig. | Güvenlik benim için çok önemli.
 n1085 | der Sieg | Unsere Mannschaft hat gewonnen. Wir freuen uns über den Sieg. | Takımımız kazandı. Galibiyete seviniyoruz.
@@ -1572,7 +1572,7 @@ n1322 | die Verspätung | Unser Zug hatte 10 Minuten Verspätung. | Trenimiz 10 
 n1323 | das Verständnis | Wir bitten um Ihr Verständnis. | Anlayışınızı rica ederiz.
 n1324 | der Versuch | In der Forschung werden viele Versuche gemacht. | Araştırmada birçok deney yapılır.
 n1324 | der Versuch | Mein Versuch, etwas zu ändern, blieb ohne Erfolg. | Bir şeyleri değiştirme girişimim sonuçsuz kaldı.
-n1325 | der Vertrag | Sie beide müssen den Vertrag unterschreiben. | İkiniz de sözleşmeyi imzalamalısınız.
+n1325 | der Vertrag | Sie beide müssen den Vertrag unterschreiben. || Ihr beide müsst den Vertrag unterschreiben. || Ihr müsst beide den Vertrag unterschreiben. | İkiniz de sözleşmeyi imzalamalısınız.
 n1326 | das Vertrauen | Ich habe Vertrauen zu Ihnen. | Size güveniyorum.
 n1327 | der Vertreter | Als Herr Dr. Müller in Urlaub war, bin ich zu seiner Vertreterin gegangen. | Dr. Müller tatildeyken onun yerine bakan kadın doktora gittim.
 n1327 | der Vertreter | Die Elternvertreter treffen sich morgen Abend in der Schule. | Veli temsilcileri yarın akşam okulda toplanıyor.
@@ -1873,7 +1873,6 @@ w0116 | durstig | Du bist sicher durstig. Was möchtest du trinken? | Kesin susa
 w0117 | eben | Ich bin eben erst angekommen. | Ben daha az önce geldim.
 w0117 | eben | Ich gebe auf. Ich habe eben kein Glück! | Pes ediyorum. Ne yapayım, şansım yok işte!
 w0118 | ebenfalls | Ich wünsche Ihnen ein schönes Wochenende. – Danke, ebenfalls. | Size güzel bir hafta sonu dilerim. – Teşekkürler, size de.
-w0119 | eher | Ich stehe meist eher auf als mein Mann. | Genelde kocamdan daha erken kalkarım.
 w0119 | eher | Michael sieht gerne Serien, ich mag eher Krimis. | Michael dizi izlemeyi sever, ben daha çok polisiyeleri severim.
 w0120 | ehrlich | Sie ist ein ehrlicher Mensch. | O dürüst bir insan.
 w0120 | ehrlich | Bitte sei in dieser Sache ehrlich. | Lütfen bu konuda dürüst ol.
@@ -1909,7 +1908,7 @@ w0153 | extra | Die Getränke kosten extra. | İçecekler ayrıca ücretli.
 w0153 | extra | Warum sind Sie nicht gekommen? Ich habe extra auf Sie gewartet. | Neden gelmediniz? Sizi özellikle bekledim.
 w0154 | extrem | Die Prüfung war extrem schwer. | Sınav aşırı zordu.
 w0155 | fair | Ich finde, unsere Mannschaft hat sehr fair gespielt. | Bence takımımız çok centilmence oynadı.
-w0156 | fällig | Die Rechnung ist Énde des Monats fällig. | Faturanın son ödeme tarihi ay sonu.
+w0156 | fällig | Die Rechnung ist Ende des Monats fällig. | Faturanın son ödeme tarihi ay sonu.
 w0157 | falls | Falls es regnet, machen wir kein Picknick. | Yağmur yağarsa piknik yapmayız.
 w0158 | falsch | Tut mir leid, ich habe die falsche Nummer gewählt. | Kusura bakmayın, yanlış numarayı çevirdim.
 w0158 | falsch | Meine Uhr geht falsch. | Saatim yanlış gösteriyor.
@@ -2705,7 +2704,7 @@ n0795 | die Minderheit | In der Klasse bin ich in der Minderheit. || Ich bin in 
 n0795 | die Minderheit | Eine Minderheit der Schüler fährt mit dem Fahrrad. | Öğrencilerin bir azınlığı bisikletle gidiyor.
 n0448 | die Gemeinschaft | Die Gemeinschaft im Dorf ist sehr stark. | Köydeki topluluk bağı çok güçlü.
 n0448 | die Gemeinschaft | Wir leben in einer Gemeinschaft mit vielen Kulturen. | Birçok kültürün olduğu bir toplulukta yaşıyoruz.
-n0691 | die Kunst | Meine Schwester interessiert sich für Kunst. | Kız kardeşim sanatla ilgileniyor.
+n0691 | die Kunst | Meine Schwester interessiert sich sehr für moderne Kunst. | Kız kardeşim modern sanatla çok ilgileniyor.
 n0452 | das Gerät | Das Gerät ist nach zwei Monaten kaputt gegangen. | Cihaz iki ay sonra bozuldu.
 n0452 | das Gerät | Ich habe das alte Gerät zur Sammelstelle gebracht. | Eski cihazı toplama noktasına götürdüm.
 n1026 | der Schaden | Der Schaden für die Umwelt ist groß. | Çevreye verilen zarar büyük.
@@ -3491,3 +3490,28 @@ x1575 | die Regierung | Viele Menschen sind mit der Politik der Regierung nicht 
 x1582 | die Währung | In der Türkei ist die Währung die Lira, in Deutschland der Euro. | Türkiye'de para birimi lira, Almanya'da avro.
 x1582 | die Währung | Vor der Reise habe ich mich über die Währung im Urlaubsland informiert. | Seyahatten önce tatil ülkesinin para birimi hakkında bilgi aldım.
 x1582 | die Währung | Wegen der Inflation verliert die Währung an Wert. | Enflasyon yüzünden para birimi değer kaybediyor.
+w0597 | selbe | Wir wohnen im selben Haus, aber wir kennen uns kaum. | Aynı evde oturuyoruz ama birbirimizi pek tanımıyoruz.
+w0597 | selbe | Mein Bruder und ich haben am selben Tag Geburtstag. | Erkek kardeşimle doğum günümüz aynı gün.
+w0597 | selbe | Wir sind zur selben Zeit in Bremen angekommen. | Bremen'e aynı saatte vardık.
+w0597 | selbe | Er kauft jeden Morgen beim selben Bäcker sein Brot. | Her sabah ekmeğini aynı fırından alıyor.
+w0597 | selbe | Im selben Moment hat das Telefon geklingelt. | Tam o anda telefon çaldı.
+w0227 | häufig | Im Herbst regnet es in Bremen häufig. | Sonbaharda Bremen'de sık sık yağmur yağar.
+w0227 | häufig | Das ist ein häufiger Fehler. | Bu sık yapılan bir hata.
+w0227 | häufig | Wie häufig fährt der Bus zur Universität? | Otobüs üniversiteye ne sıklıkla gidiyor?
+w0227 | häufig | Kopfschmerzen sind häufig harmlos. | Baş ağrıları çoğu zaman zararsızdır.
+w0081 | dagegen | Ich habe nichts dagegen, wenn du das Fenster öffnest. | Pencereyi açmana bir itirazım yok.
+w0081 | dagegen | Viele Bürger sind dagegen, dass die Bibliothek geschlossen wird. | Birçok vatandaş kütüphanenin kapatılmasına karşı.
+w0081 | dagegen | Hast du etwas dagegen, wenn ich morgen später komme? | Yarın daha geç gelirsem bir itirazın var mı?
+w0320 | mehrere | Ich habe dich mehrere Male angerufen. | Seni birkaç kez aradım.
+w0320 | mehrere | In unserem Kurs gibt es Studenten aus mehreren Ländern. | Kursumuzda birçok ülkeden öğrenci var.
+w0320 | mehrere | Für diese Stelle gibt es mehrere Bewerber. | Bu pozisyon için birkaç aday var.
+n0229 | die Daten | Bitte geben Sie Ihre persönlichen Daten in das Formular ein. | Lütfen kişisel bilgilerinizi forma girin.
+n0229 | die Daten | Die Firma darf meine Daten nicht weitergeben. | Şirket verilerimi başkalarına veremez.
+n0229 | die Daten | Ich habe alle Daten auf meinem Laptop gespeichert. | Bütün verileri dizüstü bilgisayarıma kaydettim.
+n0229 | die Daten | Die Daten zeigen, dass immer mehr Menschen online einkaufen. | Veriler, giderek daha fazla insanın internetten alışveriş yaptığını gösteriyor.
+n0436 | das Gefühl | Ich habe das Gefühl, dass er mir nicht die Wahrheit sagt. | Bana doğruyu söylemediği hissine kapılıyorum.
+n0436 | das Gefühl | Ich habe kein gutes Gefühl bei dieser Sache. | Bu konuda içim rahat değil.
+n0436 | das Gefühl | Es ist ein schönes Gefühl, wieder zu Hause zu sein. | Yeniden evde olmak güzel bir duygu.
+n0436 | das Gefühl | Er spricht nicht gern über seine Gefühle. | Duyguları hakkında konuşmayı sevmez.
+x1575 | die Regierung | Die Regierung will die Steuern senken. | Hükümet vergileri düşürmek istiyor.
+x1575 | die Regierung | Die Regierung hat ein neues Gesetz beschlossen. | Hükümet yeni bir yasa kabul etti.

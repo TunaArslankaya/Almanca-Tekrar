@@ -98,7 +98,7 @@ ei-ie | leiten | läuten | yönetmek | (zil) çalmak
 ei-ie | die Weise | die Wiese | yol, yöntem | çayır
 ei-ie | bleiben | blieben | kalmak | kaldılar
 ei-ie | schreiben | schrieben | yazmak | yazdılar
-ei-ie | vier | für | dört | için
+# (8.11 kaldırıldı: vier / für farkı i / ü, ei / ie değil) ei-ie | vier | für | dört | için
 w-f | wir | vier | biz | dört
 w-f | das Wetter | der Vetter | hava (durumu) | kuzen
 w-f | die Wolle | volle | yün | dolu

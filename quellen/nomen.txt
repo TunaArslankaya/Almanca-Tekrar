@@ -957,7 +957,7 @@ der Radfahrer | 3 | bisikletli
 das Radio | 1 | radyo
 der Rand | 3 | kenar
 der Rasen | 3 | çim
-der Rat | 3 | tavsiye, öğüt
+der Rat | 3 | tavsiye, öğüt / kurul, meclis
 das Rätsel | 3 | bilmece
 das Rathaus | 2 | belediye binası
 der Raucher | 3 | sigara içen

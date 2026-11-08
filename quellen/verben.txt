@@ -449,7 +449,7 @@ schaffen | A | 3 | başarmak, yetiştirmek
 schalten | - | 3 | vites değiştirmek
 schätzen | A | 3 | tahmin etmek; takdir etmek
 schauen | - | 2 | bakmak
-scheinen | - | 2 | (güneş) parlamak; … gibi görünmek
+scheinen | - | 2 | (güneş) parlamak / … gibi görünmek
 schenken | D A | 1 | (birine bir şey) hediye etmek
 schicken | D A | 1 | (birine bir şey) göndermek
 schieben | A | 3 | itmek
@@ -529,7 +529,7 @@ tragen | A | 2 | taşımak; giymek
 trainieren | - | 2 | antrenman yapmak
 transportieren | A | 3 | taşımak (nakliye)
 träumen von | von+D | 2 | (bir şeyi) hayal etmek, rüyasında görmek
-treffen | A | 1 | (biriyle) buluşmak, karşılaşmak
+treffen | A | 1 | (birine) rastlamak, (birini) görmek
 sich treffen mit | mit+D | 2 | (biriyle) buluşmak
 treiben | A | 3 | (spor) yapmak
 sich trennen von | von+D | 3 | (birinden) ayrılmak
@@ -644,7 +644,7 @@ wecken | A | 2 | uyandırmak
 wehtun | D | 2 | (birinin bir yeri) acımak
 sich weigern | - | 3 | (yapmayı) reddetmek
 weinen | - | 2 | ağlamak
-sich wenden an | an+A | 3 | (birine) başvurmak
+sich wenden an | an+A | 3 | (birine) başvurmak | wendet, wandte/wendete, hat gewandt/gewendet
 werden | - | 1 | olmak (… hâline gelmek)
 werfen | A | 3 | atmak, fırlatmak
 wetten | - | 3 | iddiaya girmek

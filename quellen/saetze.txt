@@ -602,7 +602,7 @@ v466 | Sie sprach viel, aber ihr Mann schwieg den ganzen Abend lang. | Kadın ç
 v467 | Ich gehe regelmäßig schwimmen. | Düzenli olarak yüzmeye gidiyorum.
 v467 | Kannst du schwimmen? | Yüzme biliyor musun?
 v468 | Es war sehr heiß. Wir haben alle sehr geschwitzt. | Çok sıcaktı. Hepimiz çok terledik.
-v469 | Warst du schon mal an der Nord/Ostsee? | Hiç Kuzey Denizi/Baltık Denizi kıyısına gittin mi?
+v470 | Warst du schon mal an der Nordsee oder an der Ostsee? || Warst du schon einmal an der Nordsee oder an der Ostsee? | Hiç Kuzey Denizi ya da Baltık Denizi kıyısında bulundun mu?
 v469 | Ich sehe nicht gut. Ich brauche eine Brille. | İyi göremiyorum. Gözlüğe ihtiyacım var.
 v469 | Ich habe einen schönen Film gesehen. | Güzel bir film izledim.
 v469 | Wir haben uns lange nicht gesehen. | Uzun zamandır görüşmedik.
@@ -901,7 +901,7 @@ v119 | Das Baby beruhigt sich nicht. | Bebek sakinleşmiyor.
 v124 | Die Nachbarn beschweren sich über den Lärm. | Komşular gürültüden şikâyet ediyor.
 v124 | Ich möchte mich über das Essen beschweren. | Yemekten şikâyet etmek istiyorum.
 v124 | Er beschwert sich immer über das Wetter. | Hep havadan şikâyet ediyor.
-v125 | Ich habe mich beim Chef beschwert. | Patrona şikâyette bulundum.
+v125 | Ich habe mich beim Chef beschwert. || Beim Chef habe ich mich beschwert. || Ich beschwerte mich beim Chef. | Patrona şikâyette bulundum.
 v125 | Sie können sich beim Vermieter beschweren. | Ev sahibine şikâyette bulunabilirsiniz.
 v125 | Die Kunden haben sich bei der Firma beschwert. | Müşteriler firmaya şikâyette bulundu.
 v137 | Viele Studenten beteiligen sich an dem Projekt. | Birçok öğrenci projeye katılıyor.
@@ -1350,3 +1350,15 @@ v232 | Du würdest mir die Sache sehr erleichtern, wenn du die Formulare überse
 v232 | Dass meine Nachbarin Türkisch spricht, hat mir den Anfang in Bremen sehr erleichtert. | Komşumun Türkçe konuşması Bremen'deki başlangıcımı çok kolaylaştırdı.
 v183 | Die Uni will nächstes Jahr ein neues Anmeldesystem einführen. | Üniversite gelecek yıl yeni bir kayıt sistemi başlatmak istiyor.
 v183 | In Deutschland hat man den Mindestlohn 2015 eingeführt. | Almanya'da asgari ücret 2015'te getirildi.
+v317 | Diese Firma stellt Möbel her. | Bu şirket mobilya üretiyor.
+v317 | In dieser Fabrik werden Autoteile hergestellt. | Bu fabrikada otomobil parçaları üretiliyor.
+v317 | Wo wurde dieses Handy hergestellt? | Bu telefon nerede üretildi?
+v317 | Unsere Firma stellt seit fünfzig Jahren Spielzeug her. | Şirketimiz elli yıldır oyuncak üretiyor.
+v500 | Wir sind auf den Turm gestiegen und haben die ganze Stadt gesehen. | Kuleye çıktık ve bütün şehri gördük.
+v500 | Die Zahl der Studenten steigt jedes Jahr. | Öğrenci sayısı her yıl artıyor.
+v500 | Das Fieber ist in der Nacht auf 39 Grad gestiegen. | Ateş gece 39 dereceye çıktı.
+v500 | Die Mieten in Bremen steigen immer weiter. | Bremen'de kiralar artmaya devam ediyor.
+v276 | Seine Frau führt seit zehn Jahren ein kleines Hotel. | Karısı on yıldır küçük bir otel işletiyor.
+v276 | Der Kellner führt uns an unseren Tisch. | Garson bizi masamıza götürüyor.
+v276 | Wer führt hier das Geschäft? | Burada dükkânı kim yönetiyor?
+v276 | Ein freundlicher Mitarbeiter hat uns durch die Fabrik geführt. | Güler yüzlü bir çalışan bize fabrikayı gezdirdi.

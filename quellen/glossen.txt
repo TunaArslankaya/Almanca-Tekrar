@@ -604,7 +604,7 @@ Sie sprach viel, aber ihr Mann schwieg den ganzen Abend lang. | den ganzen Abend
 Ich gehe regelmäßig schwimmen. | regelmäßig = düzenli olarak
 Kannst du schwimmen? | -
 Es war sehr heiß. Wir haben alle sehr geschwitzt. | heiß = sıcak
-Warst du schon mal an der Nord/Ostsee? | die Nordsee = Kuzey Denizi; die Ostsee = Baltık Denizi
+Warst du schon mal an der Nordsee oder an der Ostsee? | die Nordsee = Kuzey Denizi; die Ostsee = Baltık Denizi
 Ich sehe nicht gut. Ich brauche eine Brille. | die Brille = gözlük
 Ich habe einen schönen Film gesehen. | -
 Wir haben uns lange nicht gesehen. | -
@@ -838,108 +838,108 @@ Woher wissen Sie das? | -
 Wir wohnen in einem alten Haus. | -
 Ich wohne in München. | -
 Wohnst du noch bei deinen Eltern? | -
-Peter will Arzt werden. | -
-Wollen Sie einen Kaffee? | der Arzt = doktor
-Ich wünsche Ihnen alles Gute. | -
-Was wünschst du dir zum Geburtstag? | alles Gute = her şeyin en iyisi
-Wünsch mir Glück! | der Geburtstag = doğum günü
-Herr Ober, zahlen bitte! | das Glück = şans
-Ich hatte keinen Fahrschein und musste 60 Euro Strafe zahlen. | der Ober = garson
-Wir müssen im nächsten Jahr mehr Steuern zahlen. | der Fahrschein = bilet; die Strafe = ceza
-Bitte zählen Sie das Wechselgeld sofort nach. | die Steuer = vergi
-Meine Tochter kann sehr gut zeichnen. | das Wechselgeld = para üstü
-Zeig mir bitte deine Hausaufgaben. | die Tochter = kız evlat
-Der Bahnhof ist nicht weit entfernt. Ich zeige Ihnen den Weg. | die Hausaufgabe = ev ödevi
-Komm her! Ich zeige dir etwas. | entfernt = uzak; der Bahnhof = tren istasyonu; der Weg = yol
+Peter will Arzt werden. | der Arzt = doktor
+Wollen Sie einen Kaffee? | -
+Ich wünsche Ihnen alles Gute. | alles Gute = her şeyin en iyisi
+Was wünschst du dir zum Geburtstag? | der Geburtstag = doğum günü
+Wünsch mir Glück! | das Glück = şans
+Herr Ober, zahlen bitte! | der Ober = garson
+Ich hatte keinen Fahrschein und musste 60 Euro Strafe zahlen. | der Fahrschein = bilet; die Strafe = ceza
+Wir müssen im nächsten Jahr mehr Steuern zahlen. | die Steuer = vergi
+Bitte zählen Sie das Wechselgeld sofort nach. | das Wechselgeld = para üstü
+Meine Tochter kann sehr gut zeichnen. | die Tochter = kız evlat
+Zeig mir bitte deine Hausaufgaben. | die Hausaufgabe = ev ödevi
+Der Bahnhof ist nicht weit entfernt. Ich zeige Ihnen den Weg. | entfernt = uzak; der Bahnhof = tren istasyonu; der Weg = yol
+Komm her! Ich zeige dir etwas. | -
 Ich habe noch nie gezeltet. | -
-Der Sturm hat viele Häuser zerstört. | -
-Sie müssen ziehen, nicht drücken. | der Sturm = fırtına
-Sie bereitet das Fleisch mit Kartoffeln zu. | drücken = itmek
-Hör mir doch mal zu! | das Fleisch = et; die Kartoffel = patates
-Mach bitte die Tür zu! | -
-Ich habe im Urlaub 1 Kilo zugenommen. | die Tür = kapı
-Meine Eltern haben uns zum Essen eingeladen. Ich habe zugesagt. | der Urlaub = tatil
-Können Sie das bitte noch einmal kurz zusammenfassen? | einladen = davet etmek
-Willst du mitspielen? – Nein, ich schaue lieber nur zu. | kurz = kısaca
-Ich stimme dir in dieser Sache völlig zu. | mitspielen = birlikte oynamak; lieber = tercihen
-Ich zweifle nicht daran, dass Sie recht haben. | die Sache = konu, mesele; völlig = tamamen
-Ich zweifle nicht an deiner Geduld. | recht haben = haklı olmak
-Viele Leute zweifeln an der Wettervorhersage für das Wochenende. | die Geduld = sabır
-Niemand zweifelt an ihrem Talent für die Kunst. | die Wettervorhersage = hava tahmini
-Bitte zwing mich nicht etwas zu essen. Ich bin wirklich nicht hungrig. | niemand = hiç kimse; das Talent = yetenek; die Kunst = sanat
-Wir haben uns auf der Party gut amüsiert. | hungrig = aç
-Amüsierst du dich auf dem Fest? | -
-Die Kinder amüsieren sich im Park. | das Fest = şenlik, kutlama
+Der Sturm hat viele Häuser zerstört. | der Sturm = fırtına
+Sie müssen ziehen, nicht drücken. | drücken = itmek
+Sie bereitet das Fleisch mit Kartoffeln zu. | das Fleisch = et; die Kartoffel = patates
+Hör mir doch mal zu! | -
+Mach bitte die Tür zu! | die Tür = kapı
+Ich habe im Urlaub 1 Kilo zugenommen. | der Urlaub = tatil
+Meine Eltern haben uns zum Essen eingeladen. Ich habe zugesagt. | einladen = davet etmek
+Können Sie das bitte noch einmal kurz zusammenfassen? | kurz = kısaca
+Willst du mitspielen? – Nein, ich schaue lieber nur zu. | mitspielen = birlikte oynamak; lieber = tercihen
+Ich stimme dir in dieser Sache völlig zu. | die Sache = konu, mesele; völlig = tamamen
+Ich zweifle nicht daran, dass Sie recht haben. | recht haben = haklı olmak
+Ich zweifle nicht an deiner Geduld. | die Geduld = sabır
+Viele Leute zweifeln an der Wettervorhersage für das Wochenende. | die Wettervorhersage = hava tahmini
+Niemand zweifelt an ihrem Talent für die Kunst. | niemand = hiç kimse; das Talent = yetenek; die Kunst = sanat
+Bitte zwing mich nicht etwas zu essen. Ich bin wirklich nicht hungrig. | hungrig = aç
+Wir haben uns auf der Party gut amüsiert. | -
+Amüsierst du dich auf dem Fest? | das Fest = şenlik, kutlama
+Die Kinder amüsieren sich im Park. | -
 Ich glaube, dass er sich gut amüsiert hat. | -
-Ich habe mich für den Deutschkurs angemeldet. | -
-Hast du dich für die Prüfung angemeldet? | der Deutschkurs = Almanca kursu
-Ihr müsst euch bis Freitag anmelden. | die Prüfung = sınav
-Sie meldet sich morgen beim Sportverein an. | -
-Schnall dich bitte an! | der Sportverein = spor kulübü
+Ich habe mich für den Deutschkurs angemeldet. | der Deutschkurs = Almanca kursu
+Hast du dich für die Prüfung angemeldet? | die Prüfung = sınav
+Ihr müsst euch bis Freitag anmelden. | -
+Sie meldet sich morgen beim Sportverein an. | der Sportverein = spor kulübü
+Schnall dich bitte an! | -
 Ich schnalle mich im Auto immer an. | -
 Hat er sich angeschnallt? | -
-Wir müssen uns im Flugzeug anschnallen. | -
-Ich sehe mir heute Abend einen Film an. | das Flugzeug = uçak
-Hast du dir die Wohnung angesehen? | -
-Wir haben uns gestern das Museum angesehen. | die Wohnung = daire
+Wir müssen uns im Flugzeug anschnallen. | das Flugzeug = uçak
+Ich sehe mir heute Abend einen Film an. | -
+Hast du dir die Wohnung angesehen? | die Wohnung = daire
+Wir haben uns gestern das Museum angesehen. | -
 Sehen Sie sich bitte dieses Foto an! | -
 Du musst dich mehr anstrengen. | -
-Ich habe mich bei der Prüfung sehr angestrengt. | -
-Er strengt sich in der Schule nicht an. | die Prüfung = sınav
-Wir strengen uns an, weil wir die Prüfung bestehen wollen. | -
-Ich ziehe mich schnell an. | die Prüfung = sınav; bestehen = geçmek
+Ich habe mich bei der Prüfung sehr angestrengt. | die Prüfung = sınav
+Er strengt sich in der Schule nicht an. | -
+Wir strengen uns an, weil wir die Prüfung bestehen wollen. | die Prüfung = sınav; bestehen = geçmek
+Ich ziehe mich schnell an. | -
 Zieh dich warm an, es ist kalt! | -
 Hat sich das Kind angezogen? | -
-Sie zieht sich für die Party schick an. | -
-Ich ärgere mich über den Lärm. | schick = şık
-Er hat sich über seinen Chef geärgert. | der Lärm = gürültü
-Ärgerst du dich über die Verspätung? | der Chef = patron
-Wir ärgern uns, weil der Bus nicht kommt. | die Verspätung = gecikme
+Sie zieht sich für die Party schick an. | schick = şık
+Ich ärgere mich über den Lärm. | der Lärm = gürültü
+Er hat sich über seinen Chef geärgert. | der Chef = patron
+Ärgerst du dich über die Verspätung? | die Verspätung = gecikme
+Wir ärgern uns, weil der Bus nicht kommt. | -
 Reg dich nicht auf! | -
-Sie hat sich über die hohe Miete aufgeregt. | -
-Warum regt ihr euch über das Wetter auf? | hoch = yüksek; die Miete = kira
-Ich rege mich auf, wenn jemand zu spät kommt. | das Wetter = hava
-Ich muss mich ein bisschen ausruhen. | zu spät = geç
-Hast du dich am Wochenende ausgeruht? | ein bisschen = biraz
-Ruhen Sie sich nach der Operation aus! | -
-Wir ruhen uns nach dem Essen kurz aus. | die Operation = ameliyat
-Such dir ein Buch aus! | kurz = kısa bir süre
-Ich habe mir ein neues Handy ausgesucht. | -
-Hat sie sich ein Kleid ausgesucht? | das Handy = cep telefonu
-Wir suchen uns ein Hotel am Meer aus. | das Kleid = elbise
-Ich ziehe mich aus und gehe ins Bett. | das Meer = deniz
+Sie hat sich über die hohe Miete aufgeregt. | hoch = yüksek; die Miete = kira
+Warum regt ihr euch über das Wetter auf? | das Wetter = hava
+Ich rege mich auf, wenn jemand zu spät kommt. | zu spät = geç
+Ich muss mich ein bisschen ausruhen. | ein bisschen = biraz
+Hast du dich am Wochenende ausgeruht? | -
+Ruhen Sie sich nach der Operation aus! | die Operation = ameliyat
+Wir ruhen uns nach dem Essen kurz aus. | kurz = kısa bir süre
+Such dir ein Buch aus! | -
+Ich habe mir ein neues Handy ausgesucht. | das Handy = cep telefonu
+Hat sie sich ein Kleid ausgesucht? | das Kleid = elbise
+Wir suchen uns ein Hotel am Meer aus. | das Meer = deniz
+Ich ziehe mich aus und gehe ins Bett. | -
 Zieh dich bitte aus, der Arzt kommt gleich. | -
 Er hat sich schnell ausgezogen. | -
-Die Kinder ziehen sich am Strand aus. | -
-Ich bedanke mich bei dir für das Geschenk. | der Strand = plaj
-Hast du dich bei deiner Oma bedankt? | das Geschenk = hediye
-Wir haben uns beim Lehrer für die Hilfe bedankt. | die Oma = nine, büyükanne
-Sie bedankt sich bei ihren Kollegen für die Blumen. | die Hilfe = yardım
-Beeil dich, der Zug fährt gleich! | der Kollege = iş arkadaşı; die Blume = çiçek
-Wir müssen uns beeilen. | der Zug = tren; gleich = birazdan
+Die Kinder ziehen sich am Strand aus. | der Strand = plaj
+Ich bedanke mich bei dir für das Geschenk. | das Geschenk = hediye
+Hast du dich bei deiner Oma bedankt? | die Oma = nine, büyükanne
+Wir haben uns beim Lehrer für die Hilfe bedankt. | die Hilfe = yardım
+Sie bedankt sich bei ihren Kollegen für die Blumen. | der Kollege = iş arkadaşı; die Blume = çiçek
+Beeil dich, der Zug fährt gleich! | der Zug = tren; gleich = birazdan
+Wir müssen uns beeilen. | -
 Ich habe mich beeilt, aber der Bus war schon weg. | -
 Beeilt euch bitte! | -
-Das Büro befindet sich im zweiten Stock. | -
-Wo befindet sich der Bahnhof? | der Stock = kat
-Ich befinde mich gerade in Bremen. | der Bahnhof = tren istasyonu
-Das Hotel hat sich früher am Markt befunden. | gerade = şu anda
-Ich bemühe mich um einen Studienplatz. | früher = eskiden; der Markt = pazar yeri
-Er hat sich sehr um seine Gäste bemüht. | der Studienplatz = üniversite kontenjanı
-Bemühen Sie sich bitte nicht! | der Gast = misafir
-Wir bemühen uns, pünktlich zu sein. | -
-Ich bemühe mich um eine Stelle in Bremen. | pünktlich = dakik
-Er hat sich sehr um eine gute Note bemüht. | die Stelle = iş, pozisyon
-Beruhige dich doch! | die Note = not
+Das Büro befindet sich im zweiten Stock. | der Stock = kat
+Wo befindet sich der Bahnhof? | der Bahnhof = tren istasyonu
+Ich befinde mich gerade in Bremen. | gerade = şu anda
+Das Hotel hat sich früher am Markt befunden. | früher = eskiden; der Markt = pazar yeri
+Ich bemühe mich um einen Studienplatz. | der Studienplatz = üniversite kontenjanı
+Er hat sich sehr um seine Gäste bemüht. | der Gast = misafir
+Bemühen Sie sich bitte nicht! | -
+Wir bemühen uns, pünktlich zu sein. | pünktlich = dakik
+Ich bemühe mich um eine Stelle in Bremen. | die Stelle = iş, pozisyon
+Er hat sich sehr um eine gute Note bemüht. | die Note = not
+Beruhige dich doch! | -
 Sie hat sich schnell beruhigt. | -
 Ich beruhige mich, wenn ich Musik höre. | -
 Hat sich das Baby beruhigt? | -
 Ich beschäftige mich gern mit Computern. | -
-Womit beschäftigst du dich in deiner Freizeit? | -
-Wir haben uns lange mit dem Problem beschäftigt. | die Freizeit = boş zaman
+Womit beschäftigst du dich in deiner Freizeit? | die Freizeit = boş zaman
+Wir haben uns lange mit dem Problem beschäftigt. | -
 Er beschäftigt sich viel mit seinen Kindern. | -
 Ich beschwere mich über das kalte Essen. | -
-Die Nachbarn haben sich über die laute Musik beschwert. | -
-Warum beschwerst du dich immer? | der Nachbar = komşu; laut = yüksek sesli
+Die Nachbarn haben sich über die laute Musik beschwert. | der Nachbar = komşu; laut = yüksek sesli
+Warum beschwerst du dich immer? | -
 Er beschwert sich, weil das Zimmer schmutzig ist. | schmutzig = kirli
 Ich beteilige mich am Projekt. | das Projekt = proje
 Hast du dich an der Diskussion beteiligt? | die Diskussion = tartışma
@@ -3092,7 +3092,7 @@ Die Getränke kosten extra. | das Getränk = içecek
 Warum sind Sie nicht gekommen? Ich habe extra auf Sie gewartet. | warten auf = beklemek
 Die Prüfung war extrem schwer. | die Prüfung = sınav
 Ich finde, unsere Mannschaft hat sehr fair gespielt. | die Mannschaft = takım
-Die Rechnung ist Énde des Monats fällig. | die Rechnung = fatura; das Ende = son; der Monat = ay
+Die Rechnung ist Ende des Monats fällig. | die Rechnung = fatura; das Ende = son; der Monat = ay
 Falls es regnet, machen wir kein Picknick. | regnen = yağmur yağmak; das Picknick = piknik
 Tut mir leid, ich habe die falsche Nummer gewählt. | wählen = (numara) çevirmek
 Meine Uhr geht falsch. | die Uhr = saat
@@ -3997,8 +3997,8 @@ Mit etwas Geduld hat sich das Kind schnell beruhigt. | die Geduld = sabır; schn
 Wenn Sie ein Problem haben, wenden Sie sich bitte an das Amt. | das Problem = sorun; das Amt = kurum
 Er hat sich lange um einen Studienplatz bemüht. | der Studienplatz = üniversite kontenjanı
 Ich rege mich über die Kälte im Büro auf. | die Kälte = soğuk; das Büro = ofis
-Mit dem Foto kann ich beweisen, dass ich dort war. | die Krankheit = hastalık; der Test = test
-Du übertreibst, das Bild war gar nicht so teuer! | die Kunst = sanat; gar nicht = hiç değil
+Mit dem Foto kann ich beweisen, dass ich dort war. | das Foto = fotoğraf
+Du übertreibst, das Bild war gar nicht so teuer! | das Bild = resim, tablo; gar nicht = hiç değil
 Im Museum muss man nicht schweigen, aber man sollte leise sprechen. | das Museum = müze; leise = sessiz
 Wegen der Kälte verzichten wir auf den Ausflug. | wegen = yüzünden; der Ausflug = gezi
 Die Nachbarn haben sich gestern wegen der Miete gestritten. | der Nachbar = komşu; die Miete = kira
@@ -4118,7 +4118,7 @@ In der Klasse bin ich in der Minderheit. | die Klasse = sınıf
 Eine Minderheit der Schüler fährt mit dem Fahrrad. | der Schüler = öğrenci; das Fahrrad = bisiklet
 Die Gemeinschaft im Dorf ist sehr stark. | das Dorf = köy; stark = güçlü
 Wir leben in einer Gemeinschaft mit vielen Kulturen. | leben = yaşamak; die Kultur = kültür
-Meine Schwester interessiert sich für Kunst. | die Schwester = kız kardeş; sich interessieren für = ilgilenmek
+Meine Schwester interessiert sich sehr für moderne Kunst. | die Schwester = kız kardeş; sich interessieren für = ilgilenmek; modern = modern
 Das Gerät ist nach zwei Monaten kaputt gegangen. | kaputt gehen = bozulmak; der Monat = ay
 Ich habe das alte Gerät zur Sammelstelle gebracht. | die Sammelstelle = toplama noktası; alt = eski
 Der Schaden für die Umwelt ist groß. | groß = büyük
@@ -5130,3 +5130,40 @@ Vor der Reise habe ich mich über die Währung im Urlaubsland informiert. | die 
 Wegen der Inflation verliert die Währung an Wert. | die Inflation = enflasyon; verlieren = kaybetmek; der Wert = değer
 Die Uni will nächstes Jahr ein neues Anmeldesystem einführen. | das Anmeldesystem = kayıt sistemi; nächstes Jahr = gelecek yıl; neu = yeni
 In Deutschland hat man den Mindestlohn 2015 eingeführt. | der Mindestlohn = asgari ücret; Deutschland = Almanya
+Wir wohnen im selben Haus, aber wir kennen uns kaum. | kaum = pek … değil, neredeyse hiç
+Mein Bruder und ich haben am selben Tag Geburtstag. | der Geburtstag = doğum günü
+Wir sind zur selben Zeit in Bremen angekommen. | ankommen = varmak
+Er kauft jeden Morgen beim selben Bäcker sein Brot. | der Bäcker = fırıncı
+Im selben Moment hat das Telefon geklingelt. | der Moment = an; klingeln = çalmak (zil)
+Im Herbst regnet es in Bremen häufig. | der Herbst = sonbahar; regnen = yağmur yağmak
+Das ist ein häufiger Fehler. | der Fehler = hata
+Wie häufig fährt der Bus zur Universität? | -
+Kopfschmerzen sind häufig harmlos. | die Kopfschmerzen = baş ağrısı; harmlos = zararsız
+Ich habe nichts dagegen, wenn du das Fenster öffnest. | öffnen = açmak
+Viele Bürger sind dagegen, dass die Bibliothek geschlossen wird. | der Bürger = vatandaş; die Bibliothek = kütüphane; schließen = kapatmak
+Hast du etwas dagegen, wenn ich morgen später komme? | später = daha geç
+Ich habe dich mehrere Male angerufen. | das Mal = kez; anrufen = aramak (telefonla)
+In unserem Kurs gibt es Studenten aus mehreren Ländern. | der Kurs = kurs; das Land = ülke
+Für diese Stelle gibt es mehrere Bewerber. | die Stelle = iş, pozisyon; der Bewerber = aday, başvuran
+Bitte geben Sie Ihre persönlichen Daten in das Formular ein. | persönlich = kişisel; das Formular = form; eingeben = girmek (bilgi)
+Die Firma darf meine Daten nicht weitergeben. | die Firma = şirket; weitergeben = başkasına vermek
+Ich habe alle Daten auf meinem Laptop gespeichert. | der Laptop = dizüstü bilgisayar; speichern = kaydetmek
+Die Daten zeigen, dass immer mehr Menschen online einkaufen. | zeigen = göstermek; immer mehr = giderek daha çok; einkaufen = alışveriş yapmak
+Ich habe das Gefühl, dass er mir nicht die Wahrheit sagt. | die Wahrheit = gerçek, doğru
+Ich habe kein gutes Gefühl bei dieser Sache. | die Sache = konu, iş
+Es ist ein schönes Gefühl, wieder zu Hause zu sein. | wieder = yeniden
+Er spricht nicht gern über seine Gefühle. | gern = severek
+Die Regierung will die Steuern senken. | die Steuer = vergi; senken = düşürmek
+Die Regierung hat ein neues Gesetz beschlossen. | das Gesetz = yasa; beschließen = kararlaştırmak, kabul etmek
+Diese Firma stellt Möbel her. | die Firma = şirket; die Möbel = mobilya
+In dieser Fabrik werden Autoteile hergestellt. | die Fabrik = fabrika; das Autoteil = otomobil parçası
+Wo wurde dieses Handy hergestellt? | das Handy = cep telefonu
+Unsere Firma stellt seit fünfzig Jahren Spielzeug her. | die Firma = şirket; das Spielzeug = oyuncak
+Wir sind auf den Turm gestiegen und haben die ganze Stadt gesehen. | der Turm = kule; ganz = bütün
+Die Zahl der Studenten steigt jedes Jahr. | die Zahl = sayı
+Das Fieber ist in der Nacht auf 39 Grad gestiegen. | das Fieber = ateş; der Grad = derece
+Die Mieten in Bremen steigen immer weiter. | die Miete = kira; immer weiter = gittikçe, durmadan
+Seine Frau führt seit zehn Jahren ein kleines Hotel. | das Hotel = otel
+Der Kellner führt uns an unseren Tisch. | der Kellner = garson; der Tisch = masa
+Wer führt hier das Geschäft? | das Geschäft = dükkân, işyeri
+Ein freundlicher Mitarbeiter hat uns durch die Fabrik geführt. | freundlich = güler yüzlü; der Mitarbeiter = çalışan; die Fabrik = fabrika
