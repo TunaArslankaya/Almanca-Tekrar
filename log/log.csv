@@ -3943,3 +3943,23 @@
 2026-11-08 05:41:38;erk;n0436:erk;das Gefühl;duygu, his;das Gefühl;richtig;das Gefühl;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | ısınma | şık:n0435/n0434/n0429 | çeldirici:biçim/biçim/biçim | sek:4
 2026-11-08 05:41:45;erk;w0227:erk;häufig;Seit Jahren liegen die Temperaturen immer häufiger über 40 Grad, und das hat Folgen: Asphalt verformt sich, Beton platzt auf, Fahrstreifen werden gesperrt.;sık;richtig;sık;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:4.0 | ısınma | şık:w0536/w0115/w0209 | çeldirici:bilinen/bilinen/bilinen | sek:5
 2026-11-08 05:41:51;erk;w0597:erk;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | ısınma | şık:w0051/w0320/w0315 | çeldirici:bilinen/bilinen/bilinen | sek:5
+2026-11-08 05:41:56;yeni;n0236;der Dialekt;tanıtım;;neu;lehçe, şive;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-08 05:42:02;yeni;v205;entscheiden;tanıtım;;neu;(bir şeye) karar vermek;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-08 05:42:05;bed;v205:bed;entscheiden;(bir şeye) karar vermek;entscheiden;richtig;entscheiden;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v209/v560/v211 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-08 05:42:10;erk;n0236:erk;der Dialekt;lehçe, şive;der Dialekt;richtig;der Dialekt;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0237/x1479/n0432 | çeldirici:biçim/konu/konu | sek:4
+2026-11-08 05:42:23;gram;g:reflexiv:93;reflexiv/stellung;Am Wochenende ___ ___ ___ mit meinen Freunden. (sich treffen · ich);"treffe ; ich ; mich";richtig;"treffe ; ich ; mich";tur:akis | tür:luecke | z:2 | sek:13
+2026-11-08 05:42:27;duy;n0121:duy-bosluk;das Bargeld;Ich habe kein _____ mehr.;Bargeld;richtig;Bargeld;tür:bosluk | hız:0.9 | tekrar:0 | sek:4
+2026-11-08 05:42:32;abr;v205:abr;entscheiden;(bir şeye) karar vermek;entscheiden;richtig;entscheiden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:42:35;wort;n0236:wort;der Dialekt;lehçe, şive;der Dialekt;richtig;der Dialekt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:42:40;hoer;hoer:z-s;kurz/Kurs;Kurs;Kurs;richtig;Kurs;cift:kurz/Kurs | ses:Google Deutsch | dinleme:2 | sek:5 | kaynak:tur
+2026-11-08 05:42:49;gram;g:tuerkisch-fallen:46;tuerkisch-fallen/kasus;kannst / du / mir / das Salz / geben;kannst du mir das Salz geben;richtig;Kannst du mir das Salz geben?;tur:akis | tür:ordnen | z:2 | sek:8
+2026-11-08 05:42:59;wort;x1557:wort;das Vorurteil;önyargı;der Vorurteil;fast;das Vorurteil;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.76 | S:3.4 | kurtarma | artikel der → das | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:42:59;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:1 | yanlış:0 | puan:101 | dk:1 | yeni:2 | seviye+:0 | tekrar:4 | gram:2/2
+2026-11-08 05:43:13;art;n0360:art;die Feuerwehr;Wegen eines Brandes in der Küche musste ___ Feuerwehr kommen. [Nom/Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.73 | S:0.3 | hâl:Nom/Akk | sek:11
+2026-11-08 05:43:24;abr;v177:abr;sich eignen für;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für (für + Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.76 | S:5.5 | zor | sek:10 | ipucu:2 | ipucu-tür:tr
+2026-11-08 05:43:30;prod;w0171:prod;folgend;aşağıdaki, sonraki;folgend;richtig;folgend;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:6.7 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:43:37;art;n0207:art;die Burg;Der Eintritt für ___ Burg kostet acht Euro, für Studenten nur vier. [Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.92 | S:1.1 | hâl:Akk | sek:7
+2026-11-08 05:44:34;duy;v256:duy-dikte;feststellen;Bei der Kontrolle stellte der Mechaniker fest, dass die Bremsen kaputt waren.;Bei der Kontrolle stelte der Mechaniker fest, dass die Bremsen kaputt waren.;fast;Bei der Kontrolle stellte der Mechaniker fest, dass die Bremsen kaputt waren.;tür:dikte | hız:0.9 | tekrar:5 | yazım | dikte:yazım | sek:57
+2026-11-08 05:45:03;gram;g:vergleich:23;vergleich/satz;er / spricht / besser Deutsch / als / ich / dachte;er spricht besser Deutsch als ich dachte;richtig;Er spricht besser Deutsch, als ich dachte.;tur:akis | tür:ordnen | z:2 | ghost:2 | sek:14
+2026-11-08 05:45:16;wort;x1547:wort;die Toleranz;hoşgörü;der Toleranz;fast;die Toleranz;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.76 | S:3.4 | kurtarma | artikel der → die | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:45:22;art;n0474:art;das Gewitter;ohne ___ Gewitter [Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.92 | S:1.0 | hâl:Akk | sek:5
