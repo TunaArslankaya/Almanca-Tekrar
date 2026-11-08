@@ -4082,3 +4082,7 @@
 2026-11-08 06:03:17;wort;n0520:wort;der Hausmeister;kapıcı, apartman görevlisi;der Hausmeister;richtig;der Hausmeister;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.93 | S:24.3 | kapı:14g | sek:4 | ipucu:2 | ipucu-tür:tr
 2026-11-08 06:03:31;wort;n1359:wort;die Wärme;sıcaklık | Nach dem langen Winter freuen sich alle auf … _____ der Sonne.;Wärme;fast;die Wärme;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:0.7 | tekrar:1 | artikel eksik | sek:11 | ipucu:0 | ipucu-tür:trcumle
 2026-11-08 06:03:34;hoer;hoer:vurgu;an·ru·fen;AN·ru·fen;AN·ru·fen;richtig;AN·ru·fen;cift:an·ru·fen | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-08 06:04:07;gram;g:modalverben:26;modalverben/satz;Ich will morgen mit Lena ins Kino gehen. → Morgen …;Morgen will ich mit Lena ins Kino gehen.;richtig;Morgen will ich mit Lena ins Kino gehen.;tur:akis | tür:umform | z:2 | sek:32
+2026-11-08 06:04:11;art;n0991:art;der Respekt;Respekt;der;richtig;der Respekt;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:1.2 | sek:2
+2026-11-08 06:04:11;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:114 | dk:2 | yeni:0 | seviye+:2 | tekrar:8 | gram:2/2
+2026-11-08 06:04:22;prod;w0320:prod;mehrere;birkaç, birçok | Viele Wörter haben _____ Bedeutungen.;mehrere;richtig;mehrere;basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:7.1 | sek:10 | ipucu:0 | ipucu-tür:trcumle
