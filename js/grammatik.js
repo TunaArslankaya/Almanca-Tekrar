@@ -50,7 +50,9 @@
     if (/[^aeiouäöü](el|er)n$/.test(base) || /(el|er)n$/.test(base)) return base.slice(0, -1);
     return base.replace(/e?n$/, '');
   }
-  const needsE = st => /[dt]$/.test(st) || /[^aeiouäöülrhmn][mn]$/.test(st);
+  // -e- ara ünlüsü: arbeit-et, öffn-et, atm-et; ch / ck + m / n de (rechn-et, zeichn-et; 7.11 denetim: "rechnt ihr" üretiliyordu),
+  // ünlü + uzunluk h'si değil (wohn-t, lehn-t)
+  const needsE = st => /[dt]$/.test(st) || /[^aeiouäöülrhmn][mn]$/.test(st) || /[^aeiouäöüy]h[mn]$/.test(st);
   const sEnd = st => /(s|ß|x|z|tz)$/.test(st);
 
   function regular(base) {
@@ -670,10 +672,26 @@
   // v5 §4.3 yazım hoşgörüsü (opts.lemma: tek kelime / kalıp cevabı): ae/oe/ue/ss yazımı tam doğru; umlaut farkı (Mutter/Mütter) 'umlaut';
   // 'yazım' yalnız lemma ≥ 5 harf ve lev 1 ya da ≥ 10 harf ve lev ≤ 2, fark umlaut değil ve yazılan sözlükte başka bir kelime değilse
   // (liegen/legen, Stadt/Staat ayrışır). Sözlük: opts.lex ya da lexSetzen() ile verilen küçük harfli küme (lemmalar + çoğullar + fiil biçimleri).
-  let LEX = null, LEMMA = null;
-  const lexSetzen = (s, lem) => { LEX = s; LEMMA = lem || null; };
+  let LEX = null, LEMMA = null, AILE = null, CEKIMSIZ = null, VERI = null;
+  // sözlük: küçük harfli kümeler; aile / ek almayan kelimeler veriden (window.VERBEN / NOMEN / WOERTER ya da veriSetzen) ilk kullanımda kurulur
+  const lexSetzen = (s, lem) => { LEX = s; LEMMA = lem || null; AILE = null; CEKIMSIZ = null; };
+  const veriSetzen = v => { VERI = v || null; AILE = null; CEKIMSIZ = null; };
   const acik = s => s.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/Ä/g, 'Ae').replace(/Ö/g, 'Oe').replace(/Ü/g, 'Ue').replace(/ß/g, 'ss');
   const umlFold = s => s.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+  // umlaut / ß düşürme (Prufung, Fus, Strase): yazılan ä / ö / ü / ß tek harfe iner; ae / oe / ue / ss yazımı acik() ile zaten tam doğru
+  const umlAt = s => s.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 's');
+  // sözlükte var mı: kümede umlautlu biçim (fährst) durur; öğrenci ae / oe / ue ile yazdıysa (faehrst) açık biçimli kopyaya da bakılır
+  const ACIK_LEX = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  function lexHas(lx, w) {
+    if (!lx || !w) return false;
+    const k = String(w).toLowerCase();
+    if (lx.has(k)) return true;
+    if (!ACIK_LEX || typeof lx.forEach !== 'function') return false;
+    let ac = ACIK_LEX.get(lx);
+    if (!ac) { ac = new Set(); lx.forEach(x => ac.add(acik(String(x)))); ACIK_LEX.set(lx, ac); }
+    return ac.has(acik(k));
+  }
+  const lemHas = w => !!LEMMA && lexHas(LEMMA, w);
   // yer değiştirmiş iki komşu harf (Situaiton) tek hata sayılır (Damerau)
   function dlev(a, b) {
     const d = Array.from({ length: a.length + 1 }, (_, i) => [i]);
@@ -684,35 +702,143 @@
     }
     return d[a.length][b.length];
   }
+  // harf uzaklığı: umlaut tek harf (Kläte ↔ Kälte 1); ae / oe / ue açık biçimde ve umlautsuz biçimde de denenir, küçüğü
+  const harfUzak = (a, b) => Math.min(dlev(a, b), dlev(acik(a), acik(b)), dlev(umlAt(a), umlAt(b)));
+  // yazım hoşgörüsü: hedef kendi harf sayısıyla (ä tek harf) ≥ 5 harf ve uzaklık 1 ya da ≥ 10 harf ve ≤ 2; yalnız umlaut farkı ya da
+  // yazılan sözlükte başka bir kelime / biçimse (legt / liegt, fährst / fährt, hieß / heiß) yazım değil. Girdi ham (umlautlu) ya da açık.
   function yazimTok(x, t, lex) {
-    const a = x.toLowerCase(), b = t.toLowerCase();
-    if (a === b || umlFold(a) === umlFold(b)) return false;
-    if (lex && lex.has(a)) return false;
-    const d = dlev(a, b);
-    return (b.length >= 5 && d === 1) || (b.length >= 10 && d <= 2);
+    const a = String(x).toLowerCase(), b = String(t).toLowerCase();
+    if (a === b || acik(a) === acik(b) || umlAt(a) === umlAt(b) || umlFold(a) === umlFold(b)) return false;
+    if (lexHas(lex, a)) return false;
+    const d = harfUzak(a, b);
+    if ((b.length >= 5 && d === 1) || (b.length >= 10 && d <= 2)) return true;
+    // 4 harfli hedefte yalnız fazladan bir harf (hoche → hohe) ya da komşu harf yer değiştirmesi (mdüe → müde); harf değişimi (Hous / Haus)
+    // ve eksik harf yanlış kalır
+    if (b.length === 4 && d === 1) {
+      const sir = s => umlAt(s).split('').sort().join('');
+      if (a.length === 5 || (a.length === 4 && sir(a) === sir(b) && dlev(umlAt(a), umlAt(b)) === 1)) return true;
+    }
+    return false;
+  }
+  // aynı sözlük ailesi (8.11): fiilin mastarı / Präsens / Präteritum / Partizip'i (kann ↔ können, liest ↔ lesen, wird ↔ werden,
+  // geregnet ↔ regnet), ismin tekil / çoğul / Genitiv'i (Haus ↔ Häuser). Anahtar: açık küçük harfli biçim → aile kimlikleri
+  function veri() {
+    if (VERI) return VERI;
+    const W = typeof window !== 'undefined' ? window : root;
+    return W ? { verben: W.VERBEN, nomen: W.NOMEN && W.NOMEN.liste, woerter: W.WOERTER } : {};
+  }
+  function aile() {
+    if (AILE) return AILE;
+    const D = veri();
+    if (!(D.verben && D.verben.length) && !(D.nomen && D.nomen.length)) return null;
+    const m = new Map();
+    const ekle = (f, id) => { f = String(f || '').trim(); if (!f || /\s/.test(f)) return; const k = acik(f.toLowerCase()); (m.get(k) || m.set(k, new Set()).get(k)).add(id); };
+    const p2Temiz = p2 => String(p2 || '').replace(/\s*\(.*$/, '').split('/')[0].trim().split(/\s+/).pop();
+    (D.verben || []).forEach(v => {
+      if (!v || !v.inf || /\s/.test(v.inf)) return;
+      const id = 'v:' + v.inf, kok = v.pre ? 'v:' + v.base : id;   // ayrılabilen fiilin çekimli biçimi (fährt … ab) kök fiilin ailesinde
+      let f = []; try { f = praesensForms(v); } catch (e) { /* eksik fiil nesnesi */ }
+      const pt = String(v.pt3 || '').split('/')[0].trim().split(/\s+/)[0];
+      const ptf = pt ? praeteritumForms(pt) : [];
+      [v.inf, p2Temiz(v.p2)].forEach(x => ekle(x, id));
+      f.concat(ptf).forEach(x => { ekle(x, kok); if (v.pre) ekle(v.pre + x, id); });   // yan cümlede bitişik: (weil der Zug) abfährt
+      if (v.pre) ekle(v.base, kok);
+    });
+    (D.nomen || []).forEach(n => {
+      if (!n || !n.lemma) return;
+      const id = 'n:' + n.lemma, pl = String(n.plf || '').split('/')[0].trim();
+      [n.lemma, n.gen, pl].forEach(x => ekle(x, id));
+      if (pl && !/[ns]$/.test(pl)) ekle(pl + 'n', id);   // Dativ çoğul (den Kindern)
+      if (n.weak) ekle(/e$/.test(n.lemma) ? n.lemma + 'n' : n.lemma + 'en', id);   // n-Deklination (den Kollegen, dem Studenten)
+    });
+    return (AILE = m);
+  }
+  function aileAyni(x, t) {
+    const m = aile(); if (!m) return false;
+    const a = m.get(acik(String(x).toLowerCase())), b = m.get(acik(String(t).toLowerCase()));
+    if (!a || !b) return false;
+    for (const id of a) if (b.has(id)) return true;
+    return false;
+  }
+  // ek almayan kelimeler (zarf / bağlaç / edat: morgen, etwa, wegen): hedefe ek eklenmiş biçim çekim hatası olamaz (morgem → yazım, etwaen → yanlış)
+  function cekimsizMi(t) {
+    if (!CEKIMSIZ) {
+      const D = veri(); if (!D.woerter || !D.woerter.length) return false;
+      const c = new Set(), iki = new Set();
+      D.woerter.forEach(w => { if (!w || !w.de || /[\s…]/.test(w.de)) return; if (/^(adv|konj|präp)$/.test(w.kl)) c.add(w.de); else iki.add(w.de); });
+      iki.forEach(d => c.delete(d));   // aynı yazılış sıfat / zamir olarak da varsa ek alabilir
+      CEKIMSIZ = c;
+    }
+    return CEKIMSIZ.has(String(t).trim());
+  }
+  // eşdeğer yazılışlar (gern = gerne)
+  const ESDEGER = { gerne: 'gern' };
+  const esd = w => ESDEGER[w] || w;
+  // çift harf eksik / fazla (Feuerwehrman ↔ Feuerwehrmann, Komilitone): ek değil yazım
+  function ciftHarf(a, b) {
+    const [k, u] = a.length < b.length ? [a, b] : [b, a];
+    if (u.length !== k.length + 1) return false;
+    for (let i = 1; i < u.length; i++) if (u[i] === u[i - 1] && u.slice(0, i) + u.slice(i + 1) === k) return true;
+    return false;
   }
   // 5.11 (Tuna: "kelimeyi yazıyorum, çekiminde hata yapıyorum, kelimeyi bilmiyorsun diyor"): aynı kelimenin başka eki / çekimi
   // (fett → fette, Schmerzen → Schmerz, Aptheke → Apotheken) yanlış değil çekim hatası. Ekler atılınca gövdeler aynı ya da
-  // (gövde ≥ 4 harf, yazılan sözlükte başka kelime değil) tek harf farklı → 'cekim'; yazım hoşgörüsüne giriyorsa 'yazim'; yoksa null
+  // (gövde ≥ 4 harf, yazılan sözlükte başka kelime değil) tek harf farklı → 'cekim'; yazım hoşgörüsüne giriyorsa 'yazim'; yoksa null.
+  // 8.11: aynı fiilin / ismin ailesi (kann ↔ können, liest ↔ lesen, Häuser ↔ Haus) ve ge- önekli Partizip (geregnet, gelöscht) çekim;
+  // umlautlu kelimede yer değiştirme (Kläte, Prfüung) yazım; çift harf (Feuerwehrman) yazım; ek almayan hedefte (morgen, etwa) çekim yok;
+  // yazılanın sözlük biçimi umlautlu da aranır (fährst ↔ fährt çekim, yazım değil). Girdi ham (umlautlu) verilmeli.
+  // Yalnız umlaut farkı (Prufung) → 'yazim' (eski sözleşme; umlaut'u ayırmak için kelimeSinifi).
   const EKLER = ['nen', 'ens', 'en', 'em', 'er', 'es', 'st', 'e', 'n', 's', 't', 'm', 'r'];
   const govde = w => { for (const e of EKLER) if (w.length - e.length >= 3 && w.endsWith(e)) return w.slice(0, -e.length); return w; };
+  const ON_GE = /^(ab|an|auf|aus|bei|ein|fest|her|hin|los|mit|nach|vor|weg|zu|zurueck|zusammen|um)ge(.{3,})$/;
+  const geSiz = w => { const m = w.match(ON_GE); if (m) return m[1] + m[2]; return /^ge.{4,}$/.test(w) ? w.slice(2) : null; };
   function yakin(x, t, lex) {
-    const a = acik(String(x || '')).toLowerCase(), b = acik(String(t || '')).toLowerCase();
+    const xs = String(x || '').trim(), ts = String(t || '').trim();
+    const a = acik(xs).toLowerCase(), b = acik(ts).toLowerCase(), lx = lex || LEX;
     if (!a || !b || a === b) return null;
-    // ikisi de ayrı sözlük kelimesiyse (eignen / eigen, Gedicht / Geduld) yakın değil
-    if (LEMMA && LEMMA.has(String(x).toLowerCase()) && LEMMA.has(String(t).toLowerCase())) return null;
+    if (esd(a) === esd(b)) return 'yazim';
+    // ikisi de ayrı sözlük kelimesiyse (eignen / eigen, Gedicht / Geduld, liegen / legen) yakın değil
+    if (lemHas(xs) && lemHas(ts)) return null;
+    if (umlAt(xs) === umlAt(ts)) return 'yazim';   // yalnız umlaut / ß farkı
+    if (aileAyni(xs, ts)) return 'cekim';
+    const cekimsiz = cekimsizMi(ts), bilinen = lexHas(lx, xs);
+    if (!bilinen && ciftHarf(a, b) && yazimTok(xs, ts, lx)) return 'yazim';
     // yalnız ek farklı (fett → fette, macht → mache, Schmerzen → Schmerz): ortak baştan sonra kalanlar ek; biri ötekinin sonuysa
     // (wartn → warten) harf atlamadır, yazım
     let p = 0; while (p < a.length && p < b.length && a[p] === b[p]) p++;
     const ra = a.slice(p), rb = b.slice(p), ekMi = e => e === '' || EKLER.includes(e);
-    if (p >= 3 && ekMi(ra) && ekMi(rb) && (!ra || !rb || !(ra.endsWith(rb) || rb.endsWith(ra)))) return 'cekim';
-    if (yazimTok(a, b, lex || LEX)) return 'yazim';
+    if (!cekimsiz && p >= 3 && ekMi(ra) && ekMi(rb) && (!ra || !rb || !(ra.endsWith(rb) || rb.endsWith(ra)))) return 'cekim';
+    if (yazimTok(xs, ts, lx)) return 'yazim';
+    if (cekimsiz) return null;
     const ga = govde(a), gb = govde(b);
     if (ga === gb && Math.min(ga.length, gb.length) >= 3) return 'cekim';
-    if (ga.length >= 4 && gb.length >= 4 && dlev(ga, gb) === 1 && !((lex || LEX) && (lex || LEX).has(a))) return 'cekim';
+    if (ga.length >= 4 && gb.length >= 4 && dlev(ga, gb) === 1 && !bilinen) return 'cekim';
     if (a.startsWith(b) && b.length >= 4 && a.length - b.length <= 3) return 'cekim';
     if (b.startsWith(a) && a.length >= 4 && b.length - a.length <= 3) return 'cekim';
+    // ge- önekli Partizip ↔ başka biçim (regnet → geregnet, löschen → gelöscht, anmeldet → angemeldet)
+    const ya = geSiz(a), yb = geSiz(b);
+    for (const [p1, q1] of [[ya, b], [a, yb]]) {
+      if (!p1 || !q1) continue;
+      if (p1 === q1) return 'cekim';
+      const g1 = govde(p1), g2 = govde(q1);
+      if (g1 === g2 && g1.length >= 4) return 'cekim';
+    }
     return null;
+  }
+  // tek kelime sınıflayıcı (bölümler arası ortak kural; gramer / metin / paket / dinleme boşlukları da kullanabilir):
+  // G.kelimeSinifi(yazilan, hedef, { lex }) → 'dogru' (aynı ya da ae / oe / ue / ss yazımı, gern = gerne) | 'buyukKucuk' (yalnız harf
+  // büyüklüğü) | 'umlaut' (ä / ö / ü düşmüş: Prufung) | 'yazim' (tek harf / yer değiştirme / ß yerine s: Kläte, morgem, Feuerwehrman, Strase) |
+  // 'cekim' (aynı kelimenin başka eki / çekimi: kann ↔ können, Apotheken, geregnet) | null (başka kelime: legt / liegt, Staat / Stadt).
+  // Girdiler ham (umlautlu, noktalamasız tek kelime) verilmeli; sözlük lexSetzen ile (uygulamada lexSet()).
+  function kelimeSinifi(x, t, opts) {
+    const xs = String(x || '').trim(), ts = String(t || '').trim();
+    if (!xs || !ts) return null;
+    if (xs === ts || acik(xs) === acik(ts)) return 'dogru';
+    const xl = acik(xs).toLowerCase(), tl = acik(ts).toLowerCase();
+    if (esd(xl) === esd(tl)) return xl === tl ? 'buyukKucuk' : 'dogru';
+    if (umlFold(xs) === umlFold(ts)) return 'umlaut';
+    if (umlAt(xs) === umlAt(ts)) return 'yazim';   // ß yerine tek s (Strase, gros); ss tam doğru
+    return yakin(xs, ts, opts && opts.lex);
   }
   function pruefenLemma(input, ziel, alts, opts) {
     const cands = [ziel].concat(alts || []), u = norm(input), lex = opts.lex || LEX;
@@ -744,9 +870,12 @@
     if (opts && opts.lemma) return pruefenLemma(input, ziel, alts, opts);
     const cands = [ziel].concat(alts || []);
     const u = norm(input);
+    // 8.11: ae / oe / ue / ss yazımı ve virgül farkı her bölümde tam doğru (CLAUDE.md "ae/oe/ue/ss tam doğru"; noktalama gramer hatası değil);
+    // gern = gerne. Önceden boşlukta / gramerde / dinlemede ss → "umlaut" küçük hatası (m2) veriyordu, kelime yazmada doğruydu.
+    const pAc = s => acik(s).replace(/\s*,\s*/g, ' ').replace(/\s+/g, ' ').trim().replace(/(^| )([Gg])erne(?= |$)/g, '$1$2ern');
     for (const c of cands) {
-      const n = norm(c);
-      if (u === n || firstLow(u) === firstLow(n)) return { urteil: 'richtig', ziel: c, tags: [], diff: diff(toks(u), toks(n)) };
+      const n = norm(c), ua = pAc(u), na = pAc(n);
+      if (u === n || firstLow(u) === firstLow(n) || ua === na || firstLow(ua) === firstLow(na)) return { urteil: 'richtig', ziel: c, tags: [], diff: diff(toks(u), toks(n)) };
     }
     // en yakın aday
     let best = cands[0], bestD = Infinity;
@@ -755,8 +884,10 @@
     const df = diff(ut, zt);
     const tags = new Set();
     let urteil = 'falsch';
-    if (fold(u) === fold(norm(best))) {
-      tags.add(u.toLowerCase() === norm(best).toLowerCase() ? 'groß/klein' : 'umlaut/ß');
+    const vsz = s => s.replace(/\s*,\s*/g, ' ').replace(/\s+/g, ' ').trim();
+    if (fold(pAc(u)) === fold(pAc(norm(best))) || umlAt(vsz(u)) === umlAt(vsz(norm(best)))) {
+      // ß yerine tek s (Strase) yazım; umlaut düşmüş (Prufung) umlaut
+      tags.add(pAc(u).toLowerCase() === pAc(norm(best)).toLowerCase() ? 'groß/klein' : fold(pAc(u)) === fold(pAc(norm(best))) ? 'umlaut/ß' : 'yazım');
       urteil = 'fast';
     } else {
       const dels = df.filter(x => x.op === 'del').map(x => x.t);
@@ -770,19 +901,20 @@
         else if (/^(hat|habe|hast|haben|habt|ist|bin|bist|sind|seid)$/.test(t)) tags.add('yardımcı fiil');
         else if (t === 'nicht') tags.add('nicht');
       });
-      // aynı kök, farklı son → çekim hatası
-      // tek harf yazım hatası, son ek aynıysa (Apoteke → Apotheke); son ek farklıysa çekim hatasıdır (mache → macht)
-      const yazim = (t, x) => lev(t.toLowerCase(), x.toLowerCase()) === 1 && t.length > 3 && t.slice(-2).toLowerCase() === x.slice(-2).toLowerCase();
+      // aynı kök, farklı son → çekim hatası; yazım / umlaut / harf büyüklüğü ayrı (8.11: tek kelime sınıflayıcısı, sözlüklü: başka kelime
+      // (Staat / Stadt, legen / liegen, Patenschaft / Pate) artık 'artikel/çekim' ya da 'yazım' değil)
       dels.forEach(t => ins.forEach(x => {
-        if (x !== t && x.length > 2 && t.slice(0, 3).toLowerCase() === x.slice(0, 3).toLowerCase()) {
-          if (x.toLowerCase() === t.toLowerCase()) tags.add('groß/klein');
-          else if (fold(x) === fold(t)) tags.add('umlaut/ß');
-          else if (!yazim(t, x)) tags.add('artikel/çekim');
+        if (x !== t && x.length > 2 && (t.slice(0, 3).toLowerCase() === x.slice(0, 3).toLowerCase() || aileAyni(x, t))) {   // kann ↔ können
+          const s = kelimeSinifi(x, t);
+          if (s === 'buyukKucuk') tags.add('groß/klein');
+          else if (s === 'umlaut') tags.add('umlaut/ß');
+          else if (s === 'cekim') tags.add('artikel/çekim');
         }
       }));
+      // tek kelimede yazım hatası (Apoteke → Apotheke, Kläte → Kälte, morgem → morgen); son ek farklıysa çekim (mache → macht)
       const nonTrivial = dels.length + ins.length;
       if (nonTrivial === 2 && dels.length === 1 && !FUNKTION.test(dels[0]) && !PRAEP.test(dels[0]) &&
-          lev(dels[0].toLowerCase(), ins[0].toLowerCase()) === 1 && !tags.has('artikel/çekim')) {
+          kelimeSinifi(ins[0], dels[0]) === 'yazim' && !tags.has('artikel/çekim')) {
         tags.add('yazım'); urteil = 'fast';
       }
       if (!tags.size) tags.add(dels.length && !ins.length ? 'eksik kelime' : 'farklı');
@@ -803,10 +935,13 @@
       if (ut.length !== zt.length) continue;
       const fark = zt.map((t, i) => [ut[i], t]).filter(([x, t]) => x.toLowerCase() !== t.toLowerCase());
       if (fark.length !== 1 || FUNKTION.test(fark[0][1]) || PRAEP.test(fark[0][1])) continue;
-      const k = yakin(fark[0][0], fark[0][1]);
+      // 8.11: yalnız umlaut düşmüşse (Prufung) 'umlaut' (m2; kelime yazmadaki gibi), yazım (m3) değil; sözlükte başka kelime (legt / liegt) yanlış
+      const k = kelimeSinifi(fark[0][0], fark[0][1]);
+      if (k === 'umlaut') return Object.assign(r, { urteil: 'fast', tip: 'umlaut', ziel: c, tags: ['umlaut/ß'] });
       if (k === 'yazim') return Object.assign(r, { urteil: 'fast', tip: 'yazim', ziel: c, tags: ['yazım'] });
       if (k === 'cekim') return Object.assign(r, { urteil: 'fast', tip: 'cekim', ziel: c, tags: ['çekim'] });
     }
+    if (r.urteil === 'fast' && r.tags.includes('umlaut/ß')) r.tip = 'umlaut';
     return r;
   }
 
@@ -837,6 +972,11 @@
   const CK_ZEIT = /^(letzte[nsr]?|naechste[nsr]?|jede[nsr]?|diese[nsr]?|vorige[nsr]?)$/;
   const CK_ADV = new Set('morgen gestern heute jetzt dann hier dort da leider oft manchmal bald spaeter frueher abends morgens vorgestern uebermorgen zuerst danach endlich trotzdem deshalb'.split(' '));
   const ckKey = w => acik(w.toLowerCase());
+  // sayı kelimesi = rakam (zehn Minuten = 10 Minuten; dikte TTS "zehn" okur); 'ein' artikel olduğu için yalnız 'eins'
+  const CK_SAYI = {};
+  'null eins zwei drei vier fuenf sechs sieben acht neun zehn elf zwoelf dreizehn vierzehn fuenfzehn sechzehn siebzehn achtzehn neunzehn zwanzig'.split(' ').forEach((w, i) => { CK_SAYI[w] = String(i); });
+  'dreissig vierzig fuenfzig sechzig siebzig achtzig neunzig'.split(' ').forEach((w, i) => { CK_SAYI[w] = String(30 + 10 * i); });
+  CK_SAYI.hundert = '100'; CK_SAYI.tausend = '1000';
   const ckUml = w => w.toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss');
   // cümle → kelime nesneleri {w: yazılan, k: anahtar, seg: virgül bölümü, kay: kaynaşmış edat ayrık yazıldı}
   function ckTok(s, izin) {   // izin: öğrencide yalnız hedefte de geçen kaynaşmış edatlar birleştirilir (auf. Das ≠ aufs)
@@ -845,7 +985,7 @@
     parca.forEach(p => {
       if (p === ',') { if (out.length && out[out.length - 1].seg === seg) seg++; return; }
       p = p.replace(/^[-–—']+|[-–—']+$/g, '');
-      if (p) out.push({ w: p.replace(/\u2027/g, '.'), k: /^\d/.test(p) ? p.replace(/\D/g, '') : ckKey(p), seg, kay: false, bas: !out.length });   // sayı: 20.00 = 20:00
+      if (p) { const k = /^\d/.test(p) ? p.replace(/\D/g, '') : ckKey(p); out.push({ w: p.replace(/\u2027/g, '.'), k: CK_SAYI[k] || esd(k), seg, kay: false, bas: !out.length }); }   // sayı: 20.00 = 20:00; zehn = 10; gerne = gern
     });
     for (let i = 0; i < out.length - 1; i++) {
       const k2 = CK_KAY[out[i].k + ' ' + out[i + 1].k];
@@ -860,9 +1000,10 @@
   // öğrenci kelimesi a ile hedef kelimesi b arasındaki ilişki: [tip, maliyet, etiket] ya da null (ilişkisiz)
   function ckIliski(a, b) {
     const x = a.k, y = b.k;
-    if (x === y) return a.kay === b.kay ? ['ok', 0, ''] : ['yazim', 2, 'kaynaştırma'];
-    const ua = ckUml(a.w), ub = ckUml(b.w), baskaKelime = LEX && LEX.has(a.w.toLowerCase()) && a.w.toLowerCase() !== b.w.toLowerCase();
-    if (ua === ub && !a.kay && !b.kay) return ['yazim', 2, 'umlaut'];   // umlaut yerine düz ünlü (fur → für, Madchen): klavye hatası sayılır, küçük hata
+    if (x === y) return a.bit ? ['yazim', 2, 'yazım'] : a.kay === b.kay ? ['ok', 0, ''] : ['yazim', 2, 'kaynaştırma'];   // bit: bileşik ayrı yazıldı (schmerz Tabletten)
+    const ua = ckUml(a.w), ub = ckUml(b.w), baskaKelime = LEX && lexHas(LEX, a.w) && a.w.toLowerCase() !== b.w.toLowerCase();
+    if (ua === ub && !a.kay && !b.kay) return ['yazim', 2, 'umlaut'];
+    if (umlAt(a.w) === umlAt(b.w) && !a.kay && !b.kay) return ['yazim', 2, 'yazım'];   // ß yerine tek s (Strase, gros): yazım (ss tam doğru)   // umlaut yerine düz ünlü (fur → für, Madchen): klavye hatası sayılır, küçük hata
     if (CK_NEG.has(x) !== CK_NEG.has(y)) return null;   // kein / nicht ↔ ein: anlam değişir
     if (CK_DET.test(x) && CK_DET.test(y)) return ['cekim', 4, 'artikel/çekim'];
     if (CK_REFL.has(x) && CK_REFL.has(y)) return ['cekim', 4, 'dönüşlü zamir'];   // mir ↔ mich: CLAUDE.md'ye göre falsch (aşağıda)
@@ -875,9 +1016,16 @@
     const px = CK_PRAEP.has(x) ? x : CK_KAYP[x], py = CK_PRAEP.has(y) ? y : CK_KAYP[y];
     if (px && py) return px === py ? ['cekim', 4, 'artikel/çekim'] : ['edat', 8, 'edat'];
     if (px || py) return null;
-    const d = dlev(x, y), hosgoru = (y.length >= 5 && d === 1) || (y.length >= 10 && d <= 2);   // yer değiştirme tek hata (5.11)
-    if (ckKok(x, y) || ckKok(ua, ub)) return ['cekim', 4, 'artikel/çekim'];   // ek farkı her zaman çekim (sıfat / fiil eki), sözlükte olmasa da
+    // yer değiştirme tek hata (5.11); 8.11: umlautlu harfte de (scühtzt → schützt), uzunluk hedefin kendi harfleriyle (ä tek harf)
+    const tl = b.w.toLowerCase(), al = a.w.toLowerCase();
+    let d = Math.abs(x.length - y.length) > 2 ? 3 : dlev(x, y);
+    if (d > 1 && Math.abs(al.length - tl.length) <= 2 && /[äöüß]/.test(al + tl)) d = Math.min(d, dlev(al, tl), dlev(umlAt(al), umlAt(tl)));
+    const hosgoru = (tl.length >= 5 && d === 1) || (tl.length >= 10 && d <= 2);
+    const cekimsiz = cekimsizMi(b.w);
+    if (hosgoru && !baskaKelime && ciftHarf(x, y)) return ['yazim', 2, 'yazım'];   // Feuerwehrman: çift harf, ek değil
+    if (!cekimsiz && (ckKok(x, y) || ckKok(ua, ub))) return ['cekim', 4, 'artikel/çekim'];   // ek farkı her zaman çekim (sıfat / fiil eki), sözlükte olmasa da
     if (hosgoru && !baskaKelime) return ['yazim', 2, 'yazım'];
+    if (!cekimsiz && aileAyni(a.w, b.w)) return ['cekim', 4, 'artikel/çekim'];   // aynı fiilin başka biçimi (liest ↔ lesen)
     return null;
   }
   // tek hedefe karşı hizalama → { diff, items, skor, ... }
@@ -895,9 +1043,11 @@
       if (irr != null) fiilAday.add(irr);
       js.forEach((j, n) => {
         const t = T[j], onc = n > 0 ? T[js[n - 1]] : null, sonra = n < js.length - 1 ? T[js[n + 1]] : null;
-        if ((!t.bas && ckBuyuk(t)) || ckFonk(t.k) || CK_PART.has(t.k)) return;
+        if ((!t.bas && ckBuyuk(t)) || ckFonk(t.k) || CK_PART.has(t.k) || /^(alle|beide|selbst|selber|allein)$/.test(t.k)) return;   // Wir alle hoffen: alle fiil değil
         if (sonra && CK_SUBJ.has(sonra.k)) fiilAday.add(j);            // devrik: Morgen gehe ich …
         else if (n === 1 && CK_SUBJ.has(onc.k)) fiilAday.add(j);        // düz: Ich gehe …
+        else if (n >= 1 && n <= 4 && !t.bas && ckOzne(js.slice(0, n).map(i => T[i]))) fiilAday.add(j);   // isim öbeği özne: Meine Mutter kocht … (8.11)
+        else if (n >= 2 && n <= 5 && !t.bas && ckOge(js.slice(0, n).map(i => T[i]), 0, false) === n) fiilAday.add(j);   // edat öbeği Vorfeld: Am Sonntag kocht …
       });
     });
     return { yanSeg, fiilAday };
@@ -910,9 +1060,41 @@
     if (CK_ZEIT.test(k) && R[1] && ckBuyuk(R[1])) return 2;   // letztes Jahr, nächste Woche
     return 0;
   }
+  // 8.11: Vorfeld'e her zarf / edat öbeği taşınabilir (araya dönüşlü / nesne zamiri girse de: Gestern habe ich mich … angemeldet;
+  // Beim Chef habe ich mich beschwert; Am Wochenende treffe ich meine Freunde); özne isim öbeği de olabilir (Am Sonntag kocht meine Mutter …)
+  const CK_ZARF2 = new Set('gern lange oft immer selten meistens sofort plötzlich ploetzlich wieder schnell langsam allein gestern morgen heute'.split(' '));
+  const CK_ZAMIR = new Set(['mich', 'dich', 'sich', 'uns', 'euch', 'mir', 'dir', 'ihm', 'ihn', 'ihr', 'ihnen', 'es']);
+  function ckOge(R, p, ilk) {   // R[p]'den başlayan zarf / edat öbeğinin uzunluğu (0: yok); ilk: zamirlerden sonraki ilk konum (eski tek kelime kuralı)
+    const t = R[p]; if (!t) return 0;
+    const k = t.k;
+    // edat öbeği: edat + (artikel / sıfat / sayı)* + isim (+ ardışık özel ad: bei Herrn Müller); edat + zarf (seit gestern, bis morgen).
+    // Ardından und / oder ya da Genitiv artikeli geliyorsa (für Kinder und Senioren, die Liste der …) öbek bölünmez: 0
+    if (CK_PRAEP.has(k) || CK_KAYP[k]) {
+      if (R[p + 1] && CK_ADV.has(R[p + 1].k)) return 2;
+      for (let i = p + 1; i < Math.min(R.length, p + 5); i++) {
+        const u = R[i];
+        if (ckBuyuk(u)) {
+          let e = i + 1; while (e < R.length && ckBuyuk(R[e])) e++;
+          if (R[e] && (/^(und|oder|sowie)$/.test(R[e].k) || /^(der|des)$/.test(R[e].k))) return 0;
+          return e - p;
+        }
+        if (!(CK_DET.test(u.k) || /^\d/.test(u.k) || (!ckFonk(u.k) && !CK_ADV.has(u.k) && !CK_ZARF2.has(u.k) && !CK_PART.has(u.k) && !CK_IRR[u.k]))) return 0;
+      }
+      return 0;
+    }
+    if (CK_ZEIT.test(k) && R[p + 1] && ckBuyuk(R[p + 1])) return 2;   // letztes Jahr, nächste Woche
+    if (R[p + 1] && /^(genug|wieder|noch|mehr)$/.test(R[p + 1].k)) return 0;   // lange genug, immer wieder / noch / mehr: birlikte
+    if ((CK_ADV.has(k) || CK_ZARF2.has(k)) && R[p + 1] && /^(abend|morgen|mittag|vormittag|nachmittag|nacht|frueh)$/.test(R[p + 1].k) && ckBuyuk(R[p + 1])) return 2;   // heute Abend
+    if (CK_ADV.has(k) || CK_ZARF2.has(k)) return 1;
+    if (ilk && p + 1 < R.length && ckZarf(R.slice(p)) === 1) return 1;   // eski kural: gestern, leider …
+    return 0;
+  }
+  // A (Vorfeld) özne mi: özne zamiri, artikel / iyelikle başlayan isim öbeği (meine Mutter), ya da tek büyük harfli ad (Mario)
+  const ckOzne = A => (A.length === 1 && CK_SUBJ.has(A[0].k)) || (A.length >= 2 && A.length <= 4 && CK_DET.test(A[0].k) && ckBuyuk(A[A.length - 1]) && !A.some(t => CK_PRAEP.has(t.k)))
+    || (A.length === 1 && !ckFonk(A[0].k) && !CK_ADV.has(A[0].k) && !CK_ZARF2.has(A[0].k) && !CK_PART.has(A[0].k) && /^[A-ZÄÖÜ]/.test(A[0].w) && !lexHas(LEX, A[0].w));   // ad: sözlükte yok (Herzlich değil)
   function ckVaryant(T, y) {
     const out = [], segs = [...new Set(T.map(t => t.seg))], parca = sg => T.filter(t => t.seg === sg);
-    const kucult = t => t.bas && t.w !== 'Sie' && (ckFonk(t.k) || CK_ADV.has(t.k) || CK_ZEIT.test(t.k));
+    const kucult = t => t.bas && t.w !== 'Sie' && (ckFonk(t.k) || CK_ADV.has(t.k) || CK_ZARF2.has(t.k) || CK_ZEIT.test(t.k));
     const kopya = (arr, sg) => arr.map(t => Object.assign({}, t, { seg: sg, bas: false, ilk: t.bas || t.ilk, w: kucult(t) ? t.w.charAt(0).toLowerCase() + t.w.slice(1) : t.w }));
     const bas = V => { V[0] = Object.assign({}, V[0], { w: V[0].w.charAt(0).toUpperCase() + V[0].w.slice(1) }); return V; };
     segs.forEach(sg => {
@@ -920,10 +1102,29 @@
       const P = parca(sg), j0 = T.indexOf(P[0]), vj = P.findIndex(t => y.fiilAday.has(T.indexOf(t)));
       if (vj < 1 || /^(und|aber|oder|denn|sondern)$/.test(P[0].k)) return;
       const A = P.slice(0, vj), V = P[vj], R = P.slice(vj + 1);
-      let yeni = null;
-      if (R.length >= 2 && CK_SUBJ.has(R[0].k) && !(A.length === 1 && CK_SUBJ.has(A[0].k))) yeni = [R[0], V].concat(A, R.slice(1));   // Morgen gehe ich … → Ich gehe morgen …
-      else if (A.length === 1 && CK_SUBJ.has(A[0].k) && R.length >= 2) { const B = ckZarf(R); if (B && B < R.length) yeni = R.slice(0, B).concat(V, A, R.slice(B)); }   // Ich gehe morgen … → Morgen gehe ich …
-      if (yeni) out.push(bas(T.slice(0, j0).concat(kopya(yeni, sg), T.slice(j0 + P.length))));
+      const ekle = yeni => out.push(bas(T.slice(0, j0).concat(kopya(yeni, sg), T.slice(j0 + P.length))));
+      const azarf = ckOge(A, 0, true) === A.length && !ckOzne(A);
+      // Morgen gehe ich … → Ich gehe morgen …; Am Sonntag kocht meine Mutter … → Meine Mutter kocht am Sonntag …
+      let nR = 0;
+      if (R.length >= 2 && CK_SUBJ.has(R[0].k) && !(A.length === 1 && CK_SUBJ.has(A[0].k))) nR = 1;
+      else if (azarf && R.length >= 3 && CK_DET.test(R[0].k)) {
+        for (let i = 1; i < Math.min(R.length - 1, 4); i++) if (ckBuyuk(R[i])) { nR = i + 1; break; }
+        if (nR && R[nR] && /^(und|oder|sowie|der|des)$/.test(R[nR].k)) nR = 0;   // die Liste der Zutaten: Genitiv / bağlaçlı öbek bölünmez
+      }
+      if (nR) { ekle(R.slice(0, nR).concat(V, A, R.slice(nR))); return; }
+      // Ich gehe morgen … → Morgen gehe ich …; Ich habe mich gestern … → Gestern habe ich mich …; Ich treffe meine Freunde am Wochenende → Am Wochenende …
+      if (!ckOzne(A)) return;
+      let ilk = 0; while (ilk < R.length && CK_ZAMIR.has(R[ilk].k)) ilk++;
+      for (let p = 0; p < R.length; p++) {
+        if (/^(und|oder|aber|sondern|sowie)$/.test(R[p].k)) break;   // ikinci bağlaç öğesinden Vorfeld'e taşınmaz
+        // von zu Hause; nicht immer / erst heute (kapsam: odak parçacığı ayrılmaz); Empfehlung von Herrn Weber (von + isim: ismin niteleyicisi)
+        if (p > 0 && (CK_PRAEP.has(R[p - 1].k) || CK_KAYP[R[p - 1].k] || CK_NEG.has(R[p - 1].k) || /^(erst|nur|auch|sogar|schon|noch|so|zu)$/.test(R[p - 1].k))) continue;
+        if (p > 0 && /^(von|vom)$/.test(R[p].k) && ckBuyuk(R[p - 1])) continue;
+        const B = ckOge(R, p, p === ilk);
+        if (!B) continue;
+        ekle(R.slice(p, p + B).concat(V, A, R.slice(0, p), R.slice(p + B)));
+        p += B - 1;
+      }
     });
     if (segs.length === 2) {   // Ich komme, wenn … ↔ Wenn …, komme ich
       const P0 = parca(segs[0]), P1 = parca(segs[1]);
@@ -984,7 +1185,7 @@
       const sw = x.si != null ? S[x.si].w : '', tw = x.ti != null ? T[x.ti].w : '';
       x.w = sw; x.d = tw;
       if (x.t === 'ok') {
-        if (sw !== tw && x.si > 0 && !T[x.ti].bas && !T[x.ti].ilk && sw.charAt(0) !== tw.charAt(0)) tags.add('büyük/küçük harf');
+        if (sw !== tw && x.si > 0 && !T[x.ti].bas && !T[x.ti].ilk && sw.charAt(0) !== tw.charAt(0) && sw.charAt(0).toLowerCase() === tw.charAt(0).toLowerCase()) tags.add('büyük/küçük harf');   // zehn ↔ 10 harf büyüklüğü değil
         return;
       }
       if (x.t === 'yazim') { tags.add(x.rel[2]); ceza += x.rel[2] === 'kaynaştırma' ? 0.2 : 0.25; kucuk++; return; }
@@ -1037,6 +1238,18 @@
   // artikel-çekim, yardımcı fiil, yer) ve skor ≥ 0,75 → fast; tek büyük hata yalnız ≥ 6 kelimelik cümlede tek eksik / fazla sıradan kelimeyse
   // ve skor ≥ 0,8 → fast; yanlış kelime, edat, dönüşlü zamir, olumsuzluk, fiil → falsch. opts.hedefKelime cevapta yok / başka kelime → falsch.
   // opts.fiil (fiil nesnesi, isteğe bağlı): çekimli biçimleri fiil yeri sezgisine ve dönüşlü zamir etiketine yardım eder.
+  // bileşik isim ayrı yazıldı (Diese schmerz Tabletten → Schmerztabletten; dikte 7.11): öğrencinin yan yana iki kelimesi birleşince hedefte
+  // bir kelimeyse tek kelime sayılır (ckIliski: 'yazım', küçük hata); parçalardan biri hedefte tek başına geçiyorsa birleştirilmez
+  function ckBirlesik(S, T) {
+    const tk = new Set(T.map(t => t.k));
+    const out = S.slice();
+    for (let i = 0; i < out.length - 1; i++) {
+      const a = out[i], b = out[i + 1], k = a.k + b.k;
+      if (a.seg !== b.seg || a.kay || b.kay || !tk.has(k) || tk.has(a.k) || tk.has(b.k)) continue;
+      out.splice(i, 2, { w: a.w + ' ' + b.w, k, seg: a.seg, kay: false, bas: a.bas, bit: true });
+    }
+    return out;
+  }
   function cumleKontrol(giris, hedefler, opts) {
     opts = opts || {};
     const hl = (Array.isArray(hedefler) ? hedefler : [hedefler]).filter(h => h && String(h).trim());
@@ -1051,21 +1264,33 @@
     };
     hl.forEach(h => {
       const T = ckTok(h), y = ckYapi(T, opts);
-      S = ckTok(giris, new Set(T.filter(t => CK_KAYP[t.k]).map(t => t.k)));
+      S = ckBirlesik(ckTok(giris, new Set(T.filter(t => CK_KAYP[t.k]).map(t => t.k))), T);
       // soru, emir ve 'bitte' cümlelerinde başka diziliş anlamı değiştirir (Er hat wie …? / Sie füllen bitte …): varyant üretilmez
       const sabit = /[?!]\s*$/.test(h) || /\bbitte\b/i.test(h) || /^\s*(wer|wen|wem|wessen|was|wie|wo|wann|warum|wohin|woher|welche[rnms]?|wieso|weshalb|womit|worüber|wofür)\b/i.test(h);
       if (dene(T, y, h).it.some(x => x.t === 'yer') && !sabit) ckVaryant(T, y).forEach(V => dene(V, ckYapi(V, opts), ckYaz(V, h)));
     });
     const r = en, tags = r.tags, hata = r.ana.length + r.kucuk > 0;
     const yalnizSira = hata && !r.ana.length && r.it.every(x => x.t === 'ok' || (x.t === 'yer' && x.rel[0] === 'ok'));
+    // 8.11: kelimeleri doğru ama sırası tamamen bozuk cümle (ist. hoch so Bremen … Ich) küçük hata değil: öğrenci sırasında hedef sırası
+    // kırılan komşu çift sayısı ≥ 5 ve ≥ kelimelerin yarısıysa ya da ≥ 4 kırılma ve çiftlerin ≥ %55'i ters sıradaysa yanlış
+    // (tek öbek taşıma + özne / fiil yer değişimi: ≤ 4 kırılma, ters çift oranı ~%50 altı → küçük hata kalır)
+    const es = r.it.filter(x => x.si != null && x.ti != null).sort((a, b) => a.si - b.si);
+    let kirik = 0, ters = 0; for (let i = 1; i < es.length; i++) if (es[i].ti !== es[i - 1].ti + 1) kirik++;
+    for (let i = 0; i < es.length; i++) for (let j = i + 1; j < es.length; j++) if (es[i].ti > es[j].ti) ters++;
+    const ciftN = es.length * (es.length - 1) / 2;
+    const karisik = kirik >= Math.max(5, Math.ceil(r.S.length / 2)) || (kirik >= 4 && ciftN > 0 && ters / ciftN >= 0.55);
     let urteil;
     if (!hata) urteil = 'richtig';
+    else if (karisik) urteil = 'falsch';
     else if (yalnizSira) urteil = 'fast';
     else if (!r.ana.length) urteil = r.skor >= 0.75 ? 'fast' : 'falsch';
     else {
-      // tek büyük hata yalnız uzun cümlede, eksik / fazla tek kelimeyse affedilir (olumsuzluk, fiil, edat, dönüşlü zamir hariç)
+      // tek büyük hata yalnız uzun cümlede, eksik / fazla tek kelimeyse affedilir (olumsuzluk, fiil, edat, dönüşlü zamir hariç);
+      // 8.11: eksik içerik ismi (… auf den. — Urlaub yok) ağır; fazladan auch / noch / schon (anlamı az değiştiren parçacık) ağır değil
       const x = r.ana[0], k = x.t === 'eksik' ? r.T[x.ti].k : x.si != null ? r.S[x.si].k : '';
-      const agir = x.t === 'yanlis' || CK_AGIR.has(k) || CK_NEG.has(k) || CK_PRAEP.has(k) || CK_KAYP[k] || CK_REFL.has(k) || CK_IRR[k] || (x.t === 'eksik' && r.fiilAday.has(x.ti));
+      const parcacik = x.t === 'fazla' && /^(auch|noch|schon)$/.test(k);
+      const isimEksik = x.t === 'eksik' && !r.T[x.ti].bas && ckBuyuk(r.T[x.ti]) && !ckFonk(k);
+      const agir = x.t === 'yanlis' || (CK_AGIR.has(k) && !parcacik) || CK_NEG.has(k) || CK_PRAEP.has(k) || CK_KAYP[k] || CK_REFL.has(k) || CK_IRR[k] || (x.t === 'eksik' && r.fiilAday.has(x.ti)) || isimEksik;
       urteil = r.ana.length === 1 && !agir && r.T.length >= 6 && r.skor >= 0.8 ? 'fast' : 'falsch';
     }
     if (tags.has('dönüşlü zamir')) urteil = 'falsch';
@@ -1079,6 +1304,7 @@
   const api = {
     PERS, NAMEN, MODAL, IRR, praesens, praesensForms, praeteritumForms, regular, stemOf, cumleKontrol,
     np, pluralForm, umlaut, withPrep, woWort, bauen, uebung, luecke, pruefen, lexSetzen, norm, diff, toks, yakin, bosPruef,
+    kelimeSinifi, veriSetzen,
     objMuster, KASUS_TR, POSS_TR, PREP_CASE, rahmenAufloesen, ndekAufgabe, reflAufgabe, imperativDu, NUR_3, REFL_AUS,
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

@@ -22,6 +22,12 @@ eq(G.praesensForms(V('lassen', 'lässt')).join(','), 'lasse,lässt,lässt,lassen
 eq(G.praesensForms(V('heißen', 'heißt')).join(','), 'heiße,heißt,heißt,heißen,heißt,heißen', 'heißen');
 eq(G.praesensForms(V('lernen', 'lernt')).join(','), 'lerne,lernst,lernt,lernen,lernt,lernen', 'lernen');
 eq(G.praesensForms(V('atmen', 'atmet')).join(','), 'atme,atmest,atmet,atmen,atmet,atmen', 'atmen');
+// 8.11: ch + n / m → -e- (rechnet, zeichnet; "Rechnt ihr" üretiliyordu); uzunluk h'si değil (wohnt, lehnt)
+eq(G.praesensForms(V('rechnen', 'rechnet')).join(','), 'rechne,rechnest,rechnet,rechnen,rechnet,rechnen', 'rechnen');
+eq(G.praesensForms(V('zeichnen', 'zeichnet')).join(','), 'zeichne,zeichnest,zeichnet,zeichnen,zeichnet,zeichnen', 'zeichnen');
+eq(G.praesensForms(V('berechnen', 'berechnet')).join(','), 'berechne,berechnest,berechnet,berechnen,berechnet,berechnen', 'berechnen');
+eq(G.praesensForms(V('wohnen', 'wohnt')).join(','), 'wohne,wohnst,wohnt,wohnen,wohnt,wohnen', 'wohnen');
+eq(G.praesensForms(V('lehnen', 'lehnt')).join(','), 'lehne,lehnst,lehnt,lehnen,lehnt,lehnen', 'lehnen');
 
 // NP
 const N = (art, lemma, x) => Object.assign({ art, lemma, tr: '?' }, x || {});
@@ -260,6 +266,68 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   const ms = (Date.now() - t0) / 100;
   eq(ms < 25, true, 'cümle: 20+ kelime < 25 ms (' + ms + ' ms; tipik 2–5, yük altında oynak)');
   eq(n >= 40, true, 'cümle: en az 40 vaka (' + n + ')');
+
+  // 8.11 bölümler arası tutarlılık (7.11 denetimi: kullan-1..4, log-1..3, kod-1..3): ae / oe / ue / ss her yerde tam doğru, virgül sayılmaz,
+  // geçerli devrik dizilişler doğru, tamamen karışık cümle küçük hata değil, bileşiği ayrı yazmak yazım, zehn = 10, gern = gerne
+  K('Morgen kann ich dir helfen.', ['Ich kann dir morgen helfen.'], 'richtig', [], [], null, 'Vorfeld: zamir nesne araya girer');
+  K('Am Wochenende treffe ich meine Freunde.', ['Ich treffe meine Freunde am Wochenende.'], 'richtig', [], [], null, 'Vorfeld: sondaki edat öbeği');
+  K('Beim Chef habe ich mich beschwert.', ['Ich habe mich beim Chef beschwert.'], 'richtig', [], [], null, 'Vorfeld: dönüşlü zamirden sonra edat öbeği');
+  K('Gestern habe ich mich für die Prüfung angemeldet.', ['Ich habe mich gestern für die Prüfung angemeldet.'], 'richtig', [], [], null, 'Vorfeld: dönüşlü zamirden sonra zarf');
+  K('Nach dem Unfall hat er sich nicht bewegt.', ['Er hat sich nach dem Unfall nicht bewegt.'], 'richtig', [], [], null, 'Vorfeld: sich + edat öbeği');
+  K('Gern fahre ich mit dem Zug.', ['Ich fahre gern mit dem Zug.'], 'richtig', [], [], null, 'Vorfeld: gern');
+  K('Ich fahre gerne mit dem Zug.', ['Ich fahre gern mit dem Zug.'], 'richtig', [], ['artikel/çekim'], null, 'gern = gerne');
+  K('Am Sonntag kocht meine Mutter immer Suppe.', ['Meine Mutter kocht am Sonntag immer Suppe.'], 'richtig', [], [], null, 'Vorfeld: özne isim öbeği');
+  K('Meine Mutter kocht am Sonntag immer Suppe.', ['Am Sonntag kocht meine Mutter immer Suppe.'], 'richtig', [], [], null, 'Vorfeld: isim öbeği özne öne');
+  K('Auf den Urlaub freue ich mich sehr.', ['Ich freue mich sehr auf den Urlaub.'], 'richtig', [], [], null, 'Vorfeld: edatlı nesne');
+  // geçersiz dizilişler varyant sayılmaz
+  K('Bei Herrn soll ich dieses Päckchen Müller abgeben.', ['Ich soll dieses Päckchen bei Herrn Müller abgeben.'], 'fast', ['kelime sırası'], [], null, 'öbek bölünmez (bei Herrn Müller)');
+  K('Für Kinder gibt es eine Ermäßigung und Senioren.', ['Es gibt eine Ermäßigung für Kinder und Senioren.'], 'fast', ['kelime sırası'], [], null, 'bağlaçlı öbek bölünmez');
+  K('Zu Hause komme ich gerade von.', ['Ich komme gerade von zu Hause.'], 'fast', ['kelime sırası'], [], null, 'edat öbeğinin içinden taşınmaz');
+  K('Immer kannst du dich nicht auf andere verlassen.', ['Du kannst dich nicht immer auf andere verlassen.'], 'fast', ['kelime sırası'], [], null, 'nicht immer: kapsam');
+  K('Auf besseres Wetter alle wir hoffen.', ['Wir alle hoffen auf besseres Wetter.'], 'fast', ['kelime sırası'], [], null, 'alle fiil değil');
+  K('Die Liste ist hier der erforderlichen Zutaten für den Kuchen.', ['Hier ist die Liste der erforderlichen Zutaten für den Kuchen.'], 'fast', ['kelime sırası'], [], null, 'Genitiv öbeği bölünmez');
+  // tamamen karışık / ters cümle: küçük hata değil; tek öbek taşıma küçük hata kalır
+  K('ist. hoch so Bremen in Miete die dass gewundert, mich habe Ich', ['Ich habe mich gewundert, dass die Miete in Bremen so hoch ist.'], 'falsch', ['kelime sırası'], [], null, 'tamamen ters');
+  K('bezahlt getrennt Restaurant im haben Wir', ['Wir haben im Restaurant getrennt bezahlt.'], 'falsch', [], [], null, 'kısa cümle ters');
+  K('Bestanden mein Freund hat die Prüfung.', ['Mein Freund hat die Prüfung bestanden.'], 'fast', ['fiil yeri'], [], null, 'tek kelime yer: küçük hata');
+  // bileşik ayrı, sayı, umlaut harfinde yer değiştirme, ß → s, çift harf, ek almayan kelime
+  K('Diese schmerz Tabletten gibt es nur auf Rezept', ['Diese Schmerztabletten gibt es nur auf Rezept.'], 'fast', ['yazım'], ['yanlış kelime', 'fazla kelime'], null, 'bileşik ayrı yazıldı');
+  K('Diese Schmerztableten gibt es nur auf Rezept.', ['Diese Schmerztabletten gibt es nur auf Rezept.'], 'fast', ['yazım'], ['artikel/çekim'], null, 'çift harf eksik: yazım');
+  K('Wir machen zehn Minuten Pause.', ['Wir machen 10 Minuten Pause.'], 'richtig', [], ['büyük/küçük harf'], null, 'zehn = 10');
+  K('Der Zug fährt um 10 Uhr ab.', ['Der Zug fährt um zehn Uhr ab.'], 'richtig', [], [], null, '10 = zehn');
+  K('Sie hat zwanzig Euro bezahlt.', ['Sie hat 30 Euro bezahlt.'], 'falsch', ['yanlış kelime'], [], null, 'başka sayı yanlış');
+  K('Ein dicker Schal scühtzt gut vor der Kälte.', ['Ein dicker Schal schützt gut vor der Kälte.'], 'fast', ['yazım'], [], null, 'umlautlu harfte yer değiştirme');
+  K('Die Strase ist sehr lang.', ['Die Straße ist sehr lang.'], 'fast', ['yazım'], ['artikel/çekim'], null, 'ß → s yazım');
+  K('Die Strasse ist sehr lang.', ['Die Straße ist sehr lang.'], 'richtig', [], [], null, 'ss = ß');
+  K('Ich komme morgem.', ['Ich komme morgen.'], 'fast', ['yazım'], ['artikel/çekim'], null, 'morgem: ek almayan kelimede yazım');
+  K('Wegen der hohen Kosten verzichten wir dieses Jahr auf den.', ['Wegen der hohen Kosten verzichten wir dieses Jahr auf den Urlaub.'], 'falsch', ['eksik kelime'], [], null, 'eksik içerik ismi ağır');
+  K('Ich verzichte auch heute auf den Kaffee.', ['Ich verzichte heute auf den Kaffee.'], 'fast', ['fazla kelime'], [], null, 'fazla auch: küçük hata');
+  K('Er liest das Buch.', ['Er las das Buch.'], 'fast', ['artikel/çekim'], [], null, 'aynı fiilin başka biçimi: çekim');
+
+  // tek kelime: G.kelimeSinifi / G.yakin / G.bosPruef / G.pruefen
+  const KS = (a, b) => G.kelimeSinifi(a, b);
+  eq([['Strasse', 'Straße'], ['Pruefung', 'Prüfung'], ['gerne', 'gern'], ['Prüfung', 'Prüfung']].map(([a, b]) => KS(a, b)).join(), 'dogru,dogru,dogru,dogru', 'kelimeSinifi: ae / ss / gerne doğru');
+  eq([KS('prüfung', 'Prüfung'), KS('Prufung', 'Prüfung'), KS('Bruder', 'Brüder'), KS('Strase', 'Straße'), KS('gros', 'groß')].join(), 'buyukKucuk,umlaut,umlaut,yazim,yazim', 'kelimeSinifi: harf büyüklüğü / umlaut / ß → s');
+  eq(['Kläte|Kälte', 'Prfüung|Prüfung', 'Gemsüe|Gemüse', 'Behröde|Behörde', 'flißeend|fließend', 'Frhüjahr|Frühjahr', 'fhärt|fährt', 'mdüe|müde', 'hoche|hohe']
+    .map(p => KS(...p.split('|'))).join(), 'yazim,yazim,yazim,yazim,yazim,yazim,yazim,yazim,yazim', 'kelimeSinifi: umlautlu harfte yer değiştirme / 4 harfte fazla harf yazım');
+  eq(['Hous|Haus', 'hieß|heiß', 'legt|liegt', 'legen|liegen', 'Staat|Stadt', 'verschieben|verschrieben', 'setzen|sitzen', 'bitten|bieten', 'etwaen|etwa']
+    .map(p => String(KS(...p.split('|')))).join(), 'null,null,null,null,null,null,null,null,null', 'kelimeSinifi: başka kelime / 4 harfte harf değişimi / zarfa ek yanlış');
+  eq(['können|kann', 'werden|wird', 'regnet|geregnet', 'liest|lesen', 'gelöscht|löschen', 'fährst|fährt', 'gibt|geben', 'nimmt|nehmen', 'wendet|gewendet', 'läufst|läuft', 'Häuser|Haus']
+    .map(p => G.yakin(...p.split('|'))).join(), 'cekim,cekim,cekim,cekim,cekim,cekim,cekim,cekim,cekim,cekim,cekim', 'yakin: ünlü değişimi / ge- / aynı aile çekim');
+  eq(['morgem|morgen', 'Feuerwehrman|Feuerwehrmann', 'Komilitone|Kommilitone', 'Schmerztableten|Schmerztabletten'].map(p => G.yakin(...p.split('|'))).join(), 'yazim,yazim,yazim,yazim', 'yakin: morgem / çift harf yazım');
+  const BP = (a, b) => (r => r.urteil + ':' + (r.tip || '') + ':' + r.tags.join('+'))(G.bosPruef(a, b));
+  eq([BP('Strasse', 'Straße'), BP('Pruefung', 'Prüfung'), BP('fliessend', 'fließend')].join(' '), 'richtig:: richtig:: richtig::', 'boşluk: ae / ss tam doğru (kelime yazmadaki gibi)');
+  eq([BP('Prufung', 'Prüfung'), BP('Fruhjahr', 'Frühjahr')].join(' '), 'fast:umlaut:umlaut/ß fast:umlaut:umlaut/ß', 'boşluk: umlaut düşmesi umlaut (yazım değil)');
+  eq([BP('legen', 'liegen'), BP('verschieben', 'verschrieben'), BP('Gedacht', 'Gedicht')].map(x => x.split(':')[0]).join(), 'falsch,falsch,falsch', 'boşluk: başka kelime yanlış');
+  eq([BP('kann', 'können'), BP('regnet', 'geregnet'), BP('gelöscht', 'löschen'), BP('wird', 'werden')].map(x => x.split(':')[1]).join(), 'cekim,cekim,cekim,cekim', 'boşluk: aynı fiilin başka biçimi çekim');
+  eq(BP('Kläte', 'Kälte'), 'fast:yazim:yazım', 'boşluk: umlautlu yer değiştirme yazım');
+  eq(G.pruefen('Es gab mehr Arbeit als ich erwartet habe', 'Es gab mehr Arbeit, als ich erwartet habe.').urteil, 'richtig', 'pruefen: virgül eksik doğru');
+  eq(G.pruefen('Ich trinke heissen Tee.', 'Ich trinke heißen Tee.').urteil, 'richtig', 'pruefen: ss = ß (gramer cümlesi)');
+  eq(G.pruefen('Ich habe das Buch auf den Tisch gelegt', 'Ich habe das Buch auf den Tisch gelegt.').urteil, 'richtig', 'pruefen: aynı');
+  eq(G.pruefen('Der Mann legt im Bett', 'Der Mann liegt im Bett.').tags.includes('yazım'), false, 'pruefen: legt / liegt yazım değil');
+  eq(G.pruefen('Er wohnt in einer kleinen Staat', 'Er wohnt in einer kleinen Stadt.').tags.includes('artikel/çekim'), false, 'pruefen: Staat / Stadt artikel/çekim değil');
+  const L = (inp, ziel) => G.pruefen(inp, ziel, [], { lemma: true });
+  eq(L('Kläte', 'Kälte').tip + ' ' + L('fährst', 'fährt').tip + ' ' + L('liest', 'lesen').tip, 'yazim cekim cekim', 'lemma: Kläte yazım, fährst çekim (sözlük umlautlu da aranır), liest çekim');
 }
 
 // Gramer bölümü: yeni alıştırma türleri (ceviri, text, eslestir, kategori, dinle) — derleme + kontrol (js/gramer.js Gramer.pruef)
