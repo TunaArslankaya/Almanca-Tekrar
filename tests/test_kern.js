@@ -126,6 +126,11 @@ const NT = [
   ['isim doğru, artikel eksik', { bicim: 'yaz', tip: 'dogru', artikel: { sinandi: true, dogru: false, eksik: true } }, { m: 3, a: 1, ergebnis: 'fast', et: 'artikel eksik' }],
   ['seçmelide yanlış artikelli şık', { bicim: 'sec', tip: 'dogru', sure: 2000, artikel: { sinandi: true, dogru: false, verilen: 'der', dogrusu: 'das' } }, { m: 3, a: 1, c: 1.5, ergebnis: 'fast', et: 'artikel der → das' }],
   ['umlaut', { bicim: 'yaz', tip: 'umlaut' }, { m: 2, a: null, ergebnis: 'fast', et: 'umlaut' }],
+  // 8.11: kelime ≈ (umlaut / çekim) + artikel ✗ → artikel ayrı notlanır (a1 + etiket); artikel doğruysa a3
+  ['umlaut + artikel yanlış', { bicim: 'yaz', tip: 'umlaut', artikel: { sinandi: true, dogru: false, verilen: 'der', dogrusu: 'die' } }, { m: 2, a: 1, ergebnis: 'fast', et: 'umlaut,artikel der → die' }],
+  ['umlaut + artikel doğru', { bicim: 'yaz', tip: 'umlaut', artikel: { sinandi: true, dogru: true } }, { m: 2, a: 3, ergebnis: 'fast', et: 'umlaut' }],
+  ['çekim + artikel yanlış', { bicim: 'yaz', tip: 'cekim', artikel: { sinandi: true, dogru: false, verilen: 'das', dogrusu: 'der' } }, { m: 2, a: 1, ergebnis: 'fast', et: 'çekim,artikel das → der' }],
+  ['çekim + artikel eksik', { bicim: 'yaz', tip: 'cekim', artikel: { sinandi: true, dogru: false, eksik: true } }, { m: 2, a: 1, ergebnis: 'fast', et: 'çekim,artikel eksik' }],
   ['hâl yanlış', { bicim: 'yaz', tip: 'hal' }, { m: 2, ergebnis: 'fast', et: 'hâl' }],
   ['edat yanlış', { bicim: 'yaz', tip: 'edat' }, { m: 1, ergebnis: 'falsch', et: 'edat' }],
   ['dönüşlü: sich yok', { bicim: 'yaz', tip: 'donuslu' }, { m: 1, ergebnis: 'falsch', et: 'dönüşlü' }],
@@ -1184,10 +1189,96 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
 {
   const r = K.birlestir({ kontext: { n1: [{ s: 'A', t: 5 }, 'B'] }, hoer: { ch: { d: 3, y: 1, t: 9 } }, konus: { son: { x: 1 } } },
     { kontext: { n1: [{ s: 'C', t: 7 }], n2: [{ s: 'D', t: 1 }] }, hoer: { ch: { d: 1, y: 4, t: 2 }, er: { d: 2, y: 0 } }, konus: { son: { y: 2 } } });
-  eq(r.kontext.n1.map(e => e.s).join(','), 'B,A,C', 'birleştirme: cümle geçmişi öğe başına birleşir (zaman sırası)');
+  eq(r.kontext.n1.map(e => e.s).join(','), 'A,C,B', 'birleştirme: cümle geçmişi öğe başına birleşir (zaman sırası; eski düz metin KX_ESKI)');
   eq(!!r.kontext.n2, true, 'birleştirme: uzaktaki cümle geçmişi kalır');
   eq([r.hoer.ch.d, r.hoer.ch.y, !!r.hoer.er].join(), '3,4,true', 'birleştirme: duy-seç sayaçları kontrast başına büyük olan');
   eq(Object.keys(r.konus.son).sort().join(), 'x,y', 'birleştirme: eski konuşma kaydı (S.konus, 7.11 kaldırıldı) hatasız taşınır');
+}
+
+// ---------- 8.11 düzeltmeleri (7.11 denetimi) ----------
+// cümle geçmişi: eski t 0 / düz metin kayıtlar KX_ESKI sayılır; iki eski görülme bire inmez; kontextOnar idempotent
+{
+  const X = K.KX_ESKI, cumle = 'Die Abendzeitung hat einen Bericht über den Unfall gebracht.';
+  const r = K.birlestir({ kontext: { v157: [{ s: cumle, t: 0 }, { s: cumle, t: X + 20 * DAY }] } }, { kontext: { v157: [{ s: cumle, t: 0 }], n9: ['Eski.', 'Eski.'] } });
+  eq(r.kontext.v157.map(e => e.t === X ? 'E' : 'Y').join(''), 'EY', 'kontext: t 0 → KX_ESKI, iki taraftaki aynı eski kayıt bir kez', r.kontext.v157);
+  eq(r.kontext.n9.length, 2, 'kontext: tek taraftaki iki eski düz metin iki görülme kalır');
+  ok(r.kontext.n9.every(e => e.t === X), 'kontext: uzaktaki eski düz metin de KX_ESKI');
+  const S = { kontext: { a: [{ s: 'x', t: 0 }, 'y', { s: 'z', t: X + 5 }], b: [{ s: 'q', t: X + 1 }] } };
+  eq(K.kontextOnar(S), 1, 'kontextOnar: yalnız eski kayıtlı öğe değişir');
+  eq(S.kontext.a.map(e => e.t === X ? 'E' : e.t).join(), 'E,E,' + (X + 5), 'kontextOnar: t 0 ve düz metin KX_ESKI, yenisi aynen');
+  eq(K.kontextOnar(S), 0, 'kontextOnar: idempotent');
+}
+// gramer hayaleti: çözülmüş (silinmiş) hayalet öbür cihazın eski kopyasından geri gelmez; yeni hata korunur
+{
+  const t0 = T, hay = (due, adim) => ({ adim, due, q: 0, son: 3, dogru: 1, deneme: 0 });
+  // A: hayalet (adım 2, t0'da güncellendi) iki doğruyla t0 + 2 gün çözüldü (teil son = t0 + 2 g, anahtar silindi); B'de eski kopya
+  const A = { gram: { konu: { vergleich: { teil: { satz: { d: 3, y: 1, son: t0 + 2 * DAY } } } }, ghost: {} } };
+  const B = { gram: { konu: { vergleich: { teil: { satz: { d: 2, y: 1, son: t0 - 60000 } } } }, ghost: { 'vergleich:satz': hay(t0 + DAY, 2) } } };
+  ok(!K.birlestir(A, B).gram.ghost['vergleich:satz'], 'hayalet: A\'da çözülmüş, B\'den gelen eski kopya dirilmez');
+  ok(!K.birlestir(B, A).gram.ghost['vergleich:satz'], 'hayalet: B yerelken de (A uzak) çözülmüş hayalet düşer');
+  // B'de hayalet A'nın son cevabından SONRA (yeni hata) açıldıysa korunur
+  const B2 = { gram: { konu: {}, ghost: { 'vergleich:satz': hay(t0 + 3 * DAY + 5 * 60000, 1) } } };
+  ok(!!K.birlestir(A, B2).gram.ghost['vergleich:satz'], 'hayalet: öbür cihazda sonradan açılan hayalet korunur');
+  // iki tarafta: son güncellenen kazanır
+  const x = K.birlestir({ gram: { ghost: { 'k:t': hay(t0 + DAY, 2) } } }, { gram: { ghost: { 'k:t': hay(t0 + 3 * DAY + DAY, 3) } } }).gram.ghost['k:t'];
+  eq(x.adim, 3, 'hayalet: iki tarafta varsa son güncellenen');
+}
+// Bilmediklerim: sonradan gelen yanlış (y) d'yi sıfırlar ve birleştirmede kazanır
+{
+  const r = K.birlestir({ bilmedik: { n1: { ad: 'a', ilk: 5, son: 30, n: 1, d: 0, dt: 0, y: 60 } } }, { bilmedik: { n1: { ad: 'a', ilk: 5, son: 30, n: 1, d: 2, dt: 50 } } });
+  eq(r.bilmedik.n1.d, 0, 'bilmedik: sonraki yanlış (y) eski "artık biliyorsun"u ezer');
+  const r2 = K.birlestir({ bilmedik: { n1: { ad: 'a', ilk: 5, son: 30, n: 1, d: 2, dt: 50 } } }, { bilmedik: { n1: { ad: 'a', ilk: 5, son: 30, n: 1, d: 0, y: 60 } } });
+  eq(r2.bilmedik.n1.d, 0, 'bilmedik: uzaktaki yanlış da kazanır');
+}
+// yoklama: bm 2 (B2 ipucusuz yazma); bos0 (ipuçlu) bm'yi yükseltmez; bm sorulan biçimin basamağını aşmaz
+{
+  const S = yeniS({ n7: { seit: T, tanit: T } });
+  K.uygula(S, 'n7', K.notVer({ bicim: 'yoklama', tip: 'yoklama', artikel: { sinandi: true, dogru: true } }), T, {});
+  eq(S.items.n7.m.bm, 2, 'yoklama doğru → bm 2');
+  eq(K.basamak(S.items.n7, { id: 'n7', t: T + 8 * DAY }, R99).b >= 2, true, 'yoklamadan sonra seçmeliye düşmez');
+  const S2 = yeniS({ n1: { m: h(8, 0.85, { pk: 1, bm: 2 }) } });
+  K.uygula(S2, 'n1', K.notVer({ bicim: 'bos0', tip: 'dogru' }), T, { b: 3 });
+  eq(S2.items.n1.m.bm, 2, 'bos0 doğru (ipuçlu) → bm yükselmez');
+  const S3 = yeniS({ n1: { m: h(8, 0.85, { pk: 1, bm: 2 }) } });
+  K.uygula(S3, 'n1', K.notVer({ bicim: 'bos', tip: 'dogru' }), T, { b: 3 });
+  eq(S3.items.n1.m.bm, 3, 'bos doğru (ipucusuz) → bm 3');
+  const S4 = yeniS({ n1: { m: h(8, 0.85, { pk: 1, bm: 2 }) } });
+  K.uygula(S4, 'n1', K.notVer({ bicim: 'yaz', tip: 'dogru' }), T, { b: 4 });
+  eq(S4.items.n1.m.bm, 2, 'seçim B4 ama soru yazmaya düştü → bm en çok 2');
+}
+// akşam: yalnız artikeli bugün yanlış öğede anlam hafızası yeniden yazılmaz (artikel yazılır); log'dan bildirilen
+// anlam hatasında doğru akşam cevabı uzun aralığı yarın 04:00'e çekmez; akşam cevabı yanlışsa çeker
+{
+  const sabah = new Date(2026, 9, 15, 8, 0).getTime(), aksam = new Date(2026, 9, 15, 18, 30).getTime();
+  const S = yeniS({ n1: { m: h(50, 0.9, { pk: 2, bm: 4 }), art: h(10, 0.9) }, n2: { m: h(50, 0.9, { pk: 2, bm: 4 }), art: h(10, 0.9) } });
+  const yazA = (ok_, art) => K.notVer({ bicim: 'cumle', tip: ok_ ? 'dogru' : 'cumleYanlis', artikel: art });
+  K.uygula(S, 'n1', K.notVer({ bicim: 'yaz', tip: 'dogru', artikel: { sinandi: true, dogru: false, verilen: 'der', dogrusu: 'die' } }), sabah);
+  const m1 = Object.assign({}, S.items.n1.m);
+  ok(K.aksamHakki(S, 'n1', aksam, {}, 'art') && !K.aksamHakki(S, 'n1', aksam, {}, 'm'), 'aksamHakki: artikel yanlışı yalnız artikel istisnası');
+  const r = K.uygula(S, 'n1', K.notVer({ bicim: 'yaz', tip: 'dogru', artikel: { sinandi: true, dogru: true } }), aksam, { aksam: true });
+  ok(!r.m.yazildi && S.items.n1.m.S === m1.S, 'akşam: yalnız artikel hatası → anlam hafızası yeniden yazılmaz', r);
+  ok(r.a.yazildi && r.a.aksam, 'akşam: artikel hafızası istisnayla yazılır', r);
+  // n2: sabah tam cümle doğru (uzun vade), sonra yalnız log'da anlam hatası; akşam doğru → yazılır ama vade uzun kalır
+  K.uygula(S, 'n2', yazA(true), sabah);
+  const r2 = K.uygula(S, 'n2', yazA(true), aksam, { aksam: true, aksamYanlis: true });
+  ok(r2.m.yazildi && S.items.n2.m.due > K.ertesiGun4(aksam) + 5 * DAY, 'akşam: log\'daki hata + doğru akşam cevabı → vade yarına çekilmez', (S.items.n2.m.due - aksam) / DAY);
+  const S5 = yeniS({ n2: { m: h(50, 0.9, { pk: 2, bm: 4 }) } });
+  K.uygula(S5, 'n2', yazA(true), sabah);
+  K.uygula(S5, 'n2', yazA(false), aksam, { aksam: true, aksamYanlis: true });
+  ok(S5.items.n2.m.due <= K.ertesiGun4(aksam), 'akşam: akşam cevabı yanlış → vade en geç yarın 04:00');
+}
+// Zayıflar turunda zor soru yok; düzenli fiilin kökü sorulmaz
+{
+  const quit = x => ({ m: h(1.8, 0.9, Object.assign({ pk: 0, bm: 1, ds: 2, b: 1, due: T - 1000 }, x || {})) });
+  const o = x => oturum(Object.assign({ adim: 5, parti: true, kurtarma: true }, x || {}));
+  ok(K.sec({ S: yeniS({ n1: quit() }), kap: 36 }, o(), T, R99).zor, 'zor: normal turda var');
+  ok(!K.sec({ S: yeniS({ n1: quit() }), kap: 36 }, o({ zayif: true, odak: true }), T, R99).zor, 'zor: Zayıflar turunda yok');
+  K.init(Object.assign({}, ctx, { duzenli: id => id === 'v1' }));
+  const kokS = () => yeniS({ v1: { m: h(10, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: Object.assign(h(5, 0.8, { due: T - DAY }), { ornek: 'v1' }) } });
+  ok(K.sec({ S: kokS(), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true }), T, R99).tur !== 'kok', 'kök: düzenli fiilde vadeli kök sorulmaz');
+  const yk = yeniS({ v1: { m: h(3, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: { ornek: 'v1', yeni: 1 } } });
+  ok(K.sec({ S: yk, kap: 36, donus: true }, oturum({ adim: 5, parti: true }), T, R99).kaynak !== 'yeniKok', 'kök: düzenli fiilde yeni kök açılmaz');
+  K.init(ctx);
 }
 
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);

@@ -20,6 +20,7 @@
   // trKey (Türkçe anlam anahtarı) · lemma · uluslararasi · uniteKonu (ünite ya da konu kelimesi) · konu(id) ·
   // ablaut(id) · stark(id) (düzensiz) · uniteSira() · BLITZ_ORDER · VERB_ORDER · tazeCumle · goetheLuecke ·
   // lueckeVar (hedef G.luecke ile cümlede bulunur) · kontextVar · lesenWort() · LEX (has) ·
+  // duzenli(id) (8.11: düzenli fiil, Präteritum -te; kök sorusu sorulmaz) ·
   // edatliFiil(id) (6.11, S3 kalip: edatlı ya da yalnız Dativ isteyen fiil; verilmezse vById[id].obj'dan) · artObVar(id) (artOb sorusu kurulabilir; varsayılan true)
   const VARSAY = {
     kind: id => id[0] === 'v' ? 'v' : id[0] === 'w' ? 'w' : id[0] === 'p' ? 'p' : 'n',
@@ -28,7 +29,7 @@
     trKey: () => '', lemma: () => '', uluslararasi: () => false, uniteKonu: () => false, konu: () => '',
     ablaut: () => '', stark: () => false, uniteSira: () => [], BLITZ_ORDER: [], VERB_ORDER: [],
     tazeCumle: () => true, goetheLuecke: () => false, lueckeVar: () => true, kontextVar: () => true,
-    lesenWort: () => [], LEX: { has: () => false },
+    lesenWort: () => [], LEX: { has: () => false }, duzenli: () => false,
     edatliFiil: id => edatliObj(((C.vById || {})[id] || {}).obj), artObVar: () => true,
   };
   // fiil verisinin obj alanı: [{p:'von', k:'D'}, {k:'A'}, …] → edatlı tümleç ya da Akkusativ'siz Dativ (helfen, danken, begegnen)
@@ -132,11 +133,13 @@
         return r(3, aNot(), 'richtig');
       case 'yazim': et.unshift('yazım'); artEt(); return r(3, aNot(), 'fast', { c: c + KISMI });
       case 'mastar': et.unshift('mastar eki'); return r(3, null, 'fast', { c: c + KISMI });
-      case 'umlaut': et.unshift('umlaut'); return r(2, null, 'fast');
-      case 'hal': et.unshift('hâl'); return r(2, null, 'fast');
+      // 8.11: kelimede umlaut / hâl / çekim hatası varken artikel de ayrı notlanır (kelime ≈, artikel ✗ → a1 + 'artikel der → die';
+      // önceden a null: artikel hafızası ne cezalanıyor ne ödüllendiriliyordu, log'da da artikel hatası yoktu)
+      case 'umlaut': et.unshift('umlaut'); artEt(); return r(2, aNot(), 'fast');
+      case 'hal': et.unshift('hâl'); artEt(); return r(2, aNot(), 'fast');
       case 'edat': et.unshift('edat'); return r(1, null, 'falsch');
       case 'donuslu': et.unshift('dönüşlü'); return r(1, null, 'falsch');
-      case 'cekim': if (!et.length) et.push('çekim'); return r(2, null, 'fast', s.kokYanlis ? { k: 1 } : null);
+      case 'cekim': if (!et.length) et.push('çekim'); artEt(); return r(2, aNot(), 'fast', s.kokYanlis ? { k: 1 } : null);
       case 'cumleFast': return r(3, null, 'fast');
       case 'cumleYapi': return r(2, null, 'fast');   // fiil yeri / kelime sırası: kelimeler doğru ama yapı yanlış (26.10 denetim: m3 doğruyla aynıydı)
       case 'cumleYanlis': return r(1, null, 'falsch');
@@ -146,30 +149,42 @@
   }
 
   // günde tek kalıcı yazım: her hafıza (m, art, kok) öğrenme gününün ilk değerlendirilen cevabıyla güncellenir
-  // opts: { ipucu, b, yeniGun, aksam, aksamYanlis } → { yazildi, aksam, m:{R, S}, a, k, seviyeOnce, seviyeSonra }
-  // Akşam istisnası (opts.aksam): bugün tanıtılan ya da bugün yanlış / fast cevaplanan öğede (hafıza lastG ≤ 2 ve bugün yazılmış,
-  // ya da uygulamanın log'dan bildirdiği opts.aksamYanlis) m ve art hafızası bugün yazılmış olsa da akşam BİR kez daha yazılır
-  // (öğrenme adımı: vade en geç ertesi gün 04:00). Kök hafızası ve diğer öğeler kurala bağlı kalır.
-  function aksamHakki(S, id, t, opts) {
+  // opts: { ipucu, b, yeniGun, aksam, aksamYanlis, aksamArtYanlis } → { yazildi, aksam, m:{R, S}, a, k, seviyeOnce, seviyeSonra }
+  // Akşam istisnası (opts.aksam): bugün tanıtılan öğede, ya da o hafıza bugün yanlış / fast iken (hafıza lastG ≤ 2 ve bugün yazılmış,
+  // ya da uygulamanın log'dan bildirdiği: anlam için opts.aksamYanlis, artikel için opts.aksamArtYanlis) o hafıza bugün yazılmış olsa da
+  // akşam BİR kez daha yazılır (öğrenme adımı). 8.11: istisna hafıza başına (yalnız artikel ya da kök / dinleme / cümle atölyesi hatası
+  // anlam hafızasını yeniden yazdırmaz); vade yarın 04:00'e yalnız bugün yeni öğede, akşam cevabı da yanlış / fast ise ya da o hafızanın
+  // bugünkü kaydı yanlış / fast ise çekilir (log'dan bildirilen sonraki hatada doğru akşam cevabı uzun aralığı çökertmez).
+  // Kök hafızası ve diğer öğeler kurala bağlı kalır.
+  function aksamHakki(S, id, t, opts, tur) {
     const it = S.items[id], g = gun4(t);
     if (!it) return false;
     if (it.tanit && gun4(it.tanit) === g) return true;
-    if (opts && opts.aksamYanlis) return true;
-    return [it.m, it.art].some(h => h && h.S && h.gun === g && (h.lastG || 3) <= 2);
+    const bugunYanlis = h => !!(h && h.S && h.gun === g && (h.lastG || 3) <= 2);
+    if (tur === 'm') return !!(opts && opts.aksamYanlis) || bugunYanlis(it.m);
+    if (tur === 'art') return !!(opts && opts.aksamArtYanlis) || bugunYanlis(it.art);
+    if (opts && (opts.aksamYanlis || opts.aksamArtYanlis)) return true;
+    return [it.m, it.art].some(bugunYanlis);
   }
+  // biçimin basamağı (8.11): bm sorulan biçimin basamağını aşmaz (seçim B3 iken cümle bulunamayıp yazmaya düşen soru bm'yi 3 yapmasın);
+  // bos0 ipuçlu boşluk (kelime / fiil çipi ekranda): seviye atlatmaz (yaz0 gibi; 'bedava seviye yok')
+  const BICIM_B = { sec: 1, anla: 1, metinde: 1, yaz0: 2, yaz: 2, kalip: 2, yoklama: 2, bos0: 3, bos: 3, metin: 3, cumle: 4 };
+  const IPUCLU_BICIM = new Set(['yaz0', 'bos0']);
   function uygula(S, id, not, t, opts) {
     opts = opts || {};
     const it = S.items[id] = S.items[id] || { seit: t };
     const ret = (S.einst && S.einst.ret) || 0.85, g = gun4(t), out = { yazildi: false, aksam: false, seviyeOnce: seviye(it, id) };
     const yeniGun = opts.yeniGun != null ? opts.yeniGun : !!(it.tanit && gun4(it.tanit) === g);
-    const aksam = !!opts.aksam && aksamHakki(S, id, t, opts);
+    const aksamM = !!opts.aksam && aksamHakki(S, id, t, opts, 'm'), aksamA = !!opts.aksam && aksamHakki(S, id, t, opts, 'art');
     const yaz = (h, not_, c, pkSay, aksamOk, kapisiz) => {
       const once = R(h, t);
       // istisna yalnız günün daha erken bir oturumunda (≥ 4 saat önce) yazılmış hafızaya: akşam ilk kez sorulup yanlış yapılan öğenin
       // aynı turdaki yeniden sorusu ikinci kez yazmasın (26.10, e2e_aksam)
       const ist = aksamOk && h && h.S && h.gun === g && h.aksam !== g && t - h.last >= 4 * SAAT;
       if (h && h.gun === g && !ist) return { h, r: { R: once, S: h.S, yazildi: false } };
-      const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || ist, pkSay, kapisiz });
+      // akşam istisnasında vade yalnız gerekiyorsa yarın 04:00 (bugün yeni: yeniGun; akşam cevabı ya da bugünkü kayıt yanlış / fast)
+      const kisa = ist && (not_ <= 2 || (h.lastG || 3) <= 2);
+      const n = guncelle(h, not_, t, ret, c, { yeniGun: yeniGun || kisa, pkSay, kapisiz });
       n.gun = g;
       if (ist) { n.aksam = g; out.aksam = true; }
       out.yazildi = true;
@@ -179,28 +194,31 @@
       let x;
       if (not.m === 4 && (not.etiketler || []).includes('yoklama') && !(it.m && it.m.S)) {
         // yoklama doğru: kolay başlangıç, pk=1 (kotaya sayılmaz)
+        // 8.11: yoklama ipucusuz yazmadır (B2) → bm 2, b 2 (önceden bm 0 kalıyordu: "zaten biliyorsun" denen kelime 7 gün sonra seçmeliye düşüyordu)
         const f = FSRS.review({}, 4, t, ret);
-        x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g }), r: { R: 0, S: f.S, yazildi: true } };
+        x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g, bm: 2, b: 2 }), r: { R: 0, S: f.S, yazildi: true } };
         out.yazildi = true;
-      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu, aksam);
+      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu, aksamM);
       const hOnce = it.m;
       it.m = x.h; out.m = x.r;
+      // etkin basamak (8.11): seçimin basamağı sorulan biçiminkini aşmaz; ipuçlu biçim (yaz0, bos0) seviye atlatmaz
+      const bB = BICIM_B[not.bicim], bEtkin = opts.b && bB ? Math.min(opts.b, bB) : opts.b, ipuclu = !!opts.ipucu || IPUCLU_BICIM.has(not.bicim);
       if (x.r.yazildi) {
         delete it.m.dogrula; delete it.yarim;
         // basamak kapısı: doğru ve ipucusuz cevap bm'yi o basamağa çıkarır; vade bm aralığını aşmaz
         const h = it.m;
         if (h.bm == null) h.bm = hOnce && hOnce.S ? bmBaslat(hOnce) : 0;
         // seviye yalnız tam doğru, ipucusuz ve itirazsız cevapla (26.10: yazım hatalı / küçük hatalı ya da itirazla kazanılan cevap seviye atlatmaz)
-        if (not.m >= 3 && not.ergebnis === 'richtig' && opts.b && !opts.ipucu && !opts.itiraz) h.bm = Math.max(h.bm, opts.b);
+        if (not.m >= 3 && not.ergebnis === 'richtig' && bEtkin && !ipuclu && !opts.itiraz) h.bm = Math.max(h.bm, bEtkin);
         // art arda doğru kalıcı yazım (zor soru kapısı): doğru ve ipucusuz +1, yanlış / fast (not < 3) 0, ipuçlu doğru değiştirmez
         h.ds = not.m < 3 ? 0 : opts.ipucu ? dsOf(hOnce) : dsOf(hOnce) + 1;
         if (not.m >= 2 && h.S) h.due = Math.max(t, Math.min(h.due, h.last + bmAralik(h, id) * DAY));
         // S4 (6.11): seçmeli doğrusu üretim kanıtı değil: pk 0 öğede vade en çok t + 3 gün (yazmada R 0,90 beklenip gerçek %53 idi)
         if (SECMELI.has(not.bicim) && (h.pk || 0) === 0 && h.S) h.due = Math.max(t, Math.min(h.due, t + SECMELI_VADE * DAY));
       }
-      if (opts.b) it.m.b = opts.b;
+      if (bEtkin) it.m.b = bEtkin;
     }
-    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksam, true); it.art = x.h; out.a = x.r; }
+    if (not.a != null && C.kind(id) === 'n' && !C.plOnly(id)) { const x = yaz(it.art, not.a, not.ca, false, aksamA, true); it.art = x.h; out.a = x.r; }
     if (not.k != null) {
       const bs = C.base(id), kk = S.kok = S.kok || {};
       const x = yaz(kk[bs] && kk[bs].S ? kk[bs] : null, not.k, not.ck);
@@ -336,7 +354,8 @@
       else if (it.art && it.art.S && it.art.due <= t) out.push({ id, tur: 'art', R: R(it.art, t), due: it.art.due });
     });
     Object.entries(S.kok || {}).forEach(([bs, k]) => {
-      if (!k.S || k.due > t || !k.ornek || (filtre && !filtre(k.ornek))) return;
+      // düzenli fiilin kökü sorulmaz (8.11: göçten / Partizip hatasından S.kok'a düşen beruhigen, rasieren, stellen … kök sorusu alıyordu)
+      if (!k.S || k.due > t || !k.ornek || (filtre && !filtre(k.ornek)) || C.duzenli(k.ornek)) return;
       out.push({ id: k.ornek, tur: 'kok', base: bs, R: R(k, t), due: k.due });
     });
     return out;
@@ -638,7 +657,8 @@
     //    S3 artOb: artikel hafızası vadeli isimde flaş yerine öbek içinde artikel (art.lapses ≥ 3 → hep, değilse %50; klavyesiz turda yok)
     const artSay = gecmis.filter(x => x.tur === 'art').length, kokSay = gecmis.filter(x => x.tur === 'kok').length;
     // zor soru turda en çok ZOR_TUR (tur ezici olmasın); klavyesiz turda yok
-    const zorOk = !o.klavyesiz && gecmis.filter(x => x.zor).length < ZOR_TUR;
+    // Zayıflar'da (o.zayif) zor soru yok (CLAUDE.md; 7.11 denetim: Zayıflar turunun ilk kartı "zor soru · ipucusuz" geliyordu)
+    const zorOk = !o.klavyesiz && !o.zayif && gecmis.filter(x => x.zor).length < ZOR_TUR;
     const derMi = id => ((C.byId[id] || {}).art || '') === 'der';
     const sirali = vad.slice().sort(vadSira);
     const artlar = sirali.filter(v => v.tur === 'art').sort((a, b) => (derMi(a.id) ? 1 : 0) - (derMi(b.id) ? 1 : 0) || vadSira(a, b));
@@ -676,7 +696,7 @@
     // 6b) yeni kök: günde en çok 2 (düzensiz fiil, formları görülmüş, m.S ≥ 2)
     if (!o.klavyesiz && kokSay < 1 && (gs.kok || 0) < 4 && (gs.kokYeni || 0) < 2) {
       const tanir = it => !!it && !(it.tanit && gun4(it.tanit) === gun4(t)) && (!!it.a1 || !!(it.m && it.m.S >= 2));
-      const yk = Object.entries(S.kok || {}).find(([, k]) => !k.S && k.ornek && tanir(S.items[k.ornek]) && !yakin(k.ornek) && (!o.filtre || o.filtre(k.ornek)));
+      const yk = Object.entries(S.kok || {}).find(([, k]) => !k.S && k.ornek && !C.duzenli(k.ornek) && tanir(S.items[k.ornek]) && !yakin(k.ornek) && (!o.filtre || o.filtre(k.ornek)));
       if (yk) return { tur: 'kok', kaynak: 'yeniKok', id: yk[1].ornek, base: yk[0], b: 0, bicim: 'kokSatz', R: 0 };
     }
     // 7) vadeli yoksa: kota varsa parti (kota kalmışsa turun ikinci partisi de olabilir); kuyrukta bekleyen soru varsa
@@ -936,6 +956,35 @@
   // xpToplam / seri.rekor / oyun.rekor en büyük; fehlTage birleşim, leech VEYA, seit en küçük; tageC cihaz başına (G-Counter),
   // tage[g] yalnız cihaz toplamı daha büyükse değişir (göç günü eski istemcinin saydığı cevaplar silinmez). normalize çağıran yapar.
   const SADE = ['iz', 'formGesehen', 'gelesen', 'kalipFav', 'aktSaetze', 'aktTexte', 'fiilMetin', 'kontrol'];
+  // cümle geçmişi (S.kontext[id]): eski düz metin / t'siz / t 0 kayıt → { s, t: KX_ESKI } (6.11: cümle geçmişi o gün başladı; 30 gün sayılır)
+  const KX_ESKI = Date.UTC(2026, 10, 6);
+  const kontextListe = a => (Array.isArray(a) ? a : a ? [a] : [])
+    .map(e => (typeof e === 'string' ? { s: e, t: KX_ESKI } : e && typeof e.s === 'string' && !(e.t > 0) ? Object.assign({}, e, { t: KX_ESKI }) : e))
+    .filter(e => e && typeof e.s === 'string');
+  // açılışta bir kez (idempotent): yerel cümle geçmişindeki eski kayıtlar KX_ESKI'ye; değişen öğe sayısı
+  function kontextOnar(S) {
+    let n = 0;
+    Object.entries((S && S.kontext) || {}).forEach(([id, a]) => {
+      if ((Array.isArray(a) ? a : [a]).some(e => typeof e === 'string' || (e && !(e.t > 0)))) { S.kontext[id] = kontextListe(a); n++; }
+    });
+    return n;
+  }
+  // gramer hayaletleri (8.11): çözülen hayalet (iki doğru) ya da takılan (leech) cihazında silinir; öbür cihazın eski kopyası birleştirmede
+  // geri gelmesin. Hayaletin son güncellemesi ≈ due − adım aralığı (1: 5 dk, 2: 1 gün, 3: 3 gün); anahtarı olmayan tarafın o teil'deki son
+  // cevabı (gram.konu[k].teil[t].son) bundan yeniyse hayalet o tarafta çözülmüş / silinmiştir → alınmaz. İki tarafta varsa yeni güncellenen.
+  const GH_ARA = { 1: 5 * 60000, 2: DAY, 3: 3 * DAY };
+  function ghostBirlestir(a, b) {
+    const ga = a.ghost || {}, gb = b.ghost || {}, out = {};
+    const guncel = h => (h && h.due ? h.due - (GH_ARA[h.adim] || 0) : 0);
+    const teilSon = (g, key) => { const i = key.indexOf(':'), k = key.slice(0, i), tl = key.slice(i + 1); return ((((g.konu || {})[k] || {}).teil || {})[tl] || {}).son || 0; };
+    new Set([...Object.keys(gb), ...Object.keys(ga)]).forEach(key => {
+      const x = ga[key], y = gb[key];
+      if (x && y) out[key] = guncel(x) >= guncel(y) ? x : y;
+      else if (x) { if (teilSon(b, key) <= guncel(x)) out[key] = x; }
+      else if (teilSon(a, key) <= guncel(y)) out[key] = y;
+    });
+    return out;
+  }
   const TOP_ALAN = ['n', 'richtig', 'fast', 'falsch', 'xp'];
   function birlestir(lok, uz) {
     if (!uz || typeof uz !== 'object') return lok;
@@ -985,25 +1034,31 @@
       const ta = a.tani || {}, tb = b.tani || {}, tk = Object.assign({}, tb.konu);
       Object.entries(ta.konu || {}).forEach(([id, k]) => { const o = tk[id]; tk[id] = !o || (k.t || 0) >= (o.t || 0) ? k : o; });
       const gun = a.gun && b.gun && a.gun.g === b.gun.g ? Object.assign({}, b.gun, a.gun, { set: Math.max(a.gun.set || 0, b.gun.set || 0), tani: Math.max(a.gun.tani || 0, b.gun.tani || 0) }) : (a.gun && b.gun ? (a.gun.g > b.gun.g ? a.gun : b.gun) : a.gun || b.gun);
-      m.gram = Object.assign({}, b, a, { konu, ghost: Object.assign({}, b.ghost, a.ghost) });
+      m.gram = Object.assign({}, b, a, { konu, ghost: ghostBirlestir(a, b) });
       if (a.tani || b.tani) m.gram.tani = Object.assign({}, tb, ta, { konu: tk, oturum: Math.max(ta.oturum || 0, tb.oturum || 0) });
       if (gun) m.gram.gun = gun;
     }
     // sprint: en son değiştirilen (zaman damgası z; yoksa uzaktaki: yeni cihazın varsayılanı Ayarlar'da kapatılmış sprinti açmasın)
     if (lok.sprint || uz.sprint) m.sprint = lok.sprint && uz.sprint ? ((lok.sprint.z || 0) > (uz.sprint.z || 0) ? lok.sprint : uz.sprint) : (uz.sprint || lok.sprint);
-    // Bilmediklerim: anahtar başına son "bilmiyorum" (son) daha yeni olan; aynıysa ilerlemesi (d) büyük olan; ilk görülme en eski
+    // Bilmediklerim: anahtar başına son "bilmiyorum" (son) ya da sonraki yanlış (y: d'yi sıfırlar, 8.11) daha yeni olan;
+    // aynıysa ilerlemesi (d) büyük olan; ilk görülme en eski
     if (lok.bilmedik || uz.bilmedik) {
-      const b = Object.assign({}, uz.bilmedik);
-      Object.entries(lok.bilmedik || {}).forEach(([k, a]) => { const o = b[k]; b[k] = !o ? a : Object.assign({}, (a.son || 0) > (o.son || 0) || ((a.son || 0) === (o.son || 0) && (a.d || 0) >= (o.d || 0)) ? a : o, { ilk: Math.min(a.ilk || Infinity, o.ilk || Infinity), n: Math.max(a.n || 0, o.n || 0) }); });
+      const b = Object.assign({}, uz.bilmedik), ev = x => Math.max(x.son || 0, x.y || 0);
+      Object.entries(lok.bilmedik || {}).forEach(([k, a]) => { const o = b[k]; b[k] = !o ? a : Object.assign({}, ev(a) > ev(o) || (ev(a) === ev(o) && (a.d || 0) >= (o.d || 0)) ? a : o, { ilk: Math.min(a.ilk || Infinity, o.ilk || Infinity), n: Math.max(a.n || 0, o.n || 0) }); });
       m.bilmedik = b;
     }
-    // 6.11: cümle geçmişi öğe başına birleşir ({ s, t }; eski düz metin t 0), son 24; duy-seç sayaçları kontrast başına büyük olan;
+    // 6.11: cümle geçmişi öğe başına birleşir ({ s, t }), son 24; duy-seç sayaçları kontrast başına büyük olan;
     // dinleme durumu (ve 7.11'de kaldırılan konuşmanın eski S.konus kaydı: dokunulmaz, yalnız taşınır) ve yazma ipucu türü anahtar başına (yerel önce)
+    // 8.11: eski düz metin ve t 0 kayıtlar KX_ESKI'de görülmüş sayılır (önceden t 0 olup "30 günde ≤ 2" sayımından düşüyordu: bringen cümlesi 9. kez);
+    // aynı (cümle, zaman) iki tarafta varsa bir kez, bir tarafta n kez varsa n kez (iki eski görülme bire inmesin)
     if (lok.kontext || uz.kontext) {
-      const kx = Object.assign({}, uz.kontext), liste = a => (Array.isArray(a) ? a : a ? [a] : []).map(e => (typeof e === 'string' ? { s: e, t: 0 } : e)).filter(e => e && typeof e.s === 'string');
+      const kx = Object.assign({}, uz.kontext);
+      Object.keys(kx).forEach(id => { kx[id] = kontextListe(kx[id]); });
       Object.entries(lok.kontext || {}).forEach(([id, a]) => {
-        const m = new Map(); liste(kx[id]).concat(liste(a)).forEach(e => { const k = e.s + '|' + e.t; if (!m.has(k)) m.set(k, e); });
-        kx[id] = [...m.values()].sort((x, y) => x.t - y.t).slice(-24);
+        const say = l => l.reduce((o, e) => { const k = e.s + '|' + e.t; o.set(k, (o.get(k) || []).concat(e)); return o; }, new Map());
+        const u = say(kontextListe(kx[id])), l = say(kontextListe(a)), out = [];
+        new Set([...u.keys(), ...l.keys()]).forEach(k => { const x = u.get(k) || [], y = l.get(k) || []; out.push(...(y.length >= x.length ? y : x)); });
+        kx[id] = out.sort((x, y) => x.t - y.t).slice(-24);
       });
       m.kontext = kx;
     }
@@ -1099,7 +1154,7 @@
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
     AKSAM, ilkCevap, aksamAdaylar, aksamUygun, aksamHakki,
-    goc, tageGoc, tageTuret, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin,
+    goc, tageGoc, tageTuret, v3Yetis, eskiTur, golge, yazabilir, birlestir, tahmin, KX_ESKI, kontextOnar, BICIM_B,
   };
   return api;
 });
