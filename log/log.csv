@@ -4038,3 +4038,7 @@
 2026-11-08 05:56:41;prod;w0344:prod;nass;ıslak;nass;richtig;nass;basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:6.5 | sek:2 | ipucu:0 | ipucu-tür:tr
 2026-11-08 05:57:10;duy;v185:duy-dikte;einkaufen;Wer ist diese Woche dran, für die WG einzukaufen?;Wer ist diese Woche dran, für die WG einzukaufen;richtig;Wer ist diese Woche dran, für die WG einzukaufen?;tür:dikte | hız:0.9 | tekrar:2 | sek:29
 2026-11-08 05:57:25;gram;g:tuerkisch-fallen:147;tuerkisch-fallen/zaman-de;am Wochenende / besuche / ich / meine Tante;am Wochenende besuche ich meine Tante;richtig;Am Wochenende besuche ich meine Tante.;tur:akis | tür:ordnen | z:2 | sek:12
+2026-11-08 05:57:41;wort;x1478:wort;das Frühjahr;ilkbahar;das Frühjahr;richtig;das Frühjahr;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.79 | S:5.7 | kurtarma | sek:15 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:57:57;wort;x1554:wort;die Solidarität;dayanışma;die Solidärität;fast;die Solidarität;basamak:B2 | bicim:yaz0 | not:m2 | R:0.79 | S:5.1 | umlaut | sek:12 | ipucu:0 | ipucu-tür:tr
+2026-11-08 05:58:00;art;n0536:art;der Himmel;wegen ___ Himmels [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.79 | S:10.0 | hâl:Gen | sek:3
+2026-11-08 05:58:02;hoer;hoer:z-s;heizen/heißen;heißen;heizen;falsch;heißen;cift:heizen/heißen | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
