@@ -4086,3 +4086,9 @@
 2026-11-08 06:04:11;art;n0991:art;der Respekt;Respekt;der;richtig;der Respekt;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:1.2 | sek:2
 2026-11-08 06:04:11;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:114 | dk:2 | yeni:0 | seviye+:2 | tekrar:8 | gram:2/2
 2026-11-08 06:04:22;prod;w0320:prod;mehrere;birkaç, birçok | Viele Wörter haben _____ Bedeutungen.;mehrere;richtig;mehrere;basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:7.1 | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 06:05:15;wort;x1575:wort;die Regierung;hükümet | … _____ will die Studiengebühren nicht erhöhen.;die Regierung;richtig;die Regierung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.92 | S:7.1 | sek:52 | ipucu:0 | ipucu-tür:trcumle
+2026-11-08 06:05:17;art;n1169:art;der Sturm;Sturm;der;richtig;der Sturm;basamak:A | bicim:artikel | not:a3 | R:0.91 | S:4.1 | sek:1
+2026-11-08 06:05:27;wort;n1307:wort;das Verhalten;davranış;das Verhaltnis;falsch;das Verhalten;basamak:B2 | bicim:yaz0 | not:m1 | R:0.91 | S:0.6 | düzeltti | kelime yanlış | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-08 06:05:31;duy;v399:duy-kelime;nennen;ses: nennen;adlandırmak, söylemek;richtig;adlandırmak, söylemek;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-08 06:06:10;gram;g:adjektiv:82;adjektiv/bestimmt;ich / finde / den / blauen / Rock / schöner / als / den / roten;ich finde den roten Rock schöner als den blauen;richtig;Ich finde den blauen Rock schöner als den roten.;tur:akis | tür:ordnen | z:3 | kelime sırası | groß/klein | öneri:falsch | sek:28
+2026-11-08 06:06:16;wort;n0286:wort;das Eis;buz;das Eis;richtig;das Eis;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.81 | S:8.9 | kurtarma | kapı:7g | sek:3 | ipucu:0 | ipucu-tür:tr
