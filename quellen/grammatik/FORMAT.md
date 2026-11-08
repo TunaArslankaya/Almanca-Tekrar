@@ -129,36 +129,44 @@ Denetim kuralları (build ve `pruef_grammatik.py`; hata build'i durdurur): 8 ala
 
 ## 7. Cevap kontrolü
 
-Karşılaştırmadan önce: baş/son boşluk ve çoklu boşluk atılır, sondaki `. ! ?` atılır, cümlenin ilk harfi küçük/büyük fark etmez.
+Karşılaştırmadan önce: baş/son boşluk ve çoklu boşluk atılır, sondaki `. ! ?` atılır, büyük/küçük harf fark etmez. Her yerde `ae/oe/ue/ss` = `ä/ö/ü/ß` (tam doğru).
 
 | sonuç | ne zaman |
 |---|---|
-| `richtig` | cevap alternatiflerden biriyle aynı |
-| `fast` | hedef yapı doğru, yalnız: büyük/küçük harf, umlaut/ß yerine `ae/oe/ue/ss`, eksik virgül, hedef dışı bir kelimede tek harf yazım hatası |
-| `falsch` | hedef yapı yanlış: kelime sırası, yardımcı fiil, çekim, zamir, bağlaç, hâl. `luecke`'de boşluğun içeriği dilbilgisel olarak farklıysa (`hat` ≠ `habe`) |
+| `richtig` | cevap alternatiflerden biriyle aynı; tam cümlede başka geçerli diziliş (Vorfeld, yan cümle önde), eksik virgül / nokta, büyük/küçük harf |
+| `fast` | hedef yapı doğru, yalnız: umlaut düşürme (`mude` → müde), tek kelimede yazım hatası (harf eksik / fazla / yer değiştirmiş: `Mnoaten`, `Aphoteke`; ek farkı değil), kaynaşmamış edat (`in dem` → `im`), hitap zamirinde büyük/küçük harf (`ihnen` ↔ `Ihnen`), zarf eksik / fazla (`noch`, `schon`), özne–fiil uyumu (`sind` → `ist`), konuşma dili (Genitiv yerine `von` + Dativ) |
+| `falsch` | hedef yapı yanlış: ek / çekim (`Dozent` ≠ `Dozenten`, `neu` ≠ `neue`), kelime sırası (sırayı sınayan teil'lerde; diğerlerinde yalnız sıra farkı, fiil yerindeyse `fast`), fiil yeri, yardımcı fiil, zamir, bağlaç, edat, hâl, eksik / yanlış kelime. Umlautsuz biçim başka bir dilbilgisel biçimse (`hatte` ↔ `hätte`, `wurde` ↔ `würde`, `fahrt` ↔ `fährt`, `alter` ↔ `älter`) etiket `umlaut (başka biçim)` |
+
+- Tam cümle (`umform`, `ceviri`, `ordnen`, `fehler` düzeltmesi): ana turdaki `G.cumleKontrol` (7.11; eskiden `G.pruefen`). Etiketler kelime düzeyinde; anlamsız cevapta yalnız `farklı cümle`.
+- `umform` yönergesi bir başlangıç istiyorsa (`„Gestern“ ile başlayarak yeniden kur`, `„Wegen“ ile başla`), cevap o kelimeyle başlamazsa (geçerli başka diziliş de olsa) `falsch` + `kelime sırası`.
+- Boşluk (`luecke`, `text`): cümle başındaki boşlukta harf büyüklüğü hiç sayılmaz.
 
 Yeni türler:
 
 | tür | richtig | fast | falsch |
 |---|---|---|---|
-| `ceviri` | `umform` gibi (`G.pruefen`, alternatifler) | yazım / umlaut / büyük harf | hedef yapı yanlış; alternatiflere uymazsa Tuna kendi notunu verebilir (`öneri:`) |
-| `text` | bütün boşluklar doğru | doğru (ya da küçük hatalı) boşluk oranı ≥ 0,5 | oran < 0,5 |
+| `ceviri` | `umform` gibi (`G.cumleKontrol`, alternatifler) | yukarıdaki küçük hatalar | hedef yapı yanlış |
+| `text` | bütün boşluklar doğru | doğru (ya da küçük hatalı) boşluk oranı ≥ 2/3 | oran < 2/3 (7.11; eskiden 0,5) |
 | `eslestir` | bütün eşler doğru | bir karışıklık (en çok 2 yanlış eş: iki eşin yer değiştirmesi) | daha fazlası |
 | `kategori` | bütün öğeler doğru grupta | 1 yanlış öğe | 2 ve üstü |
-| `dinle` | noktalama ve büyük/küçük harf yok sayılarak aynı | umlaut/ß yazımı; ya da tek kelimede tek harf (kelime ≥ 5 harf ve son iki harf aynı: çekim değil) | kısa kelimede fark (`das`/`dass`, `hab`/`habe`), sıra, eksik kelime |
+| `dinle` | noktalama ve büyük/küçük harf yok sayılarak aynı (`ae/oe/ue/ss` dahil) | umlaut düşürme; ya da tek kelimede tek harf (kelime ≥ 5 harf ve son iki harf aynı: çekim değil) | kısa kelimede fark (`das`/`dass`, `hab`/`habe`), sıra, eksik kelime |
+| `fehler` | hatalı kelimeye dokunmak (aralıkta doğru cümlede aynen kalan kelime sayılmaz: `einen neue` → yalnız `neue`; sıra / fazla kelime hatasında aralığın hepsi) | — | başka kelime, „Hata yok“ (hata varken), hata yokken dokunmak |
 
-- `umform`, `ceviri` ve uzun `ordnen` cevabı alternatiflere uymazsa sistem `falsch` önerir; Tuna kendi notunu verir (1/2/3, kural 8: not sonrası direkt sonraki soru). Not öneriden farklıysa `öneri:X` loglanır. "Sonuçlarıma bak"ta Claude bu satırları inceler; doğru olan yeni bir sıralamayı ilgili satırın cevabına alternatif olarak ekler.
-- Mevcut `js/grammatik.js` karşılaştırma yardımcıları (umlaut / büyük harf / yazım farkı) yeniden kullanılır.
+- **İtiraz** (kural 8, ana turdaki gibi): soru başına **bir** kez, düğmeyle. Yazarak cevap yanlış ama hedefe harf düzeyinde çok yakınsa (≤ 2 harf; 5 harften kısa hedefte ≤ 1) „yazım hatasıydı“ → `fast`; tam cümlede (`umform` / `ceviri` / `ordnen` / `fehler` düzeltmesi) `falsch` ya da `fast` ise „aslında doğru“ → `richtig`. „Bilmiyorum“dan sonra, tanı testinde ve seçmeli türlerde (`wahl`, seçenekli `luecke`, `eslestir`, `kategori`, `fehler` dokunma) itiraz yok. 1 / 2 / 3 tuşu notu değiştirmez (7.11; eskiden gizli öz-not). Sistemin ilk kararı `öneri:X` loglanır. "Sonuçlarıma bak"ta Claude bu satırları inceler; doğru olan yeni bir çeviri / sıralamayı ilgili satırın cevabına alternatif olarak ekler.
+- Yanlış / küçük hatada Devam 2,5 sn kilitli (gramer bölümü; tanı testinde yok; ana turdaki gramer sorusunda kilit uygulamanın).
+- Mevcut `js/grammatik.js` karşılaştırma yardımcıları (`cumleKontrol`, `yakin`) yeniden kullanılır.
 
 ## 8. Log (`log/log.csv`)
 
 | durum | modus | id | item | frage | antwort | ergebnis | loesung | notiz |
 |---|---|---|---|---|---|---|---|---|
-| alıştırma | `gram` | `g:weil-dass:7` | `weil-dass/perfekt` | gösterilen soru | yazdığı / seçtiği | `richtig` `fast` `falsch` | asıl cevap | `tür:luecke \| z:2 \| kelime sırası \| ghost:1 \| ipucu:1 \| öneri:falsch \| sek:12` |
+| alıştırma | `gram` | `g:weil-dass:7` | `weil-dass/perfekt` | gösterilen soru | yazdığı / seçtiği | `richtig` `fast` `falsch` | asıl cevap | `tür:luecke \| z:2 \| yazım \| ghost:1 \| ipucu:1 \| öneri:falsch \| sek:12` |
 | (yeni türler) | `gram` | `g:weil-dass:35` | | soru alanı (dinle: okunan cümle) | `text`: parçalar ` ; ` · `eslestir`: `sol → seçtiği sağ ;; …` · `kategori`: `grup: öğe, öğe ;; …` · `ceviri` / `dinle`: cümle | | antwort ile aynı biçimde (`eslestir`: `sol → doğru sağ ;; …`) | `tür:ceviri` … |
 | tanıtım | `gram` | `g:weil-dass` | konu | `tanıtım` | | `neu` | | `sek:N` (okuma süresi) |
 | set sonu | `gram` | `g:weil-dass` | konu | `tekrar` / `giriş` / `kontrast` | | `richtig`/`fast`/`falsch` (= set notu) | | `puan:2.5/3 \| teil:v-end,modal,vorn` |
 | takılma | `leech` | `g:weil-dass:vorn` | konu/teil | | | `takiliyor` | | |
+
+Notiz'deki hata etiketleri yalnız o cevabın gerçek hata türleridir (`yazım`, `umlaut`, `kaynaştırma`, `artikel/çekim`, `fiil yeri`, `umlaut (başka biçim)` …; `fehler` dokunmada `yanlış kelime seçildi` / `hatayı görmedi` / `cümle doğruydu`). `@teil` etiketi log'a yazılmaz (7.11; eskiden her yanlışa ekleniyordu); teil `item`'da.
 
 ## 9. Hafıza modeli
 
@@ -194,7 +202,7 @@ Bu yüzden teil başına hedef havuz ≥ 22 alıştırma (z1 ≥ 4, z2 ≥ 9, z3
 - **Zorluk**, konu kartının kararlılığına (S, gün) göre: S < 4 → z1–z2 (en az biri z2); 4 ≤ S < 21 → z2–z3 (en az biri z3); S ≥ 21 → en az ikisi z3 / üretim (`umform`, `fehler`, `ordnen`, yazarak `luecke`).
 - **Tür**: üç farklı tür (teil tercihinden önce gelir); en az biri yazarak (`ceviri`, `dinle`, `text`, `umform`, `ordnen`, `fehler`, seçeneksiz `luecke`); `eslestir` / `kategori` seçmeli sayılır ve sette bunlardan en çok 1. Giriş setinde de `eslestir` + `kategori` en çok 1.
 - **Alıştırma**: son 14 günde görülmemiş olan; hepsi görüldüyse en eski görülen. Kelimeleri (`kelimeler`) görülmüş olan alıştırma önce; görülmemiş kelime varsa altında anlamı gösterilir.
-- **Not**: richtig = 1, fast = 0,5, falsch = 0. Oran ≥ 0,8 → 3 (doğru); ≥ 0,5 → 2 (küçük hata); daha az → 1 (yanlış). FSRS set başına **bir kez** güncellenir.
+- **Not**: richtig = 1, fast = 0,5, falsch = 0. Oran ≥ 0,8 → 3 (doğru); ≥ 0,5 → 2 (küçük hata); daha az → 1 (yanlış). FSRS set başına **bir kez** güncellenir. Set notu 2 konu aralığını uzatmaz: yeni vade en çok önceki aralık kadar (7.11; 3/5 doğru set konuyu 31 gün sonraya atıyordu).
 
 ### 10.4 Hayalet (yanlışın kısa süreli dönüşü)
 Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana takvimden bağımsız olarak kısa aralıkla yeniden sorulur.
@@ -219,7 +227,7 @@ Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana t
 ### 10.7 B1 sprinti: tanı testi ve sprint sırası (28.10 → 9.11.2026)
 - `S.sprint = { hedef, son_yeni, acik }`. Sprint açık ve bugün < `hedef` iken: günde en çok **1** yeni konu (günün bloğu bitince isteğe bağlı +1; testten açılanlar sayılmaz), haftada 2 sınırı yok; `son_yeni`'den sonra yeni konu yok. Konu vadesi en çok max(2, %40 × hedefe kalan gün) (set sonunda kısaltılır).
 - **Sprint sırası** (`Gramer.SPRINT_SIRA`, yalnız var olan dosyalar): verbstellung, satzklammer-tekamolo, nebensatz-satzbau, weil-dass, negation, zweiteilig, konnektoren-deshalb-trotzdem, nominal-verbal, vergleich, es-korrelat, relativ, adjektiv, praep-verben, praep-nomen-adj, zu-infinitiv, damit-um-zu, passiv, konjunktiv2, genitiv, n-deklination, partizip-adj, perfekt, praeteritum, reflexiv, wortbildung; sonra kalanlar Goethe önemine göre. Sıradaki yeni konu = sırada testte `zayif` (test bittiyse denenmemiş de) ilk kapalı konu; testte `biliyor` olanlar atlanır. `@voraus` sprintte zorunlu değil.
-- **Tanı testi**: bütün konular (yeni dosyalar kendiliğinden girer), sprint sırasıyla. Konu başına uyarlamalı: 1 yazarak alıştırma (z2; seçeneksiz `luecke`, `umform`, `ceviri`, `ordnen`), doğruysa 2. (z3, başka teil). İkisi de ipucusuz `richtig` → `biliyor`, değilse `zayif`. Oturum ~25 madde, kaldığı yerden; "Bilmiyorum" var, itiraz / öz-not yok; cevaptan sonra doğrusu ve kural gösterilir.
+- **Tanı testi**: bütün konular (yeni dosyalar kendiliğinden girer), sprint sırasıyla. Konu başına uyarlamalı: 1 yazarak alıştırma (z2; seçeneksiz `luecke`, `umform`, `ceviri`, `ordnen`), doğruysa 2. (z3, başka teil). İkisi de ipucusuz `richtig` → `biliyor`, değilse `zayif`. Oturum ~25 madde, kaldığı yerden; "Bilmiyorum" var, itiraz / öz-not yok; cevaptan sonra doğrusu ve kural gösterilir. Yalnız konuyla ilgisiz küçük hata (etiketleri `yazım`, `umlaut`, `kaynaştırma`, `büyük/küçük harf`, zarf eksik / fazla) konuyu zayıf yapmaz.
 - Sonuç: `biliyor` → konu açılır, kart **kısa**: S ≤ 5, ilk tekrar 4–5 gün sonra (bedava seviye yok: uzun vade ancak tekrar setiyle). `zayif` → sprint sırasına; açık konuysa vadesi yarına çekilir. Yanlış teil'ler: açık konuda hemen hayalet, kapalı konuda konu açılıp giriş seti bitince hayalet (ertesi gün, adım 2).
 - **Günün bloğu** (`Gramer.blokBaslat`): test bitmediyse test oturumu; yoksa vadeli konuların karışık tekrarı (en çok 5 konu, vadesi en eski önce, araya en çok 3 hazır hayalet) → bugünün yeni konusu (tanıtım + giriş seti). `sprintDurum().bugunYapildi` = bugün bir test oturumu ya da en az bir set bitti.
 - Açılış göçü: kartı olmayan ve bir günden eski açılış (giriş seti yapılmamış) kapatılır (`yarim` sayacı); kartsız konu vadeli sayılmaz.
