@@ -10,6 +10,7 @@
 const D = require('./surucu');
 
 const fehler = [];
+const bilgi = {};   // hangi 7.11 denetimleri çalıştı (çıktıda)
 const hata = (ad, m) => { if (fehler.length < 60) fehler.push(`[${ad}] ${m}`); };
 const kucukler = (p, kok) => p.evaluate(kok => {
   const r = [];
@@ -91,8 +92,16 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   // ---- duy-bosluk ----
   if (!(await p.evaluate(() => window.__tekrar.sesAc('duy', 'bosluk')))) hata('bosluk', 'soru açılmadı');
   else {
-    const s = await p.evaluate(() => ({ id: window.__tekrar.aktuell.id, z: window.__tekrar.aktuell.soru.cevap(), bos: !!document.querySelector('#kart .bosluk'), inp: !!document.querySelector('#kart #cevap') }));
+    const s = await p.evaluate(() => ({ id: window.__tekrar.aktuell.id, z: window.__tekrar.aktuell.soru.cevap(), bos: !!document.querySelector('#kart .bosluk'), inp: !!document.querySelector('#kart #cevap'),
+      cal: (document.querySelector('#kart .dn-cal') || {}).innerText || '', n: window.__tekrar.S.log.length }));
     if (!s.bos || !s.inp) hata('bosluk', 'boşluk / girdi yok');
+    // dokunmatikte tuş ipucu gizli: yetim "/" kalmaz (7.11)
+    if (/\//.test(s.cal)) hata('dokunmatik', 'Dinle düğmesinde yetim metin: ' + JSON.stringify(s.cal));
+    // önceki sorudan taşan hızlı Enter (ilk ~600 ms) ve boş Enter soruyu yakmaz (7.11: sek:0 bilmiyorum)
+    await p.fill('#cevap', 'xyz'); await p.press('#cevap', 'Enter'); await p.waitForTimeout(60);
+    if (await p.evaluate(n => window.__tekrar.S.log.length !== n || !!window.__tekrar.aktuell.wartet, s.n)) hata('bosluk', 'soru açılır açılmaz gelen Enter cevapladı');
+    await p.fill('#cevap', ''); await p.waitForTimeout(650); await p.press('#cevap', 'Enter'); await p.waitForTimeout(80);
+    if (await p.evaluate(n => window.__tekrar.S.log.length !== n || !!window.__tekrar.aktuell.wartet, s.n)) hata('bosluk', 'boş Enter cevapladı (bilmiyorum)');
     await p.fill('#cevap', s.z); await p.press('#cevap', 'Enter'); await p.waitForTimeout(80);
     const l = await sonLog(p);
     if (!l || l.id !== s.id + ':duy-bosluk' || l.ergebnis !== 'richtig' || !/^tür:bosluk/.test(l.notiz)) hata('bosluk', JSON.stringify(l));
@@ -102,10 +111,29 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   if (!(await p.evaluate(() => window.__tekrar.sesAc('duy', 'dikte')))) hata('dikte', 'soru açılmadı');
   else {
     const z = await p.evaluate(() => window.__tekrar.aktuell.soru.cevap());
+    if (/\d/.test(z)) hata('dikte', 'rakamlı cümle seçildi: ' + z);
+    await p.waitForTimeout(650);
     await p.fill('#cevap', z); await p.keyboard.press('Enter'); await p.waitForTimeout(80);
     const l = await sonLog(p);
     if (!l || !/:duy-dikte$/.test(l.id) || l.ergebnis !== 'richtig') hata('dikte', JSON.stringify(l));
     await bekleTyp(p, 'sesTur', 4000);
+  }
+  // ---- duy-dikte: isimler küçük harfle → doğru, ama "büyük / küçük harf" söylenir ve kendiliğinden geçmez ----
+  for (let i = 0; i < 8; i++) {
+    if (!(await p.evaluate(() => window.__tekrar.sesAc('duy', 'dikte')))) break;
+    const z = await p.evaluate(() => window.__tekrar.aktuell.soru.cevap());
+    const w = z.split(/\s+/);
+    if (!w.slice(1).some(x => /^\p{Lu}/u.test(x) && !/^(Sie|Ihnen|Ihr|Ihre|Ihren|Ihrem|Ihrer)$/.test(x.replace(/[.,!?]/g, '')))) { await p.click('#kart [data-dn="bilmiyorum"]'); await p.waitForTimeout(100); await p.waitForTimeout(2500); await p.keyboard.press('Enter'); await bekleTyp(p, 'sesTur', 2000); continue; }
+    await p.waitForTimeout(650);
+    await p.fill('#cevap', z.toLowerCase()); await p.keyboard.press('Enter'); await p.waitForTimeout(80);
+    const l = await sonLog(p), harf = await p.evaluate(() => !!document.querySelector('#kart .dn-harf'));
+    bilgi.harf = harf;
+    if (!l || l.ergebnis !== 'richtig' || !/büyük\/küçük harf/.test(l.notiz)) hata('dikte harf', JSON.stringify(l));
+    if (!harf) hata('dikte harf', 'panelde büyük / küçük harf notu yok');
+    await p.waitForTimeout(1600);
+    if ((await typ(p)) !== 'sesTur') hata('dikte harf', 'notlu doğru cevaptan sonra kendiliğinden geçti');
+    await p.keyboard.press('Enter'); await bekleTyp(p, 'sesTur', 2000);
+    break;
   }
   let hal = false;
   for (let i = 0; i < 8 && !hal; i++) {
@@ -115,6 +143,7 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
     if (!m) { await p.click('#kart [data-dn="bilmiyorum"]'); await p.waitForTimeout(100); await p.keyboard.press('Enter'); await bekleTyp(p, 'sesTur', 2000); continue; }
     hal = true;
     const yanlis = z.replace(m[0], { den: 'dem', dem: 'den', einen: 'einem', einem: 'einen' }[m[0]]);
+    await p.waitForTimeout(650);
     await p.fill('#cevap', yanlis); await p.keyboard.press('Enter'); await p.waitForTimeout(80);
     const l = await sonLog(p);
     if (!l || l.ergebnis === 'richtig' || /yazım/.test(l.notiz) || !/artikel\/çekim/.test(l.notiz) || !/dikte:ek/.test(l.notiz)) hata('dikte hâl', JSON.stringify(l));
@@ -174,15 +203,25 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
       await p.click('.dn-mod-alt .btn.ana'); await p.waitForTimeout(80);   // → boşluklu metin
       const bl = await p.evaluate(() => Dinle.mod.blanks.map(b => b.form));
       if (!bl.length) hata('dinleme modu', 'boşluk yok');
+      const ids = await p.evaluate(() => Dinle.mod.blanks.map(b => b.id));
+      if (new Set(ids).size !== ids.length) hata('dinleme modu', 'aynı kelime iki kez boşluk: ' + bl.join(', '));
+      if (bl.some(f => /^(sich|der|die|das|den|dem)$/i.test(f))) hata('dinleme modu', 'işlev kelimesi boşluk: ' + bl.join(', '));
       const inp = await p.$$('#kart .u-luecke');
-      for (let i = 0; i < inp.length; i++) await inp[i].fill(i % 2 ? 'xxxyz' : bl[i]);
+      // 0. boşluk: yalnız harf büyüklüğü farklı → küçük hata (sarı + doğrusu); tek: yanlış; diğer çiftler doğru
+      const kucuk = f => (f.charAt(0) === f.charAt(0).toLowerCase() ? f.charAt(0).toUpperCase() : f.charAt(0).toLowerCase()) + f.slice(1);
+      for (let i = 0; i < inp.length; i++) await inp[i].fill(i % 2 ? 'xxxyz' : i === 0 ? kucuk(bl[i]) : bl[i]);
       await p.click('[data-dnm="kontrol"]'); await p.waitForTimeout(80);
       const pu = await p.evaluate(() => Dinle.mod.puan);
       if (pu.y !== bl.length || pu.x !== Math.ceil(bl.length / 2)) hata('dinleme modu', 'puan ' + JSON.stringify(pu));
+      const ilk = await p.evaluate(() => { const i = document.querySelector('#kart .u-luecke[data-dl="0"]'); return { yakin: i.classList.contains('dn-yakin'), ok: i.classList.contains('ok'), dogru: !!(i.nextElementSibling && i.nextElementSibling.classList.contains('u-dogru')), s: Dinle.mod.sonuc[0] }; });
+      if (ilk.s === 'fast' && (!ilk.yakin || ilk.ok || !ilk.dogru)) hata('dinleme modu', 'küçük hata yeşil / doğrusu yok ' + JSON.stringify(ilk));
+      if (ilk.s !== 'fast') hata('dinleme modu', 'harf büyüklüğü küçük hata sayılmadı ' + JSON.stringify(ilk));
+      bilgi.mod = ilk.s + '/' + bl.length;
       await p.click('[data-dnm="ileri"]'); await p.waitForTimeout(80);   // → metinle dinle
       const lw = await p.$('#kart #lesen-text .lw');
       if (lw) { await lw.click(); await p.waitForTimeout(60); if (await p.$eval('#lesen-wort', e => e.hidden)) hata('dinleme modu', 'kelimeye basınca anlam kutusu açılmadı'); }
       await p.click('[data-dnm="bitir"]'); await p.waitForTimeout(80);
+      if (/5 \/ 4/.test(await p.evaluate(() => document.querySelector('#kart .dn-mod .tur').innerText))) hata('dinleme modu', 'bitiş ekranında "5 / 4"');
       const l = await sonLog(p);
       if (!l || l.modus !== 'lesen' || l.id !== dw + ':dinle' || l.ergebnis !== 'gelesen' || !new RegExp(`^puan:${pu.x}/${pu.y} \\| hız:0.75`).test(l.notiz)) hata('dinleme modu', 'log ' + JSON.stringify(l));
       await p.click('[data-dnm="don"]'); await p.waitForTimeout(80);
@@ -238,9 +277,25 @@ async function bekleTyp(p, deg, ms) { for (let i = 0; i < (ms || 3000) / 60; i++
   await p.evaluate(() => window.__tekrar.starte('pruefung')); await p.waitForTimeout(150);
   const pr = await p.evaluate(() => document.querySelector('#kart').innerHTML);
   if (/data-p="sprechen"|Sprechen/.test(pr)) hata('konuşma', 'Prüfung\'da Sprechen kartı / taktiği var');
+  // ---- Prüfung Lesen Teil 3 (zu): "Jede Anzeige nur einmal" — seçilen ilan diğer maddelerde soluk (7.11) ----
+  await p.click('#kart [data-p="lesen-tam"]'); await p.waitForTimeout(150);
+  await p.click('#kart [data-p="teil"][data-teil="3"]').catch(() => hata('prüfung', 'Teil 3 sekmesi yok')); await p.waitForTimeout(120);
+  const zu = await p.evaluate(() => {
+    const b = [...document.querySelectorAll('#kart .gl-opt[data-v="a"]')];
+    if (b.length < 2) return null;
+    b[0].click();
+    const k0 = b[0].dataset.k, digerA = [...document.querySelectorAll('#kart .gl-opt[data-v="a"]')].filter(x => x.dataset.k !== k0);
+    const sifir = [...document.querySelectorAll('#kart .gl-opt[data-v="0"]')];
+    return { soluk: digerA.every(x => x.classList.contains('pr-kullanildi')), kendi: document.querySelector(`#kart .gl-opt[data-k="${k0}"][data-v="a"]`).classList.contains('pr-kullanildi'), sifir: sifir.some(x => x.classList.contains('pr-kullanildi')) };
+  });
+  bilgi.zu = !!zu;
+  if (!zu) hata('prüfung', 'Teil 3 seçenekleri yok');
+  else if (!zu.soluk || zu.kendi || zu.sifir) hata('prüfung', 'Teil 3 kullanılan ilan işareti ' + JSON.stringify(zu));
+  await p.evaluate(() => { if (window.Pruefung && Pruefung.reset) Pruefung.reset(); });
 
   if (p.hatalar.length) hata('sayfa', p.hatalar.slice(0, 5).join(' | '));
   await b.close();
   if (fehler.length) { console.log(fehler.join('\n')); console.log(`e2e_dinle: ${fehler.length} hata`); process.exit(1); }
+  console.log('7.11 denetimleri: ' + JSON.stringify(bilgi));
   console.log('e2e_dinle: dinleme duman testi geçti');
 })().catch(e => { console.error(e); process.exit(1); });

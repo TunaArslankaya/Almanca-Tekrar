@@ -65,6 +65,15 @@
     render(); tikBasla();
   }
   function sureDoldu() { if (ses && ses.ekran === 'lesen' && !Object.keys(ses.cevap).length) { tikDur(); api.toast('Süre doldu; hiç cevap yoktu, sınav kaydedilmedi.'); ses = { ekran: 'ana' }; render(); } else if (ses && ses.ekran === 'lesen') { ses.bitti = true; api.toast('Süre doldu: cevaplar değerlendiriliyor.'); lesenBitir(); } else if (ses && ses.ekran === 'schreiben') { api.toast('Süre doldu! Gönder.'); tikDur(); const t = el().querySelector('.pr-zaman'); if (t) t.textContent = '0:00'; } }
+  // Teil 3 (zu): "Jede Anzeige nur einmal" — başka maddede seçilmiş ilan soluk görünür (sınav kâğıdındaki gibi; seçmeyi engellemez). 0 (uygun ilan yok) birden çok kez olabilir.
+  const zuKullanilan = (L, i) => new Set(L.aufgaben.map((_, j) => (j !== i ? ses.cevap[L.id + ':' + j] : null)).filter(v => v && v !== '0'));
+  function zuIsaretle(L) {
+    if (!L || L.art !== 'zu') return;
+    L.aufgaben.forEach((_, i) => {
+      const k = L.id + ':' + i, kul = zuKullanilan(L, i), c = ses.cevap[k];
+      el().querySelectorAll(`.gl-opt[data-k="${k}"]`).forEach(b => b.classList.toggle('pr-kullanildi', kul.has(b.dataset.v) && c !== b.dataset.v));
+    });
+  }
   function renderLesen() {
     const teiller = [...new Set(ses.texte.map(x => +x.teil))];
     const texte = ses.texte.filter(x => +x.teil === ses.teil);
@@ -72,7 +81,7 @@
     const sekme = teiller.length > 1 ? `<div class="chips pr-teiller">${teiller.map(t => `<button class="chip${t === ses.teil ? ' aktif' : ''}" data-p="teil" data-teil="${t}" type="button">Teil ${t} <span class="soluk">${LESEN_DK[t]} dk</span></button>`).join('')}</div>` : '';
     const metin = texte.map(L => `<div class="pr-metin"><div class="soru">${esc(L.titel)}</div><div class="soluk">${esc(L.anweisung || '')}${L.beispiel ? `<br>Beispiel: ${esc(L.beispiel)}` : ''}</div>
       <div class="paket-text">${L.text.split('\n').map(par => `<p>${esc(par)}</p>`).join('')}</div>
-      <div class="gl-aufgaben">${L.aufgaben.map((a, i) => { const k = L.id + ':' + i, c = ses.cevap[k]; const opts = GL_OPT[L.art](a); return `<div class="gl-auf"><div><b>${a.n}</b> ${esc(a.s)}</div><div class="gl-opts">${opts.map(([v, t]) => `<button class="btn mini gl-opt${c === v ? ' secili' : ''}" data-p="cevap" data-k="${esc(k)}" data-v="${esc(v)}" type="button">${esc(t)}</button>`).join(L.art === 'abc' ? '<br>' : ' ')}</div></div>`; }).join('')}</div></div>`).join('');
+      <div class="gl-aufgaben">${L.aufgaben.map((a, i) => { const k = L.id + ':' + i, c = ses.cevap[k], kul = L.art === 'zu' ? zuKullanilan(L, i) : null; const opts = GL_OPT[L.art](a); return `<div class="gl-auf"><div><b>${a.n}</b> ${esc(a.s)}</div><div class="gl-opts">${opts.map(([v, t]) => `<button class="btn mini gl-opt${c === v ? ' secili' : ''}${kul && kul.has(v) && c !== v ? ' pr-kullanildi' : ''}" data-p="cevap" data-k="${esc(k)}" data-v="${esc(v)}" type="button">${esc(t)}</button>`).join(L.art === 'abc' ? '<br>' : ' ')}</div></div>`; }).join('')}</div></div>`).join('');
     el().innerHTML = `<div class="tur"><span class="yeni">lesen · ${ses.mod === 'mini' ? 'mini' : 'tam sınav'}</span><span>${cevaplanan}/${toplam} cevaplandı</span><span class="pr-zaman">${dk(Math.max(0, ses.bitis - now()))}</span></div>${sekme}${metin}
       <div class="sira pr-alt"><button class="btn ana devam-btn" data-p="lesen-bitir" type="button">${cevaplanan < toplam ? `Bitir (${toplam - cevaplanan} boş)` : 'Bitir ve puanla'}</button><button class="btn" data-p="iptal" type="button">Vazgeç</button></div>`;
   }
@@ -175,6 +184,7 @@
     else if (a === 'cevap') {
       ses.cevap[b.dataset.k] = b.dataset.v;
       b.parentElement.querySelectorAll('.gl-opt').forEach(x => x.classList.toggle('secili', x === b));
+      const kk = b.dataset.k, Lid = kk.slice(0, kk.lastIndexOf(':')); zuIsaretle(ses.texte.find(L => L.id === Lid));
       const n = ses.texte.reduce((x, L) => x + L.aufgaben.filter((_, i) => ses.cevap[L.id + ':' + i] != null).length, 0), top = ses.texte.reduce((x, L) => x + L.aufgaben.length, 0);
       const say = el().querySelector('.tur span:nth-child(2)'); if (say) say.textContent = `${n}/${top} cevaplandı`;
       const bt = el().querySelector('[data-p="lesen-bitir"]'); if (bt) bt.textContent = n < top ? `Bitir (${top - n} boş)` : 'Bitir ve puanla';
