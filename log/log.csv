@@ -4102,3 +4102,7 @@
 2026-11-08 06:07:38;prod;w0368:prod;nun;şimdi, işte;nun;richtig;nun;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:7.4 | sek:3 | ipucu:0 | ipucu-tür:tr
 2026-11-08 06:07:44;abr;v588:abr;verlassen;(bir yeri / birini) terk etmek;verlassen;richtig;verlassen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:7.4 | sek:6 | ipucu:0 | ipucu-tür:tr
 2026-11-08 06:07:47;art;n1389:art;der Wohnsitz;wegen ___ Wohnsitzes [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:3.7 | hâl:Gen | sek:3
+2026-11-09 18:20:54;abr;v420:abr;sich rasieren;tıraş olmak;sich rasieren;richtig;sich rasieren;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:97.8 | ısınma | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:21:02;wort;n1286:wort;die Unterschrift;imza;die unterschrift;fast;die Unterschrift;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:72.2 | ısınma | kısmi | yazım, büyük harf | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:21:06;nsatz;n0869:nsatz;die Operation;Mein Opa hat Angst vor der _____ nächste Woche.;Operation;richtig;Operation;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:87.0 | ısınma | sek:3 | ipucu:0
+2026-11-09 18:21:11;yeni;v571;verbieten;tanıtım;;neu;(birine bir şeyi) yasaklamak;basamak:B0 | bicim:tanit | not:- | parti | sek:5
