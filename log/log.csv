@@ -4106,3 +4106,33 @@
 2026-11-09 18:21:02;wort;n1286:wort;die Unterschrift;imza;die unterschrift;fast;die Unterschrift;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:72.2 | ısınma | kısmi | yazım, büyük harf | sek:6 | ipucu:0 | ipucu-tür:tr
 2026-11-09 18:21:06;nsatz;n0869:nsatz;die Operation;Mein Opa hat Angst vor der _____ nächste Woche.;Operation;richtig;Operation;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:87.0 | ısınma | sek:3 | ipucu:0
 2026-11-09 18:21:11;yeni;v571;verbieten;tanıtım;;neu;(birine bir şeyi) yasaklamak;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-09 18:21:16;yeni;w0057;bereits;tanıtım;;neu;zaten, çoktan;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-09 18:21:21;yeni;n0380;die Folge;tanıtım;;neu;"sonuç; bölüm (dizi)";basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-09 18:21:23;erk;w0057:erk;bereits;zaten, çoktan;bereits;richtig;bereits;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0011/w0368/w0118 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-09 18:21:25;bed;v571:bed;verbieten;(birine bir şeyi) yasaklamak;verbieten;richtig;verbieten;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v620/v610/v592 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-09 18:21:29;erk;n0380:erk;die Folge;sonuç;die Folge;richtig;die Folge;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0394/n1392/x1499 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-09 18:21:34;ayir;w0026~w0011;anwesend ~ allerdings;orada bulunan, hazır;anwesend;richtig;anwesend;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-09 18:21:49;prod;w0057:prod;bereits;zaten, çoktan;be;falsch;bereits;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | farklı | sek:12 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:21:52;abr;v571:abr;verbieten;(birine bir şeyi) yasaklamak;verbieten;richtig;verbieten (Dat, Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:21:58;wort;n0380:wort;die Folge;"sonuç; bölüm (dizi)";die folge;fast;die Folge;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | kısmi | yazım, büyük harf | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:22:07;gram;g:satzklammer-tekamolo:47;satzklammer-tekamolo/tekamolo;Ich fahre nach Hause morgen mit dem Bus.;morgen;falsch;Ich fahre morgen mit dem Bus nach Hause.;tur:akis | tür:fehler | z:2 | yanlış kelime seçildi | ghost:1 | sek:3
+2026-11-09 18:22:20;prod;w0057:prod;bereits;zaten, çoktan | Bitte melde dich bei Frau Kaiser. Sie hat _____ dreimal angerufen.;bereits;richtig;bereits;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | sek:13 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:22:20;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:2 | yanlış:2 | puan:82 | dk:2 | yeni:3 | seviye+:0 | tekrar:5 | gram:0/1
+2026-11-09 18:22:26;art;x1557:art;das Vorurteil;wegen ___ Vorurteils [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.46 | S:0.1 | hâl:Gen | sek:3
+2026-11-09 18:22:28;bed;v276:bed;führen;yönetmek;führen;richtig;führen;basamak:B1 | bicim:sec | not:m3 | R:0.70 | S:0.8 | şık:v243/v278/v215 | çeldirici:biçim/biçim/karışma | sek:2
+2026-11-09 18:22:40;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlassen;falsch;sich verlaufen;basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.2 | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:22:44;yeni;n0766;die Maschine;tanıtım;;neu;makine;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-09 18:22:53;erk;n0766:erk;die Maschine;makine;die Maschine;richtig;die Maschine;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1187/n0345/n0937 | çeldirici:biçim/biçim/konu | sek:2
+2026-11-09 18:23:00;ayir;v305~v169;hageln ~ donnern;dolu yağmak;hageln;richtig;hageln;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:5
+2026-11-09 18:23:18;gram;g:modalverben:118;modalverben/praeteritum;Ich kann gut schwimmen. → Präteritum;Ich konnte gut schwimmen;richtig;Ich konnte gut schwimmen.;tur:akis | tür:umform | z:2 | ghost:0 | sek:17
+2026-11-09 18:23:28;duy;x1548:duy-bosluk;die Fairness;Aus _____ hat die Lehrerin allen Kursteilnehmern mehr Zeit gegeben.;Fairness;richtig;Fairness;tür:bosluk | hız:0.9 | tekrar:1 | sek:10
+2026-11-09 18:23:34;wort;n0766:wort;die Maschine;makine;die Maschine;richtig;die Maschine;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:23:38;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek | Die Touristen _____ sich oft in der Altstadt.;sich verlaufen;richtig;sich verlaufen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:23:40;hoer;hoer:e-en;Seite/Seiten;Seiten;Seiten;richtig;Seiten;cift:Seite/Seiten | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-09 18:23:52;gram;g:es-korrelat:112;es-korrelat/wegfall;Dass du die Prüfung bestanden hast, ___ ___ toll. (finden · ich);"finde ; ich";richtig;"finde ; ich";tur:akis | tür:luecke | z:2 | ghost:0 | sek:11
+2026-11-09 18:23:58;prod;w0541:prod;wegen;yüzünden (+ Gen);deswegen;falsch;wegen;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | farklı | sek:3 | ipucu:2
+2026-11-09 18:23:58;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:99 | dk:2 | yeni:1 | seviye+:0 | tekrar:5 | gram:2/2
+2026-11-09 18:24:05;art;x1547:art;die Toleranz;mit ___ Toleranz [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.67 | S:0.5 | hâl:Dat | sek:6
+2026-11-09 18:24:19;prod;w0445:prod;sogar;hatta, bile;sonst;falsch;sogar;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | farklı | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:24:25;prod;w0388:prod;politisch;siyasi;die Politik;falsch;politisch;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | farklı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:24:34;yeni;n0186;die Botschaft;tanıtım;;neu;"büyükelçilik; mesaj";basamak:B0 | bicim:tanit | not:- | parti | sek:4
