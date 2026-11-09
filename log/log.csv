@@ -4136,3 +4136,28 @@
 2026-11-09 18:24:19;prod;w0445:prod;sogar;hatta, bile;sonst;falsch;sogar;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | farklı | sek:7 | ipucu:0 | ipucu-tür:tr
 2026-11-09 18:24:25;prod;w0388:prod;politisch;siyasi;die Politik;falsch;politisch;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | farklı | sek:3 | ipucu:0 | ipucu-tür:tr
 2026-11-09 18:24:34;yeni;n0186;die Botschaft;tanıtım;;neu;"büyükelçilik; mesaj";basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-09 18:24:37;erk;n0186:erk;die Botschaft;büyükelçilik;die Botschaft;richtig;die Botschaft;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0448/n0875/n1383 | çeldirici:konu/konu/biçim | sek:3
+2026-11-09 18:24:40;ayir;n0248~v169;der Donner ~ donnern;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-09 18:24:50;gram;g:reflexiv:8;reflexiv/dat;Kauf ___ doch einen neuen Mantel! (du);dich;falsch;dir;tur:akis | tür:luecke | z:2 | ghost:1 | sek:7
+2026-11-09 18:24:59;prod;w0445:prod;sogar;hatta, bile | Der Test war so leicht, dass _____ ich alles richtig hatte.;sogar;richtig;sogar;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:25:05;prod;w0388:prod;politisch;siyasi | Meine Großmutter war ihr ganzes Leben lang _____ aktiv.;politisch;richtig;politisch;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:25:14;wort;n0186:wort;die Botschaft;"büyükelçilik; mesaj";die Botenschaft;falsch;die Botschaft;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:25:33;duy;n0536:duy-dikte;der Himmel;Heute Nacht kann man viele Sterne am Himmel sehen.;Heute Nacht kann man viele sterne Himmel sehen;falsch;Heute Nacht kann man viele Sterne am Himmel sehen.;tür:dikte | hız:0.9 | tekrar:1 | edat | büyük/küçük harf | dikte:kelime | sek:19
+2026-11-09 18:25:52;gram;g:vergleich:87;vergleich/satz;der Film / war / nicht so lustig / wie / ich / gehofft / hatte;der Film war nicht so lustig wie ich gehofft hatte;richtig;Der Film war nicht so lustig, wie ich gehofft hatte.;tur:akis | tür:ordnen | z:2 | ghost:0 | sek:12
+2026-11-09 18:25:55;prod;w0541:prod;wegen;yüzünden (+ Gen);wegen;richtig;wegen;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
+2026-11-09 18:25:55;yeni;w0541;wegen;yoklama;wegen;bekannt;yüzünden (+ Gen);basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-09 18:25:57;prod;w0407:prod;rund;"yuvarlak; yaklaşık";rund;richtig;rund;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:2 | ipucu:2
+2026-11-09 18:25:57;yeni;w0407;rund;yoklama;rund;bekannt;"yuvarlak; yaklaşık";basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-09 18:26:01;prod;w0164:prod;fett;yağlı;fett;richtig;fett;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:2.6 | kurtarma | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:26:16;wort;n0186:wort;die Botschaft;"büyükelçilik; mesaj | Das Visum habe ich von … _____ bekommen.";botschaft;fast;die Botschaft;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:2.3 | tekrar:1 | kısmi | yazım, büyük harf, artikel eksik | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:26:16;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:1 | yanlış:5 | puan:102 | dk:2 | yeni:1 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-09 18:26:29;art;n0433:art;die Geduld;Langsam verliere ich ___ Geduld mit meinem Vermieter. [Nom/Akk];das;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.70 | S:0.1 | hâl:Nom/Akk | artikel das → die | sek:9
+2026-11-09 18:26:45;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi;die Wohnsitzamtlich;falsch;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | kelime yanlış | sek:9 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:26:45;leech;x1570;das Einwohnermeldeamt;adres kayıt dairesi;;takiliyor;;günler:2026-11-05,2026-11-06,2026-11-09
+2026-11-09 18:26:48;wort;n0926:wort;die Praxis;muayenehane;die Praxis;richtig;die Praxis;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.96 | S:89.8 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-09 18:26:54;yeni;v213;entwickeln;tanıtım;;neu;geliştirmek;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-11-09 18:27:01;bed;v213:bed;entwickeln;geliştirmek;entwickeln;richtig;entwickeln;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v378/v201/v317 | çeldirici:konu/biçim/konu | sek:2
+2026-11-09 18:27:06;duy;n1048:duy-kelime;der Schnee;ses: der Schnee;kar;richtig;kar;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-09 18:27:24;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi | Ich habe morgen einen Termin bei … _____.;Einwohneramt;falsch;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-09 18:27:33;gram;g:adjektiv:73;adjektiv/bestimmt;Ich nehme den ___ Mantel, er ist wärmer. (lang);langer;falsch;langen;tur:akis | tür:luecke | z:2 | ghost:1 | sek:7
+2026-11-09 18:27:38;abr;v213:abr;entwickeln;geliştirmek;entwickeln;richtig;entwickeln (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
