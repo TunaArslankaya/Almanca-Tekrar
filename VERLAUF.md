@@ -458,3 +458,7 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - Leech kancaları: drüben, Gewitter, Gleichberechtigung, der Service, eben, berichten über, der Supermarkt.
 - Günün içeriği: DW metinleri (Audi / KI) glossarındaki B1 kelimelerinden Goethe listesinde olanlar çoğunlukla yok (yalnız der Zoll, der Druck): +1 cümle her biri; yeni liste dışı kimlik eklenmedi.
 - Son incelenen log satırı: 2026-11-08 06:07:47 (art n1389).
+
+**2026-11-09 (gece işi, otomatik)** — Yeni log satırı yok (son satır 2026-11-08 06:07:47, zaten incelenmişti).
+- Günün içeriği: en yeni DW metni (KI / umdenken) glossarındaki kelimelerden (Einsatz, Anwendung, Mehrwert, definieren, eingeben, hinterfragen, effizient, anregen, umdenken, angewiesen) Goethe listesinde olan yok (Währung / einführen zaten eklenmişti); liste dışı kimlik eklenmedi.
+- Son incelenen log satırı: 2026-11-08 06:07:47 (art n1389).
