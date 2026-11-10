@@ -4200,3 +4200,33 @@
 2026-11-10 18:34:06;wort;n0301:wort;die Erde;"dünya; toprak";die Erde;richtig;die Erde;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
 2026-11-10 18:34:06;yeni;n0301;die Erde;yoklama;die Erde;bekannt;"dünya; toprak";basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
 2026-11-10 18:34:17;prod;w0586:prod;zuverlässig;güvenilir;zuferlässig;fast;zuverlässig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:1.9 | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:34:28;prod;w0504:prod;verantwortlich;sorumlu | Wer ist in der WG für den Müll _____?;verantworlich;fast;verantwortlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-10 18:34:28;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:7 | küçük:2 | yanlış:5 | puan:93 | dk:12 | yeni:0 | seviye+:0 | tekrar:9 | gram:1/2
+2026-11-10 18:34:30;art;x1575:art;die Regierung;Regierung;die;richtig;die Regierung;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:8.7 | sek:1
+2026-11-10 18:34:36;stamm;v148:stamm;bleiben;bleiben — Perfekt;geblieben;richtig;geblieben;basamak:K | bicim:kokSatz | not:k3 | R:0.72 | S:1.0 | kök:bleiben | sek:6
+2026-11-10 18:34:53;prod;w0109:prod;drüben;karşıda, öte tarafta;;falsch;drüben;basamak:B2 | bicim:yaz0 | not:m1 | R:0.72 | S:0.2 | düzeltti | sek:14 | ipucu:0 | ipucu-tür:tr | bilmiyorum
+2026-11-10 18:35:00;yeni;w0266;jedoch;tanıtım;;neu;ancak;basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-11-10 18:35:03;erk;w0266:erk;jedoch;ancak;jedoch;richtig;jedoch;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0102/w0264/w0265 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-10 18:35:06;ayir;v588~v590;verlassen ~ sich verlaufen;(bir yeri / birini) terk etmek;verlassen;richtig;verlassen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-10 18:35:15;gram;g:tuerkisch-fallen:61;tuerkisch-fallen/artikel;Der Diskussion war sehr interessant.;hata yok;falsch;Die Diskussion war sehr interessant.;tur:akis | tür:fehler | z:2 | hatayı görmedi | sek:5
+2026-11-10 18:35:19;duy;v564:duy-kelime;untersuchen;ses: untersuchen;muayene etmek, incelemek;richtig;muayene etmek, incelemek;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-10 18:35:28;prod;w0109:prod;drüben;karşıda, öte tarafta | Siehst du das Café da _____?;drüber;fast;drüben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-10 18:35:32;prod;w0266:prod;jedoch;ancak;jedoch;richtig;jedoch;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:35:35;hoer;hoer:kume;Pfund/Fund;Fund;Fund;richtig;Fund;cift:Pfund/Fund | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-10 18:36:02;gram;g:verbstellung:54;verbstellung/kontrast;Bugün hastayım, bu yüzden spora gitmiyorum.;Ich bin Krank, deshalb gehe ich heute nicht den Sport.;richtig;Ich bin heute krank, deshalb gehe ich nicht zum Sport.;tur:akis | tür:ceviri | z:2 | öneri:falsch | sek:18
+2026-11-10 18:36:16;abr;v278:abr;sich fürchten vor;(bir şeyden) korkmak | Viele Menschen _____ sich … Spinnen.;fürcten;falsch;sich fürchten vor (vor + Dat);basamak:B2 | bicim:yaz0 | not:m1 | R:0.73 | S:0.3 | kurtarma | düzeltti | edat, edat: vor + Dat | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-10 18:36:20;art;n0067:art;die Art;Art;der;falsch;die Art;basamak:A | bicim:artikel | not:a1 | R:0.89 | S:0.8 | artikel der → die | sek:1
+2026-11-10 18:36:26;wort;n1325:wort;der Vertrag;sözleşme;die Vertrag;fast;der Vertrag;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.96 | S:91.6 | artikel die → der | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:36:31;abr;v278:abr;sich fürchten vor;(bir şeyden) korkmak;sich fürchten vor;richtig;sich fürchten vor (vor + Dat);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:36:31;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:105 | dk:2 | yeni:1 | seviye+:0 | tekrar:9 | gram:1/2
+2026-11-10 18:36:33;art;x1550:art;die Gerechtigkeit;Gerechtigkeit;die;richtig;die Gerechtigkeit;basamak:A | bicim:artikel | not:a3 | R:0.88 | S:4.6 | sek:1
+2026-11-10 18:36:39;stamm;v642:stamm;sich wenden an;Ich habe mich an die Beratung _____.;gewendet;richtig;gewandt;basamak:K | bicim:kokSatz | not:k3 | R:0.72 | S:1.5 | kök:wenden | sek:5
+2026-11-10 18:36:47;prod;w0026:prod;anwesend;orada bulunan, hazır | Der damalige CDU/CSU-Fraktionschef Jens Spahn war bei diesem Parteitag _____.;anwesend;richtig;anwesend;basamak:B2 | bicim:yaz0 | not:m3 | R:0.73 | S:1.1 | sek:7 | ipucu:0 | ipucu-tür:decumle
+2026-11-10 18:36:53;art;x1478:art;das Frühjahr;Im Laufe ___ Frühjahrs werden die Tage länger. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.88 | S:3.3 | hâl:Gen | sek:6
+2026-11-10 18:36:58;duy;v242:duy-bosluk;essen;Weil die Mensa am Wochenende geschlossen ist, _____ ich samstags zu Hause.;esse;richtig;esse;tür:bosluk | hız:0.9 | tekrar:0 | sek:5
+2026-11-10 18:37:03;gram;g:vergleich:5;vergleich/als-wie;Mein Zimmer ist größer wie deins.;wie;richtig;Mein Zimmer ist größer als deins.;tur:akis | tür:fehler | z:2 | sek:4
+2026-11-10 18:37:06;prod;w0229:prod;heiß;sıcak;heiß;richtig;heiß;basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:2.4 | kurtarma | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:37:11;art;n0994:art;das Rezept;___ Rezept für den Kuchen habe ich von meiner Oma. [Nom/Akk];Das;richtig;Das;basamak:A | bicim:artOb | not:a3 | R:0.88 | S:1.3 | hâl:Nom/Akk | sek:4
+2026-11-10 18:37:31;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberichtigung;fast;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.73 | S:0.8 | kısmi | yazım | sek:11 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:37:33;hoer;hoer:uzun-kisa;schief/Schiff;Schiff;Schiff;richtig;Schiff;cift:schief/Schiff | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-10 18:37:41;gram;g:es-korrelat:60;es-korrelat/wetter;im Büro / ist / es / zu warm;es ist zu warm im Büro;richtig;Im Büro ist es zu warm.;tur:akis | tür:ordnen | z:2 | sek:6
