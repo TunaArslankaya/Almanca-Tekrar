@@ -462,3 +462,10 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 **2026-11-09 (gece işi, otomatik)** — Yeni log satırı yok (son satır 2026-11-08 06:07:47, zaten incelenmişti).
 - Günün içeriği: en yeni DW metni (KI / umdenken) glossarındaki kelimelerden (Einsatz, Anwendung, Mehrwert, definieren, eingeben, hinterfragen, effizient, anregen, umdenken, angewiesen) Goethe listesinde olan yok (Währung / einführen zaten eklenmişti); liste dışı kimlik eklenmedi.
 - Son incelenen log satırı: 2026-11-08 06:07:47 (art n1389).
+
+**2026-11-10 (gece işi, otomatik)** — 59 yeni log satırı (2026-11-09 18:20–18:27, 4 kısa tur).
+- Tek tek düzeltilen (feedback.js, 16): yazma/prod yanlışları (Unterschrift, Folge büyük harf; bereits „be“; sich verlassen ↔ verlaufen; deswegen ↔ wegen; sonst ↔ sogar; die Politik ↔ politisch; Botenschaft ↔ Botschaft; Einwohnermeldeamt ×2), gram (TeKaMoLo, reflexiv dir, adjektiv langen), artOb Geduld das → die, duy-dikte (Sterne / am).
+- Seçmeli (erk/bed/art/hoer/ayir/duy-kelime): yanlış yok. Yoklamada bilinen (wegen, rund): wegen ilk denemede deswegen yazıldı, sonra doğru. Leech: das Einwohnermeldeamt → kanca eklendi (≥3 cümlesi var). `bilmiyorum` etiketli satır yok, Cümle atölyesi satırı yok, itiraz (`öneri:`) yok.
+- `dikte:` türü: kelime ×1. `hoer`: Seite/Seiten doğru.
+- Günün içeriği: en yeni DW metni dünkü KI metni; glossarında Goethe B1 listesinde yeni kelime yok, içerik eklenmedi. Çalışılan kelimelerin cümleleri yeterli (≥5).
+- Son incelenen log satırı: 2026-11-09 18:27:38 (abr v213).

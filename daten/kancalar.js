@@ -62,4 +62,5 @@ window.KANCA = {
   w0117: "eben = az önce, işte tam öyle (Das ist es eben). eher = daha çok: 'er' ile biter, karşılaştırma gibi: Ich mag eher Krimis. İkisi karışıyor: eben = an, eher = tercih",
   v117: "berichten über → Bericht (rapor) ile aynı kök: rapor bir şeyin ÜBER'ine (hakkında) verilir; edat hep über + Akk",
   n1173: "der Supermarkt → Markt (der) son parça: pazaryeri mavi şemsiyeli tezgâh, süpermarket de der",
+  x1570: "das Einwohnermeldeamt → Einwohner + melde + Amt: taşınınca bir memur seni 'meldeyi' (bildirimi) deftere yazıyor; Amt (daire) das, hep son parça: das Amt = yeşil resmi dosya",
 };
