@@ -4196,3 +4196,7 @@
 2026-11-10 18:23:28;prod;w0504:prod;verantwortlich;sorumlu;ver;falsch;verantwortlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.72 | S:0.3 | kurtarma | düzeltti | farklı | sek:13 | ipucu:0 | ipucu-tür:tr
 2026-11-10 18:23:31;art;x1557:art;das Vorurteil;mit ___ Vorurteil [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.68 | S:0.3 | hâl:Dat | sek:3
 2026-11-10 18:23:35;hoer;hoer:uzun-kisa;spuken/spucken;spucken;spuken;falsch;spucken;cift:spuken/spucken | ses:Google Deutsch | dinleme:2 | sek:4 | kaynak:tur
+2026-11-10 18:34:01;gram;g:satzklammer-tekamolo:43;satzklammer-tekamolo/tekamolo;Yarın grev yüzünden üniversiteye bisikletle gidiyorum.;;falsch;Ich fahre morgen wegen des Streiks mit dem Fahrrad zur Uni.;tur:akis | tür:ceviri | z:2 | bilmiyorum | ghost:1 | sek:4
+2026-11-10 18:34:06;wort;n0301:wort;die Erde;"dünya; toprak";die Erde;richtig;die Erde;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
+2026-11-10 18:34:06;yeni;n0301;die Erde;yoklama;die Erde;bekannt;"dünya; toprak";basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-11-10 18:34:17;prod;w0586:prod;zuverlässig;güvenilir;zuferlässig;fast;zuverlässig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:1.9 | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:tr
