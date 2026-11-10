@@ -4177,3 +4177,22 @@
 2026-11-10 18:20:08;yeni;n0758;die Mannschaft;tanıtım;;neu;takım;basamak:B0 | bicim:tanit | not:- | parti | sek:4
 2026-11-10 18:20:12;erk;n0758:erk;die Mannschaft;takım;die Mannschaft;richtig;die Mannschaft;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:x1566/n0757/n0706 | çeldirici:biçim/biçim/biçim | sek:2
 2026-11-10 18:20:15;ayir;w0117~w0119;eben ~ eher;az önce;eben;richtig;eben;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-10 18:20:32;gram;g:reflexiv:40;reflexiv/dat;Ich sehe mir die Ausstellung an. → Perfekt;Ich habe mir die die Ausstellung angesehen;richtig;Ich habe mir die Ausstellung angesehen.;tur:akis | tür:umform | z:2 | ghost:2 | öneri:falsch | sek:11
+2026-11-10 18:20:35;duy;n1095:duy-bosluk;die Sonne;Ich habe zu lange in der _____ gelegen.;Sonne;richtig;Sonne;tür:bosluk | hız:0.9 | tekrar:0 | sek:4
+2026-11-10 18:20:45;wort;n0758:wort;die Mannschaft;takım;die Mannschaft;richtig;die Mannschaft;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:9 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:21:16;akt;diktat:x1550;dinle–yaz;Viele Menschen demonstrieren für mehr Gerechtigkeit.;Viele menschen demonstrieren für mehr Gerechtigkeit;richtig;Viele Menschen demonstrieren für mehr Gerechtigkeit.;
+2026-11-10 18:21:18;hoer;hoer:ei-ie;leiten/läuten;läuten;läuten;richtig;läuten;cift:leiten/läuten | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-10 18:21:59;gram;g:adjektiv:78;adjektiv/bestimmt;Die Kinder sind laut. Sie spielen im Hof. → Adjektiv;Die Kinder, die laut sind, spielen im Hof;richtig;Die lauten Kinder spielen im Hof.;tur:akis | tür:umform | z:3 | ghost:2 | öneri:falsch | sek:34
+2026-11-10 18:22:03;prod;w0533:prod;während;"sırasında (+ Gen); -iken";während;richtig;während;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
+2026-11-10 18:22:03;yeni;w0533;während;yoklama;während;bekannt;"sırasında (+ Gen); -iken";basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-10 18:22:03;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:1 | yanlış:0 | puan:119 | dk:2 | yeni:1 | seviye+:0 | tekrar:4 | gram:2/2
+2026-11-10 18:22:07;art;n0360:art;die Feuerwehr;Schnell! Rufen Sie ___ Feuerwehr! Die Nummer ist: 112. [Nom/Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.70 | S:0.9 | hâl:Nom/Akk | sek:4
+2026-11-10 18:22:13;prod;w0079:prod;dabei;"bu sırada; yanında | Hast du einen Stift _____?";dabei;richtig;dabei;basamak:B2 | bicim:yaz0 | not:m3 | R:0.70 | S:1.0 | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-10 18:22:17;prod;w0119:prod;eher;daha çok, daha ziyade | Ich trinke _____ Tee als Kaffee.;eher;richtig;eher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:0.8 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-10 18:22:28;art;n0433:art;die Geduld;Für diese Arbeit fehlt mir einfach ___ Geduld. [Nom/Akk];das;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.71 | S:0.1 | hâl:Nom/Akk | artikel das → die | sek:4
+2026-11-10 18:22:31;ayir;w0595~v177;eigen ~ sich eignen für;kendi (-ne ait);eigen;richtig;eigen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-10 18:22:34;gram;g:reflexiv:71;reflexiv/akk;Wir müssen ___ beeilen, sonst verpassen wir den Zug.;uns;richtig;uns;tur:akis | tür:luecke | z:2 | sek:3
+2026-11-10 18:23:04;duy;n1354:duy-dikte;die Wahrheit;Die Wahrheit ist, dass ich keine Lust auf die Party habe.;Die Wahrheit ist das ich keine Lust auf die Party habe;falsch;Die Wahrheit ist, dass ich keine Lust auf die Party habe.;tür:dikte | hız:0.9 | tekrar:3 | yanlış kelime | dikte:ek | sek:29
+2026-11-10 18:23:28;prod;w0504:prod;verantwortlich;sorumlu;ver;falsch;verantwortlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.72 | S:0.3 | kurtarma | düzeltti | farklı | sek:13 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:23:31;art;x1557:art;das Vorurteil;mit ___ Vorurteil [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.68 | S:0.3 | hâl:Dat | sek:3
+2026-11-10 18:23:35;hoer;hoer:uzun-kisa;spuken/spucken;spucken;spuken;falsch;spucken;cift:spuken/spucken | ses:Google Deutsch | dinleme:2 | sek:4 | kaynak:tur
