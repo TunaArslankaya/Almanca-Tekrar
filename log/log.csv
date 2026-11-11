@@ -4230,3 +4230,13 @@
 2026-11-10 18:37:31;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberichtigung;fast;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.73 | S:0.8 | kısmi | yazım | sek:11 | ipucu:0 | ipucu-tür:tr
 2026-11-10 18:37:33;hoer;hoer:uzun-kisa;schief/Schiff;Schiff;Schiff;richtig;Schiff;cift:schief/Schiff | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
 2026-11-10 18:37:41;gram;g:es-korrelat:60;es-korrelat/wetter;im Büro / ist / es / zu warm;es ist zu warm im Büro;richtig;Im Büro ist es zu warm.;tur:akis | tür:ordnen | z:2 | sek:6
+2026-11-10 18:38:14;abr;v642:abr;sich wenden an;Bir sorununuz varsa lütfen kuruma başvurun. | (birine) başvurmak;Wenn sie eine frage haben, bitte melden sie sich bei Amt.;falsch;sich wenden an (an + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.74 | S:0.2 | düzeltti | sek:24 | ipucu:2
+2026-11-10 18:38:20;prod;w0627:prod;übrig;artan, kalan;übrigs;fast;übrig;basamak:B2 | bicim:yaz0 | not:m2 | R:0.75 | S:3.0 | çekim | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:38:27;prod;w0625:prod;ehrenamtlich;gönüllü (karşılıksız);ehrenamtlich;richtig;ehrenamtlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:4.5 | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-10 18:38:42;abr;v642:abr;sich wenden an;(birine) başvurmak | Mit Fragen zu den Kosten _____ Sie sich bitte … das Sekretariat.;sich wenden an;richtig;sich wenden an (an + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:15 | ipucu:0 | ipucu-tür:trcumle
+2026-11-10 18:38:42;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:2 | yanlış:1 | puan:144 | dk:2 | yeni:0 | seviye+:0 | tekrar:11 | gram:2/2
+2026-11-11 20:25:21;wort;n0293:wort;die Energie;enerji;die Energie;richtig;die Energie;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:76.1 | ısınma | kapı:7g | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:25:31;prod;w0115:prod;durchschnittlich;ortalama;durchschnitlich;fast;durchschnittlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:61.5 | ısınma | kısmi | kapı:7g | yazım | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:25:36;satz;v030:satz;sich anmelden für;Hast du dich schon für den Sprachkurs _____?;angemeldet;richtig;angemeldet;basamak:B2 | bicim:bos0 | not:m3 | R:0.97 | S:60.6 | ısınma | kapı:7g | sek:5 | ipucu:0
+2026-11-11 20:25:42;wort;n0915:wort;der Politiker;politikacı;der Politiker;richtig;der Politiker;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:6 | ipucu:2
+2026-11-11 20:25:42;yeni;n0915;der Politiker;yoklama;der Politiker;bekannt;politikacı;basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
