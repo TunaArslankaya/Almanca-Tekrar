@@ -4256,3 +4256,30 @@
 2026-11-11 20:29:10;yeni;n0967;das Recht;tanıtım;;neu;"hak; hukuk";basamak:B0 | bicim:tanit | not:- | parti | sek:4
 2026-11-11 20:29:12;erk;n0967:erk;das Recht;hak;das Recht;richtig;das Recht;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1170/n0405/n0976 | çeldirici:biçim/biçim/biçim | sek:2
 2026-11-11 20:29:15;ayir;n0433~n0972;die Geduld ~ die Regel;sabır;die Geduld;richtig;die Geduld;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-11 20:29:20;gram;g:reflexiv:11;reflexiv/dat;Ich ziehe mich schnell die Jacke an.;mich;richtig;Ich ziehe mir schnell die Jacke an.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:5
+2026-11-11 20:29:23;duy;n0813:duy-kelime;die Mühe;ses: die Mühe;zahmet;richtig;zahmet;tür:kelime | hız:0.9 | tekrar:0 | sek:3
+2026-11-11 20:29:38;wort;n0967:wort;das Recht;"hak; hukuk";die Recht;fast;das Recht;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | artikel die → das | sek:11 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:29:50;prod;w0626:prod;bedürftig;muhtaç, yoksul;bedürfnis;falsch;bedürftig;basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.4 | kurtarma | düzeltti | farklı | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:29:54;hoer;hoer:vurgu;Ka·me·ra;KA·me·ra;KA·me·ra;richtig;KA·me·ra;cift:Ka·me·ra | ses:Google Deutsch | dinleme:1 | sek:4 | kaynak:tur
+2026-11-11 20:30:13;gram;g:adjektiv:80;adjektiv/bestimmt;Wie findest du das rote Kleid und den schwarze Rock?;schwarze → Wie findest du das rote Kleid und den schwarzen Rock?;richtig;Wie findest du das rote Kleid und den schwarzen Rock?;tur:akis | tür:fehler | z:3 | ghost:0 | sek:19
+2026-11-11 20:30:16;art;n0474:art;das Gewitter;Während ___ Gewitters sind wir im Café geblieben. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.79 | S:2.5 | hâl:Gen | sek:2
+2026-11-11 20:30:25;prod;w0626:prod;bedürftig;muhtaç, yoksul | Wer _____ ist, bekommt vom Staat Unterstützung.;bedürtig;fast;bedürftig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-11 20:30:25;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:2 | yanlış:2 | puan:106 | dk:2 | yeni:1 | seviye+:0 | tekrar:7 | gram:2/2
+2026-11-11 20:30:28;art;n0994:art;das Rezept;wegen ___ Rezepts [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.91 | S:1.9 | hâl:Gen | sek:2
+2026-11-11 20:30:39;prod;w0388:prod;politisch;siyasi | Gleichzeitig wissen sie aber, dass der Fall _____ heikel ist.;politsch;fast;politisch;basamak:B2 | bicim:yaz0 | not:m3 | R:0.71 | S:0.6 | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:decumle
+2026-11-11 20:31:07;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi | Die Meldebescheinigung bekommst du direkt bei … _____.;einwohnerbehörden;falsch;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | kelime yanlış | sek:21 | ipucu:0 | ipucu-tür:trcumle
+2026-11-11 20:31:13;art;n0524:art;die Heimat;mit ___ Heimat [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:9.9 | hâl:Dat | sek:6
+2026-11-11 20:31:19;ayir;w0344~w0209;nass ~ glatt;ıslak;glatt;falsch;nass;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-11 20:31:32;gram;g:reflexiv:19;reflexiv/perfekt;Wir ___ uns lange über das Problem ___. (sich unterhalten · Perfekt);"haben ; untergehaltet";falsch;"haben ; unterhalten";tur:akis | tür:luecke | z:2 | sek:9
+2026-11-11 20:31:39;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi;das Einwohnermeldeamt;richtig;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:31:48;wort;x1562:wort;das Ehrenamt;gönüllü (karşılıksız) görev;das ehrenamt;fast;das Ehrenamt;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.74 | S:3.0 | kurtarma | kısmi | yazım, büyük harf | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:31:54;art;n0746:art;die Luft;Luft;die;richtig;die Luft;basamak:A | bicim:artikel | not:a3 | R:0.89 | S:15.0 | sek:6
+2026-11-11 20:32:00;duy;n0236:duy-bosluk;der Dialekt;Ich verstehe dich besser, wenn du nicht _____ sprichst.;dialekt;richtig;Dialekt;tür:bosluk | hız:0.9 | tekrar:0 | büyük/küçük harf | sek:6
+2026-11-11 20:32:05;gram;g:tuerkisch-fallen:22;tuerkisch-fallen/v2;Ich weiß, dass du hast morgen keine Zeit.;hast;richtig;Ich weiß, dass du morgen keine Zeit hast.;tur:akis | tür:fehler | z:2 | sek:4
+2026-11-11 20:32:13;wort;n0448:wort;die Gemeinschaft;topluluk;die Gemeinschaft;richtig;die Gemeinschaft;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.73 | S:1.6 | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:32:13;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:7 | küçük:2 | yanlış:3 | puan:88 | dk:2 | yeni:0 | seviye+:0 | tekrar:9 | gram:1/2
+2026-11-11 20:32:18;art;n0121:art;das Bargeld;ohne ___ Bargeld [Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:12.3 | hâl:Akk | sek:3
+2026-11-11 20:32:22;prod;w0081:prod;dagegen;buna karşı | _____ geht die Kampagne „Recht gegen rechts“ vor – und zwar mithilfe des Markenrechts.;Dagegen;richtig;dagegen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.73 | S:2.7 | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-11 20:32:32;wort;n1307:wort;das Verhalten;davranış;das Verhaltnis;falsch;das Verhalten;basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.2 | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:32:32;leech;n1307;das Verhalten;davranış;;takiliyor;;günler:2026-11-06,2026-11-08,2026-11-11
+2026-11-11 20:32:35;art;n0360:art;die Feuerwehr;mit ___ Feuerwehr [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.88 | S:1.4 | hâl:Dat | sek:3
