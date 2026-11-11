@@ -4339,3 +4339,12 @@
 2026-11-11 20:39:07;gram;g:verbstellung:20;verbstellung/inversion;Maalesef bugün vaktim yok.;Heute habe ich leider keine Zeit;richtig;Leider habe ich heute keine Zeit.;tur:akis | tür:ceviri | z:2 | ghost:2 | sek:10
 2026-11-11 20:39:17;wort;n0076:wort;die Aufnahme;"kayıt (ses/video); kabul";die Ajhrwe;falsch;die Aufnahme;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.5 | kurtarma | düzeltti | kelime yanlış | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-11 20:39:17;leech;n0076;die Aufnahme;"kayıt (ses/video); kabul";;takiliyor;;günler:2026-10-29,2026-10-30,2026-11-11
+2026-11-11 20:39:23;duy;v687:duy-bosluk;ausbilden;Deutschland muss mehr Ärzte und Pflegekräfte _____.;ausbilden;richtig;ausbilden;tür:bosluk | hız:0.9 | tekrar:0 | sek:6
+2026-11-11 20:39:30;gram;g:vergleich:135;vergleich/nicht-so;Der Bus ist nicht so schnell ___ die Straßenbahn.;wie;richtig;wie;tur:akis | tür:luecke | z:2 | ghost:2 | sek:6
+2026-11-11 20:39:35;wort;x1559:wort;der Umgang;"(biriyle) ilişki; (bir şeyle) başa çıkma";die Umgang;fast;der Umgang;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.75 | S:1.5 | artikel die → der | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:39:56;wort;n1359:wort;die Wärme;sıcaklık | Neue Grünflächen würden wenig… _____ und mehr Wasser speichern.;weis;falsch;die Wärme;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.3 | düzeltti | kelime yanlış | sek:16 | ipucu:0 | ipucu-tür:decumle
+2026-11-11 20:39:56;leech;n1359;die Wärme;sıcaklık;;takiliyor;;günler:2026-11-06,2026-11-08,2026-11-11
+2026-11-11 20:40:15;wort;n0076:wort;die Aufnahme;"kayıt (ses/video); kabul | … _____ in die Schule dauert einige Wochen.";die A;falsch;die Aufnahme;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:16 | ipucu:0 | ipucu-tür:trcumle
+2026-11-11 20:40:15;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-11 20:40:19;wort;n1359:wort;die Wärme;sıcaklık;die Wärme;richtig;die Wärme;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:40:19;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:8 | küçük:2 | yanlış:5 | puan:106 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | gram:2/2
