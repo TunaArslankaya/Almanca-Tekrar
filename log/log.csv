@@ -4309,3 +4309,33 @@
 2026-11-11 20:35:53;wort;n0322:wort;die Erziehung;eğitim, terbiye | Zu … gut… _____ gehört auch, dass Kinder Grenzen kennen.;die Erziehung;richtig;die Erziehung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:11 | ipucu:0 | ipucu-tür:trcumle
 2026-11-11 20:35:55;abr;v572:abr;verbinden;"bağlamak; (yarayı) sarmak";verbinden;richtig;verbinden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
 2026-11-11 20:35:59;abr;v630:abr;wachsen;büyümek;wachsen;richtig;wachsen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:36:17;gram;g:satzklammer-tekamolo:19;satzklammer-tekamolo/vorfeld;Ich fahre mit dem Rad zur Uni. Das mache ich jeden Tag. → Jeden Tag …;Jeden Tag fahre ich mit dem Rad zur Uni.;richtig;Jeden Tag fahre ich mit dem Rad zur Uni.;tur:akis | tür:umform | z:2 | sek:18
+2026-11-11 20:36:20;prod;w0117:prod;eben;"az önce; işte";eben;richtig;eben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:2 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:36:20;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:0 | yanlış:3 | puan:96 | dk:2 | yeni:2 | seviye+:0 | tekrar:6 | gram:2/2
+2026-11-11 20:36:23;art;n1094:art;das Sonderangebot;mit ___ Sonderangebot [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.86 | S:7.0 | hâl:Dat | sek:2
+2026-11-11 20:36:35;wort;n0248:wort;der Donner;gök gürültüsü | Das hört man als laut… _____.;die Donner;fast;der Donner;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.74 | S:1.3 | artikel die → der | sek:10 | ipucu:0 | ipucu-tür:decumle
+2026-11-11 20:37:10;prod;w0095:prod;deutlich;açık, belirgin | Mit einem Namen kann man _____ machen, wen oder was man meint.;;falsch;deutlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.3 | düzeltti | sek:32 | ipucu:0 | ipucu-tür:decumle | bilmiyorum
+2026-11-11 20:37:10;leech;w0095;deutlich;açık, belirgin;;takiliyor;;günler:2026-11-06,2026-11-08,2026-11-11
+2026-11-11 20:37:18;yeni;v221;erhöhen;tanıtım;;neu;artırmak, yükseltmek;basamak:B0 | bicim:tanit | not:- | parti | sek:8
+2026-11-11 20:37:33;yeni;v226;erkennen;tanıtım;;neu;tanımak, fark etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:15
+2026-11-11 20:37:35;bed;v221:bed;erhöhen;artırmak, yükseltmek;erhöhen;richtig;erhöhen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v215/v220/v241 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-11 20:37:37;bed;v226:bed;erkennen;tanımak, fark etmek;erkennen;richtig;erkennen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v347/v399/v429 | çeldirici:biçim/biçim/biçim | sek:1
+2026-11-11 20:37:51;gram;g:reflexiv:53;reflexiv/perfekt;Sie verliebt sich in ihren Nachbarn. → Perfekt;Sie hat sich in ihren Nachbarn verliebt;richtig;Sie hat sich in ihren Nachbarn verliebt.;tur:akis | tür:umform | z:2 | ghost:2 | sek:13
+2026-11-11 20:37:55;duy;n0587:duy-kelime;die Kälte;ses: die Kälte;soğuk;richtig;soğuk;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-11 20:38:05;prod;w0095:prod;deutlich;açık, belirgin;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:38:09;abr;v221:abr;erhöhen;artırmak, yükseltmek;erhöhen;richtig;erhöhen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:38:13;abr;v226:abr;erkennen;tanımak, fark etmek;erkennen;richtig;erkennen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:38:25;gram;g:n-deklination:125;n-deklination/kontrast;Zum Geburtstag habe ich einen ___ und einen ___ eingeladen. (der Freund · der Kollege);"Freunden ; Kollegen";falsch;"Freund ; Kollegen";tur:akis | tür:luecke | z:2 | sek:10
+2026-11-11 20:38:28;hoer;hoer:er-e;Messe/Messer;Messer;Messer;richtig;Messer;cift:Messe/Messer | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-11 20:38:28;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:96 | dk:2 | yeni:2 | seviye+:0 | tekrar:4 | gram:1/2
+2026-11-11 20:38:31;art;n0914:art;die Politik;wegen ___ Politik [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.86 | S:5.8 | hâl:Gen | sek:2
+2026-11-11 20:38:39;stamm;v643:stamm;werden;Warum fährst du so schnell? Bist du verrückt _____?!;geworden;richtig;geworden;basamak:K | bicim:kokSatz | not:k3 | R:0.74 | S:2.5 | kök:werden | sek:8
+2026-11-11 20:38:44;prod;w0109:prod;drüben;karşıda, öte tarafta;drüber;fast;drüben;basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:0.3 | kısmi | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:38:49;art;n0682:art;die Kritik;mit ___ Kritik [Dat];dem;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.85 | S:2.0 | hâl:Dat | artikel dem → der | sek:2
+2026-11-11 20:38:49;leech;n0682;die Kritik;eleştiri;;takiliyor;;günler:2026-10-02,2026-10-03,2026-11-11
+2026-11-11 20:38:51;art;n0914:art;die Politik;Politik;die;richtig;die Politik;basamak:A | bicim:artikel | not:- | R:1.00 | S:5.8 | artset:-ik | hafıza:yazılmadı | sek:1
+2026-11-11 20:38:56;art;n0496:art;die Gymnastik;Gymnastik;das;falsch;die Gymnastik;basamak:A | bicim:artikel | not:a1 | R:0.42 | S:0.0 | artset:-ik | artikel das → die | sek:2
+2026-11-11 20:38:57;art;x1459:art;die Grammatik;Grammatik;die;richtig;die Grammatik;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:-ik | hafıza:yazılmadı | sek:1
+2026-11-11 20:39:07;gram;g:verbstellung:20;verbstellung/inversion;Maalesef bugün vaktim yok.;Heute habe ich leider keine Zeit;richtig;Leider habe ich heute keine Zeit.;tur:akis | tür:ceviri | z:2 | ghost:2 | sek:10
+2026-11-11 20:39:17;wort;n0076:wort;die Aufnahme;"kayıt (ses/video); kabul";die Ajhrwe;falsch;die Aufnahme;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.5 | kurtarma | düzeltti | kelime yanlış | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:39:17;leech;n0076;die Aufnahme;"kayıt (ses/video); kabul";;takiliyor;;günler:2026-10-29,2026-10-30,2026-11-11
