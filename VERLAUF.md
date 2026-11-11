@@ -469,3 +469,11 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - `dikte:` türü: kelime ×1. `hoer`: Seite/Seiten doğru.
 - Günün içeriği: en yeni DW metni dünkü KI metni; glossarında Goethe B1 listesinde yeni kelime yok, içerik eklenmedi. Çalışılan kelimelerin cümleleri yeterli (≥5).
 - Son incelenen log satırı: 2026-11-09 18:27:38 (abr v213).
+
+**2026-11-11 (gece işi, otomatik)** — 59 yeni log satırı (2026-11-10 18:19–18:37, 3 tur).
+- Tek tek düzeltilen (feedback.js, 16): Mahnung (fazla artikel), verantwortlich ×2 (ver / verantworlich), zuferlässig, Gleichberichtigung, die Vertrag → der, drüben (Bilmiyorum) + drüber, fürcten, gram (reflexiv:40, adjektiv:78, tuerkisch-fallen:61 „hata yok“, verbstellung:54, satzklammer-tekamolo:43 Bilmiyorum), duy-dikte (das / dass).
+- İtirazlar (`öneri:falsch`, 3): reflexiv:40 („die die“ yazım, haklı), adjektiv:78 (yan cümle gramer olarak doğru, ama istenen sıfat; kabul), verbstellung:54 (sistem cömert davrandı: „krank“ küçük, „zum Sport“ olmalı; itiraz bu cevap için haklı değil).
+- Seçmeli: hoer spuken/spucken yanlış (uzun-kısa), diğer hoer (leiten/läuten, Pfund/Fund, Schiff) doğru; art: der Art → die Art, artOb Geduld das → die (ikinci kez, tekrar izlenmeli). ayir hepsi doğru. `dikte:` türü: ek ×1 (dass).
+- Yoklamada bilinen (während, Erde): sonraki yazma yanlışı yok. Cümle atölyesi satırı yok, yeni leech yok.
+- Eklenenler: satzklammer-tekamolo / tekamolo teil'ine 4 çeviri alıştırması (Bilmiyorum için); sich fürchten vor +2 cümle (+gloss); DW Holocaust metninden Goethe listesindeki Generation, Vergangenheit, Erinnerung için 5 cümle (+gloss). drüben ve verantwortlich zaten ≥ 5 cümleli.
+- Son incelenen log satırı: 2026-11-10 18:37:41 (gram g:es-korrelat:60).

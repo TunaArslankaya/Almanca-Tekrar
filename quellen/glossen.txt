@@ -5173,3 +5173,10 @@ Am Flughafen muss man beim Zoll eine Kiste anmelden. | der Flughafen = havaliman
 Vor der Prüfung stehe ich immer unter Druck. | die Prüfung = sınav
 Die Nachrichten berichten heute über die Flut in Süddeutschland. | die Nachrichten = haberler; die Flut = sel, taşkın; Süddeutschland = Güney Almanya
 Unsere Lehrerin berichtet im Unterricht oft über ihre Reisen. | die Lehrerin = öğretmen (kadın); der Unterricht = ders; die Reise = yolculuk
+Mein kleiner Bruder fürchtet sich vor dem Gewitter. | das Gewitter = fırtına (gök gürültülü)
+Ich fürchte mich vor dem Zahnarzt, aber ich gehe trotzdem hin. | der Zahnarzt = diş hekimi; trotzdem = yine de; hingehen = gitmek
+Die jüngere Generation nutzt das Internet jeden Tag. | jünger = daha genç; nutzen = kullanmak; das Internet = internet
+Meine Großeltern gehören zu einer anderen Generation als ich. | die Großeltern = büyükanne ve büyükbaba; gehören zu = -e ait olmak
+Über die Vergangenheit meines Landes habe ich viel gelesen. | das Land = ülke; lesen = okumak
+Mein Großvater erzählt gern von der Vergangenheit. | der Großvater = büyükbaba; erzählen = anlatmak
+Die Erinnerung an meine Kindheit macht mich froh. | die Kindheit = çocukluk; froh = mutlu

@@ -3519,3 +3519,8 @@ w0515 | verwandt | Mein Cousin und ich sind eng verwandt. | Kuzenimle ben yakın
 w0515 | verwandt | Ich bin mit dem neuen Nachbarn nicht verwandt. | Yeni komşuyla akraba değilim.
 n1428 | der Zoll | Am Flughafen muss man beim Zoll eine Kiste anmelden. | Havalimanında gümrükte bir kolinin bildirilmesi gerekir.
 n0255 | der Druck | Vor der Prüfung stehe ich immer unter Druck. | Sınavdan önce hep baskı altındayım.
+n0450 | die Generation | Die jüngere Generation nutzt das Internet jeden Tag. | Genç kuşak interneti her gün kullanıyor.
+n0450 | die Generation | Meine Großeltern gehören zu einer anderen Generation als ich. | Büyükanne ve büyükbabam benden başka bir kuşaktan.
+n1304 | die Vergangenheit | Über die Vergangenheit meines Landes habe ich viel gelesen. | Ülkemin geçmişi hakkında çok okudum.
+n1304 | die Vergangenheit | Mein Großvater erzählt gern von der Vergangenheit. | Büyükbabam geçmişten anlatmayı sever.
+n0310 | die Erinnerung | Die Erinnerung an meine Kindheit macht mich froh. | Çocukluğumun anısı beni mutlu ediyor.
