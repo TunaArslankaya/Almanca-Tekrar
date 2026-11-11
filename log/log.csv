@@ -4240,3 +4240,19 @@
 2026-11-11 20:25:36;satz;v030:satz;sich anmelden für;Hast du dich schon für den Sprachkurs _____?;angemeldet;richtig;angemeldet;basamak:B2 | bicim:bos0 | not:m3 | R:0.97 | S:60.6 | ısınma | kapı:7g | sek:5 | ipucu:0
 2026-11-11 20:25:42;wort;n0915:wort;der Politiker;politikacı;der Politiker;richtig;der Politiker;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:6 | ipucu:2
 2026-11-11 20:25:42;yeni;n0915;der Politiker;yoklama;der Politiker;bekannt;politikacı;basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-11-11 20:25:47;yeni;n1142;die Stimme;tanıtım;;neu;"ses; oy";basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-11 20:26:38;erk;n1142:erk;die Stimme;ses;die Stimme;richtig;die Stimme;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1143/n1140/n1139 | çeldirici:biçim/biçim/biçim | sek:50
+2026-11-11 20:26:40;ayir;w0479~w0165;trocken ~ feucht;kuru;trocken;richtig;trocken;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-11 20:26:51;gram;g:satzklammer-tekamolo:45;satzklammer-tekamolo/tekamolo;Ich fahre ___ ___ zu meinen Eltern. (mit dem Zug · am Wochenende);"am Wochenende ; mit dem Zug";richtig;"am Wochenende ; mit dem Zug";tur:akis | tür:luecke | z:2 | ghost:2 | sek:11
+2026-11-11 20:27:14;duy;v317:duy-dikte;herstellen;In dieser Fabrik werden Autoteile hergestellt.;In dieser Fabric werden auto hergestellt;falsch;In dieser Fabrik werden Autoteile hergestellt.;tür:dikte | hız:0.9 | tekrar:2 | yazım | yanlış kelime | dikte:yazım,kelime | sek:22
+2026-11-11 20:27:25;wort;n1142:wort;die Stimme;"ses; oy";die Stimme;richtig;die Stimme;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:28:02;akt;diktat:x1559;dinle–yaz;Der Umgang mit Behörden ist für viele ausländische Studenten am Anfang schwierig.;Der umgang mit behörden ist für viele auslandische studenten am anfang sehr schwerig;fast;Der Umgang mit Behörden ist für viele ausländische Studenten am Anfang schwierig.;yazım | umlaut | fazla kelime | büyük/küçük harf | dikte:yazım,kelime
+2026-11-11 20:28:28;hoer;hoer:z-s;zieht/sieht;zieht;sieht;falsch;zieht;cift:zieht/sieht | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-11 20:28:40;gram;g:tuerkisch-fallen:63;tuerkisch-fallen/artikel;Für den Antrag brauche ich noch ___ Unterschrift von meinem Vermieter. (ein);eine;richtig;eine;tur:akis | tür:luecke | z:2 | ghost:2 | sek:9
+2026-11-11 20:28:40;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:2 | yanlış:2 | puan:101 | dk:3 | yeni:1 | seviye+:0 | tekrar:4 | gram:2/2
+2026-11-11 20:28:57;art;n0433:art;die Geduld;Langsam verliere ich ___ Geduld mit meinem Vermieter. [Nom/Akk];mein;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.64 | S:0.0 | hâl:Nom/Akk | artikel mein → die | sek:8
+2026-11-11 20:29:01;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.70 | S:0.6 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-11 20:29:05;prod;w0445:prod;sogar;hatta, bile | Solche Freundschaften dauern manchmal sehr lange an, vielleicht _____ ein ganzes Leben lang.;sogar;richtig;sogar;basamak:B2 | bicim:yaz0 | not:m3 | R:0.71 | S:0.9 | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-11 20:29:10;yeni;n0967;das Recht;tanıtım;;neu;"hak; hukuk";basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-11 20:29:12;erk;n0967:erk;das Recht;hak;das Recht;richtig;das Recht;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1170/n0405/n0976 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-11 20:29:15;ayir;n0433~n0972;die Geduld ~ die Regel;sabır;die Geduld;richtig;die Geduld;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
