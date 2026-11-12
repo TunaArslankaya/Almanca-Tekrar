@@ -4421,3 +4421,20 @@
 2026-11-12 10:53:53;hoer;hoer:kume;Glas/Gas;Gas;Gas;richtig;Gas;cift:Glas/Gas | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
 2026-11-12 10:53:53;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:96 | dk:2 | yeni:2 | seviye+:0 | tekrar:4 | gram:1/2
 2026-11-12 10:54:04;art;n1082:art;der Service;Ich war mit ___ Service in der Werkstatt nicht zufrieden. [Dat];fer;falsch;dem;basamak:A | bicim:artOb | not:a1 | R:0.58 | S:0.1 | hâl:Dat | artikel fer → dem | sek:4
+2026-11-12 10:54:17;prod;w0170:prod;fließend;akıcı;fleßig;falsch;fließend;basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.5 | düzeltti | farklı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:54:18;leech;w0170;fließend;akıcı;;takiliyor;;günler:2026-10-19,2026-11-05,2026-11-12
+2026-11-12 10:54:20;bed;v572:bed;verbinden;verbinden;bağlamak;richtig;bağlamak;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:4.3 | şık:v575/v584/v571 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-12 10:54:30;art;n1173:art;der Supermarkt;___ Supermarkt an der Ecke hat bis 22 Uhr geöffnet. [Nom];Das;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.63 | S:0.1 | hâl:Nom | artikel das → der | sek:6
+2026-11-12 10:54:31;art;n0764:art;der Markt;Markt;der;richtig;der Markt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | sek:1
+2026-11-12 10:54:33;art;n0372:art;der Flohmarkt;Flohmarkt;der;richtig;der Flohmarkt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | sek:1
+2026-11-12 10:54:41;gram;g:pronomen:73;pronomen/man;Das weiß Mann doch!;Mann;richtig;Das weiß man doch!;tur:akis | tür:fehler | z:2 | sek:6
+2026-11-12 10:54:52;prod;w0170:prod;fließend;akıcı | Mein Kollege spricht _____ Deutsch.;fließend;richtig;fließend;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:55:03;wort;n1044:wort;der Schmerz;ağrı;der schmerz;fast;der Schmerz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.78 | S:3.3 | kurtarma | kısmi | yazım, büyük harf | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:06;duy;n1286:duy-kelime;die Unterschrift;ses: die Unterschrift;imza;richtig;imza;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-12 10:55:15;gram;g:reflexiv:146;reflexiv/anlam;Ich habe mir lange überlegt, ob ich nach Bremen ziehen soll.;hata yok;richtig;Ich habe mir lange überlegt, ob ich nach Bremen ziehen soll.;tur:akis | tür:fehler | z:2 | sek:7
+2026-11-12 10:55:21;abr;v305:abr;hageln;dolu yağmak;donnern;falsch;hageln;basamak:B2 | bicim:yaz | not:m1 | R:0.78 | S:0.6 | zor | düzeltti | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-12 10:55:21;leech;v305;hageln;dolu yağmak;;takiliyor;;günler:2026-10-08,2026-11-04,2026-11-12
+2026-11-12 10:55:25;abr;v545:abr;übertreiben;abartmak;übertreiben;richtig;übertreiben (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:5.3 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:31;wort;n1028:wort;der Schatten;gölge;der Schatz;fast;der Schatten;basamak:B2 | bicim:yaz0 | not:m2,a3 | R:0.78 | S:2.8 | çekim | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:37;abr;v305:abr;hageln;dolu yağmak | Bei Gewitter kann es auch _____.;hageln;richtig;hageln;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:55:37;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:105 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | gram:2/2
