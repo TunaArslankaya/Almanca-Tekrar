@@ -4348,3 +4348,33 @@
 2026-11-11 20:40:15;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
 2026-11-11 20:40:19;wort;n1359:wort;die Wärme;sıcaklık;die Wärme;richtig;die Wärme;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:3 | ipucu:0 | ipucu-tür:tr
 2026-11-11 20:40:19;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:8 | küçük:2 | yanlış:5 | puan:106 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | gram:2/2
+2026-11-12 10:44:55;wort;n0617:wort;die Kindheit;çocukluk;die Kindheit;richtig;die Kindheit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.97 | S:58.7 | ısınma | kapı:7g | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:44:58;bed;v226:bed;erkennen;tanımak, fark etmek;erkennen;richtig;erkennen;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:3.0 | ısınma | şık:v399/v429/v347 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-12 10:45:02;bed;v221:bed;erhöhen;Die Temperatur unseres Körpers erhöht sich dabei nicht so sehr an Armen und Beinen, sondern mehr an Bauch, Brust und Kopf.;artırmak, yükseltmek;richtig;artırmak, yükseltmek;basamak:B1 | bicim:metinde | not:m3 | R:0.97 | S:4.2 | ısınma | şık:v233/v241/v220 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-12 10:45:11;wort;n0688:wort;die Kultur;kültür;das Kultur;fast;die Kultur;basamak:B2 | bicim:yoklama | not:m4,a1 | R:0.00 | S:8.3 | yoklama | artikel das → die | sek:6 | ipucu:2
+2026-11-12 10:45:11;yeni;n0688;die Kultur;yoklama;das Kultur;bekannt;kültür;basamak:B2 | bicim:yoklama | not:m4,a1 | yoklama | artikel das → die
+2026-11-12 10:45:19;yeni;v191;einsetzen;tanıtım;;neu;kullanmak, devreye sokmak;basamak:B0 | bicim:tanit | not:- | parti | sek:8
+2026-11-12 10:45:21;bed;v191:bed;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:v184/v190/v195 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-12 10:45:23;ayir;w0011~w0026;allerdings ~ anwesend;ancak, gerçi;allerdings;richtig;allerdings;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-12 10:45:29;gram;g:n-deklination:29;n-deklination/kontrast;Ich habe dem Lehrer eine Frage gestellt.;hata yok;richtig;Ich habe dem Lehrer eine Frage gestellt.;tur:akis | tür:fehler | z:2 | ghost:2 | sek:5
+2026-11-12 10:46:01;duy;n0381:duy-dikte;die Forderung;Wenn die Firma die Forderungen nicht erfüllt, wollen die Mitarbeiter streiken.;Wenn die Firma die Forderungen nicht erfühlt, wollen die Mitarbeiter streiten.;falsch;Wenn die Firma die Forderungen nicht erfüllt, wollen die Mitarbeiter streiken.;tür:dikte | hız:0.9 | tekrar:2 | yazım | yanlış kelime | dikte:yazım,kelime | sek:32
+2026-11-12 10:46:07;abr;v191:abr;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:46:18;akt;diktat:w0108;dinle–yaz;Drinnen ist es warm, draußen ist es kalt.;Drinen ist es warm, drüben ist es kalt;falsch;Drinnen ist es warm, draußen ist es kalt.;yazım | yanlış kelime | dikte:yazım,kelime
+2026-11-12 10:46:23;hoer;hoer:e-en;Tante/Tanten;Tanten;Tanten;richtig;Tanten;cift:Tante/Tanten | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-12 10:46:34;gram;g:reflexiv:115;reflexiv/praep;Meine Schwester hat sich in einen Kollegen verliebt.;hata yok;richtig;Meine Schwester hat sich in einen Kollegen verliebt.;tur:akis | tür:fehler | z:2 | sek:10
+2026-11-12 10:46:34;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:90 | dk:2 | yeni:1 | seviye+:0 | tekrar:4 | gram:2/2
+2026-11-12 10:46:39;art;n0433:art;die Geduld;mit ___ Geduld [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.65 | S:0.2 | hâl:Dat | sek:3
+2026-11-12 10:46:42;abr;v642:abr;sich wenden an;(birine) başvurmak;sich wenden an;richtig;sich wenden an (an + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:0.5 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:46:49;prod;w0504:prod;verantwortlich;sorumlu | In Deutschland ist jedes Bundesland dafür _____, in der Schweiz jeder Kanton.;verantwortlich;richtig;verantwortlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:0.9 | sek:6 | ipucu:0 | ipucu-tür:decumle
+2026-11-12 10:46:59;yeni;w0461;statt;tanıtım;;neu;yerine (+ Gen);basamak:B0 | bicim:tanit | not:- | parti | sek:10
+2026-11-12 10:47:01;erk;w0461:erk;statt;yerine (+ Gen);statt;richtig;statt;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0541/w0138/w0533 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-12 10:47:03;ayir;n0248~v169;der Donner ~ donnern;gök gürültüsü;der Donner;richtig;der Donner;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-12 10:47:09;gram;g:tuerkisch-fallen:95;tuerkisch-fallen/v2;nach dem Kurs / gehen / wir / in die Mensa;wir gehen nach dem Kurs in die Mensa;richtig;Nach dem Kurs gehen wir in die Mensa.;tur:akis | tür:ordnen | z:2 | sek:6
+2026-11-12 10:47:13;duy;n1375:duy-kelime;der Wetterbericht;ses: der Wetterbericht;hava raporu;richtig;hava raporu;tür:kelime | hız:0.9 | tekrar:0 | sek:3
+2026-11-12 10:47:16;prod;w0461:prod;statt;yerine (+ Gen);statt;richtig;statt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:47:24;luecke;x1558:nsatz;das Zusammenleben;Am Ende waren wir uns einig: Für ein gutes _____ braucht man Respekt und ein bisschen Humor.;zusammenleben;fast;Zusammenleben;basamak:B3 | bicim:metin | not:m3 | R:0.97 | S:40.3 | kısmi | kapı:14g | kaynak:u4:t3 | yazım, büyük/küçük harf
+2026-11-12 10:47:24;luecke;n0552:nsatz;der Humor;Am Ende waren wir uns einig: Für ein gutes Zusammenleben braucht man Respekt und ein bisschen _____.;Humor;richtig;Humor;basamak:B3 | bicim:metin | not:m3 | R:0.96 | S:48.6 | kapı:14g | kaynak:u4:t3
+2026-11-12 10:47:24;akt;luecke:u4:t3;metinde boşluk;Wir haben auch über die Gleichberechtigung von Frauen und Männern und über die Erziehung von Kindern diskutiert. Am Ende waren wir uns einig: Für ein gutes Zusammenleben braucht man Respekt und ein bisschen Humor.;zusammenleben / Humor;fast;Zusammenleben / Humor;puan:2/2 | boşluk:2
+2026-11-12 10:47:37;gram;g:verbstellung:68;verbstellung/v2;Der Termin beim Bürgeramt ___ morgen um halb neun. (sein);ist;richtig;ist;tur:akis | tür:luecke | z:2 | sek:8
+2026-11-12 10:47:40;hoer;hoer:z-s;kurz/Kurs;Kurs;Kurs;richtig;Kurs;cift:kurz/Kurs | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-12 10:47:40;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:11 | küçük:1 | yanlış:0 | puan:116 | dk:1 | yeni:1 | seviye+:1 | tekrar:6 | gram:2/2
