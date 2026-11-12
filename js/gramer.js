@@ -30,7 +30,7 @@
   const st = () => {
     if (api && api.S) { const s = api.S(); if (s && s !== S) { S = s; gocGerek = true; } }
     const g = S.gram || (S.gram = { konu: {}, ghost: {} });
-    if (gocGerek) { gocGerek = false; goc(g); }
+    if (gocGerek) { gocGerek = false; goc(g); turVGoc(g); }
     return g;
   };
   let gocGerek = false;
@@ -39,6 +39,25 @@
   // doğru cevapta kendiliğinden geçiş: Ayarlar → Doğru cevapta geçiş (app.js otoMs; 0 = elle); yoksa 1,4 sn
   const otoSure = () => (api && api.otoMs ? api.otoMs() : 1400);
   function goc(g) { const t = now(); Object.values(g.konu || {}).forEach(k => { if (k && k.acildi && !k.karte && t - k.acildi > DAY) { k.acildi = 0; k.yarim = (k.yarim || 0) + 1; } }); }
+  // turV ilk kurulum (12.11): log'daki son tur cevaplarından (tur:akis, ipucusuz / itirazsız doğrular art arda) — bir kez, turV'siz konulara
+  function turVGoc(g) {
+    if (g.turVKur || !api || !api.S) return;
+    const log = (api.S().log || []), son = {};
+    for (const e of log) {
+      if (!e || e.modus !== 'gram' || !/^tur:akis/.test(e.notiz || '')) continue;
+      const m = /^g:([^:]+):\d+$/.exec(e.id || ''); if (!m || /ghost:/.test(e.notiz || '')) continue;
+      const t = Date.parse(String(e.zeit).replace(' ', 'T')); if (isNaN(t)) continue;
+      const x = son[m[1]] || (son[m[1]] = { ok: 0, t: 0, u: '' });
+      const itz = /öneri:/.test(e.notiz || '');
+      if (e.ergebnis === 'richtig' && !itz) x.ok++; else if (e.ergebnis === 'falsch') x.ok = 0;
+      x.t = t; x.u = e.ergebnis;
+    }
+    Object.entries(son).forEach(([id, x]) => {
+      const k = g.konu[id]; if (!k || k.turV || !x.ok) return;
+      k.turV = { ok: x.ok, t: x.t, due: x.t + TUR_ARALIK[Math.min(x.ok, TUR_ARALIK.length) - 1] * DAY };
+    });
+    g.turVKur = 1;
+  }
   const konuSt = id => { const g = st(); return g.konu[id] || (g.konu[id] = { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 0 }); };
   const now = () => api.now();
   const gun = (t = now()) => { if (api.tag) return api.tag(t); const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
@@ -278,13 +297,25 @@
     return secUebung(id, zli.length ? zli : z2.length ? z2 : aday, new Set());
   }
   const turSayi = (id, t) => { const x = (st().konu[id] || {}).tur; return x && x.g === gun(t) ? x.n : 0; };
+  // turdaki gramer sorusunun kendi takvimi (12.11, Tuna: "Türkçeden gelen hatalarım yok, yine de her vakit çıkıyor"): turdaki cevap konu kartını
+  // değiştirmediği için Gramer bölümünde tekrar edilmeyen açık konular hep vadeli kalıyor, en eski vadeli konu (tuerkisch-fallen) her turda başa geçiyordu.
+  // Turda ipucusuz, itirazsız doğru → konu turlardan 2 / 4 / 8 / 16 gün çekilir (art arda doğru sayısıyla); küçük hata → 1 gün; yanlış → sıfırlanır, hemen uygun.
+  const TUR_ARALIK = [2, 4, 8, 16];
+  const turHazir = (id, t) => { const v = (st().konu[id] || {}).turV; return !(v && v.due > t); };
+  function turVYaz(ks, urteil, itiraz, t) {
+    const v = ks.turV || { ok: 0 };
+    if (urteil === 'richtig' && !itiraz) { v.ok = (v.ok || 0) + 1; v.due = t + TUR_ARALIK[Math.min(v.ok, TUR_ARALIK.length) - 1] * DAY; }
+    else if (urteil === 'falsch') { v.ok = 0; v.due = 0; }
+    else v.due = t + DAY;
+    v.t = t; ks.turV = v;
+  }
   let turCache = null, turEl = null, turOnceki = null;
   // { konu, n, tur, ghost? } | null — açık konuların hazır hayaletleri, sonra vadeli konular (en eski vade önce); haric = bu turda sorulan konular
   function turSorusu(t, haric) {
     if (!api || !Object.keys(GR).length) return null;
     t = t == null ? now() : t;
     const h = new Set(haric || []), key = [...h].sort().join(','), c = turCache;
-    if (c && c.key === key && Math.abs(t - c.t) < 10 * 60000 && !h.has(c.soru.konu) && (c.soru.ghost ? !!st().ghost[c.soru.ghost] : vadeliT(c.soru.konu, t))) return c.soru;
+    if (c && c.key === key && Math.abs(t - c.t) < 10 * 60000 && !h.has(c.soru.konu) && (c.soru.ghost ? !!st().ghost[c.soru.ghost] : vadeliT(c.soru.konu, t) && turHazir(c.soru.konu, t))) return c.soru;
     let soru = null;
     for (const k of hayaletHazir(t)) {
       const [id, kod] = k.split(':');
@@ -292,7 +323,8 @@
       const u = turUebung(id, kod, st().ghost[k].son); if (u) { soru = { konu: id, n: u.n, tur: u.tur, ghost: k }; break; }
     }
     if (!soru) {
-      const due = Object.keys(GR).filter(id => vadeliT(id, t) && !h.has(id) && turSayi(id, t) < TUR_GUN).sort((a, b) => turSayi(a, t) - turSayi(b, t) || konuSt(a).karte.due - konuSt(b).karte.due);
+      const turOk = id => ((st().konu[id] || {}).turV || {}).ok || 0;
+      const due = Object.keys(GR).filter(id => vadeliT(id, t) && turHazir(id, t) && !h.has(id) && turSayi(id, t) < TUR_GUN).sort((a, b) => turSayi(a, t) - turSayi(b, t) || turOk(a) - turOk(b) || konuSt(a).karte.due - konuSt(b).karte.due);
       for (const id of due) { const u = turUebung(id); if (u) { soru = { konu: id, n: u.n, tur: u.tur }; break; } }
     }
     turCache = soru ? { key, t, soru } : null;
@@ -862,6 +894,7 @@
     api.logEintrag({ modus: 'gram', id: ses.art === 'tani' ? `g:${ses.id}:tani:${u.n}` : `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: onEk.concat(notiz).join(' | ') });
     if (ses.art === 'tur') {   // turda: konu kartı, gün sayacı, xp, fx değişmez (app bitti'de sayar)
       const x = ks.tur && ks.tur.g === gun() ? ks.tur : (ks.tur = { g: gun(), n: 0 }); if (!ghostModu) x.n++;
+      if (!ghostModu) turVYaz(ks, urteil, !!q.itiraz, now());
       api.save && api.save();
       const cb = ses.turBitti, sonuc = { urteil, antwort: q.antwort, oneri: ['', 'falsch', 'fast', 'richtig'][q.oneri] };
       ses = turOnceki; turOnceki = null; turEl = null;

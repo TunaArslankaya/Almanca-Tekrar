@@ -1029,7 +1029,7 @@
     // gramer (27.10 denetim: yeni cihazın boş S.gram'ı uzaktaki konu kartlarını / tanı ilerlemesini eziyordu): konu başına son etkinlik kazanır,
     // hayaletler ve tanı konuları birleşir (aynı konuda son cevaplanan), gün sayacı aynı günse büyük olan
     if (lok.gram || uz.gram) {
-      const a = lok.gram || {}, b = uz.gram || {}, son = k => Math.max((k && k.karte && k.karte.last) || 0, (k && k.acildi) || 0, ...Object.values((k && k.gesehen) || {}).map(Number).filter(x => x > 0), 0);
+      const a = lok.gram || {}, b = uz.gram || {}, son = k => Math.max((k && k.karte && k.karte.last) || 0, (k && k.acildi) || 0, (k && k.turV && k.turV.t) || 0, ...Object.values((k && k.gesehen) || {}).map(Number).filter(x => x > 0), 0);
       const konu = Object.assign({}, b.konu); Object.entries(a.konu || {}).forEach(([id, k]) => { konu[id] = !konu[id] || son(k) >= son(konu[id]) ? k : konu[id]; });
       const ta = a.tani || {}, tb = b.tani || {}, tk = Object.assign({}, tb.konu);
       Object.entries(ta.konu || {}).forEach(([id, k]) => { const o = tk[id]; tk[id] = !o || (k.t || 0) >= (o.t || 0) ? k : o; });

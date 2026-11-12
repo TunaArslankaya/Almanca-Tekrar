@@ -588,6 +588,9 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   eq(tlog.modus === 'gram' && tlog.id === `g:${ts1.konu}:${ts1.n}` && tlog.notiz.startsWith('tur:akis | tür:'), true, 'tur: log g:<konu>:<n>, notiz tur:akis');
   eq(JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte]), kartOnce, 'tur: konu kartı değişmez');
   eq(D.gram.konu[ts1.konu].teil[turU.teil].d, teilOnce + 1, 'tur: teil istatistiği');
+  // 12.11: turda doğru → konu turlardan 2 gün çekilir (konu kartı vadeli kalsa da); yanlışta sıfırlanır
+  { const v = D.gram.konu[ts1.konu].turV; eq(!!v && v.ok === 1 && v.due >= saat + 2 * 86400000 - 60000, true, 'tur: doğru → turV 2 gün', v); }
+  eq(Gr.turSorusu(saat + 3600000, [], ).konu !== ts1.konu || !!Gr.turSorusu(saat + 3600000, []).ghost, true, 'tur: doğru cevaplanan konu turda hemen yine gelmez');
   eq(Gr._ic.ses(), bolumOnce, 'tur: bölüm oturumu geri geldi');
   eq(Gr.turKlick({ target: B('kontrol') }) || Gr.turTus(ENTER), false, 'tur bitti: olay tüketilmez');
   // yanlış → hayalet, bitti falsch
