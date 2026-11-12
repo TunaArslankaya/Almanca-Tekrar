@@ -63,4 +63,9 @@ window.KANCA = {
   v117: "berichten über → Bericht (rapor) ile aynı kök: rapor bir şeyin ÜBER'ine (hakkında) verilir; edat hep über + Akk",
   n1173: "der Supermarkt → Markt (der) son parça: pazaryeri mavi şemsiyeli tezgâh, süpermarket de der",
   x1570: "das Einwohnermeldeamt → Einwohner + melde + Amt: taşınınca bir memur seni 'meldeyi' (bildirimi) deftere yazıyor; Amt (daire) das, hep son parça: das Amt = yeşil resmi dosya",
+  n1307: "das Verhalten → fer-HALTEN: davranış = kendini tutuş; Verhältnis (ä) ilişki, ikisi de das (yeşil)",
+  n0322: "die Erziehung → ERZİ-hung: anne 'erzi' (azı) dişini göstererek terbiye eder; -ung → die",
+  n0682: "die Kritik → -ik hep die: eleştiri kırmızı kalemle (kırmızı = die); mit der Kritik (Dat)",
+  n0076: "die Aufnahme → AUF + nehmen: kaydı 'aufnehmen' (üstüne alır), kabul de aynı; die = kırmızı kayıt düğmesi",
+  n1359: "die Wärme → VERME: soba 'verme' ısıyı diyor, sıcaklık; die = kırmızı sıcak",
 };
