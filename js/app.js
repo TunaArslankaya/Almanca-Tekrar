@@ -544,7 +544,8 @@
     ot.boy = buTurBoyu(); ot.klavyesiz = m === 'blitz';
     ot.filtre = id => gueltig(id + ':x') && f(id);
     ot.odak = m !== 'akis'; ot.zayif = m === 'zayif'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
-    if (m === 'akis' && !ot.ayirVar && (ot.adim || 0) >= 4 && (ot.adim || 0) <= (ot.boy || 12) - 2) ayirKoy(ot);   // karışan çift: turda en çok 1
+    // karışan çift: turda en çok 1; vadeli birikmede yok (Kern.sec o.yukKis, 12.11: tur vadeli tekrara kalsın)
+    if (m === 'akis' && !ot.ayirVar && !ot.yukKis && (ot.adim || 0) >= 4 && (ot.adim || 0) <= (ot.boy || 12) - 2) ayirKoy(ot);
     ot.sesVar = sesVarMi(ot);   // ses yuvası (Kern.sec adım 4–6 duy, 9–11 duy-seç): "Sesli sorular" açık ve modül yüklü
     if (m === 'aksam' && !ot.aksam) {
       const d = aksamDurum(), ad = d.adaylar;
@@ -3451,7 +3452,9 @@
   function gramVarMi(ot) {
     ot.gramSoru = null;
     const a = ot.adim || 0;
-    if (session.modus !== 'akis' || ot.klavyesiz || ot.gramYok || !gramApi() || !(Kern.GRAM_ADIM || []).some(x => a >= x && a <= x + 2) || (ot.gramKonular || []).length >= 2) return false;
+    // pencere Kern'den (birikmede tek yuva, adım 5 … boy − 2: Kern.gramPencere)
+    const pencere = Kern.gramPencere ? Kern.gramPencere(ot) : (Kern.GRAM_ADIM || []).some(x => a >= x && a <= x + 2);
+    if (session.modus !== 'akis' || ot.klavyesiz || ot.gramYok || !gramApi() || !pencere || (ot.gramKonular || []).length >= 2) return false;
     try { ot.gramSoru = Gramer.turSorusu(now(), (ot.gramKonular || []).slice()) || null; } catch (e) { console.warn('Gramer.turSorusu', e); ot.gramYok = true; }
     return !!ot.gramSoru;
   }

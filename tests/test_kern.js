@@ -1281,5 +1281,114 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   K.init(ctx);
 }
 
+// ---------- 12.11: seviye atlama (vadeli sıra dönüşümü, güçlü öğede ısınma, birikmede sabit yük, zayıf çekirdek, B3 yolu) ----------
+{
+  // 1) vadeli sırası: zayıf (R < 0,8) vadeli anlam yuvalarının en çok 1/3'ü; 1., 4., 7. yuva zayıf önce, kalanlar R azalan
+  const items = { n1: { m: h(10, 0.95, { due: T - 1000 }) }, n5: { m: h(10, 0.85, { due: T - 1000 }) }, v1: { m: h(10, 0.7, { due: T - 1000 }) }, v2: { m: h(10, 0.6, { due: T - 1000 }) }, w2: { m: h(10, 0.78, { due: T - 1000 }) } };
+  const S = yeniS(items), o = oturum({ adim: 5, parti: true, kurtarma: true, boy: 30, metin: true }), sira = [];
+  for (let i = 0; i < 5; i++) { const s = K.sec({ S, kap: 36, donus: true }, o, T, R99); sira.push(s.id); K.oturumIsle(o, s, { ergebnis: 'richtig' }, R99); }
+  eq(sira.join(','), 'v2,n1,n5,v1,w2', 'vadeli dönüşüm: zayıf (v2 .6) → güçlü R azalan (n1 .95, n5 .85) → zayıf (v1 .7) → güçlü yoksa zayıf (w2)');
+  ok(o.gecmis.filter(x => x.vk === 'z').length === 3 && o.gecmis.filter(x => x.vk === 'g').length === 2, 'oturumIsle: vadeli yuvalar vk z / g', o.gecmis);
+  // güçlü havuz boşsa zayıf
+  const yalnizZ = yeniS({ v1: { m: h(10, 0.7, { due: T - 1000 }) }, v2: { m: h(10, 0.6, { due: T - 1000 }) } });
+  const oz = oturum({ adim: 5, parti: true, kurtarma: true, metin: true, gecmis: [{ id: 'x', tur: 'm', vk: 'z' }] });
+  eq(K.sec({ S: yalnizZ, kap: 36, donus: true }, oz, T, R99).id, 'v2', 'dönüşüm: güçlü yoksa zayıf yine gelir');
+  eq(K.ZAYIF_PAY, 3, 'ZAYIF_PAY = 3');
+  // kurtarma yuvası vk sayılmaz
+  { const o2 = oturum({ adim: 6 }); K.oturumIsle(o2, { tur: 'm', id: 'v1', kaynak: 'kurtarma', bicim: 'yaz0', R: 0.5 }, { ergebnis: 'richtig' }, R99); ok(!o2.gecmis[0].vk, 'kurtarma vk sayılmaz'); }
+}
+{
+  // 2) ısınma / momentum: güçlü öğe (S ≥ 7, bm ≥ 2, R ≥ 0,9) düşürülmez, ipuçlu olmaz; zor soru kapısı geçerli
+  const guc = x => ({ m: h(30, 0.95, Object.assign({ bm: 2, pk: 2, ds: 1 }, x || {})) });
+  const bsI = (it, bag) => K.basamak(it, Object.assign({ id: 'n1', t: T }, bag), R99);
+  const bi = bsI(guc(), { isinma: true });
+  ok(bi.b === 3 && !bi.ipuclu, 'ısınma: güçlü öğe (S 30, bm 2, R .95) → B3 ipucusuz (bm + 1)', bi);
+  const bm_ = bsI(guc(), { momentum: true });
+  ok(bm_.b === 3 && !bm_.ipuclu, 'momentum: güçlü öğe → B3 ipucusuz', bm_);
+  ok(K.gucluMu(guc().m, 0.95) && !K.gucluMu(guc({ bm: 1 }).m, 0.95) && !K.gucluMu(guc({ S: 6 }).m, 0.95) && !K.gucluMu(guc().m, 0.89), 'gucluMu: S ≥ 7, bm ≥ 2, R ≥ 0,9');
+  ok(bsI(guc({ bm: 1 }), { isinma: true }).ipuclu, 'ısınma: bm 1 → eskisi gibi ipuçlu (yaz0)');
+  ok(bsI({ m: h(30, 0.85, { bm: 2, pk: 2 }) }, { isinma: true }).ipuclu, 'ısınma: R < 0,9 → ipuçlu');
+  // zor soru: ds ≥ 2 güçlü öğe ısınmada zor (zorOk verilirse), zorOk yoksa yok
+  const z = bsI(guc({ ds: 2, bm: 3, S: 8, last: T - gecen(8, 0.95) * DAY }), { isinma: true, zorOk: true });
+  ok(z.zor && z.b === 4, 'ısınma: güçlü öğede zor soru kapısı (ds 2, bm 3, S 8 → B4 zor)', z);
+  ok(!bsI(guc({ ds: 2, bm: 3, S: 8, last: T - gecen(8, 0.95) * DAY }), { isinma: true }).zor, 'ısınma: zorOk yoksa zor yok');
+  ok(!bsI(guc({ ds: 2, bm: 1 }), { isinma: true, zorOk: true }).zor, 'ısınma: zayıf öğede zor yok');
+  // sec: güçlü öğe ısınmada ipucusuz biçim
+  const is = K.sec({ S: yeniS({ n1: guc({ due: T - 1000 }) }), kap: 36 }, oturum({ adim: 0 }), T, R99);
+  ok(is.kaynak === 'isinma' && ['bos', 'cumle', 'yaz'].includes(is.bicim), 'sec ısınma: güçlü öğe ipucusuz', is);
+  // bm yine yalnız ipucusuz, tam doğru, itirazsız cevapla
+  const S2 = yeniS({ n1: guc() });
+  K.uygula(S2, 'n1', K.notVer({ bicim: 'bos', tip: 'yazim' }), T, { b: 3 });
+  eq(S2.items.n1.m.bm, 2, 'güçlü öğe: bos yazım hatası (fast) → bm yükselmez');
+  const S3 = yeniS({ n1: guc() });
+  K.uygula(S3, 'n1', K.notVer({ bicim: 'bos', tip: 'dogru' }), T, { b: 3 });
+  eq(S3.items.n1.m.bm, 3, 'güçlü öğe: bos doğru → bm 3');
+}
+{
+  // 3) birikme (kota: dünden kalan vadeli > kapasite): gramer turda 1, ses 1 (gün gün duy / hoer), o.yukKis (uygulama: ayır yok)
+  const cok = {}; for (let i = 0; i < 40; i++) cok['w' + (100 + i)] = { m: h(10, 0.85, { due: T - 2 * DAY }) };
+  const Sb = () => yeniS(Object.assign({}, cok));
+  const db = (o, t) => K.sec({ S: Sb(), kap: 30 }, oturum(Object.assign({ parti: true, kurtarma: true, metin: true }, o)), t || T, R99);
+  const o0 = oturum({ adim: 1, parti: true }); K.sec({ S: Sb(), kap: 30 }, o0, T, R99);
+  ok(o0.yukKis === true, 'birikme 40 > kap 24 → o.yukKis', o0.yukKis);
+  const o1 = oturum({ adim: 1, parti: true }); K.sec({ S: yeniS({ n1: { m: h(10, 0.85, { due: T - 2 * DAY }) } }), kap: 30 }, o1, T, R99);
+  ok(o1.yukKis === false, 'birikme yok → o.yukKis false');
+  ok(K.yukKisMi({ birikme: 25, kap: 24 }) && !K.yukKisMi({ birikme: 24, kap: 24 }), 'yukKisMi: birikme > kap');
+  const G = { tur: 'gram', a: 5 }, gec = (n, at, x) => Array.from({ length: n }, (_, i) => at.includes(i) ? Object.assign({}, x || G, { a: i }) : { id: 'x' + i, tur: 'm' });
+  eq(db({ adim: 5, gramVar: true }).tur, 'gram', 'birikme: gramer adım 5');
+  eq(db({ adim: 10, gramVar: true, gecmis: gec(10, [5]) }).tur === 'gram', false, 'birikme: ikinci gramer yok');
+  eq(db({ adim: 8, gramVar: true, gecmis: gec(8, []) }).tur, 'gram', 'birikme: tek yuva kaçmaz (parti / kuyruk 5–7\'yi geçtiyse 8)');
+  eq(db({ adim: 11, gramVar: true, gecmis: gec(11, []) }).tur === 'gram', false, 'birikme: boy − 2\'den sonra yok');
+  const S_ = { tur: 'ses', alt: 'duy' };
+  const s4 = db({ adim: 4, sesVar: true });
+  ok(s4.tur === 'ses', 'birikme: ses adım 4', s4);
+  eq(db({ adim: 9, sesVar: true, gecmis: gec(9, [4], S_) }).tur === 'ses', false, 'birikme: ikinci ses yok');
+  eq(db({ adim: 7, sesVar: true, gecmis: gec(7, []) }).tur, 'ses', 'birikme: ses tek yuva kaçmaz (7)');
+  const alt = [new Date(2026, 9, 15, 19).getTime(), new Date(2026, 9, 16, 19).getTime()].map(t => db({ adim: 4, sesVar: true }, t).alt).sort().join(',');
+  eq(alt, 'duy,hoer', 'birikme: tek ses yuvası gün gün duy / hoer');
+  ok(K.gramPencere({ adim: 8, yukKis: true }) && !K.gramPencere({ adim: 8 }) && K.gramPencere({ adim: 10 }) && !K.gramPencere({ adim: 11, boy: 12, yukKis: true }), 'gramPencere: birikmede 5 … boy − 2');
+}
+{
+  // 4) zayıf çekirdek: lapses ≥ 3 ya da D ≥ 9 (S < 7, R < 0,8) vadeli → önce yeniden tanıtım; günde en çok RT_GUN; ardından gelen cevap az büyür
+  const zc = x => ({ m: h(2, 0.72, Object.assign({ lapses: 3, D: 8, bm: 1, pk: 0, due: T - DAY }, x || {})) });
+  ok(K.cekirdekMi(zc().m, 0.72) && K.cekirdekMi(zc({ lapses: 0, D: 9.2 }).m, 0.72) && !K.cekirdekMi(zc({ lapses: 2 }).m, 0.72) && !K.cekirdekMi(zc({ S: 8 }).m, 0.72) && !K.cekirdekMi(zc().m, 0.85), 'cekirdekMi');
+  const oV = () => oturum({ adim: 5, parti: true, kurtarma: true, metin: true });
+  const S = yeniS({ n1: zc() });
+  const s = K.sec({ S, kap: 36, donus: true }, oV(), T, R99);
+  ok(s.kaynak === 'vadeli' && s.yenidenTanit === true, 'zayıf çekirdek vadeli → yeniden tanıtım', s);
+  eq(S.items.n1.rtGun, K.gun4(T), 'yeniden tanıtım günü öğede (rtGun)');
+  ok(!K.sec({ S, kap: 36, donus: true }, oV(), T, R99).yenidenTanit, 'aynı öğe günde bir kez');
+  ok(!K.sec({ S: yeniS({ n1: zc({ lapses: 1, D: 5 }) }), kap: 36, donus: true }, oV(), T, R99).yenidenTanit, 'çekirdek değil → tanıtım yok');
+  ok(!K.sec({ S: yeniS({ n1: zc() }), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true, metin: true, klavyesiz: true }), T, R99).yenidenTanit, 'klavyesiz turda yok');
+  // günlük sınır
+  const dolu = {}; for (let i = 0; i < K.RT_GUN; i++) dolu['w' + (200 + i)] = { rtGun: K.gun4(T), m: h(10, 0.95, { due: T + 5 * DAY }) };
+  ok(!K.sec({ S: yeniS(Object.assign({ n1: zc() }, dolu)), kap: 36, donus: true }, oV(), T, R99).yenidenTanit, `günde en çok ${K.RT_GUN} yeniden tanıtım`);
+  // kartın ardından gelen kalıcı cevap: büyüme ofseti (aynı cevap kartsız daha çok büyür); bm değişmez (yaz0)
+  const a = yeniS({ n1: zc() }), b = yeniS({ n1: Object.assign(zc(), { rtGun: K.gun4(T) }) });
+  K.uygula(a, 'n1', K.notVer({ bicim: 'yaz0', tip: 'dogru' }), T, { b: 2, ipucu: true });
+  K.uygula(b, 'n1', K.notVer({ bicim: 'yaz0', tip: 'dogru' }), T, { b: 2, ipucu: true });
+  ok(b.items.n1.m.S < a.items.n1.m.S && b.items.n1.m.S > 2, 'yeniden tanıtımdan sonra doğru: S daha az büyür', [a.items.n1.m.S, b.items.n1.m.S]);
+  eq(b.items.n1.m.bm, 1, 'yeniden tanıtımdan sonra yaz0 doğru: bm değişmez');
+  // turda aynı öğeye üst üste 3. yaz0 yok: deneme 3 → yeniden tanıtım + bos0 (taze cümle) / sec
+  const o = oturum({ adim: 8 });
+  o.gecmis.push({ id: 'n1', bicim: 'yaz0', tur: 'm' });
+  K.oturumIsle(o, { tur: 'm', id: 'n1', b: 2, bicim: 'yaz0', deneme: 2, kaynak: 'kuyruk' }, { ergebnis: 'falsch' }, R99);
+  const q = o.kuyruk[0];
+  ok(q.deneme === 3 && q.bicim === 'bos0' && q.yenidenTanit === true, 'üst üste 3. yaz0 yerine yeniden tanıtım + bos0', q);
+  K.init(Object.assign({}, ctx, { tazeCumle: () => false }));
+  { const o2 = oturum({ adim: 8, gecmis: [{ id: 'n1', bicim: 'yaz0', tur: 'm' }] }); K.oturumIsle(o2, { tur: 'm', id: 'n1', b: 2, bicim: 'yaz0', deneme: 2 }, { ergebnis: 'falsch' }, R99); ok(o2.kuyruk[0].bicim === 'sec' && o2.kuyruk[0].b === 1, 'taze cümle yoksa deneme 3 seçmeli', o2.kuyruk[0]); }
+  K.init(ctx);
+  const ks = K.sec({ S: yeniS({ n1: zc() }), kap: 36 }, Object.assign(oturum({ adim: 12, boy: 14 }), { kuyruk: [q] }), T, R99);
+  ok(ks.kaynak === 'kuyruk' && ks.yenidenTanit === true && ks.bicim === 'bos0', 'kuyruk seçimi yeniden tanıtımı taşır', ks);
+}
+{
+  // 5) B3 yolu: bm ≥ 2 ve pk ≥ 1 ise S ≥ 7'de ipucusuz bos (önceden S ≥ 10)
+  const it = x => ({ m: h(8, 0.9, x) });
+  eq(K.bicimSec(it({ bm: 2, pk: 1 }), 3, { id: 'n1' }, R99, []).bicim, 'bos', 'B3: bm 2, pk 1, S 8 → bos');
+  eq(K.bicimSec(it({ bm: 1, pk: 1 }), 3, { id: 'n1' }, R99, []).bicim, 'bos0', 'B3: bm 1, S 8 → bos0');
+  eq(K.bicimSec(it({ bm: 2, pk: 0 }), 3, { id: 'n1' }, R99, []).bicim, 'bos0', 'B3: pk 0, S 8 → bos0');
+  eq(K.bicimSec({ m: h(6.5, 0.9, { bm: 2, pk: 2 }) }, 3, { id: 'n1' }, R99, []).bicim, 'bos0', 'B3: S < 7 → bos0');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);

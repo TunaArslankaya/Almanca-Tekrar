@@ -10,6 +10,7 @@
   'use strict';
 
   const DAY = 86400000, SAAT = 3600000;
+  const GUCLU = { S: 7, bm: 2, R: 0.9 };   // 12.11: ısınma / momentumda düşürülmeyen güçlü öğe (basamak)
   const MAX_ARALIK = 60;   // gün: hiçbir tekrar aralığı bundan uzun olmaz (17.10, Tuna: 94 gün çok uzun)
   const sig = z => 1 / (1 + Math.exp(-z));
   const logit = p => Math.log(p / (1 - p));
@@ -198,7 +199,11 @@
         const f = FSRS.review({}, 4, t, ret);
         x = { h: Object.assign({}, it.m || {}, { S: f.S, D: f.D, last: t, due: Math.min(t + FSRS.intervalDays(f.S, ret) * DAY, t + 14 * DAY), reps: 1, lapses: 0, lastG: 4, pk: 1, pkGun: g, gun: g, bm: 2, b: 2 }), r: { R: 0, S: f.S, yazildi: true } };
         out.yazildi = true;
-      } else x = yaz(it.m, not.m, not.c, PK_BICIM.has(not.bicim) && !opts.ipucu, aksamM);
+      } else {
+        // 12.11: bugün yeniden tanıtım kartı gösterilmiş öğenin (sec: it.rtGun) günün ilk kalıcı cevabı kartın hemen ardından gelir: büyüme az
+        const rtC = it.rtGun === g && it.m && it.m.S && it.m.gun !== g ? RT_OFS : 0;
+        x = yaz(it.m, not.m, (not.c || 0) + rtC, PK_BICIM.has(not.bicim) && !opts.ipucu, aksamM);
+      }
       const hOnce = it.m;
       it.m = x.h; out.m = x.r;
       // etkin basamak (8.11): seçimin basamağı sorulan biçiminkini aşmaz; ipuçlu biçim (yaz0, bos0) seviye atlatmaz
@@ -274,8 +279,11 @@
     return !h.S || (h.reps || 0) <= 1 || !!(it.tanit && t != null && gun4(it.tanit) === gun4(t));
   };
   // bag: { id, t, isinma, momentum, kurtarma, klavyesiz, zorOk } → { b, yenidenTanit, ipuclu?, zor?, bNormal? }
-  // zorOk yalnız normal vadeli seçimde (sec adım 6); kurtarma / ısınma / momentum / klavyesiz turda zor soru yok.
+  // zorOk yalnız normal vadeli seçimde (sec adım 6) ve güçlü öğenin ısınma / momentum sorusunda; kurtarma / klavyesiz turda zor soru yok.
   // S4: seçmeli serbest değilse en alt basamak 2; zayıflıkta (kurtarma, R < 0,5, ısınma, momentum) basamak 2 + ipuclu (biçim yaz0)
+  // 12.11 (Tuna: "seviye atlamıyor"; 9–12.11 ısınma sorularının 10/12'si S 59–98 öğeye ipuçlu yaz0): güçlü öğe (S ≥ 7, bm ≥ 2, R ≥ 0,9)
+  // ısınma / momentumda düşürülmez, ipuçlu olmaz: normal merdiven + zor soru kapısı (günün tek kalıcı yazımı ipuçlu soruya gitmesin)
+  const gucluMu = (h, r) => (h.S || 0) >= GUCLU.S && (h.bm || 0) >= GUCLU.bm && r >= GUCLU.R;
   function basamak(it, bag, rnd) {
     bag = bag || {}; rnd = rnd || Math.random;
     const id = bag.id, h = it.m || {}, S = h.S || 0, r = R(h, bag.t), pk = h.pk || 0, k = C.kind(id);
@@ -284,9 +292,10 @@
     if ((k === 'n' || k === 'w') && C.tierOf(id) === 3 && !C.uniteKonu(id)) b = Math.min(b, 3);
     if (h.S && h.bm != null) b = Math.min(b, h.bm + 1);   // basamak kapısı: en çok bir basamak yukarı
     const yenidenTanit = !!(h.S && r < 0.35);
+    const kolay = (bag.isinma || bag.momentum) && !gucluMu(h, r);   // ısınma / momentum zayıflığı (güçlü öğede yok)
     let zayif = false;
     if (bag.kurtarma || r < 0.5) { b = 1; zayif = true; }
-    if (bag.isinma || bag.momentum || h.dogrula) { b -= 1; if (bag.isinma || bag.momentum) zayif = true; }
+    if (kolay || h.dogrula) { b -= 1; if (kolay) zayif = true; }
     if (b >= 3 && rnd() < 0.2) b -= 1;
     if (b >= 3 && !C.tazeCumle(id)) b -= 1;
     if (b === 4 && !C.lueckeVar(id)) b = 3;
@@ -299,7 +308,7 @@
       if (zayif) { b = 2; ipuclu = true; }
       else b = Math.max(2, b);
     }
-    if (bag.zorOk && !bag.kurtarma && !bag.isinma && !bag.momentum && !bag.klavyesiz) {
+    if (bag.zorOk && !bag.kurtarma && !kolay && !bag.klavyesiz) {
       const zh = zorHedef(it, id, bag.t);
       if (zh > bHam && zh >= b) return { b: zh, yenidenTanit, zor: true, bNormal: b };
     }
@@ -329,7 +338,9 @@
       else aday = [(h.S || 0) < 4 || h.lastG === 1 ? 'yaz0' : 'yaz'];
       if (!bag.ipuclu && k === 'v' && C.edatliFiil(id) && rnd() < 0.5) aday = ['kalip'].concat(aday);
     }
-    else if (b === 3) aday = [(h.S || 0) < 10 ? 'bos0' : 'bos'];
+    // 12.11: ipucusuz yazmayı kanıtlamış (bm ≥ 2) ve üretimi sayılmış (pk ≥ 1) öğede ipucusuz boşluk S ≥ 7'den (önceden S ≥ 10:
+    // bm 2'de S 7–21 olan 38 öğe hep bos0 alıyor, bos0 seviye atlatmıyordu)
+    else if (b === 3) aday = [(h.S || 0) < ((h.bm || 0) >= 2 && (h.pk || 0) >= 1 ? 7 : 10) ? 'bos0' : 'bos'];
     else aday = ['cumle'];
     const bicim = aday.find(x => !tekrarli(x));
     if (!bicim) return null;
@@ -577,19 +588,55 @@
   // sonra kalanlar R azalan (eski sıra)
   const VAD_DUSUK = 0.8;
   const vadSira = (a, b) => { const x = a.R < VAD_DUSUK ? 0 : 1, y = b.R < VAD_DUSUK ? 0 : 1; return x - y || (x === 0 ? a.R - b.R : b.R - a.R); };
+  // 12.11 (Tuna: "seviye atlamıyor"; 9–12.11 vadeli yuvaların 32/36'sı R < 0,8 öğeye gitti, %34 doğru, hep yaz0; R ≥ 0,8 olan 141 öğe
+  // normal seçime hiç ulaşmadı, ipucusuz soru %2,4): zayıf vadeliler (R < 0,8) turdaki vadeli anlam yuvalarının en çok 1/3'ünü alır
+  // (dönüşümlü: 1., 4., 7. … vadeli yuvada zayıf önce), kalan yuvalarda güçlüler R azalan (bm + 1'e hazır öğeler ipucusuz basamağa gelir).
+  // Havuzlardan biri boşsa öbürü.
+  const ZAYIF_PAY = 3;
+  const gucluSira = (a, b) => { const x = a.R < VAD_DUSUK ? 1 : 0, y = b.R < VAD_DUSUK ? 1 : 0; return x - y || (x === 0 ? b.R - a.R : a.R - b.R); };
+  // vadeli birikme kapasiteyi aşınca (kota: dünden kalan vadeli > günlük kapasite) turun sabit yükü kısılır: gramer 1 (adım 5), ses 1
+  // (adım 4; gün gün duy / hoer), ayır yok (uygulama: o.yukKis). 9–12.11: günde 57 cevabın 18'i gramer + ses + ayırdı, vadeli anlam ~14.
+  const yukKisMi = kt => !!kt && kt.birikme > kt.kap;
+  // gramer / ses yuvası açık mı (adımlar: GRAM_ADIM / SES_ADIM): normalde her pencere [a, a + 2] bir soru (sırası gelmiş kuyruk / parti önce
+  // gelirse pencere kayar, kaçan pencere atlanır); birikmede (o.yukKis) turda tek yuva, ilk pencerenin başından boy − 2'ye kadar
+  // (parti + mini sorular adım 3'ten 6'ya itince tek yuva kaybolmasın)
+  function yuvaAcik(ADIM, tur, o, adim) {
+    const gecmis = o.gecmis || [];
+    adim = adim != null ? adim : o.adim || 0;
+    const ai = gecmis.reduce((a, x, i) => (x.tur === tur ? a.concat(x.a != null ? x.a : i) : a), []);
+    if (o.yukKis) return ai.length === 0 && adim >= ADIM[0] && adim <= (o.boy || 12) - 2;
+    const pa = ADIM.find(a => adim >= a && adim <= a + 2);
+    return pa != null && ai.length < ADIM.length && !ai.some(i => i >= pa);
+  }
+  // uygulamanın gramer sorusu hazırlığı (gramVarMi) için: bu adımda bir gramer penceresi var mı (sorulmuş olsa da)
+  const gramPencere = o => { const a = o.adim || 0; return o.yukKis ? a >= GRAM_ADIM[0] && a <= (o.boy || 12) - 2 : GRAM_ADIM.some(x => a >= x && a <= x + 2); };
+  // zayıf çekirdek (12.11: 11.11'de 7 dakikada 7 leech; das Einwohnermeldeamt üç kez üst üste yaz0 yanlış): lapses ≥ 3 ya da D ≥ 9,
+  // S < 7 ve R < 0,8 olan vadeli / kurtarma öğesi önce kısa yeniden tanıtım kartıyla (yenidenTanit) gelir; günde en çok RT_GUN kart
+  // (R < 0,35 kuralı ayrı, sınırsız). Kartın ardından gelen kalıcı cevap tanımaya yakındır: büyüme ofseti +RT_OFS (uygula; bm zaten
+  // ipuçlu biçimde değişmez)
+  const RT_GUN = 5, RT_OFS = 1;
+  const cekirdekMi = (h, r) => !!(h && h.S) && h.S < 7 && r < VAD_DUSUK && ((h.lapses || 0) >= 3 || (h.D || 0) >= 9);
   function sec(durum, oturum, t, rnd) {
     rnd = rnd || Math.random;
     const S = durum.S, o = oturum, adim = o.adim || 0, boy = o.boy || 12, gs = durum.gunSay || {};
     const gecmis = o.gecmis || [], sonIds = gecmis.slice(-(ARA - 1)).map(x => x.id), sonBicim = gecmis.map(x => x.bicim);
     const yakin = id => sonIds.includes(id);
+    const g = gun4(t);
     const m1 = (id, kaynak, bag) => {
       const it = S.items[id];
       let bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag), rnd);
       let bc = bicimSec(it, bs.b, { id, t, zor: bs.zor, ipuclu: bs.ipuclu }, rnd, sonBicim);
       // zor biçimi üst üste kuralına takıldıysa normal merdiven
-      if (!bc && bs.zor) { bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag, { zorOk: false }), rnd); bc = bicimSec(it, bs.b, { id, t }, rnd, sonBicim); }
+      if (!bc && bs.zor) { bs = basamak(it, Object.assign({ id, t, klavyesiz: o.klavyesiz }, bag, { zorOk: false }), rnd); bc = bicimSec(it, bs.b, { id, t, ipuclu: bs.ipuclu }, rnd, sonBicim); }
       if (!bc) return null;
-      const x = { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: bs.yenidenTanit, R: R(it.m, t) };
+      const r = R(it.m, t);
+      let rt = bs.yenidenTanit;
+      // zayıf çekirdek: vadeli / kurtarma sorusundan önce kısa yeniden tanıtım (günde en çok RT_GUN öğe, öğe başına günde bir)
+      if (!rt && !o.klavyesiz && (kaynak === 'vadeli' || kaynak === 'kurtarma') && it.rtGun !== g && cekirdekMi(it.m, r)
+        && Object.values(S.items).filter(x => x.rtGun === g).length < RT_GUN) rt = true;
+      // gün işareti öğede: günlük sınır ve kartın ardından gelen cevabın büyüme ofseti (uygula)
+      if (rt && it.rtGun !== g) it.rtGun = g;
+      const x = { tur: 'm', id, kaynak, b: bs.b, bicim: bc.bicim, uretec: bc.uretec, yenidenTanit: rt, R: r };
       // zor soru: sel.zor (sözleşme §1), bNormal = merdivenin vereceği basamak (log: zor)
       if (bs.zor) Object.assign(x, { zor: true, bNormal: bs.bNormal });
       return x;
@@ -598,12 +645,13 @@
     const kuyrukSec = kq => {
       const it = S.items[kq.id] || {}, bc = kq.bicim ? { bicim: kq.bicim, uretec: null } : bicimSec(it, kq.b || 1, { id: kq.id, t, ipuclu: (kq.b || 1) === 2 }, rnd, []);
       // artikel kuyruğu (artikel mini seti, artOb) 'art' sayılır: turda artikel sınırı (ART_TUR) ve art arda flaş kuralı onları da görür (6.11 denetim)
-      return { tur: bc.bicim === 'artikel' || bc.bicim === 'artOb' ? 'art' : 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq };
+      return Object.assign({ tur: bc.bicim === 'artikel' || bc.bicim === 'artOb' ? 'art' : 'm', kaynak: 'kuyruk', neden: kq.neden, id: kq.id, b: kq.b || 1, bicim: bc.bicim, uretec: bc.uretec, deneme: kq.deneme || 1, R: R(it.m, t), _k: kq },
+        kq.yenidenTanit ? { yenidenTanit: true } : null);
     };
     const kq = (o.kuyruk || []).filter(k => k.at <= adim && (!o.filtre || o.filtre(k.id))).sort((a, b) => a.at - b.at)[0];   // en erken sırası gelen
     if (kq) return kuyrukSec(kq);
     if (o.aksam) return aksamSec(S, o, t, rnd, kuyrukSec);
-    const kt = kota(durum, t);
+    const kt = kota(durum, t), yukKis = o.yukKis = yukKisMi(kt);
     const partiAc = () => {
       // §5.2: yarımlar kotaya sayılmaz; partide kotanın yanında en çok 1 (25'likte 2) yarım, günde en çok 3.
       // Bilinçli sapma: kota kısılmışken (göç / genç / birikme) günde 1 yarım ve o yarım kotadan bir yer alır
@@ -621,16 +669,18 @@
     //     Odak bölümünde (o.odak; uygulama orada gramVar da vermez) yok. Gram cevabı tur adımına sayılır (oturumIsle), öğe hafızasına yazmaz.
     if (o.gramVar === true && !o.klavyesiz && !o.aksam && !o.odak && (o.yanlisSeri || 0) < 2) {
       // gi: sorulan gramlerin adımı (oturumIsle'nin kaydı; yoksa geçmişteki sırası)
-      const gi = gecmis.reduce((a, x, i) => (x.tur === 'gram' ? a.concat(x.a != null ? x.a : i) : a), []), ga = GRAM_ADIM.find(a => adim >= a && adim <= a + 2);
-      // her pencerede bir soru (o pencerenin başından beri gram yoksa); ilki kaçtıysa ikincisi yine gelir
-      if (ga != null && gi.length < GRAM_ADIM.length && !gi.some(i => i >= ga)) return { tur: 'gram', kaynak: 'gram' };
+      // her pencerede bir soru (o pencerenin başından beri gram yoksa); ilki kaçtıysa ikincisi yine gelir; birikmede tek yuva (yuvaAcik)
+      if (yuvaAcik(GRAM_ADIM, 'gram', o, adim)) return { tur: 'gram', kaynak: 'gram' };
     }
     // 2c) ses yuvası (sözleşme S1): o.sesVar === true (uygulama: "Sesli sorular" açık, modül yüklü), o.sesYok değil (modül soru vermedi);
     //     pencere [4..6] ve [9..11], pencere başına 1, turda en çok 2; turdaki ilk ses sorusu 'duy', ikincisi 'hoer' (uygulama: hoer yoksa duy).
     //     Klavyesiz / akşam / odak / momentum (art arda 2 yanlış) turunda yok. Cevap tur adımına sayılır, kuyruk / hafıza değişmez (oturumIsle).
     if (o.sesVar === true && !o.sesYok && !o.klavyesiz && !o.aksam && !o.odak && (o.yanlisSeri || 0) < 2) {
-      const si = gecmis.reduce((a, x, i) => (x.tur === 'ses' ? a.concat(x.a != null ? x.a : i) : a), []), sa = SES_ADIM.find(a => adim >= a && adim <= a + 2);
-      if (sa != null && si.length < SES_ADIM.length && !si.some(i => i >= sa)) return { tur: 'ses', alt: si.length === 0 ? 'duy' : 'hoer', kaynak: 'ses' };
+      // birikmede (yukKis) turda tek ses yuvası; duy / hoer gün gün dönüşümlü (dinleme kapanmaz)
+      if (yuvaAcik(SES_ADIM, 'ses', o, adim)) {
+        const ilk = !gecmis.some(x => x.tur === 'ses');
+        return { tur: 'ses', alt: yukKis ? (gunFark(g, '2026-01-01') % 2 ? 'hoer' : 'duy') : ilk ? 'duy' : 'hoer', kaynak: 'ses' };
+      }
     }
     const vad = vadeliler(S, t, o.filtre).filter(v => !yakin(v.id));
     const mVad = vad.filter(v => v.tur === 'm');
@@ -649,18 +699,21 @@
     // 5) ısınma (ilk 3) ve momentum (art arda 2 yanlış): R'si en yüksek vadeli öğe, bir basamak aşağıdan (S4: seçmeli serbest değilse yaz0)
     // 26.10: ısınma yalnız günün ilk turunda (günün ilk 3 cevabı); her turda olunca çok turlu günde onlarca soru seçmeliye düşüyordu (25.10: 12 turda 26)
     const gunN = (S.tage && S.tage[gun4(t)] && S.tage[gun4(t)].n) || 0, isinma = adim < 3 && gunN < 3;
+    // zor soru turda en çok ZOR_TUR (tur ezici olmasın); klavyesiz turda yok
+    // Zayıflar'da (o.zayif) zor soru yok (CLAUDE.md; 7.11 denetim: Zayıflar turunun ilk kartı "zor soru · ipucusuz" geliyordu)
+    const zorOk = !o.klavyesiz && !o.zayif && gecmis.filter(x => x.zor).length < ZOR_TUR;
     if (isinma || (o.yanlisSeri || 0) >= 2) {
       const kaynak = isinma ? 'isinma' : 'momentum';
-      for (const v of mVad.slice().sort((a, b) => b.R - a.R)) { const x = m1(v.id, kaynak, { isinma, momentum: kaynak === 'momentum' }); if (x) return x; }
+      // 12.11: güçlü öğede (gucluMu) normal merdiven + zor soru kapısı; zayıfta eskisi gibi bir basamak aşağı, ipuçlu
+      for (const v of mVad.slice().sort((a, b) => b.R - a.R)) { const x = m1(v.id, kaynak, { isinma, momentum: kaynak === 'momentum', zorOk }); if (x) return x; }
     }
     // 6) vadeli öğeler: R < 0,8 olanlar en düşük R'den, sonra R azalan; artikel flaşı turda ≤ 3 (der olmayan önce); kök turda 1, günde 4
     //    S3 artOb: artikel hafızası vadeli isimde flaş yerine öbek içinde artikel (art.lapses ≥ 3 → hep, değilse %50; klavyesiz turda yok)
     const artSay = gecmis.filter(x => x.tur === 'art').length, kokSay = gecmis.filter(x => x.tur === 'kok').length;
-    // zor soru turda en çok ZOR_TUR (tur ezici olmasın); klavyesiz turda yok
-    // Zayıflar'da (o.zayif) zor soru yok (CLAUDE.md; 7.11 denetim: Zayıflar turunun ilk kartı "zor soru · ipucusuz" geliyordu)
-    const zorOk = !o.klavyesiz && !o.zayif && gecmis.filter(x => x.zor).length < ZOR_TUR;
     const derMi = id => ((C.byId[id] || {}).art || '') === 'der';
-    const sirali = vad.slice().sort(vadSira);
+    // zayıf / güçlü dönüşümü (ZAYIF_PAY): bu turdaki vadeli anlam yuvaları (oturumIsle: vk 'z' | 'g')
+    const vGec = gecmis.filter(x => x.vk), zSay = vGec.filter(x => x.vk === 'z').length;
+    const sirali = vad.slice().sort(zSay * ZAYIF_PAY <= vGec.length ? vadSira : gucluSira);
     const artlar = sirali.filter(v => v.tur === 'art').sort((a, b) => (derMi(a.id) ? 1 : 0) - (derMi(b.id) ? 1 : 0) || vadSira(a, b));
     const artSecim = a => {
       const ah = (S.items[a.id] || {}).art || {};
@@ -720,6 +773,7 @@
     const i = o.kuyruk.indexOf(secim._k); if (i >= 0) o.kuyruk.splice(i, 1);
     o.adim = (o.adim || 0) + 1;
     o.gecmis.push(Object.assign({ id: secim.id, bicim: secim.bicim, tur: secim.tur }, secim.zor ? { zor: true } : null, secim.tur === 'gram' ? { a: o.adim - 1 } : null,
+      secim.kaynak === 'vadeli' && secim.tur === 'm' ? { vk: secim.R < VAD_DUSUK ? 'z' : 'g' } : null,
       secim.tur === 'ses' ? { alt: secim.alt, a: o.adim - 1 } : null));
     // ses yuvası (S1): adıma sayılır; kuyruk, art arda yanlış sayacı ve hafıza değişmez
     if (secim.tur === 'ses') return o;
@@ -736,7 +790,14 @@
       if (n < 2 && d < 3 && !bekleyen) {
         tn[secim.id] = n + 1;
         if (d === 1 && n === 0) o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: o.adim + 3 + Math.floor(rnd() * 3), yer: o.adim - 1, deneme: 2 }, bk));
-        else o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 3, (o.boy || 12) - 1), yer: o.adim - 1, deneme: 3 }, bk));
+        else {
+          // 12.11: aynı öğeye turda üst üste üçüncü yaz0 gelmez (9.11 Einwohnermeldeamt yaz0 ✗ → yaz0 ✗ → yaz0 ✗): son iki sorusu yaz0 idiyse
+          // deneme 3 önce kısa yeniden tanıtım, sonra taze cümlede bos0 (kelime cümlede, verilen), yoksa seçmeli
+          const oncekiler = o.gecmis.filter(x => x.id === secim.id).slice(-2);
+          const ucuncu = bk.bicim === 'yaz0' && oncekiler.length === 2 && oncekiler.every(x => x.bicim === 'yaz0');
+          const bk3 = ucuncu ? Object.assign({ yenidenTanit: true }, C.tazeCumle(secim.id) ? { b: 2, bicim: 'bos0' } : { b: 1, bicim: 'sec' }) : bk;
+          o.kuyruk.push(Object.assign({ id: secim.id, neden: 'yanlis', at: Math.max(o.adim + 3, (o.boy || 12) - 1), yer: o.adim - 1, deneme: 3 }, bk3));
+        }
       }
     }
     return o;
@@ -1150,6 +1211,7 @@
   const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, SES_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,
+    GUCLU, gucluMu, ZAYIF_PAY, yukKisMi, yuvaAcik, gramPencere, RT_GUN, RT_OFS, cekirdekMi,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
