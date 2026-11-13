@@ -4472,3 +4472,15 @@
 2026-11-13 21:18:00;wort;n1169:wort;der Sturm;fırtına;das Storm;fast;der Sturm;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.99 | S:105.3 | kısmi | kapı:14g | yazım, artikel das → der | sek:4 | ipucu:0 | ipucu-tür:tr
 2026-11-13 21:18:02;art;n0474:art;das Gewitter;Während ___ Gewitters sind wir im Café geblieben. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.91 | S:3.7 | hâl:Gen | sek:2
 2026-11-13 21:18:04;ayir;v590~v588;sich verlaufen ~ verlassen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-13 21:18:13;gram;g:vergleich:73;vergleich/nicht-so;Die Mensa ist nicht so teurer wie das Café.;teurer;richtig;Die Mensa ist nicht so teuer wie das Café.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:8
+2026-11-13 21:18:16;duy;w0103:duy-kelime;doppelt;ses: doppelt;çift, iki kat;richtig;çift, iki kat;tür:kelime | hız:0.9 | tekrar:0 | sek:2
+2026-11-13 21:19:08;prod;w0117:prod;eben;"az önce; işte";eben;richtig;eben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:50 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:19:13;abr;v276:abr;führen;"yönetmek; (birini bir yere) götürmek";führen;richtig;führen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:4.2 | kurtarma | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:19:15;hoer;hoer:w-f;Wetter/Vetter;Vetter;Vetter;richtig;Vetter;cift:Wetter/Vetter | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-13 21:19:23;gram;g:n-deklination:126;n-deklination/kontrast;Der Kellner bringt dem Gasten die Rechnung.;hata yok;falsch;Der Kellner bringt dem Gast die Rechnung.;tur:akis | tür:fehler | z:2 | hatayı görmedi | ghost:1 | sek:5
+2026-11-13 21:19:32;art;x1478:art;das Frühjahr;___ Frühjahr war dieses Jahr sehr kalt. [Nom/Akk];Das;richtig;Das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:4.9 | hâl:Nom/Akk | sek:9
+2026-11-13 21:19:32;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:93 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-13 21:19:40;art;n0449:art;das Gemüse;Schneidest du bitte ___ Gemüse für die Suppe? [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:32.4 | hâl:Nom/Akk | sek:7
+2026-11-13 21:19:58;wort;n0322:wort;die Erziehung;eğitim, terbiye;die Erhaltnis;falsch;die Erziehung;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | kelime yanlış | sek:11 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:20:07;prod;w0095:prod;deutlich;açık, belirgin | Seit dem Kurs ist mein Deutsch _____ besser geworden.;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:0.9 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:20:10;art;n0994:art;das Rezept;für ___ Rezept [Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:3.0 | hâl:Akk | sek:3
