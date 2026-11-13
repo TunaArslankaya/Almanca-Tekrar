@@ -4463,3 +4463,6 @@
 2026-11-13 06:41:22;duy;n0055:duy-dikte;die Apotheke;Kannst du mir aus der Apotheke Halstabletten mitbringen?;;falsch;Kannst du mir aus der Apotheke Halstabletten mitbringen?;tür:dikte | hız:0.9 | tekrar:2 | bilmiyorum | sek:180
 2026-11-13 06:41:34;wort;n1307:wort;das Verhalten;davranış | … _____ meines Mitbewohners stört mich, weil er nie die Küche putzt.;das Verhalten;richtig;das Verhalten;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:7 | ipucu:0 | ipucu-tür:trcumle
 2026-11-13 06:42:11;akt;diktat:x1566;dinle–yaz;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;Sie hat die Patenschaft für ein Kind in Afrika übernommen;richtig;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;
+2026-11-13 06:42:17;hoer;hoer:ei-ie;Biene/Beine;Beine;Beine;richtig;Beine;cift:Biene/Beine | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-13 06:42:22;gram;g:verbstellung:26;verbstellung/inversion;In Deutschland man trennt den Müll sehr genau.;trennt;richtig;In Deutschland trennt man den Müll sehr genau.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:4
+2026-11-13 06:42:39;abr;v584:abr;verhindern;engellemek, önlemek;;falsch;verhindern (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.6 | kurtarma | düzeltti | sek:15 | ipucu:0 | ipucu-tür:tr | bilmiyorum
