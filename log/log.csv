@@ -4466,3 +4466,9 @@
 2026-11-13 06:42:17;hoer;hoer:ei-ie;Biene/Beine;Beine;Beine;richtig;Beine;cift:Biene/Beine | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
 2026-11-13 06:42:22;gram;g:verbstellung:26;verbstellung/inversion;In Deutschland man trennt den Müll sehr genau.;trennt;richtig;In Deutschland trennt man den Müll sehr genau.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:4
 2026-11-13 06:42:39;abr;v584:abr;verhindern;engellemek, önlemek;;falsch;verhindern (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.6 | kurtarma | düzeltti | sek:15 | ipucu:0 | ipucu-tür:tr | bilmiyorum
+2026-11-13 12:50:21;art;n0552:art;der Humor;___ Humor des Komikers verstehe ich nicht. [Akk];Das;falsch;Den;basamak:A | bicim:artOb | not:a1 | R:0.63 | S:0.2 | hâl:Akk | artikel das → den | sek:10
+2026-11-13 21:17:46;art;n0433:art;die Geduld;ohne ___ Geduld [Akk];das;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.71 | S:0.1 | hâl:Akk | artikel das → die | sek:2
+2026-11-13 21:17:53;prod;w0117:prod;eben;"az önce; işte | Ich habe _____ mit meiner Mutter telefoniert.";eher;falsch;eben;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | farklı | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:18:00;wort;n1169:wort;der Sturm;fırtına;das Storm;fast;der Sturm;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.99 | S:105.3 | kısmi | kapı:14g | yazım, artikel das → der | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:18:02;art;n0474:art;das Gewitter;Während ___ Gewitters sind wir im Café geblieben. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.91 | S:3.7 | hâl:Gen | sek:2
+2026-11-13 21:18:04;ayir;v590~v588;sich verlaufen ~ verlassen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
