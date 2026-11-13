@@ -4460,3 +4460,6 @@
 2026-11-13 06:38:08;art;n0137:art;die Behörde;wegen ___ Behörde [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:8.2 | hâl:Gen | sek:4
 2026-11-13 06:38:14;ayir;v169~v305;donnern ~ hageln;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:6
 2026-11-13 06:38:22;gram;g:reflexiv:20;reflexiv/perfekt;Er beeilt sich. → Perfekt;Er hat sich beeilt;richtig;Er hat sich beeilt.;tur:akis | tür:umform | z:2 | ghost:0 | sek:7
+2026-11-13 06:41:22;duy;n0055:duy-dikte;die Apotheke;Kannst du mir aus der Apotheke Halstabletten mitbringen?;;falsch;Kannst du mir aus der Apotheke Halstabletten mitbringen?;tür:dikte | hız:0.9 | tekrar:2 | bilmiyorum | sek:180
+2026-11-13 06:41:34;wort;n1307:wort;das Verhalten;davranış | … _____ meines Mitbewohners stört mich, weil er nie die Küche putzt.;das Verhalten;richtig;das Verhalten;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 06:42:11;akt;diktat:x1566;dinle–yaz;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;Sie hat die Patenschaft für ein Kind in Afrika übernommen;richtig;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;
