@@ -1,9 +1,8 @@
 // v5 akış simülasyonu (Playwright gerekir): node tests/sim_akis.js [zustand.json] [gün=14] [K=36] [δ=-0.4] [tohum=3]
-// SES=0 ortam değişkeni: ses yuvası kapalı (varsayılan açık: sözleşme S1, turda 2 ses sorusu tur adımına sayılır, hafızaya yazmaz).
 // GRAM=0: turdaki gramer yuvası kapalı (varsayılan açık: o.gramVar, cevap tur adımına sayılır, hafızaya yazmaz; birikmede turda 1).
 // 12.11: tohum başına 14 günde bm artışı (seviye atlama: yalnız ipucusuz, tam doğru cevap), anlam sorularında ipucusuz / ipuçlu pay,
 // GUN + 1. günün vadeli anlam sayısı ve yeniden tanıtım kartı sayısı yazdırılır.
-// Günlük biçim payı (cevap içinde): seçmeli (sec/anla/metinde) · yazma (yaz0/yaz/kalip) · cümle (bos0/bos/cumle) · metin · artikel (flaş/artOb) · ses.
+// Günlük biçim payı (cevap içinde): seçmeli (sec/anla/metinde) · yazma (yaz0/yaz/kalip) · cümle (bos0/bos/cumle) · metin · artikel (flaş/artOb) (14.11: ses yuvası kaldırıldı).
 // Gerçek durumun kopyası uygulamada açılır (göç), sonra çekirdek (Kern.sec → notVer → uygula → oturumIsle) günde K cevapla
 // (12'lik turlar) simüle edilir. "Gerçek" başarı modeli: σ(logit R + d); seçmeli +0,5, ipuçlu (yaz0 / bos0) δ + 0,2, üretim δ.
 // Kabul (tohum ortalaması): vadeli öğe 7. günde ≤ 0,8 × başlangıç; vadeli sayısı 3 gün üst üste artmıyor; kota hiç 0 değil (dönüş turu hariç);
@@ -14,7 +13,7 @@ const fs = require('fs');
 
 const arg = process.argv.slice(2);
 const dosya = path.resolve(__dirname, '..', arg[0] || 'log/zustand.json');
-const GUN = +(arg[1] || 14), K = +(arg[2] || 36), DELTA = +(arg[3] || -0.4), TOHUM = +(arg[4] || 3), SES = process.env.SES !== '0', GRAM = process.env.GRAM !== '0';
+const GUN = +(arg[1] || 14), K = +(arg[2] || 36), DELTA = +(arg[3] || -0.4), TOHUM = +(arg[4] || 3), GRAM = process.env.GRAM !== '0';
 
 async function simule(p, o) {
   return p.evaluate(o => {
@@ -31,21 +30,20 @@ async function simule(p, o) {
       const bas = Kr.gunBas4(Date.now()) + 15 * 3600000;   // 19:00
       for (let d = 0; d < o.GUN; d++) {
         let t = bas + d * DAY;
-        const g = Kr.gun4(t), gs = { g, metin: 0, diktat: 0, kok: 0, kokYeni: 0, yoklama: 0, ekYeni: 0, ekYeniTeklif: true, bonus: 0 };
+        const g = Kr.gun4(t), gs = { g, metin: 0, kok: 0, kokYeni: 0, yoklama: 0, ekYeni: 0, ekYeniTeklif: true, bonus: 0 };
         const vadeli = new Set(Kr.vadeliler(S, t, filtre).map(v => v.id)).size;
         const durum = { S, kap: o.K, gunSay: gs, donus: false };
         const kt = Kr.kota(durum, t);
         let cevap = 0, yeni = 0, dogru = 0, tekrar = 0, zor = 0, zorDogru = 0; const kats = {};
-        const pay = { sec: 0, yaz: 0, cum: 0, met: 0, art: 0, kok: 0, ses: 0 };
+        const pay = { sec: 0, yaz: 0, cum: 0, met: 0, art: 0, kok: 0 };
         const payOf = b => /^(sec|anla|metinde)$/.test(b) ? 'sec' : /^(yaz0|yaz|kalip|yoklama)$/.test(b) ? 'yaz' : /^(bos0|bos|cumle)$/.test(b) ? 'cum' : /^(artikel|artOb)$/.test(b) ? 'art' : /^kok/.test(b) ? 'kok' : null;
         for (let tur = 0; tur < Math.ceil(o.K / 12); tur++) {
-          const ot = { adim: 0, boy: 12, kuyruk: [], gecmis: [], filtre, sesVar: o.SES, gramVar: o.GRAM };
+          const ot = { adim: 0, boy: 12, kuyruk: [], gecmis: [], filtre, gramVar: o.GRAM };
           let n = 0, guard = 0;
           while (n < 12 && cevap < o.K && guard++ < 80) {
             const sel = Kr.sec(durum, ot, t, rnd);
             if (sel.tur === 'bitti') break;
             if (sel.tur === 'gram') { Kr.oturumIsle(ot, sel, { ergebnis: rnd() < 0.7 ? 'richtig' : 'falsch' }, rnd); n++; cevap++; top.gram++; t += 30000; continue; }
-            if (sel.tur === 'ses') { Kr.oturumIsle(ot, sel, { ergebnis: rnd() < 0.8 ? 'richtig' : 'falsch' }, rnd); n++; cevap++; pay.ses++; t += 30000; continue; }
             if (sel.tur === 'parti') {
               const ids = [];
               sel.ids.forEach(id => {
@@ -125,15 +123,15 @@ async function simule(p, o) {
   const Z = fs.readFileSync(dosya, 'utf8');
   const p = await D.sayfa(b, { zustand: Z });
   await p.waitForTimeout(400);
-  const r = await simule(p, { GUN, K, DELTA, TOHUM, SES, GRAM, DBG: !!process.env.DBG });
+  const r = await simule(p, { GUN, K, DELTA, TOHUM, GRAM, DBG: !!process.env.DBG });
   const fehler = [];
   // Yük ölçütleri tohumların ORTALAMASI üzerinden: tek tohumun 7. gün değeri gürültülü (aynı kodda 10 tohumda 57–81;
   // HEAD'de bile 10 tohumun 5'i tek başına ölçütü aşıyordu). Tohum başına değerler yazdırılır; kota ve yazım kuralı tohum başına.
   const ort = a => a.reduce((x, y) => x + y, 0) / a.length;
   r.forEach(x => {
-    console.log(`tohum ${x.tohum}: gün · vadeli · kota (sebep) · yeni · cevap · doğruluk · zor soru (doğru) · pay %: seçmeli / yazma / cümle / metin / artikel / ses`);
+    console.log(`tohum ${x.tohum}: gün · vadeli · kota (sebep) · yeni · cevap · doğruluk · zor soru (doğru) · pay %: seçmeli / yazma / cümle / metin / artikel`);
     const yz = (a, c) => c ? Math.round(a / c * 100) : 0;
-    x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}  ${g.zor} (${g.zorDogru})  ${['sec', 'yaz', 'cum', 'met', 'art', 'ses'].map(k => yz(g.pay[k], g.cevap)).join('/')}${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
+    x.gunler.forEach(g => console.log(`  ${String(g.d + 1).padStart(2)}  ${String(g.vadeli).padStart(3)}  ${g.q} (${g.sebep})  ${g.yeni}  ${g.cevap}  ${g.dogru == null ? '–' : '%' + g.dogru}  ${g.zor} (${g.zorDogru})  ${['sec', 'yaz', 'cum', 'met', 'art'].map(k => yz(g.pay[k], g.cevap)).join('/')}${g.kats ? '  ' + JSON.stringify(g.kats) + ' gün sonu m/art vadeli ' + g.son : ''}`));
     x.gunler.forEach(g => { if (!g.q) fehler.push(`tohum ${x.tohum}: ${g.d + 1}. gün kota 0`); });
     if (x.ihlal.length) fehler.push(`tohum ${x.tohum}: günde ikinci kalıcı yazım: ${x.ihlal.slice(0, 5).join(', ')}`);
   });
@@ -147,7 +145,7 @@ async function simule(p, o) {
   // turda biçim payı (bütün tohum ve günler): seçmeli ve yazma oranı (6.11, S4: seçmeli yalnız tanıtım günü / ilk tekrar)
   {
     const top = k => r.reduce((a, x) => a + x.gunler.reduce((b, g) => b + (k ? g.pay[k] : g.cevap), 0), 0), N = top(null) || 1, yz = k => (top(k) / N * 100).toFixed(1);
-    console.log(`turda biçim payı (cevap ${N}${SES ? ', ses yuvası açık' : ''}): seçmeli %${yz('sec')} · yazma %${yz('yaz')} · cümle %${yz('cum')} · metin %${yz('met')} · artikel %${yz('art')} · kök %${yz('kok')} · ses %${yz('ses')}`);
+    console.log(`turda biçim payı (cevap ${N}): seçmeli %${yz('sec')} · yazma %${yz('yaz')} · cümle %${yz('cum')} · metin %${yz('met')} · artikel %${yz('art')} · kök %${yz('kok')}`);
   }
   // Ölçütler birikme yüksekken (başlangıç > denge) anlamlı; denge ≈ 2,5 × günlük cevap (K=36 → 90): düşük başlangıçta vadeli dengeye kadar çıkabilir
   const denge = 2.5 * K, tavan = Math.max(v[0], denge);

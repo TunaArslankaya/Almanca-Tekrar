@@ -112,8 +112,8 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     if (s.tur === 'leer' || s.tur === 'yok') break;
     const h = await vh(p);
     const ust = await p.evaluate(() => { const e = document.querySelector('#q-alt:not([hidden]) .mc-opt, #q-alt:not([hidden]) .art-btn, #q-alt:not([hidden]) #cevap, #q-alt:not([hidden]) [data-akt="pruef"]'); return e ? e.getBoundingClientRect().top : null; });
-    // metin / dikte: odak düzeninde (q-alt), ä ö ü ß girdiye bağlı (global satır gizli)
-    if (s.tur === 'metin' || s.tur === 'diktat') {
+    // metin: odak düzeninde (q-alt), ä ö ü ß girdiye bağlı (global satır gizli; 14.11: dikte kaldırıldı)
+    if (s.tur === 'metin') {
       akt[s.tur] = (akt[s.tur] || 0) + 1;
       const d = await p.evaluate(() => ({ qalt: !!document.querySelector('#q-alt:not([hidden])'), ic: !!document.querySelector('#q-alt .klavye.ic'), glob: !document.querySelector('#umlaut').hidden }));
       if (!d.qalt) hata('odak', `${s.tur}: #q-alt yok`);

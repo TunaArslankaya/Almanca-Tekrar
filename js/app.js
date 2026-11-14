@@ -465,8 +465,8 @@
   const paketFertig = pid => !!(S.pakete[pid] && (S.pakete[pid].fertig || (S.pakete[pid].m && S.pakete[pid].m.S)));
   // ertesi günün başı (gece yarısı)
   function morgen(t) { const d = new Date(t); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + 1); return d.getTime(); }
-  // öğrenme günü sayaçları (04:00'te değişir): metin / dikte / kök / yoklama / ek yeni teklifi / bonus tur
-  const gs4 = () => { const g = Kern.gun4(now()); if (!S.gs4 || S.gs4.g !== g) S.gs4 = { g, metin: 0, diktat: 0, kok: 0, kokYeni: 0, yoklama: 0, ekYeni: 0, ekYeniTeklif: false, bonus: 0 }; return S.gs4; };
+  // öğrenme günü sayaçları (04:00'te değişir): metin / kök / yoklama / ek yeni teklifi / bonus tur
+  const gs4 = () => { const g = Kern.gun4(now()); if (!S.gs4 || S.gs4.g !== g) S.gs4 = { g, metin: 0, kok: 0, kokYeni: 0, yoklama: 0, ekYeni: 0, ekYeniTeklif: false, bonus: 0 }; return S.gs4; };
   // kota (Kern.kota): kapasite (hedef ya da son 7 günün temposu) × ret ağırlığı; bonus turlar; dönüş turu; ünite hızlandırma (Ayarlar, varsayılan kapalı)
   function durum4() {
     const gs = gs4(), U = uAktivler()[0];
@@ -546,7 +546,6 @@
     ot.odak = m !== 'akis'; ot.zayif = m === 'zayif'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
     // karışan çift: turda en çok 1; vadeli birikmede yok (Kern.sec o.yukKis, 12.11: tur vadeli tekrara kalsın)
     if (m === 'akis' && !ot.ayirVar && !ot.yukKis && (ot.adim || 0) >= 4 && (ot.adim || 0) <= (ot.boy || 12) - 2) ayirKoy(ot);
-    ot.sesVar = sesVarMi(ot);   // ses yuvası (Kern.sec adım 4–6 duy, 9–11 duy-seç): "Sesli sorular" açık ve modül yüklü
     if (m === 'aksam' && !ot.aksam) {
       const d = aksamDurum(), ad = d.adaylar;
       ot.aksam = ad.map(x => x.id);
@@ -724,7 +723,7 @@
     Object.keys(say).forEach(a => { t[a] = Object.keys(say[a]).sort((x, y) => say[a][y] - say[a][x]); });
     return (c.t = t);
   }
-  window.karismaTablosu = karismaTablosu;   // modüller (Dinle / Cumle) ve testler için
+  window.karismaTablosu = karismaTablosu;   // modüller (Cumle) ve testler için
 
   // n çeldirici: [{ x, t, kaynak }]; metin(x) şıkta görünen yazı, hedef = doğru şıkkın yazısı
   const trSozler = s => kucuk(s).split(/[^a-zçğıöşü]+/).filter(x => x.length >= 4);
@@ -763,7 +762,7 @@
     ablenkMerke(out.map(o => o.x).concat([id]));
     return out;
   }
-  // DE → TR (anlamı ne? / metinde): Türkçe şıklar. Şık: { t, ok, id, kaynak } (Dinle de kullanır: api.optionen)
+  // DE → TR (anlamı ne? / metinde): Türkçe şıklar. Şık: { t, ok, id, kaynak } (Cumle de kullanabilir)
   function optionen(id) {
     const richtig = optTr(trOf(id));
     const out = celdiriciler(id, x => optTr(trOf(x)), richtig, 3).map(c => ({ t: c.t, ok: false, id: c.x, kaynak: c.kaynak }));
@@ -2379,7 +2378,7 @@
     if (w.kl === 'adv') return d === 'gern' ? [d, 'gerne'] : [d];
     return [d];
   }
-  // metindeki kelime → öğe (8.11; kontextSaetze, aktSaetze, okumada kelimeye basma, Dinleme modu): büyük harften küçültme yalnız cümle
+  // metindeki kelime → öğe (8.11; kontextSaetze, aktSaetze, okumada kelimeye basma): büyük harften küçültme yalnız cümle
   // başında (ortadaki "Schienen" / "Unternehmen" / "Weile" isimdir: scheinen / unternehmen / weil değil); dönüşlü fiil, cümlede dönüşlü
   // zamir yoksa eşleşmez ("in einigen Gegenden" ≠ sich einigen). satz verilmezse zamir denetimi yok.
   function tokTemiz(t) { return String(t).replace(/^[„“"(‚‘»«]+|[.,!?;:“"”)…’‘»«]+$/g, ''); }
@@ -2420,7 +2419,7 @@
     const gl = (L.glossar || []).length ? `<details class="ceviri"><summary>DW sözlüğü (${L.glossar.length} kelime, Almanca açıklama)</summary><ul class="erkl">${L.glossar.map(g => `<li><b>${esc(g.de)}</b>: ${esc(g.erkl)}</li>`).join('')}</ul></details>` : '';
     kart.innerHTML = `<div class="tur"><span class="yeni">okuma</span><span>${esc(L.reihe || L.quelle)}${thById[L.thema] ? ' · ' + esc(thById[L.thema].tr) : ''} · bilmediğin kelimeye bas</span></div>
       <div class="soru">${esc(L.titel)}</div>${L.anweisung ? `<div class="soluk">${esc(L.anweisung)}${L.beispiel ? '<br>Beispiel: ' + esc(L.beispiel) : ''}</div>` : ''}
-      ${L.audio ? `<div class="dinle"><audio controls preload="none" src="${esc(L.audio)}"></audio><span class="soluk">DW sesi: önce dinle, sonra oku (ya da okurken dinle)</span>${window.Dinle ? '<button class="btn dn-mod-ac" data-act="dinle-modu" type="button">🎧 Dinleme modu: tahmin → dinle → boşluk → metinle dinle</button>' : ''}</div>` : `<div class="sira"><button class="btn mini" data-act="lesen-oku" type="button">🔊 Sesli oku</button><button class="btn mini" data-act="lesen-oku-yavas" type="button">🐢 Yavaş</button></div>`}
+      ${L.audio ? `<div class="dinle"><audio controls preload="none" src="${esc(L.audio)}"></audio><span class="soluk">DW sesi: istersen okurken dinle</span></div>` : `<div class="sira"><button class="btn mini" data-act="lesen-oku" type="button">🔊 Sesli oku</button><button class="btn mini" data-act="lesen-oku-yavas" type="button">🐢 Yavaş</button></div>`}
       <div class="paket-text" id="lesen-text">${text}</div>
       <div id="lesen-wort" class="kural" hidden></div>
       ${gl}${L.aufgaben ? goetheAufgabenHTML(L) : ''}
@@ -2472,7 +2471,7 @@
     return _ses;
   }
   try { if (window.speechSynthesis) speechSynthesis.addEventListener('voiceschanged', () => { _ses = null; if (!$('#v-ayar').hidden) sesSeciciDoldur(); }); } catch (e) { /* yok */ }
-  // Ayarlar → "Ses hızı" (S.einst.sesHiz): turdaki okumalar ve dinleme soruları; yavaş düğmeleri ayrı
+  // Ayarlar → "Ses hızı" (S.einst.sesHiz): turdaki seslendirme; yavaş düğmeleri ayrı
   const SES_HIZLAR = [0.8, 0.9, 1, 1.1];
   const sesHizi = () => (SES_HIZLAR.includes(S.einst.sesHiz) ? S.einst.sesHiz : 0.9);
   // koşulsuz kes: internetten gelen ses henüz başlamadıysa speaking/pending false olabiliyor, sonra sonraki soruda çalıyordu
@@ -2549,11 +2548,9 @@
     if (!/\s/.test(e)) for (const c of cands) { if (/\s/.test(c)) continue; const k = G.yakin(e, c); if (k) return { u: 'fast', hinweis: (k === 'yazim' ? 'yazım: ' : 'çekim: ') + ziel, cekim: k === 'cekim' }; }
     return { u: 'falsch', hinweis: '' };
   }
-  // dikte kontrolü (6.11): G.cumleKontrol üzerinden (Dinle.diktePruef). Eskiden uPruef cümle düzeyinde lev ≤ 1'i 'yazım' sayıyordu:
-  // dem Keller (den), bezahlt hat (hast), von allem (vor) yazım geçiyordu. Şimdi hâl / çekim 'artikel/çekim' (fast), edat / yanlış kelime falsch;
-  // başka diziliş fast + 'kelime sırası'. Döner { u, hinweis, tags, kat (dikte:ek | işlev | kelime | yazım), diff }.
+  // dikte kontrolü: yalnız eski ünite dikte dalı (v5'te ünite ekranı yalnız metin gösterir). 14.11: turdaki dikte ve js/dinle.js
+  // (G.cumleKontrol'lü diktePruef) kaldırıldı; uPruef ile. Döner { u, hinweis, tags, kat, diff }.
   function diktatPruef(eingabe, ziel) {
-    if (window.Dinle && typeof Dinle.diktePruef === 'function') { try { return Dinle.diktePruef(G, eingabe, ziel); } catch (e) { console.warn('diktePruef', e); } }
     const r = uPruef(eingabe, ziel);
     return { u: r.u, hinweis: r.hinweis, tags: r.hinweis ? [r.hinweis] : [], kat: [], diff: [] };
   }
@@ -2807,9 +2804,7 @@
   // ================= Metin etkinliği (turda bir slot) =================
   // Gerçek metin (DW / Klexikon / Goethe / kitap ünitesi) paragrafında 2–4 boşluk. Boşluk yalnız Kern.sec'in verdiği adaylardan
   // (m.S ≥ 1,5 ve vadeli ya da R < 0,9): her boşluk bir cevap, hafızaya 'metin' biçimiyle yazılır (yan kural, günde tek yazım).
-  // Günde bir kez metin yerine dikte (dinle–yaz; hafızaya yazmaz).
-  const gesehen = id => !!S.items[id] && !S.items[id].a1 && kind(id) !== 'p' && gueltig(id + ':x') && tierOf(id) >= 2;
-  const lernend = id => gesehen(id) && !S.items[id].bekannt && !!(S.items[id].m && S.items[id].m.S);
+  // (Günlük dikte 14.11'de kaldırıldı.)
   const tokRein = w => w.replace(/^[„“"(‚‘»«]+|[.,!?;:“"”)…’‘»«]+$/g, '');
   let _aktSaetze = null;
   // bütün metinler cümle cümle; her kelimenin listedeki karşılığı (formIdx)
@@ -2857,21 +2852,6 @@
       .map(([id, x]) => ({ id, si: x.si, ti: x.ti, form: x.form })).sort((a, b) => a.si - b.si || a.ti - b.ti);
     return blanks.length >= 2 ? { akt: 'luecke', saetze: best, blanks } : null;
   }
-  // dikte cümlesi: öğrendiğin kelimelerin kendi cümlelerinden (son 5 günde dikte edilmemiş)
-  function aktSatz(art) {
-    const maxW = 12, minW = 3, gs = S.aktSaetze || {};
-    const kand = [];
-    Object.keys(S.items).forEach(id => {
-      if (!lernend(id)) return;
-      (kind(id) === 'v' ? (SAETZE[id] || []) : (NSAETZE[id] || [])).forEach(x => {
-        const n = x.de.split(' ').length;
-        if (n <= maxW && n >= minW && !(gs[x.de] && now() - gs[x.de] < 5 * DAY)) kand.push({ id, de: x.de, tr: x.tr, w: (schwach(id) ? 2 : 1) + Math.random() });
-      });
-    });
-    if (!kand.length) return null;
-    kand.sort((a, b) => b.w - a.w);
-    return { akt: art, satz: kand[0] };
-  }
   function aktFrage(sel) {
     const q = Object.assign({ typ: 'akt', art: sel.akt, start: now() }, sel);
     if (q.art === 'luecke') {
@@ -2879,11 +2859,10 @@
       (S.aktTexte = S.aktTexte || {})[T.id] = now();
       session.aktMetin = { titel: T.titel, glossar: T.glossar || [] };
     }
-    if (q.art === 'diktat') (S.aktSaetze = S.aktSaetze || {})[q.satz.de] = now();
     return q;
   }
-  const AKT_AD = { luecke: 'metinde boşluk', diktat: 'dinle–yaz' };
-  // odak düzeni (render ile aynı): metin / dinle düğmeleri üstte (.q-ust), girdi + ä ö ü ß + Kontrol altta (.q-alt, sticky);
+  const AKT_AD = { luecke: 'metinde boşluk' };
+  // odak düzeni (render ile aynı): metin üstte (.q-ust), girdi + ä ö ü ß + Kontrol altta (.q-alt, sticky);
   // sonuç #sonuc panelinde (q-alt gizlenir), Devam görünür alanın altında
   function aktRender(q) {
     $('#durum-satiri').innerHTML = '';
@@ -2907,11 +2886,6 @@
         <div class="soru">${esc(T.titel || '')}</div>
         <div class="paket-text u-text-body" id="lesen-text">${body}</div><div id="lesen-wort" class="kural" hidden></div>`;
       alt = `${UMLAUT_IC}<div class="alt-sira"><span class="soluk">${q.blanks.length} boşluk · Enter: sıradaki</span><button class="btn ana" data-akt="pruef" type="button">Kontrol</button></div>`;
-    } else if (q.art === 'diktat') {
-      ust += `<div class="soluk">Dinle, duyduğun cümleyi yaz (istediğin kadar dinle)</div>
-        <div class="sira" style="justify-content:center"><button class="btn buyuk" data-sprich="${esc(q.satz.de)}" type="button">🔊 Dinle</button><button class="btn mini" data-sprich-yavas="${esc(q.satz.de)}" type="button">🐢 yavaş</button></div>`;
-      alt = `<div class="yaz-kutu"><input id="cevap" type="text" enterkeyhint="go" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="duyduğun cümle" aria-label="Cevap" value="${esc(q.eingabe || '')}">${UMLAUT_IC}</div>
-        <div class="alt-sira"><span></span><button class="btn ana" data-akt="pruef" type="button">Kontrol <kbd>Enter</kbd></button></div>`;
     }
     kart.classList.add('duzen');
     if (q.wartet) kart.classList.add('cevaplandi');
@@ -2925,12 +2899,11 @@
       if (b) requestAnimationFrame(() => { const r = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (r.bottom > vh - 4 || r.top < 0) b.scrollIntoView({ block: 'end' }); });
       return;
     }
-    if (q.art === 'diktat') { const i = $('#cevap'); if (i) i.focus(); if (!q.gesprochen) { q.gesprochen = true; sprich(q.satz.de); } }
     if (q.art === 'luecke') { const i = document.querySelector('.u-luecke'); if (i) i.focus(); }
   }
-  // etkinlik bitti: özet log satırı (boşluklar ayrı ayrı sayıldı ve yazıldı; dikte 1 cevap)
+  // etkinlik bitti: özet log satırı (boşluklar ayrı ayrı sayıldı ve yazıldı)
   function aktAbschluss(q, urteil, antwort, loesung, notiz, gezaehlt) {
-    if (!gezaehlt) { zaehlen({ typ: 'akt' }, urteil); session.q++; if (session.ot) { session.ot.adim = (session.ot.adim || 0) + 1; session.ot.gecmis.push({ id: q.satz && q.satz.id, bicim: 'diktat', tur: 'akt' }); } }
+    if (!gezaehlt) { zaehlen({ typ: 'akt' }, urteil); session.q++; if (session.ot) { session.ot.adim = (session.ot.adim || 0) + 1; session.ot.gecmis.push({ id: q.satz && q.satz.id, bicim: q.art, tur: 'akt' }); } }
     fxCevap(urteil);
     // özet satırı: düzeltme kutusu varsa çıkışta yazılır (notiz sonuna düzeltti / düzeltme:geç), yoksa hemen
     q.aktLog = { modus: 'akt', id: q.art + (q.saetze ? ':' + q.saetze[0].q.id : q.satz ? ':' + q.satz.id : ''), item: AKT_AD[q.art], frage: q.saetze ? q.saetze.map(s => s.satz).join(' ').slice(0, 300) : q.satz ? q.satz.de : '', antwort: antwort || '', ergebnis: urteil, loesung: loesung || '', notiz: notiz || '' };
@@ -2997,18 +2970,6 @@
       const kh = sonuclar.filter(x => x === 'fast').length;
       q.ergHTML = `<div class="baslik">${r === n ? '✓' : dg ? '≈' : '✗'} ${r} / ${n} doğru${kh ? ` · ${kh} küçük hata` : ''}</div>${r < n ? '<div class="soluk">yanlışların ve küçük hataların doğrusu metinde yeşil</div>' : ''}`;
       aktAbschluss(q, r === n ? 'richtig' : q.ok.filter(Boolean).length >= n * 0.6 ? 'fast' : 'falsch', q.werte.join(' / '), q.blanks.map(b => b.form).join(' / '), `puan:${q.ok.filter(Boolean).length}/${n} | boşluk:${n}`, true);
-    } else if (q.art === 'diktat') {
-      const i = $('#cevap'); q.eingabe = i ? i.value : '';
-      const r = diktatPruef(q.eingabe, q.satz.de);
-      q.erg = r.u;
-      // harf düzeyinde fark (sonuç paneliyle aynı: kırmızı = senin fazlan, yeşil = eksik)
-      let fark = '';
-      if (r.u !== 'richtig') { try { fark = q.eingabe.trim() ? diffHTML({ diff: G.diff(G.toks(G.norm(q.eingabe)), G.toks(G.norm(q.satz.de))) }) : '<span class="soluk">—</span>'; } catch (e) { fark = esc(q.eingabe); } }
-      q.ergHTML = `<div class="baslik">${r.u === 'richtig' ? '✓ Doğru' : r.u === 'fast' ? '≈ Küçük hata' : '✗ Yanlış'}${r.hinweis ? `<span class="etiketler"><span class="etiket">${esc(r.hinweis)}</span></span>` : ''}</div>
-        ${fark ? `<div class="satir"><span class="et">senin</span><span class="deger fark">${fark}</span></div>` : ''}
-        <div class="satir"><span class="et">${r.u === 'richtig' ? 'cümle' : 'doğru'}</span><span class="deger">${deHTML(q.satz.de)}</span></div>
-        <div class="soluk">${esc(q.satz.tr)}</div>`;
-      aktAbschluss(q, r.u, q.eingabe, q.satz.de, r.u === 'richtig' ? '' : r.tags.concat(r.kat && r.kat.length ? ['dikte:' + r.kat.join(',')] : []).join(' | '));
     }
   }
   function aktAktion(a) {
@@ -3395,18 +3356,17 @@
         if (!(S.items[x.id] && S.items[x.id].tanit)) { ot.partiIds = []; aktuell = Object.assign(frageYoklama(x.id, 'tanit'), { start: now() }); render(aktuell); return; }
       }
     }
-    // yeniden tanıtılan öğenin bekleyen sorusu
-    if (ot.bekleyen) { const s = ot.bekleyen; ot.bekleyen = null; const q = frage(s); if (q) { aktuell = q; render(q); return; } }
+    // yeniden tanıtılan öğenin bekleyen sorusu: yalnız o tanıtım kartının hemen ardından (14.11: kart başka soruyla değiştiyse —
+    // test soruGoster, bölüm değişimi — bayat seçim sonraki zeige'de oturum kuyruğunun (artset, ayır, yanlış tekrarı) önüne geçiyordu)
+    if (ot.bekleyen) { const s = ot.bekleyen; ot.bekleyen = null; if (s.kart === aktuell) { const q = frage(s.sel); if (q) { aktuell = q; render(q); return; } } }
     for (let i = 0; i < 5; i++) {
       const sel = sec();
       if (sel.tur === 'parti') { partiKur(sel); tanitGoster(); return; }
       if (sel.tur === 'metin') { ot.metin = true; const q = metinKur(sel); if (q) { aktuell = q; render(q); return; } continue; }
       if (sel.tur === 'gram') { const q = gramTurFrage(sel); if (q) { aktuell = q; gramTurRender(q); return; } ot.gramYok = true; continue; }
-      // ses yuvası: duy-seç kurulamazsa (minimal çift yok / Almanca ses yok) duy; o da yoksa yalnız bu pencere atlanır (ikinci yuva kalır; 6.11 denetim)
-      if (sel.tur === 'ses') { const q = sesTurFrage(sel) || (sel.alt === 'hoer' ? sesTurFrage(Object.assign({}, sel, { alt: 'duy' })) : null); if (q) { aktuell = q; sesTurRender(q); return; } ot.sesAtlaA = ot.adim || 0; continue; }
       if (sel.tur === 'bitti') return leerGoster(sel);
       // uzun süredir görülmeyen (R < 0,35): önce kısa yeniden tanıtım
-      if (sel.yenidenTanit && sel.tur === 'm') { ot.bekleyen = sel; aktuell = frageTanit(sel.id, { kisa: true }); render(aktuell); return; }
+      if (sel.yenidenTanit && sel.tur === 'm') { aktuell = frageTanit(sel.id, { kisa: true }); ot.bekleyen = { sel, kart: aktuell }; render(aktuell); return; }
       const q = frage(sel);
       if (q) { aktuell = q; render(q); return; }
       // bu öğeden soru üretilemedi: aralık kuralıyla bu turda yeniden seçilmesin
@@ -3483,10 +3443,9 @@
     partiIlerle();
   }
 
-  // ---------- metin etkinliği (turda bir): gerçek paragrafta 2–4 boşluk ya da günde bir dikte ----------
+  // ---------- metin etkinliği (turda bir): gerçek paragrafta 2–4 boşluk (günlük dikte 14.11'de kaldırıldı) ----------
   function metinKur(sel) {
     const gs = gs4(), kalan = buTurBoyu() - (session.tur ? session.tur.n : 0);
-    if (sel.diktat) { const a = aktSatz('diktat'); if (a) { gs.diktat = 1; gs.metin = (gs.metin || 0) + 1; return aktFrage(a); } }
     const a = aktLuecke(sel.adaylar || [], Math.max(2, Math.min(4, kalan)));
     if (!a) return null;
     gs.metin = (gs.metin || 0) + 1;
@@ -3586,88 +3545,6 @@
     gramSonucGor(q);
     const ayniOlay = q.bittiT != null && q.bittiT >= e.timeStamp;
     if (q.wartet && devam && (!ayniOlay || once)) { if (tus) e.preventDefault(); if (devamHazir(q)) zeige(); else kilitUyar(q); return true; }
-    return tuk;
-  }
-
-  // ---------- ses yuvası ana turda (sözleşme S1/S2, 6.11; 7.11 konuşma kaldırıldı): Kern.sec adım 4–6 { tur:'ses', alt:'duy' }, 9–11 { alt:'hoer' } ----------
-  // duy ve hoer (duy-seç) → window.Dinle (js/dinle.js). Modül soruyu seçer ve çizer (soru.render(kart, bitti)), notu verir,
-  // log satırını yazar, bitti({ urteil, antwort }) ile döner; uygulama sayaç / puan / fx / oturumIsle / Devam'ı yapar (gram yuvasının deseni).
-  // Modül yoksa ya da soru vermezse (null) yuva atlanır (ot.sesYok). Öğe hafızasına yazmaz. Ayarlar → "Sesli sorular" (S.einst.sesli, varsayılan açık).
-  const sesliAcik = () => S.einst.sesli !== false;
-  const sesModul = () => window.Dinle || null;
-  function sesVarMi(ot) {
-    if (ot.sesAtlaA != null && (ot.adim || 0) - ot.sesAtlaA <= 2) return false;   // atlanan pencerenin geri kalanı
-    return session.modus === 'akis' && !ot.klavyesiz && !ot.sesYok && sesliAcik() && !!window.speechSynthesis
-      && !!(window.Dinle && typeof Dinle.turSorusu === 'function');
-  }
-  let _sesApi = null;
-  const sesApi = () => _sesApi || (_sesApi = {
-    S: () => S, save, logEintrag, sprich, sesKes, sesHiz: sesHizi, almancaSes, esc, deHTML, deItemHTML, now, tag, G, Kern: window.Kern, later, tastatur, devamBtn, flash, toast, otoMs,
-    kind, label, trOf, kurzTr, tierOf, gueltig: id => gueltig(id + ':x'), optionen, satzPool, wortLuecke, wortSuchen, uPruef, diktePruef: diktatPruef,
-    umlaut: UMLAUT_IC, ot: () => session.ot, kart: () => kart, durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; },
-    heuteM, xpEkle, bilmedik: bilmedikIsle, renderPlan, lesenGoster: anders => { aktuell = null; lesenRender(anders); },
-  });
-  function sesTurFrage(sel) {
-    const M = sesModul(sel.alt);
-    if (!M || typeof M.turSorusu !== 'function') return null;
-    let soru = null;
-    try { soru = M.turSorusu(sesApi(), sel) || null; } catch (e) { console.warn('ses turSorusu', e); soru = null; }
-    if (!soru || typeof soru.render !== 'function') return null;
-    const q = { typ: 'sesTur', soru, modul: M, alt: sel.alt, id: soru.id || null, bicim: sel.alt, start: now(),
-      sel: Object.assign({}, sel, { id: soru.id || null, bicim: 'ses' }) };
-    q.bitti = r => sesTurBitti(q, r);
-    soru.bitti = q.bitti;
-    return q;
-  }
-  const SES_CIP = { duy: 'dinle', hoer: 'duy ve seç' };
-  function sesTurRender(q) {
-    sesKes();
-    kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis', 'cevaplandi', 'duzen');
-    otRender();
-    $('#durum-satiri').innerHTML = `<span class="chip vurgu">${esc(SES_CIP[q.alt] || 'ses')}</span>`;
-    kart.innerHTML = '';
-    let ok = true;
-    try { q.soru.render(kart, q.bitti); } catch (e) { console.warn('ses render', e); ok = false; }
-    if (!ok || !kart.innerHTML.trim()) { if (session.ot) session.ot.sesYok = true; if (aktuell === q) aktuell = null; zeige(); return; }
-    tastatur();
-  }
-  // modül cevabı değerlendirdi: tur sayacı (+ ayrı ses sayımı), puan, fx / kombo, oturum adımı; Devam (modül çizmediyse).
-  // Log'u modül yazar.
-  function sesTurBitti(q, r) {
-    if (aktuell !== q || q.wartet) return;
-    const u0 = r && r.urteil, urteil = ['richtig', 'fast', 'falsch'].includes(u0) ? u0 : 'falsch', ot = session.ot, tu = session.tur;
-    q.wartet = true; q.urteil = urteil; q.antwort = r && r.antwort != null ? String(r.antwort) : ''; q.bittiT = performance.now();
-    zaehlen(q, urteil);
-    session.q++;
-    if (ot) Kern.oturumIsle(ot, q.sel, { ergebnis: urteil }, Math.random);
-    if (tu) { const g = tu.ses = tu.ses || { n: 0, richtig: 0, fast: 0, falsch: 0 }; g.n++; g[urteil]++; }
-    fxCevap(urteil);
-    save(); renderHedef(); renderPlan();
-    if (!kart.querySelector('.devam-btn')) {
-      const yer = kart.querySelector('#sonuc .sonuc') || kart.querySelector('#sonuc') || kart;
-      // yanlış / küçük hatada Devam 2,5 sn kilitli (S6; 6.11 denetim: ses yuvasında tek Enter düzeltmeyi atlıyordu)
-      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil !== 'richtig' ? devamKilitli(q, 'stur', 'devam') : devamBtn('stur', 'devam', urteil === 'richtig' && !(r && r.bekle) ? otoMs() : 0)}</div>`);
-    } else if (urteil !== 'richtig') kilitKur(q, KILIT_MS);
-    else if (!(r && r.bekle)) otoDolum(otoMs());
-    const b = kart.querySelector('.devam-btn');
-    if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
-    if (urteil === 'richtig' && !(r && r.bekle)) otoGec(q, () => zeige());
-  }
-  // tıklama / tuş: önce modül (soru.tus / soru.klick, yoksa modülün turTus / turKlick); cevaplanmış soruda Devam ya da Enter sıradaki soruya
-  function sesTurOlay(e, tus) {
-    const q = aktuell, so = q.soru;
-    // önceki sorunun Devam'ı için basılan Enter yeni dinleme sorusuna düşmesin (7.11: boş girdi 0 sn'de "bilmiyorum" oluyordu): ilk 0,4 sn boş Enter yok
-    if (tus && e.key === 'Enter' && !q.wartet && now() - q.start < 400 && !String((e.target && e.target.value) || '').trim()) { e.preventDefault(); return true; }
-    if (!tus && e.target.closest('[data-stur]')) { if (q.wartet) { if (devamHazir(q)) zeige(); else kilitUyar(q); } return true; }
-    let tuk = false;
-    try {
-      const f = tus ? (typeof so.tus === 'function' ? so.tus : q.modul.turTus) : (typeof so.klick === 'function' ? so.klick : q.modul.turKlick);
-      tuk = !!(typeof f === 'function' && f.call(so, e));
-    } catch (err) { console.warn('ses olayı', err); }
-    if (aktuell !== q) return true;
-    const ayniOlay = q.bittiT != null && q.bittiT >= e.timeStamp;
-    const devam = tus ? e.key === 'Enter' && !e.repeat : !!e.target.closest('.devam-btn');
-    if (q.wartet && devam && !ayniOlay) { if (tus) e.preventDefault(); if (devamHazir(q)) zeige(); else kilitUyar(q); return true; }
     return tuk;
   }
 
@@ -5048,8 +4925,7 @@
       // 8.11: doğru cevaptan sonra kendiliğinden geçiş süresi (S.einst.otoGecis; 0 = elle, Enter / Devam); panelde fare / dokunuş / Boşluk durdurur
       satir('Doğru cevapta geçiş', 'sonraki soruya kendiliğinden · panele dokun ya da Boşluk: durur', seg('otogecis', [[1000, '1 sn'], [2000, '2 sn'], [3500, '3,5 sn'], [0, 'Elle']], otoMs())),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),
-      // dinleme (6.11): turda sesli sorular, okuma hızı, Almanca ses
-      satir('Sesli sorular', 'turda 1–2 soru: dinle · duy ve seç (kulaklık yoksa kapat)', anahtar('a-sesli', sesliAcik())),
+      // seslendirme: okuma hızı, Almanca ses (14.11: turdaki dinleme soruları ve "Sesli sorular" kaldırıldı)
       satir('Ses hızı', 'Almanca okuma (yavaş düğmeleri ayrı)', seg('seshiz', SES_HIZLAR.map(h => [h, String(h).replace('.', ',') + (h === 1 ? ',0' : '')]), sesHizi())),
       satir('Almanca ses', 'cihazdaki sesler · seçince örnek çalar', `<span class="dn-ses-sec"><select id="a-sesadi" aria-label="Almanca ses"></select><button class="btn mini ses-mini" data-ses-ornek="1" type="button" aria-label="Örnek dinle">🔊</button></span>`),
       satir('Titreşim', 'Android', anahtar('a-titresim', titresimAcik())),
@@ -5513,7 +5389,7 @@
   }
   // ---------- B2 hazırlık sprinti (S.sprint = { hedef, son_yeni, acik }; 28.10 → 9.11.2026): geri sayım + günün üç bloğu ----------
   // Sprint açıkken Bugün'de "ikinci iş" yerine üç blok: 1) Kelime (günlük hedef turları) 2) Gramer (Gramer.sprintDurum / blokBaslat)
-  // 3) Beceri (gün gün: DW okuma · serbest yazma · DW Dinleme modu · Cümle atölyesi). "Bugün tamam" üçü bitince.
+  // 3) Beceri (gün gün: DW okuma · serbest yazma · Cümle atölyesi; 14.11: Dinleme modu günü kaldırıldı). "Bugün tamam" üçü bitince.
   // Hedef günü gelince bir kez geçiş kartı (S.ayar4.gosterildi.sprintGecis = hedef), sonra eski düzen.
   const SPRINT0 = { hedef: '2026-11-09', son_yeni: '2026-11-05', acik: true };
   const gunFark = (a, b) => Math.round((new Date(b + 'T12:00:00') - new Date(a + 'T12:00:00')) / DAY);
@@ -5537,8 +5413,7 @@
   const BECERI = [
     { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW Top-Thema: oku, soruları cevapla', dk: 10, log: e => e.modus === 'lesen' && e.ergebnis === 'gelesen' },
     { m: 'yazma', ikon: '✍️', b: 'Serbest yazma', alt: '~80 kelime · Claude gece düzeltir', dk: 15, log: e => e.modus === 'text' },
-    // 7.11: konuşma (Teil 2) günü yerine DW Dinleme modu (Okuma bölümünde açılır; log lesen <metin>:dinle)
-    { m: 'dinle', modus: 'lesen', ikon: '🎧', b: 'Dinleme · DW', alt: 'tahmin → metinsiz dinle → boşluklu metin → metinle', dk: 10, log: e => e.modus === 'lesen' && /:dinle$/.test(e.id || '') },
+    // 7.11'de konuşma günü yerine gelen DW Dinleme modu 14.11'de kaldırıldı (Tuna: "dinleme aşırı zor"): üç günlük döngü
     { m: 'cumle', ikon: '🧱', b: 'Cümle atölyesi', alt: 'diz · çevir · kendi cümleni kur', dk: 8, log: e => e.modus === 'cumle' },
   ];
   function beceriBugun() {
@@ -5547,8 +5422,8 @@
     const yapilan = BECERI.filter(x => rows.some(x.log));
     return { gun, yapilan, bitti: yapilan.length > 0 };
   }
-  // okunmamış DW metni (sesli olan önce, yoksa en yeni); sesli: yalnız sesi olanlar (Dinleme modu)
-  const dwSec = sesli => { const g = S.gelesen || {}, dw = LT.filter(x => /^dw/.test(x.id) && !x.aufgaben && (!sesli || x.audio)), c = dw.filter(x => !g[x.id]), h = c.length ? c : dw; return h.find(x => x.audio) || h[h.length - 1] || null; };
+  // okunmamış DW metni (sesli olan önce, yoksa en yeni)
+  const dwSec = () => { const g = S.gelesen || {}, dw = LT.filter(x => /^dw/.test(x.id) && !x.aufgaben), c = dw.filter(x => !g[x.id]), h = c.length ? c : dw; return h.find(x => x.audio) || h[h.length - 1] || null; };
   // üç blok: { id, no, ikon, b, alt, dk, bitti }
   function sprintBloklar() {
     const turH = turHedefi(), yapildi = Math.min(turYapildi(), turH), dkTur = Math.max(3, Math.round(turBoyu() / 3));
@@ -5586,10 +5461,8 @@
       return;
     }
     const x = BECERI.find(b => b.m === id) || beceriBugun().gun;
-    if (x.m === 'lesen' || x.m === 'dinle') { const dw = dwSec(x.m === 'dinle'); if (dw && !(session.lesen && session.lesen.id === dw.id)) { session.lesen = dw; session.lesenQ = dw.quelle; session.lesenCevap = {}; session.lesenFv = false; } }
+    if (x.m === 'lesen') { const dw = dwSec(); if (dw && !(session.lesen && session.lesen.id === dw.id)) { session.lesen = dw; session.lesenQ = dw.quelle; session.lesenCevap = {}; session.lesenFv = false; } }
     calisBasla(x.modus || x.m);
-    // Dinleme: Okuma ekranından doğrudan Dinleme moduna (sesi yoksa Okuma ekranı kalır)
-    if (x.m === 'dinle' && window.Dinle && session.lesen && session.lesen.audio) { const au = kart.querySelector('audio'); if (au) au.pause(); aktuell = { typ: 'dinleMod' }; if (!Dinle.modAc(session.lesen, sesApi())) lesenRender(); }
   }
   // hedef günü ve sonrası: bir kez "B2 kursu başladı" (13 günün özeti), sonra eski düzen
   function sprintGecisKarti() {
@@ -5971,8 +5844,6 @@
     const uk = e.target.closest('.klavye.ic button');
     if (uk) { const i = uk.closest('.duzelt-kutu:not(.akt)') ? $('#duzelt-inp') : letzteEingabe && kart.contains(letzteEingabe) && letzteEingabe.classList.contains('u-luecke') && !letzteEingabe.disabled ? letzteEingabe : $('#cevap'); if (i && !i.readOnly) { const p = i.selectionStart == null ? i.value.length : i.selectionStart; i.value = i.value.slice(0, p) + uk.dataset.c + i.value.slice(i.selectionEnd == null ? p : i.selectionEnd); i.setSelectionRange(p + 1, p + 1); i.focus(); if (i.id === 'duzelt-inp') duzeltKontrol(false); else if (i.dataset && i.dataset.dz != null) aktDuzeltKontrol(i); } return; }
     if (aktuell && aktuell.typ === 'gramTur') { if (gramTurOlay(e, false)) return; }
-    if (aktuell && aktuell.typ === 'sesTur') { if (sesTurOlay(e, false)) return; }
-    if (aktuell && aktuell.typ === 'dinleMod') { if (window.Dinle && Dinle.modKlick(e)) return; }
     if (aktuell && aktuell.mc && !aktuell.offen && !aktuell.done && !e.target.closest('[data-act]')) { mcAufdecken(aktuell); return; }
     const kb = e.target.closest('.kb-chip'); if (kb) { bankaEkle(kb); return; }
     const fv = e.target.closest('[data-fav]');
@@ -6039,7 +5910,6 @@
     else if (act === 'metin-gonder') metinGonder();
     else if (act === 'claude-gonder') { e.target.disabled = true; claudeGonder().then(ok => { if (!ok) e.target.disabled = false; }); }
     else if (act === 'lesen-baska') lesenRender(true);
-    else if (act === 'dinle-modu') { const L = session.lesen; if (L && L.audio && window.Dinle) { const au = kart.querySelector('audio'); if (au) au.pause(); aktuell = { typ: 'dinleMod' }; if (!Dinle.modAc(L, sesApi())) lesenRender(); } }
     else if (act === 'lesen-oku' || act === 'lesen-oku-yavas') { const L = session.lesen; if (L) sprich(L.text.split('\n').slice(0, 12).join('. '), act === 'lesen-oku-yavas' ? 0.75 : 0.95); }
     else if (act === 'fv-test') fvTestStart();
     else if (act === 'u-weiter') uWeiter();
@@ -6080,14 +5950,12 @@
     if ($('#v-calis').hidden || !aktuell) return;
     const q = aktuell;
     const inInput = /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName);
-    // doğru cevabın geri sayımı: Boşluk durdurur (sonra Enter / Devam); dinleme / gramer modülü Boşluk'u yine alır (tekrar dinle)
-    if (e.key === ' ' && q.oto && q.oto.dur !== 'elle' && !inInput) { otoDur('elle'); if (q.typ !== 'sesTur' && q.typ !== 'gramTur') { e.preventDefault(); return; } }
+    // doğru cevabın geri sayımı: Boşluk durdurur (sonra Enter / Devam); gramer modülü Boşluk'u yine alır
+    if (e.key === ' ' && q.oto && q.oto.dur !== 'elle' && !inInput) { otoDur('elle'); if (q.typ !== 'gramTur') { e.preventDefault(); return; } }
     if (q.typ === 'pruefung') { if (e.key === 'Escape') { e.preventDefault(); if (pruefungCik()) { clearTimers(); zeigView('ana'); } } return; }
     if (e.key === 'Escape' && !(q.typ === 'akt' && q.art === 'angebot')) { e.preventDefault(); clearTimers(); cikisNotla(); zeigView('ana'); return; }
     if (q.typ === 'gram') { if (Gramer.tus(e)) return; return; }
     if (q.typ === 'gramTur') { gramTurOlay(e, true); return; }
-    if (q.typ === 'sesTur') { sesTurOlay(e, true); return; }
-    if (q.typ === 'dinleMod') { if (window.Dinle) Dinle.modTus(e); return; }
     if (q.typ === 'cumle') { Cumle.tus(e); return; }
     if (q.typ === 'oyun') {
       if (e.repeat) return;
@@ -6104,7 +5972,6 @@
       if (e.key !== 'Enter') return;
       if (q.wartet) { e.preventDefault(); if (e.repeat) return; if (e.target.dataset && e.target.dataset.dz != null) { aktDuzeltKontrol(e.target); if (!devamHazir(q)) return; } aktWeiter(); return; }
       if (e.target.classList && e.target.classList.contains('u-luecke')) { e.preventDefault(); const nx = document.querySelector(`.u-luecke[data-al="${+e.target.dataset.al + 1}"]`); if (nx) nx.focus(); else aktPruef(); return; }
-      if (q.art === 'diktat' && e.target.id === 'cevap') { e.preventDefault(); aktPruef(); return; }
       return;
     }
     if (q.typ === 'unite') {
@@ -6223,7 +6090,6 @@
     else if (id === 'a-ret') { S.einst.ret = +e.target.value || 0.85; S.einst.retSecildi = true; }
     else if (id === 'a-tur') { S.einst.tur = +e.target.value; otRender(); }
     else if (id === 'a-ses') S.einst.ses = !!e.target.checked;
-    else if (id === 'a-sesli') S.einst.sesli = !!e.target.checked;
     else if (id === 'a-sesadi') { S.einst.sesAdi = e.target.value || null; _ses = null; sprich(SES_ORNEK); }
     else if (id === 'a-titresim') S.einst.titresim = !!e.target.checked;
     else if (id === 'a-saat') return;
@@ -6343,8 +6209,6 @@
       sayac: urteil => { const d = heute(); d.n++; if (urteil) d[urteil] = (d[urteil] || 0) + 1; session.q++; gunSayac(tageTuret(tag())); },
     });
   })();
-  // Dinleme (js/dinle.js): tur ses yuvası 'duy' / 'hoer' (duy-seç) + Okuma'da Dinleme modu; Kern hafızasına yazmaz
-  (function dinleBagla() { if (window.Dinle && typeof Dinle.init === 'function') Dinle.init(sesApi()); })();
   (function pruefungBagla() {
     Pruefung.init({ S: () => S, save, logEintrag, xpEkle, heuteM, toast, sprich, esc, now, tag, zeitStr, konfeti, tastatur, kart: () => kart,
       durum: t => { const d = $('#durum-satiri'); if (d) d.innerHTML = t; }, kalipHTML: a => yazmaKalipHTML(a), senkron: () => ghSync(true) });
@@ -6483,13 +6347,11 @@
     // test: Kern seçimi (sel) ile soruyu doğrudan çiz (artOb / kalip / ayir / kok …); ayirCiftleri, artSetKur
     soruGoster: sel => { const q = frage(Object.assign({ b: 0, tur: 'm', kaynak: 'test' }, sel)); if (!q) return null; aktuell = q; render(q); return { bicim: q.bicim, typ: q.typ, ziel: q.ziel, frageText: q.frageText }; },
     ayirCiftleri: () => ayirCiftleri(), ayirKoy: () => { session.ot.ayirVar = false; return ayirKoy(session.ot); },
-    // test: metin etkinliğini (art 'luecke' | 'diktat') doğrudan aç; adaylar = hafızası olan öğeler
-    metinAc: art => { const ad = Object.keys(S.items).filter(id => S.items[id].m && S.items[id].m.S && kind(id) !== 'p').slice(0, 40); const q = metinKur({ tur: 'metin', adaylar: ad, diktat: art === 'diktat' }); if (!q || (art && q.art !== art)) return false; aktuell = q; render(q); return true; },
+    // test: metin etkinliğini (art 'luecke') doğrudan aç; adaylar = hafızası olan öğeler (14.11: dikte kaldırıldı)
+    metinAc: art => { const ad = Object.keys(S.items).filter(id => S.items[id].m && S.items[id].m.S && kind(id) !== 'p').slice(0, 40); const q = metinKur({ tur: 'metin', adaylar: ad }); if (!q || (art && q.art !== art)) return false; aktuell = q; render(q); return true; },
     // test: verilen seçimle soruyu doğrudan aç (ör. { id, tur: 'm', bicim: 'cumle', b: 4, zor: true }); önce bir tur başlatılmış olmalı
     frageAc: sel => { const q = frage(Object.assign({ tur: 'm', b: 4 }, sel)); if (!q) return false; aktuell = q; render(q); return true; },
-    // test: ses yuvasını doğrudan aç (Kern.sec'ten bağımsız): alt 'duy' | 'hoer', dinleTur 'kelime' | 'bosluk' | 'dikte'; önce bir tur başlatılmış olmalı
-    sesAc: (alt, dinleTur) => { const q = sesTurFrage({ tur: 'ses', alt: alt || 'duy', kaynak: 'ses', dinleTur }); if (!q) return false; aktuell = q; sesTurRender(q); return true; },
-    sesVarMi: () => session.ot ? sesVarMi(session.ot) : null, diktatPruef,
+    diktatPruef,
     // test: Okuma bölümünde verilen metni aç (id: dw…)
     lesenAc: id => { const L = LT.find(x => x.id === id); if (!L) return false; setModus('lesen'); zeigView('calis'); session.lesen = L; session.lesenCevap = {}; session.lesenFv = false; lesenRender(); return true; },
     LT,

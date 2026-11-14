@@ -1063,46 +1063,14 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(sira.join(','), 'v2,v1,w2,n1,n5', 'vadeli sırası: R < 0,8 artan (v2 .6, v1 .7, w2 .78), sonra R azalan (n1 .95, n5 .85)');
 }
 
-// ---------- 6.11 S1: ses yuvası ----------
+// ---------- 14.11: ses yuvası kaldırıldı (6.11 S1; Tuna: "dinleme aşırı zor") ----------
 {
   const items = () => ({ n1: { m: h(10, 0.8, { due: T - DAY }) }, n5: { m: h(10, 0.7, { due: T - DAY }) }, v1: { m: h(10, 0.75, { due: T - DAY }) } });
   const d = (o, t) => K.sec({ S: yeniS(items()), kap: 36 }, oturum(Object.assign({ parti: true, kurtarma: true }, o)), t || T, R99);
-  const ses = s => s.tur === 'ses';
-  eq(JSON.stringify(K.SES_ADIM), '[4,9]', 'SES_ADIM = [4, 9]');
-  ok(!ses(d({ adim: 4 })), 'ses: sesVar yoksa yok');
-  ok(!ses(d({ adim: 4, sesVar: 1 })), 'ses: yalnız sesVar === true');
-  const s4 = d({ adim: 4, sesVar: true });
-  ok(ses(s4) && s4.alt === 'duy' && s4.kaynak === 'ses', 'ses: adım 4 → duy', s4);
-  ok(!ses(d({ adim: 3, sesVar: true })), 'ses: adım 3 yok');
-  ok(ses(d({ adim: 6, sesVar: true })), 'ses: 4 kaçtıysa en geç 6');
-  ok(!ses(d({ adim: 7, sesVar: true })), 'ses: pencere dışı (7) yok');
-  const gec = (n, at) => Array.from({ length: n }, (_, i) => at.includes(i) ? { tur: 'ses', alt: 'duy', a: i } : { id: 'x' + i, tur: 'm' });
-  ok(!ses(d({ adim: 5, sesVar: true, gecmis: gec(5, [4]) })), 'ses: pencerede tek');
-  // 7.11: konuşma kaldırıldı → ikinci yuva her gün hoer (duy-seç; uygulama hoer yoksa duy sorar)
-  const cift = new Date(2026, 9, 16, 19, 0).getTime(), tek = new Date(2026, 9, 15, 19, 0).getTime();
-  const s9c = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, cift), s9t = d({ adim: 9, sesVar: true, gecmis: gec(9, [4]) }, tek);
-  ok(ses(s9c) && s9c.alt === 'hoer', 'ses: ikinci yuva hoer (gün 1)', s9c);
-  ok(ses(s9t) && s9t.alt === 'hoer', 'ses: ikinci yuva hoer (gün 2)', s9t);
-  const s9i = d({ adim: 9, sesVar: true, gecmis: gec(9, []) });
-  ok(ses(s9i) && s9i.alt === 'duy', 'ses: ilk yuva kaçtıysa turun ilk ses sorusu duy', s9i);
-  ok(!ses(d({ adim: 11, sesVar: true, gecmis: gec(11, [4, 9]) })), 'ses: turda en çok 2');
-  ok(!ses(d({ adim: 4, sesVar: true, sesYok: true })), 'ses: sesYok → yok');
-  ok(!ses(d({ adim: 4, sesVar: true, klavyesiz: true })), 'ses: klavyesiz yok');
-  ok(!ses(d({ adim: 4, sesVar: true, odak: true })), 'ses: odak yok');
-  ok(!ses(d({ adim: 4, sesVar: true, aksam: ['n1', 'n5'] })), 'ses: akşam yok');
-  ok(!ses(d({ adim: 4, sesVar: true, yanlisSeri: 2 })), 'ses: momentum yok');
-  eq(d({ adim: 4, sesVar: true, kuyruk: [{ id: 'n5', neden: 'yanlis', at: 4, b: 2, bicim: 'yaz0', deneme: 2 }] }).kaynak, 'kuyruk', 'ses: sırası gelmiş kuyruk önce');
-  // oturumIsle: adım + geçmiş, kuyruk / yanlisSeri / hafıza değişmez
-  {
-    const o = oturum({ adim: 4, parti: true, kurtarma: true, sesVar: true, yanlisSeri: 1 }), S = yeniS(items()), once = JSON.stringify(S);
-    const s = K.sec({ S, kap: 36 }, o, T, R99);
-    K.oturumIsle(o, s, { ergebnis: 'falsch' }, R99);
-    eq(o.adim, 5, 'ses cevabı adıma sayılır'); const g = o.gecmis[o.gecmis.length - 1];
-    ok(g.tur === 'ses' && g.alt === 'duy' && g.a === 4, 'ses: geçmişte { tur, alt, a }', g);
-    eq(o.kuyruk.length, 0, 'ses yanlışı kuyruk kurmaz'); eq(o.yanlisSeri, 1, 'ses: art arda yanlış sayacı değişmez'); eq(JSON.stringify(S), once, 'ses hafızaya yazmaz');
-    ok(!ses(K.sec({ S, kap: 36 }, o, T, R99)), 'ses: cevaptan sonra aynı pencerede yok');
-  }
-  // tam tur: sesVar + gramVar → ses 4, gram 5, ses 9, gram 10; 12 cevap
+  eq(K.SES_ADIM, undefined, 'SES_ADIM yok');
+  for (let a = 3; a <= 11; a++) { const s = d({ adim: a, sesVar: true }); ok(s.tur !== 'ses', `ses yok (adım ${a}, eski sesVar: true)`, s); }
+  ok(d({ adim: 4, sesVar: true }).tur === 'm', 'ses: adım 4 normal soru');
+  // tam tur: gramVar (+ eski sesVar) → yalnız gram 5 / 10; 12 cevap
   {
     const rnd = K.tohum(5), it = {};
     for (let i = 0; i < 20; i++) it['n' + (300 + i)] = { m: h(3 + i, 0.6 + i * 0.015, { due: T - DAY, pk: 1 }) };
@@ -1110,14 +1078,29 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     for (let a = 0; a < 12; a++) {
       const t = T + a * 20000, s = K.sec({ S, kap: 36, donus: true }, o, t, rnd);
       if (s.tur === 'bitti') break;
-      if (s.tur === 'metin') { o.metin = true; a--; continue; }
-      if (s.tur === 'gram' || s.tur === 'ses') { dz.push(s.tur + (s.alt ? ':' + s.alt : '') + '@' + o.adim); K.oturumIsle(o, s, { ergebnis: 'richtig' }, rnd); continue; }
+      if (s.tur === 'metin') { ok(!s.diktat, 'metin etkinliğinde dikte yok', s); o.metin = true; a--; continue; }
+      if (s.tur === 'gram' || s.tur === 'ses') { dz.push(s.tur + '@' + o.adim); K.oturumIsle(o, s, { ergebnis: 'richtig' }, rnd); continue; }
       K.uygula(S, s.id, s.tur === 'art' ? K.notVer({ bicim: s.bicim, tip: 'flas', dogru: true, sure: 2000 }) : K.notVer({ bicim: s.bicim, tip: 'dogru', sure: 3000 }), t, { b: s.b });
       K.oturumIsle(o, s, { ergebnis: 'richtig' }, rnd); dz.push(s.id);
     }
-    eq(dz.filter(x => /@/.test(x)).join(' '), 'ses:duy@4 gram@5 ses:hoer@9 gram@10', 'tam tur: ses 4 / 9, gram 5 / 10');
-    eq(dz.length, 12, 'tam tur: ses + gram tur boyuna sayılır');
+    eq(dz.filter(x => /@/.test(x)).join(' '), 'gram@5 gram@10', 'tam tur: gram 5 / 10, ses yok');
+    eq(dz.length, 12, 'tam tur: 12 cevap');
   }
+}
+
+// ---------- 14.11: oturum kuyruğu (artset dahil) ısınma / zayıf çekirdek / birikme / vadeliden önce ----------
+{
+  const cok = {}; for (let i = 0; i < 40; i++) cok['w' + (100 + i)] = { m: h(2, 0.72, { due: T - 2 * DAY, lapses: 3, D: 8, bm: 1, pk: 0 }) };   // birikme + zayıf çekirdek
+  cok.n1 = { m: h(10, 0.97, { due: T - DAY }), art: h(5, 0.7, { due: T - DAY }) };
+  const ky = () => [{ id: 'n1', neden: 'artset', at: 2, b: 0, bicim: 'artikel', kural: 'ion' }, { id: 'w101', neden: 'ayir', at: 3, b: 0, bicim: 'ayir', diger: 'w102' }];
+  for (const a of [0, 1]) {
+    const o = oturum({ adim: 2, kuyruk: ky(), gecmis: a ? [{ id: 'x', tur: 'art' }, { id: 'y', tur: 'art' }, { id: 'z', tur: 'art' }] : [] });
+    const s = K.sec({ S: yeniS(Object.assign({}, cok)), kap: 30 }, o, T, R99);
+    ok(s.kaynak === 'kuyruk' && s.neden === 'artset' && s.tur === 'art' && !s.yenidenTanit, `artset kuyruğu önce (ısınma / zayıf çekirdek / birikme${a ? ', ART_TUR dolu' : ''})`, s);
+  }
+  const o = oturum({ adim: 3, kuyruk: ky().slice(1), gecmis: [{ id: 'n1', tur: 'art' }, { id: 'x', tur: 'm' }, { id: 'y', tur: 'm' }] });
+  const s = K.sec({ S: yeniS(Object.assign({}, cok)), kap: 30 }, o, T, R99);
+  ok(s.kaynak === 'kuyruk' && s.neden === 'ayir' && s.bicim === 'ayir', 'ayır kuyruğu sırası gelince önce', s);
 }
 
 // ---------- 6.11 S3: artOb (artikel öbek içinde) ----------
@@ -1325,7 +1308,7 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(S3.items.n1.m.bm, 3, 'güçlü öğe: bos doğru → bm 3');
 }
 {
-  // 3) birikme (kota: dünden kalan vadeli > kapasite): gramer turda 1, ses 1 (gün gün duy / hoer), o.yukKis (uygulama: ayır yok)
+  // 3) birikme (kota: dünden kalan vadeli > kapasite): gramer turda 1, o.yukKis (uygulama: ayır yok); 14.11: ses yuvası kaldırıldı
   const cok = {}; for (let i = 0; i < 40; i++) cok['w' + (100 + i)] = { m: h(10, 0.85, { due: T - 2 * DAY }) };
   const Sb = () => yeniS(Object.assign({}, cok));
   const db = (o, t) => K.sec({ S: Sb(), kap: 30 }, oturum(Object.assign({ parti: true, kurtarma: true, metin: true }, o)), t || T, R99);
@@ -1339,13 +1322,8 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   eq(db({ adim: 10, gramVar: true, gecmis: gec(10, [5]) }).tur === 'gram', false, 'birikme: ikinci gramer yok');
   eq(db({ adim: 8, gramVar: true, gecmis: gec(8, []) }).tur, 'gram', 'birikme: tek yuva kaçmaz (parti / kuyruk 5–7\'yi geçtiyse 8)');
   eq(db({ adim: 11, gramVar: true, gecmis: gec(11, []) }).tur === 'gram', false, 'birikme: boy − 2\'den sonra yok');
-  const S_ = { tur: 'ses', alt: 'duy' };
-  const s4 = db({ adim: 4, sesVar: true });
-  ok(s4.tur === 'ses', 'birikme: ses adım 4', s4);
-  eq(db({ adim: 9, sesVar: true, gecmis: gec(9, [4], S_) }).tur === 'ses', false, 'birikme: ikinci ses yok');
-  eq(db({ adim: 7, sesVar: true, gecmis: gec(7, []) }).tur, 'ses', 'birikme: ses tek yuva kaçmaz (7)');
-  const alt = [new Date(2026, 9, 15, 19).getTime(), new Date(2026, 9, 16, 19).getTime()].map(t => db({ adim: 4, sesVar: true }, t).alt).sort().join(',');
-  eq(alt, 'duy,hoer', 'birikme: tek ses yuvası gün gün duy / hoer');
+  // 14.11: birikmede de ses yuvası yok (dinleme kaldırıldı)
+  ok([4, 7, 9].every(a => db({ adim: a, sesVar: true, gecmis: gec(a, []) }).tur !== 'ses'), 'birikme: ses yuvası yok');
   ok(K.gramPencere({ adim: 8, yukKis: true }) && !K.gramPencere({ adim: 8 }) && K.gramPencere({ adim: 10 }) && !K.gramPencere({ adim: 11, boy: 12, yukKis: true }), 'gramPencere: birikmede 5 … boy − 2');
 }
 {

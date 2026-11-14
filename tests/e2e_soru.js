@@ -126,7 +126,7 @@ const DAY = 86400000;
     // S 5 (merdiven B2), bm 2, ds 3, pk 2, R yüksek, yanlış geçmişi var (lapses 1 → Zayıflar'da)
     S.items.v243 = { seit: t - 60 * 86400000, m: { S: 5, D: 5, last: t - 2 * 86400000, due: t - 3600000, reps: 9, lapses: 1, lastG: 3, pk: 2, bm: 2, ds: 3, gun: '2026-01-01' } };
     const ot = { adim: 5, gecmis: [{ id: 'x1', bicim: 'yaz', tur: 'm' }, { id: 'x2', bicim: 'yaz', tur: 'm' }, { id: 'x3', bicim: 'yaz', tur: 'm' }], kuyruk: [] };
-    const ham = T.Kern.sec({ S, kap: 20, bonus: 0, donus: false, ekYeni: 0, gunSay: { kok: 9, kokYeni: 9, metin: 9, diktat: 9 } }, Object.assign({ boy: 12, filtre: id => id === 'v243', odak: true }, JSON.parse(JSON.stringify(ot))), t, () => 0.99);
+    const ham = T.Kern.sec({ S, kap: 20, bonus: 0, donus: false, ekYeni: 0, gunSay: { kok: 9, kokYeni: 9, metin: 9 } }, Object.assign({ boy: 12, filtre: id => id === 'v243', odak: true }, JSON.parse(JSON.stringify(ot))), t, () => 0.99);
     T.starte('zayif');
     await new Promise(res => setTimeout(res, 300));
     const a = T.aktuell || {};
