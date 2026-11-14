@@ -87,7 +87,7 @@ wahl | 1 | Wie findest du ___ Kleid? | dieses | dieses / dieser / diesen | Bu el
 luecke | 2 | Mit ___ Bus fahre ich jeden Tag zur Uni. (dieser) | diesem | | Her gün bu otobüsle üniversiteye gidiyorum. | mit + Dativ, der Bus → diesem (dem gibi). | der Bus; fahren
 luecke | 2 | ___ Woche habe ich viele Prüfungen. (dieser) | Diese | | Bu hafta çok sınavım var. | die Woche dişil → diese. | die Woche, -n; die Prüfung
 umform | 2 | Ich nehme den Pullover hier. → dieser ile yaz | Ich nehme diesen Pullover. / Ich nehme diesen Pullover hier. | | Bu kazağı alıyorum. | den Pullover → diesen Pullover (Akkusativ eril, den gibi -en). | der Pullover; nehmen
-ordnen | 2 | diese / Schuhe / sind / bequemer / als / meine alten | Diese Schuhe sind bequemer als meine alten. | | Bu ayakkabılar eskilerimden daha rahat. | Çoğul Nominativ → diese; Komparativ + als. | der Schuh; bequem
+ordnen | 2 | diese / Schuhe / sind / bequemer / als / meine alten | Diese Schuhe sind bequemer als meine alten. / Diese sind bequemer als meine alten Schuhe. | | Bu ayakkabılar eskilerimden daha rahat. | Çoğul Nominativ → diese; Komparativ + als. | der Schuh; bequem
 
 @teil derselbe | derselbe / dieselbe / dasselbe | artikel/çekim
 luecke | 3 | Tuna und ich wohnen in ___ Straße. (derselbe) | derselben | | Tuna ve ben aynı sokakta oturuyoruz. | in + Dativ, die Straße → der + selben: derselben (iki parça da çekilir). | die Straße; wohnen

@@ -6,6 +6,8 @@ const G = require('../js/grammatik.js');
 const FSRS = require('../js/fsrs.js');
 global.window = global.window || {};
 window.G = G;
+// uygulamadaki gibi fiil / isim / kelime verisi (G.kisiCekimi fiil tablosu, sözlük aileleri)
+['verben', 'nomen', 'woerter'].forEach(f => eval(fs.readFileSync(ROOT + '/daten/' + f + '.js', 'utf8')));
 eval(fs.readFileSync(ROOT + '/daten/grammatik.js', 'utf8'));
 eval(fs.readFileSync(ROOT + '/js/gramer.js', 'utf8'));
 const Gr = window.Gramer, GR = window.GRAMMATIK;
@@ -128,6 +130,66 @@ r = P(dn, 'qwertz falsch'); ok(r.urteil === 'falsch' && !r.tags.includes('yardı
   ok(!bozuk.length, 'fehler: hata aralığının ilk kelimesi hatalı kelime', bozuk.slice(0, 10));
 }
 
+// ---------- 12.11 düzeltmeleri (log 8.11–11.11) ----------
+{
+  // ordnen: sırayı sınamayan teil'de aynı yapıdaki iki eş değer sıfatın yer değiştirmesi doğru (adjektiv:82)
+  r = P(U('adjektiv', 82), 'ich finde den roten Rock schöner als den blauen');
+  ok(r.urteil === 'richtig' && !r.tags.length, 'adjektiv:82: den roten … den blauen → doğru (log 8.11 06:06:10)', r);
+  r = P(U('adjektiv', 82), 'ich finde den blauen schöner als den roten Rock');
+  ok(r.urteil !== 'richtig', 'adjektiv:82: isim yer değiştirmesi doğru sayılmaz', r);
+  // pronomen:29: "Diese sind bequemer als meine alten Schuhe" alternatifi
+  r = P(U('pronomen', 29), 'diese sind bequemer als meine alten Schuhe');
+  ok(r.urteil === 'richtig', 'pronomen:29: zamir olarak diese → doğru (log 8.11 06:07:19)', r);
+  // dar kural: bütün ordnen alıştırmalarında iki kelimelik yer değiştirmeleri tara; kabul edilenler yalnız eş değer sıfat çiftleri
+  const kabul = [];
+  Object.keys(GR).forEach(id => GR[id].uebungen.forEach(u => {
+    if (u.tur !== 'ordnen' || u.aus) return;
+    u.cevap.forEach(c => {
+      const w = c.replace(/[.!?,]/g, '').split(/\s+/);
+      for (let i = 0; i < w.length; i++) for (let j = i + 1; j < w.length; j++) {
+        if (w[i].toLowerCase() === w[j].toLowerCase()) continue;
+        const x = w.slice(); [x[i], x[j]] = [x[j], x[i]];
+        if (Gr._ic.esTakas(x.join(' '), u.cevap.map(a => a.replace(/,/g, '')))) kabul.push(`${id}:${u.n} ${w[i]}↔${w[j]}`);
+      }
+    });
+  }));
+  ok(kabul.length >= 1 && kabul.length <= 6 && kabul.every(k => /^adjektiv:82 /.test(k)), 'ordnen: eş değer yer değiştirme kuralı dar (yalnız adjektiv:82)', kabul);
+  // sırayı sınayan teil'de (TeKaMoLo) yer değiştirme kuralı uygulanmaz
+  const sk = bul('satzklammer-tekamolo', u => u.tur === 'ordnen' && GR['satzklammer-tekamolo'].teile[u.teil].etiket === 'kelime sırası');
+  ok(!sk || P(sk, sk.cevap[0].split(' ').reverse().join(' ')).urteil === 'falsch', 'TeKaMoLo ordnen: ters sıra yanlış');
+
+  // kelime tekrarı: "die die" (reflexiv:40) → fast yazım + kelime tekrarı; gerçek "die die" (ilgi zamiri + artikel) doğru
+  r = P(U('reflexiv', 40), 'Ich habe mir die die Ausstellung angesehen');
+  ok(r.urteil === 'fast' && r.tags.join() === 'yazım,kelime tekrarı', 'reflexiv:40: "die die" → fast yazım, kelime tekrarı (log 10.11 18:20:32)', r);
+  r = P(cv('Das ist die Frau, die die Zeitung liest.'), 'Das ist die Frau, die die Zeitung liest.');
+  ok(r.urteil === 'richtig', 'gerçek "die die" (ilgi zamiri + artikel) doğru', r);
+  r = P(cv('Das ist die Frau, die die Zeitung liest.'), 'Das ist die Frau die Zeitung liest.');
+  ok(r.urteil !== 'richtig', '"die die"den biri eksik: doğru değil', r);
+  r = P(U('reflexiv', 40), 'Ich habe mir die die Ausstelung angesehen');
+  ok(r.urteil === 'falsch', 'tekrar + yazım hatası: sistem yanlış (itirazla yazım)', r);
+
+  // özne uyumu: aynı fiilin başka kişi çekimi → fast; mastar yerinde yanlış kalır
+  r = P(U('verbstellung', 77), 'Am Wochenende besuche meine Familie mich.');
+  ok(r.urteil === 'fast' && r.tags.join() === 'fiil çekimi (özne uyumu)', 'verbstellung:77: besuche ↔ besucht → fast özne uyumu (log 11.11 20:33:15)', r);
+  r = P(cv('Ich muss heute arbeiten.'), 'Ich muss heute arbeite.');
+  ok(r.urteil === 'falsch', 'modal + mastar yerinde çekimli fiil yanlış kalır', r);
+  r = P(cv('Ich werde morgen arbeiten.'), 'Ich werde morgen arbeitet.');
+  ok(r.urteil === 'falsch', 'werden + mastar yerinde yanlış kalır', r);
+  r = P(cv('Ich habe keine Lust zu arbeiten.'), 'Ich habe keine Lust zu arbeite.');
+  ok(r.urteil === 'falsch', 'zu + mastar yerinde yanlış kalır', r);
+  r = P(cv('Er hat mich gestern besucht.'), 'Er hat mich gestern besuche.');
+  ok(r.urteil === 'falsch', 'Partizip yerinde çekimli fiil yanlış kalır', r);
+  r = P(cv('Ich weiß, dass er heute arbeiten muss.'), 'Ich weiß, dass er heute arbeitet muss.');
+  ok(r.urteil === 'falsch', 'yan cümlede modalden önceki mastar yerinde yanlış kalır', r);
+  r = P(cv('Meine Eltern wohnen in Bremen.'), 'Meine Eltern wohnt in Bremen.');
+  ok(r.urteil === 'fast' && r.tags.join() === 'fiil çekimi (özne uyumu)', 'wohnen ↔ wohnt → fast özne uyumu', r);
+}
+// hatayı bul: saf kelime sırası hatasında yeri değişen bölgenin kelimeleri (TeKaMoLo:47 "morgen", log 9.11 18:22:07)
+{
+  const iz = Gr._ic.fehlerIzin(U('satzklammer-tekamolo', 47));
+  ok(['morgen', 'mit', 'dem', 'bus', 'nach', 'hause'].every(w => iz.has(w)) && !iz.has('ich') && !iz.has('fahre'), 'TeKaMoLo:47: bölgedeki kelimeler doğru, yerinde duranlar değil', [...iz]);
+}
+
 // ---------- sahte DOM ile not akışı ----------
 const inp = v => ({ value: v, readOnly: false, classList: { add() {} } });
 const mkEl = () => { const e = { innerHTML: '', inputs: [], tam: null, sonuc: { innerHTML: '' },
@@ -155,8 +217,12 @@ const sonLog = () => logs[logs.length - 1];
   ok(q.done && q.urteil === 'falsch', 'akış: yanlış cevap', [bozuk, q.urteil, q.tags]);
   ok(Gr.tus(KEY('3')) === false && q.son === 1 && !q.notlandi, '1/2/3 tuşu notu değiştirmez (kazara yükseltme yok)');
   Gr.tus(KEY('Enter'));
-  ok(!q.notlandi, 'yanlışta Devam 2,5 sn kilitli: Enter yok sayılır');
-  saat += 3000; runLater();
+  ok(!q.notlandi, 'yanlışta Devam kilitli: Enter yok sayılır');
+  ok(q.kilitBis - saat === 4000, 'gramer yanlışında kilit 4 sn (12.11)', q.kilitBis - saat);
+  ok(later.some(x => x.ms === 4000), 'kilit 4 sn sonra açılır', later.map(x => x.ms));
+  saat += 3000; Gr.tus(KEY('Enter'));
+  ok(!q.notlandi, '3 sn sonra hâlâ kilitli');
+  saat += 1500; runLater();
 }
 {
   // itiraz: yakın yanlış (tek harf + tek kelime eksik değil: yalnız yazım dışı küçük fark) — "yazım hatasıydı"
@@ -166,6 +232,14 @@ const sonLog = () => logs[logs.length - 1];
   yaz('Ich bin heute zu Hasue.');
   let q = ses().q;
   ok(q.urteil === 'fast', 'Hasue: tek harf kayması zaten küçük hata', q.urteil);
+  ok(q.kilitBis - saat === 2500, 'küçük hatada kilit 2,5 sn', q.kilitBis - saat);
+  saat += 3000; runLater();
+  // kelime tekrarı + tek yazım hatası: "yazım hatasıydı" itirazı sunulur
+  Gr.dene('weil-dass', [9001]);
+  yaz('Ich bin bin heute zu Hasse.');
+  q = ses().q;
+  ok(q.urteil === 'falsch' && q.itirazVar === 'yazim', 'tekrar + yazım hatası → "yazım hatasıydı" itirazı', [q.urteil, q.itirazVar, q.tags]);
+  saat += 5000; runLater();
   Gr.dene('weil-dass', [9001]);
   yaz('Ich bin heute zu Hau.');
   q = ses().q;
@@ -224,6 +298,14 @@ const sonLog = () => logs[logs.length - 1];
   Gr.dene('adjektiv', [57]); Gr.klick({ target: B('tok', { i: String(i('neue')) }) });
   ok(ses().q.urteil === 'richtig' || ses().q.adim === 2, 'fehler: "neue" → doğru');
   runLater();
+}
+// 3b) ordnen: Türkçesi baştan görünür (ipucu sayılmaz)
+{
+  const u = U('pronomen', 29);
+  Gr.dene('pronomen', [29]);
+  ok(kartEl.innerHTML.includes(u.tr) && !/data-g="ipucu"/.test(kartEl.innerHTML), 'ordnen (z2): Türkçesi baştan görünür', kartEl.innerHTML.slice(0, 300));
+  Gr.klick({ target: B('bilmiyorum') }); saat += 5000; runLater(); Gr.tus(KEY('Enter'));
+  ok(!/ipucu:1/.test(sonLog().notiz), 'ordnen: Türkçe görünmesi ipucu sayılmaz', sonLog().notiz);
 }
 // 4) tanı testi: küçük hata etiketleri (yazım / büyük-küçük harf) konuyu zayıf yapmaz
 {

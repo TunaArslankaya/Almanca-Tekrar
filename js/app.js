@@ -1395,10 +1395,10 @@
     return {
       syn: inp => synTreffer(syn, inp),
       html: `<div class="tur"><span>kalıp · fiil + edat + hâl</span></div>
-        <div class="soru">${esc(x ? x.tr : anlam)}<span class="alt">Bu ${x ? 'cümledeki ' : ''}fiil kalıbını yaz: fiil + edat + hâl (<b>A</b> / <b>D</b>). Örnek: sich freuen auf A</span></div>
+        <div class="soru">${esc(x ? x.tr : anlam)}<span class="alt">${x ? 'Cümleyi çevirme, yalnız kalıbı yaz' : 'Fiil kalıbını yaz'}: fiil + edat (+ sich). Örnek: sich freuen auf + Akk · hâl isteğe bağlı</span></div>
         ${x ? `<div class="chips"><span class="chip">fiil: ${esc(kurzTr(anlam))}</span></div>` : ''}`,
       ziel: v.anz + ' (' + G.objMuster(v) + ')', input: true, placeholder: 'z. B. sich bedanken bei D für A', kontext: x ? x.de : undefined, ipucuLv: 2,
-      pruef: inp => pruefAbr(v, inp),
+      pruef: inp => pruefAbr(v, inp, true),
       // kalıp cümlesi (yanlışta panelin örnek cümlesiyle aynıysa bir kez)
       loesungHTML: () => `<b>${esc(v.anz)}</b> <span class="chip vurgu">${esc(objGoster(v))}</span>${x && !((tanitCumle(v.id) || {}).de === x.de) ? `<div>${deHTML(x.de)} ${sesBtn(x.de)}</div>` : ''}`,
       erkl: () => [hallerTR(v), v.refl === 'D' ? 'Dativ dönüşlü: <b>mir / dir / sich</b>' : v.refl ? 'Dönüşlü fiil: <b>mich / dich / sich / uns / euch</b>' : ''].filter(Boolean),
@@ -1417,8 +1417,45 @@
     return null;
   }
 
+  // kalıp sorusunda tam cümle yazıldıysa (12.11, Tuna kalıp yerine cümleyi çeviriyordu): cümleden fiil + edat (+ sich) çıkarılır.
+  // Fiilin çekimli / mastar / Partizip biçimi bulunmazsa null (normal kontrol). Ayrılabilen fiilde sondaki önek (melde … an) edat sayılmaz;
+  // edattan hemen sonraki zamir (auf mich) dönüşlü zamir sayılmaz; gereken edatlar cümlede varsa öbür edatlar (am Wochenende) yok sayılır.
+  const KL_REFL = new Set(['mich', 'dich', 'sich', 'uns', 'euch', 'mir', 'dir']);
+  function kalipCumledenCikar(v, inp) {
+    const ham = String(inp || '').replace(/[.,!?;:„“"()]/g, ' ').split(/\s+/).filter(Boolean);
+    if (ham.length < 3) return null;
+    const k = w => w.toLowerCase();
+    const formlar = new Set([v.inf, v.base, v.p2, v.ptForm].filter(Boolean).map(k));
+    try { G.praesensForms(v).forEach(f => formlar.add(k(f))); } catch (e) { /* eksik fiil */ }
+    try { const pt = String(v.pt3 || '').split('/')[0].trim().split(/\s+/)[0]; if (pt) G.praeteritumForms(pt).forEach(f => formlar.add(k(f))); } catch (e) { /* */ }
+    if (v.pre) [...formlar].forEach(f => { if (!f.startsWith(v.pre)) formlar.add(k(v.pre + f)); });
+    const fi = ham.findIndex(w => formlar.has(k(w)));
+    if (fi < 0) return null;
+    // cümle mi (kalıp yazımı değil): noktalama, baştaki özne zamiri, ≥ 5 kelime ya da fiil çekimli (mastar değil)
+    const cumle = /[.!?]\s*$/.test(String(inp).trim()) || /^(ich|du|er|sie|es|wir|ihr|man)$/i.test(ham[0]) || ham.length >= 5 || ![v.inf, v.base].map(x => k(x || '')).includes(k(ham[fi]));
+    if (!cumle) return null;
+    let kel = ham.slice();
+    // ayrılabilen fiilin sondaki öneki (Ich melde mich für den Kurs an): edat değil
+    if (v.pre && !k(ham[fi]).startsWith(v.pre) && k(kel[kel.length - 1]) === v.pre) kel = kel.slice(0, -1);
+    const preps = v.obj.filter(o => o.p).map(o => o.p);
+    const bul = kel.map((w, i) => ({ w: k(w), i })).map(x => ({ p: KL_KAYNASIK[x.w] || x.w, i: x.i })).filter(x => EDATLAR.includes(x.p));
+    const edat = preps.every(p => bul.some(x => x.p === p)) ? preps : [...new Set(bul.map(x => x.p))];
+    const sich = kel.some((w, i) => KL_REFL.has(k(w)) && !(i > 0 && EDATLAR.includes(KL_KAYNASIK[k(kel[i - 1])] || k(kel[i - 1]))));
+    return [sich ? 'sich' : '', v.inf].concat(edat).filter(Boolean).join(' ');
+  }
   // fiil (§4.2): hâl (A/D) yanlış → m2 · edat ya da sich yanlış / eksik → m1 · mastar eki eksik → m3 (+0,7) · yazım → m3 (+0,7)
-  function pruefAbr(v, inp) {
+  // kalip: kalıp sorusu (tam cümle yazıldıysa kalıp cümleden çıkarılır, etiket 'tam cümle')
+  function pruefAbr(v, inp, kalip) {
+    if (kalip) {
+      const r0 = pruefAbr(v, inp);
+      // kalıp tanındıysa (doğru ya da hâl / yazım / mastar küçük hatası) ya da hâl yazıldıysa (bei D, + Akk) cümle değil
+      if (r0.urteil !== 'falsch' || /(^|\s|\+)(a|akk|akkusativ|d|dat|dativ)\.?(\s|$)/i.test(String(inp || '')) || /\+/.test(String(inp || ''))) return r0;
+      const tam = String(inp || '').trim().split(/\s+/).length >= 3 && kalipCumledenCikar(v, inp);
+      if (!tam) return r0;
+      const r = pruefAbr(v, tam);
+      if (r.urteil === 'falsch' && r.tip === 'yanlis') return r0;   // cümleden kalıp çıkmadı: ilk karar
+      return Object.assign({}, r, { tags: (r.tags || []).concat('tam cümle') });
+    }
     const preps = v.obj.filter(o => o.p), zPrep = new Set(preps.map(p => p.p));
     const toks = G.norm(inp.replace(/\+/g, ' ')).split(' ').filter(Boolean);
     const kas = {}, out = [];
@@ -1657,10 +1694,21 @@
   // çok kelimeli öğenin boşluğu (8.11): "…" / "..." yazılırsa yok sayılır (entweder … oder); boşluk ifadenin bir parçasıyken
   // (Er gibt sich große _____ → Mühe) ifadenin tamamı ya da boşluğu içeren parçası yazıldıysa (sich Mühe geben) kelime biliniyor:
   // fast + 'fazla kelime' (başa eklenen artikel gibi, yazım notu)
-  function ifadeBosPruef(id, inp, cevap) {
+  // 12.11: cümle (boşluklu) ve isimse artikeli G.bosPruef'e gider: boşluktan önce belirleyici yokken cinsiyete uyan artikel doğru,
+  // belirleyici varken (eine _____) fast 'fazla artikel' (yazım değil); cümle verilmezse de fast 'fazla artikel'
+  function bosArt(id, cevap) {
+    const n = kind(id) === 'n' ? byId[id] : null;
+    if (!n) return null;
+    if (n.plOnly) return 'Pl';
+    const c = String(cevap || '').trim().split(/\s+/).pop(), lk = x => String(x || '').toLowerCase();
+    const tekil = [n.lemma, n.gen].concat(n.weak ? [/e$/.test(n.lemma) ? n.lemma + 'n' : n.lemma + 'en'] : []).map(lk);
+    const cogul = String(n.plf || '').split('/').map(x => x.trim()).filter(Boolean).flatMap(x => [x, /[ns]$/.test(x) ? x : x + 'n']).map(lk);
+    return [].concat(tekil.includes(lk(c)) || !cogul.includes(lk(c)) ? [n.art] : [], cogul.includes(lk(c)) ? ['Pl'] : []);
+  }
+  function ifadeBosPruef(id, inp, cevap, cumle) {
     const w = kind(id) === 'w' ? wById[id] : null, cok = !!w && /[\s…]/.test(w.de.trim());
     const temiz = cok ? String(inp).replace(/\s*(…|\.\.\.)\s*/g, ' ').trim() : inp;
-    const r = G.bosPruef(temiz, cevap);
+    const r = G.bosPruef(temiz, cevap, null, cumle ? { cumle, art: bosArt(id, cevap) } : null);
     if (!cok || r.urteil !== 'falsch') return r;
     const tk = s => G.norm(String(s)).toLowerCase().replace(/[.,!?;:]/g, ' ').split(/\s+/).filter(Boolean);
     const u = tk(temiz), ifade = new Set(tk(w.de.replace(/…/g, ' '))), c = tk(cevap);
@@ -1676,7 +1724,7 @@
         <div class="soru">${deHTML(l.text).replace(/_____/g, '<span class="bosluk">_____</span>')}</div>
         ${lv === 0 && hinweisHTML ? `<div class="chips">${hinweisHTML}</div>` : ''}${l.n > 1 ? '<div class="soluk">2 boşluk: sırayla, aralarına boşluk koyarak yaz.</div>' : ''}`,
       ziel: l.answer, input: true, placeholder: 'boşluktaki kelime(ler)', kontext: x.de, modus, lvGercek: Math.min(lv, 1),
-      pruef: inp => ifadeBosPruef(id, inp, l.answer),
+      pruef: inp => ifadeBosPruef(id, inp, l.answer, l.text),
       loesungHTML: () => deHTML(x.de),
       erkl: () => [`${deItemHTML(id)}: ${esc(trOf(id))}`],
       frageText: l.text,
@@ -3491,7 +3539,7 @@
     save(); renderHedef(); renderPlan();
     if (!kart.querySelector('.devam-btn')) {
       const yer = kart.querySelector('#g-sonuc .sonuc') || kart.querySelector('#g-sonuc') || kart;
-      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil === 'richtig' ? devamBtn('gtur', 'devam', otoMs()) : devamKilitli(q, 'gtur', 'devam')}</div>`);
+      yer.insertAdjacentHTML('beforeend', `<div class="notlar">${urteil === 'richtig' ? devamBtn('gtur', 'devam', otoMs()) : devamKilitli(q, 'gtur', 'devam', urteil === 'falsch' ? GRAM_KILIT_MS : KILIT_MS)}</div>`);
     } else if (urteil === 'richtig') otoDolum(gramKalan());
     const b = kart.querySelector('.devam-btn');
     if (b) requestAnimationFrame(() => { const rr = b.getBoundingClientRect(), vh = window.visualViewport ? visualViewport.height : innerHeight; if (rr.bottom > vh - 4 || rr.top < 0) b.scrollIntoView({ block: 'end' }); });
@@ -3511,17 +3559,19 @@
   }
   // tıklama / tuş: önce Gramer; cevaplanmış soruda Devam (bizim ya da Gramer'in .devam-btn'i) ya da Enter sıradaki soruya geçirir
   // (bitti bu olayın içinde çağrıldıysa geçmez: cevabı gösteren basış Devam sayılmaz)
-  // 8.11 (diğer sorular gibi): Gramer'in sonuç paneli görününce yanlış / küçük hatada Devam 2,5 sn kilitli (KILIT_MS; Gramer'in Devam'ı da kilitlenir);
+  // 8.11 (diğer sorular gibi): Gramer'in sonuç paneli görününce yanlış / küçük hatada Devam kilitli (Gramer'in Devam'ı da kilitlenir);
+  // 12.11: gramer yanlışında 4 sn (GRAM_KILIT_MS: açıklama ve kural okunsun), küçük hatada 2,5 sn (KILIT_MS; diğer soru türleri de 2,5 sn);
   // panel görünürken basılan tek Enter / Devam hem notlatır (Gramer bitti) hem geçer (eskiden ikinci Enter gerekiyordu). Cevabı veren basış Devam sayılmaz.
   function gramSonucGor(q) {
     if (q.sonucT != null) return;
     const so = kart.querySelector('#g-sonuc .sonuc'); if (!so) return;
     q.sonucT = now();
     if (so.classList.contains('richtig')) return;
-    kilitKur(q, KILIT_MS);
+    const ms = so.classList.contains('falsch') ? GRAM_KILIT_MS : KILIT_MS;
+    kilitKur(q, ms);
     kart.querySelectorAll('#g-sonuc .devam-btn').forEach(b => {
       b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('kilitli');
-      if (!b.querySelector('.geri-sayim')) b.insertAdjacentHTML('afterbegin', `<span class="geri-sayim" style="animation-duration:${KILIT_MS}ms"></span>`);
+      if (!b.querySelector('.geri-sayim')) b.insertAdjacentHTML('afterbegin', `<span class="geri-sayim" style="animation-duration:${ms}ms"></span>`);
     });
   }
   function gramTurOlay(e, tus) {
@@ -4083,7 +4133,7 @@
   // Yanlış / küçük hatada Devam 2,5 sn kilitli (geri sayım dolumu): çift Enter düzeltmeyi atlamasın (log: panel medyanı 1–2 sn).
   // Yazma biçimlerinde yanlışta doğrusunu bir kez yazdırır: doğru yazılmadan Devam açılmaz, "geç" 6 sn sonra; notu değiştirmez (log: düzeltti / düzeltme:geç).
   // Zamanlayıcılar 'later' değil: clearTimers (itiraz, yeniden çizim) kilidi kapalı bırakmasın.
-  const KILIT_MS = 2500, DUZELT_GEC_MS = 6000, TANIT_MIN_MS = 4000, TANIT_KISA_MS = 2500;
+  const KILIT_MS = 2500, GRAM_KILIT_MS = 4000, DUZELT_GEC_MS = 6000, TANIT_MIN_MS = 4000, TANIT_KISA_MS = 2500;
   const DUZELT_BICIM = new Set(['yaz0', 'yaz', 'bos0', 'bos', 'cumle', 'kalip']);
   const devamHazir = q => !!q && !q.kilit && !(q.duzelt && !q.duzelt.ok && !q.duzelt.gec) && (q.typ !== 'akt' || aktDzBitti(q));
   function kilitKur(q, ms) {
@@ -6447,7 +6497,7 @@
     // test: turdaki gramer sorusunu doğrudan aç (önce bir tur başlatılmış olmalı)
     gramAc: () => { const ot = session.ot; if (!ot || !gramApi()) return false; let soru = null; try { soru = Gramer.turSorusu(now(), []); } catch (e) { soru = null; } if (!soru) return false; ot.gramSoru = soru; const q = gramTurFrage({ tur: 'gram', kaynak: 'test' }); if (!q) return false; aktuell = q; gramTurRender(q); return true; },
     _not: { artObPruef: (id, inp, ziel, kasus) => artObPruef(byId[id], inp, ziel, kasus), uPruef, bosA, notVerF, otoMs,
-      pruefWort: (id, inp) => pruefWort(byId[id], inp), pruefAbr: (id, inp) => pruefAbr(vById[id], inp),
+      pruefWort: (id, inp) => pruefWort(byId[id], inp), pruefAbr: (id, inp, kalip) => pruefAbr(vById[id], inp, kalip),
       stammTekPruef: (id, hedef, inp, tur, et, auxK) => stammTekPruef(vById[id], hedef, inp, tur, et, null, auxK), vById: id => vById[id] },
     _testOrdner: h => { ordner = h; return dateiSchreiben(true); } };
   }

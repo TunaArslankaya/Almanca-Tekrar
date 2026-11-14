@@ -328,6 +328,24 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   eq(G.pruefen('Er wohnt in einer kleinen Staat', 'Er wohnt in einer kleinen Stadt.').tags.includes('artikel/çekim'), false, 'pruefen: Staat / Stadt artikel/çekim değil');
   const L = (inp, ziel) => G.pruefen(inp, ziel, [], { lemma: true });
   eq(L('Kläte', 'Kälte').tip + ' ' + L('fährst', 'fährt').tip + ' ' + L('liest', 'lesen').tip, 'yazim cekim cekim', 'lemma: Kläte yazım, fährst çekim (sözlük umlautlu da aranır), liest çekim');
+
+  // 12.11: ek sözlük (EK_LEX): drüber gerçek kelime → drüben'in yazım hatası değil (log 10.11 18:35:28); drüebn yine yazım
+  eq([String(KS('drüber', 'drüben')), KS('drüebn', 'drüben'), L('drüber', 'drüben').urteil, L('drüebn', 'drüben').urteil].join(), 'null,yazim,falsch,fast', 'EK_LEX: drüber ≠ drüben, drüebn yazım');
+  eq(G.cumleKontrol('Siehst du das Café da drüber?', ['Siehst du das Café da drüben?']).urteil, 'falsch', 'EK_LEX: cümlede drüber yanlış');
+  // 12.11: G.kisiCekimi (aynı fiilin aynı zamandaki başka kişi çekimi); mastar / Partizip yerinde değil
+  const KC = (a, b, c, i) => G.kisiCekimi(a, b, c ? { kelimeler: c.split(' '), i } : null);
+  eq([KC('besuche', 'besucht'), KC('sind', 'ist'), KC('wohnt', 'wohnen'), KC('fährst', 'fährt'), KC('ging', 'gingen')].join(), 'true,true,true,true,true', 'kisiCekimi: kişi çekimi');
+  eq([KC('ging', 'gehe'), KC('besucht', 'besuchte'), KC('Haus', 'Häuser'), KC('kann', 'kann')].join(), 'false,false,false,false', 'kisiCekimi: başka zaman / isim / aynı kelime değil');
+  eq([KC('arbeite', 'arbeiten', 'Ich muss heute arbeiten', 3), KC('besuche', 'besucht', 'Er hat mich besucht', 3), KC('arbeite', 'arbeiten', 'Ich habe keine Lust zu arbeiten', 5), KC('arbeitet', 'arbeiten', 'weil er arbeiten muss', 2)].join(), 'false,false,false,false', 'kisiCekimi: modal / haben / zu / yan cümle mastar yeri');
+  eq(KC('besuche', 'besucht', 'Am Wochenende besucht meine Familie mich', 2), true, 'kisiCekimi: çekimli fiil yeri (2.)');
+  // 12.11: bosPruef cümle + artikel: belirleyici yokken uyan artikel doğru; belirleyici varken fast 'fazla artikel' (tip cumleFast, yazım değil)
+  const BO = (a, b, cumle, art) => (r => r.urteil + ':' + (r.tip || '') + ':' + r.tags.join('+'))(G.bosPruef(a, b, null, { cumle, art }));
+  eq(BO('die Mahnung', 'Mahnung', 'Wenn du die Rechnung nicht pünktlich bezahlst, bekommst du eine _____.', 'die'), 'fast:cumleFast:fazla artikel', 'bosPruef: belirleyici var → fazla artikel (log 10.11 18:20:04)');
+  eq(BO('die Mahnung', 'Mahnung', 'Ich habe eine sehr teure _____ bekommen.', 'die'), 'fast:cumleFast:fazla artikel', 'bosPruef: belirleyici + sıfat → fazla artikel');
+  eq(BO('die Mahnung', 'Mahnung', 'Gestern habe ich _____ bekommen.', 'die'), 'richtig:dogru:', 'bosPruef: belirleyici yok + uyan artikel → doğru');
+  eq(BO('das Mahnung', 'Mahnung', 'Gestern habe ich _____ bekommen.', 'die'), 'fast:cumleFast:fazla artikel', 'bosPruef: belirleyici yok + uymayan artikel → fazla artikel');
+  eq(BO('den Kindern', 'Kindern', 'Ich helfe _____ gern.', ['das', 'Pl']), 'richtig:dogru:', 'bosPruef: çoğul boşluk + çoğul artikel doğru');
+  eq(BP('die Mahnung', 'Mahnung'), 'fast:cumleFast:fazla artikel', 'bosPruef: cümle yoksa fazla artikel, yazım etiketi yok');
 }
 
 // Gramer bölümü: yeni alıştırma türleri (ceviri, text, eslestir, kategori, dinle) — derleme + kontrol (js/gramer.js Gramer.pruef)

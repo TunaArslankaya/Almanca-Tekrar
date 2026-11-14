@@ -120,6 +120,7 @@ const ok = (kosul, ad, m) => { if (!kosul) hata(ad, m); };
   });
   ok(kal.g && kal.g.bicim === 'kalip' && kal.g.typ === 'abr', 'kalip', `soru: ${JSON.stringify(kal.g)}`);
   ok(/fiil \+ edat \+ hâl/.test(kal.html), 'kalip', 'başlık yok');
+  ok(/yalnız kalıbı yaz|Fiil kalıbını yaz/.test(kal.html) && /hâl isteğe bağlı/.test(kal.html), 'kalip', `yönerge (12.11) yok: ${kal.html.slice(0, 200)}`);
   await cevapla(kal.ziel);
   { const a = await aktuell(); ok(a.urteil === 'richtig', 'kalip', `doğru kalıp richtig değil: ${a.urteil} (${kal.ziel})`); }
   await devam();
@@ -128,6 +129,15 @@ const ok = (kosul, ad, m) => { if (!kosul) hata(ad, m); };
   await p.evaluate(() => window.__tekrar.soruGoster({ id: 'v091', bicim: 'kalip', b: 2 }));
   await cevapla('sich bedanken bei A für A');
   { const a = await aktuell(); ok(a.urteil === 'fast' && (a.et || []).includes('hâl'), 'kalip', `hâl yanlışı: ${a.urteil} ${JSON.stringify(a.et)}`); }
+  await devam();
+  // tam cümle yazılırsa kalıp cümleden çıkarılır (12.11): fiil + edat + sich doğruysa doğru, sich eksikse yanlış
+  await p.evaluate(() => window.__tekrar.soruGoster({ id: 'v278', bicim: 'kalip', b: 2 }));
+  await cevapla('Ich fürchte mich vor der Prüfung.');
+  { const a = await aktuell(); ok(a.urteil === 'richtig', 'kalip', `tam cümle (doğru kalıp) richtig değil: ${a.urteil} ${JSON.stringify(a.et)}`); }
+  await devam();
+  await p.evaluate(() => window.__tekrar.soruGoster({ id: 'v278', bicim: 'kalip', b: 2 }));
+  await cevapla('Ich fürchte vor der Prüfung.');
+  { const a = await aktuell(); ok(a.urteil === 'falsch' && (a.et || []).includes('tam cümle'), 'kalip', `tam cümle (sich eksik) yanlış değil: ${a.urteil} ${JSON.stringify(a.et)}`); }
   await devam();
   // edatsız fiilde kalip → yazma
   { const g = await p.evaluate(() => { const T = window.__tekrar, v = T.VERBEN.find(v => !v.obj.some(o => o.p)); return T.soruGoster({ id: v.id, bicim: 'kalip', b: 2 }); }); ok(g && g.bicim === 'yaz', 'kalip', `edatsız fiilde yazma değil: ${JSON.stringify(g)}`); }

@@ -77,7 +77,7 @@ Ortak alanlar:
 
 - **zorluk**: `1` tanıma (seçmeli; anlamı ya da biçimi fark etmek), `2` kontrollü üretim (boşluğu yazmak, dizmek, tek hatayı düzeltmek), `3` dönüştürme / tam cümle üretimi / ince hata.
 - **cevap**: doğru cevap; birden çok doğru varsa ` / ` ile ayrılır (ilk yazılan "asıl" çözümdür, düzeltmede o gösterilir).
-- **Türkçe**: cümlenin doğal Türkçesi (ipucu; z1'de hep görünür, z2–3'te "ipucu" ile açılır, açılırsa `ipucu:1` loglanır).
+- **Türkçe**: cümlenin doğal Türkçesi (ipucu; z1'de ve `ordnen`'de hep görünür (12.11; ipucu sayılmaz), z2–3'te "ipucu" ile açılır, açılırsa `ipucu:1` loglanır).
 - **açıklama**: cevaptan sonra gösterilen en çok iki cümle: neden böyle. Yanlış cevapta `@kurz` ile birlikte.
 - **kelimeler**: `;` ile ayrılmış kelime anahtarları; `quellen/verben.txt`, `nomen.txt`, `nomen_extra.txt`, `woerter.txt`, `uniteN.txt` anahtarlarıyla birebir aynı (`anfangen mit`, `der Kurs`, `sich anstrengen`). Boş olabilir. Build bulunamayan anahtarı uyarır.
 
@@ -134,10 +134,11 @@ Karşılaştırmadan önce: baş/son boşluk ve çoklu boşluk atılır, sondaki
 | sonuç | ne zaman |
 |---|---|
 | `richtig` | cevap alternatiflerden biriyle aynı; tam cümlede başka geçerli diziliş (Vorfeld, yan cümle önde), eksik virgül / nokta, büyük/küçük harf |
-| `fast` | hedef yapı doğru, yalnız: umlaut düşürme (`mude` → müde), tek kelimede yazım hatası (harf eksik / fazla / yer değiştirmiş: `Mnoaten`, `Aphoteke`; ek farkı değil), kaynaşmamış edat (`in dem` → `im`), hitap zamirinde büyük/küçük harf (`ihnen` ↔ `Ihnen`), zarf eksik / fazla (`noch`, `schon`), özne–fiil uyumu (`sind` → `ist`), konuşma dili (Genitiv yerine `von` + Dativ) |
+| `fast` | hedef yapı doğru, yalnız: umlaut düşürme (`mude` → müde), tek kelimede yazım hatası (harf eksik / fazla / yer değiştirmiş: `Mnoaten`, `Aphoteke`; ek farkı değil), kaynaşmamış edat (`in dem` → `im`), hitap zamirinde büyük/küçük harf (`ihnen` ↔ `Ihnen`), zarf eksik / fazla (`noch`, `schon`), özne–fiil uyumu (`sind` → `ist`; 12.11: aynı fiilin aynı zamandaki başka kişi çekimi `besuche` → `besucht`, `G.kisiCekimi`; mastar / Partizip yerinde — modal / werden / haben / sein / lassen'den sonra, `zu`'dan sonra — değil: „Ich muss heute arbeite“ yanlış), kelime tekrarı (`die die`: tekrar atılınca doğruysa `yazım, kelime tekrarı`; tekrar + bir yazım hatasında „yazım hatasıydı“ itirazı), konuşma dili (Genitiv yerine `von` + Dativ) |
 | `falsch` | hedef yapı yanlış: ek / çekim (`Dozent` ≠ `Dozenten`, `neu` ≠ `neue`), kelime sırası (sırayı sınayan teil'lerde; diğerlerinde yalnız sıra farkı, fiil yerindeyse `fast`), fiil yeri, yardımcı fiil, zamir, bağlaç, edat, hâl, eksik / yanlış kelime. Umlautsuz biçim başka bir dilbilgisel biçimse (`hatte` ↔ `hätte`, `wurde` ↔ `würde`, `fahrt` ↔ `fährt`, `alter` ↔ `älter`) etiket `umlaut (başka biçim)` |
 
 - Tam cümle (`umform`, `ceviri`, `ordnen`, `fehler` düzeltmesi): ana turdaki `G.cumleKontrol` (7.11; eskiden `G.pruefen`). Etiketler kelime düzeyinde; anlamsız cevapta yalnız `farklı cümle`.
+- `ordnen` (12.11): sırayı sınamayan teil'de aynı yapıdaki iki eş değer kelimenin yer değiştirmesi doğru (`den blauen Rock … als den roten` ↔ `den roten Rock … als den blauen`). Dar kural: tam iki kelime, ikisi de aynı belirleyiciden sonra gelen aynı ekli sıfat; isim / fiil / zamir yer değiştirmesi değil. Başka geçerli dizilişler cevaba alternatif olarak yazılır.
 - `umform` yönergesi bir başlangıç istiyorsa (`„Gestern“ ile başlayarak yeniden kur`, `„Wegen“ ile başla`), cevap o kelimeyle başlamazsa (geçerli başka diziliş de olsa) `falsch` + `kelime sırası`.
 - Boşluk (`luecke`, `text`): cümle başındaki boşlukta harf büyüklüğü hiç sayılmaz.
 
@@ -150,10 +151,10 @@ Yeni türler:
 | `eslestir` | bütün eşler doğru | bir karışıklık (en çok 2 yanlış eş: iki eşin yer değiştirmesi) | daha fazlası |
 | `kategori` | bütün öğeler doğru grupta | 1 yanlış öğe | 2 ve üstü |
 | `dinle` | noktalama ve büyük/küçük harf yok sayılarak aynı (`ae/oe/ue/ss` dahil) | umlaut düşürme; ya da tek kelimede tek harf (kelime ≥ 5 harf ve son iki harf aynı: çekim değil) | kısa kelimede fark (`das`/`dass`, `hab`/`habe`), sıra, eksik kelime |
-| `fehler` | hatalı kelimeye dokunmak (aralıkta doğru cümlede aynen kalan kelime sayılmaz: `einen neue` → yalnız `neue`; sıra / fazla kelime hatasında aralığın hepsi) | — | başka kelime, „Hata yok“ (hata varken), hata yokken dokunmak |
+| `fehler` | hatalı kelimeye dokunmak (aralıkta doğru cümlede aynen kalan kelime sayılmaz: `einen neue` → yalnız `neue`; sıra / fazla kelime hatasında aralığın hepsi; 12.11: saf kelime sırası hatasında — soru ile doğru cümle aynı kelimeler — yeri değişen bölgenin yerinde durmayan bütün kelimeleri: TeKaMoLo „nach Hause morgen mit dem Bus“ → `morgen` de doğru) | — | başka kelime, „Hata yok“ (hata varken), hata yokken dokunmak |
 
 - **İtiraz** (kural 8, ana turdaki gibi): soru başına **bir** kez, düğmeyle. Yazarak cevap yanlış ama hedefe harf düzeyinde çok yakınsa (≤ 2 harf; 5 harften kısa hedefte ≤ 1) „yazım hatasıydı“ → `fast`; tam cümlede (`umform` / `ceviri` / `ordnen` / `fehler` düzeltmesi) `falsch` ya da `fast` ise „aslında doğru“ → `richtig`. „Bilmiyorum“dan sonra, tanı testinde ve seçmeli türlerde (`wahl`, seçenekli `luecke`, `eslestir`, `kategori`, `fehler` dokunma) itiraz yok. 1 / 2 / 3 tuşu notu değiştirmez (7.11; eskiden gizli öz-not). Sistemin ilk kararı `öneri:X` loglanır. "Sonuçlarıma bak"ta Claude bu satırları inceler; doğru olan yeni bir çeviri / sıralamayı ilgili satırın cevabına alternatif olarak ekler.
-- Yanlış / küçük hatada Devam 2,5 sn kilitli (gramer bölümü; tanı testinde yok; ana turdaki gramer sorusunda kilit uygulamanın).
+- Yanlışta Devam 4 sn, küçük hatada 2,5 sn kilitli (12.11; eskiden ikisi de 2,5 sn): gramer bölümü ve ana turdaki gramer sorusu (orada kilit uygulamanın, aynı süreler); tanı testinde yok. Diğer soru türlerinde 2,5 sn.
 - Mevcut `js/grammatik.js` karşılaştırma yardımcıları (`cumleKontrol`, `yakin`) yeniden kullanılır.
 
 ## 8. Log (`log/log.csv`)

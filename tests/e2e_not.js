@@ -107,6 +107,16 @@ const ok = (kosul, ad, m) => { if (!kosul) fehler.push(`[${ad}] ${m}`); };
   ok(r.urteil === 'richtig', 'fiil', `untersuchen Akk: ${JSON.stringify(r)}`);
   r = await T('pruefAbr', 'v634', 'warte auf');
   ok(r.tip === 'mastar' && r.urteil === 'fast', 'fiil', `warte auf: ${JSON.stringify(r)}`);
+  // kalıp sorusunda tam cümle (12.11): cümleden fiil + edat (+ sich) çıkarılır, etiket 'tam cümle'
+  for (const [id, cumle, u, et] of [['v278', 'Ich fürchte mich vor der Prüfung.', 'richtig', null], ['v278', 'Ich fürchte vor der Prüfung.', 'falsch', 'sich eksik'],
+    ['v030', 'Ich melde mich für den Kurs an.', 'richtig', null], ['v270', 'Wir freuen uns am Wochenende auf den Urlaub.', 'richtig', null], ['v270', 'Ich freue mich über das Geschenk.', 'falsch', 'edat']]) {
+    r = await T('pruefAbr', id, cumle, true);
+    ok(r.urteil === u && (r.tags || []).includes('tam cümle') && (!et || (r.tags || []).some(t => t.startsWith(et))), 'kalıp', `${cumle}: ${JSON.stringify({ u: r.urteil, tip: r.tip, tags: r.tags })}`);
+  }
+  r = await T('pruefAbr', 'v270', 'sich freuen auf + Akk', true);
+  ok(r.urteil === 'richtig', 'kalıp', `sich freuen auf + Akk: ${JSON.stringify(r)}`);
+  r = await T('pruefAbr', 'v270', 'sich freuen über', true);
+  ok(r.urteil === 'falsch' && !(r.tags || []).includes('tam cümle'), 'kalıp', `kalıp yazımında 'tam cümle' yok: ${JSON.stringify(r)}`);
 
   // ---- boşluk / paket (bosA) ----
   const bos = [['die Fahrkarte', 'Fahrkarte', 'n0336', 'fast', /fazla artikel/], ['Zugx', 'Zug', 'n1434', 'falsch', null], ['Fahkrarte', 'Fahrkarte', 'n0336', 'fast', /yazım/],
@@ -115,6 +125,12 @@ const ok = (kosul, ad, m) => { if (!kosul) fehler.push(`[${ad}] ${m}`); };
     r = await T('bosA', a, z, null, id);
     ok(r.urteil === u && (!et || et.test((r.tags || []).join())), 'boşluk', `${a} / ${z}: ${JSON.stringify({ u: r.urteil, tip: r.tip, tags: r.tags })}`);
   }
+  // 12.11: fazla artikel 'yazım' değil (tip cumleFast); cümleli boşlukta belirleyici yokken uyan artikel doğru
+  r = await T('bosA', 'die Fahrkarte', 'Fahrkarte', null, 'n0336');
+  ok(r.tip === 'cumleFast' && !(r.tags || []).includes('yazım'), 'boşluk', `fazla artikel yazım sayıldı: ${JSON.stringify(r)}`);
+  const ib = await p.evaluate(() => { const T = window.__tekrar; return [T.ifadeBosPruef('n0753', 'die Mahnung', 'Mahnung', 'Wenn du die Rechnung nicht pünktlich bezahlst, bekommst du eine _____.'), T.ifadeBosPruef('n0753', 'die Mahnung', 'Mahnung', 'Gestern habe ich _____ bekommen.')].map(r => ({ u: r.urteil, tip: r.tip, tags: r.tags })); });
+  ok(ib[0].u === 'fast' && ib[0].tip === 'cumleFast' && ib[0].tags.join() === 'fazla artikel', 'boşluk', `eine _____ + die Mahnung: ${JSON.stringify(ib[0])}`);
+  ok(ib[1].u === 'richtig', 'boşluk', `_____ (belirleyicisiz) + die Mahnung: ${JSON.stringify(ib[1])}`);
 
   // ---- tam cümle: "kelime sırası" (cumleYapi) → "aslında doğru" itirazı ----
   let itirazGoruldu = false;
@@ -157,18 +173,22 @@ const ok = (kosul, ad, m) => { if (!kosul) fehler.push(`[${ad}] ${m}`); };
     }
   }
 
-  // ---- turdaki gramer sorusu: yanlışta Devam 2,5 sn kilitli, kilitten sonra tek Enter notlatır ve geçer ----
+  // ---- turdaki gramer sorusu: yanlışta Devam 4 sn kilitli (12.11; küçük hatada 2,5 sn), kilitten sonra tek Enter notlatır ve geçer ----
   await p.evaluate(() => window.__tekrar.starte('akis')); await p.waitForTimeout(100);
   if (await p.evaluate(() => window.__tekrar.gramAc())) {
     const b0 = await p.$('#kart [data-g="bilmiyorum"]');
     if (b0) {
       await p.evaluate(() => { window.__tekrar.aktuell._test = 1; });
       await b0.click(); await p.waitForTimeout(60);
-      const st = await p.evaluate(() => { const a = window.__tekrar.aktuell, b = document.querySelector('#g-sonuc .devam-btn'); return { typ: a.typ, kilit: !!a.kilit, dis: !!(b && b.disabled) }; });
+      const st = await p.evaluate(() => { const a = window.__tekrar.aktuell, b = document.querySelector('#g-sonuc .devam-btn'); return { typ: a.typ, kilit: !!a.kilit, ms: a.kilitMs, dis: !!(b && b.disabled) }; });
       ok(st.typ === 'gramTur' && st.kilit && st.dis, 'gram', `yanlışta kilit yok: ${JSON.stringify(st)}`);
+      ok(st.ms === 4000, 'gram', `gramer yanlışında kilit 4 sn değil: ${st.ms}`);
       await p.keyboard.press('Enter'); await p.waitForTimeout(60);
       ok(await p.evaluate(() => { const a = window.__tekrar.aktuell; return a.typ === 'gramTur' && !a.wartet; }), 'gram', 'kilitliyken Enter notlattı / geçti');
-      await p.waitForTimeout(800);   // 2,5 sn × 0,25
+      await p.waitForTimeout(600);   // 4 sn × 0,25 = 1 sn: henüz kilitli
+      await p.keyboard.press('Enter'); await p.waitForTimeout(60);
+      ok(await p.evaluate(() => { const a = window.__tekrar.aktuell; return a.typ === 'gramTur' && !!a.kilit; }), 'gram', '4 sn kilit erken açıldı (2,5 sn?)');
+      await p.waitForTimeout(500);
       await p.keyboard.press('Enter'); await p.waitForTimeout(150);
       ok(await p.evaluate(() => window.__tekrar.aktuell && !window.__tekrar.aktuell._test), 'gram', 'kilitten sonra tek Enter geçmedi');
     } else ok(false, 'gram', 'Bilmiyorum düğmesi yok');
