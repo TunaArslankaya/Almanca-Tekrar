@@ -1,0 +1,151 @@
+# Gramer konusu: Passiversatzformen (edilgen yerine: man, sich lassen, sein + zu, -bar / -lich). Biçim: FORMAT.md (aynı klasör).
+# Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
+# Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+@id passiversatz
+@titel Passiversatzformen: man, sich lassen, sein + zu, -bar / -lich
+@tr Edilgen yerine: man, sich lassen + mastar (-ebilir), sein + zu + mastar (-meli / -ebilir), -bar / -lich sıfatları
+@stufe B2
+@kapitel B2 ?
+@goethe 1 | B2 Lesen (kurallar, resmî metin) · B2 Schreiben (üslup çeşitliliği)
+@voraus passiv
+@kontrast passiv, lassen-brauchen
+@etiket artikel/çekim
+@kurz Passiv yerine: man repariert das Auto · das Problem lässt sich lösen (= kann gelöst werden) · der Antrag ist abzugeben (= muss / kann … werden) · lösbar, verständlich (= kann … werden).
+
+@erklaerung
+Yazılı ve resmî Almanca, werden-Passiv'i her cümlede tekrarlamamak için başka yapılar kullanır. Anlam yine edilgendir; çoğu zaman bir de "-ebilir" ya da "-meli" anlamı eklenir.
+
+1. man + etken fiil: Man repariert das Auto. (= Das Auto wird repariert.) Nesne Akkusativ kalır: Man muss den Antrag ausfüllen.
+2. sich lassen + mastar = können + Passiv (-ebilir): Das Problem lässt sich lösen. Özne çoğulsa lassen de çoğul: Die Fenster lassen sich nicht öffnen. Öznesiz: Hier lässt es sich gut leben.
+3. sein + zu + mastar = müssen ya da können + Passiv; hangisi olduğu bağlamdan anlaşılır: Der Antrag ist bis Freitag abzugeben (= muss). Das Problem ist leicht zu lösen (= kann). Das ist nicht zu ändern (değiştirilemez). Ayrılabilen fiilde zu ortaya girer: abzugeben, auszufüllen.
+4. -bar / -lich sıfatı = kann … werden: lösbar (çözülebilir), essbar, erreichbar, verständlich (anlaşılır), erhältlich (bulunabilir). Olumsuzu un-: unlösbar, unverständlich. Her -bar sıfatı edilgen değildir: dankbar, wunderbar.
+
+Dikkat: haben + zu + mastar etkendir, "yapmak zorunda olmak" demektir (Ich habe viel zu tun). sein + zu ise edilgendir (Das ist sofort zu erledigen = hemen halledilmeli).
+Sınavda: B2 okuma metinlerinde, kurallarda, talimatlarda ve ilanlarda çok sık (Die Gebühr ist bar zu bezahlen).
+@ende
+
+@tabelle Bir anlam, beş yapı
+yapı | örnek | Türkçe
+Passiv + können | Das Problem kann gelöst werden. | Sorun çözülebilir.
+man | Man kann das Problem lösen. | Sorun çözülebilir.
+sich lassen | Das Problem lässt sich lösen. | Sorun çözülebilir.
+sein + zu | Das Problem ist zu lösen. | Sorun çözülebilir.
+-bar | Das Problem ist lösbar. | Sorun çözülebilir.
+@ende
+
+@tabelle sein + zu: müssen mi können mi?
+cümle | anlamı | ipucu
+Der Antrag ist bis Freitag abzugeben. | muss abgegeben werden | kural, son tarih
+Die Aufgabe ist leicht zu lösen. | kann gelöst werden | leicht, schwer, gut
+Der Fehler ist kaum zu sehen. | kann kaum gesehen werden | nicht, kaum
+Hunde sind an der Leine zu führen. | müssen geführt werden | yönetmelik, tabela
+@ende
+
+@beispiel Das lässt sich leicht erklären. | Bu kolayca açıklanabilir.
+@beispiel Der Ausweis ist immer mitzubringen. | Kimlik her zaman yanınızda olmalı.
+@beispiel Die Wohnung ist mit dem Bus gut erreichbar. | Daireye otobüsle kolayca ulaşılabilir.
+@beispiel In Deutschland trennt man den Müll. | Almanya'da çöpler ayrıştırılır.
+
+@teil man | man + etken fiil | artikel/çekim
+wahl | 1 | Hier wird Deutsch gesprochen. Welcher Satz sagt dasselbe? | Hier spricht man Deutsch. | Hier spricht man Deutsch. / Hier spricht er Deutsch. / Hier sprechen wir Deutsch. | Burada Almanca konuşulur. | man = genel özne (insanlar, herkes); kimin yaptığı önemli değil, Passiv gibi. er / wir belli kişilerdir. |
+wahl | 1 | In Deutschland ___ man den Müll. | trennt | trennt / trennen / wird | Almanya'da çöpler ayrıştırılır. | man 3. tekil gibi çekilir: man trennt (er trennt gibi). | der Müll
+luecke | 1 | Man muss ___ Antrag bis Freitag abgeben. | den | den / der / dem | Başvuru cumaya kadar teslim edilmeli. | man cümlesi etkendir: nesne Akkusativ kalır (den Antrag). Passiv'de özne olurdu: Der Antrag muss abgegeben werden. | der Antrag; abgeben
+kategori | 1 | Passiv mi, man'lı etken cümle mi? | Passiv: der Brief wird geschickt, das Haus wurde gebaut, die Tür ist geöffnet worden ;; man: man schickt den Brief, man baute das Haus, man hat die Tür geöffnet | | - | Passiv: werden + Partizip II, nesne özne olur (der Brief). man'lı cümle etkendir: fiil normal çekilir, nesne Akkusativ (den Brief). |
+eslestir | 1 | Das Auto wird repariert. ;; Der Antrag muss ausgefüllt werden. ;; Der Termin wurde verschoben. ;; Hier wird nicht geraucht. | Man repariert das Auto. ;; Man muss den Antrag ausfüllen. ;; Man verschob den Termin. ;; Hier raucht man nicht. | | - | Passiv → man + etken fiil, aynı zamanda: wird repariert → repariert man, wurde verschoben → verschob man. |
+umform | 2 | Die Rechnung wird online bezahlt. → „man“ ile yaz | Man bezahlt die Rechnung online. / Die Rechnung bezahlt man online. / Online bezahlt man die Rechnung. | | Fatura internetten ödenir. | Passiv'in öznesi (die Rechnung) man'lı cümlede nesne olur; fiil etken: man bezahlt. | die Rechnung; bezahlen
+umform | 2 | Der Wagen wird in der Werkstatt repariert. → „man“ ile yaz | Man repariert den Wagen in der Werkstatt. / In der Werkstatt repariert man den Wagen. / Den Wagen repariert man in der Werkstatt. | | Araba tamirhanede tamir ediliyor. | der Wagen (Nominativ) → den Wagen (Akkusativ): man'lı cümlede nesne. | der Wagen; die Werkstatt; reparieren
+umform | 2 | Man hat das Fenster nicht geschlossen. → Passiv | Das Fenster ist nicht geschlossen worden. / Das Fenster wurde nicht geschlossen. | | Pencere kapatılmadı. | man düşer, nesne (das Fenster) özne olur: ist … geschlossen worden ya da wurde geschlossen. | das Fenster; schließen
+luecke | 2 | Wo ___ man hier Fahrkarten? (kaufen) | kauft | | Burada bilet nereden alınıyor? | man + 3. tekil: man kauft. | die Fahrkarte; kaufen
+luecke | 2 | Den Antrag ___ man auch online ___. (ausfüllen · können) | kann ; ausfüllen | | Başvuru internetten de doldurulabilir. | man + modal fiil: man kann + mastar en sonda; den Antrag Akkusativ kalır. | der Antrag; ausfüllen
+fehler | 2 | Man hat der Fehler schnell gefunden. | Man hat den Fehler schnell gefunden. | der | Hata çabucak bulundu. | man'lı cümlede nesne Akkusativ: den Fehler. der Fehler yalnız Passiv'de (özne) olur. | der Fehler; finden
+fehler | 2 | Man wird das Haus renoviert. | Man renoviert das Haus. / Das Haus wird renoviert. | wird das Haus renoviert | Ev yenileniyor. | man ile Passiv karışmaz: ya man renoviert (etken) ya da das Haus wird renoviert (Passiv). | das Haus
+fehler | 2 | Bei Rot darf man nicht über die Straße gehen. | Bei Rot darf man nicht über die Straße gehen. | - | Kırmızı ışıkta karşıya geçilmez. | Hata yok: man + modal (darf) + mastar en sonda. | die Straße; dürfen
+ordnen | 2 | an der Uni / muss / man / sich / für jeden Kurs / anmelden | An der Uni muss man sich für jeden Kurs anmelden. / Man muss sich an der Uni für jeden Kurs anmelden. / Für jeden Kurs muss man sich an der Uni anmelden. / Man muss sich für jeden Kurs an der Uni anmelden. | | Üniversitede her derse kayıt yaptırmak gerekiyor. | muss 2. yerde, mastar (anmelden) en sonda; sich, man'dan hemen sonra. | der Kurs; sich anmelden
+luecke | 2 | Früher ___ man Briefe mit der Hand. (schreiben · Präteritum) | schrieb | | Eskiden mektuplar elle yazılırdı. | man + Präteritum: man schrieb (er schrieb gibi). | der Brief; die Hand; schreiben
+ceviri | 2 | Bu kelime nasıl yazılıyor? (man) | Wie schreibt man dieses Wort? / Wie schreibt man das Wort? | | - | Türkçedeki edilgen soru (-ılıyor?) Almancada çok zaman man ile kurulur: Wie schreibt man …? | das Wort; schreiben
+ceviri | 3 | Türkiye'de eve ayakkabıyla girilmez. (man) | In der Türkei geht man nicht mit Schuhen ins Haus. / Man geht in der Türkei nicht mit Schuhen ins Haus. / In der Türkei geht man nicht mit Schuhen in die Wohnung. / In der Türkei betritt man das Haus nicht mit Schuhen. / In der Türkei betritt man die Wohnung nicht mit Schuhen. | | - | Genel kural, yapan belli değil → man + etken fiil (man geht). | die Türkei; der Schuh; das Haus
+umform | 3 | Der Vertrag muss bis Ende Mai unterschrieben werden. → „man“ ile yaz | Man muss den Vertrag bis Ende Mai unterschreiben. / Den Vertrag muss man bis Ende Mai unterschreiben. / Bis Ende Mai muss man den Vertrag unterschreiben. | | Sözleşme mayıs sonuna kadar imzalanmalı. | Passiv + modal → man + modal + mastar; der Vertrag → den Vertrag (Akkusativ). | der Vertrag; unterschreiben
+umform | 3 | Das Museum wurde im Jahr 1990 eröffnet. → „man“ ile yaz | Man eröffnete das Museum im Jahr 1990. / Im Jahr 1990 eröffnete man das Museum. / Man hat das Museum im Jahr 1990 eröffnet. / Im Jahr 1990 hat man das Museum eröffnet. | | Müze 1990 yılında açıldı. | Zaman aynı kalır: wurde eröffnet (Präteritum) → man eröffnete (ya da Perfekt: man hat eröffnet). | das Museum; eröffnen
+umform | 3 | Man darf in diesem Raum nicht telefonieren. → Passiv | In diesem Raum darf nicht telefoniert werden. / Es darf in diesem Raum nicht telefoniert werden. | | Bu odada telefonla konuşulmaz. | Nesnesiz fiil → öznesiz Passiv: darf … telefoniert werden (Partizip + werden sonda). | der Raum
+text | 3 | Türkischer Tee: Zuerst ___ (kochen) man das Wasser. Dann ___ (geben) man den Tee in die kleine Kanne. Danach ___ (lassen) man den Tee etwa 15 Minuten ziehen. | kocht ; gibt ; lässt | | Türk çayı: Önce su kaynatılır. Sonra çay küçük demliğe konur. Ardından çay 15 dakika kadar demlenmeye bırakılır. | Tariflerde man çok sık: man kocht, man gibt (ünlü değişimi: geben → gibt), man lässt (lassen → lässt). | der Tee; das Wasser; kochen; die Kanne
+fehler | 3 | Man muss die Tür abschließen werden. | Man muss die Tür abschließen. / Die Tür muss abgeschlossen werden. | werden | Kapı kilitlenmeli. | man + modal → yalnız mastar (abschließen); werden yalnız Passiv'de: Die Tür muss abgeschlossen werden. | die Tür
+fehler | 3 | Den Schlüssel gibt man an der Rezeption ab. | Den Schlüssel gibt man an der Rezeption ab. | - | Anahtar resepsiyona teslim edilir. | Hata yok: Akkusativ nesne başta, fiil 2. yerde, man hemen arkasında; ön ek (ab) sonda. | der Schlüssel; abgeben
+ceviri | 3 | Bu tür sorunlar telefonda çözülmez. (man) | Solche Probleme löst man nicht am Telefon. / Man löst solche Probleme nicht am Telefon. / Solche Probleme löst man nicht telefonisch. / Man löst solche Probleme nicht telefonisch. | | - | man + etken fiil: man löst; Akkusativ çoğul nesne (solche Probleme) başta da olabilir. | das Problem; lösen; das Telefon
+
+@teil lassen | sich lassen + mastar = -ebilir | dönüşlü zamir
+wahl | 1 | Das Problem lässt sich lösen. Was bedeutet das? | Das Problem kann gelöst werden. | Das Problem kann gelöst werden. / Das Problem muss gelöst werden. / Jemand lässt das Problem lösen. | Sorun çözülebilir. | sich lassen + mastar = können + Passiv (-ebilir). "Birine çözdürmek" anlamı yok. | das Problem; lösen
+wahl | 1 | Die Fenster ___ sich nicht öffnen. | lassen | lassen / lässt / lasse | Pencereler açılmıyor. | Özne çoğul (die Fenster) → lassen. | das Fenster; öffnen
+luecke | 1 | Diese Frage lässt ___ leicht beantworten. | sich | sich / es / man | Bu soru kolayca cevaplanabilir. | Passiv yerine geçen lassen'ın yanında hep sich: lässt sich beantworten. | die Frage; beantworten
+kategori | 1 | lassen burada ne demek? | yaptırmak: Ich lasse mein Auto reparieren, Sie lässt sich die Haare schneiden, Wir lassen einen Arzt kommen ;; -ebilir: Das Auto lässt sich reparieren, Die Tür lässt sich nicht öffnen, Das lässt sich leicht erklären | | - | Özne işi başkasına yaptırıyorsa "yaptırmak"; özne işten etkileniyorsa (das Auto, die Tür) sich lassen = -ebilir. sich tek başına ipucu değil (sich die Haare schneiden lassen). |
+eslestir | 1 | Das kann man nicht ändern. ;; Das kann man leicht erklären. ;; Das kann man gut verstehen. ;; Das kann man nicht vermeiden. | Das lässt sich nicht ändern. ;; Das lässt sich leicht erklären. ;; Das lässt sich gut verstehen. ;; Das lässt sich nicht vermeiden. | | - | man kann + mastar = lässt sich + mastar: aynı fiil, aynı zarf. |
+umform | 2 | Die Aufgabe kann schnell erledigt werden. → „sich lassen“ ile yaz | Die Aufgabe lässt sich schnell erledigen. | | Görev çabucak halledilebilir. | kann … erledigt werden → lässt sich … erledigen (mastar, Partizip değil). | die Aufgabe; erledigen
+umform | 2 | Man kann diese Wörter leicht lernen. → „sich lassen“ ile yaz | Diese Wörter lassen sich leicht lernen. | | Bu kelimeler kolayca öğrenilebilir. | man'ın nesnesi (diese Wörter) özne olur; çoğul → lassen. | das Wort; lernen
+luecke | 2 | Der Fehler ___ sich leider nicht mehr ___. (korrigieren) | lässt ; korrigieren | | Hata maalesef artık düzeltilemiyor. | lässt sich + mastar (korrigieren) en sonda. | der Fehler; korrigieren
+luecke | 2 | Es ___ ___ noch nicht sagen, wann der Zug kommt. (sich lassen) | lässt ; sich | | Trenin ne zaman geleceği henüz söylenemez. | Öznesiz yapı: es lässt sich + mastar = söylenemez, bilinemez. | der Zug; sagen
+luecke | 2 | Gestern ___ sich die Tür nicht öffnen. (lassen · Präteritum) | ließ | | Dün kapı açılmıyordu. | lassen'ın Präteritum'u: ließ (tekil özne: die Tür). | die Tür; öffnen
+fehler | 2 | Das Problem lässt leicht lösen. | Das Problem lässt sich leicht lösen. | lässt leicht | Sorun kolayca çözülebilir. | -ebilir anlamında sich zorunlu: lässt sich lösen. | das Problem; lösen
+fehler | 2 | Die Koffer lässt sich nicht schließen. | Die Koffer lassen sich nicht schließen. | lässt | Bavullar kapanmıyor. | die Koffer çoğul → lassen sich. | der Koffer; schließen
+fehler | 2 | Das lässt sich gelöst werden. | Das lässt sich lösen. / Das kann gelöst werden. | gelöst werden | Bu çözülebilir. | sich lassen'dan sonra yalnız mastar (lösen); Partizip + werden Passiv'dir. | lösen
+fehler | 2 | Mit dem neuen Programm lassen sich Fotos leicht bearbeiten. | Mit dem neuen Programm lassen sich Fotos leicht bearbeiten. | - | Yeni programla fotoğraflar kolayca düzenlenebiliyor. | Hata yok: özne Fotos (çoğul) → lassen sich; mastar (bearbeiten) en sonda. | das Programm; das Foto
+ordnen | 2 | der Text / lässt / sich / gut / übersetzen | Der Text lässt sich gut übersetzen. | | Metin kolayca çevrilebilir. | lässt 2. yerde, sich hemen arkasında, mastar (übersetzen) en sonda. | der Text; übersetzen
+ceviri | 3 | Bu sorun kolayca çözülebilir. (sich lassen) | Dieses Problem lässt sich leicht lösen. / Das Problem lässt sich leicht lösen. / Dieses Problem lässt sich einfach lösen. / Das Problem lässt sich einfach lösen. | | - | -ebilir → lässt sich + mastar. | das Problem; lösen; leicht
+ceviri | 3 | Bu kapı dışarıdan açılmıyor. (sich lassen) | Diese Tür lässt sich von außen nicht öffnen. / Die Tür lässt sich von außen nicht öffnen. / Diese Tür lässt sich nicht von außen öffnen. / Die Tür lässt sich nicht von außen öffnen. | | - | Açılamamak (-amıyor) → lässt sich nicht öffnen. | die Tür; öffnen; außen
+ceviri | 3 | Bu kafede rahat çalışılıyor. (es lässt sich) | In diesem Café lässt es sich gut arbeiten. / In diesem Café lässt es sich bequem arbeiten. / In diesem Café lässt es sich ruhig arbeiten. / In diesem Café lässt es sich angenehm arbeiten. / Es lässt sich in diesem Café gut arbeiten. | | - | Öznesiz -ebilir: es lässt sich gut + mastar ("… güzel / rahat yapılıyor"). Yer başta olunca es fiilden sonra gelir: In diesem Café lässt es sich … | das Café; arbeiten
+umform | 3 | Man kann den Termin leider nicht verschieben. → „sich lassen“ ile yaz | Der Termin lässt sich leider nicht verschieben. / Leider lässt sich der Termin nicht verschieben. | | Randevu maalesef ertelenemiyor. | den Termin (nesne) → der Termin (özne); nicht verschieben en sonda. | der Termin; verschieben
+umform | 3 | Die Heizung konnte nicht repariert werden. → „sich lassen“ ile yaz | Die Heizung ließ sich nicht reparieren. / Die Heizung hat sich nicht reparieren lassen. | | Kalorifer tamir edilemedi. | Präteritum konnte → ließ sich. Perfekt'te iki mastar: hat sich … reparieren lassen. | die Heizung; reparieren
+text | 3 | Unsere neue Wohnung ist toll: Die Fenster ___ (lassen) sich ganz leicht öffnen, die Heizung ___ (lassen) sich mit dem Handy steuern, und im Garten ___ (lassen) es sich im Sommer gut aushalten. | lassen ; lässt ; lässt | | Yeni dairemiz harika: Pencereler çok kolay açılıyor, kalorifer telefonla kumanda edilebiliyor, bahçede de yazın çok güzel vakit geçiriliyor. | die Fenster çoğul → lassen; die Heizung ve öznesiz es tekil → lässt. | die Wohnung; das Fenster; die Heizung; der Garten
+fehler | 3 | Das hat sich nicht vermeiden gelassen. | Das hat sich nicht vermeiden lassen. / Das ließ sich nicht vermeiden. | gelassen | Bundan kaçınılamadı. | Perfekt'te mastarla birlikte lassen da mastar kalır (iki mastar): hat sich … vermeiden lassen. | vermeiden
+fehler | 3 | Es lässt sich nicht sagen, wer recht hat. | Es lässt sich nicht sagen, wer recht hat. | - | Kimin haklı olduğu söylenemez. | Hata yok: öznesiz es lässt sich + mastar; arkadan yan cümle. | sagen
+umform | 3 | Diese Frage kann nicht so einfach beantwortet werden. → „sich lassen“ ile yaz | Diese Frage lässt sich nicht so einfach beantworten. | | Bu soru o kadar kolay cevaplanamaz. | kann nicht … beantwortet werden → lässt sich nicht … beantworten. | die Frage; beantworten
+
+@teil sein-zu | sein + zu + mastar: -meli / -ebilir | yardımcı fiil
+wahl | 1 | Der Antrag ist bis Freitag abzugeben. Was bedeutet das? | Der Antrag muss bis Freitag abgegeben werden. | Der Antrag muss bis Freitag abgegeben werden. / Der Antrag ist schon abgegeben worden. / Der Antrag wird am Freitag abgeholt. | Başvuru cumaya kadar teslim edilmeli. | sein + zu + mastar edilgendir; son tarih / kural varsa = muss … werden. | der Antrag; abgeben
+wahl | 1 | Die Aufgabe ist leicht zu lösen. Was bedeutet das? | Die Aufgabe kann leicht gelöst werden. | Die Aufgabe kann leicht gelöst werden. / Die Aufgabe muss leicht gelöst werden. / Die Aufgabe ist leicht gelöst worden. | Görev kolayca çözülebilir. | leicht / schwer / gut / kaum ile sein + zu çoğunlukla = können. | die Aufgabe; lösen
+luecke | 1 | Der Ausweis ist immer ___. | mitzubringen | mitzubringen / zu mitbringen / mitbringen zu | Kimlik her zaman yanınızda olmalı. | Ayrılabilen fiilde zu ön ek ile kök arasına girer, tek kelime: mitzubringen. | der Ausweis
+kategori | 1 | sein + zu: muss oder kann? | muss: Der Antrag ist bis Montag abzugeben, Hunde sind an der Leine zu führen, Die Miete ist am Monatsanfang zu zahlen ;; kann: Die Aufgabe ist leicht zu lösen, Das Haus ist vom Bahnhof gut zu erreichen, Der Fehler ist kaum zu sehen | | - | Kural, son tarih, yönetmelik → muss. leicht, gut, kaum gibi kelimeler → kann. |
+wahl | 1 | Ich ___ heute noch viel zu tun. | habe | habe / bin / werde | Bugün daha yapacak çok işim var. | haben + zu etkendir: özne kişi, "yapacak işi olmak / zorunda olmak". sein + zu edilgendir: Das ist zu tun. | tun
+umform | 2 | Das Formular muss vollständig ausgefüllt werden. → „sein + zu“ ile yaz | Das Formular ist vollständig auszufüllen. | | Form eksiksiz doldurulmalı. | muss … ausgefüllt werden → ist … auszufüllen (zu ortada). | das Formular; ausfüllen
+umform | 2 | Man kann das Museum zu Fuß erreichen. → „sein + zu“ ile yaz | Das Museum ist zu Fuß zu erreichen. | | Müzeye yürüyerek ulaşılabilir. | man'ın nesnesi (das Museum) özne olur; kann → ist … zu erreichen. | das Museum; der Fuß; erreichen
+luecke | 2 | Die Gebühr ___ bar zu ___. (bezahlen · sein + zu) | ist ; bezahlen | | Ücret nakit ödenmeli. | sein + zu + mastar: ist … zu bezahlen (= muss bezahlt werden). | die Gebühr; bar; bezahlen
+luecke | 2 | Die Bücher sind bis Ende des Monats ___. (zurückgeben · sein + zu) | zurückzugeben | | Kitaplar ay sonuna kadar iade edilmeli. | Ayrılabilen fiil: zurück + zu + geben → zurückzugeben. | das Buch
+luecke | 2 | Der Lärm ___ kaum ___. (aushalten · sein + zu) | ist ; auszuhalten | | Gürültüye neredeyse dayanılmıyor. | kaum + sein + zu = zor -ebilir: ist kaum auszuhalten. | der Lärm
+fehler | 2 | Der Antrag ist bis Freitag zu abgeben. | Der Antrag ist bis Freitag abzugeben. | zu abgeben | Başvuru cumaya kadar teslim edilmeli. | Ayrılabilen fiilde zu ortaya girer: abzugeben. | der Antrag; abgeben
+fehler | 2 | Die Tickets haben online zu kaufen. | Die Tickets sind online zu kaufen. | haben | Biletler internetten alınabilir. | Özne iş yapmıyor, işten etkileniyor (die Tickets) → sein + zu. haben + zu yalnız kişiyle: Wir haben die Tickets online zu kaufen. | das Ticket; kaufen
+fehler | 2 | Das Problem ist leicht zu lösen. | Das Problem ist leicht zu lösen. | - | Sorun kolayca çözülebilir. | Hata yok: ist + leicht + zu lösen (= kann gelöst werden). | das Problem; lösen
+ordnen | 2 | die Medikamente / sind / kühl / zu / lagern | Die Medikamente sind kühl zu lagern. | | İlaçlar serin yerde saklanmalı. | sind 2. yerde, zu + mastar en sonda. | das Medikament; kühl
+luecke | 2 | Die Prüfung ___ ohne Wörterbuch ___ ___. (schreiben · sein + zu) | ist ; zu ; schreiben | | Sınav sözlüksüz yazılmalı. | Kural → muss: ist … zu schreiben (zu + mastar ayrı yazılır). | die Prüfung; das Wörterbuch; schreiben
+ceviri | 3 | Bu kitap artık hiçbir yerde bulunamıyor. (sein + zu) | Dieses Buch ist nirgends mehr zu finden. / Das Buch ist nirgends mehr zu finden. / Dieses Buch ist nirgendwo mehr zu finden. / Das Buch ist nirgendwo mehr zu finden. | | - | -amıyor → ist nicht (nirgends) … zu finden (= kann nicht gefunden werden). | das Buch; finden
+ceviri | 3 | Fatura 14 gün içinde ödenmeli. (sein + zu) | Die Rechnung ist innerhalb von 14 Tagen zu bezahlen. / Die Rechnung ist innerhalb von 14 Tagen zu zahlen. / Innerhalb von 14 Tagen ist die Rechnung zu bezahlen. / Innerhalb von 14 Tagen ist die Rechnung zu zahlen. | | - | Kural / süre → muss: ist … zu bezahlen. | die Rechnung; bezahlen
+umform | 3 | Diesen Fehler kann man leicht vermeiden. → „sein + zu“ ile yaz | Dieser Fehler ist leicht zu vermeiden. | | Bu hatadan kolayca kaçınılabilir. | man'ın nesnesi (diesen Fehler, Akkusativ) özne olur: dieser Fehler (Nominativ). | der Fehler; vermeiden
+umform | 3 | Die Unterlagen müssen bis zum 1. März eingereicht werden. → „sein + zu“ ile yaz | Die Unterlagen sind bis zum 1. März einzureichen. | | Belgeler 1 Mart'a kadar teslim edilmeli. | müssen … eingereicht werden → sind … einzureichen (çoğul özne → sind; zu ortada). | die Unterlagen
+umform | 3 | Das ist nicht zu ändern. → „man“ ile yaz | Das kann man nicht ändern. / Man kann das nicht ändern. | | Bu değiştirilemez. | nicht + sein + zu = kann nicht … werden; man ile: man kann … nicht ändern. | ändern
+text | 3 | Hausordnung: Die Haustür ___ ab 22 Uhr ___ (abschließen). Fahrräder sind im Keller ___ (abstellen). Der Müll ist sorgfältig ___ (trennen). | ist ; abzuschließen ; abzustellen ; zu trennen | | Apartman kuralları: Bina kapısı saat 22'den sonra kilitlenmeli. Bisikletler bodruma konmalı. Çöpler dikkatle ayrıştırılmalı. | Kurallarda sein + zu = muss. Ayrılabilen fiilde zu ortada (abzuschließen, abzustellen), diğerinde ayrı (zu trennen). | das Fahrrad; der Keller; der Müll
+fehler | 3 | Der Vertrag ist von beiden Seiten zu unterschreiben werden. | Der Vertrag ist von beiden Seiten zu unterschreiben. / Der Vertrag muss von beiden Seiten unterschrieben werden. | werden | Sözleşme iki tarafça da imzalanmalı. | sein + zu + mastar zaten edilgen: werden eklenmez. | der Vertrag; unterschreiben
+fehler | 3 | Die Wohnung ist ab sofort zu vermieten. | Die Wohnung ist ab sofort zu vermieten. | - | Daire hemen kiralanabilir. | Hata yok: ilanlarda sık kalıp, zu vermieten = kiralık. | die Wohnung; vermieten
+ceviri | 3 | Bu el yazısı neredeyse okunamıyor. (sein + zu) | Diese Handschrift ist kaum zu lesen. / Die Handschrift ist kaum zu lesen. / Diese Schrift ist kaum zu lesen. / Die Schrift ist kaum zu lesen. | | - | neredeyse -amıyor → kaum + sein + zu (= kann kaum gelesen werden). | lesen
+
+@teil bar-lich | -bar / -lich sıfatları: lösbar, verständlich | artikel/çekim
+wahl | 1 | Das Wasser ist trinkbar. Was bedeutet das? | Man kann das Wasser trinken. | Man kann das Wasser trinken. / Man muss das Wasser trinken. / Man hat das Wasser getrunken. | Su içilebilir. | fiil + -bar = -ebilir (kann … werden): trinkbar = içilebilir. | das Wasser; trinken
+eslestir | 1 | kann gelesen werden ;; kann gelöst werden ;; kann erreicht werden ;; kann verstanden werden | lesbar ;; lösbar ;; erreichbar ;; verständlich | | - | -bar / -lich = kann … werden: lesen → lesbar, lösen → lösbar, erreichen → erreichbar, verstehen → verständlich. |
+wahl | 1 | Diese Pilze sind giftig. Sie sind nicht ___. | essbar | essbar / essen / gegessen | Bu mantarlar zehirli, yenmez. | essbar = yenebilir; sein'dan sonra sıfat gelir. | essen
+kategori | 1 | Anlamı „kann … werden“ mi? | -ebilir: lösbar, essbar, verständlich, erreichbar ;; başka anlam: dankbar, wunderbar, freundlich, furchtbar | | - | Fiilden gelen -bar / -lich (lösen, essen, verstehen, erreichen) = -ebilir. dankbar (minnettar), wunderbar, freundlich, furchtbar fiilden gelmez, edilgen değildir. |
+luecke | 1 | Die Tabletten sind ohne Rezept in jeder Apotheke ___. | erhältlich | erhältlich / erhaltbar / erhalten | Haplar reçetesiz her eczanede bulunur. | erhältlich = satın alınabilir, bulunur. Bu anlamda -bar biçimi (erhaltbar) kullanılmaz. | die Tablette; das Rezept; die Apotheke
+umform | 2 | Das Problem kann gelöst werden. → -bar sıfatıyla yaz | Das Problem ist lösbar. | | Sorun çözülebilir. | kann gelöst werden → ist lösbar (lösen → lösbar). | das Problem
+umform | 2 | Diese Jacke kann man in der Maschine waschen. → -bar sıfatıyla yaz | Diese Jacke ist in der Maschine waschbar. / Diese Jacke ist waschbar. / Die Jacke ist in der Maschine waschbar. / Diese Jacke ist maschinenwaschbar. | | Bu ceket makinede yıkanabilir. | man kann … waschen → ist waschbar; man'ın nesnesi (diese Jacke) özne olur. | die Jacke; die Maschine; waschen
+luecke | 2 | Ihre Handschrift ist kaum ___. (lesen · -bar) | lesbar | | El yazısı neredeyse okunmuyor. | lesen → lesbar (kök + bar). | lesen
+luecke | 2 | Der Arzt ist am Wochenende nicht ___. (erreichen · -bar) | erreichbar | | Doktora hafta sonu ulaşılamıyor. | erreichen → erreichbar (-en düşer, -bar gelir). | der Arzt; erreichen
+luecke | 2 | Seine Erklärung war sehr ___. (verstehen · -lich) | verständlich | | Açıklaması çok anlaşılırdı. | verstehen → verständlich (a → ä değişimine dikkat). | die Erklärung
+luecke | 2 | Der Plan ist leider nicht ___. (machen · -bar) | machbar | | Plan maalesef uygulanabilir değil. | machbar = yapılabilir. | der Plan; machen
+fehler | 2 | Das Wasser aus dem Fluss ist nicht trinkbare. | Das Wasser aus dem Fluss ist nicht trinkbar. | trinkbare | Nehrin suyu içilemez. | sein'dan sonra (yüklem) sıfat çekimsiz: trinkbar. Ek yalnız isimden önce: trinkbares Wasser. | das Wasser; der Fluss
+fehler | 2 | Das ist ein lösbares Problem. | Das ist ein lösbares Problem. | - | Bu çözülebilir bir sorun. | Hata yok: isimden önce sıfat çekilir: ein lösbares Problem (das). | das Problem
+fehler | 2 | Das Buch ist in jeder Buchhandlung erhaltbar. | Das Buch ist in jeder Buchhandlung erhältlich. | erhaltbar | Kitap her kitapçıda bulunur. | Satın alınabilir anlamında erhältlich (-lich, ä ile) kullanılır; erhaltbar denmez. | das Buch; die Buchhandlung
+ordnen | 2 | die Wohnung / ist / mit dem Bus / gut / erreichbar | Die Wohnung ist mit dem Bus gut erreichbar. / Mit dem Bus ist die Wohnung gut erreichbar. | | Daireye otobüsle kolayca ulaşılabilir. | Sıfat (erreichbar) sein ile cümlenin sonunda. | die Wohnung; der Bus
+ceviri | 3 | Bu sorun çözülemez. (-bar) | Dieses Problem ist unlösbar. / Das Problem ist unlösbar. / Dieses Problem ist nicht lösbar. / Das Problem ist nicht lösbar. | | - | Olumsuz -bar: un- + lösbar (ya da nicht lösbar). | das Problem
+ceviri | 3 | Bremen'de uygun fiyatlı bir daire bulmak zor. (bezahlbar) | In Bremen ist es schwer, eine bezahlbare Wohnung zu finden. / Es ist schwer, in Bremen eine bezahlbare Wohnung zu finden. / In Bremen ist es schwierig, eine bezahlbare Wohnung zu finden. / Es ist schwierig, in Bremen eine bezahlbare Wohnung zu finden. | | - | bezahlbar = ödenebilir, uygun fiyatlı; isimden önce çekilir: eine bezahlbare Wohnung. | die Wohnung; schwer; finden
+umform | 3 | Diesen Fehler kann man nicht verzeihen. → -lich sıfatıyla yaz | Dieser Fehler ist unverzeihlich. / Dieser Fehler ist nicht verzeihlich. | | Bu hata affedilemez. | kann nicht verziehen werden → unverzeihlich; Akkusativ nesne (diesen Fehler) özne olur. | der Fehler
+umform | 3 | Man konnte den Unfall nicht vorhersehen. → -bar sıfatıyla yaz | Der Unfall war nicht vorhersehbar. / Der Unfall war unvorhersehbar. | | Kaza önceden görülemezdi. | vorhersehen → vorhersehbar; zaman korunur (konnte → war). | der Unfall
+umform | 3 | Die Kosten sind kaum zu bezahlen. → -bar sıfatıyla yaz | Die Kosten sind kaum bezahlbar. | | Masraflar neredeyse ödenemez. | sein + zu (kann) ↔ -bar: kaum zu bezahlen = kaum bezahlbar. | die Kosten; bezahlen
+text | 3 | Wohnungsanzeige: Schöne Zwei-Zimmer-Wohnung, mit dem Bus gut ___ (erreichen), Miete ___ (bezahlen), ab sofort ___ (beziehen). | erreichbar ; bezahlbar ; beziehbar | | Kiralık daire ilanı: Güzel iki odalı daire, otobüsle kolay ulaşılır, kirası uygun, hemen taşınılabilir. | İlanlarda -bar sıfatları çok sık: erreichbar, bezahlbar, beziehbar (= taşınılabilir). | die Wohnung; die Miete
+fehler | 3 | Das ist ein unglaubbares Ergebnis. | Das ist ein unglaubliches Ergebnis. | unglaubbares | Bu inanılmaz bir sonuç. | Kalıplaşmış biçim -lich: unglaublich (unglaubbar denmez). | das Ergebnis
+ceviri | 3 | Bu ilaç reçetesiz bulunabiliyor mu? (erhältlich) | Ist dieses Medikament ohne Rezept erhältlich? / Ist das Medikament ohne Rezept erhältlich? | | - | erhältlich = bulunabilir, satın alınabilir; soru cümlesinde fiil (ist) başta. | das Medikament; das Rezept
+fehler | 3 | Der Akku ist leider nicht austauschbar. | Der Akku ist leider nicht austauschbar. | - | Batarya maalesef değiştirilemiyor. | Hata yok: austauschen → austauschbar (değiştirilebilir). |
