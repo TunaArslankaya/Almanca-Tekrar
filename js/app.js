@@ -435,6 +435,8 @@
     lueckeVar: id => satzPool(id).own.some(x => x.tr && wortLuecke(id, x.de)),
     kontextVar: id => kontextSaetze(id).length > 0,
     cumleVar: id => { const p = satzPool(id); return p.own.length + p.extra.length > 0 || !!(vById[id] && vById[id].lueckenListe.length); },
+    // 14.11 (D5): Tuna'nın bu öğeyle karıştırdıkları (log): karışan çift aynı gün sorulmaz
+    karisan: id => { try { return (karismaTablosu() || {})[id] || []; } catch (e) { return []; } },
     LEX: { has: w => lexSet().has(String(w).toLowerCase()) } });
 
   // vadeli hafızalar (Kern.vadeliler): m, yalnız art, kök; isteğe bağlı öğe filtresi
@@ -559,7 +561,7 @@
     if (m === 'zayif' && r.tur === 'bitti') {
       const t = now(), son = (ot.gecmis || []).slice(-(Kern.ARA - 1)).map(x => x.id);
       const R0 = id => { const it = S.items[id]; return it.m && it.m.S ? Kern.R(it.m, t) : it.art && it.art.S ? Kern.R(it.art, t) : 0; };
-      const ad = Object.keys(S.items).filter(id => ot.filtre(id) && !son.includes(id) && ((S.items[id].m && S.items[id].m.S) || (kind(id) === 'n' && S.items[id].art && S.items[id].art.S))).sort((a, b) => R0(a) - R0(b));
+      const ad = Object.keys(S.items).filter(id => ot.filtre(id) && !son.includes(id) && !Kern.askidaMi(S.items[id]) && ((S.items[id].m && S.items[id].m.S) || (kind(id) === 'n' && S.items[id].art && S.items[id].art.S))).sort((a, b) => R0(a) - R0(b));
       for (const id of ad) {
         const it = S.items[id];
         if (!(it.m && it.m.S)) return { tur: 'art', kaynak: 'zayif', id, b: 0, bicim: 'artikel', R: R0(id) };
@@ -1041,7 +1043,8 @@
   // turda en çok 1 (uygulama kuyruğa koyar, Kern seçmez), günde en çok AYIR_GUN; aynı çift 2 gün içinde yeniden gelmez.
   // Çiftler: ayirCiftleri() → [{ a, b, n, k: 'a~b' }] (karışma sayısına göre). S ajanının karismaTablosu() varsa onu kullanır,
   // yoksa log'daki yanlış üretim cevaplarından: cevap başka bir öğenin lemmasına eşit ya da çok yakın (hedefin yazım hatası değil).
-  const AYIR_GUN = 3, AYIR_MODI = new Set(['wort', 'prod', 'abr', 'erk', 'bed', 'nsatz', 'satz', 'luecke']);
+  // 14.11 (D5, D8): günde en çok 1; aynı çift haftada en çok 1 (AYIR_ARA gün); yalnız gerçek karışma (en az 2 kez karıştırılmış çift)
+  const AYIR_GUN = 1, AYIR_ARA = 7, AYIR_N = 2, AYIR_MODI = new Set(['wort', 'prod', 'abr', 'erk', 'bed', 'nsatz', 'satz', 'luecke']);
   let _ayirIdx = null, _ayirC = null;
   function ayirIdx() {
     if (_ayirIdx) return _ayirIdx;
@@ -1097,10 +1100,10 @@
     ot.ayirVar = true;
     const gs = gs4();
     if ((gs.ayir || 0) >= AYIR_GUN) return false;
-    const sinir = tag(now() - 2 * DAY), son = {};
+    const sinir = tag(now() - AYIR_ARA * DAY), son = {};
     for (let i = S.log.length - 1; i >= 0 && i >= S.log.length - 3000; i--) { const e = S.log[i]; if (e.modus === 'ayir' && e.zeit >= sinir) { const [a, b] = String(e.id).split('~'); son[a < b ? a + '~' + b : b + '~' + a] = 1; } }
-    const bilir = id => !!(S.items[id] && (S.items[id].tanit || S.items[id].a1 || (S.items[id].m && S.items[id].m.S)));
-    const c = ayirCiftleri().find(p => !son[p.k] && bilir(p.a) && bilir(p.b) && (!ot.filtre || (ot.filtre(p.a) && ot.filtre(p.b))));
+    const bilir = id => !!(S.items[id] && !Kern.askidaMi(S.items[id]) && (S.items[id].tanit || S.items[id].a1 || (S.items[id].m && S.items[id].m.S)));
+    const c = ayirCiftleri().find(p => p.n >= AYIR_N && !son[p.k] && bilir(p.a) && bilir(p.b) && (!ot.filtre || (ot.filtre(p.a) && ot.filtre(p.b))));
     if (!c) return false;
     const [hedef, diger] = Math.random() < 0.5 ? [c.a, c.b] : [c.b, c.a];
     ot.kuyruk.push({ id: hedef, neden: 'ayir', at: ot.adim || 0, b: 0, bicim: 'ayir', deneme: 3, diger });
@@ -4182,7 +4185,8 @@
     if (bicim === 'ayir') return ayirLog(q, sonuc, opt);   // ayırt etme: yalnız log (öğe hafızasına yazmaz)
     let not = yardimNot(notVerF(sonuc), sonuc);
     const artB = bicim === 'artikel' || bicim === 'artOb';
-    if (sel.neden === 'ikinci' && !opt.zorla) not = Object.assign({}, not, { m: null, a: null, k: null });   // ikinci hatırlama yazılmaz
+    // ikinci hatırlama yazılmaz; 14.11 (D8): mini seçmeli kalktığından anlam hafızası henüz yoksa ikinci hatırlama ilk kalıcı yazımdır
+    if (sel.neden === 'ikinci' && !opt.zorla && S.items[id] && S.items[id].m && S.items[id].m.S) not = Object.assign({}, not, { m: null, a: null, k: null });
     if (q.yoklama && not.ergebnis === 'falsch') not = Object.assign({}, not, { m: null, a: null, k: null });   // bilinmeyen: tanıtım + mini kurar
     const it0 = S.items[id], vk = kind(id) === 'v' ? (S.kok || {})[(vById[id] || {}).base] : null;
     const anaH = artB ? it0 && it0.art : (bicim === 'kok' || bicim === 'kokSatz' || bicim === 'kokSec') ? vk : it0 && it0.m;
@@ -4469,6 +4473,7 @@
     if (!bos) {
       const r = Kern.goc(S, now(), S.einst.ret);
       Kern.aralikKisalt(S, now());   // 60 günden uzun aralık kalmasın
+      duzen1411();
       if (ilk && S.goc4) {
         logEintrag({ modus: 'akt', id: 'goc4', item: 'v5 göçü', frage: '', antwort: '', ergebnis: 'gelesen', loesung: '',
           notiz: `öğe:${r.oge} | m:${r.m} | yarım:${r.yarim} | art:${r.art} | kök:${r.kok} | vadeli:${r.vadeli} | ret:${r.ret}` });
@@ -4483,6 +4488,25 @@
     tageTuret();
     askiBildir();   // 15.11: Kern'in otomatik askısı → log satırı + Bugün'de bir kez bilgi kartı
     return n;
+  }
+  // 14.11 (Kern.duzen1411): bir kez otomatik askı (nadir, korunmayan, S < 21 ya da lapses ≥ 2; aktif ünite hariç), metin boşluğu kaynaklı
+  // anlam düşüşlerinin onarımı (log + kelime sınıfı), her açılışta A1–A2 emekliliği ve güçlü öğe aralık uzatma. Otomatik askının log satırını
+  // (akt;aski:<öğe>, neden:oto) kernAc sonundaki askiBildir yazar; onarım özeti 'akt;onarim1411'.
+  function onarimSinif(ant, loe, id) {
+    const a = String(ant || '').trim().replace(/^(der|die|das|den|dem|des)\s+/i, '');
+    if (!a) return null;
+    lexSet();   // kelimeSinifi sözlüğü (başka sözlük kelimesi = yanlış: legt / liegt)
+    let k = null; try { k = G.kelimeSinifi(a, String(loe || '').trim()); } catch (e) { k = null; }
+    if (k) return k;
+    const fold = x => G.norm(String(x)).toLowerCase().replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u').replace(/ß/g, 'ss');
+    try { if (synOf(id).some(x => fold(lemmaOf(x)) === fold(a))) return 'esanlam'; } catch (e) { /* bilinmeyen */ }
+    return null;
+  }
+  function duzen1411() {
+    const ilkOnr = !S.onarim1411;
+    const d = Kern.duzen1411(S, now(), { log: S.log, sinif: onarimSinif });
+    if (ilkOnr && S.onarim1411 && d.onarim.length) logEintrag({ modus: 'akt', id: 'onarim1411', item: 'metin boşluğu onarımı', frage: '', antwort: '', ergebnis: 'gelesen', loesung: '', notiz: d.onarim.map(x => `${x.id} ${f1(x.S0)}→${f1(x.S1)} -${x.k}`).join(', ') });
+    return d;
   }
   function uzakBirlestir(uz) {
     // yerel durum son yazılandan / birleştirilenden beri değişmediyse birleşik durum uzaktakinden yeni bir şey taşımaz: "temiz" kalır
@@ -4728,7 +4752,7 @@
   function askidanGeriAl(id) {
     const it = S.items[id]; if (!it || !it.askida) return false;
     const neden = it.askida.neden || 'el';
-    it.askida = null;
+    it.askida = null; it.askiGeri = now();   // Kern.birlestir: geri alma zamanı (son olay kazanır)
     askiLog(id, 'geri', neden);
     save(); return true;
   }
@@ -6506,7 +6530,7 @@
   ordnerLaden();
   window.__tekrar = { Kern: window.Kern, CODE_SURUM, get S() { return S; }, get aktuell() { return aktuell; }, starte: (m, boyu) => calisBasla(m, boyu), get tur() { return session.tur; }, get ot() { return session.ot; },
     saat: ms => { saatOfs += +ms || 0; return now(); }, kota, aksamDurum, UNITE_IT: uById, satzPool, kontextSaetze, formIdx, aktSaetze, wortSuchen, kind, deHTML, gunOzeti, hafizaYaz, fvImSatz, ikinciIs, ifadeBosPruef, secTest: () => sec(), tag, zeitStr, logGun, faellig, gueltig, wortLuecke, uMainId, uKand, UNITEN, VERBEN, byId, wById, pById, G,
-    toast, konfeti, mesajEkle, karismaTablosu, optionen, optionenDE,
+    toast, konfeti, mesajEkle, karismaTablosu, optionen, optionenDE, duzen1411, onarimSinif, ilerleme: () => Kern.ilerleme(S, now()),
     // test (cümle çeşitliliği): cümle seçimi, geçmiş, yazma ipucu türü, kök cümlesi
     satzWahl, tazeCumle, kxSay, kxEkle, yazIpucu, frageYaz, kokSatz: id => frageStammSatz(vById[id]),
     // test: Kern seçimi (sel) ile soruyu doğrudan çiz (artOb / kalip / ayir / kok …); ayirCiftleri, artSetKur

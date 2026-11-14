@@ -52,15 +52,17 @@ function logDenetle(ad, log, o) {
       const sonraki = T.slice(i + 1).filter(x => CEVAP_MODUS.has(x.modus) && /basamak:/.test(x.notiz || ''));
       const blok = T.slice(i + 1).findIndex(x => !(x.modus === 'yeni'));
       const ilk = sonraki[0];
-      if (ilk && !/ parti/.test(' ' + ilk.notiz) && blok === 0) hata(ad, `tanıtımdan sonraki ilk cevap mini değil: ${e.id} → ${ilk.id} ${ilk.notiz}`);
+      // 14.11 (D8): tanıtımdan sonra mini seçmeli yok (yalnız ikinci hatırlama)
+      void ilk; void blok;
       const mi = sonraki.findIndex(x => x.id.startsWith(e.id + ':') && /\| parti/.test(x.notiz));
-      if (mi >= 0) { mini++; if (mi > 3) hata(ad, `mini ${mi} cevap sonra: ${e.id}`); }
+      if (mi >= 0) { mini++; hata(ad, `tanıtımdan sonra mini seçmeli geldi: ${e.id}`); }
       const ii = sonraki.findIndex(x => x.id.startsWith(e.id + ':') && /\| ikinci/.test(x.notiz));
       // parti n öğe: son öğenin ikincisi mini'sinden 4 soru sonra = tanıtımdan 3 + n cevap sonra (yanlış tekrarı araya girebilir: +1)
       let n = 1; for (let k = i + 1; k < T.length && T[k].modus === 'yeni'; k++) n++; for (let k = i - 1; k >= 0 && T[k].modus === 'yeni'; k--) n++;
       // araya giren yanlış tekrarları (tekrar:) sıraya göre ikinciden önce gelebilir: her biri +1
       const araTekrar = ii > 0 ? sonraki.slice(0, ii).filter(x => /\| tekrar:/.test(x.notiz || '')).length : 0;
-      if (ii >= 0) { ikinci++; if (ii > Math.max(6, 4 + n) + araTekrar) hata(ad, `ikinci hatırlama ${ii} cevap sonra (parti ${n}, ara tekrar ${araTekrar}): ${e.id}`); if (!/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama hafızaya yazdı: ${sonraki[ii].id}`); }
+      // 14.11: mini kalktığından ikinci hatırlama yeni öğenin ilk kalıcı anlam yazımıdır (not:m…)
+      if (ii >= 0) { ikinci++; if (ii > Math.max(6, 4 + n) + araTekrar) hata(ad, `ikinci hatırlama ${ii} cevap sonra (parti ${n}, ara tekrar ${araTekrar}): ${e.id}`); if (!/not:m/.test(sonraki[ii].notiz) && !/hafıza:yazılmadı/.test(sonraki[ii].notiz)) hata(ad, `ikinci hatırlama ne yazdı ne yazılmadı dedi: ${sonraki[ii].id}`); }
     });
     const son = {};
     cv.forEach((e, k) => {
@@ -73,7 +75,7 @@ function logDenetle(ad, log, o) {
   });
   // aynı gün aynı hafızaya ikinci cevap: yazılmaz (hafıza:yazılmadı ya da not:-); yukarıdaki yazım sayımı hafıza başına denetler
   const ikinciCevap = cevap.filter(e => /\| (ikinci|tekrar:)/.test(e.notiz));
-  ikinciCevap.forEach(e => { if (/\| ikinci/.test(e.notiz) && !/hafıza:yazılmadı/.test(e.notiz)) hata(ad, `ikinci hatırlamada hafıza:yazılmadı yok: ${e.id}`); });
+  void ikinciCevap;   // 14.11: ikinci hatırlama yeni öğede ilk kalıcı yazım (günde tek yazımı yukarıdaki sayım denetler)
   // (aynı gün ikinci cevabın hafızaya yazılmadığını yukarıdaki yazım sayımı hafıza başına denetler: yanlış anlamdan sonraki doğru
   //  tekrar o gün ilk kez artikel hafızasına yazabilir, not:a3 meşrudur)
   return { cevap: cevap.length, tanit, mini, ikinci, tur: turlar.length };

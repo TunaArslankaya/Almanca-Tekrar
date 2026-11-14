@@ -59,8 +59,8 @@ const DAY = 86400000;
     S.items.n0781 = { seit: t - 30 * 86400000, m: m0() };
     T.hafizaYaz({ id: 'n0781', sel: { b: 3, tur: 'm' }, bicim: 'bos', lvGercek: 1, antwort: 'Mensa', ziel: 'Mensa' }, { bicim: 'bos', tip: 'dogru', etiketler: [] }, t, { log: false });
     out.bosBm = S.items.n0781.m.bm;
-    // yedek biçim: B4 seçimi (cümle yok) yazmaya düştü → bm en çok 2
-    S.items.n0313 = { seit: t - 30 * 86400000, m: m0({ bm: 1 }) };
+    // yedek biçim: B4 seçimi (cümle yok) yazmaya düştü → bm en çok 2 (14.11: lapses 2 — S ≥ 30 ve lapses ≤ 1 öğe ipucusuz doğruda en üst basamağa çıkar, D4)
+    S.items.n0313 = { seit: t - 30 * 86400000, m: m0({ bm: 1, lapses: 2 }) };
     T.hafizaYaz({ id: 'n0313', sel: { b: 4, tur: 'm' }, bicim: 'yaz', antwort: 'die Erlaubnis', ziel: 'die Erlaubnis' }, { bicim: 'yaz', tip: 'dogru', etiketler: [], artikel: { sinandi: true, dogru: true } }, t, { log: false });
     out.yedekBm = S.items.n0313.m.bm;
     // 5) Bilmediklerim: seçmeli doğru "artık biliyorsun" saymaz; yanlış sıfırlar

@@ -2,6 +2,9 @@
 // GRAM=0: turdaki gramer yuvası kapalı (varsayılan açık: o.gramVar, cevap tur adımına sayılır, hafızaya yazmaz; birikmede turda 1).
 // 12.11: tohum başına 14 günde bm artışı (seviye atlama: yalnız ipucusuz, tam doğru cevap), anlam sorularında ipucusuz / ipuçlu pay,
 // GUN + 1. günün vadeli anlam sayısı ve yeniden tanıtım kartı sayısı yazdırılır.
+// 14.11: gerçek log (log.csv, son 3000 satır) verilip açılış düzenlemesi (Kern.duzen1411: askı, onarım, emeklilik) yeniden çalıştırılır;
+// ek ölçüler: metin boşluğundan gelen bm artışı, gerçek vadeli tekrar payı, askıda, takılan yuvası, aynı öğe günde / turda ≥ 3 kez,
+// yeni kelimenin ilk gün görülme sayısı. Simde ısınma yalnız günün ilk 3 cevabında (S.tage[g].n güncellenir).
 // Günlük biçim payı (cevap içinde): seçmeli (sec/anla/metinde) · yazma (yaz0/yaz/kalip) · cümle (bos0/bos/cumle) · metin · artikel (flaş/artOb) (14.11: ses yuvası kaldırıldı).
 // Gerçek durumun kopyası uygulamada açılır (göç), sonra çekirdek (Kern.sec → notVer → uygula → oturumIsle) günde K cevapla
 // (12'lik turlar) simüle edilir. "Gerçek" başarı modeli: σ(logit R + d); seçmeli +0,5, ipuçlu (yaz0 / bos0) δ + 0,2, üretim δ.
@@ -15,6 +18,20 @@ const arg = process.argv.slice(2);
 const dosya = path.resolve(__dirname, '..', arg[0] || 'log/zustand.json');
 const GUN = +(arg[1] || 14), K = +(arg[2] || 36), DELTA = +(arg[3] || -0.4), TOHUM = +(arg[4] || 3), GRAM = process.env.GRAM !== '0';
 
+// ';' ayırıcılı, tırnaklı alanlı CSV (log.csv)
+function csvOku(t) {
+  const out = []; let r = [], f = '', q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ';') { r.push(f); f = ''; }
+    else if (c === '\n') { r.push(f.replace(/\r$/, '')); out.push(r); r = []; f = ''; }
+    else f += c;
+  }
+  if (f || r.length) { r.push(f); out.push(r); }
+  return out;
+}
 async function simule(p, o) {
   return p.evaluate(o => {
     const T = window.__tekrar, Kr = T.Kern, DAY = 86400000;
@@ -25,7 +42,10 @@ async function simule(p, o) {
     const sonuc = [];
     for (let tohum = 1; tohum <= o.TOHUM; tohum++) {
       const S = JSON.parse(JSON.stringify(S0)), rnd = Kr.tohum(tohum * 7919);
-      const gunler = [], yazim = {}, ihlal = [], top = { bmArt: 0, ipsz: 0, ipl: 0, mSay: 0, rt: 0, gram: 0 };
+      const gunler = [], yazim = {}, ihlal = [], top = { bmArt: 0, ipsz: 0, ipl: 0, mSay: 0, rt: 0, gram: 0, cevap: 0, vadGercek: 0, takilan: 0, gun3: 0, gunOge: 0, gunMax: 0, tur3: 0, turMax: 0, yeniGor: 0, yeniSay: 0 };
+      // 14.11: askıda öğe sayısı (açılışta otomatik askı), aynı öğenin günde / turda görülme sayısı (tanıtım ve yeniden tanıtım kartı dahil)
+      top.aski = Object.values(S.items).filter(it => it.askida).length;
+      const GERCEK = new Set(['vadeli', 'kurtarma', 'isinma', 'momentum', 'takilan']);
       const IPSZ = /^(yaz|bos|cumle|kalip|metin)$/, IPL = /^(yaz0|bos0)$/;
       const bas = Kr.gunBas4(Date.now()) + 15 * 3600000;   // 19:00
       for (let d = 0; d < o.GUN; d++) {
@@ -34,13 +54,16 @@ async function simule(p, o) {
         const vadeli = new Set(Kr.vadeliler(S, t, filtre).map(v => v.id)).size;
         const durum = { S, kap: o.K, gunSay: gs, donus: false };
         const kt = Kr.kota(durum, t);
-        let cevap = 0, yeni = 0, dogru = 0, tekrar = 0, zor = 0, zorDogru = 0; const kats = {};
+        let cevap = 0, yeni = 0, dogru = 0, tekrar = 0, zor = 0, zorDogru = 0; const kats = {}, gExp = {}, yeniIds = [];
+        const gor = (id, tExp) => { gExp[id] = (gExp[id] || 0) + 1; tExp[id] = (tExp[id] || 0) + 1; };
         const pay = { sec: 0, yaz: 0, cum: 0, met: 0, art: 0, kok: 0 };
         const payOf = b => /^(sec|anla|metinde)$/.test(b) ? 'sec' : /^(yaz0|yaz|kalip|yoklama)$/.test(b) ? 'yaz' : /^(bos0|bos|cumle)$/.test(b) ? 'cum' : /^(artikel|artOb)$/.test(b) ? 'art' : /^kok/.test(b) ? 'kok' : null;
         for (let tur = 0; tur < Math.ceil(o.K / 12); tur++) {
-          const ot = { adim: 0, boy: 12, kuyruk: [], gecmis: [], filtre, gramVar: o.GRAM };
+          const ot = { adim: 0, boy: 12, kuyruk: [], gecmis: [], filtre, gramVar: o.GRAM }, tExp = {};
           let n = 0, guard = 0;
           while (n < 12 && cevap < o.K && guard++ < 80) {
+            // 14.11: günün cevap sayısı (ısınma yalnız günün ilk 3 cevabında; önceden simde her turun başı ısınmaydı)
+            S.tage = S.tage || {}; S.tage[g] = Object.assign({}, S.tage[g], { n: cevap });
             const sel = Kr.sec(durum, ot, t, rnd);
             if (sel.tur === 'bitti') break;
             if (sel.tur === 'gram') { Kr.oturumIsle(ot, sel, { ergebnis: rnd() < 0.7 ? 'richtig' : 'falsch' }, rnd); n++; cevap++; top.gram++; t += 30000; continue; }
@@ -51,7 +74,7 @@ async function simule(p, o) {
                 if ((sel.yoklama || []).includes(id) && rnd() < 0.5) { Kr.uygula(S, id, Kr.notVer({ bicim: 'yoklama', tip: 'yoklama' }), t, {}); n++; cevap++; ot.adim++; return; }
                 const it = S.items[id], yarim = !!(it && it.yarim);
                 S.items[id] = Object.assign(it || { seit: t }, { tanit: t, yarim: 1 }, yarim ? { yarimGun: g } : { yeni4: g });
-                ids.push(id); yeni++;
+                ids.push(id); yeni++; yeniIds.push(id); gor(id, tExp);
               });
               Kr.partiBasladi(ot, ids, rnd);
               ot.yoklama = (ot.yoklama || 0) + (sel.yoklama || []).length; gs.yoklama += (sel.yoklama || []).length;
@@ -64,10 +87,11 @@ async function simule(p, o) {
                 const id = sel.adaylar[i], h = S.items[id].m, ok = rnd() < sig(logit(kirp(Kr.R(h, t))) + o.DELTA);
                 if (h.due <= t || Kr.R(h, t) < 0.9) {
                   const bm0 = h.bm || 0, out = Kr.uygula(S, id, Kr.notVer({ bicim: 'metin', tip: ok ? 'dogru' : 'yanlis' }), t, { b: 3 });
-                  if ((S.items[id].m.bm || 0) > bm0) top.bmArt++;
+                  if ((S.items[id].m.bm || 0) > bm0) { top.bmArt++; top.bmMetin = (top.bmMetin || 0) + 1; }
                   if (out.m && out.m.yazildi) { const kk = d + '|' + id + '|m'; yazim[kk] = (yazim[kk] || 0) + 1; }
                 }
                 n++; cevap++; tekrar++; pay.met++; top.mSay++; top.ipsz++; if (ok) dogru++; ot.adim++; ot.gecmis.push({ id, bicim: 'metin', tur: 'metin' });
+                gor(id, tExp); if (h.due <= t) top.vadGercek++;
                 t += 15000;
               }
               continue;
@@ -88,6 +112,9 @@ async function simule(p, o) {
             if (sel.neden === 'ikinci') not = Object.assign({}, not, { m: null, a: null, k: null });
             const bm0 = (it.m && it.m.bm) || 0;
             const out = Kr.uygula(S, sel.id, not, t, { b: sel.b });
+            gor(sel.id, tExp); if (sel.yenidenTanit) gor(sel.id, tExp);
+            if (GERCEK.has(sel.kaynak)) top.vadGercek++;
+            if (sel.kaynak === 'takilan') top.takilan++;
             if (sel.tur === 'm') {
               top.mSay++; if (IPSZ.test(sel.bicim)) top.ipsz++; else if (IPL.test(sel.bicim)) top.ipl++;
               if (sel.yenidenTanit) top.rt++;
@@ -105,11 +132,17 @@ async function simule(p, o) {
             t += 15000;
           }
           t += 10 * 60000;
+          Object.values(tExp).forEach(c => { if (c >= 3) top.tur3++; top.turMax = Math.max(top.turMax, c); });
         }
+        top.cevap += cevap;
+        Object.values(gExp).forEach(c => { top.gunOge++; if (c >= 3) top.gun3++; top.gunMax = Math.max(top.gunMax, c); });
+        yeniIds.forEach(id => { top.yeniSay++; top.yeniGor += gExp[id] || 0; });
         const mVad = Kr.vadeliler(S, t, filtre).filter(v => v.tur === 'm').length, aVad = Kr.vadeliler(S, t, filtre).filter(v => v.tur === 'art').length;
         gunler.push({ d, vadeli, zor, zorDogru, q: kt.q, sebep: kt.sebep, yeni, cevap, pay, dogru: tekrar ? Math.round(dogru / tekrar * 100) : null, kats: o.DBG ? kats : null, son: o.DBG ? [mVad, aVad] : null });
       }
       top.vadSon = Kr.vadeliler(S, bas + o.GUN * DAY, filtre).filter(v => v.tur === 'm').length;
+      top.vadSonArt = Kr.vadeliler(S, bas + o.GUN * DAY, filtre).filter(v => v.tur === 'art').length;
+      top.askiSon = Object.values(S.items).filter(it => it.askida).length;
       sonuc.push({ tohum, gunler, top, ihlal: Object.entries(yazim).filter(([, v]) => v > 1).map(([k]) => k) });
     }
     return sonuc;
@@ -123,6 +156,19 @@ async function simule(p, o) {
   const Z = fs.readFileSync(dosya, 'utf8');
   const p = await D.sayfa(b, { zustand: Z });
   await p.waitForTimeout(400);
+  // 14.11: gerçek log (yanındaki log.csv, son 3000 satır) uygulamaya verilir ve açılış düzenlemesi (Kern.duzen1411: metin boşluğu onarımı)
+  // log'la yeniden çalışır (uygulamada S.log açılışta hazırdır; testte localStorage'a yazmak yerine sonradan verilir). LOG=0: log yok.
+  const logDosya = path.join(path.dirname(dosya), 'log.csv');
+  if (process.env.LOG !== '0' && fs.existsSync(logDosya)) {
+    const satir = csvOku(fs.readFileSync(logDosya, 'utf8').replace(/^\uFEFF/, ''));
+    const bas = satir.shift() || [], log = satir.slice(-3000).map(r => Object.fromEntries(bas.map((k, i) => [k, r[i] || ''])));
+    const d = await p.evaluate(log => { const T = window.__tekrar; T.S.log = log; delete T.S.onarim1411; return T.duzen1411 ? T.duzen1411() : null; }, log);
+    if (d) console.log(`açılış düzenlemesi: askı ${(d.aski || []).length} (bu açılışta) · onarım ${(d.onarim || []).length}: ${(d.onarim || []).map(x => x.id + ' ' + x.S0.toFixed(1) + '→' + x.S1.toFixed(1)).join(', ')} · emekli ${d.emekli} · uzatma ${d.uzat}`);
+  }
+  {
+    const ilk = await p.evaluate(() => { const T = window.__tekrar; return T.ilerleme ? T.ilerleme() : null; });
+    if (ilk) console.log(`açılışta: askıda ${ilk.askida} (oto ${ilk.askiOto}) · emekli ${ilk.emekli} · takılan ${ilk.takilan} · vadeli anlam ${ilk.vadeli} / artikel ${ilk.vadeliArt} · ipucusuz bilinen ${ilk.ipucusuz} · önemli ${ilk.onemli.n}'den bilinen ${ilk.onemli.bilinen}`);
+  }
   const r = await simule(p, { GUN, K, DELTA, TOHUM, GRAM, DBG: !!process.env.DBG });
   const fehler = [];
   // Yük ölçütleri tohumların ORTALAMASI üzerinden: tek tohumun 7. gün değeri gürültülü (aynı kodda 10 tohumda 57–81;
@@ -140,7 +186,10 @@ async function simule(p, o) {
   console.log(`ortalama vadeli: ${v.map(x => x.toFixed(1)).join(' ')}`);
   {
     const tp = k => ort(r.map(x => x.top[k]));
-    console.log(`seviye (tohum ortalaması, ${GUN} gün): bm artışı ${tp('bmArt').toFixed(1)} · anlam sorusu ${tp('mSay').toFixed(0)}: ipucusuz %${(100 * tp('ipsz') / (tp('mSay') || 1)).toFixed(0)} · ipuçlu %${(100 * tp('ipl') / (tp('mSay') || 1)).toFixed(0)} · yeniden tanıtım ${tp('rt').toFixed(1)} · gramer ${tp('gram').toFixed(0)} · ${GUN + 1}. gün vadeli anlam ${tp('vadSon').toFixed(0)}`);
+    console.log(`seviye (tohum ortalaması, ${GUN} gün): bm artışı ${tp('bmArt').toFixed(1)} (metin boşluğundan ${(r.reduce((a, x) => a + (x.top.bmMetin || 0), 0) / r.length).toFixed(1)}) · anlam sorusu ${tp('mSay').toFixed(0)}: ipucusuz %${(100 * tp('ipsz') / (tp('mSay') || 1)).toFixed(0)} · ipuçlu %${(100 * tp('ipl') / (tp('mSay') || 1)).toFixed(0)} · yeniden tanıtım ${tp('rt').toFixed(1)} · gramer ${tp('gram').toFixed(0)} · ${GUN + 1}. gün vadeli anlam ${tp('vadSon').toFixed(0)} (artikel ${tp('vadSonArt').toFixed(0)})`);
+    // 14.11 ölçüleri: gerçek vadeli tekrar payı (vadeli / kurtarma / ısınma / momentum / takılan yuvası / vadeli metin boşluğu), askı, takılan yuvası,
+    // aynı öğe günde ≥ 3 kez görülen (öğe-gün) payı ve en çok, turda ≥ 3 kez (öğe-tur) sayısı, yeni kelimenin ilk gününde görülme ortalaması
+    console.log(`tekrar (tohum ortalaması): gerçek vadeli tekrar %${(100 * tp('vadGercek') / (tp('cevap') || 1)).toFixed(0)} · askıda ${tp('aski').toFixed(0)} → ${tp('askiSon').toFixed(0)} · takılan yuvası ${tp('takilan').toFixed(1)} · aynı öğe günde ≥ 3: %${(100 * tp('gun3') / (tp('gunOge') || 1)).toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.gunMax))}) · turda ≥ 3: ${tp('tur3').toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.turMax))}) · yeni kelime ilk gün ${(tp('yeniGor') / (tp('yeniSay') || 1)).toFixed(1)} kez (${tp('yeniSay').toFixed(0)} yeni)`);
   }
   // turda biçim payı (bütün tohum ve günler): seçmeli ve yazma oranı (6.11, S4: seçmeli yalnız tanıtım günü / ilk tekrar)
   {

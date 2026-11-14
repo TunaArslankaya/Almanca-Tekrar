@@ -17,6 +17,7 @@ const klasor = process.argv[2] || null;
   const adaylar = Object.keys(z.items).filter(id => /^[nvwx]/.test(id) && z.items[id].m && z.items[id].m.S && !z.items[id].askida);
   const oto = adaylar.slice(0, 3);
   oto.forEach(id => { z.items[id].askida = { t: Date.now() - 60000, neden: 'oto' }; });
+  z.aski1411 = { t: Date.now() - 60000, n: oto.length };   // Kern'in bir kerelik otomatik askısı yapılmış sayılır (yoksa gerçek kurala göre ~40 öğe daha askıya alınır)
   for (const mobil of [true, false]) {
     const ad = mobil ? 'mobil' : 'masaustu';
     const p = await D.sayfa(b, { mobil, zustand: JSON.stringify(z) });
