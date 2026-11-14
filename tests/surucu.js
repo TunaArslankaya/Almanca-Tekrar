@@ -1,6 +1,6 @@
 // Ortak Playwright adım sürücüsü (tests/e2e_smoke.js, tests/sim_akis.js, tools/film.js): ekrandaki kartı tanır ve cevaplar.
-// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, diktat, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer,
-// gram (turdaki gramer sorusu), ses (turdaki ses yuvası: duy / hoer).
+// Adımlar: tanit, yoklama, sec, anla, metinde, yaz0, yaz, bos0, bos, cumle, metin, artikel, artOb, kalip, ayir, kok (kok / kokSatz), itiraz, turSonu, paket, leer,
+// gram (turdaki gramer sorusu). 14.11: turdaki ses yuvası (duy / hoer) ve günlük dikte kaldırıldı.
 // 6.11 (S5 / S6): seçmeli şıklar gizli (Enter ile açılır); yanlış / küçük hatada Devam 2,5 sn kilitli (Enter tekrarlanır);
 // yazma biçimlerinde yanlışta "doğrusunu bir kez yaz" kutusu doğru cevapla doldurulur; metinde yanlış boşlukların doğrusu yazılır; tanıtım kartı ≥ 4 sn (tıklama düğme açılınca).
 // Kullanım: const D = require('./surucu'); const b = await D.tarayici(); const p = await D.sayfa(b, { mobil: true, zustand }); await D.adim(p, { dogru: 0.8 });
@@ -89,7 +89,7 @@ async function aktDuzelt(p, blanks) {
   const s = await durum(p);
   for (const i of s.dz || []) { const el = await p.$(`.u-duzelt[data-dz="${i}"]`); if (el) await el.fill(blanks[i]); }
 }
-// metin / dikte sonucu: kilit ve düzeltme bitene dek Enter
+// metin sonucu: kilit ve düzeltme bitene dek Enter
 async function aktGec(p) {
   for (let i = 0; i < 60; i++) {
     const t = await p.evaluate(() => { const a = window.__tekrar.aktuell; return a && a.typ === 'akt' && a.wartet; });
@@ -117,13 +117,6 @@ async function adim(p, o) {
     for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'gramTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
     return { ad: 'gram', s };
   }
-  // turdaki ses sorusu (sözleşme S2: Dinle 'duy' / 'hoer'): soru.test(dogru) varsa onunla (gerçek DOM cevabı), yoksa bitti; sonra Devam (Enter)
-  if (s.typ === 'sesTur') {
-    await p.waitForTimeout(120);
-    await p.evaluate(d => { const a = window.__tekrar.aktuell, so = a && a.soru; if (so && typeof so.test === 'function') so.test(d); else if (a && a.bitti) a.bitti({ urteil: d ? 'richtig' : 'falsch', antwort: 'test' }); }, dogruMu);
-    for (let i = 0; i < 50; i++) { await p.waitForTimeout(80); const t = await p.evaluate(() => window.__tekrar.aktuell && window.__tekrar.aktuell.typ); if (t !== 'sesTur') break; if (i > 3 && i % 3 === 0) await p.keyboard.press('Enter'); }
-    return { ad: 'ses', s };
-  }
   if (ad === 'paket') {
     if (s.schritt === 'luecke' && !s.warte) await p.fill('#cevap', dogruMu ? s.form : 'xxxyz');
     else await ileri(p, 16000);
@@ -135,12 +128,6 @@ async function adim(p, o) {
     await p.click('[data-akt="pruef"]'); await p.waitForTimeout(60);
     if (o.sonucCek) await o.sonucCek(await durum(p));
     await aktDuzelt(p, s.blanks);
-    await aktGec(p); await p.waitForTimeout(40);
-    return { ad, s };
-  }
-  if (ad === 'diktat') {
-    await p.fill('#cevap', dogruMu ? s.satz : 'ich weiß nicht'); await p.press('#cevap', 'Enter'); await p.waitForTimeout(60);
-    if (o.sonucCek) await o.sonucCek(await durum(p));
     await aktGec(p); await p.waitForTimeout(40);
     return { ad, s };
   }

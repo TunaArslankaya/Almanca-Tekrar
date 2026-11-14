@@ -399,7 +399,7 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
     if (turler.includes('dinle')) dinleVar = true;
   }
   eq(ihlal, 0, 'tekrar seti 5 (ilk üçü farklı tür, ≥ 2 yazarak), tekrarsız, eslestir + kategori ≤ 1');
-  eq(dinleVar, false, 'ses yoksa dinle seçilmez');
+  eq(dinleVar, false, 'dinle (dikte) türü seçilmez (14.11)');
   {   // her konuda tekrar 5; boylu boyuna (derin): hep doğru → her teil z1→z3 tamam, tekrar yok; hep yanlış → teil'e geri döner, havuz bitince biter
     const az = [], D = Gr._ic;
     Object.keys(Gr.GR).forEach(id => { durum.gram.konu[id] = durum.gram.konu[id] || { karte: null, teil: {}, gesehen: {}, lern: null, acildi: 1 };

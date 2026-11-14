@@ -169,8 +169,8 @@
   }
 
   // ---------- alıştırma seçimi ----------
-  const sesVar = () => typeof root.speechSynthesis !== 'undefined';
-  const uebungen = id => (GR[id].uebungen || []).filter(u => !u.aus && u.teil && (u.tur !== 'dinle' || sesVar()));
+  // 14.11 (Tuna: "dinleme aşırı zor"): dinle (dikte) türü seçilmez; içerik dosyalarda kalır
+  const uebungen = id => (GR[id].uebungen || []).filter(u => !u.aus && u.teil && u.tur !== 'dinle');
   const teilBasari = (id, kod) => { const t = konuSt(id).teil[kod] || { d: 0, y: 0 }; return (t.d + 1) / (t.d + t.y + 2); };
   // yazarak üretilen türler (hayalette 'fast' da açılır; tekrar setinde en az biri)
   const YAZARAK = new Set(['umform', 'ordnen', 'fehler', 'ceviri', 'text', 'dinle']);

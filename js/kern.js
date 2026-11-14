@@ -580,10 +580,9 @@
   }
 
   // oturum: { adim, boy, kuyruk[{id, neden, at, deneme, tur, b, bicim}], parti, metin, kurtarma, yanlisSeri, gecmis[{id, bicim, tur}], klavyesiz, filtre }
-  // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, diktat, yoklama, ekYeniTeklif} }
+  // durum:  { S, kap, bonus, donus, ekYeni, gunSay: {kok, kokYeni, metin, yoklama, ekYeniTeklif} }
   const ARA = 8, ART_TUR = 3, ZOR_TUR = 3, GRAM_ADIM = [5, 10];   // gramer sorusu: turun 1. ve 2. gramer adımı (S3)
-  // ses yuvası (6.11, sözleşme S1; 7.11 konuşma kaldırıldı): pencere [4..6] → duy (dinleme), [9..11] → hoer (duy-seç: minimal çift / vurgu)
-  const SES_ADIM = [4, 9];
+  // ses yuvası (6.11: duy / hoer dinleme soruları) 14.11'de kaldırıldı (Tuna: "dinleme aşırı zor"); o adımlar normal sorulara gider
   // vadeli sırası (6.11, log-hafiza §8: en çok gecikenler R ≈ 0,66 ile haftalarca bekliyordu): R < 0,8 olan vadeliler en düşük R'den,
   // sonra kalanlar R azalan (eski sıra)
   const VAD_DUSUK = 0.8;
@@ -594,10 +593,10 @@
   // Havuzlardan biri boşsa öbürü.
   const ZAYIF_PAY = 3;
   const gucluSira = (a, b) => { const x = a.R < VAD_DUSUK ? 1 : 0, y = b.R < VAD_DUSUK ? 1 : 0; return x - y || (x === 0 ? b.R - a.R : a.R - b.R); };
-  // vadeli birikme kapasiteyi aşınca (kota: dünden kalan vadeli > günlük kapasite) turun sabit yükü kısılır: gramer 1 (adım 5), ses 1
-  // (adım 4; gün gün duy / hoer), ayır yok (uygulama: o.yukKis). 9–12.11: günde 57 cevabın 18'i gramer + ses + ayırdı, vadeli anlam ~14.
+  // vadeli birikme kapasiteyi aşınca (kota: dünden kalan vadeli > günlük kapasite) turun sabit yükü kısılır: gramer 1 (adım 5),
+  // ayır yok (uygulama: o.yukKis). 9–12.11: günde 57 cevabın 18'i gramer + ses + ayırdı, vadeli anlam ~14.
   const yukKisMi = kt => !!kt && kt.birikme > kt.kap;
-  // gramer / ses yuvası açık mı (adımlar: GRAM_ADIM / SES_ADIM): normalde her pencere [a, a + 2] bir soru (sırası gelmiş kuyruk / parti önce
+  // gramer yuvası açık mı (adımlar: GRAM_ADIM): normalde her pencere [a, a + 2] bir soru (sırası gelmiş kuyruk / parti önce
   // gelirse pencere kayar, kaçan pencere atlanır); birikmede (o.yukKis) turda tek yuva, ilk pencerenin başından boy − 2'ye kadar
   // (parti + mini sorular adım 3'ten 6'ya itince tek yuva kaybolmasın)
   function yuvaAcik(ADIM, tur, o, adim) {
@@ -651,7 +650,7 @@
     const kq = (o.kuyruk || []).filter(k => k.at <= adim && (!o.filtre || o.filtre(k.id))).sort((a, b) => a.at - b.at)[0];   // en erken sırası gelen
     if (kq) return kuyrukSec(kq);
     if (o.aksam) return aksamSec(S, o, t, rnd, kuyrukSec);
-    const kt = kota(durum, t), yukKis = o.yukKis = yukKisMi(kt);
+    const kt = kota(durum, t); o.yukKis = yukKisMi(kt);
     const partiAc = () => {
       // §5.2: yarımlar kotaya sayılmaz; partide kotanın yanında en çok 1 (25'likte 2) yarım, günde en çok 3.
       // Bilinçli sapma: kota kısılmışken (göç / genç / birikme) günde 1 yarım ve o yarım kotadan bir yer alır
@@ -672,16 +671,6 @@
       // her pencerede bir soru (o pencerenin başından beri gram yoksa); ilki kaçtıysa ikincisi yine gelir; birikmede tek yuva (yuvaAcik)
       if (yuvaAcik(GRAM_ADIM, 'gram', o, adim)) return { tur: 'gram', kaynak: 'gram' };
     }
-    // 2c) ses yuvası (sözleşme S1): o.sesVar === true (uygulama: "Sesli sorular" açık, modül yüklü), o.sesYok değil (modül soru vermedi);
-    //     pencere [4..6] ve [9..11], pencere başına 1, turda en çok 2; turdaki ilk ses sorusu 'duy', ikincisi 'hoer' (uygulama: hoer yoksa duy).
-    //     Klavyesiz / akşam / odak / momentum (art arda 2 yanlış) turunda yok. Cevap tur adımına sayılır, kuyruk / hafıza değişmez (oturumIsle).
-    if (o.sesVar === true && !o.sesYok && !o.klavyesiz && !o.aksam && !o.odak && (o.yanlisSeri || 0) < 2) {
-      // birikmede (yukKis) turda tek ses yuvası; duy / hoer gün gün dönüşümlü (dinleme kapanmaz)
-      if (yuvaAcik(SES_ADIM, 'ses', o, adim)) {
-        const ilk = !gecmis.some(x => x.tur === 'ses');
-        return { tur: 'ses', alt: yukKis ? (gunFark(g, '2026-01-01') % 2 ? 'hoer' : 'duy') : ilk ? 'duy' : 'hoer', kaynak: 'ses' };
-      }
-    }
     const vad = vadeliler(S, t, o.filtre).filter(v => !yakin(v.id));
     const mVad = vad.filter(v => v.tur === 'm');
     // 3) metin etkinliği: turda bir, günde en çok 3; 8 ≤ adım ≤ boy − 3; boşluklar m.S ≥ 1,5 ve (vadeli ya da R < 0,9)
@@ -689,7 +678,7 @@
     if (!o.metin && !o.klavyesiz && adim >= 8 && adim <= boy - 3 && (gs.metin || 0) < 3) {
       const ad = Object.keys(S.items).filter(id => { const h = S.items[id].m; return h && h.S >= 1.5 && (h.bm != null ? h.bm : bmBaslat(h)) >= 2 && (h.due <= t || R(h, t) < 0.9) && !yakin(id) && C.kind(id) !== 'p' && (!o.filtre || o.filtre(id)); })
         .sort((a, b) => (S.items[b].m.due <= t) - (S.items[a].m.due <= t) || R(S.items[b].m, t) - R(S.items[a].m, t));   // vadeliler önce
-      if (ad.length >= 2) return { tur: 'metin', kaynak: 'metin', adaylar: ad.slice(0, 8), diktat: !gs.diktat };
+      if (ad.length >= 2) return { tur: 'metin', kaynak: 'metin', adaylar: ad.slice(0, 8) };
     }
     // 4) kurtarma: turda bir, adım ≥ 6; R < 0,6 ya da 3 gündür bekleyen vadeli öğelerden R'si en düşük; B2 yaz0 (S4; tanıtım günü / ilk tekrarda B1)
     if (!o.kurtarma && adim >= 6) {
@@ -773,10 +762,7 @@
     const i = o.kuyruk.indexOf(secim._k); if (i >= 0) o.kuyruk.splice(i, 1);
     o.adim = (o.adim || 0) + 1;
     o.gecmis.push(Object.assign({ id: secim.id, bicim: secim.bicim, tur: secim.tur }, secim.zor ? { zor: true } : null, secim.tur === 'gram' ? { a: o.adim - 1 } : null,
-      secim.kaynak === 'vadeli' && secim.tur === 'm' ? { vk: secim.R < VAD_DUSUK ? 'z' : 'g' } : null,
-      secim.tur === 'ses' ? { alt: secim.alt, a: o.adim - 1 } : null));
-    // ses yuvası (S1): adıma sayılır; kuyruk, art arda yanlış sayacı ve hafıza değişmez
-    if (secim.tur === 'ses') return o;
+      secim.kaynak === 'vadeli' && secim.tur === 'm' ? { vk: secim.R < VAD_DUSUK ? 'z' : 'g' } : null));
     if (secim.kaynak === 'kurtarma') o.kurtarma = true;
     const yanlis = sonuc && sonuc.ergebnis === 'falsch';
     o.yanlisSeri = yanlis ? (o.yanlisSeri || 0) + 1 : 0;
@@ -1210,7 +1196,7 @@
 
   const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     init, get ctx() { return C; },
-    DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, SES_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,
+    DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,
     GUCLU, gucluMu, ZAYIF_PAY, yukKisMi, yuvaAcik, gramPencere, RT_GUN, RT_OFS, cekirdekMi,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
