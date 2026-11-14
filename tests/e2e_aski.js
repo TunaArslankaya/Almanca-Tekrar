@@ -30,11 +30,11 @@ const klasor = process.argv[2] || null;
     ok(/3 nadir kelime/.test(kartM || '') && /Askıda/.test(kartM || ''), `[${ad}] askı bilgi kartı: ${kartM}`);
     const say = await metin('.ana-sayilar');
     ok(/tekrar sırada/.test(say || '') && /3 askıda/.test(say || ''), `[${ad}] Bugün sayıları: ${say}`);
-    ok(/\/1000 önemli kelime/.test(say || ''), `[${ad}] önemli 1000: ${say}`);
+    ok(/\d+\/1000 önemli kelime/.test(say || ''), `[${ad}] önemli 1000: ${say}`);
     ok(!/Birikme büyüyor/.test(await metin('#ana') || ''), `[${ad}] suçlayıcı birikme metni`);
     // Claude notları (varsa) tek satır: details kapalı
     const notK = await p.evaluate(() => { const d = document.querySelector('.notlar-kart'); return d ? { tag: d.tagName, acik: d.open, h: d.getBoundingClientRect().height } : null; });
-    ok(!notK || (notK.tag === 'DETAILS' && !notK.acik && notK.h < 80), `[${ad}] Claude notları katlı değil: ${JSON.stringify(notK)}`);
+    ok(!notK || (notK.tag === 'DETAILS' && !notK.acik && notK.h < 70), `[${ad}] Claude notları katlı değil: ${JSON.stringify(notK)}`);
     ok(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `[${ad}] Bugün yatay taşma`);
     await foto(p, ad + '-1-bugun');
     // 2) kart → Kelimeler / Askıda; geri al
@@ -69,9 +69,9 @@ const klasor = process.argv[2] || null;
     await p.click('#alt-sayfa [data-alt-kapat]').catch(() => {});
     // 4) Ayarlar: hatırlama hedefi notu (değer değişmez)
     const ret0 = await p.evaluate(() => window.__tekrar.S.einst.ret);
-    await p.evaluate(() => { document.querySelector('[data-git="ayar"]') ? null : null; });
-    await p.click('.alt-nav button[data-v="diger"]'); await p.waitForTimeout(200);
-    await p.click('[data-git="ayar"][data-v="ayar"]'); await p.waitForTimeout(300);
+    await p.evaluate(() => document.querySelector('.alt-nav button[data-v="diger"]').click()); await p.waitForTimeout(200);
+    await p.evaluate(() => document.querySelector('[data-git="ayar"][data-v="ayar"]').click()); await p.waitForTimeout(300);
+    await foto(p, ad + '-6-ayar');
     const retNot = await metin('.ret-not');
     ok(/0,90 aralıkları kısaltır; 0,85 tekrar yükünü ~%15 azaltır/.test(retNot || ''), `[${ad}] ret notu: ${retNot}`);
     ok(await p.evaluate(r => window.__tekrar.S.einst.ret === r, ret0), `[${ad}] ret değişti`);
@@ -130,6 +130,16 @@ const klasor = process.argv[2] || null;
   ok(u.kalt.u === 'falsch', 'kalt yerine warm yanlış olmalı: ' + JSON.stringify(u.kalt));
   ok(u.haus.u === 'falsch', 'Wohnung yerine Haus yanlış olmalı (ilk anlam farklı): ' + JSON.stringify(u.haus));
   ok(u.luft.u === 'fast' && u.luft.fazlaArt, 'die Luft: ' + JSON.stringify(u.luft));
+  // Bugün → ikinci iş gramer kartı: Gramer.gunOnerisi (alfabetik ilk vadeli konu değil); tıklayınca Gramer o konuyla açılır
+  const ii = await p.evaluate(() => { const G = window.Gramer, o = G && G.gunOnerisi ? G.gunOnerisi() : null; return { o, html: window.__tekrar.ikinciIs() }; });
+  if (ii.o) {
+    ok(ii.html.includes(`data-gram-id="${ii.o.id}"`) && ii.html.includes(ii.o.ad), 'ikinci iş gramer önerisi: ' + ii.html.slice(0, 300));
+    await p.evaluate(h => { const d = document.createElement('div'); d.id = 'ii-test'; d.innerHTML = h; document.querySelector('#ana').appendChild(d); }, ii.html);
+    await p.click('#ii-test [data-gram-id]'); await p.waitForTimeout(400);
+    const g = await p.evaluate(() => ({ modus: !document.querySelector('#v-calis').hidden, ekran: window.Gramer._ic.ses().ekran, id: window.Gramer._ic.ses().id }));
+    ok(g.modus && g.ekran !== 'liste', 'gramer kartı konuyu açmadı: ' + JSON.stringify(g));
+    await p.evaluate(() => { const x = document.querySelector('.alt-nav button[data-v="ana"]'); if (x) x.click(); });
+  } else console.log('(gramer önerisi yok: ikinci iş kartı denetlenmedi)');
   // gerçek metin etkinliği: isim boşluğuna artikelle → log etiketi 'fazla artikel' (yazım değil)
   await p.evaluate(() => window.__tekrar.starte('akis', 12)); await p.waitForTimeout(300);
   let denendi = false;

@@ -1194,7 +1194,7 @@ body.calis-modu .yenile-cubuk { display: none; }
 .aski-satir { display: grid; grid-template-columns: 1fr auto; align-items: center; border-top: 1px solid var(--line); }
 .aski-satir:first-child { border-top: 0; }
 .aski-satir .oge { border-top: 0; }
-.aski-satir > .btn { margin-right: .7rem; }
+.aski-satir > .btn { margin-right: .7rem; white-space: nowrap; }
 .aski-kutu { display: flex; flex-wrap: wrap; gap: .3rem .6rem; align-items: center; font-size: .88rem; border-top: 1px solid var(--line); padding-top: .6rem; }
 .notlar .aski-btn { color: var(--muted); }
 .aski-ok { display: inline-flex; gap: .4rem; align-items: center; font-size: .88rem; }
@@ -1206,7 +1206,8 @@ body.calis-modu .yenile-cubuk { display: none; }
 button.as-pil { cursor: pointer; }
 button.as-pil:hover { border-color: var(--accent); }
 .notlar-kart.katli { gap: .4rem; }
-.notlar-kart.katli > summary { cursor: pointer; list-style: none; display: flex; gap: .35rem; align-items: baseline; font-weight: 600; }
+.notlar-kart.katli > summary { cursor: pointer; list-style: none; display: flex; gap: .5rem; align-items: baseline; font-weight: 600; }
+.notlar-kart.katli > summary > span:first-child { flex: 1; min-width: 0; }
 .notlar-kart.katli > summary::-webkit-details-marker { display: none; }
 .notlar-kart.katli > summary .soluk { margin-left: auto; font-weight: 400; font-size: .85rem; }
 .notlar-kart.katli[open] > summary .soluk { display: none; }

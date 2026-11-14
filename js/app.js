@@ -2517,15 +2517,29 @@
   const esIcerik = x => kind(x) === 'n' || kind(x) === 'v' || (kind(x) === 'w' && /^(adj|adv)$/.test((wById[x] || {}).kl || ''));
   const esIlk = x => String((kind(x) === 'v' ? (vById[x] || {}).tr : kind(x) === 'w' ? (wById[x] || {}).tr : (byId[x] || {}).tr) || '').split(/[;,]/)[0].trim().toLowerCase();
   const esLemma = x => (kind(x) === 'v' ? (vById[x] || {}).inf : kind(x) === 'w' ? (wById[x] || {}).de : (byId[x] || {}).lemma) || '';
+  // aday öğenin biçimleri (isim: tekil / -s / -es / -n / -en / çoğul (+n); fiil: mastar, Präsens, Präteritum, Partizip; sıfat / zarf: wBicimler)
+  function esBicimler(x) {
+    const k = kind(x);
+    if (k === 'n') { const n = byId[x]; if (!n) return []; return [n.lemma, n.lemma + 's', n.lemma + 'es', n.lemma + 'n', n.lemma + 'en'].concat(n.plf ? [n.plf, n.plf + 'n'] : []); }
+    if (k === 'v') { const v = vById[x]; if (!v || v.pre) return v ? [v.inf, v.p2s] : []; const pt = v.ptForm ? (/e$/.test(v.ptForm) ? ['', 'st', 'n', 't'] : ['', 'st', 'en', 't']).map(e => v.ptForm + e) : []; return [v.inf, v.p2s, v.base].concat(G.praesensForms(v), pt); }
+    const w = wById[x]; return w && !/[\s…]/.test(w.de.trim()) ? wBicimler(w) : [];
+  }
+  // aynı tür + ilk Türkçe anlamı aynı öğeler (tür|anlam → [id]); formIdx ilk kazanır (heiße → heißen fiili), bu yüzden adaylar anlamdan
+  let _esGrup = null;
+  const esGrup = () => {
+    if (_esGrup) return _esGrup;
+    _esGrup = new Map();
+    [].concat(NL.map(n => n.id), VERBEN.map(v => v.id), WOERTER.map(w => w.id)).forEach(x => { if (!esIcerik(x)) return; const a = esIlk(x); if (!a) return; const k = kind(x) + '|' + a; (_esGrup.get(k) || _esGrup.set(k, []).get(k)).push(x); });
+    return _esGrup;
+  };
   function esAnlamli(eingabe, id) {
     const w = String(eingabe || '').trim().replace(U_ART, '');
     if (!id || w.length < 3 || /\s/.test(w) || kind(id) === 'p' || !esIcerik(id)) return false;
-    const fi = formIdx(), diger = fi.get(w) || fi.get(w.toLowerCase()) || fi.get(w.charAt(0).toUpperCase() + w.slice(1));
+    const wn = uNorm(w), fi = formIdx(), diger = fi.get(w) || fi.get(w.toLowerCase()) || fi.get(w.charAt(0).toUpperCase() + w.slice(1));
     const lem = esLemma(id), ciftler = (ES_CIFT[lem] || []).concat(Object.keys(ES_CIFT).filter(k => ES_CIFT[k].includes(lem)));
-    if (ciftler.some(c => uNorm(c) === uNorm(w) || (diger && uNorm(c) === uNorm(esLemma(diger))))) return true;
-    if (!diger || diger === id || kind(diger) !== kind(id) || !esIcerik(diger)) return false;
-    const a = esIlk(id), b = esIlk(diger);
-    return !!a && a === b;
+    if (ciftler.some(c => uNorm(c) === wn || (diger && uNorm(c) === uNorm(esLemma(diger))))) return true;
+    const a = esIlk(id); if (!a) return false;
+    return (esGrup().get(kind(id) + '|' + a) || []).some(x => x !== id && esBicimler(x).some(f => f && uNorm(f) === wn));
   }
   // yazılanın hedeften farklı kelimesi sözlükte var mı (lemma / çoğul / fiil biçimi): öyleyse yazım hoşgörüsü yok (başka kelime ya da çekim → G.yakin)
   function uBaskaKelime(eingabe, c) {
@@ -4751,6 +4765,7 @@
   function renderListe() {
     const sek = session.listeSekme || 'hepsi';
     $('#seviye-sekme').innerHTML = LISTE_SEKME.map(([k, ad]) => `<button type="button" role="tab" data-sekme="${k}" aria-selected="${k === sek}">${ad}</button>`).join('');
+    { const sb = $('#seviye-sekme [aria-selected="true"]'), sk = $('#seviye-sekme'); if (sb && sk && sk.scrollWidth > sk.clientWidth) sk.scrollLeft = Math.max(0, sb.offsetLeft - sk.offsetLeft - 16); }   // seçili sekme (Askıda sonda) görünsün
     const q = $('#ara').value.trim().toLowerCase(), tur = $('#tur').value;
     const all = NOUN_ORDER.map(n => n.id).concat(VERB_ORDER.map(v => v.id), WORT_ORDER.map(w => w.id));
     const hits = all.filter(id => {
@@ -4796,7 +4811,7 @@
     const sv = it ? seviyeOf(id) : 0;
     $('#alt-sayfa-ic').innerHTML = `<div class="sira" style="margin:0;justify-content:space-between"><h3>${deItemHTML(id)}</h3><button class="ikon-btn" type="button" data-alt-kapat aria-label="Kapat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
       <div>${esc(trOf(id))}</div>
-      <div>${noktaHTML(sv)} <span class="soluk">${SEVIYE_AD[sv]}${vadeMetni(id) ? ' · sıradaki tekrar ' + vadeMetni(id) : ''}</span></div>
+      <div>${noktaHTML(sv)} <span class="soluk">${SEVIYE_AD[sv]}${it && it.askida ? ' · askıda' : vadeMetni(id) ? ' · sıradaki tekrar ' + vadeMetni(id) : ''}</span></div>
       ${formlar}
       ${cumleler.length ? `<ul class="ornekler">${cumleler.map(c => `<li>${deHTML(c.de)}${c.tr ? `<br><span class="soluk">${esc(c.tr)}</span>` : ''}</li>`).join('')}</ul>` : ''}
       ${kancaHTML(id)}
@@ -5593,17 +5608,25 @@
     // turdaki gramer soruları (notiz tur:akis) gramer işi sayılmaz: vadeli konu tekrar seti yapılana dek kart açık kalır (8.11)
     const Gr = window.Gramer, bugunYapti = m => (m === 'gram' && Gr && typeof Gr.bugunYapildi === 'function' && Gr.bugunYapildi()) || bugunM(m).n > 0 || S.log.some(e => logGun(e) === tag() && e.modus === (m === 'gram' ? 'gram' : m === 'yazma' ? 'text' : 'lesen') && !(m === 'gram' && /(^|\| )tur:akis( \||$)/.test(e.notiz || '')));
     const hafta = zeitStr(now() - 7 * DAY), yazdi = S.log.some(e => e.modus === 'text' && e.zeit >= hafta);
-    const grVadeli = Gr && Gr.GR ? Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } }) : [];
+    // 15.11: günün gramer önerisi Gramer.gunOnerisi() (giriş seti bekleyen B2 konusu → boylu boyuna → vadeli tekrar, öncelik sırasıyla;
+    // eskiden alfabetik ilk vadeli konu: hep "Adjektiv"). Kart o konuyla açılır (data-gram-is / data-gram-id → Gramer.klick). API yoksa eski yol.
+    let oneri = null;
+    if (Gr && typeof Gr.gunOnerisi === 'function') { try { oneri = Gr.gunOnerisi(); } catch (e) { oneri = null; } }
+    const grVadeli = oneri ? [] : Gr && Gr.GR ? (typeof Gr.vadeliSirali === 'function' ? (() => { try { return Gr.vadeliSirali(); } catch (e) { return []; } })() : Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } })) : [];
     let is;
-    if (grVadeli.length) { const k = Gr.GR[grVadeli[0]].kopf || {}; is = { m: 'gram', ikon: '📐', b: 'Gramer tekrarı', alt: `${k.titel || ''}${grVadeli.length > 1 ? ` + ${grVadeli.length - 1} konu` : ''} · ~5 dk` }; }
+    if (oneri && oneri.id) {
+      const b = oneri.is === 'giris' ? 'Gramer: yeni konu' : oneri.is === 'derin' ? 'Boylu boyuna' : 'Gramer tekrarı';
+      const alt = oneri.is === 'giris' ? 'kısa kural + alıştırma · ~5 dk' : oneri.is === 'derin' ? 'teil teil alıştırma · ~8 dk' : `${oneri.n > 1 ? `+ ${oneri.n - 1} konu daha · ` : ''}~5 dk`;
+      is = { m: 'gram', ikon: '📐', b: `${b} · ${oneri.ad || ''}`, alt, gram: { is: oneri.is === 'giris' ? 'ac' : oneri.is, id: oneri.id } };
+    } else if (grVadeli.length) { const k = Gr.GR[grVadeli[0]].kopf || {}; is = { m: 'gram', ikon: '📐', b: 'Gramer tekrarı', alt: `${k.titel || ''}${grVadeli.length > 1 ? ` + ${grVadeli.length - 1} konu` : ''} · ~5 dk`, gram: { is: 'tekrar', id: grVadeli[0] } }; }
     else {
-      const sec = [{ m: 'gram', ikon: '📐', b: 'Gramer: yeni konu', alt: 'kısa kural + alıştırma · ~5 dk' }, { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW metni, dinleyerek · ~8 dk' }]
+      const sec = [{ m: 'gram', ikon: '📐', b: 'Gramer: yeni konu', alt: 'kısa kural + alıştırma · ~5 dk' }, { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW metni · ~8 dk' }]
         .concat(yazdi ? [] : [{ m: 'yazma', ikon: '✍️', b: 'Yazma', alt: 'kısa görev, Claude gece düzeltir · ~15 dk' }]);
       is = sec[Math.floor(now() / DAY) % sec.length];
     }
     const yapti = bugunYapti(is.m);
     return `<div class="ikinci-is"><div class="ii-ust">İstersen günün ikinci işi</div>
-      <button class="is-kart${yapti ? ' yapildi' : ''}" data-modus="${is.m}" type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
+      <button class="is-kart${yapti ? ' yapildi' : ''}" ${is.gram ? `data-gram-is="${esc(is.gram.is)}" data-gram-id="${esc(is.gram.id)}"` : `data-modus="${is.m}"`} type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
   }
   // akşam tekrarı kartı (isteğe bağlı): sabah çalışılan günün akşamı, ikinci iş kartının üstünde; sabah görünmez
   function aksamKarti() {
@@ -5652,7 +5675,7 @@
     const onB = onemliBin(), askSay = askidakiler().length, otu = haftaOturan();
     const sayilar = ilkGun ? '' : `<div class="ana-sayilar">
         <span class="as-pil" title="Şu an sırası gelmiş tekrar (askıdakiler hariç)"><b>${vad}</b> tekrar sırada</span>
-        ${onB ? `<span class="as-pil" title="Genel sıklığa göre en önemli 1000 kelimeden hafızanda olanlar (A1 kelimeleri bilinen sayılır)"><b>${onB.x}</b>/${onB.n} önemli kelime</span>` : ''}
+        ${onB ? `<span class="as-pil" title="Genel sıklığa göre en önemli 1000 kelimeden hafızanda olanlar (A1 kelimeleri bilinen sayılır)"><b>${onB.x}/${onB.n}</b> önemli kelime</span>` : ''}
         ${otu ? `<span class="as-pil" title="Bu hafta ilk kez ipucusuz bildiğin ya da seviyesi kalıcı yükselen"><b>${otu}</b> bu hafta oturdu</span>` : ''}
         ${askSay ? `<button class="as-pil tikla" data-act-ana="aski-git" type="button" title="Askıdaki kelimeler sorulmaz; Kelimeler → Askıda'dan geri alırsın"><b>${askSay}</b> askıda</button>` : ''}
       </div>`;
@@ -5678,7 +5701,7 @@
     if (S.ayar4.fbGorulen == null) { S.ayar4.fbGorulen = fb.length; save(); }
     const fbYeni = fb.slice(S.ayar4.fbGorulen);
     // 15.11 (D11): tek satıra katlı (açılınca son 3 + düğmeler); 35 düzeltmelik liste ilk görülen şey olmasın
-    const notlar = fbYeni.length ? `<details class="ana-kart notlar-kart katli"><summary>✍️ Claude'un notları · <b>${fbYeni.length}</b> yeni düzeltme <span class="soluk">gör</span></summary>${fbYeni.slice(-3).reverse().map(f => `<div class="not-satir"><span>${esc(f.antwort || '—')} → ${deHTML(f.richtig || '')}</span>${f.text ? `<span class="soluk">${esc(f.text)}</span>` : ''}</div>`).join('')}
+    const notlar = fbYeni.length ? `<details class="ana-kart notlar-kart katli"><summary><span>✍️ Claude'un notları · <b>${fbYeni.length}</b> yeni</span><span class="soluk">gör</span></summary>${fbYeni.slice(-3).reverse().map(f => `<div class="not-satir"><span>${esc(f.antwort || '—')} → ${deHTML(f.richtig || '')}</span>${f.text ? `<span class="soluk">${esc(f.text)}</span>` : ''}</div>`).join('')}
         <div class="sira" style="margin:0"><button class="btn" data-act-ana="notlar-hepsi" type="button">Hepsini gör</button><button class="btn mini" data-act-ana="notlar-tamam" type="button">Tamam</button></div></details>` : '';
     // ilk açılış (bir kez): güven kartı + "Ne değişti?"
     const eskiK = S.kartenV3 || {}, gz = S.goc4 && S.goc4.zaman;
@@ -6058,6 +6081,14 @@
     if (g) { zeigView(g.dataset.git); return; }
     const go = e.target.closest('[data-gram-oku]');
     if (go && window.Gramer) { calisBasla('gram'); Gramer.oku(go.dataset.gramOku); return; }
+    // Bugün → ikinci iş gramer kartı: Gramer bölümü önerilen konuyla açılır ('ac' giriş · 'derin' boylu boyuna · 'tekrar' set)
+    const gi = e.target.closest('[data-gram-is]');
+    if (gi) {
+      calisBasla('gram');
+      const hedef = { dataset: { g: gi.dataset.gramIs, id: gi.dataset.gramId } };
+      if (window.Gramer && Gramer.GR && Gramer.GR[gi.dataset.gramId]) { try { Gramer.klick({ target: { closest: () => hedef } }); } catch (err) { /* liste kalır */ } }
+      return;
+    }
     const b = e.target.closest('[data-modus]');
     if (!b) return;
     calisBasla(b.dataset.modus);
