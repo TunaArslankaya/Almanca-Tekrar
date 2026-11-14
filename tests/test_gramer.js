@@ -339,5 +339,11 @@ const sonLog = () => logs[logs.length - 1];
   ok(!bad.length, 'bütün alternatifler doğru sayılır', bad.slice(0, 10));
 }
 
+// 15.11: kip konularında aynı fiilin başka çekimi konunun asıl hatası (Konjunktiv I yerine Indikativ) → yanlış; başka konuda özne uyumu küçük hata kalır
+{ const uk = { tur: 'umform', cevap: ['Anna sagt, sie habe keine Zeit.'], z: 2 }; GR.konjunktiv1.uebungen.push(uk);
+  ok(P(uk, 'Anna sagt, sie hat keine Zeit.').urteil === 'falsch', 'konjunktiv1: Indikativ yanlış', P(uk, 'Anna sagt, sie hat keine Zeit.'));
+  ok(P(uk, 'Anna sagt, sie habe keine Zeit.').urteil === 'richtig', 'konjunktiv1: doğru');
+  GR.konjunktiv1.uebungen.pop(); }
+
 console.log(fail ? `\n${fail} / ${n} hata` : `tüm testler geçti (${n})`);
 process.exit(fail ? 1 : 0);

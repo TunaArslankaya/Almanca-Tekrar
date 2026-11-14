@@ -600,9 +600,20 @@
       return fark.length === 1 && Gq.kisiCekimi(gh[fark[0]], kel[fark[0]], { kelimeler: kel, seg, i: fark[0] });
     });
   }
+  // kip konuları (15.11, B2 içerik ajanı: Konjunktiv I yerine Indikativ "sie hat" özne uyumu / yazım diye küçük hata alıyordu): bu konularda
+  // aynı fiilin başka çekimi konunun asıl hatasıdır → yanlış ('fiil biçimi (kip)')
+  const KIP_KONU = new Set(['konjunktiv1', 'konjunktiv2', 'konjunktiv2-verg']);
+  let kipAktif = false;
+  function kipHatasi(giris, alts) {
+    const Gq = Gx(); if (!Gq || !Gq.kelimeSinifi) return false;
+    const ham = x => norm(x).replace(/[.,!?;:„“"]/g, ' ').split(/\s+/).filter(Boolean);
+    const gh = ham(giris);
+    return alts.map(ham).some(h => { if (h.length !== gh.length) return false; const f = h.map((w, i) => [gh[i], w]).filter(([x, w]) => acikL(x) !== acikL(w)); return f.length === 1 && Gq.kelimeSinifi(f[0][0], f[0][1]) === 'cekim'; });
+  }
   function cumlePruef(giris, alts, siraSert = true, tekrarsiz) {
     const r = Gx().cumleKontrol(giris, alts), diff = r.diff || [];
     const sonuc = (urteil, tags) => ({ urteil, tags, diff });
+    if (kipAktif && r.urteil !== 'richtig' && kipHatasi(giris, alts)) return sonuc('falsch', ['fiil biçimi (kip)']);
     // kelime tekrarı (12.11, log 10.11 18:20:32 "die die"): tekrar atılınca doğruysa küçük hata (yazım), itirazsız da
     if (r.urteil !== 'richtig' && !tekrarsiz) { const t = tekrarAt(giris); if (t && cumlePruef(t, alts, siraSert, true).urteil === 'richtig') return sonuc('fast', ['yazım', 'kelime tekrarı']); }
     // (Sie / sie hariç: cümle ya da bölüm başındaki özne "Sie" geçerli dizilişte ortaya gelir: Weil sie …, war sie krank)
@@ -682,7 +693,9 @@
   // tek giriş noktası (DOM'suz; testten çağrılır). giris türüne göre:
   // wahl / seçenekli luecke: seçilen metin · luecke / text: boşluk girişleri dizisi · ordnen / umform / ceviri / dinle: cümle
   // eslestir: dizi, giris[i] = sol i'ye eşlenen sağ öğenin dosyadaki sırası (null = eşlenmedi) · kategori: { öğe: grup sırası }
-  function pruef(u, giris) {
+  const uKonu = u => { if (!konuOf) { konuOf = new Map(); Object.keys(GR).forEach(id => (GR[id].uebungen || []).forEach(x => konuOf.set(x, id))); } return konuOf.get(u); };
+  function pruef(u, giris) { kipAktif = KIP_KONU.has(uKonu(u)); try { return pruef0(u, giris); } finally { kipAktif = false; } }
+  function pruef0(u, giris) {
     const T = u.tur;
     if (T === 'wahl' || (T === 'luecke' && u.opt)) return { urteil: u.cevap.includes(giris) ? 'richtig' : 'falsch', tags: [], antwort: String(giris == null ? '' : giris) };
     if (T === 'luecke' || T === 'text') {
