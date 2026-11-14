@@ -4,6 +4,14 @@ Aynı zamanda doğrulama yapar: Goethe'de bulunmayan fiil/isim, artikel uyuşmaz
 çözümlenemeyen kalıp ismi vb. Hata varsa çıkış kodu 1.
 
 Kullanım:  python3 tools/build.py
+
+Önem (14.11; ayrıntı "Önem" bölümünde): her isim / fiil / diğer kayda (ünite öğesine ana kayıttan)
+  rang   genel sıklık sırası, listede yoksa null (quellen/rang.txt; OpenSubtitles 2018 FrequencyWords, CC BY-SA 4.0; tools/rang_uret.py üretir)
+  onemP  = rang × okuma × seviye   (küçük = önemli)
+           okuma: sik 1/3, frek ≥ 5 1/2, frek 2–4 2/3, değilse 1 (resmî / yazı dili kelimeleri altyazıda nadir görünür)
+           seviye: A1 1/3, A2 1/2, Goethe B1 0,8, Goethe dışı ders kitabı kelimesi 1; listede olmayan rang = 60 000
+  onem   1 önemli (onemP ≤ 3 000) · 2 orta (≤ 8 000) · 3 nadir;  nadir = onem 3
+  koru   quellen/aski_koru.txt (üniversite, Bremen / Behörde, sağlık): nadir olsa da askıya alınmaz
 """
 import json, re, sys, os
 
@@ -439,6 +447,7 @@ for e in goethe:
                 goethe_stamm.add(teil[:-1])
 woerter = []
 w_key = {}
+_w_gdisi = set()
 KLASSEN = {"adj", "adv", "konj", "präp", "pron", "andere"}
 for n, s_ in lines(P("quellen", "woerter.txt")):
     parts = [x.strip() for x in s_.split("|")]
@@ -454,6 +463,7 @@ for n, s_ in lines(P("quellen", "woerter.txt")):
     if de.lower() not in goethe_andere and first not in goethe_andere and de.lower() not in ("morgen", "nah") \
             and not any(first.startswith(st) and len(first) - len(st) <= 2 for st in goethe_stamm):
         warnings.append(f"woerter.txt:{n}: '{de}' Goethe listesinde bulunamadı (kontrol et)")
+        _w_gdisi.add(w["id"])   # önem: Goethe dışı (ders kitabı / ünite) kelime
     # Goethe örnek cümleleri (aynı başlık)
     for e in goethe:
         if e["typ"] == "andere":
@@ -760,6 +770,13 @@ _n_lab = {}
 for x in nomen:
     if not x.get("skip"):
         _n_lab.setdefault(("die " if x.get("plOnly") else x["art"] + " ") + x["lemma"], x)
+def _ana_kayit(typ, de):
+    if typ == "n":
+        return _n_lab.get(de)
+    if typ == "v":
+        yal, sich = re.sub(r"^sich ", "", de), de.startswith("sich ")
+        return next((v for v in verben if v["anz"] == de or (v["inf"] == yal and v["refl"] == ("A" if sich else v["refl"]))), None)
+    return w_key.get(de)
 for nr in range(1, 13):
     fp = P("quellen", f"unite{nr}.txt")
     if not os.path.exists(fp):
@@ -775,16 +792,86 @@ for nr in range(1, 13):
         p_ = [y.strip() for y in line.split("|")]
         if len(p_) != 7 or not gr:
             continue
-        typ, de = p_[0], p_[1]
-        if typ == "n":
-            ana = _n_lab.get(de)
-        elif typ == "v":
-            yal, sich = re.sub(r"^sich ", "", de), de.startswith("sich ")
-            ana = next((v for v in verben if v["anz"] == de or (v["inf"] == yal and v["refl"] == ("A" if sich else v["refl"]))), None)
-        else:
-            ana = w_key.get(de)
+        ana = _ana_kayit(p_[0], p_[1])
         if ana is not None and "alan" not in ana:
             ana["alan"] = f"u{nr}:{gr}"
+
+# ---------------- Önem (14.11; D1 / D2): rang + onemP + onem + nadir + koru ----------------
+# Tuna: "sikko kelimeleri ezberliyorum, önce önemli kelimeler". Kayıt alanları (isim / fiil / diğer; ünite öğesi ana kaydından):
+#   rang   genel sıklık sırası (küçük = sık; OpenSubtitles 2018 FrequencyWords, quellen/rang.txt, tools/rang_uret.py).
+#          Listede yoksa (> 50 000) null ve hesapta RANG_YOK; öğe rang.txt'te hiç yoksa (betik sonra eklenen öğe için çalışmadı) RANG_NOTR.
+#   onemP  birleşik önem puanı = "etkin sıra" (küçük = önemli; sıralama için):
+#              onemP = taban × okuma × seviye
+#          taban  = rang (yoksa RANG_YOK = 60 000; bilinmiyorsa RANG_NOTR = 8 000 → sınırda, nadir değil)
+#          okuma  = okuma derlemi (DW + Klexikon + Goethe Lesen; frek / sik): sik → 1/3, frek ≥ 5 → 1/2, frek 2–4 → 2/3, değilse 1
+#                   (altyazı listesi konuşma dili: Gesellschaft, Entwicklung, Umwelt, unterschiedlich gibi resmî / yazı dili
+#                   kelimeleri orada nadir görünür; okuma derleminde sık geçmeleri onları öne çeker)
+#          seviye = Goethe seviyesi: A1 (tier 1) → 1/3, A2 (tier 2) → 1/2, Goethe B1 listesi (tier 3, seçilmiş sınav kelimesi) → 0,8,
+#                   Goethe dışı B1 ders kitabı kelimesi (nomen_extra / woerter'de Goethe'de bulunmayan / verben'de Goethe başlığı olmayan,
+#                   ana kaydı olmayan ünite kelimesi) → 1 (yalnız genel sıklığına göre)
+#   onem   1 = önemli (onemP ≤ 3 000) · 2 = orta (≤ 8 000) · 3 = nadir (> 8 000)
+#   nadir  onem == 3 (D1: nadir yeni sıraya girmez, aktif ünite hariç; D2: kendiliğinden askıya alma adayı)
+#   koru   quellen/aski_koru.txt'teki öğe (Tuna'nın günlük hayatı: üniversite, Bremen / Behörde, sağlık): nadir olsa da askıya alınmaz
+#          (nadir alanı yine doğruyu söyler; askı ve yeni sıra kararında "nadir && !koru" kullanılır)
+ONEM_SINIR = (3000, 8000)
+RANG_YOK, RANG_NOTR = 60000, 8000
+_rang = {}
+_rp = P("quellen", "rang.txt")
+if os.path.exists(_rp):
+    for n, s in lines(_rp):
+        p_ = [y.strip() for y in s.split("|")]
+        if len(p_) != 3 or not (p_[2] == "-" or p_[2].isdigit()):
+            errors.append(f"rang.txt:{n}: 'öğe_id | lemma | rang' olmalı")
+            continue
+        _rang[p_[0]] = (p_[1], None if p_[2] == "-" else int(p_[2]))
+else:
+    warnings.append("quellen/rang.txt yok: önem yalnız okuma derlemi + seviyeden (tools/rang_uret.py)")
+
+
+def _onem_yaz(x, gdisi=False, etiket=None):
+    r = _rang.get(x["id"])
+    if r and etiket is not None and r[0] != etiket:
+        warnings.append(f"rang.txt: {x['id']} '{r[0]}' ≠ kayıt '{etiket}' (tools/rang_uret.py yeniden çalıştır)")
+        r = None
+    x["rang"] = r[1] if r else None   # null: listede yok (> 50 000) ya da rang.txt'te yok
+    taban = RANG_NOTR if r is None else (r[1] or RANG_YOK)
+    f = x.get("frek", 0)
+    okuma = 1 / 3 if x.get("sik") else 1 / 2 if f >= 5 else 2 / 3 if f >= 2 else 1
+    t = x.get("tier", 3)
+    seviye = 1 / 3 if t == 1 else 1 / 2 if t == 2 else 1 if gdisi else 0.8
+    x["onemP"] = round(taban * okuma * seviye)
+    x["onem"] = 1 if x["onemP"] <= ONEM_SINIR[0] else 2 if x["onemP"] <= ONEM_SINIR[1] else 3
+    x["nadir"] = x["onem"] == 3
+    x["koru"] = False   # aski_koru.txt aşağıda true yapar
+
+
+for x in nomen:
+    if not x.get("skip"):
+        _onem_yaz(x, bool(x.get("extra")) and x["tier"] == 3, f'{x["art"]} {x["lemma"]}')
+for v in verben:
+    _onem_yaz(v, not v["goethe"] and v["tier"] == 3, v["anz"])
+for w in woerter:
+    _onem_yaz(w, w["id"] in _w_gdisi and w["tier"] == 3, w["de"])
+# korunan öğeler (askıya alınmaz): öğe_id | kelime | neden
+_koru_id = {}
+_kp = P("quellen", "aski_koru.txt")
+_id_kayit = {x["id"]: x for x in nomen if not x.get("skip")} | {v["id"]: v for v in verben} | {w["id"]: w for w in woerter}
+if os.path.exists(_kp):
+    for n, s in lines(_kp):
+        p_ = [y.strip() for y in s.split("|")]
+        if len(p_) != 3 or not all(p_):
+            errors.append(f"aski_koru.txt:{n}: 'öğe_id | kelime | neden' olmalı")
+            continue
+        x = _id_kayit.get(p_[0])
+        ad = x and (x.get("anz") or x.get("de") or f'{x["art"]} {x["lemma"]}')
+        if not x or ad != p_[1]:
+            errors.append(f"aski_koru.txt:{n}: {p_[0]} '{p_[1]}' ≠ kayıt '{ad}'")
+            continue
+        x["koru"] = True
+        _koru_id[p_[0]] = p_[1]
+_say_onem = {k: sum(1 for x in _id_kayit.values() if x["onem"] == k) for k in (1, 2, 3)}
+print(f"önem: önemli {_say_onem[1]}, orta {_say_onem[2]}, nadir {_say_onem[3]} (rang {sum(1 for x in _id_kayit.values() if x['rang'] is not None)}), "
+      f"korunan {len(_koru_id)} (nadir {sum(1 for i in _koru_id if _id_kayit[i]['nadir'])})")
 
 # ---------------- Çıktı ----------------
 for x in nomen:
@@ -1001,6 +1088,11 @@ def unite_lesen(nr):
             it["art"], it["lemma"] = de.split(" ", 1)
         m = re.search(r"([\wäöüß]+(?: [\wäöüß]+)?, [\wäöüß]+(?: [\wäöüß]+)?, (?:hat|ist) [\wäöüß]+)", ex)
         if typ == "v" and m: it["formen"] = m.group(1)
+        ana = _ana_kayit(typ, de)   # önem: ana kayıttan; ana kaydı yoksa Goethe dışı ders kitabı kelimesi
+        if ana is not None:
+            it.update({k: ana[k] for k in ("rang", "onemP", "onem", "nadir", "koru")})
+        else:
+            _onem_yaz(it, True, de)
         U["items"].append(it)
     ft = P("quellen", f"unite{nr}_texte.txt")
     if os.path.exists(ft):

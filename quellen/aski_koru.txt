@@ -1,0 +1,53 @@
+# Askıya alınmayacak öğeler (14.11, D2): genel sıklık listesinde nadir görünse de Tuna'nın günlük hayatında gerekli.
+# Build bu öğelere `koru: true` yazar; kendiliğinden askıya alma ve "nadir yeni sıraya girmez" kuralı bunlara uygulanmaz.
+# Biçim:  öğe_id | kelime (daten'deki gibi: isim artikelli, fiil anz, diğer de) | neden
+# Kimlik kayıtla eşleşmezse build hata verir. Emin olunmayan kelime eklenmez.
+
+# Üniversite / Vorbereitungsstudium (Uni Bremen)
+n0781 | die Mensa | üniversite: her gün yemekhane
+x1483 | der Dozent | üniversite: ders veren
+n1076 | das Semester | üniversite: dönem
+n1077 | das Seminar | üniversite: ders türü
+n0969 | das Referat | üniversite: sunum ödevi
+x1484 | der Kommilitone | üniversite: sınıf arkadaşı
+n1162 | der Studierende | üniversite: resmî yazılarda "öğrenci"
+n1163 | die Studierende | üniversite: resmî yazılarda "öğrenci"
+n1117 | die Sprechstunde | üniversite (hoca görüşme saati) ve doktor
+n0925 | die Präsentation | üniversite: sunum
+n1349 | der Vortrag | üniversite: sunum, konferans
+n0941 | die Prüfung | üniversite / dil kursu: sınav
+n1164 | das Studium | üniversite eğitimi
+n1417 | das Zertifikat | dil sertifikası (üniversite başvurusu)
+n1421 | das Zeugnis | diploma / not belgesi (başvuru)
+
+# Bremen'de yaşam: ev
+n0790 | die Miete | ev: kira
+n1316 | der Vermieter | ev: ev sahibi
+n0791 | der Mieter | ev: kiracı
+n0520 | der Hausmeister | ev: apartman görevlisi
+
+# Behörde / resmî işler (Bürgeramt, Ausländerbehörde, banka)
+n0037 | die Anmeldung | Behörde: adres kaydı
+v029 | sich anmelden | Behörde / kurs: kayıt yaptırmak
+n1336 | das Visum | Ausländerbehörde: vize
+n0384 | das Formular | Behörde: form
+v069 | ausfüllen | Behörde: form doldurmak
+v089 | beantragen | Behörde: başvurmak
+n0047 | der Antrag | Behörde: başvuru
+n0137 | die Behörde | resmî kurum
+n1389 | der Wohnsitz | Behörde: ikametgâh
+n0429 | die Gebühr | Behörde / üniversite: harç
+n0653 | das Girokonto | banka hesabı
+n1264 | die Überweisung | banka havalesi; doktor sevki
+v546 | überweisen | banka: havale etmek
+
+# Sağlık
+n0069 | der Arzt | sağlık: doktor
+n0055 | die Apotheke | sağlık: eczane
+n0994 | das Rezept | sağlık: reçete
+v605 | verschreiben | sağlık: ilaç yazmak
+n1321 | die Versicherung | sağlık sigortası
+n0668 | die Krankenkasse | sağlık sigortası
+n1320 | die Versichertenkarte | sağlık: sigorta kartı
+v678 | krankschreiben | sağlık: rapor vermek
+n0852 | die Notaufnahme | sağlık: acil servis
