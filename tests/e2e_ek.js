@@ -9,7 +9,9 @@ const satir = (zeit, modus, ergebnis, notiz) => ({ zeit, modus, id: 'x', item: '
   if (!b) { console.log('e2e_ek: Playwright yok, atlandı'); return; }
   const ac = async (zaman, log) => {
     const p = await D.sayfa(b, { mobil: true, zustand: D.zustandOku(), saatOfs: new Date(zaman).getTime() - Date.now() });
-    if (log) { await p.evaluate(l => localStorage.setItem('almanca-tekrar-log', JSON.stringify(l)), log); await p.reload(); }
+    // başsız Chromium + file://: büyük localStorage yazımlarından hemen sonra yenilenince yazım kaybolabiliyor (e2e_ui notu) → diske işlensin diye bekle
+    // log, yenilenen belgenin başında (uygulama betiğinden önce) yazılır: kapanan sayfanın pagehide kaydı ve başsız Chromium'un yenilemede yazım kaybı etkilemesin (14.11)
+    if (log) { await p.addInitScript(l => { localStorage.setItem('almanca-tekrar-log', l); }, JSON.stringify(log)); await p.reload(); await p.waitForFunction(() => !!window.__tekrar, null, { timeout: 8000 }).catch(() => {}); }
     await p.waitForTimeout(500);
     return p;
   };

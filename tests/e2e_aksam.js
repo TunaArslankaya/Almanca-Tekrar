@@ -18,7 +18,8 @@ const SAAT = 3600000;
 const klasor = process.argv[2] || null;
 const foto = async (p, ad) => { if (klasor) { fs.mkdirSync(klasor, { recursive: true }); await p.screenshot({ path: path.join(klasor, ad + '.png'), fullPage: false }); } };
 const kartVar = p => p.evaluate(() => { const e = document.getElementById('aksam-kart'); return e ? e.innerText.replace(/\s+/g, ' ').trim() : null; });
-const anaya = async p => { await p.reload(); await p.waitForFunction(() => !!window.__tekrar, null, { timeout: 8000 }); await p.waitForTimeout(200); };
+// Bugün'e dön: sayfa yenilemeden (başsız Chromium + file:// yenilemede uygulamanın localStorage yazımlarını kaybedebiliyor: 14.11)
+const anaya = async p => { await p.evaluate(() => { if (window.__tekrar && window.__tekrar.aktuell) { const k = document.querySelector('#calis-kapat'); if (k) k.click(); } }); await p.click('.alt-nav [data-v="liste"]').catch(() => {}); await p.click('.alt-nav [data-v="ana"]').catch(() => {}); await p.waitForTimeout(300); };
 
 (async () => {
   const b = await D.tarayici();
