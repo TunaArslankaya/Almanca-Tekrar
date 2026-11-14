@@ -41,6 +41,14 @@ const sabitTasma = (p, kok) => p.evaluate(kok => {
 const toastAcik = p => p.evaluate(() => { const t = document.querySelector('#toast'); return !!(t && !t.hidden && t.classList.contains('acik') && getComputedStyle(t).opacity !== '0'); });
 const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height : innerHeight);
 
+
+// başsız Chromium + file://: yenilemede uygulamanın localStorage yazımları kaybolabiliyor (14.11 ölçüldü). Uygulama mantığını sınamak için
+// yenilemeden önce localStorage'ın anlık kopyası yeni belgenin başında geri yazılır (gerçek tarayıcıda yazımlar kalıcıdır).
+async function yenile(p, opts) {
+  const kopya = await p.evaluate(() => { const o = {}; for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); o[k] = localStorage.getItem(k); } return o; });
+  await p.addInitScript(o => { Object.entries(o).forEach(([k, v]) => localStorage.setItem(k, v)); }, kopya);   // sonraki yenilemelerde de önce eski, sonra yeni kopya yazılır: en yenisi kalır
+  await p.reload(opts);
+}
 (async () => {
   const b = await D.tarayici();
   if (!b) { console.log('Playwright yok: atlandı'); return; }
@@ -163,7 +171,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
 
   // ---- ikinci açılış: güven kartı yok ----
   await p.waitForTimeout(6000);   // başsız Chromium + file://: art arda büyük localStorage yazımlarından hemen sonra yenilenince yazımlar kaybolabiliyor (diske işleme gecikmesi; 8.11 ölçüldü: 6 sn beklemeyle 6/6)
-  await p.reload({ waitUntil: 'load' }); await p.waitForFunction(() => window.__tekrar && document.querySelector('#ana'), null, { timeout: 8000 }).catch(() => {}); await p.waitForTimeout(800);
+  await yenile(p, { waitUntil: 'load' }); await p.waitForFunction(() => window.__tekrar && document.querySelector('#ana'), null, { timeout: 8000 }).catch(() => {}); await p.waitForTimeout(800);
   if (await p.$('#guven-kart')) hata('güven', 'ikinci açılışta güven kartı hâlâ görünüyor');
   if (p.hatalar.length) hata('sayfa', p.hatalar.join(' | '));
   await p.ctx.close();
@@ -318,12 +326,12 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
     // hedef günü: bir kez geçiş kartı, sonra eski düzen
     await s.evaluate(ms => localStorage.setItem('__off', String(ms)), new Date('2026-11-09T10:00:00').getTime() - Date.now());
     await s.waitForTimeout(6000);   // yenilemeden önce localStorage diske işlensin (yukarıdaki not)
-    await s.reload(); await s.waitForSelector('[data-act-ana="sprint-gecis"]', { timeout: 8000 }).catch(() => {});   // sayfa yükü (6.11 dosyaları) 400 ms'yi aşabiliyor
+    await yenile(s); await s.waitForSelector('[data-act-ana="sprint-gecis"]', { timeout: 8000 }).catch(() => {});   // sayfa yükü (6.11 dosyaları) 400 ms'yi aşabiliyor
     x = await bak();
     if (!x.gecis || x.serit || x.bloklar.length) hata('sprint', `9.11: geçiş kartı ${x.gecis}, şerit "${x.serit}", bloklar ${x.bloklar.length}`);
     await s.click('[data-act-ana="sprint-gecis"]', { timeout: 8000 }); await s.waitForTimeout(150);
     await s.waitForTimeout(6000);
-    await s.reload(); await s.waitForTimeout(1200);
+    await yenile(s); await s.waitForTimeout(1200);
     if ((await bak()).gecis) hata('sprint', 'geçiş kartı "Tamam"dan sonra yine görünüyor');
     if (s.hatalar.length) hata('sprint sayfa', s.hatalar.join(' | '));
     await s.ctx.close();
