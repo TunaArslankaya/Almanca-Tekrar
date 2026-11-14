@@ -180,7 +180,8 @@ Notiz'deki hata etiketleri yalnız o cevabın gerçek hata türleridir (`yazım`
 
 ### 10.1 Konu açma
 - Açılış sırası: aktif Kapitel'in konuları (`@kapitel` eşleşmesi) → `@goethe 3` konular → diğerleri. `@voraus` konuları açılmamışsa önce onlar.
-- Haftada en çok **2** yeni konu. Birikme sınırı aşıldıysa (`rueckstand > stauGrenze`) yeni konu açılmaz (kelimedeki kuralla aynı).
+- Haftada en çok **2** yeni konu (elle açılış önerisi). Kelime birikmesi yeni gramer konusunu **durdurmaz** (15.11; eskiden `api.birikme()` şartı B2 konularını hiç açtırmadı).
+- Sprint dışında **3 günde bir** B2 sırasından bir konu kendiliğinden açılır (10.8).
 - Tuna Gramer listesinden bir konuyu elle de açabilir.
 
 ### 10.2 Tanıtım (bloklu)
@@ -223,6 +224,7 @@ Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana t
 - Vadeli konu tekrarları Çalış'a "gramer kartı" olarak girer: günde en çok **3 set** (≈ 9 alıştırma); tür dengesinde "cümle" sayılır; aynı tür en fazla 2 kez üst üste kuralı geçerli.
 - Hayalet adım 1'leri Çalış'ta da araya girer (tek alıştırma).
 - "Gramer" odak bölümünde sınır yok; günlük sayaç `tage[gün].modi.gram`.
+- (15.11) Ana turdaki gramer sorusunun konu seçimi 10.8'de (yalnız hayalet konular, B2 önceliği, hata bul ≤ 1/3).
 - (28.10) Ana tur (`akis`) adım 5 ve 10'da en çok 2 gramer sorusu (`Kern.sec` → `{ tur: 'gram' }`): `Gramer.turSorusu` açık konuların hazır hayaletlerinden, yoksa vadeli konulardan (en eski vade önce; bir konu turlarda günde ≤ 3) **yalnız yazarak** türde tek alıştırma seçer (seçeneksiz `luecke`, `umform`, `ceviri`, `ordnen`, `fehler`). Konu kartı değişmez (vade yalnız set ile); teil istatistiği ve hayalet yazılır; log notiz `tur:akis | …`.
 
 ### 10.7 B1 sprinti: tanı testi ve sprint sırası (28.10 → 9.11.2026)
@@ -232,6 +234,16 @@ Bunpro'daki "ghost" fikrinin uyarlaması: yanlış yapılan **alt kural**, ana t
 - Sonuç: `biliyor` → konu açılır, kart **kısa**: S ≤ 5, ilk tekrar 4–5 gün sonra (bedava seviye yok: uzun vade ancak tekrar setiyle). `zayif` → sprint sırasına; açık konuysa vadesi yarına çekilir. Yanlış teil'ler: açık konuda hemen hayalet, kapalı konuda konu açılıp giriş seti bitince hayalet (ertesi gün, adım 2).
 - **Günün bloğu** (`Gramer.blokBaslat`): test bitmediyse test oturumu; yoksa vadeli konuların karışık tekrarı (en çok 5 konu, vadesi en eski önce, araya en çok 3 hazır hayalet) → bugünün yeni konusu (tanıtım + giriş seti). `sprintDurum().bugunYapildi` = bugün bir test oturumu ya da en az bir set bitti.
 - Açılış göçü: kartı olmayan ve bir günden eski açılış (giriş seti yapılmamış) kapatılır (`yarim` sayacı); kartsız konu vadeli sayılmaz.
+
+### 10.8 B2 sırası ve turdaki gramer (15.11, Tuna: "B2 kursundayım; Türkçeden gelen hatalar / TeKaMoLo ne, sürekli aynı yerde dönüyorum")
+- **B2 sırası** (`Gramer.B2_SIRA`, yalnız dosyası olanlar): konjunktiv2-verg → passiv → relativ → adjektiv → partizip-adj → nominal-verbal → zweiteilig → genitiv → praep-verben → konjunktiv1 → passiversatz → partizipialattribut → konnektoren-b2. Tanıda `zayif` çıkan konular sırada öne (sıraları korunur); tanıda `biliyor` atlanır.
+- **Kendiliğinden açılış** (`otoAc`; tur sorusu istenince, Gramer bölümüne girişte, `sprintDurum` / `gunOnerisi`'nde): sprint kapalıyken, gramere başlanmışsa (en az bir açık konu), son B2 adımından (kendiliğinden açılış / odak; yoksa son elle / sprint açılışı, tanıdan açılanlar sayılmaz) **3 gün** sonra sıradaki adım: kapalı konu açılır (`kaynak: 'oto'`), zaten açık ve oturmamış (S < 21) konu açılmaz, **odak** olur (`ks.odak`: 7 gün turda öncelik, bölümde "Bu hafta odak · Boylu boyuna"). Log: `gram;g:<konu>;<başlık>;oto;;acildi|odak;;b2:<sıra>`; ilk açışta tanıtım satırı `neu`, notiz `oto`.
+- Kendiliğinden açılan konu kartsız da açık kalır (açılış göçü kapatmaz). Giriş seti (tanıtım + boylu boyuna) isteğe bağlı: Gramer bölümünde en üstte "B2 sırası · yeni açıldı", Bugün'de `gunOnerisi` → `{ is: 'giris' }`, `sprintDurum().bugunYeni`.
+- **Turdaki gramer sorusu** (`turSorusu`): tanıda `biliyor` olan konular, `tuerkisch-fallen` ve `satzklammer-tekamolo` yalnız **hayalet** olarak (yanlıştan sonra) gelir. Normal aday: açık, yalnız-hayalet değil, turV'ye göre hazır (12.11) ve ya son 7 günde kendiliğinden açılmış / odak (kartı vadeli olmasa da) ya da kartı vadeli ya da kendiliğinden açılmış ve hâlâ kartsız (giriş seti yapılmadıkça turda turV aralıklarıyla sürer). Sıra: yeni / odak → turda az sorulan → turV'de az doğrulu → B2 sırası → en eski vade; konu turlarda günde ≤ 3. Yeni konuda (kart S < 4, turV'de < 2 doğru) z1–z2, kararlı konuda z2–z3.
+  Hayaletler önce; ama önceki tur sorusu hayaletse ve normal aday varsa önce normal (hayalet art arda en çok 1).
+  **Hata bul** (`fehler`) en çok 1/3: son 5 tur gramer sorusuyla (log `tur:akis | tür:…`) birlikte oran 1/3'ü aşacaksa bu soruda fehler yok (hayalette de).
+- **Vadeli sıra** (`Gramer.vadeliSirali`, bölümdeki "Tekrar zamanı", karışık tekrar / günün bloğu, `sprintDurum().vadeli`): yeni / odak → turda son 7 günde yanlış → normal (B2 sırası, vade) → tanıda biliyor → tuerkisch-fallen / TeKaMoLo en sonda; ilk grubun içinde gün gün döner (Bugün'deki kart her gün aynı konu olmasın).
+- **Bugün kartı önerisi** (`Gramer.gunOnerisi(t)` → `{ id, is: 'giris'|'derin'|'tekrar', ad, n? } | null`): giriş seti bekleyen B2 konusu → odak (bugün gramer seti yapılmadıysa) → vadeliSirali'nin ilki.
 
 ## 11. Build önerisi
 

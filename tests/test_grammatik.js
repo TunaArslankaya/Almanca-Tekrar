@@ -586,13 +586,21 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   D.sprint.acik = false; eq(Gr._ic.sprintVade({ due: saat + 30 * DAY }, saat).due, saat + 30 * DAY, 'sprint kapalı: sınır yok'); D.sprint.acik = true;
   // ana turda soru (S2): 5 gün sonra verbstellung ve adjektiv vadeli
   saat = t0 + 5 * DAY + 3600000;
-  const kartOnce = JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte]);
+  // 15.11: tanıda biliyor (verbstellung), tuerkisch-fallen ve TeKaMoLo turda yalnız hayalet; vergleich (açık, vadeli) normal aday
+  D.gram.konu.vergleich = { karte: { reps: 1, lapses: 0, S: 2.3, D: 5, last: saat - 4 * DAY, due: saat - DAY, lastG: 3 }, teil: {}, gesehen: {}, lern: null, acildi: saat - 6 * DAY, kaynak: 'el' };
+  D.gram.konu['tuerkisch-fallen'] = { karte: { reps: 1, lapses: 0, S: 2.3, D: 5, last: saat - 9 * DAY, due: saat - 5 * DAY, lastG: 3 }, teil: {}, gesehen: {}, lern: null, acildi: saat - 9 * DAY, kaynak: 'el' };
+  const kartOnce = JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte, D.gram.konu.vergleich.karte]);
+  eq(Gr.vadeli('verbstellung') && Gr.vadeli('tuerkisch-fallen'), true, 'biliyor / tuerkisch-fallen vadeli');
+  eq(Gr._ic.yalnizHayalet('verbstellung') && Gr._ic.yalnizHayalet('tuerkisch-fallen') && Gr._ic.yalnizHayalet('satzklammer-tekamolo') && !Gr._ic.yalnizHayalet('adjektiv'), true, 'yalnız hayalet konular');
+  const vs = Gr.vadeliSirali(saat);
+  eq(vs[vs.length - 1] === 'tuerkisch-fallen' && vs.indexOf('verbstellung') > vs.indexOf('adjektiv') && vs.indexOf('verbstellung') > vs.indexOf('vergleich'), true, 'vadeliSirali: tuerkisch-fallen en sonda, biliyor sonra', vs);
+  eq(Gr.sprintDurum(saat).vadeli.join(','), vs.join(','), 'sprintDurum.vadeli = vadeliSirali');
   const ts1 = Gr.turSorusu(saat, []);
-  eq(!!ts1 && ['verbstellung', 'adjektiv'].includes(ts1.konu) && ['luecke', 'umform', 'ceviri', 'ordnen', 'fehler'].includes(ts1.tur) && !GR[ts1.konu].uebungen.find(u => u.n === ts1.n).opt, true, 'turSorusu: vadeli konudan yazarak soru');
+  eq(!!ts1 && ['vergleich', 'adjektiv'].includes(ts1.konu) && ['luecke', 'umform', 'ceviri', 'ordnen', 'fehler'].includes(ts1.tur) && !GR[ts1.konu].uebungen.find(u => u.n === ts1.n).opt, true, 'turSorusu: vadeli konudan yazarak soru (biliyor / tuerkisch-fallen değil)');
   eq(Gr.turSorusu(saat, []), ts1, 'turSorusu: aynı soru (önbellek)');
   const ts2 = Gr.turSorusu(saat, [ts1.konu]);
-  eq(!!ts2 && ts2.konu !== ts1.konu, true, 'turSorusu: haric konu atlanır');
-  eq(Gr.turSorusu(saat, ['verbstellung', 'adjektiv']), null, 'turSorusu: aday yok → null');
+  eq(!!ts2 && ts2.konu !== ts1.konu && ['vergleich', 'adjektiv'].includes(ts2.konu), true, 'turSorusu: haric konu atlanır');
+  eq(Gr.turSorusu(saat, ['vergleich', 'adjektiv']), null, 'turSorusu: aday yok → null (biliyor / tuerkisch-fallen yalnız hayalet)');
   eq(Gr.turSorusu(t0, []), null, 'turSorusu: vadeli yokken null');
   // turRender: gramer bölümündeki oturum korunur; doğru → bitti richtig, log tur:akis, konu kartı değişmez
   const bolumOnce = Gr._ic.ses(), turEl = mkEl(), sonuclar = [];
@@ -604,7 +612,7 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   eq(sonuclar.length === 1 && sonuclar[0].urteil === 'richtig', true, 'tur: doğru → bitti richtig (' + JSON.stringify(sonuclar) + ')');
   const tlog = logs[logs.length - 1];
   eq(tlog.modus === 'gram' && tlog.id === `g:${ts1.konu}:${ts1.n}` && tlog.notiz.startsWith('tur:akis | tür:'), true, 'tur: log g:<konu>:<n>, notiz tur:akis');
-  eq(JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte]), kartOnce, 'tur: konu kartı değişmez');
+  eq(JSON.stringify([D.gram.konu.verbstellung.karte, D.gram.konu.adjektiv.karte, D.gram.konu.vergleich.karte]), kartOnce, 'tur: konu kartı değişmez');
   eq(D.gram.konu[ts1.konu].teil[turU.teil].d, teilOnce + 1, 'tur: teil istatistiği');
   // 12.11: turda doğru → konu turlardan 2 gün çekilir (konu kartı vadeli kalsa da); yanlışta sıfırlanır
   { const v = D.gram.konu[ts1.konu].turV; eq(!!v && v.ok === 1 && v.due >= saat + 2 * 86400000 - 60000, true, 'tur: doğru → turV 2 gün', v); }
@@ -620,6 +628,81 @@ eq(G.imperativDu(IV('lesen', 'liest')), 'lies', 'lies');
   eq(sonuclar.length === 2 && sonuclar[1].urteil === 'falsch', true, 'tur: bilmiyorum → falsch');
   eq(!!D.gram.ghost[ts3.konu + ':' + u3.teil], true, 'tur: yanlış teil hayalet');
   eq(logs[logs.length - 1].notiz.includes('bilmiyorum'), true, 'tur: bilmiyorum loglandı');
+}
+
+// Gramer 15.11 (D9): B2 sırası kendiliğinden açılır (birikmeden bağımsız, 3 günde bir), turda yalnız hayalet konular, hata bul ≤ 1/3
+{
+  const Gr = window.Gramer, GR = window.GRAMMATIK, DAY = 86400000;
+  const gunStr = t => { const d = new Date(t); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+  let saat = new Date(2026, 10, 15, 10).getTime();
+  const logs = [], kart = { innerHTML: '', querySelector: () => null, querySelectorAll: () => [] };
+  const K = (S, due, extra) => Object.assign({ karte: { reps: 2, lapses: 0, S, D: 5, last: due - 3 * DAY, due, lastG: 3 }, teil: {}, gesehen: {}, lern: null, acildi: saat - 20 * DAY, kaynak: 'el' }, extra || {});
+  const D = { sprint: { hedef: '2026-11-09', son_yeni: '2026-11-05', acik: false }, log: [], gram: { konu: {
+    adjektiv: K(5, saat - 2 * DAY), vergleich: K(2, saat - 2 * DAY), 'tuerkisch-fallen': K(2.3, saat - 10 * DAY, { kaynak: 'tani' }),
+    'satzklammer-tekamolo': K(1.3, saat - 9 * DAY, { kaynak: 'sprint', acildi: saat - 14 * DAY }), reflexiv: K(2.3, saat - 8 * DAY, { kaynak: 'tani' }) },
+    ghost: {}, tani: { konu: { passiv: { s: 'zayif', a: [] }, relativ: { s: 'biliyor', a: [] }, reflexiv: { s: 'biliyor', a: [] }, 'tuerkisch-fallen': { s: 'biliyor', a: [] } }, oturum: 1 } } };
+  const api = { S: () => D, G, FSRS, now: () => saat, tag: gunStr, ret: () => 0.9, soruSayisi: () => 0, logEintrag: x => { logs.push(x); D.log.push(Object.assign({ zeit: gunStr(saat) }, x)); }, save() {},
+    heuteM: () => ({ n: 0 }), xpEkle() {}, sayac() {}, toast() {}, esc: s => String(s), deHTML: s => String(s), kart: () => kart, durum() {}, later() {}, fx() {}, odakla: () => false, sprich() {},
+    birikme: () => true };
+  Gr.init(api);
+  eq(Gr._ic.b2Sira()[0], 'passiv', 'B2 sırası: tanıda zayıf konu öne');
+  eq(Gr._ic.b2Sira().slice(1, 3).join(','), 'konjunktiv2-verg,relativ', 'B2 sırası: kalanlar sabit sırada');
+  eq(Gr._ic.b2Sira().every(id => GR[id]), true, 'B2 sırası: yalnız dosyası olan konular');
+  // birikme var (api.birikme true) ama yeni konu açılır: tur sorusu istenince
+  const ts = Gr.turSorusu(saat, []);
+  eq(Gr.acik('passiv') && D.gram.konu.passiv.kaynak === 'oto', true, 'oto: birikmeye rağmen passiv açıldı');
+  eq(logs.some(x => x.id === 'g:passiv' && x.frage === 'oto' && x.ergebnis === 'acildi'), true, 'oto: açılış logu frage:oto ergebnis:acildi');
+  eq(ts && ts.konu, 'passiv', 'tur: yeni açılan B2 konusu önce');
+  const tu = ts && GR.passiv.uebungen.find(u => u.n === ts.n);
+  eq(!!tu && tu.z <= 2 && !tu.opt, true, 'tur: yeni konuda z1–z2 yazarak alıştırma', tu && { z: tu.z, tur: tu.tur });
+  eq(Gr.sprintDurum(saat).bugunYeni, 'passiv', 'bugunYeni: giriş seti bekleyen oto konu (birikmeden bağımsız)');
+  eq(JSON.stringify(Gr.gunOnerisi(saat) && [Gr.gunOnerisi(saat).id, Gr.gunOnerisi(saat).is]), '["passiv","giris"]', 'gunOnerisi: giriş bekleyen konu');
+  // aynı gün / 2 gün sonra yeni açılış yok; 3. gün sıradaki
+  Gr._ic.otoAc(saat + 3600000); saat += 2 * DAY; Gr._ic.otoAc(saat);
+  eq(Gr.acik('konjunktiv2-verg'), false, 'oto: 3 gün dolmadan yeni açılış yok');
+  // kartsız oto konu göçte kapanmaz (eskiden 1 günden eski kartsız açılış kapanıyordu)
+  Gr.init(Object.assign({}, api, { S: () => JSON.parse(JSON.stringify(D)) })); Gr.yenile();
+  eq(Gr.acik('passiv'), true, 'göç: kartsız oto konu açık kalır');
+  Gr.init(api);
+  saat += DAY; Gr._ic.otoAc(saat);
+  eq(Gr.acik('konjunktiv2-verg') && D.gram.konu['konjunktiv2-verg'].kaynak === 'oto', true, 'oto: 3 gün sonra sıradaki (konjunktiv2-verg)');
+  // relativ tanıda biliyor → atlanır; adjektiv zaten açık → odak (açılmaz, turda öncelik, bölümde Boylu boyuna)
+  saat += 3 * DAY; Gr._ic.otoAc(saat);
+  eq(!Gr.acik('relativ') && !!D.gram.konu.adjektiv.odak && D.gram.konu.adjektiv.kaynak === 'el', true, 'oto: biliyor atlanır, açık adjektiv odak olur');
+  eq(logs.some(x => x.id === 'g:adjektiv' && x.ergebnis === 'odak'), true, 'oto: odak logu');
+  saat += 3 * DAY; Gr._ic.otoAc(saat);
+  eq(Gr.acik('partizip-adj'), true, 'oto: sonra partizip-adj');
+  // sprint açıkken ya da gramere hiç başlanmamışsa kendiliğinden açılış yok
+  { const D2 = { sprint: { hedef: '2026-12-30', son_yeni: '2026-12-20', acik: true }, gram: { konu: { adjektiv: K(5, saat) }, ghost: {} }, log: [] };
+    Gr.init(Object.assign({}, api, { S: () => D2 })); eq(Gr._ic.otoAc(saat), null, 'oto: sprintte yok');
+    const D3 = { gram: { konu: {}, ghost: {} }, log: [] }; Gr.init(Object.assign({}, api, { S: () => D3 })); eq(Gr._ic.otoAc(saat) === null && !Object.keys(D3.gram.konu).some(id => D3.gram.konu[id].acildi), true, 'oto: boş kayıtta yok'); }
+  Gr.init(api);
+  // turda yalnız hayalet: tanıda biliyor (reflexiv), tuerkisch-fallen, TeKaMoLo normal soru olarak gelmez; hayaletleri gelir
+  const gorulen = new Set();
+  for (let i = 0; i < 60; i++) { const q = Gr.turSorusu(saat + i * 11 * 60000, []); if (q && !q.ghost) gorulen.add(q.konu); }
+  eq(['reflexiv', 'tuerkisch-fallen', 'satzklammer-tekamolo'].some(id => gorulen.has(id)), false, 'tur: biliyor / tuerkisch-fallen / TeKaMoLo normal soru değil', [...gorulen]);
+  D.gram.ghost['tuerkisch-fallen:' + GR['tuerkisch-fallen'].uebungen.find(u => u.tur === 'ceviri').teil] = { adim: 2, due: saat - 60000, q: 0, son: 0, dogru: 0, deneme: 0 };
+  const hq = Gr.turSorusu(saat + 999 * 60000, []);
+  eq(!!hq && hq.konu === 'tuerkisch-fallen' && !!hq.ghost, true, 'tur: tuerkisch-fallen hayaleti gelir', hq);
+  // önceki tur sorusu hayaletse ve normal aday varsa önce normal (hayalet art arda en çok 1)
+  D.log.push({ modus: 'gram', id: 'g:x:1', notiz: 'tur:akis | tür:luecke | z:2 | ghost:1 | sek:5' });
+  const hq2 = Gr.turSorusu(saat + 1100 * 60000, []);
+  eq(!!hq2 && !hq2.ghost, true, 'tur: hayaletten sonra normal soru', hq2);
+  // hata bul ≤ 1/3: son 5 tur sorusunda 2 fehler → bu soru fehler olamaz
+  ['fehler', 'luecke', 'fehler', 'ceviri', 'luecke'].forEach(t => D.log.push({ modus: 'gram', id: 'g:x:1', notiz: `tur:akis | tür:${t} | z:2 | sek:5` }));
+  eq(Gr._ic.fehlerTurIzin(), false, 'fehler: 2/5 → izin yok');
+  let fh = 0; for (let i = 0; i < 80; i++) { const q = Gr.turSorusu(saat + (2000 + i * 11) * 60000, []); if (q && q.tur === 'fehler') fh++; }
+  eq(fh, 0, 'fehler: kota doluyken hata bul gelmez');
+  ['luecke', 'ceviri', 'luecke', 'umform', 'luecke'].forEach(t => D.log.push({ modus: 'gram', id: 'g:x:1', notiz: `tur:akis | tür:${t} | z:2 | sek:5` }));
+  eq(Gr._ic.fehlerTurIzin(), true, 'fehler: 0/5 → izin var');
+  // Gramer bölümü listesi: tuerkisch-fallen / TeKaMoLo tekrar listesinin sonunda
+  const vs = Gr.vadeliSirali(saat);
+  eq(vs.slice(-2).sort().join(','), 'satzklammer-tekamolo,tuerkisch-fallen', 'vadeliSirali: tuerkisch-fallen / TeKaMoLo en sonda', vs);
+  eq(vs[0], 'adjektiv', 'vadeliSirali: odak konu önce');
+  // ilk grup gün gün döner (Bugün'deki kart sabit aynı konu olmasın); odak bitince
+  D.gram.konu.adjektiv.odak = saat - 8 * DAY;
+  const ilk = new Set(); for (let d = 0; d < 4; d++) ilk.add(Gr.vadeliSirali(saat + d * DAY)[0]);
+  eq(ilk.size > 1, true, 'vadeliSirali: ilk konu gün gün değişir', [...ilk]);
 }
 
 // FSRS
