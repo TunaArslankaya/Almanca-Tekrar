@@ -24,7 +24,8 @@ function logDenetle(ad, log, o) {
   turlar.forEach(e => { const c = +(/cevap:(\d+)/.exec(e.notiz) || [])[1]; if (e.ergebnis === 'bitti' && (c < 12 || c > 15) && !o.boy) hata(ad, `tur satırı cevap:${c} (12, yeniden sorulacak yanlış kaldıysa en çok 15 olmalı)`); if (!/yeni:\d+ \| seviye\+:\d+ \| tekrar:\d+/.test(e.notiz)) hata(ad, 'tur satırında yeni / seviye+ / tekrar yok'); });
   // boş durumda ilk gün 6 yeni kelime ~12 cevap eder: tur kelimeler bitince "şimdilik bu kadar" (leer) kapanabilir; en az 10 cevaplık tur yeter
   const cevapSay = e => +((/cevap:(\d+)/.exec(e.notiz || '') || [])[1] || 0);
-  if (!turlar.some(e => e.ergebnis === 'bitti' || (e.ergebnis === 'leer' && cevapSay(e) >= 10))) hata(ad, 'hiç tur bitmedi');
+  // 14.11: yeni kelimeden sonraki mini seçmeli kalktı → boş durumda 6 yeni kelime ~6–8 cevap eder (tanıtım cevap sayılmaz): en az 6 cevaplık 'leer' tur yeter
+  if (!turlar.some(e => e.ergebnis === 'bitti' || (e.ergebnis === 'leer' && cevapSay(e) >= 6))) hata(ad, 'hiç tur bitmedi');
   const cevap = log.filter(e => CEVAP_MODUS.has(e.modus) && /basamak:/.test(e.notiz || ''));
   log.filter(e => CEVAP_MODUS.has(e.modus) && e.modus !== 'luecke' || (e.modus === 'luecke' && /bicim:/.test(e.notiz || ''))).forEach(e => {
     const eksik = ZORUNLU.filter(z => !(e.notiz || '').includes(z));
