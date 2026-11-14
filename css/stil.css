@@ -1190,3 +1190,25 @@ body.calis-modu .yenile-cubuk { display: none; }
 .u-eski { color: var(--bad); opacity: .75; }
 .u-luecke.u-duzelt { border-style: dashed; border-color: var(--accent); }
 .u-luecke.u-duzelt.ok { border-style: solid; border-color: var(--ok); background: var(--ok-soft); }
+/* 15.11 (D2) askıya alma: Kelimeler → Askıda satırı + geri al, alt sayfa kutusu, sonuç panelindeki düğme, Bugün bilgi kartı */
+.aski-satir { display: grid; grid-template-columns: 1fr auto; align-items: center; border-top: 1px solid var(--line); }
+.aski-satir:first-child { border-top: 0; }
+.aski-satir .oge { border-top: 0; }
+.aski-satir > .btn { margin-right: .7rem; }
+.aski-kutu { display: flex; flex-wrap: wrap; gap: .3rem .6rem; align-items: center; font-size: .88rem; border-top: 1px solid var(--line); padding-top: .6rem; }
+.notlar .aski-btn { color: var(--muted); }
+.aski-ok { display: inline-flex; gap: .4rem; align-items: center; font-size: .88rem; }
+.ana-bilgi.aski-bilgi { display: grid; gap: .45rem; }
+/* 15.11 (D11) Bugün: ilerleme sayıları; Claude notları tek satır */
+.ana-sayilar { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+.as-pil { display: inline-flex; gap: .3rem; align-items: baseline; padding: .35rem .7rem; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font: inherit; font-size: .88rem; color: var(--muted); }
+.as-pil b { color: var(--ink); font-variant-numeric: tabular-nums; }
+button.as-pil { cursor: pointer; }
+button.as-pil:hover { border-color: var(--accent); }
+.notlar-kart.katli { gap: .4rem; }
+.notlar-kart.katli > summary { cursor: pointer; list-style: none; display: flex; gap: .35rem; align-items: baseline; font-weight: 600; }
+.notlar-kart.katli > summary::-webkit-details-marker { display: none; }
+.notlar-kart.katli > summary .soluk { margin-left: auto; font-weight: 400; font-size: .85rem; }
+.notlar-kart.katli[open] > summary .soluk { display: none; }
+.ts-ilerleme { margin-top: .4rem; }
+.ret-not { font-style: italic; }
