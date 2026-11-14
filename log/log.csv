@@ -4385,3 +4385,155 @@
 2026-11-12 10:48:19;ayir;w0109~w0117;drüben ~ eben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:1
 2026-11-12 10:48:30;abr;v278:abr;sich fürchten vor;(bir şeyden) korkmak | Wir _____ uns nicht … der Dunkelheit.;sich fürchten vor;richtig;sich fürchten vor (vor + Dat);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:12 | ipucu:0 | ipucu-tür:trcumle
 2026-11-12 10:48:38;abr;v688:abr;bewältigen;üstesinden gelmek | Allein kann man so ein Problem kaum _____.;bewältigen;richtig;bewältigen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:49:53;gram;g:vergleich:97;vergleich/anders;Otobüs yerine bisikletle gitmeyi tercih ederim.;;falsch;Ich fahre lieber mit dem Fahrrad als mit dem Bus.;tur:akis | tür:ceviri | z:2 | bilmiyorum | sek:72
+2026-11-12 10:50:06;luecke;n1180:nsatz;die Tafel;Wir suchen immer zuverlässige Helfer, denn ohne Freiwillige funktioniert die _____ nicht.;Tafel;richtig;Tafel;basamak:B3 | bicim:metin | not:m3 | R:0.96 | S:46.5 | kapı:14g | kaynak:u4:t0
+2026-11-12 10:50:06;luecke;n0449:nsatz;das Gemüse;Jeder ist für eine Aufgabe verantwortlich: Ich kümmere mich um Obst und _____.;Gemüse;richtig;Gemüse;basamak:B3 | bicim:metin | not:m3 | R:0.95 | S:43.2 | kapı:14g | kaynak:u4:t0
+2026-11-12 10:50:06;luecke;x1561:nsatz;die Not;Viele Menschen, die in _____ sind, schämen sich.;verhalten;falsch;Not;basamak:B3 | bicim:metin | not:m1 | R:0.96 | S:2.1 | kaynak:u4:t0
+2026-11-12 10:50:10;akt;luecke:u4:t0;metinde boşluk;Wir suchen immer zuverlässige Helfer, denn ohne Freiwillige funktioniert die Tafel nicht. Jeder ist für eine Aufgabe verantwortlich: Ich kümmere mich um Obst und Gemüse. Die Arbeit ist manchmal anstrengend, aber die Hilfsbereitschaft im Team ist toll. Viele Menschen, die in Not sind, schämen sich.;Tafel / Gemüse / verhalten;fast;Tafel / Gemüse / Not;puan:2/3 | boşluk:3 | düzeltti
+2026-11-12 10:50:14;gram;g:es-korrelat:22;es-korrelat/korrelat;___ ist schade, dass du nicht kommen kannst.;Es;richtig;Es;tur:akis | tür:luecke | z:2 | sek:4
+2026-11-12 10:50:14;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:84 | dk:3 | yeni:0 | seviye+:2 | tekrar:10 | gram:1/2
+2026-11-12 10:50:19;art;n0682:art;die Kritik;mit ___ Kritik [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.96 | S:2.9 | hâl:Dat | sek:4
+2026-11-12 10:50:45;abr;v125:abr;sich beschweren bei;(birine) şikâyette bulunmak | Ich möchte mich _____.;sich beschweren bei;richtig;sich beschweren bei (bei + Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:1.7 | sek:26 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:51:02;abr;v117:abr;berichten über;(bir şey hakkında) haber vermek, anlatmak | Können Sie kurz … Ihre Erfahrungen im Praktikum _____?;vorstellen ;falsch;berichten über (über + Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.77 | S:0.3 | düzeltti | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:51:08;art;n1422:art;das Ziel;Nach drei Stunden haben wir endlich ___ Ziel erreicht. [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:10.8 | hâl:Nom/Akk | sek:5
+2026-11-12 10:51:13;duy;v686:duy-bosluk;alarmieren;Ein Passant hat den Notarzt _____, weil eine Frau an der Haltestelle umgefallen ist.;alerimert;falsch;alarmiert;tür:bosluk | hız:0.9 | tekrar:0 | farklı | sek:5
+2026-11-12 10:51:20;gram;g:satzklammer-tekamolo:33;satzklammer-tekamolo/klammer;Ich habe gestern gesehen einen tollen Film.;gesehen;richtig;Ich habe gestern einen tollen Film gesehen.;tur:akis | tür:fehler | z:2 | sek:3
+2026-11-12 10:51:27;prod;w0600:prod;vor Gericht gehen;mahkemeye gitmek;vor gericht gehen;fast;vor Gericht gehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:3.3 | kurtarma | kısmi | yazım, groß/klein | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:51:31;abr;v117:abr;berichten über;(bir şey hakkında) haber vermek, anlatmak;berichten über;richtig;berichten über (über + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:51:36;art;x1561:art;die Not;mit ___ Not [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.83 | S:4.0 | hâl:Dat | sek:5
+2026-11-12 10:51:39;hoer;hoer:er-e;Rinde/Rinder;Rinder;Rinder;richtig;Rinder;cift:Rinde/Rinder | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-12 10:52:00;gram;g:n-deklination:53;n-deklination/gen;Das ist das Fahrrad des neuen Kollegens.;hata yok;falsch;Das ist das Fahrrad des neuen Kollegen.;tur:akis | tür:fehler | z:2 | hatayı görmedi | sek:9
+2026-11-12 10:52:12;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi | Zuerst gehe ich zu … _____ und melde meinen neuen Wohnsitz an.;das Einwohnermeldeamt;richtig;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.77 | S:0.3 | sek:12 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:52:12;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:98 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-12 10:52:15;art;n1374:art;das Wetter;___ Wetter ist heute schön, deshalb gehen wir spazieren. [Nom/Akk];Das;richtig;Das;basamak:A | bicim:artOb | not:a3 | R:0.83 | S:3.7 | hâl:Nom/Akk | sek:2
+2026-11-12 10:52:22;wort;x1504:wort;die Behauptung;iddia;die Behaptung;fast;die Behauptung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.77 | S:4.4 | zor | kısmi | yazım | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-12 10:52:37;abr;v063:abr;sich aufregen über;Babam yüksek fiyatlara sinirleniyor. | (bir şeye) sinirlenmek, heyecanlanmak;sich reagieren auf;falsch;sich aufregen über (über + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.78 | S:0.4 | düzeltti | sek:10 | ipucu:2
+2026-11-12 10:52:42;yeni;w0067;bisher;tanıtım;;neu;şimdiye kadar;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-12 10:52:46;yeni;w0326;mindestens;tanıtım;;neu;en az;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-12 10:52:51;erk;w0326:erk;mindestens;en az;mindestens;richtig;mindestens;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0274/w0266/w0081 | çeldirici:bilinen/bilinen/bilinen | sek:4
+2026-11-12 10:52:53;erk;w0067:erk;bisher;şimdiye kadar;bisher;richtig;bisher;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0445/w0368/w0108 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-12 10:53:06;gram;g:modalverben:28;modalverben/satz;Yarın erken kalkmam lazım.;Ich muss Morgen früh aufstehen;richtig;Ich muss morgen früh aufstehen.;tur:akis | tür:ceviri | z:2 | sek:12
+2026-11-12 10:53:22;duy;w0084:duy-dikte;damit;Mach schnell, damit wir nicht zu spät kommen.;Mach schnell, damit wir nicht zu spät kommen.;richtig;Mach schnell, damit wir nicht zu spät kommen.;tür:dikte | hız:0.9 | tekrar:1 | sek:16
+2026-11-12 10:53:27;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über (über + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:53:30;prod;w0326:prod;mindestens;en az;mindestens;richtig;mindestens;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:53:36;prod;w0067:prod;bisher;şimdiye kadar;bisher;richtig;bisher;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:53:50;gram;g:adjektiv:121;adjektiv/kontrast;Kennst du das neue Café? Dort gibt es einen sehr guter Kuchen.;sehr;falsch;Kennst du das neue Café? Dort gibt es einen sehr guten Kuchen.;tur:akis | tür:fehler | z:3 | yanlış kelime seçildi | sek:12
+2026-11-12 10:53:53;hoer;hoer:kume;Glas/Gas;Gas;Gas;richtig;Gas;cift:Glas/Gas | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-12 10:53:53;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:96 | dk:2 | yeni:2 | seviye+:0 | tekrar:4 | gram:1/2
+2026-11-12 10:54:04;art;n1082:art;der Service;Ich war mit ___ Service in der Werkstatt nicht zufrieden. [Dat];fer;falsch;dem;basamak:A | bicim:artOb | not:a1 | R:0.58 | S:0.1 | hâl:Dat | artikel fer → dem | sek:4
+2026-11-12 10:54:17;prod;w0170:prod;fließend;akıcı;fleßig;falsch;fließend;basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.5 | düzeltti | farklı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:54:18;leech;w0170;fließend;akıcı;;takiliyor;;günler:2026-10-19,2026-11-05,2026-11-12
+2026-11-12 10:54:20;bed;v572:bed;verbinden;verbinden;bağlamak;richtig;bağlamak;basamak:B1 | bicim:anla | not:m3 | R:0.97 | S:4.3 | şık:v575/v584/v571 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-12 10:54:30;art;n1173:art;der Supermarkt;___ Supermarkt an der Ecke hat bis 22 Uhr geöffnet. [Nom];Das;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.63 | S:0.1 | hâl:Nom | artikel das → der | sek:6
+2026-11-12 10:54:31;art;n0764:art;der Markt;Markt;der;richtig;der Markt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | sek:1
+2026-11-12 10:54:33;art;n0372:art;der Flohmarkt;Flohmarkt;der;richtig;der Flohmarkt;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:son parça: Markt | hafıza:yazılmadı | sek:1
+2026-11-12 10:54:41;gram;g:pronomen:73;pronomen/man;Das weiß Mann doch!;Mann;richtig;Das weiß man doch!;tur:akis | tür:fehler | z:2 | sek:6
+2026-11-12 10:54:52;prod;w0170:prod;fließend;akıcı | Mein Kollege spricht _____ Deutsch.;fließend;richtig;fließend;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:55:03;wort;n1044:wort;der Schmerz;ağrı;der schmerz;fast;der Schmerz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.78 | S:3.3 | kurtarma | kısmi | yazım, büyük harf | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:06;duy;n1286:duy-kelime;die Unterschrift;ses: die Unterschrift;imza;richtig;imza;tür:kelime | hız:0.9 | tekrar:0 | sek:4
+2026-11-12 10:55:15;gram;g:reflexiv:146;reflexiv/anlam;Ich habe mir lange überlegt, ob ich nach Bremen ziehen soll.;hata yok;richtig;Ich habe mir lange überlegt, ob ich nach Bremen ziehen soll.;tur:akis | tür:fehler | z:2 | sek:7
+2026-11-12 10:55:21;abr;v305:abr;hageln;dolu yağmak;donnern;falsch;hageln;basamak:B2 | bicim:yaz | not:m1 | R:0.78 | S:0.6 | zor | düzeltti | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-12 10:55:21;leech;v305;hageln;dolu yağmak;;takiliyor;;günler:2026-10-08,2026-11-04,2026-11-12
+2026-11-12 10:55:25;abr;v545:abr;übertreiben;abartmak;übertreiben;richtig;übertreiben (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:5.3 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:31;wort;n1028:wort;der Schatten;gölge;der Schatz;fast;der Schatten;basamak:B2 | bicim:yaz0 | not:m2,a3 | R:0.78 | S:2.8 | çekim | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-12 10:55:37;abr;v305:abr;hageln;dolu yağmak | Bei Gewitter kann es auch _____.;hageln;richtig;hageln;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-12 10:55:37;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:105 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | gram:2/2
+2026-11-13 06:32:11;wort;n0244:wort;die Diskussion;tartışma;die diskussion;fast;die Diskussion;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:67.2 | ısınma | kısmi | kapı:7g | yazım, büyük harf | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:32:16;wort;n0538:wort;die Hitze;sıcaklık (bunaltıcı);die Hitze;richtig;die Hitze;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:56.6 | ısınma | kapı:7g | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:32:22;satz;v232:satz;erleichtern;Die neue App hat mir die Arbeit sehr _____.;erleichtert;richtig;erleichtert;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:52.8 | ısınma | kapı:14g | sek:6 | ipucu:0
+2026-11-13 06:32:27;yeni;w0328;miteinander;tanıtım;;neu;birbiriyle;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-13 06:32:32;yeni;n1353;die Wahl;tanıtım;;neu;seçim;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-13 06:32:35;erk;n1353:erk;die Wahl;seçim;die Wahl;richtig;die Wahl;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n1354/n0875/n1401 | çeldirici:biçim/konu/biçim | sek:2
+2026-11-13 06:32:37;erk;w0328:erk;miteinander;birbiriyle;miteinander;richtig;miteinander;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:w0329/w0634/w0633 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-13 06:32:46;ayir;w0119~w0117;eher ~ eben;daha çok, daha ziyade;eben;falsch;eher;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:6
+2026-11-13 06:37:04;gram;g:adjektiv:114;adjektiv/kontrast;Eski ev arkadaşım yeni bir daire buldu.;;falsch;Mein alter Mitbewohner hat eine neue Wohnung gefunden.;tur:akis | tür:ceviri | z:2 | bilmiyorum | ghost:1 | sek:253
+2026-11-13 06:37:11;wort;n1353:wort;die Wahl;seçim;die Wart;falsch;die Wahl;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:37:18;prod;w0328:prod;miteinander;birbiriyle;miteinander;richtig;miteinander;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:37:22;duy;v157:duy-bosluk;bringen;Kannst du mir bitte die Unterlagen _____, die ich auf dem Tisch vergessen habe?;bringen;richtig;bringen;tür:bosluk | hız:0.9 | tekrar:0 | sek:4
+2026-11-13 06:37:32;gram;g:tuerkisch-fallen:62;tuerkisch-fallen/artikel;Kannst du mir bitte das Rezept für den Kuchen schicken?;hata yok;richtig;Kannst du mir bitte das Rezept für den Kuchen schicken?;tur:akis | tür:fehler | z:2 | ghost:0 | sek:8
+2026-11-13 06:37:40;abr;v347:abr;können;-ebilmek | _____ Sie das wiederholen?;Könnten;fast;können;basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:2.2 | kurtarma | kısmi | yazım | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 06:37:46;wort;n1353:wort;die Wahl;seçim | Sie haben … _____: mit Vollpension oder Halbpension?;die Wahl;richtig;die Wahl;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:2.3 | tekrar:1 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 06:37:46;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:8 | küçük:2 | yanlış:3 | puan:98 | dk:6 | yeni:2 | seviye+:0 | tekrar:6 | gram:1/2
+2026-11-13 06:37:51;art;n0688:art;die Kultur;mit ___ Kultur [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.78 | S:1.7 | hâl:Dat | sek:4
+2026-11-13 06:37:55;abr;v278:abr;sich fürchten vor;(bir şeyden) korkmak;sich fürchten vor;richtig;sich fürchten vor (vor + Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:0.3 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:38:04;wort;n1307:wort;das Verhalten;davranış;das verhaltnis;falsch;das Verhalten;basamak:B2 | bicim:yaz0 | not:m1 | R:0.75 | S:0.1 | düzeltti | kelime yanlış | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-13 06:38:08;art;n0137:art;die Behörde;wegen ___ Behörde [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:8.2 | hâl:Gen | sek:4
+2026-11-13 06:38:14;ayir;v169~v305;donnern ~ hageln;gök gürlemek;donnern;richtig;donnern;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:6
+2026-11-13 06:38:22;gram;g:reflexiv:20;reflexiv/perfekt;Er beeilt sich. → Perfekt;Er hat sich beeilt;richtig;Er hat sich beeilt.;tur:akis | tür:umform | z:2 | ghost:0 | sek:7
+2026-11-13 06:41:22;duy;n0055:duy-dikte;die Apotheke;Kannst du mir aus der Apotheke Halstabletten mitbringen?;;falsch;Kannst du mir aus der Apotheke Halstabletten mitbringen?;tür:dikte | hız:0.9 | tekrar:2 | bilmiyorum | sek:180
+2026-11-13 06:41:34;wort;n1307:wort;das Verhalten;davranış | … _____ meines Mitbewohners stört mich, weil er nie die Küche putzt.;das Verhalten;richtig;das Verhalten;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 06:42:11;akt;diktat:x1566;dinle–yaz;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;Sie hat die Patenschaft für ein Kind in Afrika übernommen;richtig;Sie hat die Patenschaft für ein Kind in Afrika übernommen.;
+2026-11-13 06:42:17;hoer;hoer:ei-ie;Biene/Beine;Beine;Beine;richtig;Beine;cift:Biene/Beine | ses:Google Deutsch | dinleme:1 | sek:3 | kaynak:tur
+2026-11-13 06:42:22;gram;g:verbstellung:26;verbstellung/inversion;In Deutschland man trennt den Müll sehr genau.;trennt;richtig;In Deutschland trennt man den Müll sehr genau.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:4
+2026-11-13 06:42:39;abr;v584:abr;verhindern;engellemek, önlemek;;falsch;verhindern (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.6 | kurtarma | düzeltti | sek:15 | ipucu:0 | ipucu-tür:tr | bilmiyorum
+2026-11-13 12:50:21;art;n0552:art;der Humor;___ Humor des Komikers verstehe ich nicht. [Akk];Das;falsch;Den;basamak:A | bicim:artOb | not:a1 | R:0.63 | S:0.2 | hâl:Akk | artikel das → den | sek:10
+2026-11-13 21:17:46;art;n0433:art;die Geduld;ohne ___ Geduld [Akk];das;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.71 | S:0.1 | hâl:Akk | artikel das → die | sek:2
+2026-11-13 21:17:53;prod;w0117:prod;eben;"az önce; işte | Ich habe _____ mit meiner Mutter telefoniert.";eher;falsch;eben;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | farklı | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:18:00;wort;n1169:wort;der Sturm;fırtına;das Storm;fast;der Sturm;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.99 | S:105.3 | kısmi | kapı:14g | yazım, artikel das → der | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:18:02;art;n0474:art;das Gewitter;Während ___ Gewitters sind wir im Café geblieben. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.91 | S:3.7 | hâl:Gen | sek:2
+2026-11-13 21:18:04;ayir;v590~v588;sich verlaufen ~ verlassen;(yürürken) yolunu kaybetmek;sich verlaufen;richtig;sich verlaufen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-13 21:18:13;gram;g:vergleich:73;vergleich/nicht-so;Die Mensa ist nicht so teurer wie das Café.;teurer;richtig;Die Mensa ist nicht so teuer wie das Café.;tur:akis | tür:fehler | z:2 | ghost:0 | sek:8
+2026-11-13 21:18:16;duy;w0103:duy-kelime;doppelt;ses: doppelt;çift, iki kat;richtig;çift, iki kat;tür:kelime | hız:0.9 | tekrar:0 | sek:2
+2026-11-13 21:19:08;prod;w0117:prod;eben;"az önce; işte";eben;richtig;eben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:50 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:19:13;abr;v276:abr;führen;"yönetmek; (birini bir yere) götürmek";führen;richtig;führen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:4.2 | kurtarma | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:19:15;hoer;hoer:w-f;Wetter/Vetter;Vetter;Vetter;richtig;Vetter;cift:Wetter/Vetter | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-13 21:19:23;gram;g:n-deklination:126;n-deklination/kontrast;Der Kellner bringt dem Gasten die Rechnung.;hata yok;falsch;Der Kellner bringt dem Gast die Rechnung.;tur:akis | tür:fehler | z:2 | hatayı görmedi | ghost:1 | sek:5
+2026-11-13 21:19:32;art;x1478:art;das Frühjahr;___ Frühjahr war dieses Jahr sehr kalt. [Nom/Akk];Das;richtig;Das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:4.9 | hâl:Nom/Akk | sek:9
+2026-11-13 21:19:32;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:93 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-13 21:19:40;art;n0449:art;das Gemüse;Schneidest du bitte ___ Gemüse für die Suppe? [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:32.4 | hâl:Nom/Akk | sek:7
+2026-11-13 21:19:58;wort;n0322:wort;die Erziehung;eğitim, terbiye;die Erhaltnis;falsch;die Erziehung;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | kelime yanlış | sek:11 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:20:07;prod;w0095:prod;deutlich;açık, belirgin | Seit dem Kurs ist mein Deutsch _____ besser geworden.;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.72 | S:0.9 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:20:10;art;n0994:art;das Rezept;für ___ Rezept [Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:3.0 | hâl:Akk | sek:3
+2026-11-13 21:20:14;duy;n1240:duy-bosluk;das Training;Nach dem _____ bin ich so müde, dass ich sofort einschlafe.;Training;richtig;Training;tür:bosluk | hız:0.9 | tekrar:0 | sek:4
+2026-11-13 21:20:28;gram;g:adjektiv:31;adjektiv/kontrast;Der ___ Laptop ist zu teuer, ich nehme einen ___. (neu · gebraucht);"neue ; gebraucht";falsch;"neue ; gebrauchten";tur:akis | tür:luecke | z:3 | ghost:1 | sek:11
+2026-11-13 21:20:37;wort;n0322:wort;die Erziehung;eğitim, terbiye | Im Kurs haben wir über … _____ in Deutschland und in der Türkei gesprochen.;die Erziehung;richtig;die Erziehung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:20:44;prod;w0599:prod;eingespannt sein;çok meşgul olmak (iş yüzünden);eingespannt sein;richtig;eingespannt sein;basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:4.7 | kurtarma | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-13 21:20:49;art;n1082:art;der Service;ohne ___ Service [Akk];daas;falsch;den;basamak:A | bicim:artOb | not:a1 | R:0.64 | S:0.0 | hâl:Akk | artikel daas → den | sek:3
+2026-11-13 21:20:51;hoer;hoer:z-s;heizen/heißen;heißen;heizen;falsch;heißen;cift:heizen/heißen | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-13 21:20:59;gram;g:reflexiv:144;reflexiv/anlam;Wir müssen ___ das noch gut überlegen.;uns;richtig;uns;tur:akis | tür:luecke | z:2 | sek:4
+2026-11-13 21:21:12;wort;n1359:wort;die Wärme;sıcaklık | Im Winter vermisse ich … _____ meiner Heimat.;die Wärme;richtig;die Wärme;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.72 | S:0.8 | sek:13 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:21:12;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:94 | dk:2 | yeni:0 | seviye+:0 | tekrar:8 | gram:1/2
+2026-11-13 21:21:21;art;n1173:art;der Supermarkt;Donnerstags gehe ich immer in ___ Supermarkt. [Akk];dem;fast;den;basamak:A | bicim:artOb | not:a3 | R:0.68 | S:0.5 | hâl:Akk | hâl | sek:5
+2026-11-13 21:21:29;prod;w0109:prod;drüben;karşıda, öte tarafta | Von _____ hört man jeden Abend laute Musik.;drüben;richtig;drüben;basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:0.7 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:21:37;wort;x1567:wort;der Pate;"(gönüllü) destekçi; vaftiz babası | Als _____ besucht er das Kind jeden Monat.";Pate;fast;der Pate;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.75 | S:1.1 | artikel eksik | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-13 21:21:41;art;n1325:art;der Vertrag;___ Vertrag von Maastricht wurde im Jahr 1992 unterzeichnet. [Nom];Der;richtig;Der;basamak:A | bicim:artOb | not:a3 | R:0.76 | S:1.7 | hâl:Nom | sek:3
+2026-11-13 21:22:05;duy;n0179:duy-dikte;der Blitz;Der Blitz hat in einen Baum im Bürgerpark eingeschlagen.;Der Blitzt hat ein Baum im Bürgerpark eingeschlagen;falsch;Der Blitz hat in einen Baum im Bürgerpark eingeschlagen.;tür:dikte | hız:0.9 | tekrar:2 | artikel/çekim | edat | dikte:ek,kelime | sek:24
+2026-11-13 21:22:18;gram;g:tuerkisch-fallen:131;tuerkisch-fallen/artikel;Die Zentrum von Bremen ist sehr schön.;hata yok;falsch;Das Zentrum von Bremen ist sehr schön.;tur:akis | tür:fehler | z:2 | hatayı görmedi | sek:8
+2026-11-14 22:23:54;wort;n0844:wort;der Nebel;sis;die Nebel;fast;der Nebel;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.98 | S:97.8 | ısınma | kapı:7g | artikel die → der | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:24:02;wort;n0629:wort;das Klima;iklim;das Klima;richtig;das Klima;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:76.3 | ısınma | kapı:7g | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:24:09;nsatz;w0213:nsatz;gleichzeitig;Kann eine Profifußballerin _____ Mutter sein?;gleichzeitig;richtig;gleichzeitig;basamak:B2 | bicim:bos0 | not:m3 | R:0.98 | S:54.9 | ısınma | kapı:7g | sek:6 | ipucu:0
+2026-11-14 22:24:14;prod;w0452:prod;sozial;sosyal;sosial;richtig;sozial;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
+2026-11-14 22:24:14;yeni;w0452;sozial;yoklama;sosial;bekannt;sosyal;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-14 22:24:23;art;n0433:art;die Geduld;mit ___ Geduld [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.68 | S:0.3 | hâl:Dat | sek:4
+2026-11-14 22:24:25;ayir;n0433~n0972;die Geduld ~ die Regel;sabır;die Geduld;richtig;die Geduld;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:1
+2026-11-14 22:24:33;gram;g:n-deklination:124;n-deklination/kontrast;Wir danken dem ___ und dem ___ für ihre Hilfe. (der Lehrer · der Praktikant);"Lehrer ; Praktikanten";richtig;"Lehrer ; Praktikanten";tur:akis | tür:luecke | z:2 | ghost:2 | sek:8
+2026-11-14 22:24:39;duy;v119:duy-kelime;sich beruhigen;ses: sich beruhigen;sakinleşmek;richtig;sakinleşmek;tür:kelime | hız:0.9 | tekrar:0 | sek:5
+2026-11-14 22:24:47;prod;w0119:prod;eher;daha çok, daha ziyade | Doch für viele Menschen aus dem englischsprachigen Ausland ist daraus _____ „Doobie Scoot Canoe“ geworden.;eher;richtig;eher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:1.6 | kurtarma | sek:7 | ipucu:0 | ipucu-tür:decumle
+2026-11-14 22:25:10;akt;diktat:n0248;dinle–yaz;Mein Hund hat große Angst vor dem Donner.;Mein Hund hat große Angst vor dem Donner;richtig;Mein Hund hat große Angst vor dem Donner.;
+2026-11-14 22:25:15;hoer;hoer:z-s;Zeit/seit;seit;Zeit;falsch;seit;cift:Zeit/seit | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-14 22:25:48;gram;g:adjektiv:118;adjektiv/kontrast;Das ist ein ___ Restaurant, aber das ___ Restaurant am Markt ist besser. (gut · italienisch);"italienisches ; gute";falsch;"gutes ; italienische";tur:akis | tür:luecke | z:3 | ghost:1 | sek:20
+2026-11-14 22:25:49;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:106 | dk:2 | yeni:0 | seviye+:0 | tekrar:6 | gram:1/2
+2026-11-14 22:25:50;art;n0587:art;die Kälte;Kälte;die;richtig;die Kälte;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:13.3 | sek:1
+2026-11-14 22:25:56;wort;n1307:wort;das Verhalten;davranış;das Verhalten;richtig;das Verhalten;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.66 | S:0.4 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:26:05;prod;w0117:prod;eben;"az önce; işte | Ich habe _____ eine E-Mail von der Ausländerbehörde bekommen.";eher;falsch;eben;basamak:B2 | bicim:yaz0 | not:m1 | R:0.71 | S:0.1 | düzeltti | farklı | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-14 22:26:14;yeni;n0800;das Mittel;tanıtım;;neu;"araç; ilaç";basamak:B0 | bicim:tanit | not:- | parti | sek:7
+2026-11-14 22:26:17;erk;n0800:erk;das Mittel;araç;das Mittel;richtig;das Mittel;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0790/n1418/n0798 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-14 22:26:21;ayir;w0344~w0209;nass ~ glatt;ıslak;nass;richtig;nass;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-14 22:26:28;gram;g:tuerkisch-fallen:132;tuerkisch-fallen/artikel;Das Freundschaft ist mir sehr wichtig.;Das;richtig;Die Freundschaft ist mir sehr wichtig.;tur:akis | tür:fehler | z:2 | ghost:2 | sek:6
+2026-11-14 22:26:36;duy;v127:duy-bosluk;besichtigen;Bevor wir den Mietvertrag unterschreiben, möchten wir die Wohnung noch einmal _____.;besichtigen;richtig;besichtigen;tür:bosluk | hız:0.9 | tekrar:0 | sek:8
+2026-11-14 22:26:44;wort;n0800:wort;das Mittel;"araç; ilaç";die Miite;falsch;das Mittel;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | ikinci | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:26:48;prod;w0117:prod;eben;"az önce; işte";eben;richtig;eben;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:26:50;hoer;hoer:z-s;Zoll/soll;soll;soll;richtig;soll;cift:Zoll/soll | ses:Google Deutsch | dinleme:1 | sek:2 | kaynak:tur
+2026-11-14 22:26:55;gram;g:reflexiv:96;reflexiv/stellung;Heute ich fühle mich viel besser.;fühle;richtig;Heute fühle ich mich viel besser.;tur:akis | tür:fehler | z:2 | sek:4
+2026-11-14 22:27:00;wort;n0400:wort;die Freundschaft;arkadaşlık;die Freundschaft;richtig;die Freundschaft;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
+2026-11-14 22:27:00;yeni;n0400;die Freundschaft;yoklama;die Freundschaft;bekannt;arkadaşlık;basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-11-14 22:27:11;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği) | Bis zu … echt… _____ ist es noch ein weiter Weg.;die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.76 | S:1.8 | kurtarma | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-14 22:27:20;wort;n0800:wort;das Mittel;"araç; ilaç | Der Arzt hat mir … _____ gegen Grippe verschrieben.";Mizze;falsch;das Mittel;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:2.3 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-14 22:27:20;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:11 | küçük:0 | yanlış:3 | puan:111 | dk:2 | yeni:1 | seviye+:0 | tekrar:7 | gram:2/2
+2026-11-14 22:27:26;art;n1082:art;der Service;___ Service in diesem Café ist sehr freundlich, deshalb lerne ich oft hier. [Nom];die;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.62 | S:0.0 | hâl:Nom | artikel die → der | sek:3
+2026-11-14 22:27:33;wort;n0322:wort;die Erziehung;eğitim, terbiye;die Erziehung;richtig;die Erziehung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.71 | S:0.3 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:27:39;wort;x1570:wort;das Einwohnermeldeamt;adres kayıt dairesi;das Einwohnermeldeamt;richtig;das Einwohnermeldeamt;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.72 | S:0.9 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-14 22:27:43;yeni;x1576;der Bundestag;tanıtım;;neu;Federal Meclis;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-14 22:27:45;erk;x1576:erk;der Bundestag;Federal Meclis;der Bundestag;richtig;der Bundestag;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0948/x1561/n0536 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-14 22:27:48;ayir;w0479~w0165;trocken ~ feucht;kuru;trocken;richtig;trocken;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-14 22:27:59;gram;g:tuerkisch-fallen:121;tuerkisch-fallen/klein;Köpeklerden korkuyorum.;Ich fürchte mich vor dem Hund;falsch;Ich habe Angst vor Hunden.;tur:akis | tür:ceviri | z:2 | artikel/çekim | sek:8

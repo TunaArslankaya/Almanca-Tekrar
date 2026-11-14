@@ -477,3 +477,10 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - Yoklamada bilinen (während, Erde): sonraki yazma yanlışı yok. Cümle atölyesi satırı yok, yeni leech yok.
 - Eklenenler: satzklammer-tekamolo / tekamolo teil'ine 4 çeviri alıştırması (Bilmiyorum için); sich fürchten vor +2 cümle (+gloss); DW Holocaust metninden Goethe listesindeki Generation, Vergangenheit, Erinnerung için 5 cümle (+gloss). drüben ve verantwortlich zaten ≥ 5 cümleli.
 - Son incelenen log satırı: 2026-11-10 18:37:41 (gram g:es-korrelat:60).
+
+**2026-11-12 (gece işi, otomatik)** — 98 yeni log satırı (10.11 18:38, 11.11 20:25–20:40, 12.11 10:45–10:48).
+- Tek tek düzeltilen (feedback.js, 37): wort/prod (Recht, Umgang, Donner, Kultur artikel; Pate/paar, Verhalten/Verhältnis, Erziehung/Einbildung, bedürftig/Bedürfnis, eben/eher, Wärme/weiß, Einwohnermeldeamt), yazım, gram (reflexiv:19, vergleich:15 Bilmiyorum, n-deklination:125, verbstellung:77), dikte, abr (sich wenden an, sich fürchten vor, bewältigen).
+- İtiraz (öneri:falsch): verbstellung:77 haklı değil (besucht). Sistem hatası şüphesi: durchschnittlich (cevap loesung ile aynı görünüyor, fast yazım; muhtemelen gizli karakter, kod için not).
+- Seçmeli: artOb Geduld mein→die (izlenmeli), Kritik dem→der, Gymnastik das→die; hoer zieht/sieht; ayir nass~glatt yanlış. dikte: yazım ×4, kelime ×4. Yoklamada bilinen Kultur sonra artikel yanlış.
+- Kancalar: Verhalten, Erziehung, Kritik, Aufnahme, Wärme (hepsinin ≥ 5 cümlesi var). Cümle atölyesi satırı yok. Günün içeriği: en yeni DW metni (Holocaust) zaten işlenmişti, eklenmedi.
+- Son incelenen log satırı: 2026-11-12 10:48:38 (abr v688).
