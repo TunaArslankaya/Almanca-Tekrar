@@ -613,7 +613,7 @@
   function cumlePruef(giris, alts, siraSert = true, tekrarsiz) {
     const r = Gx().cumleKontrol(giris, alts), diff = r.diff || [];
     const sonuc = (urteil, tags) => ({ urteil, tags, diff });
-    if (kipAktif && r.urteil !== 'richtig' && kipHatasi(giris, alts)) return sonuc('falsch', ['fiil biçimi (kip)']);
+    if (kipAktif && r.urteil !== 'richtig' && (kipHatasi(giris, alts) || kisiUyum(giris, alts))) return sonuc('falsch', ['fiil biçimi (kip)']);
     // kelime tekrarı (12.11, log 10.11 18:20:32 "die die"): tekrar atılınca doğruysa küçük hata (yazım), itirazsız da
     if (r.urteil !== 'richtig' && !tekrarsiz) { const t = tekrarAt(giris); if (t && cumlePruef(t, alts, siraSert, true).urteil === 'richtig') return sonuc('fast', ['yazım', 'kelime tekrarı']); }
     // (Sie / sie hariç: cümle ya da bölüm başındaki özne "Sie" geçerli dizilişte ortaya gelir: Weil sie …, war sie krank)
