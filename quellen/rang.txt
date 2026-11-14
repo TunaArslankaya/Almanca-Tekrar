@@ -1,0 +1,3141 @@
+# Genel Almanca sıklık sırası (küçük = sık), öğe başına; ÜRETİLDİ, elle düzenleme.
+# Kaynak: FrequencyWords (Hermit Dave), OpenSubtitles 2018, Almanca de_50k — lisans CC BY-SA 4.0
+#   (FrequencyWords, Hermit Dave, OpenSubtitles 2018); https://github.com/hermitdave/FrequencyWords
+# Bu dosya o listeden türetilmiştir (aynı lisans). Ham liste repoda yok.
+# Üretim: python3 tools/rang_uret.py <yol>/de_50k.txt  (önce python3 tools/build.py; biçim eşlemesi betiğin başında)
+# Biçim: öğe_id | lemma | rang   (rang "-" = listede yok, > 50 000)
+# Yeni öğe eklenince betik yeniden çalıştırılmazsa build o öğeye rang yazmaz (önem yalnız okuma derlemi + seviyeden).
+n0001 | die Abbildung | 48087
+n0002 | das Abenteuer | 2968
+n0003 | die Abfahrt | 9905
+n0004 | der Abfall | 9203
+n0005 | der Abfalleimer | 36933
+n0006 | das Abitur | 18150
+n0007 | das Abonnement | -
+n0008 | der Abschluss | 3481
+n0009 | der Abschnitt | 7991
+n0010 | der Absender | 16349
+n0011 | die Absicht | 2240
+n0012 | die Abteilung | 2646
+n0013 | die Adresse | 1450
+n0014 | die Ahnung | 398
+n0015 | die Aktion | 4475
+n0016 | die Aktivität | 6018
+n0017 | der Alarm | 2398
+n0018 | der Alkohol | 2190
+n0019 | der Alltag | 13077
+n0020 | das Alphabet | 17086
+n0021 | das Alter | 508
+n0022 | das Altersheim | 15352
+n0023 | die Alternative | 5332
+n0024 | die Ampel | 10301
+n0025 | das Amt | 4378
+n0026 | der Anbieter | 40476
+n0027 | das Angebot | 1511
+n0028 | die Änderung | 4604
+n0029 | der Anfang | 1002
+n0030 | die Angabe | 10218
+n0031 | der Angehörige | 9858
+n0032 | die Angehörige | 9858
+n0033 | die Angst | 267
+n0034 | die Ankunft | 3947
+n0035 | die Anlage | 5463
+n0036 | die Anleitung | 13296
+n0037 | die Anmeldung | 18318
+n0038 | die Annonce | 26786
+n0039 | die Anrede | 29740
+n0040 | der Anruf | 841
+n0041 | der Anrufbeantworter | 8504
+n0042 | die Ansage | 11443
+n0043 | der Anschluss | 9133
+n0044 | der Anspruch | 5395
+n0045 | der Angestellte | 5266
+n0046 | die Angestellte | 5266
+n0047 | der Antrag | 3024
+n0048 | die Antwort | 942
+n0049 | der Anwalt | 1005
+n0050 | die Anwältin | 4957
+n0051 | die Anzeige | 3496
+n0052 | der Anzug | 2093
+n0053 | das Apartment | 4147
+n0054 | der Apfel | 5228
+n0055 | die Apotheke | 7610
+n0056 | der Apparat | 4482
+n0057 | der Appetit | 3391
+n0058 | die Arbeit | 296
+n0059 | der Arbeiter | 3582
+n0060 | die Arbeitserlaubnis | 45944
+n0061 | die Arbeitslosigkeit | 21810
+n0062 | der Arbeitsplatz | 8782
+n0063 | die Arbeitsstelle | 31568
+n0064 | der Architekt | 10429
+n0065 | der Ärger | 956
+n0066 | der Arm | 1013
+n0067 | die Art | 477
+n0068 | der Artikel | 2297
+n0069 | der Arzt | 729
+n0070 | die Ärztin | 3895
+n0071 | das Asyl | 12937
+n0072 | der Atem | 3845
+n0073 | der Aufenthalt | 6796
+n0074 | die Aufforderung | 21090
+n0075 | die Aufgabe | 1414
+n0076 | die Aufnahme | 3422
+n0077 | der Auftrag | 1663
+n0078 | der Auftritt | 3271
+n0079 | der Aufzug | 4372
+n0080 | das Auge | 405
+n0081 | der Augenblick | 988
+n0082 | die Ausbildung | 4057
+n0083 | der Ausdruck | 3821
+n0084 | der Ausdruck | 3821
+n0085 | die Ausfahrt | 13877
+n0086 | der Ausflug | 4366
+n0087 | die Ausgabe | 7967
+n0088 | der Ausgang | 4041
+n0089 | die Aushilfe | 19495
+n0090 | die Auskunft | 10537
+n0091 | das Ausland | 4989
+n0092 | der Ausländer | 7531
+n0093 | die Ausnahme | 4338
+n0094 | die Aussicht | 4168
+n0095 | die Aussprache | 20268
+n0096 | die Ausstellung | 7173
+n0097 | die Auswahl | 5809
+n0098 | der Ausweis | 3249
+n0099 | das Auto | 402
+n0100 | die Autobahn | 8243
+n0101 | der Automat | 13272
+n0102 | der Autor | 4644
+n0103 | die Bäckerei | 11355
+n0104 | das Bad | 1828
+n0105 | die Badewanne | 7236
+n0106 | die Bahn | 4898
+n0107 | die Straßenbahn | 18862
+n0108 | die U-Bahn | 5752
+n0109 | der Bahnhof | 3751
+n0110 | der Bahnsteig | 17093
+n0111 | der Balkon | 7317
+n0112 | der Ball | 1460
+n0113 | das Ballett | 9275
+n0114 | die Banane | 9786
+n0115 | die Bank | 1229
+n0116 | die Bank | 1229
+n0118 | die Bankleitzahl | -
+n0120 | die Bar | 1126
+n0121 | das Bargeld | 4711
+n0122 | der Bart | 2886
+n0123 | der Basketball | 7383
+n0124 | die Batterie | 7234
+n0125 | der Bauch | 2384
+n0126 | der Bau | 3992
+n0127 | die Baustelle | 9111
+n0128 | der Bauer | 3279
+n0129 | der Baum | 1741
+n0130 | der Beamte | 6654
+n0131 | der Bedarf | 6676
+n0132 | die Bedeutung | 2575
+n0133 | die Bedienungsanleitung | 43656
+n0134 | die Bedingung | 3500
+n0135 | der Beginn | 4381
+n0136 | die Begründung | 16810
+n0137 | die Behörde | 4073
+n0138 | das Bein | 1493
+n0139 | das Beispiel | 1095
+n0140 | der Beitrag | 6993
+n0141 | der Bekannte | 5136
+n0142 | die Bekannte | 5136
+n0143 | der Beleg | 11931
+n0144 | das Benzin | 3469
+n0145 | die Beratung | 11810
+n0146 | der Bereich | 3104
+n0147 | der Berg | 2393
+n0148 | der Bericht | 1495
+n0149 | der Beruf | 2437
+n0150 | die Beschäftigung | 15606
+n0151 | der Bescheid | 989
+n0152 | die Beschreibung | 4893
+n0153 | die Besprechung | 5820
+n0154 | die Besserung | 9898
+n0155 | die Bestätigung | 6706
+n0156 | der Besuch | 1276
+n0157 | der Betrag | 9881
+n0158 | der Betreuer | 14516
+n0159 | die Betreuung | 19883
+n0160 | der Betrieb | 4983
+n0161 | der Betriebsrat | 47363
+n0162 | das Bett | 554
+n0163 | die Bevölkerung | 5033
+n0164 | die Bewegung | 995
+n0165 | der Beweis | 1077
+n0166 | die Bewerbung | 11392
+n0167 | der Bewohner | 6133
+n0168 | die Beziehung | 1135
+n0169 | die Bibliothek | 3730
+n0170 | das Bier | 1014
+n0171 | das Bild | 957
+n0172 | der Bildschirm | 8343
+n0173 | die Biologie | 12292
+n0174 | die Birne | 8757
+n0175 | die Bitte | 88
+n0176 | das Blatt | 4946
+n0177 | der Bleistift | 12388
+n0178 | der Blick | 1275
+n0179 | der Blitz | 4308
+n0180 | die Blume | 1615
+n0181 | die Bluse | 9190
+n0182 | das Blut | 591
+n0183 | der Boden | 846
+n0184 | der Bogen | 6494
+n0185 | das Boot | 1156
+n0186 | die Botschaft | 2202
+n0187 | der Braten | 7121
+n0188 | die Breite | 12160
+n0189 | die Bremse | 5352
+n0190 | der Brief | 1087
+n0191 | der Briefkasten | 9907
+n0192 | die Briefmarke | 14388
+n0193 | der Briefträger | 17233
+n0194 | die Brieftasche | 4758
+n0195 | die Brille | 2839
+n0196 | die Broschüre | 18104
+n0197 | das Brot | 2535
+n0198 | das Brötchen | 8261
+n0199 | die Brücke | 1656
+n0200 | der Bruder | 341
+n0201 | die Brust | 2447
+n0202 | das Buch | 723
+n0203 | die Buchhandlung | 25204
+n0204 | der Buchstabe | 5899
+n0205 | das Buffet | 14378
+n0206 | die Bühne | 2346
+n0207 | die Burg | 5938
+n0208 | der Bürger | 2799
+n0209 | das Büro | 660
+n0210 | die Bürste | 17824
+n0211 | die Zahnbürste | 9647
+n0212 | der Bus | 1605
+n0213 | die Butter | 4847
+n0214 | das Café | 4470
+n0215 | die Cafeteria | 10582
+n0216 | die Chance | 542
+n0217 | der Chef | 1036
+n0219 | die Couch | 3814
+n0220 | die Creme | 12474
+n0221 | der Cousin | 2289
+n0222 | die Cousine | 3815
+n0223 | das Dach | 1710
+n0224 | die Dame | 1051
+n0225 | der Dank | 346
+n0226 | die Darstellung | 13140
+n0227 | die Datei | 7394
+n0228 | das Datum | 5267
+n0229 | die Daten | 2059
+n0230 | die Dauer | 8069
+n0231 | die Decke | 2483
+n0232 | der Gedanke | 991
+n0233 | das Denkmal | 13337
+n0234 | das Detail | 2597
+n0235 | die Diät | 7579
+n0236 | der Dialekt | 18195
+n0237 | der Dialog | 11347
+n0238 | der Dieb | 2600
+n0239 | der Dienst | 1948
+n0240 | das Ding | 390
+n0241 | das Diplom | 14832
+n0242 | der Direktor | 1964
+n0243 | die Diskothek | -
+n0244 | die Diskussion | 4996
+n0245 | die Distanz | 7823
+n0246 | der Doktor | 670
+n0247 | das Dokument | 4964
+n0248 | der Donner | 5826
+n0249 | das Dorf | 1531
+n0250 | die Dose | 6557
+n0251 | der Dreck | 2105
+n0252 | die Droge | 1246
+n0253 | die Drogerie | 25263
+n0254 | der Drucker | 15218
+n0255 | der Druck | 1657
+n0256 | die Durchsage | 8808
+n0257 | der Durchschnitt | 11918
+n0258 | der Durst | 3995
+n0259 | die Dusche | 3226
+n0260 | die Ecke | 1655
+n0261 | die Ehe | 1023
+n0262 | die Ehefrau | 3712
+n0263 | das Ehepaar | 12648
+n0264 | das Ei | 1480
+n0265 | die Eile | 3507
+n0266 | die Einbahnstraße | 25948
+n0267 | der Einbrecher | 7427
+n0268 | der Einbruch | 4507
+n0269 | der Eindruck | 2404
+n0270 | die Einfahrt | 11912
+n0271 | der Einfall | 13362
+n0272 | der Einfluss | 3131
+n0273 | die Einführung | 15263
+n0274 | der Eingang | 4420
+n0275 | der Einkauf | 15113
+n0276 | das Einkommen | 10394
+n0277 | die Einladung | 2754
+n0278 | die Einnahme | 10897
+n0279 | die Einrichtung | 5323
+n0280 | das Einschreiben | 19825
+n0281 | der Eintritt | 7686
+n0282 | der Einwohner | 7704
+n0283 | die Einzahlung | 35999
+n0284 | die Einzelheit | 5855
+n0285 | das Eis | 1480
+n0286 | das Eis | 1480
+n0287 | die Eisenbahn | 9222
+n0288 | die Eltern | 593
+n0289 | der Empfang | 3124
+n0290 | der Empfänger | 11979
+n0291 | die Empfehlung | 7836
+n0292 | das Ende | 386
+n0293 | die Energie | 1581
+n0294 | der Enkel | 4162
+n0295 | die Entfernung | 4678
+n0296 | die Entlassung | 7881
+n0297 | die Entscheidung | 977
+n0298 | die Entschuldigung | 560
+n0299 | die Enttäuschung | 7628
+n0300 | die Entwicklung | 4991
+n0301 | die Erde | 783
+n0302 | das Erdgeschoss | 14431
+n0303 | das Ereignis | 4819
+n0304 | die Erfahrung | 1769
+n0305 | die Erfindung | 5921
+n0306 | der Erfolg | 1482
+n0307 | das Ergebnis | 3499
+n0308 | die Erhöhung | 22173
+n0309 | die Erholung | 13626
+n0310 | die Erinnerung | 1970
+n0311 | die Erkältung | 9394
+n0312 | die Erklärung | 2014
+n0313 | die Erlaubnis | 2325
+n0314 | das Erlebnis | 9240
+n0315 | die Ermäßigung | -
+n0316 | die Ernährung | 13213
+n0317 | die Ernte | 6536
+n0318 | die Eröffnung | 9543
+n0319 | der Ersatz | 5433
+n0320 | der Erwachsene | 3855
+n0321 | die Erzählung | 20524
+n0322 | die Erziehung | 7402
+n0323 | das Essen | 266
+n0324 | der Essig | 16418
+n0325 | der Experte | 5333
+n0326 | der Export | 36340
+n0327 | die Fabrik | 3361
+n0328 | das Fach | 8075
+n0329 | der Fachmann | 17693
+n0330 | die Fachfrau | -
+n0331 | die Fachleute | 37598
+n0332 | die Fähigkeit | 2666
+n0333 | die Fähre | 8616
+n0334 | die Fahrbahn | 39792
+n0335 | der Fahrer | 2183
+n0336 | die Fahrkarte | 10762
+n0337 | der Fahrplan | 27731
+n0338 | das Fahrrad | 3640
+n0339 | das Fahrzeug | 4459
+n0340 | der Faktor | 15677
+n0341 | der Fall | 349
+n0342 | die Familie | 303
+n0343 | die Fantasie | 3544
+n0344 | die Farbe | 1874
+n0345 | der Fasching | -
+n0346 | der Fehler | 643
+n0347 | die Feier | 1350
+n0348 | der Feierabend | 5862
+n0349 | der Feiertag | 10101
+n0350 | das Feld | 2767
+n0351 | das Fenster | 980
+n0352 | die Fernbedienung | 9744
+n0353 | das Fernsehen | 1504
+n0354 | der Fernseher | 2589
+n0355 | das Fest | 608
+n0356 | die Festplatte | 9077
+n0357 | das Fett | 2951
+n0358 | das Feuer | 694
+n0359 | das Feuerzeug | 8444
+n0360 | die Feuerwehr | 6451
+n0361 | das Fieber | 3237
+n0362 | die Figur | 3532
+n0363 | der Film | 674
+n0364 | der Finger | 1022
+n0365 | die Firma | 1148
+n0366 | die Fläche | 19388
+n0367 | die Flasche | 1618
+n0368 | der Fleck | 4156
+n0369 | das Fleisch | 1582
+n0371 | die Flucht | 2216
+n0372 | der Flohmarkt | 17816
+n0373 | die Flöte | 12998
+n0374 | der Flug | 1834
+n0375 | der Flughafen | 2171
+n0376 | das Flugzeug | 1300
+n0377 | der Flur | 4081
+n0378 | der Fluss | 1954
+n0379 | die Flüssigkeit | 7430
+n0380 | die Folge | 916
+n0381 | die Forderung | 6756
+n0382 | die Förderung | 25141
+n0383 | die Form | 2049
+n0384 | das Formular | 10427
+n0385 | die Forschung | 5001
+n0386 | die Fortbildung | -
+n0387 | der Fortschritt | 4419
+n0388 | die Fortsetzung | 8859
+n0389 | das Forum | 21545
+n0390 | das Foto | 1064
+n0391 | der Fotoapparat | 28220
+n0392 | der Fotograf | 8623
+n0393 | die Fotografie | 15850
+n0394 | die Frage | 299
+n0395 | die Frau | 153
+n0396 | die Freiheit | 1561
+n0397 | die Freizeit | 7185
+n0398 | die Freude | 1433
+n0399 | der Freund | 260
+n0400 | die Freundschaft | 2432
+n0401 | der Friede | 1207
+n0402 | der Friseur | 7543
+n0403 | die Frisur | 4959
+n0404 | die Frist | 13202
+n0405 | die Frucht | 7502
+n0406 | das Frühstück | 1633
+n0407 | der Führerschein | 4158
+n0408 | die Führung | 3559
+n0409 | das Fundbüro | 36638
+n0410 | der Fuß | 1239
+n0411 | der Fußball | 4872
+n0412 | der Fußgänger | 25227
+n0413 | die Fußgängerzone | -
+n0414 | die Gabel | 9483
+n0415 | die Galerie | 7489
+n0416 | der Gang | 1936
+n0417 | die Garage | 3442
+n0418 | die Garantie | 7934
+n0419 | die Garderobe | 6923
+n0420 | der Garten | 1878
+n0421 | das Gas | 2631
+n0422 | der Gast | 1872
+n0423 | die Gaststätte | -
+n0424 | das Gebäude | 1336
+n0425 | das Gebäck | 14829
+n0426 | das Gebiet | 2438
+n0427 | das Gebirge | 19187
+n0428 | die Gebrauchsanweisung | 38367
+n0429 | die Gebühr | 17611
+n0430 | die Geburt | 2482
+n0431 | der Geburtstag | 1192
+n0432 | das Gedicht | 5075
+n0433 | die Geduld | 2345
+n0434 | die Gefahr | 985
+n0435 | das Gefängnis | 790
+n0436 | das Gefühl | 753
+n0437 | der Gegner | 3272
+n0438 | die Gegend | 1382
+n0439 | der Gegensatz | 4986
+n0440 | der Gegenstand | 8159
+n0441 | das Gegenteil | 2219
+n0442 | das Gehalt | 4997
+n0443 | das Geheimnis | 1242
+n0445 | das Geld | 193
+n0446 | der Geldautomat | 20633
+n0447 | die Gelegenheit | 1644
+n0448 | die Gemeinschaft | 5765
+n0449 | das Gemüse | 4861
+n0450 | die Generation | 4335
+n0451 | das Gepäck | 3448
+n0452 | das Gerät | 2416
+n0453 | das Gericht | 1225
+n0454 | das Geschäft | 878
+n0455 | das Geschenk | 1125
+n0456 | die Geschichte | 496
+n0457 | das Geschirr | 8358
+n0458 | das Geschlecht | 7789
+n0459 | der Geschmack | 2606
+n0460 | die Geschwindigkeit | 4279
+n0461 | die Geschwindigkeitsbeschränkung | -
+n0462 | die Geschwister | 7036
+n0463 | die Gesellschaft | 1325
+n0464 | das Gesetz | 1401
+n0465 | das Gesicht | 571
+n0466 | das Gespräch | 1593
+n0467 | die Gesundheit | 2967
+n0468 | das Getränk | 7525
+n0469 | die Gewalt | 1763
+n0470 | die Gewerkschaft | 8009
+n0471 | das Gewicht | 3742
+n0472 | der Gewinn | 949
+n0473 | das Gewissen | 1784
+n0474 | das Gewitter | 9098
+n0475 | die Gewohnheit | 8828
+n0476 | das Gewürz | 21145
+n0477 | das Gift | 2461
+n0478 | die Gitarre | 5011
+n0479 | das Glas | 1389
+n0480 | das Gleis | 12153
+n0481 | das Glück | 380
+n0482 | der Glückwunsch | 1377
+n0483 | das Gold | 1245
+n0484 | der Gott | 166
+n0485 | die Grafik | 32389
+n0486 | das Gras | 2529
+n0487 | die Gratulation | 10188
+n0488 | die Grenze | 2041
+n0489 | der Grill | 9544
+n0490 | die Grippe | 7746
+n0491 | die Größe | 2257
+n0492 | der Grund | 464
+n0493 | das Grundstück | 4896
+n0494 | die Gruppe | 1471
+n0495 | der Gruß | 4074
+n0496 | die Gymnastik | 26721
+n0497 | das Haar | 1279
+n0498 | das Hackfleisch | 15741
+n0499 | der Hafen | 3345
+n0500 | das Hähnchen | 4634
+n0501 | die Halbpension | -
+n0502 | die Hälfte | 1465
+n0503 | die Halle | 6214
+n0504 | das Hallenbad | -
+n0505 | der Hals | 1328
+n0506 | der Halt | 315
+n0507 | die Haltestelle | 17741
+n0508 | der Hammer | 2801
+n0509 | die Hand | 463
+n0510 | der Handwerker | 11489
+n0511 | der Handel | 4178
+n0512 | der Händler | 7043
+n0513 | das Handy | 899
+n0514 | die Hauptstadt | 6333
+n0515 | der Hauptbahnhof | 31792
+n0516 | das Haus | 255
+n0517 | die Hausaufgabe | 3591
+n0518 | die Hausfrau | 9913
+n0519 | der Haushalt | 8263
+n0520 | der Hausmeister | 6485
+n0521 | die Haut | 1193
+n0522 | das Heft | 12764
+n0523 | das Heim | 1266
+n0524 | die Heimat | 2841
+n0525 | das Heimweh | 12097
+n0526 | die Heizung | 9040
+n0527 | der Held | 1756
+n0528 | die Hilfe | 323
+n0529 | das Hemd | 2548
+n0530 | die Herausforderung | 4342
+n0531 | der Herd | 6305
+n0532 | die Herkunft | 6838
+n0533 | der Herr | 300
+n0534 | der Hersteller | 17489
+n0535 | das Herz | 595
+n0536 | der Himmel | 772
+n0537 | der Hinweis | 3060
+n0538 | die Hitze | 4010
+n0539 | das Hobby | 6515
+n0540 | die Höhe | 3619
+n0541 | die Hochzeit | 1028
+n0542 | der Hof | 2377
+n0543 | der Bauernhof | 14585
+n0544 | die Hoffnung | 1283
+n0545 | das Holz | 2879
+n0546 | der Honig | 6432
+n0547 | der Hörer | 9356
+n0548 | der Zuhörer | 15291
+n0549 | die Hose | 1797
+n0550 | das Hotel | 937
+n0551 | der Hügel | 4288
+n0552 | der Humor | 3584
+n0553 | der Hunger | 1132
+n0554 | der Husten | 5893
+n0555 | der Hut | 1682
+n0556 | die Hütte | 2689
+n0557 | die Idee | 431
+n0558 | der Imbiss | 13738
+n0559 | der Import | 31357
+n0560 | die Industrie | 10018
+n0561 | die Infektion | 6093
+n0562 | die Information | 1038
+n0563 | der Ingenieur | 6770
+n0564 | der Inhalt | 6679
+n0565 | die Insel | 1527
+n0566 | das Inserat | 40084
+n0567 | das Institut | 7406
+n0568 | das Instrument | 9000
+n0569 | die Integration | 28677
+n0570 | die Intelligenz | 5544
+n0571 | der Intensivkurs | -
+n0572 | das Interesse | 1610
+n0573 | das Interview | 4165
+n0574 | die Jacke | 2450
+n0575 | die Jeans | 6852
+n0576 | der Journalist | 7493
+n0577 | die Jugend | 3465
+n0578 | der Jugendliche | 9015
+n0579 | die Jugendliche | 9015
+n0580 | die Jugendherberge | 49801
+n0581 | der Junge | 292
+n0582 | das Kabel | 4883
+n0583 | die Kabine | 6220
+n0584 | der Kaffee | 706
+n0585 | der Kakao | 10139
+n0586 | der Kalender | 7534
+n0587 | die Kälte | 5617
+n0588 | die Kamera | 1371
+n0589 | der Kampf | 855
+n0590 | der Kanal | 4625
+n0591 | der Kandidat | 5834
+n0592 | die Kanne | 15105
+n0593 | die Kantine | 12788
+n0594 | das Kapitel | 3982
+n0595 | die Karotte | 13742
+n0596 | die Karriere | 1968
+n0597 | die Karte | 1208
+n0598 | die Chipkarte | -
+n0600 | die Kartoffel | 5253
+n0601 | der Käse | 2961
+n0602 | die Kasse | 5006
+n0603 | die Kassette | 8635
+n0604 | der Kasten | 6929
+n0605 | der Katalog | 14910
+n0606 | die Katastrophe | 3703
+n0607 | der Kauf | 2847
+n0608 | der Käufer | 5879
+n0609 | der Keller | 1673
+n0610 | der Kellner | 5360
+n0611 | die Kenntnisse | 14753
+n0612 | das Kennzeichen | 6541
+n0613 | die Kerze | 5269
+n0614 | die Kette | 3571
+n0615 | das Kind | 282
+n0616 | der Kindergarten | 8629
+n0617 | die Kindheit | 3357
+n0618 | das Kino | 2305
+n0619 | der Kiosk | 22231
+n0620 | die Kirche | 1185
+n0621 | die Kiste | 2388
+n0622 | das Kissen | 4732
+n0623 | die Klasse | 815
+n0624 | die Klassenarbeit | -
+n0625 | das Klavier | 4058
+n0626 | das Kleid | 1395
+n0627 | die Kleidung | 2528
+n0628 | der Klick | 12016
+n0629 | das Klima | 11650
+n0630 | die Klimaanlage | 8398
+n0631 | die Klingel | 4772
+n0632 | die Klinik | 2795
+n0633 | der Kloß | 42360
+n0634 | die Kneipe | 7604
+n0635 | das Knie | 2001
+n0636 | der Knochen | 2111
+n0637 | der Knödel | 38588
+n0638 | der Knopf | 3824
+n0639 | der Koch | 3701
+n0640 | die Köchin | 8176
+n0641 | der Koffer | 1884
+n0642 | der Kollege | 1989
+n0643 | die Kommunikation | 5411
+n0644 | der Kompromiss | 11444
+n0645 | die Konferenz | 6201
+n0646 | der Konflikt | 8043
+n0647 | der König | 685
+n0648 | die Konkurrenz | 5530
+n0649 | das Konsulat | 12197
+n0650 | der Konsum | 30037
+n0651 | der Kontakt | 1244
+n0652 | das Konto | 3659
+n0653 | das Girokonto | -
+n0654 | die Kontrolle | 1094
+n0655 | das Konzert | 3762
+n0656 | der Kopf | 375
+n0657 | die Kopie | 3612
+n0658 | der Kopierer | 22470
+n0659 | der Körper | 792
+n0660 | die Kosten | 1698
+n0661 | das Kostüm | 4514
+n0662 | die Kraft | 1120
+n0663 | das Kraftfahrzeug | -
+n0664 | das Kraftwerk | 14975
+n0665 | der Kranke | 5027
+n0666 | die Kranke | 5027
+n0667 | das Krankenhaus | 811
+n0668 | die Krankenkasse | 34379
+n0669 | der Krankenpfleger | 27170
+n0670 | die Krankenschwester | 4456
+n0671 | der Krankenwagen | 2815
+n0672 | die Krankheit | 2082
+n0673 | der Kredit | 5186
+n0674 | die Kreditkarte | 5823
+n0675 | der Kreis | 3191
+n0676 | das Kreuz | 3283
+n0677 | die Kreuzung | 8330
+n0678 | der Krieg | 544
+n0679 | die Kriminalpolizei | 16710
+n0680 | der Krimi | 24674
+n0681 | die Krise | 4552
+n0682 | die Kritik | 7979
+n0683 | die Küche | 1341
+n0684 | der Kuchen | 1868
+n0685 | der Kugelschreiber | 19888
+n0686 | der Kuli | 28163
+n0687 | der Kühlschrank | 3320
+n0688 | die Kultur | 4425
+n0689 | der Kunde | 1788
+n0690 | die Kündigung | 9608
+n0691 | die Kunst | 2077
+n0692 | der Künstler | 2918
+n0693 | der Kunststoff | 37292
+n0694 | der Kurs | 1886
+n0695 | der Kursleiter | -
+n0696 | die Kursleiter | -
+n0697 | die Kurve | 7438
+n0698 | der Kuss | 1820
+n0699 | die Küste | 4071
+n0700 | der Laden | 868
+n0701 | die Lage | 1118
+n0702 | das Lager | 1904
+n0703 | die Lampe | 4977
+n0704 | das Land | 512
+n0705 | die Landwirtschaft | 15515
+n0706 | die Landschaft | 8659
+n0707 | die Landung | 6420
+n0708 | die Länge | 9212
+n0709 | die Langeweile | 9700
+n0710 | der Lärm | 3579
+n0711 | der Laster | 4087
+n0712 | das Laufwerk | 42647
+n0713 | die Laune | 3792
+n0714 | der Lautsprecher | 5084
+n0715 | das Leben | 135
+n0716 | der Lebenslauf | 8503
+n0717 | die Lebensmittel | 6942
+n0718 | das Leder | 8796
+n0719 | die Lehre | 6618
+n0720 | die Lehrstelle | -
+n0721 | der Lehrer | 1745
+n0722 | der Lehrling | 15420
+n0723 | die Leistung | 4826
+n0724 | der Leiter | 2845
+n0725 | die Leitung | 2723
+n0726 | die Leiter | 2845
+n0727 | der Lerner | 38477
+n0728 | der Leser | 11731
+n0729 | die Leute | 177
+n0730 | das Lexikon | 19706
+n0731 | das Licht | 770
+n0732 | die Liebe | 188
+n0733 | das Lied | 1518
+n0734 | die Lieferung | 3898
+n0735 | der Lift | 11755
+n0736 | die Limonade | 7665
+n0737 | die Linie | 3277
+n0738 | die Lippe | 2950
+n0739 | die Liste | 1144
+n0740 | die Literatur | 7842
+n0741 | das Loch | 1609
+n0742 | der Löffel | 6236
+n0743 | der Lohn | 4791
+n0744 | das Lokal | 6430
+n0745 | die Lösung | 1668
+n0746 | die Luft | 707
+n0747 | die Lüge | 1134
+n0748 | die Lust | 1259
+n0749 | das Mädchen | 251
+n0750 | das Magazin | 6560
+n0751 | der Magen | 3064
+n0752 | die Mahlzeit | 6036
+n0753 | die Mahnung | 25219
+n0754 | das Mal | 57
+n0755 | der Maler | 7169
+n0756 | der Mangel | 6512
+n0757 | der Mann | 102
+n0758 | die Mannschaft | 4541
+n0759 | der Mantel | 2690
+n0760 | die Mappe | 17900
+n0761 | das Märchen | 4284
+n0762 | die Margarine | 48913
+n0763 | die Marke | 4399
+n0764 | der Markt | 3073
+n0765 | die Marmelade | 10189
+n0766 | die Maschine | 1625
+n0767 | das Material | 3537
+n0768 | die Mauer | 3476
+n0769 | der Mechaniker | 8104
+n0770 | die Medien | 4815
+n0771 | das Medikament | 2682
+n0772 | die Medizin | 2361
+n0773 | das Meer | 1622
+n0774 | das Mehl | 10349
+n0775 | die Mehrheit | 10048
+n0776 | die Mehrwertsteuer | -
+n0777 | die Meinung | 872
+n0778 | der Meister | 940
+n0779 | die Meldung | 5668
+n0780 | die Menge | 653
+n0781 | die Mensa | 46930
+n0782 | der Mensch | 265
+n0783 | das Menü | 13024
+n0784 | die Messe | 6687
+n0785 | das Messer | 1452
+n0786 | das Metall | 5556
+n0787 | die Methode | 4763
+n0788 | die Metropole | 40068
+n0789 | der Metzger | 11310
+n0790 | die Miete | 3143
+n0791 | der Mieter | 10129
+n0792 | der Migrant | -
+n0793 | die Migration | -
+n0794 | die Milch | 2028
+n0795 | die Minderheit | 21616
+n0796 | das Mineralwasser | 17011
+n0797 | der Mitarbeiter | 3227
+n0798 | das Mitglied | 2763
+n0799 | die Mitte | 2480
+n0800 | das Mittel | 2716
+n0801 | das Möbel | 5067
+n0802 | die Mobilbox | -
+n0803 | die Mobilität | -
+n0804 | das Mobiltelefon | 21718
+n0805 | die Mode | 6278
+n0806 | das Modell | 4261
+n0807 | die Möglichkeit | 1297
+n0808 | der Moment | 291
+n0809 | der Mond | 2057
+n0810 | der Monitor | 9464
+n0811 | der Motor | 2367
+n0812 | das Motorrad | 4129
+n0813 | die Mühe | 2107
+n0814 | der Müll | 2476
+n0815 | die Müllabfuhr | 28659
+n0816 | die Mülltonne | 14729
+n0817 | der Mund | 854
+n0818 | die Münze | 5968
+n0819 | das Museum | 3915
+n0820 | die Musik | 295
+n0821 | der Musiker | 5499
+n0822 | die Musikerin | 32864
+n0823 | der Muskel | 5480
+n0824 | das Müsli | 16898
+n0825 | der Mut | 1718
+n0826 | die Mutter | 197
+n0827 | der Nachbar | 2118
+n0828 | die Nachbarin | 6571
+n0829 | die Nachfrage | 8595
+n0830 | die Nachhilfe | 15162
+n0831 | die Nachricht | 773
+n0832 | die Nachspeise | 36551
+n0833 | der Nachteil | 13997
+n0834 | der Nachwuchs | 15639
+n0835 | die Nadel | 5225
+n0836 | der Nagel | 6583
+n0837 | die Nähe | 919
+n0838 | das Nahrungsmittel | 20823
+n0839 | der Name | 373
+n0840 | der Familienname | 8754
+n0841 | der Vorname | 8371
+n0842 | die Nase | 1226
+n0843 | die Natur | 1813
+n0844 | der Nebel | 4602
+n0845 | der Neffe | 5028
+n0846 | der Nerv | 1980
+n0847 | das Netz | 3844
+n0848 | das Netzwerk | 7363
+n0849 | die Neuigkeit | 1616
+n0850 | die Nichte | 4429
+n0851 | der Nichtraucher | 26675
+n0852 | die Notaufnahme | 5245
+n0853 | der Notausgang | 23574
+n0854 | der Notfall | 2554
+n0855 | der Notruf | 5350
+n0856 | die Note | 4970
+n0857 | die Notiz | 5472
+n0858 | die Nudel | 7754
+n0859 | die Nummer | 621
+n0860 | der Ober | 9420
+n0861 | das Obst | 7235
+n0862 | die Öffentlichkeit | 3004
+n0863 | das Ohr | 1647
+n0864 | das Öl | 3904
+n0865 | die Oma | 1662
+n0866 | der Onkel | 740
+n0867 | der Opa | 2021
+n0868 | die Oper | 5603
+n0869 | die Operation | 1705
+n0870 | das Opfer | 791
+n0871 | die Orange | 6022
+n0872 | das Orchester | 9343
+n0873 | der Ordner | 18489
+n0874 | die Ordnung | 240
+n0875 | die Organisation | 3587
+n0876 | das Original | 3596
+n0877 | der Ort | 528
+n0878 | der Vorort | 19937
+n0879 | der Wohnort | 34070
+n0880 | der Ozean | 5340
+n0881 | das Paar | 200
+n0882 | das Paket | 4031
+n0883 | die Panne | 11399
+n0884 | das Papier | 2434
+n0885 | das Parfüm | 7878
+n0886 | der Park | 1574
+n0887 | der Partner | 1016
+n0888 | die Party | 743
+n0889 | der Pass | 648
+n0890 | der Passagier | 5444
+n0891 | der Patient | 1592
+n0892 | die Pause | 1670
+n0893 | das Pech | 2610
+n0894 | die Pension | 7163
+n0895 | die Person | 835
+n0896 | die Personalien | 30870
+n0897 | das Personal | 3925
+n0898 | der Pfeffer | 11186
+n0899 | die Pflanze | 4254
+n0900 | das Pflaster | 10295
+n0901 | die Pflaume | 23594
+n0902 | der Pfleger | 11845
+n0903 | die Pflicht | 1997
+n0905 | das Picknick | 6994
+n0906 | die Pille | 3447
+n0907 | der Pilz | 8951
+n0908 | die Pizza | 2687
+n0909 | das Plakat | 15071
+n0910 | der Plan | 637
+n0911 | die Planung | 11138
+n0912 | das Plastik | 8792
+n0913 | der Platz | 614
+n0914 | die Politik | 2806
+n0915 | der Politiker | 5016
+n0916 | die Polizei | 406
+n0917 | der Polizist | 1614
+n0918 | die Pommes frites | 21001
+n0920 | die Portion | 10326
+n0921 | die Post | 2200
+n0922 | die Postleitzahl | 35817
+n0923 | das Praktikum | 11296
+n0924 | der Praktikant | 20463
+n0925 | die Präsentation | 9643
+n0926 | die Praxis | 4662
+n0927 | die Praxis | 4662
+n0928 | der Preis | 1141
+n0929 | die Presse | 2339
+n0930 | das Problem | 310
+n0931 | das Produkt | 6007
+n0932 | die Produktion | 6645
+n0933 | der Professor | 1224
+n0934 | der Profi | 4559
+n0935 | der Profisportler | -
+n0936 | das Programm | 2114
+n0937 | das Projekt | 2225
+n0938 | der Prospekt | 31286
+n0939 | der Protest | 11395
+n0940 | der Prozess | 2364
+n0941 | die Prüfung | 3706
+n0942 | das Publikum | 2615
+n0943 | der Pullover | 8530
+n0944 | der Punkt | 1183
+n0945 | die Puppe | 3804
+n0946 | die Qualifikation | 26534
+n0947 | die Qualität | 6186
+n0948 | die Quittung | 8970
+n0949 | das Quiz | 27298
+n0950 | der Rabatt | 11811
+n0951 | das Rad | 3838
+n0952 | das Rad | 3838
+n0953 | der Radfahrer | 38730
+n0954 | das Radio | 1943
+n0955 | der Rand | 4369
+n0956 | der Rasen | 5290
+n0957 | der Rat | 1367
+n0958 | das Rätsel | 3605
+n0959 | das Rathaus | 8056
+n0960 | der Raucher | 19820
+n0961 | der Raum | 1062
+n0962 | die Reaktion | 3224
+n0963 | die Realität | 2993
+n0964 | die Recherche | 13290
+n0965 | der Rechner | 16041
+n0966 | die Rechnung | 2275
+n0967 | das Recht | 237
+n0968 | die Rede | 186
+n0969 | das Referat | 22280
+n0970 | die Reform | 25722
+n0971 | das Regal | 8681
+n0972 | die Regel | 979
+n0973 | der Regen | 2163
+n0974 | die Region | 7480
+n0975 | der Reifen | 2985
+n0976 | die Reihe | 1906
+n0977 | die Reihenfolge | 9269
+n0978 | die Reinigung | 7221
+n0979 | der Reis | 5129
+n0980 | die Reise | 1049
+n0981 | das Reisebüro | 19704
+n0982 | die Reklame | 17196
+n0983 | der Rekord | 7711
+n0984 | die Religion | 4413
+n0985 | die Rente | 5429
+n0986 | der Rentner | 18004
+n0987 | die Reparatur | 9917
+n0988 | die Reportage | 20412
+n0989 | der Reporter | 3725
+n0990 | die Reservierung | 12231
+n0991 | der Respekt | 1454
+n0992 | der Rest | 786
+n0993 | das Restaurant | 1810
+n0994 | das Rezept | 4275
+n0995 | die Rezeption | 11127
+n0996 | der Richter | 1339
+n0997 | die Richtung | 1117
+n0998 | das Rind | 11067
+n0999 | der Ring | 1516
+n1000 | das Risiko | 1751
+n1001 | der Rock | 2493
+n1002 | die Rolle | 1024
+n1003 | der Roman | 3116
+n1004 | die Rose | 1726
+n1005 | der Rucksack | 5924
+n1006 | die Rückkehr | 3344
+n1007 | der Rücken | 1150
+n1008 | die Rücksicht | 8510
+n1009 | die Rufnummer | 38207
+n1010 | die Ruhe | 468
+n1011 | die Runde | 1773
+n1012 | die Rundfahrt | 49454
+n1013 | der Saal | 6296
+n1014 | die Sache | 322
+n1015 | der Sack | 2710
+n1016 | der Saft | 4853
+n1017 | die Saison | 5970
+n1018 | der Salat | 4752
+n1019 | die Salbe | 17525
+n1020 | der Salon | 6935
+n1021 | das Salz | 4452
+n1022 | der Sand | 3337
+n1023 | der Sänger | 8053
+n1024 | der Satz | 3546
+n1025 | die Schachtel | 4968
+n1026 | der Schaden | 1566
+n1027 | der Schalter | 6327
+n1028 | der Schatten | 2084
+n1029 | das Schaufenster | 18962
+n1030 | der Schauspieler | 2612
+n1031 | die Scheibe | 6197
+n1032 | die Scheidung | 2885
+n1033 | der Schein | 1994
+n1034 | die Schere | 6974
+n1035 | das Schiff | 682
+n1036 | das Schild | 3311
+n1037 | der Schinken | 6113
+n1038 | der Schirm | 6258
+n1039 | der Schlaf | 1258
+n1040 | die Schlange | 2681
+n1041 | das Schloss | 1681
+n1042 | der Schluss | 889
+n1043 | der Schlüssel | 785
+n1044 | der Schmerz | 1499
+n1045 | das Schmerzmittel | 10848
+n1046 | der Schmuck | 4040
+n1047 | der Schmutz | 8800
+n1048 | der Schnee | 2822
+n1049 | das Schnitzel | 22398
+n1050 | der Schnupfen | 16134
+n1051 | die Schokolade | 3430
+n1052 | der Schreck | 9946
+n1053 | das Schreiben | 797
+n1054 | die Schrift | 7206
+n1055 | der Schriftsteller | 5048
+n1056 | der Schritt | 1406
+n1057 | der Schuh | 1375
+n1058 | die Schuld | 519
+n1059 | die Schulden | 2038
+n1060 | die Schule | 559
+n1061 | der Schüler | 2250
+n1062 | die Schulter | 2932
+n1063 | die Schüssel | 7285
+n1064 | der Schutz | 2007
+n1065 | die Schwangerschaft | 7101
+n1066 | die Schwester | 432
+n1067 | die Schwierigkeit | 1464
+n1068 | das Schwimmbad | 15433
+n1069 | der See | 1597
+n1070 | die See | 1597
+n1072 | die Sehenswürdigkeit | 23531
+n1073 | die Seife | 6304
+n1074 | die Seite | 533
+n1075 | der Sekretär | 9821
+n1076 | das Semester | 8610
+n1077 | das Seminar | 10772
+n1078 | der Sender | 3865
+n1079 | die Sendung | 2670
+n1080 | die Senioren | 23908
+n1081 | die Serie | 3071
+n1082 | der Service | 5038
+n1084 | die Sicherheit | 851
+n1085 | der Sieg | 2065
+n1086 | der Sieger | 4869
+n1087 | der Sinn | 818
+n1088 | die Situation | 1351
+n1089 | der Sitz | 781
+n1090 | der Ski | 11374
+n1091 | die Socke | 4757
+n1092 | das Sofa | 4838
+n1093 | der Sohn | 311
+n1094 | das Sonderangebot | 22932
+n1095 | die Sonne | 1218
+n1096 | die Sorge | 425
+n1097 | die Soße | 7375
+n1098 | das Souvenir | 13617
+n1099 | der Sozialarbeiter | 19695
+n1100 | der Spaß | 517
+n1101 | der Spaziergang | 4801
+n1102 | die Speisekarte | 12889
+n1103 | der Speisewagen | 31931
+n1104 | der Spezialist | 11037
+n1105 | der Spiegel | 2502
+n1106 | das Spiel | 456
+n1107 | der Spieler | 3293
+n1108 | der Spielplatz | 11831
+n1109 | das Spielzeug | 4011
+n1110 | der Sport | 3251
+n1111 | die Sportart | 32818
+n1112 | der Sportler | 11369
+n1113 | die Sprache | 1979
+n1114 | die Fremdsprache | 20499
+n1115 | die Muttersprache | 31914
+n1116 | die Zweitsprache | -
+n1117 | die Sprechstunde | 23645
+n1118 | die Spritze | 5484
+n1119 | die Spur | 1423
+n1120 | das Stadion | 9558
+n1121 | die Stadt | 369
+n1122 | der Stadtplan | 38164
+n1123 | der Standpunkt | 7074
+n1124 | der Star | 2188
+n1125 | der Start | 3333
+n1126 | die Station | 2542
+n1127 | die Statistik | 16385
+n1128 | der Stau | 11191
+n1129 | der Staub | 3264
+n1130 | die Steckdose | 28129
+n1131 | der Stecker | 12177
+n1132 | der Stein | 1795
+n1133 | die Stelle | 580
+n1134 | der Stempel | 14250
+n1135 | der Stern | 2906
+n1136 | die Steuer | 3296
+n1137 | der Steward | 21386
+n1138 | die Stewardess | 15644
+n1139 | der Stift | 4164
+n1140 | der Stil | 3129
+n1141 | der Stiefel | 4004
+n1142 | die Stimme | 848
+n1143 | die Stimmung | 2913
+n1144 | das Stockwerk | 10084
+n1145 | der Stoff | 2733
+n1146 | die Störung | 3200
+n1147 | die Strafe | 2519
+n1148 | der Strafzettel | 8475
+n1149 | der Strand | 1910
+n1150 | die Straße | 732
+n1152 | die Strecke | 4063
+n1153 | das Streichholz | 10530
+n1154 | der Streik | 9563
+n1155 | der Streit | 1819
+n1156 | der Stress | 2905
+n1157 | der Strom | 2576
+n1158 | der Strumpf | 12968
+n1159 | das Stück | 763
+n1160 | die Studie | 6865
+n1161 | der Student | 4115
+n1162 | der Studierende | -
+n1163 | die Studierende | -
+n1164 | das Studium | 5821
+n1165 | das Studio | 3590
+n1166 | die Stufe | 4796
+n1167 | der Stuhl | 2128
+n1168 | die Stunde | 471
+n1169 | der Sturm | 2632
+n1170 | die Sucht | 1089
+n1171 | das Suchtmittel | -
+n1172 | die Summe | 4575
+n1173 | der Supermarkt | 6135
+n1174 | die Suppe | 3171
+n1175 | das Symbol | 4457
+n1176 | das System | 1722
+n1177 | die Szene | 1992
+n1178 | die Tabelle | 31920
+n1179 | die Tablette | 4942
+n1180 | die Tafel | 6009
+n1181 | der Tagesablauf | 34299
+n1182 | das Tal | 4355
+n1183 | das Talent | 2587
+n1184 | die Tankstelle | 5951
+n1185 | die Tante | 1163
+n1186 | der Tanz | 2309
+n1187 | die Tasche | 1127
+n1188 | das Taschengeld | 12221
+n1189 | das Taschentuch | 8318
+n1190 | die Tasse | 3059
+n1191 | die Tastatur | 19144
+n1192 | die Taste | 16440
+n1193 | die Tat | 680
+n1194 | der Täter | 2598
+n1195 | die Tätigkeit | 16416
+n1196 | die Tatsache | 2086
+n1197 | die Technik | 3490
+n1198 | die Technologie | 3686
+n1199 | der Tee | 1306
+n1200 | das Teil | 576
+n1201 | der Teil | 576
+n1202 | die Teilzeit | 26602
+n1203 | die Teilnahme | 16834
+n1204 | der Teilnehmer | 9698
+n1205 | das Telefon | 633
+n1206 | der Teller | 3595
+n1207 | die Temperatur | 5584
+n1208 | das Tempo | 4347
+n1209 | das Tennis | 8326
+n1210 | der Teppich | 4176
+n1211 | der Termin | 1935
+n1212 | der Terminkalender | 16594
+n1213 | die Terrasse | 9816
+n1214 | der Test | 1961
+n1215 | der Text | 3258
+n1216 | das Theater | 2162
+n1217 | das Thema | 1731
+n1218 | die Theorie | 2552
+n1219 | die Therapie | 3934
+n1220 | das Ticket | 5085
+n1221 | das Tier | 1560
+n1222 | das Haustier | 9736
+n1223 | der Tierpark | -
+n1224 | der Tipp | 3671
+n1225 | der Tisch | 926
+n1226 | der Titel | 3128
+n1227 | die Tochter | 429
+n1228 | der Tod | 470
+n1229 | die Toilette | 2139
+n1230 | die Tomate | 7596
+n1231 | der Topf | 7941
+n1232 | das Tor | 1768
+n1233 | die Torte | 6100
+n1234 | der Tote | 1233
+n1235 | die Tote | 1233
+n1236 | der Tourismus | 29813
+n1237 | der Tourist | 6848
+n1238 | die Tradition | 4215
+n1239 | der Trainer | 4181
+n1240 | das Training | 3165
+n1241 | die Träne | 2832
+n1242 | der Transport | 5745
+n1243 | der Traum | 976
+n1244 | der Treffpunkt | 7205
+n1245 | die Trennung | 5083
+n1246 | die Treppe | 2672
+n1247 | das Treppenhaus | 12134
+n1248 | das Trinkgeld | 5248
+n1249 | die Tropfen | 4467
+n1251 | das Tuch | 7640
+n1252 | die Tür | 401
+n1253 | der Turm | 4899
+n1254 | die Tüte | 5381
+n1255 | der Typ | 565
+n1257 | die Übung | 3809
+n1258 | die Übernachtung | 30449
+n1259 | die Überraschung | 1241
+n1260 | die Überschrift | 31449
+n1261 | der Übersetzer | 20004
+n1262 | die Übersetzung | 2076
+n1263 | die Überstunde | 7538
+n1264 | die Überweisung | 17737
+n1265 | die Überzeugung | 9032
+n1266 | das Ufer | 6174
+n1267 | die Uhr | 368
+n1268 | die Umfrage | 18364
+n1269 | die Umgebung | 3849
+n1270 | die Umleitung | 31245
+n1271 | der Umtausch | -
+n1272 | die Umwelt | 9150
+n1273 | der Umweltschutz | 42853
+n1274 | die Umweltverschmutzung | 33845
+n1275 | der Umzug | 8734
+n1276 | der Unfall | 1092
+n1277 | das Unglück | 3217
+n1278 | die Uniform | 2964
+n1279 | die Universität | 3698
+n1280 | die Unterhaltung | 2712
+n1281 | die Unterkunft | 7629
+n1282 | die Unterlagen | 3568
+n1283 | der Unternehmer | 15372
+n1284 | der Unterricht | 2944
+n1285 | der Unterschied | 1598
+n1286 | die Unterschrift | 4415
+n1287 | die Unterstützung | 2273
+n1288 | die Untersuchung | 2397
+n1289 | die Urkunde | 15442
+n1290 | der Urlaub | 1735
+n1291 | die Ursache | 3102
+n1292 | das Urteil | 2923
+n1293 | die Vase | 9986
+n1294 | der Vater | 178
+n1295 | die Verabredung | 3302
+n1296 | der Abschied | 4375
+n1297 | die Veranstaltung | 8666
+n1298 | die Verantwortung | 1680
+n1299 | das Verbot | 2091
+n1300 | die Verbindung | 1115
+n1301 | der Verbrecher | 3006
+n1302 | der Verdacht | 3028
+n1303 | der Verein | 8785
+n1304 | die Vergangenheit | 1301
+n1305 | der Vergleich | 3767
+n1306 | das Vergnügen | 1343
+n1307 | das Verhalten | 1608
+n1308 | das Verhältnis | 4756
+n1309 | der Verkäufer | 7435
+n1310 | der Verkehr | 4333
+n1311 | das Verkehrsmittel | 40741
+n1312 | der Verlag | 14461
+n1313 | die Verletzung | 4647
+n1314 | der Verlierer | 4553
+n1315 | der Verlust | 2927
+n1316 | der Vermieter | 10647
+n1317 | die Vermietung | -
+n1318 | die Vermittlung | 9646
+n1319 | die Versammlung | 6286
+n1320 | die Versichertenkarte | -
+n1321 | die Versicherung | 3710
+n1322 | die Verspätung | 4521
+n1323 | das Verständnis | 4242
+n1324 | der Versuch | 800
+n1325 | der Vertrag | 1946
+n1326 | das Vertrauen | 747
+n1327 | der Vertreter | 6459
+n1328 | die Vertretung | 15040
+n1329 | die Verwaltung | 9346
+n1330 | der Verwandte | 5246
+n1331 | die Verwandte | 5246
+n1332 | das Video | 2015
+n1333 | das Viertel | 3115
+n1334 | der Virus | 2752
+n1335 | die Visitenkarte | 13277
+n1336 | das Visum | 14453
+n1337 | das Vitamin | 12406
+n1338 | die Vollzeit | 21424
+n1339 | die Voraussetzung | 18430
+n1340 | die Vorbereitung | 8549
+n1341 | die Vorfahrt | 36681
+n1343 | der Vorschlag | 2459
+n1344 | die Vorschrift | 5042
+n1345 | die Vorsicht | 1107
+n1346 | die Vorstellung | 2269
+n1347 | das Vorstellungsgespräch | 10079
+n1348 | der Vorteil | 3175
+n1349 | der Vortrag | 6949
+n1350 | die Vorwahl | 21662
+n1351 | der Vorwurf | 5742
+n1352 | der Wagen | 514
+n1353 | die Wahl | 746
+n1354 | die Wahrheit | 501
+n1355 | der Wald | 1383
+n1356 | die Wand | 1604
+n1357 | die Wanderung | 23077
+n1358 | die Ware | 172
+n1359 | die Wärme | 6558
+n1360 | die Wäsche | 3604
+n1361 | das Waschmittel | 33748
+n1362 | das Wasser | 491
+n1363 | der Wecker | 8137
+n1364 | der Weg | 129
+n1365 | der Wein | 1248
+n1366 | die Weiterbildung | -
+n1367 | die Welt | 270
+n1368 | die Werbung | 4171
+n1369 | das Werk | 2849
+n1370 | die Werkstatt | 4858
+n1371 | das Werkzeug | 5026
+n1372 | der Wert | 728
+n1373 | der Wettbewerb | 4867
+n1374 | das Wetter | 2508
+n1375 | der Wetterbericht | 18685
+n1376 | die Wettervorhersage | 35439
+n1377 | die Wiederholung | 14569
+n1378 | die Wiese | 11171
+n1379 | der Wind | 1599
+n1380 | die Wirkung | 3930
+n1381 | die Wirklichkeit | 3189
+n1382 | der Wirt | 6928
+n1383 | die Wirtschaft | 6297
+n1384 | das Wissen | 119
+n1385 | die Wissenschaft | 3101
+n1386 | der Wissenschaftler | 3222
+n1387 | der Witz | 1142
+n1389 | der Wohnsitz | 19615
+n1390 | die Wohnung | 808
+n1391 | das Wohnzimmer | 3990
+n1392 | die Wolke | 5107
+n1393 | die Wolle | 4014
+n1394 | das Wort | 561
+n1395 | das Wort | 561
+n1396 | das Wörterbuch | 16432
+n1397 | die Wunde | 3276
+n1398 | das Wunder | 1166
+n1399 | der Wunsch | 1505
+n1400 | die Wurst | 8188
+n1401 | die Zahl | 1001
+n1402 | die Anzahl | 5906
+n1403 | die Zahlung | 12247
+n1404 | der Zahn | 2156
+n1405 | die Zahncreme | 16029
+n1406 | die Zange | 13528
+n1407 | das Zeichen | 1338
+n1408 | das Verkehrszeichen | -
+n1409 | die Zeichnung | 8406
+n1410 | die Zeile | 9170
+n1411 | die Zeit | 137
+n1412 | der Zeitpunkt | 1653
+n1413 | die Zeitschrift | 8291
+n1414 | die Zeitung | 1587
+n1415 | das Zelt | 4529
+n1416 | das Zentrum | 4676
+n1417 | das Zertifikat | 37524
+n1418 | der Zettel | 4803
+n1419 | das Zeug | 859
+n1420 | der Zeuge | 1790
+n1421 | das Zeugnis | 10483
+n1422 | das Ziel | 993
+n1423 | die Zigarette | 3209
+n1424 | das Zimmer | 513
+n1425 | die Zinsen | 8719
+n1426 | der Zirkus | 4271
+n1427 | die Zitrone | 10205
+n1428 | der Zoll | 7479
+n1429 | die Zone | 4018
+n1430 | der Zoo | 5074
+n1431 | der Zucker | 3048
+n1432 | der Zufall | 1877
+n1433 | der Zugang | 2318
+n1434 | der Zug | 1072
+n1435 | das Zuhause | 1046
+n1437 | die Zukunft | 767
+n1438 | die Zusammenarbeit | 6392
+n1439 | der Zusammenhang | 5209
+n1440 | der Zuschauer | 4486
+n1441 | der Zuschlag | 31009
+n1442 | der Zustand | 1870
+n1443 | die Zustimmung | 6775
+n1444 | die Zutaten | 11040
+n1445 | der Zweck | 2863
+n1446 | der Zweifel | 1977
+n1447 | die Zwiebel | 8570
+x1448 | die Freundin | 543
+x1449 | die Lehrerin | 3322
+x1450 | die Kollegin | 6519
+x1451 | die Chefin | 6221
+x1452 | die Kellnerin | 6501
+x1453 | die Studentin | 9050
+x1454 | die Verkäuferin | 15916
+x1455 | der Fisch | 1863
+x1456 | der Computer | 1231
+x1457 | das Passwort | 5869
+x1458 | der Schreibtisch | 3030
+x1459 | die Grammatik | 24969
+x1460 | das Missverständnis | 4127
+x1461 | die E-Mail | 5072
+x1462 | die Telefonnummer | 4812
+x1463 | das Treffen | 415
+x1464 | die Uni | 3461
+x1465 | die Ferien | 4046
+x1466 | der Hund | 676
+x1467 | die Katze | 1772
+x1468 | das Deutsch | 4784
+x1469 | die Türkei | 12182
+x1470 | der Tag | 184
+x1471 | die Woche | 502
+x1472 | das Jahr | 308
+x1473 | der Monat | 901
+x1474 | das Wochenende | 1486
+x1475 | der Morgen | 176
+x1476 | der Abend | 254
+x1477 | das Rauchen | 2126
+x1478 | das Frühjahr | 11469
+x1479 | die Aussage | 2148
+x1480 | das Taxi | 1595
+x1481 | das Portemonnaie | 11141
+x1482 | der Präsident | 1281
+x1483 | der Dozent | 27458
+x1484 | der Kommilitone | 44585
+x1485 | der Assistent | 5705
+x1486 | der Soldat | 1349
+x1487 | der Pilot | 3886
+x1488 | der Psychologe | 13190
+x1489 | der Biologe | 49296
+x1490 | der Affe | 3355
+x1491 | der Hase | 6794
+x1492 | der Löwe | 4249
+x1493 | der Bär | 3525
+x1494 | der Elefant | 5255
+x1495 | der Türke | 10864
+x1496 | der Franzose | 3811
+x1497 | der Grieche | 9829
+x1498 | der Russe | 3017
+x1499 | der Pole | 6158
+x1500 | der Chinese | 4293
+x1501 | die Clique | 19641
+x1502 | die Harmonie | 11269
+x1503 | die Erwartung | 7429
+x1504 | die Behauptung | 15691
+x1505 | der Ehegatte | 48911
+x1506 | die Ehegattin | -
+x1507 | der Feind | 1536
+x1508 | die Feindin | 30193
+x1509 | die Beute | 3991
+x1510 | die Ente | 5655
+x1511 | die Fliege | 881
+x1512 | der Fuchs | 5116
+x1513 | die Giraffe | 18652
+x1514 | der Hirsch | 10307
+x1515 | das Krokodil | 13106
+x1516 | die Mücke | 14454
+x1517 | der Pinguin | 12957
+x1518 | der Rabe | 15513
+x1519 | die Schildkröte | 8901
+x1520 | die Schlagzeile | 9605
+x1521 | die Gegenwart | 4111
+x1522 | die Konzentration | 7212
+x1523 | das Gehirn | 1715
+x1524 | der Geist | 1145
+x1525 | die Hauptmahlzeit | -
+x1526 | der Pfannkuchen | 6793
+x1527 | der Schweinebraten | 37508
+x1528 | das Steak | 5482
+x1529 | die Heilung | 7129
+x1530 | der Klinikaufenthalt | -
+x1531 | die Besuchszeit | 20707
+x1532 | der Haupteingang | 18930
+x1533 | der Bademantel | 13498
+x1534 | der Hausschuh | 24214
+x1535 | der Schlafanzug | 15301
+x1536 | die Zahnpasta | 16029
+x1537 | der Alarmknopf | -
+x1538 | das Festnetz | 24386
+x1539 | der Klang | 2802
+x1540 | der Jazz | 9325
+x1541 | die Klassik | 42229
+x1542 | die Forscherin | 45983
+x1543 | die Beerdigung | 2475
+x1544 | der Moderator | 16339
+x1545 | die Motivation | 12544
+x1546 | der Staat | 2541
+x1547 | die Toleranz | 17691
+x1548 | die Fairness | 22887
+x1549 | die Ehrlichkeit | 6807
+x1550 | die Gerechtigkeit | 2350
+x1551 | die Gleichberechtigung | 23516
+x1552 | die Hilfsbereitschaft | -
+x1553 | die Zivilcourage | -
+x1554 | die Solidarität | 19342
+x1555 | die Würde | 130
+x1556 | die Bildung | 7794
+x1557 | das Vorurteil | 11802
+x1558 | das Zusammenleben | 10981
+x1559 | der Umgang | 7399
+x1560 | das Bedürfnis | 7387
+x1561 | die Not | 3216
+x1562 | das Ehrenamt | -
+x1563 | der Feuerwehrmann | 12681
+x1564 | das Hochwasser | 39398
+x1565 | das Vereinsmitglied | -
+x1566 | die Patenschaft | -
+x1567 | der Pate | 12513
+x1568 | das Vorhaben | 4424
+x1569 | der Behördengang | -
+x1570 | das Einwohnermeldeamt | -
+x1571 | die Anfrage | 11234
+x1572 | der Dolmetscher | 16818
+x1573 | die Demokratie | 6881
+x1574 | die Meinungsfreiheit | 43251
+x1575 | die Regierung | 1247
+x1576 | der Bundestag | -
+x1577 | der Bundeskanzler | 47506
+x1578 | der Minister | 2580
+x1579 | der Bürgermeister | 1952
+x1580 | die Bürgerversammlung | -
+x1581 | der Mitgliedsstaat | -
+x1582 | die Währung | 16873
+x1583 | die Grenzkontrolle | -
+x1584 | der Weltkrieg | 6398
+x1585 | der Frieden | 1207
+x1586 | der Ausstieg | 25407
+x1587 | die Dienstleistung | 36085
+x1588 | die Brezel | 29782
+x1589 | die Semmel | 39488
+x1590 | der Quark | 10213
+x1591 | die Schlagsahne | 20914
+x1592 | die Konfitüre | 37884
+x1593 | die Aprikose | 40642
+v001 | abbiegen | 11403
+v002 | abfahren | 5902
+v003 | abgeben | 3726
+v004 | abhängen von | 6076
+v005 | abheben | 10659
+v006 | abholen | 1987
+v007 | abschreiben | 17173
+v008 | ablehnen | 3388
+v009 | abmachen | 2853
+v010 | abnehmen | 3954
+v011 | abonnieren | 43025
+v012 | absagen | 5302
+v013 | abstimmen über | 10316
+v014 | abwaschen | 15281
+v015 | achten auf | 2954
+v016 | akzeptieren | 2378
+v017 | sich amüsieren | 3936
+v018 | analysieren | 7849
+v019 | anbieten | 2937
+v020 | ändern | 821
+v021 | anerkennen | 12860
+v022 | anfangen mit | 933
+v023 | angeben | 9615
+v024 | anhaben | 9315
+v025 | anklicken | -
+v026 | ankommen | 2464
+v027 | ankommen auf | 2464
+v028 | ankündigen | 12272
+v029 | sich anmelden | 9033
+v030 | sich anmelden für | 9033
+v031 | annehmen | 2140
+v032 | anrufen | 780
+v033 | anschaffen | 17918
+v034 | anschließen | 5918
+v035 | sich anschnallen | 12997
+v036 | sich(D) ansehen | 1044
+v037 | ansprechen | 8481
+v038 | anstellen | 3164
+v039 | sich anstrengen | 10414
+v040 | anwenden | 10082
+v041 | antworten | 1280
+v042 | antworten auf | 1280
+v043 | anzeigen | 3496
+v044 | anziehen | 2381
+v045 | sich anziehen | 2381
+v046 | arbeiten | 419
+v047 | arbeiten an | 419
+v048 | ärgern | 5528
+v049 | sich ärgern über | 5528
+v050 | atmen | 1796
+v051 | auffallen | 2915
+v052 | auffordern zu | 14458
+v053 | aufführen | 10765
+v054 | aufgeben | 1896
+v055 | aufhalten | 1311
+v056 | aufheben | 4692
+v057 | aufhören mit | 715
+v058 | aufladen | 12277
+v059 | auflösen | 6630
+v060 | aufnehmen | 2395
+v061 | aufpassen auf | 1637
+v062 | aufräumen | 5606
+v063 | sich aufregen über | 2205
+v064 | aufstehen | 2023
+v065 | auftreten | 3271
+v066 | aufwachen | 2962
+v067 | ausdrucken | 27873
+v068 | ausfallen | 6822
+v069 | ausfüllen | 10066
+v070 | ausgeben für | 4628
+v071 | ausgehen | 2133
+v072 | ausmachen | 4274
+v073 | ausreichen | 12193
+v074 | ausrichten | 4337
+v075 | sich ausruhen | 3211
+v076 | ausschließen | 4689
+v077 | aussehen | 1173
+v078 | aussprechen | 5613
+v079 | ausstellen | 9159
+v080 | sich(D) aussuchen | 3622
+v081 | auswählen | 5046
+v082 | ausziehen | 3109
+v083 | sich ausziehen | 3109
+v084 | backen | 6931
+v085 | baden | 4910
+v086 | basteln | 15987
+v087 | bauen | 1539
+v088 | beachten | 7963
+v089 | beantragen | 11389
+v090 | beantworten | 2465
+v091 | sich bedanken bei für | 3884
+v092 | bedeuten | 499
+v093 | bedienen | 5012
+v094 | sich beeilen | 2000
+v095 | beenden | 1568
+v096 | sich befinden | 2511
+v097 | begegnen | 2618
+v098 | beginnen mit | 1410
+v099 | begleiten | 2177
+v100 | begründen | 21632
+v101 | begrüßen | 3553
+v102 | behalten | 918
+v103 | behandeln | 1804
+v104 | behaupten | 2691
+v105 | behindern | 8296
+v106 | beißen | 4211
+v107 | bekannt geben | 1090
+v108 | bekommen | 374
+v109 | beleidigen | 3823
+v110 | bemerken | 1940
+v111 | sich bemühen um | 6737
+v112 | benötigen | 4376
+v113 | benutzen | 994
+v114 | beobachten | 2157
+v115 | beraten | 7292
+v116 | berechnen | 11149
+v117 | berichten über | 3022
+v118 | beruhigen | 1835
+v119 | sich beruhigen | 1835
+v120 | beschädigen | 4895
+v121 | sich beschäftigen mit | 1230
+v122 | beschließen | 2887
+v123 | beschreiben | 3621
+v124 | sich beschweren über | 6002
+v125 | sich beschweren bei | 6002
+v126 | besetzen | 4623
+v127 | besichtigen | 16501
+v128 | besitzen | 3075
+v129 | besorgen | 1340
+v130 | besprechen | 1905
+v131 | bestätigen | 2630
+v132 | bestehen | 1584
+v133 | bestehen aus | 1584
+v134 | bestellen | 2451
+v135 | bestrafen | 3190
+v136 | besuchen | 1330
+v137 | sich beteiligen an | 3851
+v138 | betreuen | 19172
+v139 | betrügen | 2619
+v140 | bewegen | 1278
+v141 | sich bewegen | 1278
+v142 | beweisen | 1077
+v143 | sich bewerben um | 12338
+v144 | sich bewerben bei | 12338
+v145 | bezahlen | 951
+v146 | bieten | 2119
+v147 | bitten um | 88
+v148 | bleiben | 268
+v149 | blitzen | 15780
+v150 | blühen | 12278
+v151 | bluten | 6000
+v152 | braten | 7121
+v153 | brauchen | 289
+v154 | brechen | 1651
+v155 | bremsen | 5352
+v156 | brennen | 2389
+v157 | bringen | 285
+v158 | buchen | 7576
+v159 | buchstabieren | 14221
+v160 | danken | 98
+v161 | danken für | 98
+v162 | darstellen | 8738
+v163 | dauern | 1084
+v164 | dekorieren | 21613
+v165 | denken | 203
+v166 | denken an | 203
+v167 | dienen | 1948
+v168 | diskutieren über | 4138
+v169 | donnern | 13710
+v170 | drehen | 1479
+v171 | drucken | 8313
+v172 | drücken | 2356
+v173 | dürfen | 277
+v174 | duschen | 3226
+v175 | sich duschen | 3226
+v176 | duzen | 18857
+v177 | sich eignen für | 6243
+v178 | eilen | 3507
+v179 | einbrechen | 5175
+v180 | einfallen | 3542
+v181 | beeinflussen | 5519
+v182 | einfügen | 26718
+v183 | einführen | 13473
+v184 | sich einigen auf | 586
+v185 | einkaufen | 3282
+v186 | einladen zu | 1565
+v187 | einnehmen | 5867
+v188 | einpacken | 8721
+v189 | einrichten | 7695
+v190 | einschalten | 7724
+v191 | einsetzen | 4250
+v192 | einsteigen | 4248
+v193 | einstellen | 3487
+v194 | eintragen | 11927
+v195 | eintreten | 6773
+v196 | einzahlen | 26872
+v197 | einziehen | 5947
+v198 | empfangen | 2862
+v199 | empfehlen | 5291
+v200 | enden | 386
+v201 | entdecken | 1841
+v202 | entfernen | 1252
+v203 | enthalten | 5280
+v204 | entlassen | 1985
+v205 | entscheiden | 1288
+v206 | sich entscheiden für | 1288
+v207 | sich entschließen zu | 4030
+v208 | entschuldigen | 550
+v209 | sich entschuldigen bei für | 550
+v210 | entsorgen | 13610
+v211 | entstehen | 7125
+v212 | enttäuschen | 2102
+v213 | entwickeln | 2574
+v214 | sich ereignen | 16518
+v215 | erfahren von | 822
+v216 | erfinden | 2821
+v217 | erfordern | 5531
+v218 | erfüllen | 2708
+v219 | ergänzen | 24849
+v220 | erhalten | 1334
+v221 | erhöhen | 5170
+v222 | sich erholen von | 5998
+v223 | erinnern an | 697
+v224 | sich erinnern an | 697
+v225 | sich erkälten | 11616
+v226 | erkennen | 1388
+v227 | erklären | 744
+v228 | sich erkundigen nach | 13261
+v229 | erlauben | 1826
+v230 | erleben | 2180
+v231 | erledigen | 1039
+v232 | erleichtern | 4797
+v233 | sich ernähren | 6348
+v234 | eröffnen | 4831
+v235 | erreichen | 1182
+v236 | erschrecken | 2857
+v237 | ersetzen | 4000
+v238 | erstellen | 8939
+v239 | erwarten | 845
+v240 | erzählen von | 484
+v241 | erziehen | 6253
+v242 | essen | 266
+v243 | fahren | 372
+v244 | fallen | 516
+v245 | fangen | 981
+v246 | fassen | 1621
+v247 | faulenzen | 32098
+v248 | fehlen | 1106
+v249 | feiern | 1350
+v250 | fernsehen | 1504
+v251 | festhalten | 2642
+v252 | festlegen | 12105
+v253 | festnehmen | 4582
+v254 | festsetzen | 25732
+v255 | feststehen | 35412
+v256 | feststellen | 5731
+v257 | finanzieren | 9237
+v258 | finden | 220
+v259 | fliegen | 881
+v260 | fliehen | 2430
+v261 | fließen | 5447
+v262 | folgen | 916
+v263 | fordern | 5389
+v264 | fördern | 11895
+v265 | fortsetzen | 8434
+v266 | fotografieren | 6731
+v267 | fragen | 299
+v268 | fragen nach | 299
+v269 | fressen | 2730
+v270 | sich freuen auf | 1080
+v271 | sich freuen über | 1080
+v272 | frieren | 13031
+v273 | frühstücken | 6411
+v274 | sich fühlen | 725
+v275 | fühlen | 725
+v276 | führen | 869
+v277 | funktionieren | 687
+v278 | sich fürchten vor | 1159
+v279 | füttern | 4876
+v280 | garantieren | 3969
+v281 | geben | 117
+v282 | gebrauchen | 2026
+v283 | gefallen | 516
+v284 | gehen | 81
+v285 | gehören | 210
+v286 | gehören zu | 210
+v287 | gelingen | 4764
+v288 | gelten | 1755
+v289 | genehmigen | 7908
+v290 | genießen | 2151
+v291 | genügen | 3772
+v292 | geschehen | 877
+v293 | gewinnen | 949
+v294 | sich gewöhnen an | 2947
+v295 | gießen | 12444
+v296 | glauben | 180
+v297 | glauben an | 180
+v298 | gratulieren zu | 2939
+v299 | greifen | 1975
+v300 | grillen | 8658
+v301 | gründen | 2518
+v302 | grüßen | 4074
+v303 | gucken | 2515
+v304 | haben | 28
+v305 | hageln | -
+v306 | halten | 331
+v307 | halten von | 331
+v308 | handeln von | 2071
+v309 | hängen | 1432
+v310 | hassen | 863
+v311 | heben | 3700
+v312 | heiraten | 734
+v313 | heißen | 302
+v314 | heizen | 22762
+v315 | helfen | 218
+v316 | helfen bei | 218
+v317 | herstellen | 5386
+v318 | hinterlassen | 1783
+v319 | hinweisen auf | 3870
+v320 | hochladen | 21710
+v321 | hoffen auf | 472
+v322 | holen | 498
+v323 | hören | 210
+v324 | hupen | 5307
+v325 | husten | 4707
+v326 | informieren über | 3046
+v327 | sich informieren über | 3046
+v328 | installieren | 9831
+v329 | integrieren | 25924
+v330 | sich interessieren für | 757
+v331 | sich irren | 1671
+v332 | kämpfen für | 855
+v333 | kaufen | 754
+v334 | kennen | 353
+v335 | kennenlernen | 2051
+v336 | klagen über | 4952
+v337 | klappen | 1019
+v338 | klären | 2550
+v339 | kleben | 8206
+v340 | klettern | 6387
+v341 | klicken | 10669
+v342 | klingeln | 1500
+v343 | klingen | 613
+v344 | klopfen | 2103
+v345 | kochen | 2035
+v346 | kommen | 140
+v347 | können | 51
+v348 | konsumieren | 31856
+v349 | kontrollieren | 2110
+v350 | sich konzentrieren auf | 2184
+v351 | korrigieren | 5326
+v352 | kosten | 1554
+v353 | kriegen | 590
+v354 | kritisieren | 12436
+v355 | sich kümmern um | 777
+v356 | kündigen | 5258
+v357 | küssen | 1820
+v358 | lächeln | 1683
+v359 | lachen über | 840
+v360 | landen | 2392
+v361 | sich langweilen | 7540
+v362 | lassen | 163
+v363 | laufen | 485
+v364 | leben | 135
+v365 | legen | 1003
+v366 | leiden unter | 1594
+v367 | leihen | 3778
+v368 | sich(D) leisten | 1456
+v369 | leiten | 3239
+v370 | lernen | 689
+v371 | lesen | 534
+v372 | lieben | 188
+v373 | liefern | 3009
+v374 | liegen | 445
+v375 | loben | 8476
+v376 | sich lohnen | 4283
+v377 | losfahren | 10602
+v378 | löschen | 4204
+v379 | lösen | 1973
+v380 | lügen | 1134
+v381 | machen | 97
+v382 | malen | 3704
+v383 | markieren | 8089
+v384 | meinen | 62
+v385 | sich melden bei | 1426
+v386 | sich(D) merken | 2060
+v387 | messen | 6687
+v388 | mieten | 3143
+v389 | mischen | 6332
+v390 | mitteilen | 4226
+v391 | möchten | 211
+v392 | mögen | 360
+v393 | müssen | 77
+v394 | nachdenken über | 1589
+v395 | nachschlagen | 28292
+v396 | nähen | 919
+v397 | sich nähern | 3940
+v398 | nehmen | 281
+v399 | nennen | 692
+v400 | nutzen | 1676
+v401 | nützen | 4724
+v402 | veröffentlichen | 6034
+v403 | öffnen | 1154
+v404 | operieren | 5383
+v405 | ordnen | 14432
+v406 | organisieren | 5118
+v407 | packen | 2335
+v408 | parken | 6269
+v409 | passen | 775
+v410 | passen zu | 775
+v411 | passieren | 202
+v412 | pflanzen | 4254
+v413 | pflegen | 8558
+v414 | planen | 1791
+v415 | probieren | 2306
+v416 | produzieren | 7649
+v417 | protestieren gegen | 14088
+v418 | prüfen | 3149
+v419 | putzen | 4506
+v420 | sich rasieren | 7416
+v421 | raten | 2075
+v422 | rauchen | 2126
+v423 | reagieren auf | 3233
+v424 | realisieren | 14370
+v425 | rechnen mit | 4371
+v426 | reden über | 186
+v427 | reduzieren | 10879
+v428 | regeln | 979
+v429 | regnen | 4768
+v430 | reichen | 607
+v431 | reinigen | 6979
+v432 | reisen | 1049
+v433 | reiten | 2695
+v434 | rennen | 1517
+v435 | reparieren | 2347
+v436 | reservieren | 5553
+v437 | retten | 639
+v438 | riechen nach | 1857
+v439 | rufen | 733
+v440 | sagen | 96
+v441 | sammeln | 3099
+v442 | schaden | 1212
+v443 | schaffen | 665
+v444 | schalten | 3737
+v445 | schätzen | 836
+v446 | schauen | 871
+v447 | scheinen | 594
+v448 | schenken | 2683
+v449 | schicken | 834
+v450 | schieben | 3745
+v451 | schießen | 1082
+v452 | schimpfen über | 16866
+v453 | schlafen | 566
+v454 | schlagen | 1099
+v455 | schließen | 1484
+v456 | schmecken | 1829
+v457 | sich schminken | 18159
+v458 | verschmutzen | 26258
+v459 | schneien | 11881
+v460 | schneiden | 2874
+v461 | schreiben | 797
+v462 | schreiben an | 797
+v463 | schreien | 1057
+v464 | schütteln | 7780
+v465 | schützen vor | 1329
+v466 | schweigen | 2081
+v467 | schwimmen | 2231
+v468 | schwitzen | 8372
+v469 | sehen | 107
+v470 | sein | 4
+v471 | senden | 3723
+v472 | setzen | 627
+v473 | sich setzen | 627
+v474 | sichern | 4294
+v475 | siegen | 6546
+v476 | siezen | 47660
+v477 | singen | 1228
+v478 | sinken | 8407
+v479 | sitzen | 781
+v480 | sollen | 55
+v481 | sorgen für | 425
+v482 | sich sorgen um | 425
+v483 | sparen | 3137
+v484 | spazieren gehen | 2702
+v485 | speichern | 12162
+v486 | spielen | 456
+v487 | sprechen mit | 318
+v488 | sprechen über | 318
+v489 | springen | 2412
+v490 | spülen | 13167
+v491 | spüren | 2301
+v492 | stammen aus | 2736
+v493 | starten | 2640
+v494 | stattfinden | 5858
+v495 | staubsaugen | 41649
+v496 | stechen | 7263
+v497 | stecken | 1055
+v498 | stehen | 293
+v499 | stehlen | 1131
+v500 | steigen | 1854
+v501 | stellen | 580
+v502 | sterben an | 408
+v503 | stimmen | 280
+v504 | stinken | 3049
+v505 | stoppen | 2314
+v506 | stören | 1794
+v507 | stoßen | 4660
+v508 | streiken | 16869
+v509 | sich streiten mit | 2185
+v510 | studieren | 3253
+v511 | stürzen | 4341
+v512 | suchen | 446
+v513 | suchen nach | 446
+v514 | tanken | 11145
+v515 | tanzen | 1043
+v516 | tauchen | 4329
+v517 | tauschen | 3714
+v518 | teilen | 1335
+v519 | teilnehmen an | 6230
+v520 | telefonieren mit | 3453
+v521 | testen | 3270
+v522 | tippen | 10662
+v523 | tragen | 823
+v524 | trainieren | 4110
+v525 | transportieren | 8521
+v526 | träumen von | 1552
+v527 | treffen | 415
+v528 | sich treffen mit | 415
+v529 | treiben | 2590
+v530 | sich trennen von | 2113
+v531 | treten | 1611
+v532 | trinken | 585
+v533 | trocknen | 11681
+v534 | tun | 103
+v535 | überfahren | 5132
+v536 | überholen | 12256
+v537 | sich(D) überlegen | 1806
+v538 | übernachten | 5181
+v539 | übernehmen | 1381
+v540 | überprüfen | 1738
+v541 | überqueren | 8329
+v542 | überraschen | 1314
+v543 | überreden | 4859
+v544 | übersetzen | 2191
+v545 | übertreiben | 4480
+v546 | überweisen | 13728
+v547 | überzeugen von | 1928
+v548 | umarmen | 5487
+v549 | sich umdrehen | 3306
+v550 | umgehen mit | 2383
+v551 | umsteigen | 23980
+v552 | umtauschen | 22595
+v553 | umziehen | 3680
+v554 | sich umziehen | 3680
+v555 | unterbrechen | 4348
+v556 | sich unterhalten mit | 1564
+v557 | sich unterhalten über | 1564
+v558 | unternehmen | 1551
+v559 | unterrichten | 5153
+v560 | unterscheiden | 1598
+v561 | unterschreiben | 2354
+v562 | unterstreichen | 38742
+v563 | unterstützen | 2658
+v564 | untersuchen | 2215
+v565 | verursachen | 2800
+v566 | sich verabreden mit | 3885
+v567 | sich verabschieden von | 3023
+v568 | verändern | 1217
+v569 | sich verändern | 1217
+v570 | verbessern | 4994
+v571 | verbieten | 2091
+v572 | verbinden | 2442
+v573 | verbrauchen | 10438
+v574 | verbrennen | 3043
+v575 | verbringen | 1630
+v576 | verdienen | 892
+v577 | vereinbaren | 7312
+v578 | vergessen | 355
+v579 | vergleichen mit | 5801
+v580 | sich vergnügen | 1343
+v581 | vergrößern | 9314
+v582 | verhaften | 1473
+v583 | sich verhalten | 1608
+v584 | verhindern | 2013
+v585 | verkaufen | 931
+v586 | verlangen | 1926
+v587 | verlängern | 12376
+v588 | verlassen | 522
+v589 | sich verlassen auf | 522
+v590 | sich verlaufen | 4368
+v591 | verletzen | 820
+v592 | sich verletzen | 820
+v593 | sich verlieben in | 1153
+v594 | verlieren | 461
+v595 | vermeiden | 3360
+v596 | vermieten | 10881
+v597 | vermissen | 1112
+v598 | vermuten | 2790
+v599 | verpacken | 13417
+v600 | verpassen | 1545
+v601 | verraten | 1186
+v602 | verreisen | 8036
+v603 | versäumen | 11406
+v604 | verschieben | 4520
+v605 | verschreiben | 12013
+v606 | verschwinden | 712
+v607 | versichern | 4223
+v608 | versprechen | 898
+v609 | verstecken | 1158
+v610 | verstehen | 333
+v611 | sich verstehen mit | 333
+v612 | versuchen | 476
+v613 | verteilen | 4313
+v614 | vertrauen | 747
+v615 | vertreten | 4546
+v616 | verurteilen | 2920
+v617 | verwechseln mit | 7997
+v618 | verwenden | 2938
+v619 | verzeihen | 1436
+v620 | verzichten auf | 4430
+v621 | vorbereiten | 1932
+v622 | sich vorbereiten auf | 1932
+v623 | vorhaben | 4424
+v624 | vorkommen | 5911
+v625 | vorlesen | 6261
+v626 | vorschlagen | 5078
+v627 | vorstellen | 801
+v628 | sich vorstellen | 801
+v629 | sich(D) vorstellen | 801
+v630 | wachsen | 2919
+v631 | wählen | 2159
+v632 | wandern | 6215
+v633 | warnen vor | 2698
+v634 | warten auf | 263
+v635 | waschen | 2777
+v636 | sich waschen | 2777
+v637 | wechseln | 2617
+v638 | wecken | 3929
+v639 | wehtun | 2407
+v640 | sich weigern | 8609
+v641 | weinen | 1675
+v642 | sich wenden an | 3329
+v643 | werden | 65
+v644 | werfen | 1428
+v645 | wetten | 1194
+v646 | widersprechen | 8513
+v647 | wiederholen | 2975
+v648 | wiegen | 7287
+v649 | winken | 13660
+v650 | wirken | 1887
+v651 | wissen | 70
+v652 | wohnen | 1295
+v653 | wollen | 79
+v654 | sich wundern über | 5515
+v655 | wünschen | 997
+v656 | sich(D) wünschen | 997
+v657 | zahlen | 1001
+v658 | zählen | 1949
+v659 | zeichnen | 6930
+v660 | zeigen | 523
+v661 | zelten | 13092
+v662 | zerstören | 1263
+v663 | ziehen | 711
+v664 | zubereiten | 13536
+v665 | zuhören | 2456
+v666 | zumachen | 8507
+v667 | zunehmen | 11965
+v668 | zurechtkommen mit | 12772
+v669 | zusagen | 10586
+v670 | zusammenfassen | 26816
+v671 | zuschauen | 10315
+v672 | zustimmen | 4793
+v673 | zweifeln an | 7105
+v674 | zwingen zu | 2418
+v675 | kühlen | 11752
+v676 | eincremen | -
+v677 | leiden an | 1594
+v678 | krankschreiben | 36442
+v679 | aufbewahren | 7795
+v680 | kämmen | 24059
+v681 | empfinden | 5296
+v682 | betragen | 4361
+v683 | gelangen | 4764
+v684 | kommen auf | 140
+v685 | spenden | 4982
+v686 | alarmieren | 15293
+v687 | ausbilden | 6180
+v688 | bewältigen | 11642
+v689 | durchführen | 4829
+v690 | sich abmelden | 30428
+v691 | herausfinden | 1347
+v692 | dolmetschen | -
+v693 | verbreiten | 5991
+v694 | befürchten | 4513
+v695 | unterzeichnen | 7778
+v696 | beitreten | 12882
+v697 | führen zu | 869
+v698 | zulassen | 2167
+v699 | würzen | 28660
+w0001 | ab | 182
+w0002 | aber | 25
+w0003 | abhängig | 6240
+w0004 | absolut | 986
+w0005 | abwärts | 15284
+w0006 | abwesend | 12545
+w0007 | ähnlich | 1894
+w0008 | aktiv | 5124
+w0009 | aktuell | 10752
+w0010 | allein | 316
+w0011 | allerdings | 1354
+w0012 | allgemein | 9954
+w0013 | alltäglich | 32242
+w0014 | als | 55
+w0015 | als ob | 195
+w0016 | also | 87
+w0017 | alt | 508
+w0018 | alternativ | 5332
+w0019 | andere | 217
+w0020 | andererseits | 5051
+w0021 | anders | 487
+w0022 | anfangs | 5634
+w0023 | angenehm | 3375
+w0024 | ängstlich | 6960
+w0025 | anstrengend | 5356
+w0026 | anwesend | 5590
+w0027 | arbeitslos | 7523
+w0028 | ärgerlich | 10217
+w0029 | arm | 1013
+w0030 | auch | 53
+w0031 | aufmerksam | 4316
+w0032 | aufwärts | 17758
+w0033 | ausgebildet | 6180
+w0034 | auseinander | 2729
+w0035 | ausgezeichnet | 2591
+w0036 | ausländisch | 15001
+w0037 | ausreichend | 7656
+w0038 | ausschließlich | 9724
+w0039 | außen | 3634
+w0040 | außerhalb | 2020
+w0041 | außer | 625
+w0042 | außerdem | 819
+w0043 | automatisch | 7700
+w0044 | bald | 388
+w0045 | bar | 1126
+w0046 | befriedigend | 21266
+w0047 | begeistert | 2891
+w0048 | begrenzt | 10527
+w0049 | behindert | 8296
+w0050 | bei | 86
+w0051 | beide | 319
+w0052 | beinahe | 2372
+w0053 | bekannt | 1090
+w0054 | beliebt | 4280
+w0055 | bequem | 3644
+w0056 | bereit | 396
+w0057 | bereits | 655
+w0058 | beruflich | 6083
+w0059 | berufstätig | 49992
+w0060 | berühmt | 3405
+w0061 | besonders | 832
+w0062 | bestimmt | 506
+w0063 | betrunken | 1590
+w0064 | bevor | 307
+w0065 | billig | 4577
+w0066 | bis | 155
+w0067 | bisher | 1069
+w0068 | ein bisschen | 400
+w0069 | bitte | 88
+w0070 | bitter | 9243
+w0071 | blass | 7196
+w0072 | blind | 2235
+w0073 | blond | 6233
+w0074 | bloß | 574
+w0075 | böse | 798
+w0076 | breit | 5213
+w0077 | bunt | 18663
+w0078 | da | 44
+w0079 | dabei | 301
+w0080 | dafür | 245
+w0081 | dagegen | 961
+w0082 | daher | 1529
+w0083 | damals | 748
+w0084 | damit | 145
+w0085 | danach | 686
+w0086 | daneben | 3145
+w0087 | dankbar | 1714
+w0088 | danke | 98
+w0089 | dann | 60
+w0090 | dass | 24
+w0091 | dauernd | 2605
+w0092 | denn | 101
+w0093 | deshalb | 504
+w0094 | deswegen | 690
+w0095 | deutlich | 2466
+w0096 | dicht | 2796
+w0097 | dick | 2127
+w0098 | dieser | 161
+w0099 | diesmal | 1211
+w0100 | digital | 17167
+w0101 | direkt | 678
+w0102 | doch | 68
+w0103 | doppelt | 3765
+w0104 | dort | 231
+w0105 | dorthin | 1734
+w0106 | draußen | 410
+w0107 | dringend | 1778
+w0108 | drinnen | 1417
+w0109 | drüben | 774
+w0110 | dumm | 955
+w0111 | dunkel | 2100
+w0112 | dünn | 4988
+w0113 | durch | 194
+w0114 | durcheinander | 1957
+w0115 | durchschnittlich | 18508
+w0116 | durstig | 8493
+w0117 | eben | 536
+w0118 | ebenfalls | 2295
+w0119 | eher | 788
+w0120 | ehrlich | 592
+w0121 | eigentlich | 364
+w0122 | eilig | 2735
+w0123 | eindeutig | 2711
+w0124 | einerseits | 19764
+w0125 | einfach | 134
+w0126 | einige | 586
+w0127 | einmal | 309
+w0128 | einsam | 2291
+w0129 | einschließlich | 6358
+w0130 | einverstanden | 1537
+w0131 | einzeln | 4175
+w0132 | einzig | 426
+w0133 | elegant | 7186
+w0134 | elektrisch | 10106
+w0135 | endgültig | 4781
+w0136 | endlich | 480
+w0137 | eng | 3218
+w0138 | entlang | 1557
+w0139 | entschlossen | 4030
+w0140 | entspannend | 26245
+w0141 | entweder … oder | 1307
+w0142 | erfolgreich | 2833
+w0143 | erforderlich | 10224
+w0144 | erkältet | 11616
+w0145 | ernst | 525
+w0146 | erschöpft | 3752
+w0147 | erst | 278
+w0148 | erwachsen | 2143
+w0149 | etwa | 483
+w0150 | etwas | 83
+w0151 | eventuell | 4761
+w0152 | ewig | 1227
+w0153 | extra | 2401
+w0154 | extrem | 3248
+w0155 | fair | 1882
+w0156 | fällig | 7603
+w0157 | falls | 572
+w0158 | falsch | 618
+w0159 | fantastisch | 1522
+w0160 | fast | 412
+w0161 | faul | 4816
+w0162 | fertig | 314
+w0163 | fest | 608
+w0164 | fett | 2951
+w0165 | feucht | 6851
+w0166 | finanziell | 8695
+w0167 | flach | 7420
+w0168 | fleißig | 7184
+w0169 | flexibel | 17738
+w0170 | fließend | 17572
+w0171 | folgend | 3160
+w0172 | frech | 5946
+w0173 | frei | 602
+w0174 | freiwillig | 2977
+w0175 | fremd | 2376
+w0176 | freundlich | 2124
+w0177 | frisch | 2285
+w0178 | froh | 730
+w0179 | fröhlich | 4601
+w0180 | früh | 622
+w0181 | früher | 622
+w0182 | für | 31
+w0183 | furchtbar | 1416
+w0184 | ganz | 146
+w0185 | gar nicht | 228
+w0186 | geehrt | 6683
+w0187 | geeignet | 6243
+w0188 | gefährlich | 932
+w0189 | gegen | 290
+w0190 | gegenüber | 1257
+w0191 | geheim | 2643
+w0192 | gemeinsam | 1402
+w0193 | gemütlich | 4228
+w0194 | genau | 171
+w0195 | genauso | 764
+w0196 | genug | 287
+w0197 | gerade | 183
+w0198 | geradeaus | 5002
+w0199 | gerecht | 4735
+w0200 | gering | 10196
+w0201 | gern | 328
+w0202 | geschieden | 4865
+w0203 | gespannt | 4765
+w0204 | gestern | 475
+w0205 | gesund | 1453
+w0206 | gewohnt | 2957
+w0207 | gewöhnlich | 3523
+w0208 | giftig | 11222
+w0209 | glatt | 4641
+w0210 | gleich | 235
+w0211 | gleichfalls | 7305
+w0212 | gleichberechtigt | 33709
+w0213 | gleichzeitig | 2651
+w0214 | glücklich | 597
+w0215 | gratis | 6057
+w0216 | groß | 462
+w0217 | gründlich | 4663
+w0218 | gültig | 16717
+w0219 | günstig | 8908
+w0220 | gut | 52
+w0221 | halb | 1544
+w0222 | halbtags | 39427
+w0223 | hallo | 164
+w0224 | haltbar | -
+w0225 | hart | 816
+w0226 | hässlich | 3201
+w0227 | häufig | 5353
+w0228 | heimlich | 3836
+w0229 | heiß | 810
+w0230 | hell | 3980
+w0231 | herzlich | 2141
+w0232 | heute | 142
+w0233 | hier | 29
+w0234 | hierher | 640
+w0235 | hinten | 900
+w0236 | hinter | 424
+w0237 | historisch | 12171
+w0238 | hoch | 507
+w0239 | höchstens | 3630
+w0240 | hoffentlich | 1040
+w0241 | höflich | 4402
+w0242 | hübsch | 1113
+w0243 | hungrig | 2653
+w0244 | ideal | 7223
+w0245 | illegal | 4045
+w0246 | immer | 89
+w0247 | in | 16
+w0248 | indem | 1292
+w0249 | individuell | 33827
+w0250 | inklusive | 6700
+w0251 | innen | 3508
+w0252 | innerhalb | 2233
+w0253 | insgesamt | 6503
+w0254 | intelligent | 4754
+w0255 | intensiv | 9521
+w0256 | interessant | 1287
+w0257 | interessiert | 757
+w0258 | international | 7191
+w0259 | inzwischen | 2337
+w0260 | irgendwann | 1052
+w0261 | ja | 17
+w0262 | je … desto | 2079
+w0263 | jeder | 326
+w0264 | jederzeit | 2299
+w0265 | jedes Mal | 726
+w0266 | jedoch | 2440
+w0267 | jemals | 929
+w0268 | jemand | 192
+w0269 | jetzt | 58
+w0270 | jeweils | 10009
+w0271 | jung | 292
+w0272 | kalt | 1065
+w0273 | kaputt | 1298
+w0274 | kaum | 611
+w0275 | kein | 71
+w0276 | klar | 175
+w0277 | klein | 378
+w0278 | klug | 2017
+w0279 | knapp | 2294
+w0280 | komisch | 948
+w0281 | komplett | 2169
+w0282 | kompliziert | 2300
+w0283 | körperlich | 7211
+w0284 | korrekt | 3074
+w0285 | kostenlos | 9766
+w0286 | kräftig | 6568
+w0287 | krank | 724
+w0288 | kreativ | 10208
+w0289 | kritisch | 9233
+w0290 | kühl | 7958
+w0291 | kulturell | 21236
+w0292 | künstlich | 10677
+w0293 | kurz | 442
+w0294 | kürzlich | 3536
+w0295 | lang | 224
+w0296 | lange | 224
+w0297 | langsam | 654
+w0298 | längst | 1822
+w0299 | langweilig | 1920
+w0300 | laut | 778
+w0301 | lecker | 2794
+w0302 | ledig | 16281
+w0303 | leer | 1664
+w0304 | leicht | 750
+w0305 | leider | 666
+w0306 | leise | 1547
+w0307 | letzte | 381
+w0308 | lieb | 188
+w0309 | links | 1177
+w0310 | locker | 2280
+w0311 | lustig | 860
+w0312 | mager | 18069
+w0313 | mal | 57
+w0314 | man | 76
+w0315 | manche | 1254
+w0316 | manchmal | 531
+w0317 | männlich | 7729
+w0318 | maximal | 10939
+w0319 | mehr | 85
+w0320 | mehrere | 2228
+w0321 | meinetwegen | 3106
+w0322 | meistens | 2904
+w0323 | menschlich | 2727
+w0324 | merkwürdig | 2254
+w0325 | mild | 12727
+w0326 | mindestens | 1862
+w0327 | mit | 19
+w0328 | miteinander | 1289
+w0329 | mitten | 1534
+w0330 | mittlerweile | 5871
+w0331 | möbliert | 42663
+w0332 | modern | 6377
+w0333 | möglich | 605
+w0334 | möglichst | 5967
+w0335 | müde | 1083
+w0336 | mündlich | 31365
+w0337 | mutig | 3210
+w0338 | nach | 73
+w0339 | nachdem | 751
+w0340 | nachher | 1925
+w0341 | nächste | 649
+w0342 | nah | 1408
+w0343 | nämlich | 1220
+w0344 | nass | 3550
+w0345 | national | 7034
+w0346 | natürlich | 225
+w0347 | neben | 1146
+w0348 | nebenan | 3260
+w0349 | negativ | 3310
+w0350 | nein | 38
+w0351 | nervös | 1324
+w0352 | nett | 500
+w0353 | neu | 422
+w0354 | neugierig | 2722
+w0355 | neulich | 1999
+w0356 | nicht | 6
+w0357 | nichts | 75
+w0358 | nie | 124
+w0359 | niedrig | 8396
+w0360 | niemand | 305
+w0361 | nirgends | 3989
+w0362 | noch | 42
+w0363 | noch mal | 57
+w0364 | normal | 1121
+w0365 | normalerweise | 1831
+w0366 | nötig | 907
+w0367 | notwendig | 3623
+w0368 | nun | 154
+w0369 | nur | 43
+w0370 | nützlich | 3513
+w0371 | ob | 195
+w0372 | oben | 474
+w0373 | obwohl | 946
+w0374 | oder | 72
+w0375 | offen | 1009
+w0376 | öffentlich | 4723
+w0377 | offiziell | 2601
+w0378 | oft | 581
+w0379 | ohne | 212
+w0380 | optimistisch | 11021
+w0381 | ordentlich | 3937
+w0382 | ein paar | 200
+w0383 | peinlich | 2044
+w0384 | per | 2762
+w0385 | perfekt | 897
+w0386 | persönlich | 1213
+w0387 | plötzlich | 923
+w0388 | politisch | 5461
+w0389 | positiv | 3913
+w0390 | praktisch | 2551
+w0391 | preiswert | 37437
+w0392 | prima | 1761
+w0393 | privat | 4442
+w0394 | pro | 1455
+w0395 | pünktlich | 3117
+w0396 | realistisch | 8627
+w0397 | rechts | 1286
+w0398 | rechtzeitig | 2668
+w0399 | regelmäßig | 6013
+w0400 | reich | 1195
+w0401 | reif | 2985
+w0402 | richtig | 239
+w0403 | riesig | 4167
+w0404 | roh | 15093
+w0405 | rückwärts | 5757
+w0406 | ruhig | 434
+w0407 | rund | 1773
+w0408 | salzig | 22066
+w0409 | satt | 2066
+w0410 | sauber | 1315
+w0411 | sauer | 1167
+w0412 | schade | 1212
+w0413 | schädlich | 21794
+w0414 | scharf | 2221
+w0415 | schlank | 12455
+w0416 | schlecht | 558
+w0417 | schließlich | 1506
+w0418 | schlimm | 864
+w0419 | schmal | 20393
+w0420 | schmutzig | 3998
+w0421 | schnell | 273
+w0422 | schon | 54
+w0423 | schön | 179
+w0424 | schrecklich | 1151
+w0425 | schriftlich | 9586
+w0426 | schuld | 519
+w0427 | schwach | 2036
+w0428 | schwanger | 1470
+w0429 | schwer | 486
+w0430 | schwierig | 1510
+w0431 | sehr | 99
+w0432 | seit | 234
+w0433 | seitdem | 1890
+w0434 | selbst | 209
+w0435 | selbstständig | 14857
+w0436 | selbstverständlich | 2022
+w0437 | selten | 2352
+w0438 | seltsam | 1157
+w0439 | sicher | 151
+w0440 | sinnvoll | 12168
+w0441 | so | 27
+w0442 | sobald | 803
+w0443 | sodass | 5144
+w0444 | sofort | 306
+w0445 | sogar | 441
+w0446 | solange | 837
+w0447 | sondern | 619
+w0448 | sonnig | 22289
+w0449 | sonst | 294
+w0450 | sowieso | 1119
+w0451 | sowohl … als auch | 5479
+w0452 | sozial | 9126
+w0453 | spannend | 2004
+w0454 | sparsam | 18899
+w0455 | spät | 379
+w0456 | spätestens | 10252
+w0457 | speziell | 6789
+w0458 | sportlich | 17482
+w0459 | ständig | 983
+w0460 | stark | 828
+w0461 | statt | 1380
+w0462 | steil | 17762
+w0463 | still | 850
+w0464 | stolz | 827
+w0465 | streng | 2669
+w0466 | super | 735
+w0467 | süß | 1020
+w0468 | sympathisch | 11053
+w0469 | tatsächlich | 915
+w0470 | technisch | 6410
+w0471 | teuer | 2154
+w0472 | tief | 1116
+w0473 | tolerant | 26789
+w0474 | toll | 392
+w0475 | tot | 275
+w0476 | traditionell | 14704
+w0477 | traurig | 1204
+w0478 | treu | 3912
+w0479 | trocken | 4019
+w0480 | trotz | 2135
+w0481 | trotzdem | 669
+w0482 | typisch | 3683
+w0483 | über | 116
+w0484 | überall | 675
+w0485 | überhaupt | 458
+w0486 | übermorgen | 5792
+w0487 | üblich | 4619
+w0488 | übrigens | 1264
+w0489 | um | 63
+w0490 | um … zu | 63
+w0491 | umgekehrt | 5933
+w0492 | umsonst | 2050
+w0493 | unbedingt | 1071
+w0494 | und | 9
+w0495 | ungefähr | 1413
+w0496 | ungewöhnlich | 3618
+w0497 | unglaublich | 866
+w0498 | unten | 575
+w0499 | unter | 271
+w0500 | unterschiedlich | 8543
+w0501 | unterwegs | 954
+w0502 | ursprünglich | 7822
+w0503 | vegetarisch | 37384
+w0504 | verantwortlich | 1391
+w0505 | verboten | 2091
+w0506 | vergeblich | 11956
+w0507 | verheiratet | 970
+w0508 | verliebt | 1153
+w0509 | vermutlich | 1168
+w0510 | vernünftig | 2756
+w0511 | verpflichtet | 4281
+w0512 | verrückt | 421
+w0513 | verschieden | 2650
+w0514 | verständlich | 6090
+w0515 | verwandt | 5246
+w0516 | viel | 128
+w0517 | vielleicht | 108
+w0518 | voll | 673
+w0519 | völlig | 698
+w0520 | von | 34
+w0521 | vor | 92
+w0522 | vor allem | 647
+w0523 | voraussichtlich | 31536
+w0524 | vorbei | 414
+w0525 | vorgestern | 8579
+w0526 | vorher | 888
+w0527 | vorhin | 1690
+w0528 | vorläufig | 9384
+w0529 | vorne | 1445
+w0530 | vorsichtig | 825
+w0531 | wach | 1032
+w0532 | wahr | 338
+w0533 | während | 537
+w0534 | wahrscheinlich | 629
+w0535 | wann | 312
+w0536 | warm | 2074
+w0537 | warum | 91
+w0538 | was | 12
+w0539 | weder … noch | 1296
+w0540 | weg | 129
+w0541 | wegen | 248
+w0542 | weiblich | 5740
+w0543 | weich | 3747
+w0544 | weil | 138
+w0545 | weit | 232
+w0546 | welcher | 1000
+w0547 | weltweit | 6730
+w0548 | wenig | 497
+w0549 | wenigstens | 824
+w0550 | wenn | 35
+w0551 | wer | 110
+w0552 | wertvoll | 5408
+w0553 | wichtig | 551
+w0554 | wie | 20
+w0555 | wieder | 95
+w0556 | wild | 2453
+w0557 | wieso | 206
+w0558 | wie viel | 128
+w0559 | willkommen | 636
+w0560 | windig | 20572
+w0561 | wirklich | 125
+w0562 | wo | 82
+w0563 | woher | 449
+w0564 | wohin | 624
+w0565 | wohl | 187
+w0566 | bewölkt | 32629
+w0567 | wunderbar | 1047
+w0568 | wunderschön | 1260
+w0569 | wütend | 1100
+w0570 | zahlreich | 13410
+w0571 | zentral | 3325
+w0572 | ziemlich | 438
+w0573 | zu | 13
+w0574 | zuerst | 628
+w0575 | zufällig | 1530
+w0576 | zufrieden | 1483
+w0577 | zukünftig | 7584
+w0578 | zuletzt | 2243
+w0579 | zumindest | 1111
+w0580 | zunächst | 3681
+w0581 | zurück | 162
+w0582 | zurzeit | 4273
+w0583 | zusammen | 269
+w0584 | zusätzlich | 8311
+w0585 | zuständig | 4704
+w0586 | zuverlässig | 9656
+w0587 | zwar … aber | 720
+w0588 | zwischen | 535
+w0589 | an | 40
+w0590 | auf | 23
+w0591 | aus | 61
+w0592 | morgen | 176
+w0593 | angeblich | 2694
+w0594 | diplomatisch | 17791
+w0595 | eigen | 716
+w0596 | kommerziell | 32464
+w0597 | selbe | 1187
+w0598 | entgegen | 4061
+w0599 | eingespannt sein | 41711
+w0600 | vor Gericht gehen | 1225
+w0601 | blutig | 11549
+w0602 | essbar | 30819
+w0603 | eiskalt | 6904
+w0604 | schwindelig | 9517
+w0605 | zur Verfügung stehen | 2963
+w0606 | untersagt sein | 15598
+w0607 | klassisch | 6744
+w0608 | beruhigend | 9823
+w0609 | feierlich | 15139
+w0610 | barrierearm | -
+w0611 | familienfreundlich | -
+w0612 | fantasievoll | -
+w0613 | interaktiv | -
+w0614 | brauchen … zu | 289
+w0615 | einigermaßen | 15394
+w0616 | grundsätzlich | 14286
+w0617 | durch den Kopf gehen | 375
+w0618 | mithilfe | 9929
+w0619 | motiviert | 12453
+w0620 | obere | 7544
+w0621 | zur Seite gehen | 533
+w0622 | sichtbar | 9085
+w0623 | einerseits … andererseits | 19764
+w0624 | nicht nur … sondern auch | 619
+w0625 | ehrenamtlich | 26205
+w0626 | bedürftig | 26437
+w0627 | übrig | 1422
+w0628 | interkulturell | -
+w0629 | bundesweit | -
+w0630 | wirtschaftlich | 24581
+w0631 | erstaunlich | 3141
+w0632 | nebeneinander | 13250
+w0633 | aneinander | 9661
+w0634 | füreinander | 6646
+w0635 | voneinander | 6927
+w0636 | sich Mühe geben | 2107
+w0637 | eine Entscheidung treffen | 977
+w0638 | einen Vertrag schließen | 1946
+w0639 | den Faden verlieren | 7200
+u1-007 | schätzen an | 1575
+u1-009 | aus den Augen verlieren | 703
+u1-010 | alles beim Alten bleiben | 620
+u1-013 | ins Gespräch kommen | 1593
+u1-014 | über den Weg laufen | 695
+u1-039 | sich verspäten | 15991
+u1-040 | zusammenstoßen | 269
+u1-046 | bereit sein | 396
+u1-088 | erhalten sein | 1334
+u3-002 | das Kunstwerk | 12491
+u3-003 | das Kunststück | 25993
+u3-004 | das Kunstobjekt | -
+u3-006 | das Gemälde | 4537
+u3-009 | die Statue | 6705
+u3-010 | der Brunnen | 4974
+u3-011 | die Installation | 28806
+u3-012 | das Graffiti | 23946
+u3-013 | die Hauswand | -
+u3-014 | der Stadtteil | 22461
+u3-017 | die Auktion | 8680
+u3-019 | der Kunstsammler | -
+u3-020 | das Missgeschick | 20089
+u3-021 | die Putzfrau | 10947
+u3-022 | aus Versehen | 3910
+u3-026 | sich handeln um | 2071
+u3-027 | erraten | 7431
+u3-028 | anregen | 34741
+u3-029 | der Vordergrund | 29505
+u3-030 | der Hintergrund | 3669
+u3-033 | die Ölfarbe | -
+u3-034 | das Aquarell | -
+u3-038 | gestalten | 7855
+u3-040 | die Kreativität | 17298
+u3-043 | der Schwerpunkt | 25900
+u3-046 | der Kursabschluss | -
+u3-048 | veranstalten | 8309
+u3-050 | das Büfett | 38525
+u3-051 | das Theaterstück | 16381
+u3-053 | die Aufführung | 9903
+u3-058 | der Regisseur | 4694
+u3-062 | der Applaus | 3072
+u3-063 | das Impro-Theater | -
+u3-064 | improvisieren | 11143
+u3-065 | zusehen | 13
+u3-068 | der Detektiv | 5536
+u3-070 | das Upcycling | -
+u3-072 | umsetzen | 17337
+u3-074 | die Eigenschaft | 8051
+u3-075 | der Gründer | 11462
+u3-077 | Das ist lange her. | 224
+u3-086 | der Jäger | 3326
+u3-087 | einsperren | 5207
+u3-088 | die Wut | 2680
+u3-089 | Frieden schließen | 1484
+u3-091 | das Volkslied | -
+u3-092 | der Chor | 6972
+u3-093 | musizieren | 49248
+u3-094 | die Nachbarschaft | 4848
+u3-098 | abstrakt | 33795
+u3-100 | künstlerisch | 20494
+u3-101 | talentiert | 9527
+u3-102 | originell | 11359
+u3-103 | gelungen | 5341
+u3-104 | altmodisch | 8442
+u3-107 | chaotisch | 11739
+u3-108 | weltberühmt | 39315
+u3-109 | zeitlos | 31939
+u3-110 | erfahren | 822
+u3-111 | engagiert | 5138
+u3-114 | ungerecht | 7255
+u3-115 | total | 741
+u3-116 | äußerst | 2959
+u3-117 | überhaupt nicht | 458
+u3-119 | relativ | 8508
+u3-121 | relativieren | -
+u3-122 | nicht …, sondern … | 619
+u3-123 | kein …, sondern … | 619
+u3-124 | verneinen | 40209
+u3-125 | die Stellung | 3428
+u4-026 | der Freiwillige | 8944
+u4-037 | die Erste Hilfe | 493
+u4-074 | die Menschenrechte | 21912
+u4-089 | die Europäische Union | 13973
+u5-001 | der Stadtmensch | -
+u5-002 | der Landmensch | -
+u5-003 | ländlich | 34815
+u5-005 | das Freizeitangebot | -
+u5-006 | der Stadtbummel | -
+u5-008 | die Innenstadt | 9514
+u5-012 | sich wohlfühlen | 17216
+u5-016 | unruhig | 8789
+u5-020 | das Hochhaus | 23281
+u5-021 | das Bürogebäude | 33936
+u5-022 | die Gasse | 7152
+u5-023 | städtisch | 21247
+u5-024 | entfernt | 1252
+u5-025 | die Stadtreinigung | -
+u5-026 | das Reinigungsfahrzeug | -
+u5-027 | die Schicht | 4753
+u5-028 | die Frühschicht | 46414
+u5-030 | der Nachtdienst | 33749
+u5-031 | die Übergabe | 9251
+u5-032 | die Kita | 34653
+u5-033 | die Kinderbetreuung | 44668
+u5-034 | die Elternzeit | -
+u5-038 | die Autowerkstatt | 29047
+u5-039 | lebenswert | 26521
+u5-040 | die Lebensqualität | 31711
+u5-041 | das Ranking | -
+u5-042 | der Hauptgrund | 34899
+u5-043 | die Work-Life-Balance | -
+u5-044 | das Wahrzeichen | 37962
+u5-046 | der Mittelpunkt | 10396
+u5-047 | die Fassade | 11232
+u5-052 | der Ausblick | 14885
+u5-055 | attraktiv | 4221
+u5-056 | das Velo | -
+u5-057 | der Fahrschein | 28658
+u5-059 | die Stadtplanung | -
+u5-060 | der Stadtrat | 7138
+u5-061 | die Initiative | 8468
+u5-062 | das Budget | 8214
+u5-063 | die Renovierung | 21085
+u5-064 | der Umbau | 24446
+u5-065 | die Sporthalle | 22467
+u5-067 | der Flüchtling | 9672
+u5-068 | der Obdachlose | 11093
+u5-070 | gesetzlich | 18031
+u5-071 | gesellschaftlich | 22816
+u5-073 | berücksichtigen | 14126
+u5-074 | betreffen | 2220
+u5-076 | hindern an | 6244
+u5-077 | außer Acht lassen | 903
+u5-078 | im Vordergrund stehen | 29505
+u5-079 | vorgeschrieben sein | 29618
+u5-081 | vermitteln | 9491
+u5-083 | ausreden | 61
+u5-084 | eingehen auf | 15
+u5-086 | jemandem recht geben | 237
+u5-087 | angehen | 2186
+u5-089 | anscheinend | 1744
+u5-090 | erstens … zweitens … drittens | 10773
+u5-091 | der Betreff | 13270
+u5-095 | formell | 25014
+u5-096 | informell | -
+u5-097 | entsprechend | 8185
+u5-098 | irgendein / irgendeine | 2218
+u5-099 | irgendwelche | 1476
+u5-100 | irgendwo | 762
+u5-101 | nirgendwo | 2053
+u5-103 | irgendwer / irgendwas | 4356
+u5-104 | einer / keiner / meiner | 452
+u5-105 | welche | 505
+u5-109 | flüchten | 7319
+u5-110 | hineingehen | 81
+u6-002 | der Kontoauszug | -
+u6-003 | das Bankgeschäft | -
+u6-005 | einen Kredit aufnehmen | 5186
+u6-006 | die Rate | 2075
+u6-007 | der Zins | 8719
+u6-009 | geraten in | 2416
+u6-013 | die Kontoführungsgebühr | -
+u6-014 | die Kontoeröffnung | -
+u6-016 | bargeldlos | -
+u6-017 | das Kleingeld | 7117
+u6-028 | überziehen | 15313
+u6-030 | regieren | 7390
+u6-033 | die Nebenkosten | 40979
+u6-034 | anfallen | 40
+u6-035 | das Online-Banking | -
+u6-036 | sich einloggen | 34458
+u6-037 | der Benutzername | -
+u6-040 | der Dauerauftrag | -
+u6-041 | monatlich | 21159
+u6-043 | gutschreiben | 52
+u6-045 | bedenken | 4187
+u6-047 | der Verbraucher | 35691
+u6-048 | der Konsument | 34869
+u6-050 | die Globalisierung | 48567
+u6-051 | der Weltmarkt | -
+u6-052 | global | 9861
+u6-053 | der Wohlstand | 10948
+u6-054 | profitieren von | 9378
+u6-059 | überleben | 1333
+u6-061 | basieren auf | 7415
+u6-062 | die Bekämpfung | 36840
+u6-063 | der Pluspunkt | 42561
+u6-064 | problematisch | 17907
+u6-065 | fortschrittlich | 29766
+u6-066 | befürworten | 26189
+u6-067 | überzeugend | 6108
+u6-068 | übertrieben | 4480
+u6-069 | wünschenswert | 41606
+u6-070 | teilweise | 9153
+u6-072 | unzufrieden | 11011
+u6-073 | erfreulich | 16646
+u6-075 | sich leisten | 1456
+u6-078 | die Gewissensfrage | -
+u6-080 | das Versprechen | 1559
+u6-081 | die Ansicht | 5454
+u6-082 | die Sicht | 3250
+u6-083 | einwerfen | 15
+u6-084 | nachprüfen | 73
+u6-085 | verlegen | 4681
+u6-087 | einmalig | 9458
+u6-088 | pauschal | -
+u6-089 | drin sein | 433
+u6-091 | die Siedlung | 12906
+u6-092 | die Stiftung | 8033
+u6-093 | die Jahresmiete | -
+u6-094 | die Immobilie | 10017
+u6-095 | der Nachtwächter | 17378
+u6-096 | die Stadtmauer | 43681
+u6-098 | beten | 554
+u6-099 | wohltätig | 25904
+u6-102 | steigend | 27111
+u6-103 | sinkend | 44889
+u6-104 | wachsend | 24993
+u6-105 | je … desto / umso | 3691
