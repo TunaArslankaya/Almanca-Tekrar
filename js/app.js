@@ -2184,7 +2184,7 @@
     // fast 'çekim', başına artikel → fast 'fazla artikel' (isimde de fiilde de en çok küçük hata), başka kelime (Zugx, Zucker) → yanlış;
     // ae / oe / ue / ss tam doğru, umlaut eksik → 'umlaut'; isim küçük harfle (artikel atılmış hâliyle bakılır) → fast 'büyük harf'
     let r = leer ? { urteil: 'falsch', tags: ['boş / rastgele'] } : bosA(input, l.form, null, l.id);
-    if (!leer && r.urteil === 'falsch') { const r2 = uPruef(input, l.form, null, l.id); if (r2.cekim) r = { urteil: 'fast', tip: 'cekim', tags: ['çekim'] }; }
+    if (!leer && r.urteil === 'falsch') { const r2 = uPruef(input, l.form, null, l.id); if (r2.cekim) r = { urteil: 'fast', tip: 'cekim', tags: ['çekim'] }; else if (r2.esAnlam) r = { urteil: 'fast', tip: 'cumleYapi', tags: ['eş anlamlı'] }; }
     // yanlışta "artikel/çekim" (ilk üç harfi aynı başka kelime: Zugx) yanıltıcı: farklı kelime
     if (!leer && r.urteil === 'falsch') { const t2 = (r.tags || []).filter(x => !['artikel/çekim', 'yazım', 'umlaut/ß', 'groß/klein'].includes(x)); r = Object.assign({}, r, { tags: t2.length ? t2 : ['farklı'] }); }
     q.erg[q.i] = { urteil: r.urteil, input };
@@ -2507,7 +2507,39 @@
       const fi = formIdx(), bul = fi.get(w) || fi.get(w.toLowerCase()) || fi.get(w.charAt(0).toUpperCase() + w.slice(1));
       if (bul === id) return { u: 'fast', hinweis: 'çekim: ' + ziel, cekim: true };
     }
+    if (esAnlamli(w, id)) return { u: 'fast', hinweis: 'eş anlamlı: ' + ziel, esAnlam: true };
     return r;
+  }
+  // 15.11 (D10): metin boşluğunda geçerli eş anlamlı (warm yerine heiß, Änderung yerine Veränderung) küçük hata, anlam hafızası çökmesin.
+  // Dar tutulur: yazılan sözlükte BAŞKA bir öğenin biçimi, aynı tür (isim / fiil / sıfat-zarf; edat, bağlaç, zamir yok) ve iki öğenin
+  // ilk Türkçe anlamı birebir aynı (parantez dahil: können "-ebilmek" ≠ dürfen "-ebilmek (izinli olmak)"); ya da bilinen çift (ES_CIFT).
+  const ES_CIFT = { 'Änderung': ['Veränderung', 'Veränderungen'], 'bewältigen': ['schaffen'] };
+  const esIcerik = x => kind(x) === 'n' || kind(x) === 'v' || (kind(x) === 'w' && /^(adj|adv)$/.test((wById[x] || {}).kl || ''));
+  const esIlk = x => String((kind(x) === 'v' ? (vById[x] || {}).tr : kind(x) === 'w' ? (wById[x] || {}).tr : (byId[x] || {}).tr) || '').split(/[;,]/)[0].trim().toLowerCase();
+  const esLemma = x => (kind(x) === 'v' ? (vById[x] || {}).inf : kind(x) === 'w' ? (wById[x] || {}).de : (byId[x] || {}).lemma) || '';
+  // aday öğenin biçimleri (isim: tekil / -s / -es / -n / -en / çoğul (+n); fiil: mastar, Präsens, Präteritum, Partizip; sıfat / zarf: wBicimler)
+  function esBicimler(x) {
+    const k = kind(x);
+    if (k === 'n') { const n = byId[x]; if (!n) return []; return [n.lemma, n.lemma + 's', n.lemma + 'es', n.lemma + 'n', n.lemma + 'en'].concat(n.plf ? [n.plf, n.plf + 'n'] : []); }
+    if (k === 'v') { const v = vById[x]; if (!v || v.pre) return v ? [v.inf, v.p2s] : []; const pt = v.ptForm ? (/e$/.test(v.ptForm) ? ['', 'st', 'n', 't'] : ['', 'st', 'en', 't']).map(e => v.ptForm + e) : []; return [v.inf, v.p2s, v.base].concat(G.praesensForms(v), pt); }
+    const w = wById[x]; return w && !/[\s…]/.test(w.de.trim()) ? wBicimler(w) : [];
+  }
+  // aynı tür + ilk Türkçe anlamı aynı öğeler (tür|anlam → [id]); formIdx ilk kazanır (heiße → heißen fiili), bu yüzden adaylar anlamdan
+  let _esGrup = null;
+  const esGrup = () => {
+    if (_esGrup) return _esGrup;
+    _esGrup = new Map();
+    [].concat(NL.map(n => n.id), VERBEN.map(v => v.id), WOERTER.map(w => w.id)).forEach(x => { if (!esIcerik(x)) return; const a = esIlk(x); if (!a) return; const k = kind(x) + '|' + a; (_esGrup.get(k) || _esGrup.set(k, []).get(k)).push(x); });
+    return _esGrup;
+  };
+  function esAnlamli(eingabe, id) {
+    const w = String(eingabe || '').trim().replace(U_ART, '');
+    if (!id || w.length < 3 || /\s/.test(w) || kind(id) === 'p' || !esIcerik(id)) return false;
+    const wn = uNorm(w), fi = formIdx(), diger = fi.get(w) || fi.get(w.toLowerCase()) || fi.get(w.charAt(0).toUpperCase() + w.slice(1));
+    const lem = esLemma(id), ciftler = (ES_CIFT[lem] || []).concat(Object.keys(ES_CIFT).filter(k => ES_CIFT[k].includes(lem)));
+    if (ciftler.some(c => uNorm(c) === wn || (diger && uNorm(c) === uNorm(esLemma(diger))))) return true;
+    const a = esIlk(id); if (!a) return false;
+    return (esGrup().get(kind(id) + '|' + a) || []).some(x => x !== id && esBicimler(x).some(f => f && uNorm(f) === wn));
   }
   // yazılanın hedeften farklı kelimesi sözlükte var mı (lemma / çoğul / fiil biçimi): öyleyse yazım hoşgörüsü yok (başka kelime ya da çekim → G.yakin)
   function uBaskaKelime(eingabe, c) {
@@ -2541,7 +2573,7 @@
       const ohneArt = c.replace(/^(der|die|das) /, '');
       if (ohneArt !== c && e === ohneArt) return { u: 'fast', hinweis: 'artikel eksik: ' + ziel };
       if (ohneArt !== c && /^(der|die|das) /.test(e) && e.replace(/^(der|die|das) /, '') === ohneArt) return { u: 'falsch', hinweis: 'artikel yanlış: ' + ziel };
-      if (ohneArt === c && !/\s/.test(c) && U_ART.test(e) && e.replace(U_ART, '') === c && /^[A-ZÄÖÜ]/.test(String(ziel).trim())) return { u: 'fast', hinweis: 'fazla artikel: ' + ziel };
+      if (ohneArt === c && !/\s/.test(c) && U_ART.test(e) && e.replace(U_ART, '') === c && /^[A-ZÄÖÜ]/.test(String(ziel).trim())) return { u: 'fast', hinweis: 'fazla artikel: ' + ziel, fazlaArt: true };
       if (Math.abs(c.length - e.length) <= 1 && c.length > 4 && lev(c, e) <= 1 && !uBaskaKelime(eingabe, c)) return { u: 'fast', hinweis: 'yazım: ' + ziel };
     }
     // tek kelimelik boşlukta yer değiştirme / uzun kelimede iki harf (yazım) ya da aynı kelimenin başka eki (çekim; Aptheke → Apotheken)
@@ -2950,10 +2982,13 @@
         let r = uPruef(w, b.form, null, b.id);
         // cümle başındaki boşlukta yalnız büyük / küçük harf farkı hata değil (manche → Manche)
         if (r.u === 'fast' && r.hinweis === 'büyük/küçük harf' && b.ti === 0) r = { u: 'richtig', hinweis: '' };
-        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? (r.cekim ? 'cekim' : r.umlaut ? 'umlaut' : 'yazim') : 'yanlis';
+        // 15.11: fazla artikel (die Luft) yazım değil: cumleFast (m3, 'yazım' etiketi eklenmez; G.bosPruef ile aynı);
+        // eş anlamlı (warm yerine heiß): küçük hata m2 (Kern tipi cumleYapi: m2 fast, etiket eklemez; etiket 'eş anlamlı: …')
+        const tip = !w ? 'bilmiyorum' : r.u === 'richtig' ? 'dogru' : r.u === 'fast' ? (r.cekim ? 'cekim' : r.umlaut ? 'umlaut' : r.fazlaArt ? 'cumleFast' : r.esAnlam ? 'cumleYapi' : 'yazim') : 'yanlis';
+        if (r.esAnlam) (q.esAnlam = q.esAnlam || {})[i] = w;
         const satz = (q.saetze[b.si] || {}).satz || '';
         const qq = { id: b.id, sel: { b: 3 }, bicim: 'metin', typ: Kern.eskiTur(b.id, 'metin'), antwort: w, ziel: b.form, frageText: satz.replace(b.form, '_____'), modus: 'luecke' };
-        const r2 = hafizaYaz(qq, { bicim: 'metin', tip, etiketler: r.hinweis && tip !== 'dogru' ? [r.hinweis] : [] }, t, { yan: true, kaynak: T.id });
+        const r2 = hafizaYaz(qq, { bicim: 'metin', tip, etiketler: r.hinweis && tip !== 'dogru' ? [r.fazlaArt ? 'fazla artikel' : r.esAnlam ? 'eş anlamlı' : r.hinweis] : [] }, t, { yan: true, kaynak: T.id });
         zaehlen({ typ: 'luecke' }, r2.ergebnis);
         session.q++;
         turKelime(b.id, r2.ergebnis === 'richtig' ? 3 : r2.ergebnis === 'fast' ? 2 : 1);
@@ -2968,7 +3003,7 @@
       const r = sonuclar.filter(x => x === 'richtig').length, n = q.blanks.length;
       const dg = q.ok.filter(Boolean).length;
       const kh = sonuclar.filter(x => x === 'fast').length;
-      q.ergHTML = `<div class="baslik">${r === n ? '✓' : dg ? '≈' : '✗'} ${r} / ${n} doğru${kh ? ` · ${kh} küçük hata` : ''}</div>${r < n ? '<div class="soluk">yanlışların ve küçük hataların doğrusu metinde yeşil</div>' : ''}`;
+      q.ergHTML = `<div class="baslik">${r === n ? '✓' : dg ? '≈' : '✗'} ${r} / ${n} doğru${kh ? ` · ${kh} küçük hata` : ''}</div>${r < n ? '<div class="soluk">yanlışların ve küçük hataların doğrusu metinde yeşil</div>' : ''}${q.esAnlam ? Object.keys(q.esAnlam).map(i => `<div class="soluk">eş anlamlı: <b>${esc(q.esAnlam[i])}</b> da olur, metindeki kelime <b>${esc(q.blanks[i].form)}</b> (küçük hata)</div>`).join('') : ''}`;
       aktAbschluss(q, r === n ? 'richtig' : q.ok.filter(Boolean).length >= n * 0.6 ? 'fast' : 'falsch', q.werte.join(' / '), q.blanks.map(b => b.form).join(' / '), `puan:${q.ok.filter(Boolean).length}/${n} | boşluk:${n}`, true);
     }
   }
@@ -4002,8 +4037,22 @@
       ${erkl.length && (yanlis || o.yazili) ? `<ul class="erkl">${erkl.map(e => `<li>${e}</li>`).join('')}</ul>` : ''}
       ${ornek}
       ${yanlis ? kancaHTML(q.id) : ''}
-      <div class="notlar">${itiraz}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', otoMs())}</div>
+      <div class="notlar">${itiraz}${askiBtnHTML(q)}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', otoMs())}</div>
     </div>`;
+  }
+  // 15.11 (D2): sonuç panelinde "Bu kelime bana gereksiz" (öğe hafızadaysa; gramer / ayır / paket yok). Basınca askıya alınır, düğme "geri al" olur.
+  function askiBtnHTML(q) {
+    if (!q || !q.id || q.ayir || kind(q.id) === 'p' || !S.items[q.id]) return '';
+    return S.items[q.id].askida ? `<span class="aski-ok soluk">askıda ✓ <button class="btn mini" data-act="aski-geri" type="button">geri al</button></span>`
+      : `<button class="btn mini aski-btn" data-act="aski" type="button" title="askıya al: artık sorulmaz (Kelimeler → Askıda'dan geri alırsın)">bu kelime bana gereksiz</button>`;
+  }
+  function askiPanel(geri) {
+    const q = aktuell; if (!q || !q.id || !q.done) return;
+    if (geri) askidanGeriAl(q.id);
+    else if (askiyaAl(q.id, 'el') && q.duzelt && !q.duzelt.ok) {   // gereksiz kelimenin doğrusu yazdırılmaz
+      q.duzelt.gec = true; const k = $('#duzelt'); if (k) k.remove(); kilitGuncelle(q);
+    }
+    const yer = kart.querySelector('.sonuc .aski-btn, .sonuc .aski-ok'); if (yer) yer.outerHTML = askiBtnHTML(q);
   }
 
   // ---------- sonuç panelinde Devam kilidi + "doğrusunu bir kez yaz" (sözleşme S6) ----------
@@ -4120,6 +4169,13 @@
   // ---------- hafıza yazımı (her cevap): Kern.notVer → Kern.uygula (günde tek kalıcı yazım) → gölge kart → log ----------
   // yan: yan kural (metin / paket / oyun / fiil metni): hafıza yalnız vadeliyse ya da R < 0,9 ise
   const f2 = x => (x == null || !isFinite(x) ? '-' : (+x).toFixed(2)), f1 = x => (x == null || !isFinite(x) ? '-' : (+x).toFixed(1));
+  const ILERLEME_BICIM = new Set(['yaz', 'bos', 'cumle', 'metin', 'yoklama', 'kalip']);
+  // S.oturan = { id: zaman } (son 30 gün): bu hafta oturan kelimeler (Bugün, tur sonu)
+  function oturanEkle(id, t) {
+    const o = S.oturan = S.oturan || {}; o[id] = t;
+    Object.keys(o).forEach(k => { if (o[k] < t - 30 * DAY) delete o[k]; });
+  }
+  const haftaOturan = () => Object.values(S.oturan || {}).filter(x => x >= now() - 7 * DAY).length;
   function hafizaYaz(q, sonuc, t, opt) {
     opt = opt || {};
     const id = q.id, sel = q.sel || {}, bicim = sonuc.bicim || q.bicim;
@@ -4136,6 +4192,7 @@
       if (!(h && h.S) || !(h.due <= t || Kern.R(h, t) < 0.9)) yazilabilir = false;
     }
     let out = { yazildi: false };
+    const m0 = it0 && it0.m, bm0 = m0 && m0.bm != null ? m0.bm : null, pk0 = m0 ? m0.pk || 0 : 0;   // D11: "oturan" için önceki hâl
     const aksam = session.modus === 'aksam' && !opt.yan;
     const ai = aksam ? aksamIst(id) : { ist: false }, ist = !!ai.ist;
     // basamak kapısı (bm) sorulan biçimin basamağıyla (8.11): yedeğe düşen soru (cümle yok → yazma, tam cümle yerine boşluk) seçimin
@@ -4153,6 +4210,10 @@
     const modus = bicim === 'metin' || q.modus === 'luecke' ? 'luecke' : eski;
     const ergebnis = not.ergebnis || (sonuc.tip === 'dogru' ? 'richtig' : 'falsch');
     const parca = [], yaz = x => x && x.yazildi;
+    // 15.11 (D11) görünür ilerleme: turda ipucusuz bildiğin (üretim biçimi, tam doğru, ipucusuz, itirazsız) ve "oturan"
+    // (anlam hafızası yazıldı ve bm yükseldi ya da ilk kez ipucusuz üretim: pk 0 → ≥ 1)
+    if (ergebnis === 'richtig' && !ipuclu && !q.itiraz && ILERLEME_BICIM.has(bicim) && session.tur && !session.tur.bitti) { const l = session.tur.ipucsuz = session.tur.ipucsuz || []; if (!l.includes(id)) l.push(id); }
+    if (yaz(out.m) && it && it.m && ((bm0 != null && (it.m.bm || 0) > bm0) || (pk0 === 0 && (it.m.pk || 0) >= 1))) oturanEkle(id, t);
     if (yaz(out.m)) parca.push('m' + not.m); if (yaz(out.a)) parca.push('a' + not.a); if (yaz(out.k)) parca.push('k' + not.k);
     const ana = artB ? out.a : eski === 'stamm' ? out.k : out.m;
     const R0 = ana ? ana.R : anaH && anaH.S ? Kern.R(anaH, t) : null, S1 = ana ? ana.S : anaH && anaH.S ? anaH.S : null;
@@ -4238,7 +4299,8 @@
     }
     if (q.sel && ['m', 'art', 'kok'].includes(q.sel.tur)) {
       Kern.oturumIsle(ot, q.sel, { ergebnis: r.ergebnis }, Math.random);
-      artSetKur(q, r.ergebnis);   // artikel yanlışı: aynı kuraldan mini set (turda bir)
+      if (askidaMi(id) && ot.kuyruk) ot.kuyruk = ot.kuyruk.filter(k => k.id !== id);   // sonuç panelinde askıya alındı
+      else artSetKur(q, r.ergebnis);   // artikel yanlışı: aynı kuraldan mini set (turda bir)
       if (q.sel.tur === 'kok') { const gs = gs4(); gs.kok = (gs.kok || 0) + 1; if (q.sel.kaynak === 'yeniKok') gs.kokYeni = (gs.kokYeni || 0) + 1; }
     }
     save();
@@ -4419,6 +4481,7 @@
     const n = Kern.v3Yetis(S, now());
     if (Kern.kontextOnar) Kern.kontextOnar(S);   // 8.11: t 0 / düz metin cümle geçmişi "30 günde ≤ 2" sayımına girsin
     tageTuret();
+    askiBildir();   // 15.11: Kern'in otomatik askısı → log satırı + Bugün'de bir kez bilgi kartı
     return n;
   }
   function uzakBirlestir(uz) {
@@ -4648,9 +4711,41 @@
     if (it.m && it.m.S >= 21 && (!it.art || !it.art.S || it.art.S >= 7)) return 'sitzt';
     return 'lernt';
   }
+  // ---------- Askıya alma (15.11, D2; Tuna: "sikko kelimeleri ezberliyorum") ----------
+  // Sözleşme: S.items[id].askida = { t, neden: 'oto' | 'el' } (Kern seçimden ve birikme sayımından çıkarır; otomatik askıyı ilk açılışta Kern yapar).
+  // Geri alınca askida = null (silmek yerine: birleştirmede öbür cihazın eski askida'sı geri gelmesin). Log: akt;aski:<öğe>;…;askida|geri;;neden:el|oto
+  const askidaMi = id => !!(S.items[id] && S.items[id].askida);
+  const askidakiler = () => Object.keys(S.items).filter(id => kind(id) !== 'p' && S.items[id] && S.items[id].askida && gueltig(id + ':x'));
+  const askiLog = (id, ergebnis, neden) => logEintrag({ modus: 'akt', id: 'aski:' + id, item: label(id), frage: '', antwort: '', ergebnis, loesung: '', notiz: 'neden:' + neden });
+  function askiyaAl(id, neden) {
+    const it = S.items[id]; if (!it || it.askida || kind(id) === 'p') return false;
+    it.askida = { t: now(), neden: neden || 'el', log: 1 };
+    askiLog(id, 'askida', it.askida.neden);
+    // turdaki bekleyen tekrarları da (yanlış sonrası kuyruk) bırak
+    if (session.ot && session.ot.kuyruk) session.ot.kuyruk = session.ot.kuyruk.filter(k => k.id !== id);
+    save(); return true;
+  }
+  function askidanGeriAl(id) {
+    const it = S.items[id]; if (!it || !it.askida) return false;
+    const neden = it.askida.neden || 'el';
+    it.askida = null;
+    askiLog(id, 'geri', neden);
+    save(); return true;
+  }
+  // Kern'in otomatik askısı: her yeni 'oto' öğe için bir kez log satırı (askida.log işareti öğeyle birleşir: öbür cihazda tekrar yazılmaz)
+  // ve Bugün'de bir kez bilgi kartı (S.ayar4.gosterildi.askiKart = { n, gun, ok })
+  function askiBildir() {
+    const yeni = Object.keys(S.items).filter(id => { const a = S.items[id] && S.items[id].askida; return a && a.neden === 'oto' && !a.log; });
+    if (!yeni.length) return;
+    yeni.forEach(id => { S.items[id].askida.log = 1; askiLog(id, 'askida', 'oto'); });
+    const gs = S.ayar4.gosterildi = S.ayar4.gosterildi || {}, k = gs.askiKart;
+    gs.askiKart = { n: (k && !k.ok ? k.n || 0 : 0) + yeni.length, gun: null, ok: false };
+    save();
+  }
   // sıradaki tekrar: "şimdi" / "bugün" / "~5 gün"
   function vadeMetni(id) {
     const it = S.items[id]; if (!it) return '';
+    if (it.askida) return it.askida.neden === 'oto' ? 'askıda · oto' : 'askıda';
     const h = it.m && it.m.S ? it.m : it.art && it.art.S ? it.art : null;
     if (!h) return it.yarim ? 'sırada' : '';
     const d = (h.due - now()) / DAY;
@@ -4666,10 +4761,11 @@
       <span class="yan">${kanca}${S.items[id] ? noktaHTML(seviyeOf(id)) : '<span class="soluk">yeni</span>'}<span class="vade">${vadeMetni(id)}</span></span></button>`;
   }
   // Kelimeler: seviye sekmeleri, arama, tek satır filtre; öğrendiklerin önce (sıradaki tekrara göre)
-  const LISTE_SEKME = [['hepsi', 'Hepsi'], ['ogren', 'Öğrendiklerim'], ['1', 'Tanıyor'], ['2', 'Yazıyor'], ['3', 'Cümlede'], ['4', 'Oturdu'], ['5', 'Usta'], ['0', 'Yeni']];
+  const LISTE_SEKME = [['hepsi', 'Hepsi'], ['ogren', 'Öğrendiklerim'], ['1', 'Tanıyor'], ['2', 'Yazıyor'], ['3', 'Cümlede'], ['4', 'Oturdu'], ['5', 'Usta'], ['0', 'Yeni'], ['aski', 'Askıda']];
   function renderListe() {
     const sek = session.listeSekme || 'hepsi';
     $('#seviye-sekme').innerHTML = LISTE_SEKME.map(([k, ad]) => `<button type="button" role="tab" data-sekme="${k}" aria-selected="${k === sek}">${ad}</button>`).join('');
+    { const sb = $('#seviye-sekme [aria-selected="true"]'), sk = $('#seviye-sekme'); if (sb && sk && sk.scrollWidth > sk.clientWidth) sk.scrollLeft = Math.max(0, sb.offsetLeft - sk.offsetLeft - 16); }   // seçili sekme (Askıda sonda) görünsün
     const q = $('#ara').value.trim().toLowerCase(), tur = $('#tur').value;
     const all = NOUN_ORDER.map(n => n.id).concat(VERB_ORDER.map(v => v.id), WORT_ORDER.map(w => w.id));
     const hits = all.filter(id => {
@@ -4682,6 +4778,9 @@
       if (tur === 'schwach' && !schwach(id)) return false;
       // arama metni varken seviye sekmesi yok sayılır (öğrenilmemiş kelime de bulunur)
       const sv = S.items[id] ? seviyeOf(id) : -1;
+      // Askıda sekmesi yalnız askıdakiler; seviye sekmelerinde askıdakiler yok (Hepsi'nde "askıda" yazar)
+      if (!q && sek === 'aski') return askidaMi(id);
+      if (!q && sek !== 'hepsi' && askidaMi(id)) return false;
       if (!q && sek === 'ogren' && !S.items[id]) return false;
       if (!q && sek === '0' && sv > 0) return false;
       if (!q && /^[1-5]$/.test(sek) && sv !== +sek) return false;
@@ -4690,6 +4789,13 @@
     });
     const vade = id => { const it = S.items[id]; if (!it) return Infinity; const h = it.m && it.m.S ? it.m : it.art && it.art.S ? it.art : null; return h ? h.due : Infinity - 1; };
     hits.sort((a, b) => (S.items[b] ? 1 : 0) - (S.items[a] ? 1 : 0) || (S.items[a] ? vade(a) - vade(b) : 0));
+    if (!q && sek === 'aski') {
+      hits.sort((a, b) => (S.items[b].askida.t || 0) - (S.items[a].askida.t || 0));
+      $('#liste-say').textContent = hits.length ? `${hits.length} kelime askıda · sorulmaz, tekrar yüküne girmez` : '';
+      $('#liste').innerHTML = hits.length ? hits.slice(0, 300).map(id => `<div class="aski-satir">${itemZeile(id)}<button class="btn mini" data-aski-geri="${id}" type="button">geri al</button></div>`).join('')
+        : '<div class="oge"><span class="tr">Askıda kelime yok. Gereksiz bulduğun kelimeyi cevaptan sonra ya da kelimenin sayfasında "Bu kelime bana gereksiz" ile askıya alabilirsin.</span></div>';
+      return;
+    }
     $('#liste-say').textContent = `${hits.length} kelime${hits.length > 150 ? ' · ilk 150' : ''}`;
     $('#liste').innerHTML = hits.length ? hits.slice(0, 150).map(id => itemZeile(id)).join('') : `<div class="oge"><span class="tr">${q ? 'Bu aramayla kelime bulunamadı.' : 'Bu seviyede kelime yok. Çalıştıkça buraya kelimeler gelir.'}</span></div>`;
   }
@@ -4705,12 +4811,14 @@
     const sv = it ? seviyeOf(id) : 0;
     $('#alt-sayfa-ic').innerHTML = `<div class="sira" style="margin:0;justify-content:space-between"><h3>${deItemHTML(id)}</h3><button class="ikon-btn" type="button" data-alt-kapat aria-label="Kapat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
       <div>${esc(trOf(id))}</div>
-      <div>${noktaHTML(sv)} <span class="soluk">${SEVIYE_AD[sv]}${vadeMetni(id) ? ' · sıradaki tekrar ' + vadeMetni(id) : ''}</span></div>
+      <div>${noktaHTML(sv)} <span class="soluk">${SEVIYE_AD[sv]}${it && it.askida ? ' · askıda' : vadeMetni(id) ? ' · sıradaki tekrar ' + vadeMetni(id) : ''}</span></div>
       ${formlar}
       ${cumleler.length ? `<ul class="ornekler">${cumleler.map(c => `<li>${deHTML(c.de)}${c.tr ? `<br><span class="soluk">${esc(c.tr)}</span>` : ''}</li>`).join('')}</ul>` : ''}
       ${kancaHTML(id)}
       ${son.length ? `<div class="son5"><b>Son cevaplar</b>${son.map(e => `<div><span class="e-${esc(e.ergebnis)}">${e.ergebnis === 'richtig' ? '✓' : e.ergebnis === 'fast' ? '≈' : e.ergebnis === 'falsch' ? '✗' : '·'}</span> ${esc(e.zeit.slice(5, 16))} · ${esc(e.antwort || e.ergebnis)}</div>`).join('')}</div>` : ''}
-      ${it ? '' : `<button class="btn ana buyuk" data-add="${id}" type="button">Öğrenmeye ekle</button>`}`;
+      ${it ? '' : `<button class="btn ana buyuk" data-add="${id}" type="button">Öğrenmeye ekle</button>`}
+      ${it && kind(id) !== 'p' ? (it.askida ? `<div class="aski-kutu"><span class="soluk">Askıda${it.askida.neden === 'oto' ? ' (nadir kelime, otomatik)' : ''}: sorulmuyor.</span><button class="btn" data-aski-geri="${id}" type="button">Askıdan geri al</button></div>`
+        : `<div class="aski-kutu"><button class="btn" data-aski-al="${id}" type="button">Bu kelime bana gereksiz</button><span class="soluk">askıya alır: artık sorulmaz · Kelimeler → Askıda'dan geri alırsın</span></div>`) : ''}`;
     $('#alt-sayfa').hidden = false;
   }
   const altKapat = () => { $('#alt-sayfa').hidden = true; };
@@ -4918,7 +5026,8 @@
     const anahtar = (id, on) => `<label class="anahtar"><input id="${id}" type="checkbox"${on ? ' checked' : ''}><i></i></label>`;
     const satir = (et, alt, kontrol) => `<div class="ayar-satir"><div class="et"><b>${et}</b>${alt ? `<span>${alt}</span>` : ''}</div>${kontrol}</div>`;
     $('#a-satirlar').innerHTML = [
-      satir('Tempo', 'hedef hatırlama: Rahat %80 · Dengeli %85 · Sıkı %90', seg('ret', [[0.8, 'Rahat'], [0.85, 'Dengeli'], [0.9, 'Sıkı']], ret)),
+      // 15.11 (D12): değer Tuna'nın seçimi, değiştirilmez; yalnız yükü söyleyen not
+      satir('Tempo', 'hedef hatırlama: Rahat %80 · Dengeli %85 · Sıkı %90<br><span class="ret-not">0,90 aralıkları kısaltır; 0,85 tekrar yükünü ~%15 azaltır</span>', seg('ret', [[0.8, 'Rahat'], [0.85, 'Dengeli'], [0.9, 'Sıkı']], ret)),
       satir('Yeni kelime / gün', (() => { const kt = kota(); return `bugün ${kt.yapilan}${kt.sebep !== 'normal' && kt.q < yg ? ` · şu an günde ${kt.q} (${kt.sebep === 'göç' ? 'yeni düzenin ilk günleri' : kt.sebep === 'dönüş' ? 'aradan dönüş turu' : 'birikme / genç kelime çok'}); seçimin birikme eriyince geçerli` : ' · birikme varken kendiliğinden azalır'}`; })(), seg('yeni', [[4, '4'], [6, '6'], [8, '8'], [10, '10']], yg)),
       satir('Günlük hedef', `1 tur = ${turBoyu()} cevap · pazartesi 1 tur`, seg('hedef', [[2, '2 tur'], [3, '3 tur'], [4, '4 tur'], [5, '5 tur']], th)),
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
@@ -5131,7 +5240,7 @@
     // doğruluk yalnız tekrarlardan (yeni kelimenin mini / ikinci soruları sayılmaz); tekrar yoksa "–"
     // tekrar sorusu yoksa (paket turu) bütün cevaplardan
     const oran = tu.tekrar ? Math.round(tu.tekrarOk / tu.tekrar * 100) : tu.n ? Math.round(((tu.richtig || 0) + 0.5 * (tu.fast || 0)) / tu.n * 100) : null;
-    const yeniIds = [...new Set(tu.neu || [])], seviye = [...new Set(tu.seviye || [])], takilan = [...new Set(tu.takilan || [])];
+    const yeniIds = [...new Set(tu.neu || [])], seviye = [...new Set(tu.seviye || [])], takilan = [...new Set(tu.takilan || [])], ipucsuz = [...new Set(tu.ipucsuz || [])];
     const zor = Object.keys(tu.w).filter(id => tu.w[id] <= 1 && !takilan.includes(id));
     const d = bugun(), z = ziel('akis'), turHedef = turHedefi(), turYapilan = Math.min(turHedef, turYapildi());
     const hedefYeni = !tu.hedefOnce && d.n >= z, seriYeni = !tu.seriOnce && gunAktif(tag());
@@ -5164,6 +5273,10 @@
         <div><b id="ts-dogruluk">${oran == null ? '–' : '%' + oran}</b><span>doğruluk</span></div>
         <div><b>${dk}</b><span>dakika</span></div>
       </div>
+      ${sebep === 'leer' && !tu.n ? '' : `<div class="ts-istat ts-ilerleme" style="grid-template-columns:repeat(2,1fr)">
+        <div><b id="ts-ipucsuz">${ipucsuz.length}</b><span>ipucusuz bildiğin</span></div>
+        <div><b id="ts-oturan">${haftaOturan()}</b><span>bu hafta oturan</span></div>
+      </div>`}
       ${gr && gr.n ? `<div class="ts-grup"><div class="ts-et">gramer · ${gr.n} soru</div><div class="soluk">${gr.richtig} doğru${gr.fast ? ` · ${gr.fast} küçük hata` : ''}${gr.falsch ? ` · ${gr.falsch} yanlış (yakında tekrar)` : ''}</div></div>` : ''}
       ${grup(`seviye atlayanlar · ${seviye.length}`, seviye, 'altin')}
       ${grup('tanıştıkların', yeniIds, 'yeni')}
@@ -5185,7 +5298,7 @@
     if (session.donusBonus && tu.n) session.donusBonus = false;
     if (sebep !== 'leer') { ton('tur'); if (hedefYeni) konfeti(); }
     if (tu.n) logEintrag({ modus: 'tur', id: session.modus, item: MODI[session.modus] ? MODI[session.modus].ad : '', frage: '', antwort: '', ergebnis: sebep === 'leer' ? 'leer' : 'bitti', loesung: '',
-      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0}${gr && gr.n ? ` | gram:${gr.richtig}/${gr.n}` : ''}` });
+      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0} | ipucusuz:${ipucsuz.length}${gr && gr.n ? ` | gram:${gr.richtig}/${gr.n}` : ''}` });
     save();
   }
   // ---- efektler: ses, titreşim, kart rengi, uçan puan, konfeti ----
@@ -5310,6 +5423,15 @@
     return `bu hızla ${gunMetni(g)}${hizlanir ? ` · 4. tur ${gunMetni(g4)}e indirir` : ''}`;
   }
   const dkOnce = t => { const d = Math.round((now() - t) / 60000); return d < 1 ? 'az önce' : d < 60 ? `${d} dk önce` : d < 1440 ? `${Math.round(d / 60)} saat önce` : `${Math.round(d / 1440)} gün önce`; };
+  // "önemli 1000'den x" (D11): build'in onem 1 öğeleri onemP sırasıyla ilk 1000; x = hafızada anlamı olan (askıda değil) ya da A1 (anlamı sorulmaz,
+  // bilinen sayılır). Kayıtlarda onem yoksa null (gizli).
+  let _onemBin = null;
+  function onemliBin() {
+    if (!_onemBin) _onemBin = [].concat(NL, VERBEN, WOERTER).filter(x => x && x.onem === 1).sort((a, b) => (a.onemP || 1e9) - (b.onemP || 1e9)).slice(0, 1000);
+    if (!_onemBin.length) return null;
+    const x = _onemBin.filter(o => { const it = S.items[o.id]; return it && it.askida ? false : !!(it && it.m && it.m.S) || o.tier === 1; }).length;
+    return { x, n: _onemBin.length };
+  }
   // bu hafta seviye atlayan kelime (tur satırlarındaki seviye+)
   const haftaSeviye = () => { const sinir = zeitStr(now() - 7 * DAY); return S.log.filter(e => e.modus === 'tur' && e.zeit >= sinir).reduce((a, e) => a + (+(/seviye\+:(\d+)/.exec(e.notiz || '') || [])[1] || 0), 0); };
   // ---------- günün özeti: "Bugün ne yaptın" (Bugün kartı) ve son 14 gün (İlerleme) ----------
@@ -5486,17 +5608,25 @@
     // turdaki gramer soruları (notiz tur:akis) gramer işi sayılmaz: vadeli konu tekrar seti yapılana dek kart açık kalır (8.11)
     const Gr = window.Gramer, bugunYapti = m => (m === 'gram' && Gr && typeof Gr.bugunYapildi === 'function' && Gr.bugunYapildi()) || bugunM(m).n > 0 || S.log.some(e => logGun(e) === tag() && e.modus === (m === 'gram' ? 'gram' : m === 'yazma' ? 'text' : 'lesen') && !(m === 'gram' && /(^|\| )tur:akis( \||$)/.test(e.notiz || '')));
     const hafta = zeitStr(now() - 7 * DAY), yazdi = S.log.some(e => e.modus === 'text' && e.zeit >= hafta);
-    const grVadeli = Gr && Gr.GR ? Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } }) : [];
+    // 15.11: günün gramer önerisi Gramer.gunOnerisi() (giriş seti bekleyen B2 konusu → boylu boyuna → vadeli tekrar, öncelik sırasıyla;
+    // eskiden alfabetik ilk vadeli konu: hep "Adjektiv"). Kart o konuyla açılır (data-gram-is / data-gram-id → Gramer.klick). API yoksa eski yol.
+    let oneri = null;
+    if (Gr && typeof Gr.gunOnerisi === 'function') { try { oneri = Gr.gunOnerisi(); } catch (e) { oneri = null; } }
+    const grVadeli = oneri ? [] : Gr && Gr.GR ? (typeof Gr.vadeliSirali === 'function' ? (() => { try { return Gr.vadeliSirali(); } catch (e) { return []; } })() : Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } })) : [];
     let is;
-    if (grVadeli.length) { const k = Gr.GR[grVadeli[0]].kopf || {}; is = { m: 'gram', ikon: '📐', b: 'Gramer tekrarı', alt: `${k.titel || ''}${grVadeli.length > 1 ? ` + ${grVadeli.length - 1} konu` : ''} · ~5 dk` }; }
+    if (oneri && oneri.id) {
+      const b = oneri.is === 'giris' ? 'Gramer: yeni konu' : oneri.is === 'derin' ? 'Boylu boyuna' : 'Gramer tekrarı';
+      const alt = oneri.is === 'giris' ? 'kısa kural + alıştırma · ~5 dk' : oneri.is === 'derin' ? 'teil teil alıştırma · ~8 dk' : `${oneri.n > 1 ? `+ ${oneri.n - 1} konu daha · ` : ''}~5 dk`;
+      is = { m: 'gram', ikon: '📐', b: `${b} · ${oneri.ad || ''}`, alt, gram: { is: oneri.is === 'giris' ? 'ac' : oneri.is, id: oneri.id } };
+    } else if (grVadeli.length) { const k = Gr.GR[grVadeli[0]].kopf || {}; is = { m: 'gram', ikon: '📐', b: 'Gramer tekrarı', alt: `${k.titel || ''}${grVadeli.length > 1 ? ` + ${grVadeli.length - 1} konu` : ''} · ~5 dk`, gram: { is: 'tekrar', id: grVadeli[0] } }; }
     else {
-      const sec = [{ m: 'gram', ikon: '📐', b: 'Gramer: yeni konu', alt: 'kısa kural + alıştırma · ~5 dk' }, { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW metni, dinleyerek · ~8 dk' }]
+      const sec = [{ m: 'gram', ikon: '📐', b: 'Gramer: yeni konu', alt: 'kısa kural + alıştırma · ~5 dk' }, { m: 'lesen', ikon: '📖', b: 'Okuma', alt: 'DW metni · ~8 dk' }]
         .concat(yazdi ? [] : [{ m: 'yazma', ikon: '✍️', b: 'Yazma', alt: 'kısa görev, Claude gece düzeltir · ~15 dk' }]);
       is = sec[Math.floor(now() / DAY) % sec.length];
     }
     const yapti = bugunYapti(is.m);
     return `<div class="ikinci-is"><div class="ii-ust">İstersen günün ikinci işi</div>
-      <button class="is-kart${yapti ? ' yapildi' : ''}" data-modus="${is.m}" type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
+      <button class="is-kart${yapti ? ' yapildi' : ''}" ${is.gram ? `data-gram-is="${esc(is.gram.is)}" data-gram-id="${esc(is.gram.id)}"` : `data-modus="${is.m}"`} type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
   }
   // akşam tekrarı kartı (isteğe bağlı): sabah çalışılan günün akşamı, ikinci iş kartının üstünde; sabah görünmez
   function aksamKarti() {
@@ -5534,11 +5664,26 @@
     const dunden = Object.values(S.items).filter(it => it.tanit && Kern.gun4(it.tanit) === dun && it.m && it.m.S && it.m.due <= now() + 6 * 3600000).length;
     const merak = siradaki ? `${bloklar.filter(x => x.bitti).length}/3 blok bitti · sırada ${siradaki.no}. blok` : session.ot && session.ot.donus ? 'Önce bildiklerin: kısa bir ısınma turu' : dunden ? `Dünden ${dunden} kelime seni bekliyor` : kt.kalan > 0 ? `İçinde ${Math.min(kt.kalan, 2)} yeni kelime` : tamam ? 'Bonus tur yeni kelime getirir' : 'Bugün eskileri sağlamlaştırıyoruz';
     // toparlanma: yalnız birikme 1,2 günlük işten büyükken; sayı yok, süre var
-    const vad = faellig().length, gunIs = 0.75 * gunHedef();
+    askiBildir();
+    const vad = faellig().filter(x => !askidaMi(x.id)).length, gunIs = 0.75 * gunHedef();
     let toparlanma = '';
+    // 15.11 (D11): suçlamasız ("Birikme büyüyor · tur eklemek eritir" yerine): bu tempoda toparlanmıyorsa bugünün hedefi yeter, önce önemliler gelir
     if (vad > 1.2 * gunIs && !ilkGun) {
-      { const tm = toparlanmaMetni(turHedef); toparlanma = `<div class="toparlanma">${/^bu tempoda birikme büyüyor/.test(tm) ? tm.replace(/^bu tempoda birikme büyüyor/, 'Birikme büyüyor') : 'Toparlanıyor · ' + tm}</div>`; }
+      { const tm = toparlanmaMetni(turHedef); toparlanma = `<div class="toparlanma">${/^bu tempoda birikme büyüyor/.test(tm) ? `Bugün ${turHedef} tur yeter · önce önemliler geliyor` : 'Toparlanıyor · ' + tm}</div>`; }
     }
+    // ilerleme sayıları (D11): gerçek vadeli yük · önemli 1000'den bildiğin (kayıtlarda onem yoksa gizli) · bu hafta oturan · askıda
+    const onB = onemliBin(), askSay = askidakiler().length, otu = haftaOturan();
+    const sayilar = ilkGun ? '' : `<div class="ana-sayilar">
+        <span class="as-pil" title="Şu an sırası gelmiş tekrar (askıdakiler hariç)"><b>${vad}</b> tekrar sırada</span>
+        ${onB ? `<span class="as-pil" title="Genel sıklığa göre en önemli 1000 kelimeden hafızanda olanlar (A1 kelimeleri bilinen sayılır)"><b>${onB.x}/${onB.n}</b> önemli kelime</span>` : ''}
+        ${otu ? `<span class="as-pil" title="Bu hafta ilk kez ipucusuz bildiğin ya da seviyesi kalıcı yükselen"><b>${otu}</b> bu hafta oturdu</span>` : ''}
+        ${askSay ? `<button class="as-pil tikla" data-act-ana="aski-git" type="button" title="Askıdaki kelimeler sorulmaz; Kelimeler → Askıda'dan geri alırsın"><b>${askSay}</b> askıda</button>` : ''}
+      </div>`;
+    // Kern'in otomatik askısından sonra bir kez (o gün, Tamam'a kadar)
+    const ak = (S.ayar4.gosterildi || {}).askiKart;
+    if (ak && !ak.ok && !ak.gun) { ak.gun = tag(); save(); }
+    const askiKart = ak && !ak.ok && ak.gun === tag() && ak.n ? `<div class="ana-bilgi aski-bilgi"><span>💤 <b>${ak.n} nadir kelime</b> askıya alındı: artık sorulmayacak (Kelimeler → Askıda'dan geri alabilirsin).</span>
+        <span class="sira" style="margin:0"><button class="btn mini" data-act-ana="aski-git" type="button">Askıda</button><button class="btn mini" data-act-ana="aski-tamam" type="button">Tamam</button></span></div>` : '';
     // en çok 2 iş kartı: ünite · paket tekrarı · fiil metni
     const isler = [];
     const U = uAktivler()[0];
@@ -5555,8 +5700,9 @@
     const fb = feedbackListe();
     if (S.ayar4.fbGorulen == null) { S.ayar4.fbGorulen = fb.length; save(); }
     const fbYeni = fb.slice(S.ayar4.fbGorulen);
-    const notlar = fbYeni.length ? `<div class="ana-kart notlar-kart"><h3>✍️ Claude'un notları · ${fbYeni.length} yeni</h3>${fbYeni.slice(-3).reverse().map(f => `<div class="not-satir"><span>${esc(f.antwort || '—')} → ${deHTML(f.richtig || '')}</span>${f.text ? `<span class="soluk">${esc(f.text)}</span>` : ''}</div>`).join('')}
-        <div class="sira" style="margin:0"><button class="btn" data-act-ana="notlar-hepsi" type="button">Hepsini gör</button><button class="btn mini" data-act-ana="notlar-tamam" type="button">Tamam</button></div></div>` : '';
+    // 15.11 (D11): tek satıra katlı (açılınca son 3 + düğmeler); 35 düzeltmelik liste ilk görülen şey olmasın
+    const notlar = fbYeni.length ? `<details class="ana-kart notlar-kart katli"><summary><span>✍️ Claude'un notları · <b>${fbYeni.length}</b> yeni</span><span class="soluk">gör</span></summary>${fbYeni.slice(-3).reverse().map(f => `<div class="not-satir"><span>${esc(f.antwort || '—')} → ${deHTML(f.richtig || '')}</span>${f.text ? `<span class="soluk">${esc(f.text)}</span>` : ''}</div>`).join('')}
+        <div class="sira" style="margin:0"><button class="btn" data-act-ana="notlar-hepsi" type="button">Hepsini gör</button><button class="btn mini" data-act-ana="notlar-tamam" type="button">Tamam</button></div></details>` : '';
     // ilk açılış (bir kez): güven kartı + "Ne değişti?"
     const eskiK = S.kartenV3 || {}, gz = S.goc4 && S.goc4.zaman;
     // eskiden vadesi gelmiş kart (yayılmış olanlar asıl vadesiyle: urspr)
@@ -5576,7 +5722,7 @@
         <div><div class="selam">${selam()}</div><div class="tarih">${new Date(now()).toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' })}</div></div>
         <div class="seri-pil${bugunSayildi ? ' yandi' : ''}" title="Seri: en az ${MIN_TAG} cevaplı gün. Dondurucu: kaçırdığın bir günü seriden düşürmez (her 7 günde bir kazanılır).">🔥 <b>${seri}</b>${sr.frz ? `<span class="frz">❄️${sr.frz > 1 ? sr.frz : ''}</span>` : ''}</div>
       </div>
-      ${bilgi}${sprintGecisKarti()}${guven}
+      ${bilgi}${askiKart}${sprintGecisKarti()}${guven}
       ${spA ? sprintSerit(S.sprint, bloklar) : ''}
       <div class="hero">
         <div class="halka-kap">${halka3(Math.min(yapildi, turHedef), turHedef, (d.n % b) / b, ic)}</div>
@@ -5588,6 +5734,7 @@
           ${toparlanma}
         </div>
       </div>
+      ${sayilar}
       ${ilkGun ? '' : aksamKarti()}
       ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs() : ''}
       ${bugunKarti()}
@@ -5823,6 +5970,7 @@
     else if (act === 'blok') blokBasla(a.dataset.blok);
     else if (act === 'sprint-gecis') { (S.ayar4.gosterildi = S.ayar4.gosterildi || {}).sprintGecis = S.sprint && S.sprint.hedef; save(); renderAna(); }
     else if (act === 'gecmis') zeigView('kayit');
+    else if (act === 'aski-tamam' || act === 'aski-git') { const k = (S.ayar4.gosterildi || {}).askiKart; if (k) k.ok = true; save(); if (act === 'aski-git') { session.listeSekme = 'aski'; $('#ara').value = ''; zeigView('liste'); } else renderAna(); }
     else if (act === 'notlar-tamam' || act === 'notlar-hepsi') { S.ayar4.fbGorulen = feedbackListe().length; save(); if (act === 'notlar-hepsi') zeigView('kayit'); else renderAna(); }
     else if (act === 'token-kopya') { ghSync(true, { zorla: true }); try { navigator.clipboard.writeText(ghToken()).then(() => toast('Anahtar kopyalandı: ana ekran uygulamasında "Getir"e yapıştır.')); } catch (e) { toast('Kopyalanamadı: Ayarlar → GitHub\'dan al.'); } }
     else if (act === 'getir') {
@@ -5895,6 +6043,7 @@
     const act = a.dataset.act;
     if (act === 'devam') ilerle();
     else if (act === 'itiraz') itirazEt();
+    else if (act === 'aski' || act === 'aski-geri') askiPanel(act === 'aski-geri');
     else if (act === 'cumle-yardim') cumleYardim();
     else if (act === 'hatirlat-evet') { const sa = $('#a-saat'); S.ayar4.saat = session.hatirlatSaat || sikSaat(); if (sa) sa.value = S.ayar4.saat; save(); googleTakvim(); const h = $('#ts-hatirlat'); if (h) h.remove(); }
     else if (act === 'hatirlat-hayir') { const h = $('#ts-hatirlat'); if (h) h.remove(); }
@@ -5932,6 +6081,14 @@
     if (g) { zeigView(g.dataset.git); return; }
     const go = e.target.closest('[data-gram-oku]');
     if (go && window.Gramer) { calisBasla('gram'); Gramer.oku(go.dataset.gramOku); return; }
+    // Bugün → ikinci iş gramer kartı: Gramer bölümü önerilen konuyla açılır ('ac' giriş · 'derin' boylu boyuna · 'tekrar' set)
+    const gi = e.target.closest('[data-gram-is]');
+    if (gi) {
+      calisBasla('gram');
+      const hedef = { dataset: { g: gi.dataset.gramIs, id: gi.dataset.gramId } };
+      if (window.Gramer && Gramer.GR && Gramer.GR[gi.dataset.gramId]) { try { Gramer.klick({ target: { closest: () => hedef } }); } catch (err) { /* liste kalır */ } }
+      return;
+    }
     const b = e.target.closest('[data-modus]');
     if (!b) return;
     calisBasla(b.dataset.modus);
@@ -6038,6 +6195,14 @@
     const o = e.target.closest('[data-oge]'); if (o) { ogeSayfa(o.dataset.oge); return; }
     if (e.target.closest('[data-alt-kapat]') || e.target.id === 'alt-sayfa') altKapat();
   });  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-aski-al], [data-aski-geri]'); if (!b) return;
+    const id = b.dataset.askiAl || b.dataset.askiGeri;
+    if (b.dataset.askiAl) { if (askiyaAl(id, 'el')) toast(`${esc(label(id))} askıya alındı: artık sorulmaz.`); }
+    else if (askidanGeriAl(id)) toast(`${esc(label(id))} geri alındı: yine tekrar edilir.`);
+    if (!$('#alt-sayfa').hidden) ogeSayfa(id);
+    if (!$('#v-liste').hidden) renderListe();
+  });
+  document.addEventListener('click', e => {
     const b = e.target.closest('[data-add]'); if (!b) return;
     ogeYarim(b.dataset.add, 'liste');   // yeni sıranın başına
     save();

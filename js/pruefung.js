@@ -169,7 +169,7 @@
   function renderHoeren() {
     el().innerHTML = `<div class="tur"><span class="yeni">hören</span><span>dinleme alıştırması</span></div>
       <div class="kural">Goethe'nin ses dosyaları uygulamaya konmuyor (telif). Sınavdaki gibi çalışmak için: <a href="https://www.goethe.de/ins/ee/de/spr/prf/gzb1/ueb.html" target="_blank" rel="noopener">goethe.de Übungsmaterialien</a> sayfasındaki Modellsatz/Übungssatz Hören sesini aç, PDF'teki cevap kâğıdını kullan (sorular için 10 sn, Teil 1 ve 4 iki kez, Teil 2 ve 3 bir kez).</div>
-      <div class="kural">Günlük dinleme kası: Okuma'daki DW Top-Thema metinlerinde ses var → önce <b>dinle</b> (okumadan), sonra metinle karşılaştır (Okuma → Dinleme modu: tahmin, metinsiz dinle, boşluklu metin).</div>
+      <div class="kural">Günlük dinleme kası: Okuma'daki DW Top-Thema metinlerinin çoğunda ses oynatıcısı var → önce metne bakmadan <b>dinle</b>, sonra metni okuyup karşılaştır.</div>
       <div class="sira"><button class="btn ana" data-modus="lesen" type="button">DW metnine git</button><button class="btn" data-p="ana" type="button">Prüfung</button></div>`;
   }
   // ---------- olaylar ----------

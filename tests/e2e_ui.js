@@ -55,7 +55,7 @@ const vh = p => p.evaluate(() => window.visualViewport ? visualViewport.height :
   const ana = await p.evaluate(() => {
     const v = document.querySelector('#v-ana');
     const birincil = [...v.querySelectorAll('.btn.ana')].filter(e => e.getClientRects().length && !e.closest('[hidden]'));
-    const kopya = v.cloneNode(true); kopya.querySelectorAll('.guven-kart').forEach(x => x.remove());
+    const kopya = v.cloneNode(true); kopya.querySelectorAll('.guven-kart, .ana-sayilar').forEach(x => x.remove());   // 15.11 (D11): sayılar şeridi bilerek gerçek yükü gösterir (borç dili yok)
     return { birincil: birincil.map(e => e.innerText.trim()), metin: kopya.innerText };
   });
   if (ana.birincil.length !== 1 || !/Başla|İlk turun|Devam et|Bonus tur|Sırada:/.test(ana.birincil[0] || '')) hata('bugün', `birincil düğmeler: ${JSON.stringify(ana.birincil)}`);
