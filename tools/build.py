@@ -1302,7 +1302,6 @@ def minimalpaare_lesen():
         errors.append("minimalpaare.txt: '@ vurgu' tanımı yok")
     return out
 # 14.11: dinleme alıştırmaları kalktı (duy-seç dahil); minimalpaare.js artık üretilmez (quellen/minimalpaare.txt arşivde durur)
-print(f"minimal çift: {len(_mp['ciftler'])} çift, {len(_mp['vurgu'])} vurgu kelimesi, {len(_mp['kontrast'])} kontrast")
 
 # index.html: js/css/daten dosyalarına içerik özeti (?v=) → tarayıcı önbelleği eski sürümü göstermez
 import hashlib
