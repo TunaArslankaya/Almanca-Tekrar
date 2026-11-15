@@ -608,6 +608,8 @@
       S.aski1411 = { t, n: out.aski.length };
     }
     if (!S.onarim1411 && opts.log && opts.log.length) out.onarim = onarim1411(S, opts.log, t, opts.sinif);
+    // 15.11 düzeni (E4 lz, E8 geri alma, E12 küme askısı: bir kez) ve takılan havuzu sınırı (E4: her açılışta)
+    out.d1511 = duzen1511(S, t, opts);
     Object.entries(S.items || {}).forEach(([id, it]) => {
       const h = it.m;
       if (!h || !h.S || !h.last || askidaMi(it)) return;
@@ -618,6 +620,71 @@
         if (yeni > (h.due || 0) + DAY / 2) { h.due = yeni; out.uzat++; }
       }
     });
+    return out;
+  }
+  // 15.11 düzeni (kernAc → duzen1411 içinde; idempotent):
+  //  · E4: takılan girişi 30 günlük lapse'le: lz'si olmayan anlam hafızası bir kez log'dan kurulur (not:m1 satırları, son cevaptan önceki
+  //    30 gün; artikel / kök satırları sayılmaz). Log yoksa beklenir (bayrak S.duzen1511.lz konmaz; o zamana dek ömür boyu sayı).
+  //  · E8: otomatik askıdaki öğe artık nadir değilse (aski_koru.txt: B2'de gerekli soyut kelimeler) ya da Goethe B1 ve onem ≤ 2 ise
+  //    askıdan geri alınır (bir kez; elle askıya alınana dokunulmaz).
+  //  · E12: onem ≥ 2, korunmayan, takılan ya da lapses ≥ 3 ve hava / Ünite 4 (Ehrenamt, Behörde, Politik) kümesindeki öğe otomatik askıya
+  //    (bir kez; Tuna'nın geri aldığı ve aktif ünite öğesi hariç).
+  //  · E4: takılan havuzu en çok TAKILAN.HAVUZ: fazlası en az önemliden (onemP büyük) otomatik askıya, askida.sebep 'takildi' (her açılışta).
+  // → { lz: n, geri: [id], kume: [id], takildi: [id] }
+  const ASKI_KUME = (id) => C.konu(id) === 'wetter' || /^u4:(Ehrenamt|Behörde|Politik)/.test(alanOf(id));
+  const goetheMi = id => !/^x/.test(id);   // nomen_extra (x…) Goethe listesinde değil
+  function duzen1511(S, t, opts) {
+    opts = opts || {};
+    const out = { lz: 0, geri: [], kume: [], takildi: [] }, d = S.duzen1511 = S.duzen1511 || {};
+    if (!d.lz && opts.log && opts.log.length) {
+      const lap = {};
+      opts.log.forEach(e => {
+        const nz = String((e && e.notiz) || '');
+        if (!nz.includes('basamak:') || e.modus === 'art' || e.modus === 'stamm') return;
+        const nt = /(?:^| )not:([^ |]+)/.exec(nz);
+        if (!nt || !/(?:^|,)m1(?:,|$)/.test(nt[1])) return;
+        const z = new Date(String(e.zeit || '').replace(' ', 'T')).getTime();
+        if (!isFinite(z)) return;
+        const id = String(e.id || '').split(':')[0];
+        (lap[id] = lap[id] || []).push(z);
+      });
+      Object.entries(S.items || {}).forEach(([id, it]) => {
+        const h = it.m;
+        if (!h || !h.S || Array.isArray(h.lz)) return;
+        h.lz = (lap[id] || []).filter(z => z > (h.last || t) - TAKILAN.GUN * DAY && z <= (h.last || t) + 60000).sort((a, b) => a - b);
+        out.lz++;
+      });
+      d.lz = t;
+    }
+    if (!d.aski && onemVar()) {
+      const us = new Set(opts.uniteAktif || (C.uniteAktif ? C.uniteAktif() : C.uniteSira()) || []);
+      Object.entries(S.items || {}).forEach(([id, it]) => {
+        if (askidaMi(it) && it.askida.neden === 'oto' && !it.askida.sebep && (!nadirMi(id) || (goetheMi(id) && onemOf(id) <= 2))) {
+          if (askidanAl(S, id, t)) out.geri.push(id);
+          return;
+        }
+        const h = it.m;
+        if (!h || !h.S || it.askida || it.askida === null || it.askiGeri || C.kind(id) === 'p' || us.has(id)) return;
+        const k = kayit(id);
+        if (onemOf(id) >= 2 && !(k && k.koru) && (takildiMi(h) || (h.lapses || 0) >= 3) && ASKI_KUME(id) && askiyaAl(S, id, 'oto', t)) out.kume.push(id);
+      });
+      d.aski = { t, geri: out.geri.length, kume: out.kume.length };
+    }
+    // havuz sınırı yalnız 30 günlük lapse kurulduktan sonra (log'suz yeni cihazda ömür boyu sayıyla gereksiz askı olmasın)
+    if (d.lz) out.takildi = takilanSinir(S, t, opts);
+    return out;
+  }
+  function takilanSinir(S, t, opts) {
+    const us = new Set((opts && opts.uniteAktif) || (C.uniteAktif ? C.uniteAktif() : C.uniteSira()) || []), out = [];
+    const L = Object.entries(S.items || {}).filter(([id, it]) => C.kind(id) !== 'p' && !askidaMi(it) && takildiMi(it.m));
+    if (L.length <= TAKILAN.HAVUZ) return out;
+    // aday: Tuna'nın geri almadığı, korunmayan, aktif ünite dışı; en az önemli önce
+    const ad = L.filter(([id, it]) => !it.askiGeri && it.askida !== null && !(kayit(id) || {}).koru && !us.has(id))
+      .sort((a, b) => onemPOf(b[0]) - onemPOf(a[0]));
+    for (const [id, it] of ad) {
+      if (L.length - out.length <= TAKILAN.HAVUZ) break;
+      if (askiyaAl(S, id, 'oto', t)) { it.askida.sebep = 'takildi'; out.push(id); }
+    }
     return out;
   }
   // D10 onarım: v5 log'unda anlam hafızasının bütün düşüşleri (not:m1) yalnız metin boşluğundan (modus luecke + kaynak: / bicim:metin)
@@ -1534,7 +1601,7 @@
 
   const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     // 14.11
-    askiyaAl, askidanAl, askidaMi, askiAday, duzen1411, onarim1411, emekliAday, emekliYap, takildiMi, TAKILAN, cumleIciMi, artBagli, artUygun,
+    askiyaAl, askidanAl, askidaMi, askiAday, duzen1411, onarim1411, duzen1511, takilanSinir, ASKI_KUME, emekliAday, emekliYap, takildiMi, TAKILAN, cumleIciMi, artBagli, artUygun,
     ONEMLI_TABAN, ART_BAGLI, ART_TAKILAN, GUCLU_UST, PK_KAPI_S, HIZLI_MS, BAGLAM_S, HIZLI_KAPI, BUYUME_TAVAN, YUMUSAK, ART_TUR, RT_TUR, onemOf, onemPOf, nadirMi, onemVar, ilerleme, onemliListe,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,

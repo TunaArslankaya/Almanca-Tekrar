@@ -1678,6 +1678,44 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     ok(g.ipucusuz === 2 && g.buHaftaAtlayan === 1 && g.buHaftaOturan === 1 && g.askida === 1 && g.askiOto === 1 && g.emekli === 1 && g.takilan === 1 && g.vadeli === 2, 'ilerleme: sayılar', g);
     ok(g.onemli.n === 3 && g.onemli.bilinen === 3, 'ilerleme: önemli liste (onemP en küçük 3: r6, r5, r1) bilinen 3', g.onemli);
   }
+  // ================= 15.11 düzeni (duzen1511): lz kurulumu, E8 geri alma, E12 küme askısı, E4 havuz sınırı =================
+  {
+    const bD = Object.assign({}, bO, {
+      x9: { id: 'x9', art: 'das', lemma: 'Vorurteil', tier: 3, onem: 3, onemP: 20000, nadir: true, koru: true },
+      q1: { id: 'q1', art: 'der', lemma: 'Donner', tier: 3, onem: 2, onemP: 5800, nadir: false },
+      q2: { id: 'q2', art: 'die', lemma: 'Erziehung', tier: 3, onem: 2, onemP: 7400, nadir: false, alan: 'u4:Werte und Zusammenleben' },
+      q3: { id: 'q3', art: 'der', lemma: 'Pate', tier: 3, onem: 2, onemP: 7000, nadir: false, alan: 'u4:Ehrenamt und Hilfe' },
+    });
+    K.init(Object.assign({}, cO, { byId: bD, konu: id => id === 'q1' ? 'wetter' : '' }));
+    const tkm = x => ({ m: h(1, 0.6, Object.assign({ lapses: 5, D: 9.8, pk: 1, bm: 1, due: T - DAY, lastG: 1 }, x || {})) });
+    const S = yeniS({
+      x9: { m: h(3, 0.8), askida: { t: T - DAY, neden: 'oto' } },          // korunan (B2'de gerekli) → geri
+      r3: { m: h(3, 0.8), askida: { t: T - DAY, neden: 'oto' } },          // nadir → askıda kalır
+      r1: { m: h(3, 0.8), askida: { t: T - DAY, neden: 'el' } },           // elle askı: dokunulmaz
+      q1: tkm(), q2: tkm({ last: T - SAAT }), q3: tkm({ lapses: 3, D: 8, S: 4 }),            // hava / Ünite 4 Ehrenamt → askı; Werte (Erziehung) kalır
+      r2: Object.assign(tkm(), { askiGeri: T - DAY, askida: null }),        // Tuna geri aldı: askıya alınmaz
+    });
+    const L = [{ zeit: '2026-10-14 10:00:00', modus: 'wort', id: 'q2:wort', notiz: 'basamak:B2 | bicim:yaz | not:m1 | R:0.8 | S:1' },
+      { zeit: '2026-10-14 10:01:00', modus: 'art', id: 'q2:art', notiz: 'basamak:A | bicim:artikel | not:a1 | R:0.8 | S:1' },
+      { zeit: '2026-08-01 10:00:00', modus: 'wort', id: 'q2:wort', notiz: 'basamak:B2 | bicim:yaz | not:m1 | R:0.8 | S:1' }];
+    const d = K.duzen1411(S, T, { log: L }).d1511;
+    ok(d.geri.join() === 'x9' && S.items.x9.askida === null && K.askidaMi(S.items.r3) && S.items.r1.askida.neden === 'el', 'E8: korunan otomatik askıdan geri; nadir ve elle askı kalır', d);
+    ok(d.kume.sort().join() === 'q1,q3' && K.askidaMi(S.items.q1) && !K.askidaMi(S.items.q2) && !K.askidaMi(S.items.r2), 'E12: hava / Ünite 4 Ehrenamt kümesi askıya; Erziehung ve geri alınan kalır', d);
+    ok(Array.isArray(S.items.q2.m.lz) && S.items.q2.m.lz.length === 1 && !K.takildiMi(S.items.q2.m), 'E4: lz log\'dan (30 gün, artikel satırı ve eski lapse sayılmaz) → takılan değil', S.items.q2.m);
+    const d2 = K.duzen1411(S, T + DAY, { log: L }).d1511;
+    ok(!d2.geri.length && !d2.kume.length && !d2.lz, 'duzen1511: bir kez (bayrak S.duzen1511)', d2);
+    // havuz sınırı: 17 takılan → 15; en az önemli (onemP büyük) askıya, sebep 'takildi'; korunan ve geri alınan değil
+    const bH = Object.assign({}, bD), it = {};
+    for (let i = 0; i < 17; i++) { bH['h' + i] = { id: 'h' + i, art: 'der', lemma: 'H' + i, tier: 3, onem: 1, onemP: 100 + i, nadir: false }; it['h' + i] = tkm({ lz: [T - 2 * DAY, T - 3 * DAY, T - 4 * DAY, T - 5 * DAY], last: T - DAY }); }
+    bH.h16.koru = true;
+    K.init(Object.assign({}, cO, { byId: bH }));
+    const SH = yeniS(it, { duzen1511: { lz: T, aski: {} } });
+    const th = K.duzen1511(SH, T, {}).takildi;
+    ok(th.join() === 'h15,h14' && SH.items.h15.askida.sebep === 'takildi' && SH.items.h15.askida.neden === 'oto', 'E4: havuz 15: fazlası en az önemliden askıya (korunan değil)', th);
+    eq(K.ilerleme(SH, T).takilan, 15, 'E4: havuz 15');
+    ok(!K.duzen1511(yeniS(JSON.parse(JSON.stringify(it))), T, {}).takildi.length, 'E4: lz kurulmadan (log yok) havuz sınırı yok');
+    K.init(cO);
+  }
   K.init(ctx);
 }
 
