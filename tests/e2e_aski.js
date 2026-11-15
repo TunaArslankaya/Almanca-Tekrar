@@ -18,6 +18,7 @@ const klasor = process.argv[2] || null;
   const oto = adaylar.slice(0, 3);
   oto.forEach(id => { z.items[id].askida = { t: Date.now() - 60000, neden: 'oto' }; });
   z.aski1411 = { t: Date.now() - 60000, n: oto.length };   // Kern'in bir kerelik otomatik askısı yapılmış sayılır (yoksa gerçek kurala göre ~40 öğe daha askıya alınır)
+  z.duzen1511 = { aski: { t: Date.now() - 60000 } };   // 15.11 düzeninin bir kerelik geri alma / küme askısı da yapılmış sayılır (test öğeleri geri alınmasın)
   for (const mobil of [true, false]) {
     const ad = mobil ? 'mobil' : 'masaustu';
     const p = await D.sayfa(b, { mobil, zustand: JSON.stringify(z) });

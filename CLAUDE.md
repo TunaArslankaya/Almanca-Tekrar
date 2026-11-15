@@ -155,6 +155,17 @@
   - Metin boşluğu: geçerli eş anlamlı fast `eş anlamlı` (`esAnlamli`), fazla artikel `fazla artikel` (yazım değil).
   - Gramer: turda tanıda "biliyor" olan konular, tuerkisch-fallen ve TeKaMoLo yalnız hayalet; yeni konu kelime birikmesinden bağımsız, 3 günde bir `Gramer.B2_SIRA`'dan kendiliğinden açılır (`kaynak:'oto'`, `odak`); turda hata bul ≤ 1/3; Bugün'deki gramer kartı `Gramer.gunOnerisi()`. 4 yeni B2 konusu: konjunktiv1, passiversatz, partizipialattribut, konnektoren-b2 (52 konu). Kip konularında (konjunktiv1/2) aynı fiilin başka çekimi yanlış `fiil biçimi (kip)`.
   - Testler: `tests/e2e_aski.js`; başsız Chromium + file:// yenilemede localStorage yazımları kaybolabildiği için testler durumu reload'la kurmaz (e2e_ui `yenile()` kopyayı taşır).
+- **15.11 Kern** (sabah raporları: "aynı yerde dönme" sürüyor; plan SPEC3 E1–E8, E11, E12):
+  - Kalibrasyon (E1): `Kern.KAL` Tuna'nın log'undan (σ(logit R + δ): seçmeli +0,9, ipuçlu −1,2, ipucusuz −1,6, metin −2,6; artikel −0,7, kök −1,3); anlam aralığı hedef R'si `retAnlam` = σ(logit ret − λ·δ_ipsz), λ 0,1; `Rgercek(R, biçim)`. Metin boşluğu yanlışı takılan girişine sayılmaz. `tests/sim_akis.js` varsayılan olarak bu δ'larla (KAL=0 eski iyimser model; KAL_L=x λ denemesi); ek ölçüler: önemli yeni, takılan havuzu, yo-yo (tek yazımda S ×10 / ×0,2), hızlı not 4, artikel payı, havuz askısı.
+  - Yo-yo (E2): hızlı not 4 yalnız S ≥ 7 ve bm ≥ 2; anlam S'i tek doğruda en çok ×2,5 (ya da +1; `guncelle` opts.tavan); yanlışta yumuşak düşüş: S ≥ 21 ve pk ≥ 1 → ×0,4, ipucusuz kanıtlı S ≥ 7 → ×0,25 (vade yarın).
+  - Kota (E3): takılan genç / birikme sayımına girmez; frende (sebep ≠ normal) günde en az 3 ve parti yalnız onem 1 (yarım hariç; `kota().onemli`); bonus tur her zaman +2 (günde ≤ +4, `kota().bonusEk`).
+  - Takılan (E4): giriş son 30 günün anlam lapse'leriyle (`m.lz`; lz'siz eski hafıza ömür boyu); çıkış iki ayrı günde doğru (ipuçlu da, seçmeli değil; `m.tkT`); son cevap yanlışsa takılan sorusu ipuçlu (bos0 / yaz0); turda 1, günde 3 (`it.tkGun`); havuz ≤ 15: fazlası en az önemliden otomatik askıya (`askida.sebep = 'takildi'`, log `neden:oto-takildi`).
+  - İpucu (E5): ipucusuz kanıtlı öğe (`Kern.kanitli`: pk ≥ 1 ya da bm ≥ 2) zayıflıkta / kurtarmada / yanlış sonrası yeniden sormada da ipucusuz (yaz / bos; `sel.kanit`); yaz0 / bos0 yalnız kanıtsızda; ısınma / momentumda dünün yeni kelimesi seçmeli değil.
+  - Vadeli sırası (E6): aynı R bandında (0,1) önemli önce; az önemli (onem 3 ya da onem 2 ve R < 0,8) vadeli yuvaların en çok 1/3'ü (`sel.az`).
+  - A1 (E7): kök sorusu yalnız düzensiz, B1 ve sık / önemli fiilde (`Kern.kokUygun`); A1–A2 isimde artikel yalnız art.lapses ≥ 2; A1 emekliliğine son doğru yeter.
+  - Askı (E8, E12; `Kern.duzen1511`, duzen1411 içinden, bayrak `S.duzen1511`): lz log'dan bir kez; otomatik askıdaki korunan (`aski_koru.txt`: Vorurteil, Behauptung, sich anstrengen, fließend … B2'de gerekli 11 kelime) ya da Goethe B1 + onem ≤ 2 öğe geri (log `neden:oto-geri`); onem ≥ 2, takılan ya da lapses ≥ 3 hava / Ünite 4 (Ehrenamt, Behörde, Politik) öğesi otomatik askıya; elle askıya alınana ve geri alınana dokunulmaz.
+  - Artikel (E11): artset turdaki artikel sınırına sayılır (turda ≤ 3, `ART_TUR_TOP`; dolunca bekleyen artset atılır); anlamı oturmuş (S ≥ 21) isimde artikel haftada ≤ 1 (`ART_OTURMUS`); `sel.kuralKart` art.lapses ≥ 5.
+  - İlerleme: `Kern.ilerleme` ek alanlar `buHaftaCoken` (oturmuş öğe düştü, `m.cokT`), `buHaftaNet`, `askiTakildi`, `takilanSinir`.
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde

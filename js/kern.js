@@ -80,10 +80,11 @@
   // 15.11 (E1) kişisel kalibrasyon (Tuna'nın log'u 25.10–14.11, v5 anlam satırları; sistem notu m ≥ 3 ~ σ(logit R + δ), en çok olabilirlik):
   // seçmeli +0,9 · ipuçlu (yaz0 / bos0) −1,2 · ipucusuz (yaz / bos / cumle / kalip) −1,6 · metin boşluğu −2,6. Model üretimi abartıyor
   // (R 0,85–0,95 → gerçek ipucusuz %62). Anlam hafızasının aralığı hedef R'yi bu kaymanın lambda kadarıyla yükselterek hesaplanır:
-  // R_hedef = σ(logit(ret) − lambda · ipsz) (ret 0,85, lambda 0,25 → 0,89: aralık ≈ ×0,65); tam düzeltme (lambda 1, ×0,2) yükü üç katına
-  // çıkarır. Kalibre simde (14 gün, K 36): lambda 0 / 0,25 / 0,5 → bm artışı 42 / 58 / 74, ipuçlu %47 / %40 / %36, 15. gün vadeli 87 / 107 / 117.
+  // R_hedef = σ(logit(ret) − lambda · ipsz) (ret 0,85, lambda 0,1 → 0,87: aralık ≈ ×0,85); tam düzeltme (lambda 1, ×0,2) yükü üç katına
+  // çıkarır. Kalibre simde (14 gün, K 36): lambda 0 / 0,1 / 0,25 / 0,5 → bm artışı 42 / 53 / 58 / 74, ipuçlu %47 / %43 / %40 / %36,
+  // 15. gün vadeli anlam 87 / 98 / 107 / 117 (eski sürüm 98): 0,1 yükü artırmadan seviye ilerlemesini ve ipucusuz payı iyileştiriyor.
   // tests/sim_akis.js aynı δ'larla gerçek başarıyı modelleyip lambda'yı seçer (Kern.KAL değiştirilebilir: simde deneme için).
-  const KAL = { sec: 0.9, ipl: -1.2, ipsz: -1.6, metin: -2.6, lambda: 0.25 };
+  const KAL = { sec: 0.9, ipl: -1.2, ipsz: -1.6, metin: -2.6, lambda: 0.1 };
   const retAnlam = ret => { const l = KAL.lambda || 0; return l ? sig(logit(ret || 0.85) - l * KAL.ipsz) : ret; };
   // gerçek başarı tahmini (biçim sınıfına göre): ilerleme / tahmin için
   const Rgercek = (r, bicim) => { const d = SECMELI.has(bicim) ? KAL.sec : bicim === 'metin' ? KAL.metin : /0$/.test(bicim || '') ? KAL.ipl : KAL.ipsz; return sig(logit(kirp(r, 0.001, 0.999)) + d); };
@@ -287,7 +288,8 @@
         // S4 (6.11): seçmeli doğrusu üretim kanıtı değil: pk 0 öğede vade en çok t + 3 gün (yazmada R 0,90 beklenip gerçek %53 idi)
         if (SECMELI.has(not.bicim) && (h.pk || 0) === 0 && h.S) h.due = Math.max(t, Math.min(h.due, t + SECMELI_VADE * DAY));
         // 14.11 (D3): A1–A2 öğe ipucusuz doğru bilindiyse (ya da S ≥ 7) emekli: en üst basamak, 60 g; yanlışta emeklilik kalkar
-        if (not.m >= 3 && emekliAday(it, id)) emekliYap(it, id);
+        // akşam istisnasıyla (bugün yanlış / yeni öğenin ikinci yazımı) emekli olmaz: vade yarın kalır (15.11: A1'de tek doğru yeter)
+        if (not.m >= 3 && !x.r.aksam && emekliAday(it, id)) emekliYap(it, id);
         else if (not.m <= 2) delete h.emk;
       }
       if (bEtkin) it.m.b = bEtkin;
