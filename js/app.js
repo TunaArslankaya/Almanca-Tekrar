@@ -1034,7 +1034,8 @@
     if (!kopfK && !r) return null;
     const uy = kopfK ? x => x.lemma === n.kopf[0] || (x.kopf && x.kopf[0] === n.kopf[0])
       : x => x.lemma.toLowerCase().endsWith(r[0]) && !(x.kopf && x.kopf[1] !== n.art);
-    const ad = NL.filter(x => x.id !== n.id && !x.plOnly && !x.skip && x.art === n.art && uy(x) && gueltig(x.id + ':x') && (!filtre || filtre(x.id)));
+    // 15.11: askıdaki ve (korunmayan) nadir isimler örnek / mini set olmaz
+    const ad = NL.filter(x => x.id !== n.id && !x.plOnly && !x.skip && x.art === n.art && uy(x) && gueltig(x.id + ':x') && (!filtre || filtre(x.id)) && !(S.items[x.id] && Kern.askidaMi && Kern.askidaMi(S.items[x.id])) && !(x.nadir && !x.koru));
     const bilir = x => !!(S.items[x.id] && (S.items[x.id].art || S.items[x.id].m));
     const ornek = shuffle(ad.filter(bilir)).concat(shuffle(ad.filter(x => !bilir(x)).sort((a, b) => (b.frek || 0) - (a.frek || 0) || b.tier - a.tier).slice(0, 8))).slice(0, adet);
     return { kural: kopfK ? `son parça: ${n.kopf[0]}` : `-${r[0]}`, kopfK, r, ornek };

@@ -1769,13 +1769,20 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     ok(!d2.geri.length && !d2.kume.length && !d2.lz, 'duzen1511: bir kez (bayrak S.duzen1511)', d2);
     // havuz sınırı: 17 takılan → 15; en az önemli (onemP büyük) askıya, sebep 'takildi'; korunan ve geri alınan değil
     const bH = Object.assign({}, bD), it = {};
-    for (let i = 0; i < 17; i++) { bH['h' + i] = { id: 'h' + i, art: 'der', lemma: 'H' + i, tier: 3, onem: 1, onemP: 100 + i, nadir: false }; it['h' + i] = tkm({ lz: [T - 2 * DAY, T - 3 * DAY, T - 4 * DAY, T - 5 * DAY], last: T - DAY }); }
+    // 15.11: önem 1 havuz sınırıyla askıya alınmaz → test öğeleri önem 2 (ayrıca aşağıda önem 1 denetimi)
+    for (let i = 0; i < 17; i++) { bH['h' + i] = { id: 'h' + i, art: 'der', lemma: 'H' + i, tier: 3, onem: 2, onemP: 100 + i, nadir: false }; it['h' + i] = tkm({ lz: [T - 2 * DAY, T - 3 * DAY, T - 4 * DAY, T - 5 * DAY], last: T - DAY }); }
     bH.h16.koru = true;
     K.init(Object.assign({}, cO, { byId: bH }));
     const SH = yeniS(it, { duzen1511: { lz: T, aski: {} } });
     const th = K.duzen1511(SH, T, {}).takildi;
     ok(th.join() === 'h15,h14' && SH.items.h15.askida.sebep === 'takildi' && SH.items.h15.askida.neden === 'oto', 'E4: havuz 15: fazlası en az önemliden askıya (korunan değil)', th);
     eq(K.ilerleme(SH, T).takilan, 15, 'E4: havuz 15');
+    { const bO = Object.assign({}, bD), it1 = {};
+      for (let i = 0; i < 17; i++) { bO['o' + i] = { id: 'o' + i, art: 'der', lemma: 'O' + i, tier: 3, onem: 1, onemP: 100 + i, nadir: false }; it1['o' + i] = tkm({ lz: [T - 2 * DAY, T - 3 * DAY, T - 4 * DAY, T - 5 * DAY], last: T - DAY }); }
+      K.init(Object.assign({}, cO, { byId: bO }));
+      const SO = yeniS(it1, { duzen1511: { lz: T, aski: {} } });
+      eq(K.duzen1511(SO, T, {}).takildi.length, 0, 'E4: önemli (onem 1) takılan havuz sınırıyla askıya alınmaz');
+      K.init(Object.assign({}, cO, { byId: bH })); }
     ok(!K.duzen1511(yeniS(JSON.parse(JSON.stringify(it))), T, {}).takildi.length, 'E4: lz kurulmadan (log yok) havuz sınırı yok');
     K.init(cO);
   }

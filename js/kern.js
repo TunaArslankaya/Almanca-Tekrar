@@ -711,7 +711,8 @@
     const L = Object.entries(S.items || {}).filter(([id, it]) => C.kind(id) !== 'p' && !askidaMi(it) && takildiMi(it.m));
     if (L.length <= TAKILAN.HAVUZ) return out;
     // aday: Tuna'nın geri almadığı, korunmayan, aktif ünite dışı; en az önemli önce
-    const ad = L.filter(([id, it]) => !it.askiGeri && it.askida !== null && !(kayit(id) || {}).koru && !us.has(id))
+    // 15.11: önemli kelime (onem 1) havuz sınırıyla askıya alınmaz (Tuna "önce önemli kelimeleri öğreneyim"); havuz bu yüzden 15'i aşabilir
+    const ad = L.filter(([id, it]) => !it.askiGeri && it.askida !== null && !(kayit(id) || {}).koru && !us.has(id) && ((kayit(id) || {}).onem || 2) > 1)
       .sort((a, b) => onemPOf(b[0]) - onemPOf(a[0]));
     for (const [id, it] of ad) {
       if (L.length - out.length <= TAKILAN.HAVUZ) break;
