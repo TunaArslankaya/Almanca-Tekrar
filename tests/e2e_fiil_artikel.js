@@ -78,7 +78,8 @@ const ok = (kosul, ad, m) => { if (!kosul) hata(ad, m); };
     } else if (deneme === 2) {   // cinsiyet yanlış → falsch + kural + artset kuyruğu
       const yanlisArt = ['der', 'die', 'das'].find(x => x !== art);
       const yf = Object.values(FORM[yanlisArt]).find(f => !Object.values(FORM[art]).includes(f));
-      await p.evaluate(() => { window.__tekrar.ot.artSet = false; });
+      // 15.11 (E11): artset turdaki artikel sınırına (3) sayılır; bu turdaki önceki artOb denemeleri sınırı doldurmasın
+      await p.evaluate(() => { const ot = window.__tekrar.ot; ot.artSet = false; ot.gecmis = (ot.gecmis || []).filter(x => x.tur !== 'art'); });
       await cevapla(yf);
       const a = await aktuell();
       ok(a.urteil === 'falsch', 'artOb', `cinsiyet yanlışı falsch değil: ${a.urteil} (${yf})`);
