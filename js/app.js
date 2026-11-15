@@ -5626,16 +5626,32 @@
       <div class="bk-kutular">${kutu(gun, 'çalışılan gün')}${kutu(cevap, 'cevap')}${kutu(konu, 'açılan gramer konusu')}${biliyor ? kutu(biliyor, 'bildiğin gramer konusu') : ''}${kutu(kelime, 'yeni kelime')}</div>
       <div class="sira" style="margin:0"><button class="btn" data-act-ana="sprint-gecis" type="button">Tamam, B2'ye başlıyorum</button></div></div>`;
   }
+  // kendiliğinden açılan B2 gramer konuları (giriş seti yapılmamış; Gramer.girisBekleyen, en yeni önce): Bugün'de günlük hedef bitmeden de,
+  // turların (ve varsa akşam kartının) altında, ikinci işin üstünde isteğe bağlı kart (15.11 sabah E9: kural görülmeden turda soruluyordu; giriş kartı yalnız hedef bitince ve yalnız en yeni konuydu)
+  function gramGirisListe() {
+    const Gr = window.Gramer;
+    if (!Gr || typeof Gr.girisBekleyen !== 'function' || sprintAktif()) return [];
+    try { return Gr.girisBekleyen() || []; } catch (e) { return []; }
+  }
+  function gramGirisKarti(liste) {
+    if (!liste.length) return '';
+    const n = liste.length, goster = liste.slice(0, 3);
+    return `<div class="ikinci-is gram-giris"><div class="ii-ust">Gramer: yeni konu${n > 1 ? ` (${n})` : ''} · turlarda soruluyor, önce kuralı gör</div>
+      ${goster.map(x => `<button class="is-kart" data-gram-is="ac" data-gram-id="${esc(x.id)}" type="button"><span class="is-ikon">📐</span><span class="is-metin"><b>${esc(x.ad)}</b><span>kısa kural + alıştırma · ~5 dk</span></span><span class="is-ok">›</span></button>`).join('')}
+      ${n > goster.length ? `<div class="soluk">+ ${n - goster.length} konu daha Gramer bölümünde</div>` : ''}</div>`;
+  }
   // günün ikinci işi: yalnız günlük hedef bittikten sonra görünür (isteğe bağlı; Tuna 18.10: önceden görünürse başlangıç eşiği büyür)
   // sıra: vadeli gramer konusu → gün gün dönüşümlü gramer / okuma / yazma (yazma haftada bir); bugün yapıldıysa ✓
-  function ikinciIs() {
-    // turdaki gramer soruları (notiz tur:akis) gramer işi sayılmaz: vadeli konu tekrar seti yapılana dek kart açık kalır (8.11)
-    const Gr = window.Gramer, bugunYapti = m => (m === 'gram' && Gr && typeof Gr.bugunYapildi === 'function' && Gr.bugunYapildi()) || bugunM(m).n > 0 || S.log.some(e => logGun(e) === tag() && e.modus === (m === 'gram' ? 'gram' : m === 'yazma' ? 'text' : 'lesen') && !(m === 'gram' && /(^|\| )tur:akis( \||$)/.test(e.notiz || '')));
+  // girisHaric: giriş seti bekleyen konular ayrı kartta (gramGirisKarti) gösteriliyor, burada önerilmez
+  function ikinciIs(girisHaric) {
+    // turdaki gramer soruları (notiz tur:akis) gramer işi sayılmaz: vadeli konu tekrar seti yapılana dek kart açık kalır (8.11);
+    // kendiliğinden açılış satırı (frage oto: acildi / odak) da sayılmaz (15.11 sabah E13: açıldığı gün kart "✓ bugün yapıldı" görünüyordu)
+    const Gr = window.Gramer, bugunYapti = m => (m === 'gram' && Gr && typeof Gr.bugunYapildi === 'function' && Gr.bugunYapildi()) || bugunM(m).n > 0 || S.log.some(e => logGun(e) === tag() && e.modus === (m === 'gram' ? 'gram' : m === 'yazma' ? 'text' : 'lesen') && !(m === 'gram' && (/(^|\| )tur:akis( \||$)/.test(e.notiz || '') || e.frage === 'oto')));
     const hafta = zeitStr(now() - 7 * DAY), yazdi = S.log.some(e => e.modus === 'text' && e.zeit >= hafta);
     // 15.11: günün gramer önerisi Gramer.gunOnerisi() (giriş seti bekleyen B2 konusu → boylu boyuna → vadeli tekrar, öncelik sırasıyla;
     // eskiden alfabetik ilk vadeli konu: hep "Adjektiv"). Kart o konuyla açılır (data-gram-is / data-gram-id → Gramer.klick). API yoksa eski yol.
     let oneri = null;
-    if (Gr && typeof Gr.gunOnerisi === 'function') { try { oneri = Gr.gunOnerisi(); } catch (e) { oneri = null; } }
+    if (Gr && typeof Gr.gunOnerisi === 'function') { try { oneri = Gr.gunOnerisi(undefined, { girisHaric: !!girisHaric }); } catch (e) { oneri = null; } }
     const grVadeli = oneri ? [] : Gr && Gr.GR ? (typeof Gr.vadeliSirali === 'function' ? (() => { try { return Gr.vadeliSirali(); } catch (e) { return []; } })() : Object.keys(Gr.GR).filter(id => { try { return Gr.vadeli(id); } catch (e) { return false; } })) : [];
     let is;
     if (oneri && oneri.id) {
@@ -5648,7 +5664,8 @@
         .concat(yazdi ? [] : [{ m: 'yazma', ikon: '✍️', b: 'Yazma', alt: 'kısa görev, Claude gece düzeltir · ~15 dk' }]);
       is = sec[Math.floor(now() / DAY) % sec.length];
     }
-    const yapti = bugunYapti(is.m);
+    // giriş önerisi: konu hâlâ giriş seti bekliyor → yapılmadı (başka bir gramer seti bugün yapılmış olsa da)
+    const yapti = is.gram && is.gram.is === 'ac' ? false : bugunYapti(is.m);
     return `<div class="ikinci-is"><div class="ii-ust">İstersen günün ikinci işi</div>
       <button class="is-kart${yapti ? ' yapildi' : ''}" ${is.gram ? `data-gram-is="${esc(is.gram.is)}" data-gram-id="${esc(is.gram.id)}"` : `data-modus="${is.m}"`} type="button"><span class="is-ikon">${yapti ? '✓' : is.ikon}</span><span class="is-metin"><b>${esc(is.b)}</b><span>${yapti ? 'bugün yapıldı · istersen bir daha' : esc(is.alt)}</span></span><span class="is-ok">›</span></button></div>`;
   }
@@ -5739,6 +5756,7 @@
     const onarim = sr.onarim && sr.onarim.bis === tag() ? `<div class="ana-bilgi onarim">🔧 Dün seriyi kaçırdın. Bugün <b>2 tur</b> yaparsan serin geri gelir.</div>` : '';
     const bilgi = (session.mesajlar || []).map(m => `<div class="ana-bilgi">${esc(m)}</div>`).join('') + onarim + (ilkGun ? '' : pazartesiNotu(tamam));
     const hs = haftaSeviye();
+    const grGiris = ilkGun || spA ? [] : gramGirisListe();   // giriş seti bekleyen B2 gramer konuları (hedef bitmeden de)
     const sk = session.senkron || {};
     const senkron = ghToken() ? (sk.hata ? `<div class="senkron hata">Eşitlenemedi: ${esc(sk.hata)}</div>` : `<div class="senkron">${sk.t ? 'eşitlendi ' + dkOnce(sk.t) : 'eşitleniyor…'}</div>`) : '<div class="senkron">yalnız bu cihazda kayıtlı · <button class="btn mini" data-git="ayar" type="button">eşitle</button></div>';
     el.innerHTML = `
@@ -5760,7 +5778,8 @@
       </div>
       ${sayilar}
       ${ilkGun ? '' : aksamKarti()}
-      ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs() : ''}
+      ${ilkGun || spA ? '' : gramGirisKarti(grGiris)}
+      ${spA ? sprintBlokHTML(bloklar) : tamam && !ilkGun ? ikinciIs(grGiris.length > 0) : ''}
       ${bugunKarti()}
       ${isler.length ? `<div class="isler">${isler.slice(0, 2).join('')}</div>` : ''}
       ${notlar}
