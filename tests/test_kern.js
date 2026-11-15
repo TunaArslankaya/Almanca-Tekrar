@@ -356,13 +356,14 @@ NT.forEach(([ad, girdi, bekl]) => {
   eq(q(doldur(33, genc)), 6, 'ret .85: 33 genç → 6');
   eq(q({}, { bonus: 1 }), 8, 'bonus tur +2');
   eq(q({}, { bonus: 3 }), 10, 'bonus en çok +4');
-  eq(q(birikmeli(73, 10), { bonus: 2 }), 7, '15.11 (E3): bonus tur her zaman: taban 3 + 4');
+  eq(q(birikmeli(73, 10), { bonus: 2 }), 7, '15.11 (E3): bonus tur genç freninden bağımsız: taban 3 + 4');
+  { const kb = K.kota({ S: yeniS(doldur(73, eskiVade)), kap: 36, bonus: 1 }, T); ok(kb.q === 3 && kb.bonusEk === 0 && kb.bonusYok === 'birikme', 'E3: birikme > 2·kap iken bonus yok (bonusYok)', kb); }
   {
     // 15.11 (E3): takılan öğe genç / birikme sayımına girmez; frende sonuç onemli (veride önem varsa)
     const tkl = () => ({ m: { S: 1, D: 9.8, last: b4 - 3 * DAY, due: b4 - 2 * DAY, lapses: 5 } });
     eq(q(doldur(73, tkl)), 6, 'E3: 73 takılan → birikme / genç sayılmaz (kota 6)');
-    const kt = K.kota({ S: yeniS(doldur(73, eskiVade)), kap: 36, bonus: 1 }, T);
-    ok(kt.bonusEk === 2 && kt.q === 5 && kt.sebep === 'birikme', 'E3: kota sonucu bonusEk', kt);
+    const kt = K.kota({ S: yeniS(birikmeli(73, 10)), kap: 36, bonus: 1 }, T);
+    ok(kt.bonusEk === 2 && kt.q === 5 && kt.sebep === 'genç' && !kt.bonusYok, 'E3: kota sonucu bonusEk', kt);
   }
   eq(q(doldur(73, genc), { bonus: 2 }), 8, 'bonus: birikme yoksa genç çok olsa da +4');
   const Sg = yeniS({}, { goc4: { zaman: T - DAY } });

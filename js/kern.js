@@ -761,7 +761,8 @@
 
   // 15.11 (E3, kota 21 günün 21'inde 2: genç / birikme sayımı takılan çekirdeği de içeriyordu): takılan öğe (kendi yuvasında, turda 1)
   // genç ve birikme sayımına girmez; birikme / genç freninde de günde en az ONEMLI_TABAN önemli (onem 1) yeni kelime (Tuna: "önce önemli
-  // kelimeleri öğreneyim"; kota kısıkken parti yalnız onem 1: sonuçta onemli = true); bonus tur her zaman +2 (günde en çok +4)
+  // kelimeleri öğreneyim"; kota kısıkken parti yalnız onem 1: sonuçta onemli = true); bonus tur +2 (günde en çok +4) genç freninden bağımsız,
+  // birikme > 2 × kapasite iken yok (bonusYok)
   const ONEMLI_TABAN = 3;
   function kota(durum, t) {
     const S = durum.S, ret = (S.einst && S.einst.ret) || 0.85;
@@ -781,7 +782,10 @@
     else { q = taban; sebep = 'normal'; }
     const onemli = sebep !== 'normal' && onemVar();
     if (sebep !== 'normal') q = Math.max(q, ONEMLI_TABAN);   // E3: frende de günde en az 3 (önemli)
-    const bonusEk = durum.bonus ? Math.min(4, 2 * durum.bonus) : 0;   // E3: bonus tur gerçekten +2 (genç / birikme şartı yok)
+    // E3: bonus tur +2 (günde ≤ +4) genç sayısına bakmadan; ama birikme 2 × kapasiteyi aşarken yok (Playwright oynatıcısında, Tuna'nın
+    // temposunda bonusla günde 5 yeni vadeli yükü 10 günde 147 → 164 büyütüyordu): o zaman bonusYok 'birikme' (arayüz mesajı buna göre)
+    const bonusEk = durum.bonus && sebep !== 'birikme' ? Math.min(4, 2 * durum.bonus) : 0;
+    const bonusYok = durum.bonus && !bonusEk ? 'birikme' : null;
     q += bonusEk;
     if (S.goc4 && S.goc4.zaman && !S.goc4.bos && gunFark(gun4(t), gun4(S.goc4.zaman)) < 3) { q = Math.min(q, 2); sebep = 'göç'; }
     q = Math.max(2, q);
@@ -791,7 +795,7 @@
     if (durum.donus) { q = 0; qUnite = 0; sebep = 'dönüş'; }
     // kota kısılmışken (sebep ≠ normal) o günün yarımı kotadan sayılır (sec → partiAc ile aynı kural)
     const yapilan = bugunYeni(S, t) + (sebep !== 'normal' && sebep !== 'dönüş' ? Math.min(1, bugunYarim(S, t)) : 0);
-    return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan, bonusEk, onemli: onemli && sebep !== 'göç' };
+    return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan, bonusEk, bonusYok, onemli: onemli && sebep !== 'göç' };
   }
   // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → sık B1 (build: sik, frek azalan) → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
   // (B1 sprinti 28.10: okuma metinlerinde en sık 300 B1 kelimesi listenin geri kalanından önce; kota değişmez)
