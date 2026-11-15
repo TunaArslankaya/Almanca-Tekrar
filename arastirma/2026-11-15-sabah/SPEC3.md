@@ -1,0 +1,34 @@
+# Sabah düzeltme planı (15.11), üçüncü dalga
+
+Kaynak: sabah inceleme raporları `/tmp/claude-0/-home-user-Almanca-Tekrar/4dea1611-5df9-572d-a6bf-80f842a1b634/scratchpad/sabah/b1.md … b6.md` (betikleri / oyun kayıtları yanlarındaki klasörlerde; özellikle b3'ün kalibrasyon analizi ve b5 / b6'nın oynatıcıları). Hepsini oku. Ortak hüküm: "kısmen çözülmüş — dinleme, nadir kelime, güçlü kelime tekrarı çözüldü; 'aynı yerde dönüp durma' sürüyor".
+
+## Ortak bulgular
+- KÖK: hafıza modeli Tuna'nın yazarak üretimini abartıyor (R 0,92 → gerçek ipucusuz %42, ipuçlu %60; metin boşluğu tahmin %90 → gerçek %41). `tests/sim_akis.js` bu iyimser varsayımla (δ −0,4; R 0,92'de %88 başarı) 14.11 kararlarını onayladı; Tuna'ya kalibre δ ≈ −1,5.
+- 14.11 D6 "ipucusuz hızlı doğru → not 4" yo-yo yaratıyor: tek hızlı doğru S 8 → 145 (60 gün kaybolur), tek yanlış S 22 → 1,9 (haftalarca ipuçlu döngü). die Wärme 63 → 3, vorschlagen 13,6 → 1,6.
+- Kota günde 2'ye kilitli (her gün, her koşuda): `kern.js:kota` genç (S < 7) ve birikme sayımı takılan / D ≥ 9 çekirdeğini içeriyor; `app.js:kapasite` Tuna az çalıştıkça daralıyor; bonus tur artışı `genç < 2·kap` şartına takılıyor ama tur sonu "Bonus tur yeni kelime getirir" diyor.
+- Takılan havuzu emici: 19 → 27–40, çıkan 0 (çıkış iki ayrı günde ipucusuz doğru ister ama yanlış sonrası soru ipuçlu; ömür boyu lapses ≥ 4 ile giriş; iki ay önceki artikel hataları da sayılıyor).
+- Anlam sorularının %51–70'i hâlâ ipuçlu (`bicimSec`: S < 4 → yaz0), önceden ipucusuz kanıtlı öğe de (pk ≥ 1) tek yanlıştan sonra ipuçlu döngüye giriyor; ipuçlu doğru seviye atlatmıyor.
+- Vadeli sırası önemi hesaba katmıyor (`vadSira` yalnız R); soruların ~%25'i hâlâ az önemli kelime; Bugün "önce önemliler geliyor" diyor.
+- İlerleme göstergeleri çelişkili: app `onemliBin` A1'i bilinmiş sayıyor (500/1000) — Kern `onemliListe` ölçüsü 57; "bu hafta oturan" çöken öğeleri saymıyor; "ipucusuz bildiğin · 0" çoğu turda.
+- Gramer: turdaki soruların yarısı hayalet; tuerkisch-fallen hayaleti 7 günün 6'sında (%24); her yanlışta sıfırlanıyor. B2 konuları kural (giriş seti) gösterilmeden turda soruluyor; giriş kartı yalnız günlük hedef bitince ve yalnız en yeni konu. "B2 sırası"nın ilk konuları (konjunktiv2-verg, passiv, relativ, adjektiv…) aslında B1 düzeyinde; gerçek B2 konuları (konjunktiv1, passiversatz, partizipialattribut, konnektoren-b2, nominal-verbal) çok sonra.
+- A1 kalıntıları: A1 fiillerde kök sorusu (kommen, essen, können), emekli olmamış A1–A2 anlam öğeleri, A1–A2 isimlerde artikel (das Wetter, der Regen).
+- Otomatik askı B2 kursu için yararlı bazı kelimeleri de aldı: Vorurteil, Behauptung, sich anstrengen, fließend (ve benzeri soyut B2 kelimeleri).
+- Artikel payı %13–16, artıyor; die Geduld (art.lapses 17) haftada 3 kez.
+- Isınmada dünün yeni kelimesi seçmeli soruluyor.
+
+## Kararlar
+E1 **Kalibrasyon:** Tuna'nın log'undan üretim (ipucusuz / ipuçlu / metin boşluğu) için gerçek hatırlama eğrisini ölç; Kern'de üretim biçimlerinde zamanlamayı buna göre düzelt (ör. biçime göre S ölçeği ya da kişisel R düzeltmesi, `ret` hedefinde gerçek başarıya yaklaşacak biçimde). `tests/sim_akis.js`'i Tuna'nın gerçek başarı eğrisiyle (log'dan, biçime göre) kalibre et; bütün önce / sonra ölçümleri bu kalibre sim ve b3 / b5 / b6 oynatıcılarıyla yapılsın.
+E2 **D6 geri al / yumuşat:** hızlı doğru not 4 yalnız S ≥ 7 ve bm ≥ 2 öğede ve S büyümesi en çok ×2,5 (tek cevapla 60 gün yok); tek yanlışta güçlü öğe (S ≥ 21, pk ≥ 1) çökmesin: S en çok ×0,4'e insin (FSRS lapse yerine yumuşak düşüş), ardından ipucusuz soru.
+E3 **Kota kilidi:** takılan ve askıdaki öğeler genç / birikme sayımından çıkar; kapasite en az günlük hedef × tur boyu; günde en az 3 önemli yeni kelime (onem 1) birikme varken de (çünkü Tuna "önce önemli kelimeleri öğreneyim" dedi), bonus turda +2 gerçekten gelsin (ya da mesaj değişsin).
+E4 **Takılan havuzu:** giriş son 30 günün lapses'ine göre (ömür boyu değil; eski artikel hataları anlamı etkilemesin); çıkış: iki ayrı günde doğru (ipuçlu doğru da sayılır, en az biri ipucusuz ya da üst üste 2 ipuçlu doğru); havuz en çok 15 — dolarsa en az önemli (onemP büyük) takılan öğe otomatik askıya (log `neden:oto-takildi`); takılanda turda yuva 1 kalabilir ama günde 3.
+E5 **İpucu döngüsü:** pk ≥ 1 ya da bm ≥ 2 öğede tek yanlıştan sonra da ipucusuz `yaz` (S < 4 olsa da); yaz0 yalnız hiç ipucusuz kanıtı olmayan öğede. Isınmada dünün yeni kelimesi seçmeli değil yaz0 / yaz.
+E6 **Vadeli sırası önemle:** aynı R bandında onem 1 önce; onem 3 (korunan) ve onem 2 zayıf öğeler vadeli yuvaların en çok 1/3'ü.
+E7 **A1 kalıntıları:** A1 fiillerde kök sorusu yok (A2 de: yalnız düzensiz ve sık B1 fiillerde); A1–A2 isimde artikel yalnız art.lapses ≥ 2; emeklilik ölçütü A1 için "en az bir doğru" yeter.
+E8 **Askı düzeltmesi:** Vorurteil, Behauptung, sich anstrengen, fließend ve benzeri B2'de gerekli soyut kelimeler (raporlarda geçenler + onem 2 ve Goethe B1 olanlar) askıdan geri alınsın: kural — Goethe B1 listesinde olan ve onem ≤ 2 olan öğe otomatik askıda kalmaz; `aski_koru.txt`'ye ekle. (Elle askıya alınanlara dokunma.)
+E9 **Gramer:** hayalet payı turda en çok 1/3; aynı konunun hayaleti günde en çok 1; tuerkisch-fallen ve TeKaMoLo hayaleti haftada en çok 2. Yeni oto konu turda sorulmadan önce kural kartı / giriş seti Bugün'de hemen (hedef bitmeden) görünsün, ilk tur sorusu z1 ve kural ipucuyla; giriş seti yapılmamış konunun turdaki sorusu kural özeti gösterir. `B2_SIRA`'yı gerçek B2'ye çevir: önce nominal-verbal, konnektoren-b2 / zweiteilig, passiversatz, partizipialattribut, konjunktiv1, sonra konjunktiv2-verg, passiv, relativ (tanıda zayıf çıkanlar yine öne). Konu adı: "Türkçeden gelen hatalar" yerine açıklayıcı ("Türk öğrencilerin tipik hataları: artikel, sein/haben, yön edatı").
+E10 **Göstergeler:** "önemli 1000" tek tanım: Kern `onemliListe` (A1 yalnız gerçekten görülmüşse); "bu hafta oturan" net (oturan − çöken); "ipucusuz bildiğin" turda 0 ise gösterme; "önce önemliler geliyor" yalnız E6 doğruysa.
+
+## Ek (b2 raporu)
+E11 **Artikel:** soruların %16–17'si artikel, %58–71'i anlamı oturmuş isimlerde, aynı isim haftada 3–4 kez; `sel.kuralKart` (art.lapses ≥ 5 → önce kural / kanca kartı) app.js'te hiç çizilmiyor; artset turdaki artikel sınırını (ART_TUR 2) aşıyor (turda 4–5 artikel). → artset de ART_TUR'a sayılsın; anlamı oturmuş isimde artikel haftada en çok 1; kuralKart arayüzde çizilsin (kural + kanca + 3 örnek, sonra flaş).
+E12 **Askı kapsamı:** onem 2 olup takılan (ya da lapses ≥ 3) ve tema "hava" / Ünite 4 (Ehrenamt, Behörde) kümesinden olan öğeler de otomatik askıya (feucht, Donner, Gedicht?, Erziehung? — dikkat: Erziehung, Umgang B2'de gerekli olabilir → Goethe B1 + onem ≤ 2 kuralı E8 ile çelişirse: takılan + tema hava/Ünite4 kümesi askıya, diğer Goethe B1 kalır).
+E13 **Gramer kartı hatası:** oto açılan konunun kartı açıldığı gün "✓ bugün yapıldı" görünüyor (`gramer.js` otoAc log satırı `app.js` `bugunYapti`'da "yapıldı" sayılıyor) → otoAc satırı yapıldı sayılmasın.
