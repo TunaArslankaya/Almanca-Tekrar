@@ -3498,7 +3498,7 @@
     const ot = session.ot, t = now(), id = q.id, g = Kern.gun4(t);
     if (q.kuralKart) {
       logEintrag({ modus: 'art', id, item: label(id), frage: 'kural kartı', antwort: '', ergebnis: 'neu', loesung: byId[id] ? byId[id].art + ' ' + byId[id].lemma : '',
-        notiz: `basamak:A | bicim:kuralKart | not:-${q.kural ? ' | kural:' + q.kural : ''}${q.ornekIds.length ? ' | örnek:' + q.ornekIds.join(',') : ''}${KANCA[id] ? ' | kanca' : ''} | sek:${Math.round((t - q.start) / 1000)}` });
+        notiz: `bicim:kuralKart${q.kural ? ' | kural:' + q.kural : ''}${q.ornekIds.length ? ' | örnek:' + q.ornekIds.join(',') : ''}${KANCA[id] ? ' | kanca' : ''} | sek:${Math.round((t - q.start) / 1000)}` });
       zeige(); return;
     }
     if (q.kisa && !(ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id)) { zeige(); return; }   // yeniden tanıtım: bekleyen soru
@@ -4242,7 +4242,6 @@
     });
     return { net: otur - cok, otur, cok };
   }
-  const haftaOturan = () => haftaOturanNet().net;
   const oturanMetin = x => x.net < 0 ? '−' + (-x.net) : String(x.net);
   const oturanBaslik = x => `Bu hafta ilk kez ipucusuz bildiğin ya da seviyesi kalıcı yükselen: ${x.otur}; bu hafta hafızası çöken (bir cevapta güç ×0,3'ün altına): ${x.cok}`;
   // "önemli 1000" (E10): tek tanım Kern.ilerleme().onemli (genel sıklıkta ilk 1000; bilinen = ipucusuz yazdığı / emekli / oturmuş, askı hariç;

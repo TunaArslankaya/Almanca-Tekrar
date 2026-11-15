@@ -188,7 +188,7 @@ const klasor = process.argv[2] || null;
     const f = await D.durum(p2);
     ok(f.art && f.id === disk, `[${ad}] kural kartından sonra aynı ismin flaşı gelmedi: ${JSON.stringify({ tur: f.tur, id: f.id, art: f.art })}`);
     const L = await p2.evaluate(id => window.__tekrar.S.log.filter(e => e.id === id && e.modus === 'art' && e.ergebnis === 'neu'), disk);
-    ok(L.length === 1 && /^basamak:A \| bicim:kuralKart \| not:- \| kural:-ion/.test(L[0].notiz) && /örnek:/.test(L[0].notiz), `[${ad}] kural kartı log: ${JSON.stringify(L)}`);
+    ok(L.length === 1 && /^bicim:kuralKart \| kural:-ion/.test(L[0].notiz) && /örnek:/.test(L[0].notiz), `[${ad}] kural kartı log: ${JSON.stringify(L)}`);
     ok(!(await p2.evaluate(id => window.__tekrar.kuralKartAc(id), disk)), `[${ad}] aynı isim günde ikinci kez kural kartı`);
     const ged = await idOf('Geduld');
     ok(await p2.evaluate(id => window.__tekrar.kuralKartAc(id), ged), `[${ad}] kuralsız isimde kart açılmadı`);
