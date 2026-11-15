@@ -460,13 +460,16 @@ const oturum = x => Object.assign({ adim: 0, boy: 12, kuyruk: [], gecmis: [] }, 
   const a3 = K.sec({ S: yeniS(art()), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true, gecmis: [{ id: 'x', tur: 'art' }, { id: 'y', tur: 'art' }, { id: 'z', tur: 'art' }] }), T, R99);
   eq(a3.tur, 'bitti', 'artikel flaşı turda en çok 3');
   // kök: turda 1, günde 4
-  const kokS = () => yeniS({ v1: { m: h(10, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: Object.assign(h(5, 0.8, { due: T - DAY }), { ornek: 'v1' }) } });
+  // 15.11 (E7): kök yalnız B1 (tier 3) düzensiz fiilde: v3 (abfahren); A2 fiil (v1 fahren) kök sorusu almaz
+  const kokS = () => yeniS({ v3: { m: h(10, 0.97, { due: T + 9 * DAY }) } }, { kok: { abfahren: Object.assign(h(5, 0.8, { due: T - DAY }), { ornek: 'v3' }) } });
+  eq(K.sec({ S: yeniS({ v1: { m: h(10, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: Object.assign(h(5, 0.8, { due: T - DAY }), { ornek: 'v1' }) } }), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true }), T, R99).tur, 'bitti', 'E7: A2 fiilde vadeli kök sorulmaz');
   const k = K.sec({ S: kokS(), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true }), T, R99);
   eq(k.tur, 'kok', 'vadeli kök'); eq(k.bicim, 'kokSatz', 'kök S < 7 → cümlede Perfekt');
   eq(K.sec({ S: kokS(), kap: 36, donus: true, gunSay: { kok: 4 } }, oturum({ adim: 5, parti: true, kurtarma: true }), T, R99).tur, 'bitti', 'kök günde en çok 4');
   eq(K.sec({ S: kokS(), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true, gecmis: [{ id: 'v2', tur: 'kok' }] }), T, R99).tur, 'bitti', 'kök turda en çok 1');
-  const yk = yeniS({ v1: { m: h(3, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: { ornek: 'v1', yeni: 1 } } });
+  const yk = yeniS({ v3: { m: h(3, 0.97, { due: T + 9 * DAY }) } }, { kok: { abfahren: { ornek: 'v3', yeni: 1 } } });
   eq(K.sec({ S: yk, kap: 36, donus: true }, oturum({ adim: 5, parti: true }), T, R99).kaynak, 'yeniKok', 'yeni kök açılır');
+  eq(K.sec({ S: yeniS({ v1: { m: h(3, 0.97, { due: T + 9 * DAY }) } }, { kok: { fahren: { ornek: 'v1', yeni: 1 } } }), kap: 36, donus: true }, oturum({ adim: 5, parti: true }), T, R99).kaynak === 'yeniKok', false, 'E7: A2 fiilde yeni kök açılmaz');
   eq(K.sec({ S: yk, kap: 36, donus: true, gunSay: { kokYeni: 2 } }, oturum({ adim: 5, parti: true }), T, R99).tur, 'bitti', 'yeni kök günde en çok 2');
 }
 // parti + oturum kuyruğu: 14.11 (D8) mini seçmeli yok; ikinci hatırlama 4 soru sonra; yanlış → 3–5 soru sonra bir kez yeniden (D5)
@@ -1131,10 +1134,14 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   cok.n1 = { m: h(10, 0.97, { due: T - DAY }), art: h(5, 0.7, { due: T - DAY }) };
   const ky = () => [{ id: 'n1', neden: 'artset', at: 2, b: 0, bicim: 'artikel', kural: 'ion' }, { id: 'w101', neden: 'ayir', at: 3, b: 0, bicim: 'ayir', diger: 'w102' }];
   for (const a of [0, 1]) {
-    const o = oturum({ adim: 2, kuyruk: ky(), gecmis: a ? [{ id: 'x', tur: 'art' }, { id: 'y', tur: 'art' }, { id: 'z', tur: 'art' }] : [] });
+    const o = oturum({ adim: 2, kuyruk: ky(), gecmis: a ? [{ id: 'x', tur: 'art' }, { id: 'y', tur: 'art' }] : [] });
     const s = K.sec({ S: yeniS(Object.assign({}, cok)), kap: 30 }, o, T, R99);
     ok(s.kaynak === 'kuyruk' && s.neden === 'artset' && s.tur === 'art' && !s.yenidenTanit, `artset kuyruğu önce (ısınma / zayıf çekirdek / birikme${a ? ', ART_TUR dolu' : ''})`, s);
   }
+  // 15.11 (E11): artset turdaki artikel sınırına sayılır: turda 3 artikel olduysa bekleyen artset atılır
+  { const o3 = oturum({ adim: 3, kuyruk: ky(), gecmis: [{ id: 'x', tur: 'art' }, { id: 'y', tur: 'art' }, { id: 'z', tur: 'art' }] });
+    const s3 = K.sec({ S: yeniS(Object.assign({}, cok)), kap: 30 }, o3, T, R99);
+    ok(s3.neden === 'ayir' && !o3.kuyruk.some(k => k.neden === 'artset'), 'E11: turda 3 artikel → artset atılır', s3); }
   const o = oturum({ adim: 3, kuyruk: ky().slice(1), gecmis: [{ id: 'n1', tur: 'art' }, { id: 'x', tur: 'm' }, { id: 'y', tur: 'm' }] });
   const s = K.sec({ S: yeniS(Object.assign({}, cok)), kap: 30 }, o, T, R99);
   ok(s.kaynak === 'kuyruk' && s.neden === 'ayir' && s.bicim === 'ayir', 'ayır kuyruğu sırası gelince önce', s);
@@ -1607,8 +1614,14 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     ok(K.artBagli({ S: 25, dsA: 3 }) && !K.artBagli({ S: 25, dsA: 2 }) && !K.artBagli({ S: 15, dsA: 5 }), 'D7: artBagli (S ≥ 21, son 3 doğru)');
     eq(K.vadeliler(yeniS({ r2: { m: h(30, 0.95, { due: T + 9 * DAY }), art: h(25, 0.8, { dsA: 3, due: T - DAY }) } }), T).length, 0, 'D7: anlama bağlı artikel ayrı vadeli değil');
     eq(K.vadeliler(yeniS({ r2: { m: h(30, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { lapses: 5, due: T - DAY, last: T - 20 * SAAT }) } }), T).length, 0, 'D7: art.lapses ≥ 5 → 2 günde bir');
-    const sk = so(yeniS({ r2: { m: h(30, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { lapses: 5, due: T - DAY, last: T - 3 * DAY }) } }));
+    const sk = so(yeniS({ r2: { m: h(10, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { lapses: 5, due: T - DAY, last: T - 3 * DAY }) } }));
     ok(sk.tur === 'art' && sk.kuralKart === true, 'D7: art.lapses ≥ 5 → kural kartı işareti', sk);
+    // 15.11 (E11): anlamı oturmuş (S ≥ 21) isimde artikel haftada en çok 1
+    eq(K.vadeliler(yeniS({ r2: { m: h(30, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { due: T - DAY, last: T - 3 * DAY }) } }), T).length, 0, 'E11: anlamı oturmuş isimde artikel 7 gün dolmadan yok');
+    eq(K.vadeliler(yeniS({ r2: { m: h(30, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { due: T - DAY, last: T - 8 * DAY }) } }), T).length, 1, 'E11: 7 gün sonra artikel gelir');
+    eq(K.vadeliler(yeniS({ r2: { m: h(10, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { due: T - DAY, last: T - 3 * DAY }) } }), T).length, 1, 'E11: anlamı oturmamış isimde sınır yok');
+    // 15.11 (E7): A1–A2 isimde artikel yalnız art.lapses ≥ 2
+    eq(K.vadeliler(yeniS({ r8: { m: h(10, 0.95, { due: T + 9 * DAY }), art: h(2, 0.8, { due: T - DAY, lapses: 1 }) } }), T).length, 0, 'E7: A1 isimde art.lapses < 2 → artikel sorulmaz');
     // dsA: art arda doğru artikel yazımı
     const Sd = yeniS({ r2: { m: h(8, 0.8), art: h(25, 0.8, { dsA: 2 }) } });
     K.uygula(Sd, 'r2', K.notVer({ bicim: 'artikel', tip: 'flas', dogru: true, sure: 2000 }), T);
@@ -1677,6 +1690,35 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     const g = K.ilerleme(S, T, 3);
     ok(g.ipucusuz === 2 && g.buHaftaAtlayan === 1 && g.buHaftaOturan === 1 && g.askida === 1 && g.askiOto === 1 && g.emekli === 1 && g.takilan === 1 && g.vadeli === 2, 'ilerleme: sayılar', g);
     ok(g.onemli.n === 3 && g.onemli.bilinen === 3, 'ilerleme: önemli liste (onemP en küçük 3: r6, r5, r1) bilinen 3', g.onemli);
+  }
+  // 15.11 (E5): ısınmada dünün yeni kelimesi (ilk kalıcı tekrar) seçmeli değil; ipucusuz kanıtlı öğe yanlıştan sonra yeniden sormada ipucusuz
+  {
+    const dun = { tanit: T - DAY, m: h(2.3, 0.8, { reps: 1, pk: 0, bm: 0, due: T - 1000 }) };
+    const bi = K.basamak(dun, { id: 'n1', t: T, isinma: true }, R99);
+    ok(bi.b === 2 && bi.ipuclu, 'E5: ısınmada dünün yeni kelimesi → B2 ipuçlu (yaz0), seçmeli değil', bi);
+    ok(K.basamak(dun, { id: 'n1', t: T }, R99).b === 1, 'E5: normal seçimde ilk kalıcı tekrar seçmeli olabilir');
+    const o = oturum({ adim: 4 }); K.oturumIsle(o, { tur: 'm', id: 'n1', b: 2, bicim: 'yaz', deneme: 1, kanit: true }, { ergebnis: 'falsch' }, R99);
+    eq(o.kuyruk[0].bicim, 'yaz', 'E5: kanıtlı öğe yanlış → yeniden sorma yaz');
+    const o2 = oturum({ adim: 4 }); K.oturumIsle(o2, { tur: 'm', id: 'n1', b: 2, bicim: 'yaz0', deneme: 1 }, { ergebnis: 'falsch' }, R99);
+    eq(o2.kuyruk[0].bicim, 'yaz0', 'E5: kanıtsız öğe yanlış → yaz0');
+    const sv = K.sec({ S: yeniS({ n1: { m: h(3, 0.75, { due: T - DAY, pk: 1, bm: 2, lastG: 1 }) } }), kap: 36, donus: true }, oturum({ adim: 5, parti: true, metin: true, takilan: true }), T, R99);
+    ok(sv.bicim === 'yaz' && sv.kanit, 'E5: kanıtlı öğe (S < 4, son yanlış, R .75) ipucusuz yaz', sv);
+  }
+  // 15.11 (E7): A1 (tier 1) öğede son cevabın doğru olması emeklilik için yeter; A2'de eski ölçüt
+  ok(K.emekliAday({ m: h(3, 0.9, { pk: 0, bm: 1, lapses: 2 }) }, 'n4') && !K.emekliAday({ m: h(3, 0.9, { pk: 0, bm: 1, lapses: 2 }) }, 'n5'), 'E7: A1 emeklilik: bir doğru yeter (A2 değil)');
+  ok(!K.emekliAday({ m: h(3, 0.9, { pk: 0, bm: 1, lastG: 1 }) }, 'n4'), 'E7: A1 son cevap yanlışsa emekli değil');
+  // 15.11 (E6): vadeli sırası: aynı R bandında önemli önce; az önemli (onem 3 / onem 2 zayıf) vadeli yuvaların en çok 1/3'ü
+  {
+    const S = yeniS({ r2: { m: h(10, 0.92, { due: T - DAY }) }, r1: { m: h(10, 0.91, { due: T - DAY }) }, r4: { m: h(10, 0.95, { due: T - DAY }) } });
+    const o = oturum({ adim: 5, parti: true, kurtarma: true, metin: true, takilan: true });
+    const s1 = K.sec({ S, kap: 36, donus: true }, o, T, R99);
+    eq(s1.id, 'r1', 'E6: aynı R bandında (0,9–1) onem 1 önce (R .91 > .92 onem 2), az önemli r4 (onem 3) ilk yuvada değil');
+    const o2 = oturum({ adim: 5, parti: true, kurtarma: true, metin: true, takilan: true, gecmis: [{ id: 'a', tur: 'm', vk: 'g' }, { id: 'b', tur: 'm', vk: 'g' }] });
+    const Sb = () => yeniS({ r1: { m: h(10, 0.85, { due: T - DAY }) }, r4: { m: h(10, 0.95, { due: T - DAY }) } });
+    eq(K.sec({ S: Sb(), kap: 36, donus: true }, oturum({ adim: 5, parti: true, kurtarma: true, metin: true, takilan: true }), T, R99).id, 'r1', 'E6: 1. yuvada az önemli (R yüksek olsa da) yok');
+    eq(K.sec({ S: Sb(), kap: 36, donus: true }, o2, T, R99).id, 'r4', 'E6: 3. vadeli yuvada az önemli gelebilir');
+    const o3 = oturum({ adim: 5, parti: true, kurtarma: true, metin: true, takilan: true, gecmis: [{ id: 'a', tur: 'm', vk: 'g' }] });
+    eq(K.sec({ S: yeniS({ r4: { m: h(10, 0.95, { due: T - DAY }) } }), kap: 36, donus: true }, o3, T, R99).id, 'r4', 'E6: yalnız az önemli kaldıysa sınır yok');
   }
   // ================= 15.11 düzeni (duzen1511): lz kurulumu, E8 geri alma, E12 küme askısı, E4 havuz sınırı =================
   {
