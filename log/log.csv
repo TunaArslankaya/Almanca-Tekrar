@@ -4537,3 +4537,33 @@
 2026-11-14 22:27:45;erk;x1576:erk;der Bundestag;Federal Meclis;der Bundestag;richtig;der Bundestag;basamak:B1 | bicim:sec | not:m3 | R:0.00 | S:2.3 | parti | şık:n0948/x1561/n0536 | çeldirici:bilinen/bilinen/bilinen | sek:2
 2026-11-14 22:27:48;ayir;w0479~w0165;trocken ~ feucht;kuru;trocken;richtig;trocken;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
 2026-11-14 22:27:59;gram;g:tuerkisch-fallen:121;tuerkisch-fallen/klein;Köpeklerden korkuyorum.;Ich fürchte mich vor dem Hund;falsch;Ich habe Angst vor Hunden.;tur:akis | tür:ceviri | z:2 | artikel/çekim | sek:8
+2026-11-15 11:47:14;akt;onarim1411;metin boşluğu onarımı;;;gelesen;;v643 1.4→19.1 -2, n0746 29.8→29.8 -1, n0055 2.1→10.3 -1, v243 5.2→9.4 -1, v447 3.6→8.8 -1, v346 6.3→6.7 -1, n0937 2.8→22.1 -1, v378 3.1→3.1 -1
+2026-11-15 11:47:14;akt;aski:n1376;die Wettervorhersage;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n1375;der Wetterbericht;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0165;feucht;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v272;frieren;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n1359;die Wärme;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v169;donnern;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v149;blitzen;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0325;mild;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v305;hageln;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n0248;der Donner;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0566;bewölkt;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n1094;das Sonderangebot;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1501;die Clique;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0599;eingespannt sein;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n0496;die Gymnastik;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1548;die Fairness;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1552;die Hilfsbereitschaft;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1562;das Ehrenamt;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0625;ehrenamtlich;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:w0626;bedürftig;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1563;der Feuerwehrmann;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v686;alarmieren;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1564;das Hochwasser;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1565;das Vereinsmitglied;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1566;die Patenschaft;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1567;der Pate;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:v138;betreuen;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:n0830;die Nachhilfe;;;askida;;neden:oto
+2026-11-15 11:47:14;akt;aski:x1569;der Behördengang;;;askida;;neden:oto
