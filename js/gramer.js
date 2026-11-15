@@ -82,16 +82,20 @@
   // Yeni konu kelime birikmesinden bağımsız: sprint dışında 3 günde bir B2_SIRA'dan bir konu kendiliğinden açılır (kaynak 'oto'; Gramer bölümüne
   // girmeye gerek yok). Açılan konu turda z1–z2 alıştırmalarıyla gelir; giriş seti (tanıtım + boylu boyuna) Bugün'deki gramer kartında / Gramer
   // bölümünde. Sırada zaten açık olan konu (adjektiv) açılmaz, o slotta "odak" olur (ks.odak: turda öncelik, bölümde Boylu boyuna önerisi).
-  // Tanıda zayıf çıkan konular sırada öne; dosyası olmayan konular atlanır.
-  const B2_SIRA = ['konjunktiv2-verg', 'passiv', 'relativ', 'adjektiv', 'partizip-adj', 'nominal-verbal', 'zweiteilig', 'genitiv', 'praep-verben',
-    'konjunktiv1', 'passiversatz', 'partizipialattribut', 'konnektoren-b2'];
+  // Tanıda zayıf çıkan (ya da teste girmemiş: 14.11'de eklenen B2 dosyaları) konular sırada öne; dosyası olmayan konular atlanır.
+  // 15.11 sabah (E9): sıra gerçek B2'den başlar (eskiden ilk 9 konu B1 düzeyindeydi: konjunktiv2-verg, passiv, relativ …; gerçek B2 ~27. günde).
+  const B2_SIRA = ['nominal-verbal', 'konnektoren-b2', 'zweiteilig', 'passiversatz', 'partizipialattribut', 'konjunktiv1',
+    'konjunktiv2-verg', 'passiv', 'relativ', 'partizip-adj', 'genitiv', 'praep-verben'];
   const OTO_ARALIK = 3;     // gün: iki kendiliğinden açılış arası
   const ODAK_GUN = 7;       // açılan / odak konu bu kadar gün turda öncelikli (kartı vadeli olmasa da)
   // turda yalnız hayalet olarak (yanlıştan sonra) gelen konular: tanıda "biliyor" olanlar + B2 için temel kalan iki konu
   // (12.11 / 14.11 analizi: tuerkisch-fallen v2 / kasus 12/12 doğru, TeKaMoLo'da gerçek sıra hatası 1–2). Gramer bölümünde listenin sonunda.
   const TUR_HAYALET = new Set(['tuerkisch-fallen', 'satzklammer-tekamolo']);
   const yalnizHayalet = id => TUR_HAYALET.has(id) || taniSonuc(id) === 'biliyor';
-  const b2Sira = () => B2_SIRA.filter(id => GR[id]).map((id, i) => [id, i]).sort((a, b) => (taniSonuc(a[0]) === 'zayif' ? 0 : 1) - (taniSonuc(b[0]) === 'zayif' ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
+  // TUR_HAYALET konularının turdaki hayaleti (15.11 sabah, E9): yanlışta adım sayacı sıfırlanmaz (ertesi gün, adım korunur), turda haftada ≤ 2
+  const TH_HAFTA = 2;
+  const zayifVeyaYeni = id => { const s = taniSonuc(id); return !s || s === 'zayif'; };
+  const b2Sira = () => B2_SIRA.filter(id => GR[id]).map((id, i) => [id, i]).sort((a, b) => (zayifVeyaYeni(a[0]) ? 0 : 1) - (zayifVeyaYeni(b[0]) ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
   const b2Rank = id => { const i = B2_SIRA.indexOf(id); return i < 0 ? 99 : i; };
   // sıradaki B2 adımı: kapalı konu → aç; açık ama kaynağı oto değil, odaksız, oturmamış (S < 21) → odak; diğerleri atlanır
   const b2Adim = () => {
@@ -120,8 +124,11 @@
     api.save && api.save();
     return a;
   }
-  // açılmış ama giriş seti yapılmamış B2 konusu (en yeni önce)
-  const otoBekleyen = () => Object.keys(GR).filter(id => { const k = st().konu[id]; return k && k.acildi && k.kaynak === 'oto' && !k.karte; }).sort((a, b) => st().konu[b].acildi - st().konu[a].acildi)[0] || null;
+  // kendiliğinden açılmış ama giriş seti yapılmamış (kartsız) konu: turdaki sorusu z1 + kural özetiyle gelir
+  const girisYok = id => { const k = st().konu[id]; return !!(k && k.acildi && k.kaynak === 'oto' && !k.karte); };
+  // giriş seti bekleyen bütün B2 konuları (en yeni önce; 15.11 sabah E9: eskiden yalnız en yenisi önerilirdi, eskisinin girişi kayboluyordu)
+  const girisBekleyen = () => Object.keys(GR).filter(girisYok).sort((a, b) => st().konu[b].acildi - st().konu[a].acildi);
+  const otoBekleyen = () => girisBekleyen()[0] || null;
   // turda öncelikli: son ODAK_GUN gün içinde kendiliğinden açılan ya da odak olan konu
   const yeniOdak = (id, t) => { const k = st().konu[id]; if (!k || !k.acildi) return false; const x = k.kaynak === 'oto' ? k.acildi : k.odak || 0; return !!x && x <= t && t - x < ODAK_GUN * DAY; };
   // vadeli konular öncelik sırasıyla (Gramer bölümü listesi, karışık tekrar, Bugün'deki gramer kartı): yeni / odak → turda son 7 günde yanlış →
@@ -134,8 +141,9 @@
     return ids.slice(r, n).concat(ids.slice(0, r), ids.slice(n));
   }
   // Bugün'deki gramer kartı için günün önerisi: giriş seti bekleyen B2 konusu → odak (boylu boyuna) → vadeli tekrar (vadeliSirali) → null
-  function gunOnerisi(t = now()) {
-    const b = otoBekleyen(); if (b) return { id: b, is: 'giris', ad: GR[b].kopf.titel };
+  // o.girisHaric: giriş bekleyenler atlanır (Bugün'de ayrı giriş kartı onları zaten gösteriyor)
+  function gunOnerisi(t = now(), sec = {}) {
+    const gb = sec.girisHaric ? [] : girisBekleyen(); if (gb.length) return { id: gb[0], is: 'giris', ad: GR[gb[0]].kopf.titel, bekleyen: gb };
     const o = Object.keys(GR).find(id => { const k = st().konu[id]; return k && k.odak && yeniOdak(id, t); });
     if (o && !bugunYapildi(t)) return { id: o, is: 'derin', ad: GR[o].kopf.titel };
     const v = vadeliSirali(t); if (v.length) return { id: v[0], is: 'tekrar', ad: GR[v[0]].kopf.titel, n: v.length };
@@ -373,11 +381,20 @@
   }
   // "hata bul" (fehler) turdaki gramerin en çok 1/3'ü (15.11; 8–14.11'de %38): son 5 tur sorusuyla birlikte bu soru fehler olursa oran ≤ 1/3 mü
   const fehlerTurIzin = () => { const s = turSon(); return (s.filter(x => x.tur === 'fehler').length + 1) * 3 <= s.length + 1; };
-  // z: yeni / odak konu (kartsız ya da genç) z1–z2; kararlı konu z2–z3; diğer z2. fehlerYok: hata bul türü bu soruda yok
+  // z: giriş seti yapılmamış konu z1 (yoksa z2); yeni / odak konu (kartsız ya da genç) z1–z2; kararlı konu z2–z3; diğer z2. fehlerYok: hata bul türü bu soruda yok
   function turUebung(id, teil, ausser, o = {}) {
     const tum = uebungen(id).filter(u => turUygun(u) && (!teil || u.teil === teil) && !(o.fehlerYok && u.tur === 'fehler'));
     let aday = tum.filter(u => u.n !== ausser); if (!aday.length) aday = tum;
     if (!aday.length) return null;
+    // giriş setsiz konu: turda art arda 2 doğruya kadar z1 (B2 dosyalarında z1 çoğunlukla seçmeli: wahl / seçenekli boşluk — kural özetiyle
+    // tanıma önce), sonra en alt yazarak zorluk (z2)
+    if (o.giris) {
+      if ((((st().konu[id] || {}).turV || {}).ok || 0) < 2) {
+        const z1 = uebungen(id).filter(u => u.z === 1 && (turUygun(u) || u.tur === 'wahl' || (u.tur === 'luecke' && u.opt)) && (!teil || u.teil === teil) && u.n !== ausser && !(o.fehlerYok && u.tur === 'fehler'));
+        const z1y = z1.filter(turUygun); if (z1.length) return secUebung(id, z1y.length ? z1y : z1, new Set());
+      }
+      const z2g = aday.filter(u => u.z === 2); if (z2g.length) return secUebung(id, z2g, new Set());
+    }
     const z = o.yeni ? [1, 2] : kararlilik(id) >= 4 ? [2, 3] : [2], zli = aday.filter(u => z.includes(u.z)), z2 = aday.filter(u => u.z >= 2);
     return secUebung(id, zli.length ? zli : z2.length ? z2 : aday, new Set());
   }
@@ -394,12 +411,25 @@
     else v.due = t + DAY;
     v.t = t; ks.turV = v;
   }
+  // turdaki hayalet sınırları (15.11 sabah, E9; 8 günde turdaki gramerin %54'ü hayaletti, aynı konunun hayaleti günde 2–3 kez):
+  // pay ≤ 1/3 (son HAY_PENCERE tur gramer sorusuyla birlikte), aynı konunun hayaleti turda günde ≤ 1, tuerkisch-fallen / TeKaMoLo haftada ≤ TH_HAFTA.
+  // ks.hayT = turda sorulan hayalet zamanları (son 8 gün)
+  const HAY_PENCERE = 8;
+  const hayaletIzin = () => { const s = turSon(HAY_PENCERE); return (s.filter(x => x.ghost).length + 1) * 3 <= s.length + 1; };
+  function turHayaletUygun(id, t) {
+    const hs = ((st().konu[id] || {}).hayT || []).filter(x => x <= t);
+    if (hs.some(x => gun(x) === gun(t))) return false;
+    return !TUR_HAYALET.has(id) || hs.filter(x => t - x < 7 * DAY).length < TH_HAFTA;
+  }
   let turCache = null, turEl = null, turOnceki = null;
   // turdaki normal (hayalet olmayan) soru adayı: tanıda biliyor / tuerkisch-fallen / TeKaMoLo değil (onlar yalnız hayalet) ve
   // ya yeni / odak (son 7 gün, kartı vadeli olmasa da) ya da kartı vadeli ya da kendiliğinden açılıp giriş seti yapılmamış (kartsız: turda
   // çalışılmaya devam eder); hepsinde 12.11 turV takvimi (turHazir)
   const turAday = (id, t) => { const k = st().konu[id]; return !yalnizHayalet(id) && acik(id) && (yeniOdak(id, t) || vadeliT(id, t) || (k.kaynak === 'oto' && !k.karte && k.acildi <= t)) && turHazir(id, t); };
-  // { konu, n, tur, ghost? } | null — haric = bu turda sorulan konular. Sıra: açık konuların hazır hayaletleri (önceki tur sorusu hayaletse ve
+  const TUR_EK_GUN = 2;
+  const odakT = id => { const k = st().konu[id] || {}; return k.kaynak === 'oto' ? k.acildi || 0 : k.odak || 0; };
+  const ekAday = (id, t) => !yalnizHayalet(id) && acik(id) && yeniOdak(id, t) && turSayi(id, t) < TUR_EK_GUN;
+  // { konu, n, tur, ghost?, ek? } | null — haric = bu turda sorulan konular. Sıra: açık konuların hazır hayaletleri (önceki tur sorusu hayaletse ve
   // normal aday varsa önce normal: hayalet art arda en çok 1), sonra yeni / odak B2 konusu, sonra vadeli konular (turda az sorulan, turV'de az doğrulu,
   // B2 sırası, en eski vade). "Hata bul" en çok 1/3 (fehlerTurIzin).
   function turSorusu(t, haric) {
@@ -407,7 +437,7 @@
     t = t == null ? now() : t;
     otoAc(t);
     const h = new Set(haric || []), key = [...h].sort().join(','), c = turCache;
-    if (c && c.key === key && Math.abs(t - c.t) < 10 * 60000 && !h.has(c.soru.konu) && (c.soru.ghost ? !!st().ghost[c.soru.ghost] : turAday(c.soru.konu, t))) return c.soru;
+    if (c && c.key === key && Math.abs(t - c.t) < 10 * 60000 && !h.has(c.soru.konu) && (c.soru.ghost ? !!st().ghost[c.soru.ghost] : c.soru.ek ? ekAday(c.soru.konu, t) : turAday(c.soru.konu, t))) return c.soru;
     const fehlerYok = !fehlerTurIzin(), son = turSon(1)[0];
     let soru = null, normal = null;
     const normalBul = () => {
@@ -415,17 +445,23 @@
       const turOk = id => ((st().konu[id] || {}).turV || {}).ok || 0, grup = id => (yeniOdak(id, t) ? 0 : 1);
       const due = Object.keys(GR).filter(id => turAday(id, t) && !h.has(id) && turSayi(id, t) < TUR_GUN)
         .sort((a, b) => grup(a) - grup(b) || turSayi(a, t) - turSayi(b, t) || turOk(a) - turOk(b) || b2Rank(a) - b2Rank(b) || ((konuSt(a).karte || {}).due || 0) - ((konuSt(b).karte || {}).due || 0));
-      for (const id of due) { const u = turUebung(id, null, null, { fehlerYok, yeni: grup(id) === 0 && kararlilik(id) < 4 && ((konuSt(id).turV || {}).ok || 0) < 2 }); if (u) return (normal = { konu: id, n: u.n, tur: u.tur }); }
+      for (const id of due) { const u = turUebung(id, null, null, { fehlerYok, giris: girisYok(id), yeni: grup(id) === 0 && kararlilik(id) < 4 && ((konuSt(id).turV || {}).ok || 0) < 2 }); if (u) return (normal = { konu: id, n: u.n, tur: u.tur }); }
       return (normal = false);
     };
-    if (!(son && son.ghost && normalBul())) {
+    if (!(son && son.ghost && normalBul()) && hayaletIzin()) {
       for (const k of hayaletHazir(t)) {
         const [id, kod] = k.split(':');
-        if (!GR[id] || !acik(id) || h.has(id)) continue;
+        if (!GR[id] || !acik(id) || h.has(id) || !turHayaletUygun(id, t)) continue;
         const u = turUebung(id, kod, st().ghost[k].son, { fehlerYok }); if (u) { soru = { konu: id, n: u.n, tur: u.tur, ghost: k }; break; }
       }
     }
     if (!soru) soru = normalBul() || null;
+    // boş kalan yuva (hayalet sınırda, turV'ye göre hazır konu yok): son 7 günde açılan / odak B2 konusuna, turV beklemeden (günde ≤ TUR_EK_GUN; E9)
+    if (!soru) {
+      const ek = Object.keys(GR).filter(id => ekAday(id, t) && !h.has(id))
+        .sort((a, b) => (girisYok(b) ? 1 : 0) - (girisYok(a) ? 1 : 0) || turSayi(a, t) - turSayi(b, t) || odakT(b) - odakT(a));
+      for (const id of ek) { const u = turUebung(id, null, null, { fehlerYok, giris: girisYok(id), yeni: kararlilik(id) < 4 }); if (u) { soru = { konu: id, n: u.n, tur: u.tur, ek: true }; break; } }
+    }
     turCache = soru ? { key, t, soru } : null;
     return soru;
   }
@@ -865,6 +901,23 @@
     ses = { ekran: 'ueb', id, art, set, i: 0, erg: [], q: null };
     render();
   }
+  // turda giriş seti yapılmamış konunun sorusu: üstte 1–2 satırlık kural özeti (@kurz'un ilk cümlesi; devamı açılır), Gramer bölümüne gitmeden
+  // (15.11 sabah, E9: B2 konuları kural görülmeden turda soruluyordu)
+  function kurzOzet(k) {
+    const s = String(k || '').trim(); if (s.length <= 130) return [s, ''];
+    // baştan cümle cümle (≤ 150 harf; ilk cümle tek başına uzunsa ≤ 170)
+    let ilk = '', kalan = s, m;
+    while ((m = /^.+?[.!?](?=\s+[A-ZÄÖÜÇĞİŞ(„])/.exec(kalan)) && (ilk ? ilk.length + 1 + m[0].length <= 150 : m[0].length <= 170)) { ilk = ilk ? ilk + ' ' + m[0] : m[0]; kalan = kalan.slice(m[0].length).trim(); }
+    if (ilk && ilk.length < 60 && kalan.includes(' · ')) { const p = kalan.split(' · '); let i = 0; while (i < p.length - 1 && (ilk + ' ' + p.slice(0, i + 1).join(' · ')).length <= 130) i++; if (i) { ilk += ' ' + p.slice(0, i).join(' · '); kalan = p.slice(i).join(' · '); } }
+    if (ilk) return [ilk, kalan];
+    const p = s.split(' · '); let a = p[0], i = 1; while (i < p.length && (a + ' · ' + p[i]).length <= 130) a += ' · ' + p[i++];
+    return i < p.length ? [a, p.slice(i).join(' · ')] : [s, ''];
+  }
+  function turKural() {
+    if (!(ses && ses.art === 'tur' && !ses.ghostKey && girisYok(ses.id))) return '';
+    const [ilk, kalan] = kurzOzet(GR[ses.id].kopf.kurz);
+    return `<div class="kural g-kurz g-tur-kural"><b>Kural</b> · ${de(ilk)}${kalan ? ` <details class="g-tur-kural-devam"><summary>devamı</summary>${de(kalan)}</details>` : ''}</div>`;
+  }
   function renderUebung() {
     const u = ses.set[ses.i], g = GR[ses.id];
     if (!ses.q || ses.q.n !== u.n || ses.q.id !== ses.id) ses.q = { n: u.n, id: ses.id, start: now(), ipucu: false, secim: [], adim: 1, done: false, ok: null };
@@ -931,7 +984,7 @@
       // ilk gösterimde bir kez kendiliğinden oku (tarayıcı izni: kullanıcı sayfaya dokunduysa)
       if (!q.caldi && root.navigator && root.navigator.userActivation && root.navigator.userActivation.hasBeenActive) { q.caldi = true; api.later(() => { if (ses && ses.q === q && !q.done) api.sprich(u.soru); }, 250); }
     }
-    el().innerHTML = ust + govde + (woerter ? `<div class="soluk g-woerter">kelimeler: ${woerter}</div>` : '') + '<div id="g-sonuc"></div>';
+    el().innerHTML = ust + turKural() + govde + (woerter ? `<div class="soluk g-woerter">kelimeler: ${woerter}</div>` : '') + '<div id="g-sonuc"></div>';
     api.tastatur && api.tastatur();
     const inp = el().querySelector('.g-inp'); if (inp && api.odakla()) inp.focus();
   }
@@ -1060,6 +1113,8 @@
     if (ghostModu) {
       const h = gh[key];
       if (h) { if (n === 3) { h.dogru = (h.dogru || 0) + 1; if (h.dogru >= 2) delete gh[key]; else { h.adim = Math.min(3, h.adim + 1); h.due = now() + (h.adim === 2 ? DAY : 3 * DAY); } }
+        // tuerkisch-fallen / TeKaMoLo (E9): yanlışta sayaç sıfırlanmaz (doğru sayısı ve adım kalır), ertesi gün; 4 yanlışta leech
+        else if (TUR_HAYALET.has(ses.id)) { h.deneme = (h.deneme || 0) + 1; h.adim = Math.max(2, h.adim || 1); h.due = now() + DAY; if (h.deneme >= 4) { api.leech && api.leech('g:' + key, g.kopf.titel + ' / ' + ((g.teile[u.teil] || {}).name || u.teil)); delete gh[key]; } }
         else { h.dogru = 0; h.deneme = (h.deneme || 0) + 1; h.adim = 1; h.due = now() + 5 * 60000; h.q = api.soruSayisi(); if (h.deneme >= 4) { api.leech && api.leech('g:' + key, g.kopf.titel + ' / ' + ((g.teile[u.teil] || {}).name || u.teil)); delete gh[key]; } } }
     } else if (ses.art !== 'deneme' && (ses.art !== 'tani' || acik(ses.id)) && (n === 1 || (n === 2 && yazarak(u)))) {   // testte kapalı konunun yanlış teil'i: açılınca hayalet
       if (!gh[key]) { if (Object.keys(gh).length >= 6) { const eski = Object.keys(gh).sort((a, b) => gh[a].due - gh[b].due)[0]; delete gh[eski]; }
@@ -1078,6 +1133,7 @@
     api.logEintrag({ modus: 'gram', id: ses.art === 'tani' ? `g:${ses.id}:tani:${u.n}` : `g:${ses.id}:${u.n}`, item: `${ses.id}/${u.teil}`, frage: u.soru, antwort: q.antwort, ergebnis: urteil, loesung: loesung(u), notiz: onEk.concat(notiz).join(' | ') });
     if (ses.art === 'tur') {   // turda: konu kartı, gün sayacı, xp, fx değişmez (app bitti'de sayar)
       const x = ks.tur && ks.tur.g === gun() ? ks.tur : (ks.tur = { g: gun(), n: 0 }); if (!ghostModu) x.n++;
+      if (ghostModu) { const t0 = now(); ks.hayT = (ks.hayT || []).filter(y => t0 - y < 8 * DAY).concat(t0); }
       if (!ghostModu) turVYaz(ks, urteil, !!q.itiraz, now());
       api.save && api.save();
       const cb = ses.turBitti, sonuc = { urteil, antwort: q.antwort, oneri: ['', 'falsch', 'fast', 'richtig'][q.oneri] };
@@ -1385,9 +1441,11 @@
     // B1 sprinti (S2): durum, günün bloğu, ana turda soru
     SPRINT_SIRA, sprintDurum, blokBaslat, turSorusu, turRender, turKlick, turTus, turBitir,
     // 15.11 B2 sırası: vadeli konular öncelik sırasıyla (tuerkisch-fallen / TeKaMoLo sonda), Bugün'deki gramer kartı önerisi { id, is: 'giris'|'derin'|'tekrar', ad, n? } | null
-    B2_SIRA, vadeliSirali: t => vadeliSirali(t == null ? now() : t), gunOnerisi: t => { otoAc(t == null ? now() : t); return gunOnerisi(t == null ? now() : t); },
+    B2_SIRA, vadeliSirali: t => vadeliSirali(t == null ? now() : t), gunOnerisi: (t, o) => { otoAc(t == null ? now() : t); return gunOnerisi(t == null ? now() : t, o || {}); },
+    // giriş seti bekleyen (kendiliğinden açılmış, kartsız) konular, en yeni önce: [{ id, ad, tr }] (Bugün'deki giriş kartı; hedef bitmeden de)
+    girisBekleyen: t => { otoAc(t == null ? now() : t); return girisBekleyen().map(id => ({ id, ad: GR[id].kopf.titel, tr: GR[id].kopf.tr })); },
     // bugün gramer bölümünde bir set ya da tanı oturumu bitti mi (turdaki tek tek gramer soruları sayılmaz; Bugün → ikinci iş için)
     bugunYapildi: t => bugunYapildi(t),
     // DOM'suz iç işler (test): tanı sorusu / cevabı, sıra, konu durumu, +1 aday
-    _ic: { otoAc, b2Sira, turSon, fehlerTurIzin, yalnizHayalet, derinYeni, derinSonraki, derinIsle, taniSoru, taniCevap, taniDurum, sprintSira, konuDurum, ekYeni, bugunAcilan, sprintVade, yeniAc, fehlerIzin, zorAralik, esTakas, KILIT_MS, KILIT_YANLIS_MS, ses: () => ses } };
+    _ic: { otoAc, b2Sira, turUebung, kurzOzet, hayaletIzin, turHayaletUygun, girisYok, turSon, fehlerTurIzin, yalnizHayalet, derinYeni, derinSonraki, derinIsle, taniSoru, taniCevap, taniDurum, sprintSira, konuDurum, ekYeni, bugunAcilan, sprintVade, yeniAc, fehlerIzin, zorAralik, esTakas, KILIT_MS, KILIT_YANLIS_MS, ses: () => ses } };
 })(window);

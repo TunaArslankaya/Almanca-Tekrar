@@ -1,9 +1,10 @@
-# Gramer konusu: Türkçeden gelen tuzaklar. Biçim: FORMAT.md (aynı klasör).
+# Gramer konusu: Türk öğrencilerin tipik hataları (artikel, sein / haben, yön edatı …). Biçim: FORMAT.md (aynı klasör).
 # Alıştırma satırı (8 alan): tür | zorluk | soru | cevap | seçenek/hata | Türkçe | açıklama | kelimeler
 # Alıştırma kimliği dosyadaki sırasıdır (@ ve # satırları sayılmaz): YENİ ALIŞTIRMA HEP SONA.
+# Başlık bilerek Türkçe ve açıklayıcı (15.11, Tuna: "Türkçeden gelen hatalar ne?"): kimlik (@id) değişmez.
 @id tuerkisch-fallen
-@titel Typische Fehler aus dem Türkischen
-@tr Türkçeden gelen tuzaklar: -e / -de, fiilin hâli, kelime sırası, yardımcı fiil
+@titel Türk öğrencilerin tipik hataları: artikel, sein / haben, yön edatı
+@tr Artikel, Perfekt'te sein mi haben mı, -e / -de (in die / in der), fiilin hâli (helfen + Dat), fiil 2. yerde, um / am / im
 @stufe A2–B1
 @kapitel tekrar (her Kapitel)
 @goethe 3 | Schreiben 1-2-3 · Sprechen 1-2-3
