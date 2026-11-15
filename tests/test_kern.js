@@ -1578,6 +1578,25 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     K.uygula(S3, 'r1', n4, T, { b: 2 }); K.uygula(S4, 'r1', n4, T, { b: 2 });
     ok(S3.items.r1.m.lastG === 3 && S4.items.r1.m.lastG === 3, 'E2: S < 7 ya da bm < 2 öğede hızlı doğru not 3', [S3.items.r1.m, S4.items.r1.m]);
   }
+  // 15.11 (E1): kişisel kalibrasyon: anlam aralığı hedef R'si σ(logit(ret) − lambda · δ_ipsz); Rgercek biçim sınıfına göre
+  {
+    const sg = z => 1 / (1 + Math.exp(-z)), lg = p => Math.log(p / (1 - p));
+    yakin(K.retAnlam(0.85), sg(lg(0.85) + K.KAL.lambda * 1.6), 1e-9, 'E1: retAnlam');
+    ok(K.retAnlam(0.85) > 0.85 && K.KAL.ipsz === -1.6 && K.KAL.metin === -2.6, 'E1: hedef R yükselir (aralık kısalır)');
+    yakin(K.Rgercek(0.9, 'yaz'), sg(lg(0.9) - 1.6), 1e-9, 'E1: Rgercek ipucusuz'); yakin(K.Rgercek(0.9, 'metin'), sg(lg(0.9) - 2.6), 1e-9, 'E1: Rgercek metin');
+    yakin(K.Rgercek(0.9, 'bos0'), sg(lg(0.9) - 1.2), 1e-9, 'E1: Rgercek ipuçlu'); yakin(K.Rgercek(0.9, 'sec'), sg(lg(0.9) + 0.9), 1e-9, 'E1: Rgercek seçmeli');
+    const lam = K.KAL.lambda; K.KAL.lambda = 0;
+    const A = yeniS({ r1: { m: h(10, 0.85, { bm: 3, pk: 2 }) } }); K.uygula(A, 'r1', K.notVer({ bicim: 'bos', tip: 'dogru', sure: 9000 }), T, { b: 3 });
+    K.KAL.lambda = lam;
+    const B = yeniS({ r1: { m: h(10, 0.85, { bm: 3, pk: 2 }) } }); K.uygula(B, 'r1', K.notVer({ bicim: 'bos', tip: 'dogru', sure: 9000 }), T, { b: 3 });
+    ok(B.items.r1.m.S === A.items.r1.m.S && B.items.r1.m.due < A.items.r1.m.due, 'E1: aynı S, daha kısa aralık', [A.items.r1.m, B.items.r1.m]);
+    // metin boşluğu yanlışı takılan girişine (lz) sayılmaz; oturmuş öğe düşünce cokT
+    const M = yeniS({ r1: { m: h(25, 0.85, { pk: 2, bm: 3, lz: [] }) } }); K.uygula(M, 'r1', K.notVer({ bicim: 'metin', tip: 'yanlis' }), T, { b: 3 });
+    ok(M.items.r1.m.lz.length === 0 && M.items.r1.m.lapses === 1 && M.items.r1.m.cokT === T, 'E1: metin yanlışı lz\'ye girmez; çöken (cokT)', M.items.r1.m);
+    // yumuşak düşüş (kanıtlı S ≥ 7 → ×0,25)
+    const Y = yeniS({ r1: { m: h(10, 0.85, { pk: 1, bm: 2 }) } }); K.uygula(Y, 'r1', K.notVer({ bicim: 'yaz', tip: 'yanlis' }), T, { b: 2 });
+    yakin(Y.items.r1.m.S, 2.5, 1e-6, 'E2: kanıtlı S 10 yanlış → 2,5 (×0,25)');
+  }
   // 15.11 (E2): tek cevapla anlam S'i en çok ×2,5 (ya da +1) büyür; güçlü öğede (S ≥ 21, pk ≥ 1) yanlış S'i en çok ×0,4'e indirir
   {
     const n4 = K.notVer({ bicim: 'yaz', tip: 'dogru', sure: 4000 });
@@ -1689,6 +1708,7 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
     const S = yeniS({ r1: { m: h(10, 0.9, { bm: 2, bmT: T - DAY, due: T + DAY }) }, r5: { m: h(25, 0.9, { bm: 1, otT: T - 2 * DAY, due: T - 1 }) }, r6: { m: h(9, 0.9, { emk: 1, due: T + 30 * DAY }) }, r3: { m: h(3, 0.9), askida: { t: T, neden: 'oto' } }, r2: { m: h(1, 0.5, { lapses: 5, D: 9.8, due: T - DAY }) } });
     const g = K.ilerleme(S, T, 3);
     ok(g.ipucusuz === 2 && g.buHaftaAtlayan === 1 && g.buHaftaOturan === 1 && g.askida === 1 && g.askiOto === 1 && g.emekli === 1 && g.takilan === 1 && g.vadeli === 2, 'ilerleme: sayılar', g);
+    ok(g.buHaftaCoken === 0 && g.buHaftaNet === 1 && g.takilanSinir === 15 && g.askiTakildi === 0, 'ilerleme (15.11): çöken, net, havuz sınırı', g);
     ok(g.onemli.n === 3 && g.onemli.bilinen === 3, 'ilerleme: önemli liste (onemP en küçük 3: r6, r5, r1) bilinen 3', g.onemli);
   }
   // 15.11 (E5): ısınmada dünün yeni kelimesi (ilk kalıcı tekrar) seçmeli değil; ipucusuz kanıtlı öğe yanlıştan sonra yeniden sormada ipucusuz

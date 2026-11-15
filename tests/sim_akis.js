@@ -161,6 +161,9 @@ async function simule(p, o) {
       top.vadSonArt = Kr.vadeliler(S, bas + o.GUN * DAY, filtre).filter(v => v.tur === 'art').length;
       top.askiSon = Object.values(S.items).filter(it => it.askida).length;
       top.takSon = Kr.ilerleme(S, bas + o.GUN * DAY).takilan;
+      // havuz sınırının askıya aldıkları (E4: sebep takildi) ve bunların önemli (onem 1) olanları
+      const tkA = Object.entries(S.items).filter(([, it]) => it.askida && it.askida.sebep === 'takildi');
+      top.askiTak = tkA.length; top.askiTak1 = tkA.filter(([id]) => Kr.onemOf(id) === 1).length;
       sonuc.push({ tohum, gunler, top, ihlal: Object.entries(yazim).filter(([, v]) => v > 1).map(([k]) => k) });
     }
     return sonuc;
@@ -176,6 +179,9 @@ async function simule(p, o) {
   await p.waitForTimeout(400);
   // 14.11: gerçek log (yanındaki log.csv, son 3000 satır) uygulamaya verilir ve açılış düzenlemesi (Kern.duzen1411: metin boşluğu onarımı)
   // log'la yeniden çalışır (uygulamada S.log açılışta hazırdır; testte localStorage'a yazmak yerine sonradan verilir). LOG=0: log yok.
+  // E1 deneme: KAL_L=x → Kern.KAL.lambda (anlam aralığının kişisel kalibrasyon payı); açılış düzenlemesinden önce
+  const KAL_L = process.env.KAL_L != null ? +process.env.KAL_L : null;
+  if (KAL_L != null) { await p.evaluate(l => { window.__tekrar.Kern.KAL.lambda = l; }, KAL_L); console.log(`Kern.KAL.lambda = ${KAL_L}`); }
   const logDosya = path.join(path.dirname(dosya), 'log.csv');
   if (process.env.LOG !== '0' && fs.existsSync(logDosya)) {
     const satir = csvOku(fs.readFileSync(logDosya, 'utf8').replace(/^\uFEFF/, ''));
@@ -209,6 +215,7 @@ async function simule(p, o) {
     // 14.11 ölçüleri: gerçek vadeli tekrar payı (vadeli / kurtarma / ısınma / momentum / takılan yuvası / vadeli metin boşluğu), askı, takılan yuvası,
     // aynı öğe günde ≥ 3 kez görülen (öğe-gün) payı ve en çok, turda ≥ 3 kez (öğe-tur) sayısı, yeni kelimenin ilk gününde görülme ortalaması
     console.log(`15.11 (tohum ortalaması, ${GUN} gün): yeni ${tp('yeniSay').toFixed(1)} (önemli ${tp('yeniOnemli').toFixed(1)}; günde ${(tp('yeniOnemli') / GUN).toFixed(1)}) · takılan ${tp('takBas').toFixed(0)} → ${tp('takSon').toFixed(1)} · yo-yo ↑${tp('yoyoU').toFixed(1)} ↓${tp('yoyoD').toFixed(1)} · hızlı not 4: ${tp('hizli4').toFixed(1)} · artikel payı %${(100 * tp('art') / (tp('cevap') || 1)).toFixed(1)}`);
+    console.log(`takılan askısı (havuz sınırı): ${tp('askiTak').toFixed(1)} (önemli ${tp('askiTak1').toFixed(1)})`);
     console.log(`tekrar (tohum ortalaması): gerçek vadeli tekrar %${(100 * tp('vadGercek') / (tp('cevap') || 1)).toFixed(0)} · askıda ${tp('aski').toFixed(0)} → ${tp('askiSon').toFixed(0)} · takılan yuvası ${tp('takilan').toFixed(1)} · aynı öğe günde ≥ 3: %${(100 * tp('gun3') / (tp('gunOge') || 1)).toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.gunMax))}) · turda ≥ 3: ${tp('tur3').toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.turMax))}) · yeni kelime ilk gün ${(tp('yeniGor') / (tp('yeniSay') || 1)).toFixed(1)} kez (${tp('yeniSay').toFixed(0)} yeni)`);
   }
   // turda biçim payı (bütün tohum ve günler): seçmeli ve yazma oranı (6.11, S4: seçmeli yalnız tanıtım günü / ilk tekrar)

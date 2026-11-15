@@ -76,7 +76,17 @@
   // 15.11 (E2, yo-yo: tek hızlı doğru S 8 → 145, tek yanlış S 22 → 1,9): hızlı not 4 yalnız S ≥ 7 ve bm ≥ 2 öğede; anlam S'i tek doğru cevapla
   // en çok ×2,5 büyür (ya da +1); güçlü öğede (S ≥ 21, pk ≥ 1) tek yanlış S'i en çok ×0,4'e indirir (FSRS lapse yerine yumuşak düşüş;
   // vade yarın, sonraki soru ipucusuz: E5)
-  const HIZLI_KAPI = { S: 7, bm: 2 }, BUYUME_TAVAN = 2.5, YUMUSAK = { S: 21, pk: 1, kat: 0.4 };
+  const HIZLI_KAPI = { S: 7, bm: 2 }, BUYUME_TAVAN = 2.5, YUMUSAK = { S: 21, pk: 1, kat: 0.4 }, YUMUSAK7 = { S: 7, kat: 0.25 };
+  // 15.11 (E1) kişisel kalibrasyon (Tuna'nın log'u 25.10–14.11, v5 anlam satırları; sistem notu m ≥ 3 ~ σ(logit R + δ), en çok olabilirlik):
+  // seçmeli +0,9 · ipuçlu (yaz0 / bos0) −1,2 · ipucusuz (yaz / bos / cumle / kalip) −1,6 · metin boşluğu −2,6. Model üretimi abartıyor
+  // (R 0,85–0,95 → gerçek ipucusuz %62). Anlam hafızasının aralığı hedef R'yi bu kaymanın lambda kadarıyla yükselterek hesaplanır:
+  // R_hedef = σ(logit(ret) − lambda · ipsz) (ret 0,85, lambda 0,25 → 0,89: aralık ≈ ×0,65); tam düzeltme (lambda 1, ×0,2) yükü üç katına
+  // çıkarır. Kalibre simde (14 gün, K 36): lambda 0 / 0,25 / 0,5 → bm artışı 42 / 58 / 74, ipuçlu %47 / %40 / %36, 15. gün vadeli 87 / 107 / 117.
+  // tests/sim_akis.js aynı δ'larla gerçek başarıyı modelleyip lambda'yı seçer (Kern.KAL değiştirilebilir: simde deneme için).
+  const KAL = { sec: 0.9, ipl: -1.2, ipsz: -1.6, metin: -2.6, lambda: 0.25 };
+  const retAnlam = ret => { const l = KAL.lambda || 0; return l ? sig(logit(ret || 0.85) - l * KAL.ipsz) : ret; };
+  // gerçek başarı tahmini (biçim sınıfına göre): ilerleme / tahmin için
+  const Rgercek = (r, bicim) => { const d = SECMELI.has(bicim) ? KAL.sec : bicim === 'metin' ? KAL.metin : /0$/.test(bicim || '') ? KAL.ipl : KAL.ipsz; return sig(logit(kirp(r, 0.001, 0.999)) + d); };
   // 14.11 (D10): bağlam biçimleri (metin boşluğu, cümlede boşluk, tam cümle); S ≥ BAGLAM_S öğede buradaki ek / çekim / eş anlamlı hatası
   // anlam hafızasını sıfırlamaz (en çok not 2): Veränderung S 22 → 2, Projekt (Projekten) S 22 → 2,8, können (kann) …
   const BAGLAM = new Set(['metin', 'bos', 'bos0', 'cumle']), BAGLAM_S = 20;
@@ -84,7 +94,8 @@
 
   // §4.5: FSRS + c, yanlışta yarın 04:00, yeni öğe gününde en geç yarın, pk kapısı (pk0 → 7 g, pk1 → 14 g)
   // opts: { yeniGun, pkSay, kapisiz, tavan, yumusak } — pk/pkGun yalnız pkSay (sayılan biçim, ipucusuz, başarılı) ise ve günde en çok +1.
-  // 15.11 (E2): tavan (doğruda S ≤ max(tavan × S, S + 1)), yumusak (yanlışta S ≥ yumusak × S: güçlü öğenin yumuşak düşüşü)
+  // 15.11 (E2): tavan (doğruda S ≤ max(tavan × S, S + 1)), yumusak (yanlışta S ≥ yumusak × S: güçlü öğenin yumuşak düşüşü);
+  // (E1) retAralik: aralığın hedef R'si (anlam hafızası: retAnlam)
   // kapisiz: pk kapısı yok (artikel hafızası: pk'si hiç artmaz, 26.10'a kadar hiçbir artikel 7 günü aşamıyordu); yine ≤ MAX_ARALIK
   function guncelle(h, g, t, ret, c, opts) {
     opts = opts || {};
@@ -100,7 +111,7 @@
     let due;
     if (g === 1) due = ertesiGun4(t);
     else {
-      let gun = Math.min(FSRS.intervalDays(n.S, ret), MAX_ARALIK);   // en uzun aralık 60 gün (B1 ufku; %85 hedefte aralık ≈ 1,9 × S olur, 94 gün çok uzun)
+      let gun = Math.min(FSRS.intervalDays(n.S, opts.retAralik || ret), MAX_ARALIK);   // en uzun aralık 60 gün (B1 ufku; %85 hedefte aralık ≈ 1,9 × S olur, 94 gün çok uzun)
       // kapı bu cevaptan sonraki pk ile: bu cevap üretim kanıtıysa (pk 0 → 1) aralık ≤ 14 g; kanıtsız ≤ 7 g
       // 14.11 (D4): pk kapısı yalnız S < 21 (S 92–129 öğeler 7–14 günde bir geliyordu: haftada ~53 tekrar, kapısız ~16)
       if (!opts.kapisiz && n.S < PK_KAPI_S) { if (n.pk === 0) gun = Math.min(gun, 7); else if (n.pk === 1) gun = Math.min(gun, 14); }
@@ -236,8 +247,9 @@
         // 12.11: bugün yeniden tanıtım kartı gösterilmiş öğenin (sec: it.rtGun) günün ilk kalıcı cevabı kartın hemen ardından gelir: büyüme az
         const rtC = it.rtGun === g && it.m && it.m.S && it.m.gun !== g ? RT_OFS : 0;
         // 15.11 (E2): büyüme tavanı; güçlü öğede yumuşak düşüş
-        const yum = hm && hm.S >= YUMUSAK.S && (hm.pk || 0) >= YUMUSAK.pk ? YUMUSAK.kat : 0;
-        x = yaz(it.m, not.m, (not.c || 0) + rtC, PK_BICIM.has(not.bicim) && !opts.ipucu, aksamM, false, { tavan: BUYUME_TAVAN, yumusak: yum });
+        // (S ≥ 21, pk ≥ 1 → ×0,4; ipucusuz kanıtlı S ≥ 7 → ×0,25: S 10 → 1,5 düşüşü haftalarca döngü yapıyordu)
+        const yum = hm && hm.S >= YUMUSAK.S && (hm.pk || 0) >= YUMUSAK.pk ? YUMUSAK.kat : hm && hm.S >= YUMUSAK7.S && kanitli(hm) ? YUMUSAK7.kat : 0;
+        x = yaz(it.m, not.m, (not.c || 0) + rtC, PK_BICIM.has(not.bicim) && !opts.ipucu, aksamM, false, { tavan: BUYUME_TAVAN, yumusak: yum, retAralik: retAnlam(ret) });
       }
       const hOnce = it.m;
       it.m = x.h; out.m = x.r;
@@ -257,8 +269,11 @@
         if (tamDogru && bEtkin && (h.S || 0) >= GUCLU_UST.S && (h.lapses || 0) <= GUCLU_UST.lapses) h.bm = Math.max(h.bm, ustBasamak(id));
         if (h.bm > bm0) h.bmT = t;
         if ((h.S || 0) >= 21 && !((hOnce && hOnce.S) >= 21) && !h.otT) h.otT = t;   // "oturdu" (S ilk kez ≥ 21): ilerleme göstergesi
+        // 15.11 (E10 için): oturmuş (S ≥ 21) öğe yanlışla düştü: "bu hafta çöken" (ilerleme: oturan − çöken)
+        if (not.m === 1 && hOnce && (hOnce.S || 0) >= 21) h.cokT = t;
         // 15.11 (E4): lapse zamanları (son 30 gün; giriş ölçütü). lz'siz eski hafızada ilk lapse'le başlar (öncesi bilinmiyor: eski sayılır)
-        if (not.m === 1) h.lz = (Array.isArray(h.lz) ? h.lz : []).filter(x => x > t - TAKILAN.GUN * DAY).concat(t);
+        // E1: metin boşluğu yanlışı takılan girişine sayılmaz (Tuna'nın metin boşluğu başarısı R 0,9'da %42: zayıf unutma kanıtı)
+        if (not.m === 1 && not.bicim !== 'metin') h.lz = (Array.isArray(h.lz) ? h.lz : []).filter(x => x > t - TAKILAN.GUN * DAY).concat(t);
         else if (Array.isArray(h.lz)) h.lz = h.lz.filter(x => x > t - TAKILAN.GUN * DAY);
         // takılan öğeden çıkış: iki ayrı günde doğru (günde tek kalıcı yazım: her yazım ayrı gün; 15.11: ipuçlu doğru da sayılır, seçmeli
         // sayılmaz); yanlış / küçük hata sıfırlar
@@ -631,7 +646,7 @@
       if (!h.emk && emekliAday(it, id)) { emekliYap(it, id); out.emekli++; return; }
       // güçlü öğe: kapının kestiği aralığı kuralın verdiğine uzat (yalnız uzatır; son cevap yanlış değilse)
       if (h.S >= PK_KAPI_S && (h.lastG || 3) >= 2) {
-        const gun = Math.min(FSRS.intervalDays(h.S, ret), MAX_ARALIK, bmAralik(h, id)), yeni = h.last + gun * DAY;
+        const gun = Math.min(FSRS.intervalDays(h.S, retAnlam(ret)), MAX_ARALIK, bmAralik(h, id)), yeni = h.last + gun * DAY;
         if (yeni > (h.due || 0) + DAY / 2) { h.due = yeni; out.uzat++; }
       }
     });
@@ -734,7 +749,7 @@
       if ((h.D || 0) > 7) h.D = 7;
       if (L[L.length - 1].g === 1) h.lastG = 3;
       const cap = Math.min(MAX_ARALIK, h.S >= PK_KAPI_S ? MAX_ARALIK : (h.pk || 0) === 0 ? 7 : (h.pk || 0) === 1 ? 14 : MAX_ARALIK, bmAralik(h, id));
-      h.due = Math.max(h.due || 0, h.last + Math.min(FSRS.intervalDays(h.S, ret), cap) * DAY);
+      h.due = Math.max(h.due || 0, h.last + Math.min(FSRS.intervalDays(h.S, retAnlam(ret)), cap) * DAY);
       h.onr = 1411;
       out.push({ id, S0, S1: h.S, k });
     });
@@ -1609,23 +1624,25 @@
     return l;
   }
   function ilerleme(S, t, n) {
-    const g7 = t - 7 * DAY, o = { ipucusuz: 0, buHaftaAtlayan: 0, buHaftaOturan: 0, askida: 0, askiOto: 0, emekli: 0, takilan: 0, vadeli: 0, vadeliArt: 0 };
+    const g7 = t - 7 * DAY, o = { ipucusuz: 0, buHaftaAtlayan: 0, buHaftaOturan: 0, buHaftaCoken: 0, askida: 0, askiOto: 0, askiTakildi: 0, emekli: 0, takilan: 0, takilanSinir: TAKILAN.HAVUZ, vadeli: 0, vadeliArt: 0 };
     const bilinen = it => !!(it && it.m && it.m.S) && !askidaMi(it) && ((it.m.bm || 0) >= 2 || !!it.m.emk || it.m.S >= 21);
     Object.entries(S.items || {}).forEach(([id, it]) => {
       if (C.kind(id) === 'p') return;
-      if (askidaMi(it)) { o.askida++; if (it.askida.neden === 'oto') o.askiOto++; return; }
+      if (askidaMi(it)) { o.askida++; if (it.askida.neden === 'oto') o.askiOto++; if (it.askida.sebep === 'takildi') o.askiTakildi++; return; }
       const h = it.m;
       if (it.art && it.art.S && it.art.due <= t && !(h && h.S && h.due <= t) && artUygun(it, id, t)) o.vadeliArt++;
       if (!h || !h.S) return;
       if ((h.bm || 0) >= 2 || h.emk) o.ipucusuz++;
       if ((h.bmT || 0) >= g7) o.buHaftaAtlayan++;
       if ((h.otT || 0) >= g7) o.buHaftaOturan++;
+      if ((h.cokT || 0) >= g7) o.buHaftaCoken++;
       if (h.emk) o.emekli++;
       if (takildiMi(h)) o.takilan++;
       if (h.due <= t) o.vadeli++;
     });
     const l = onemliListe(n);
     o.onemli = { n: l.length, bilinen: l.filter(id => bilinen((S.items || {})[id])).length };
+    o.buHaftaNet = o.buHaftaOturan - o.buHaftaCoken;
     return o;
   }
 
@@ -1635,7 +1652,7 @@
     ONEMLI_TABAN, ART_BAGLI, ART_TAKILAN, GUCLU_UST, PK_KAPI_S, HIZLI_MS, BAGLAM_S, ART_TUR_TOP, HIZLI_KAPI, BUYUME_TAVAN, YUMUSAK, ART_TUR, RT_TUR, onemOf, onemPOf, nadirMi, onemVar, ilerleme, onemliListe,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,
-    GUCLU, gucluMu, kanitli, ZAYIF_PAY, AZ_PAY, azOnemMi, yukKisMi, yuvaAcik, gramPencere, RT_GUN, RT_OFS, cekirdekMi,
+    KAL, retAnlam, Rgercek, YUMUSAK7, GUCLU, gucluMu, kanitli, ZAYIF_PAY, AZ_PAY, azOnemMi, yukKisMi, yuvaAcik, gramPencere, RT_GUN, RT_OFS, cekirdekMi,
     gun4, gunBas4, ertesiGun4, R, wRet, lev, tohum,
     guncelle, notVer, uygula, seviye, basamak, bicimSec,
     vadeliler, kota, donusMu, yeniSira, karismaOk, yeniParti, sec, oturumIsle, partiBasladi, yazimMi,
