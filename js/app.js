@@ -6605,6 +6605,7 @@
     // test: Kern seçimi (sel) ile soruyu doğrudan çiz (artOb / kalip / ayir / kok …); ayirCiftleri, artSetKur
     soruGoster: sel => { const q = frage(Object.assign({ b: 0, tur: 'm', kaynak: 'test' }, sel)); if (!q) return null; aktuell = q; render(q); return { bicim: q.bicim, typ: q.typ, ziel: q.ziel, frageText: q.frageText }; },
     // test: artikel kural kartı (sel.kuralKart) → Devam'la flaş; önce bir tur başlatılmış olmalı
+    bonusYeni: () => bonusYeni(),
     kuralKartAc: id => kuralKartGoster({ id, tur: 'art', kaynak: 'vadeli', b: 0, bicim: 'artikel', kuralKart: true }),
     ayirCiftleri: () => ayirCiftleri(), ayirKoy: () => { session.ot.ayirVar = false; return ayirKoy(session.ot); },
     // test: metin etkinliğini (art 'luecke') doğrudan aç; adaylar = hafızası olan öğeler (14.11: dikte kaldırıldı)

@@ -196,6 +196,25 @@ const klasor = process.argv[2] || null;
     ok(k2 && /die/.test(k2.m) && k2.ornek === 0 && /[Kk]ural yok|İstisna|der değil/.test(k2.m), `[${ad}] kuralsız isim kartı: ${JSON.stringify(k2)}`);
     ok(await p2.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `[${ad}] kural kartı yatay taşma`);
     await foto(p2, ad + '-8-kuralkart-kuralsiz');
+    // E3: hedef bitince Bugün'deki bonus mesajı Kern kotasına bağlı ("yeni kelime getirir" yalnız bonus turda gerçekten yeni varsa)
+    if (mobil) {
+      await p2.evaluate(() => { const T = window.__tekrar, S = T.S, g = T.tag(), c = S.tageC[g] = S.tageC[g] || {};
+        c.__test = { n: 999, richtig: 999, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 };
+        Object.values(S.items).forEach(it => { if (it.tanit && it.tanit > Date.now() - 3 * 864e5) it.tanit -= 3 * 864e5; });   // "Dünden N kelime" satırı öne geçmesin
+        // E10 net oturan: a oturdu; b oturdu sonra çöktü; c çöktü → oturan 1, çöken 2 → −1
+        const ids = Object.keys(S.items).filter(id => S.items[id].m && S.items[id].m.S && !S.items[id].askida).slice(0, 3), h = Date.now() - 3600e3;
+        S.oturan = { [ids[0]]: h, [ids[1]]: h - 600e3 };
+        Object.keys(S.items).forEach(id => { if (S.items[id].m) delete S.items[id].m.cokT; });
+        S.items[ids[1]].m.cokT = h; S.items[ids[2]].m.cokT = h;
+        const gs = S.gs4; if (gs) gs.ekYeni = -(T.kota().q + 10);   // bugünkü kota dolu (kalan 0): mesaj yalnız bonusa bakar
+        document.querySelector('.alt-nav button[data-v="ana"]').click(); });
+      await p2.waitForTimeout(300);
+      const bm = await p2.evaluate(() => ({ merak: (document.querySelector('#ana .merak') || {}).textContent || '', by: window.__tekrar.bonusYeni(), kalan: window.__tekrar.kota().kalan }));
+      ok(bm.kalan === 0 && (bm.by > 0 ? /Bonus tur yeni kelime getirir/.test(bm.merak) : /Bonus tur: tekrar/.test(bm.merak)), `[${ad}] bonus mesajı ↔ kota: ${JSON.stringify(bm)}`);
+      const ot = await p2.evaluate(() => { const e = document.querySelector('#as-oturan'); return e ? { t: e.textContent.replace(/\s+/g, ' ').trim(), title: e.title } : null; });
+      ok(ot && /^−1 bu hafta oturdu/.test(ot.t) && /: 1;.*: 2$/.test(ot.title), `[${ad}] net oturan pili: ${JSON.stringify(ot)}`);
+      ok(bm.by === 0, `[${ad}] kota dolu (ekYeni eksi) iken bonus yeni > 0: ${JSON.stringify(bm)}`);
+    }
     ok(!p2.hatalar.length, `[${ad}] sayfa hatası (kural kartı): ` + p2.hatalar.join(' | '));
     await p2.ctx.close();
   }
