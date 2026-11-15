@@ -155,6 +155,10 @@
   - Metin boşluğu: geçerli eş anlamlı fast `eş anlamlı` (`esAnlamli`), fazla artikel `fazla artikel` (yazım değil).
   - Gramer: turda tanıda "biliyor" olan konular, tuerkisch-fallen ve TeKaMoLo yalnız hayalet; yeni konu kelime birikmesinden bağımsız, 3 günde bir `Gramer.B2_SIRA`'dan kendiliğinden açılır (`kaynak:'oto'`, `odak`); turda hata bul ≤ 1/3; Bugün'deki gramer kartı `Gramer.gunOnerisi()`. 4 yeni B2 konusu: konjunktiv1, passiversatz, partizipialattribut, konnektoren-b2 (52 konu). Kip konularında (konjunktiv1/2) aynı fiilin başka çekimi yanlış `fiil biçimi (kip)`.
   - Testler: `tests/e2e_aski.js`; başsız Chromium + file:// yenilemede localStorage yazımları kaybolabildiği için testler durumu reload'la kurmaz (e2e_ui `yenile()` kopyayı taşır).
+- **15.11 gramer** (sabah raporları E9 / E13; ayrıntı FORMAT.md 10.8): `B2_SIRA` gerçek B2'den (nominal-verbal → konnektoren-b2 → zweiteilig → passiversatz → partizipialattribut → konjunktiv1 → konjunktiv2-verg → passiv → relativ → partizip-adj → genitiv → praep-verben; tanıda zayıf / denenmemiş öne, biliyor arkaya).
+  Turda hayalet payı ≤ 1/3 (son 8 tur gramer sorusu), aynı konunun hayaleti günde ≤ 1, tuerkisch-fallen / TeKaMoLo hayaleti haftada ≤ 2 (`ks.hayT`) ve yanlışta sıfırlanmaz (adım kalır, ertesi gün); boş yuva son 7 günde açılan B2 konusuna (turV beklemeden, günde ≤ 2).
+  Giriş seti yapılmamış oto konu (`girisYok`): turda 2 doğruya kadar z1 (seçmeli olabilir), sonra z2; sorunun üstünde `@kurz` özeti (`kurzOzet`, `.g-tur-kural`). Bugün'de giriş kartı (`gramGirisKarti`, `Gramer.girisBekleyen`: bütün giriş setsiz konular) hedef bitmeden de; ikinci iş `gunOnerisi(t, { girisHaric })`.
+  `bugunYapti('gram')` açılış satırını (`frage: oto`) saymaz (açıldığı gün "✓ bugün yapıldı" hatası). tuerkisch-fallen başlığı "Türk öğrencilerin tipik hataları: artikel, sein / haben, yön edatı" (kimlik aynı). Sim: 14 gün, günde 4–8 tur, 3 tohum — hayalet payı %55 → %32, tuerkisch-fallen hayaleti 6,7 → 2, aynı gün aynı konu hayaleti 9,3 → 0.
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde
