@@ -27,7 +27,8 @@ function logDenetle(ad, log, o) {
   // 14.11: yeni kelimeden sonraki mini seçmeli kalktı → boş durumda 6 yeni kelime ~6–8 cevap eder (tanıtım cevap sayılmaz): en az 6 cevaplık 'leer' tur yeter
   if (!turlar.some(e => e.ergebnis === 'bitti' || (e.ergebnis === 'leer' && cevapSay(e) >= 6))) hata(ad, 'hiç tur bitmedi');
   const cevap = log.filter(e => CEVAP_MODUS.has(e.modus) && /basamak:/.test(e.notiz || ''));
-  log.filter(e => CEVAP_MODUS.has(e.modus) && e.modus !== 'luecke' || (e.modus === 'luecke' && /bicim:/.test(e.notiz || ''))).forEach(e => {
+  // 15.11 (E11): artikel kural kartı (art;…;neu;bicim:kuralKart) cevap değil, gösterim satırı: zorunlu notiz başı yok
+  log.filter(e => e.ergebnis !== 'neu' && (CEVAP_MODUS.has(e.modus) && e.modus !== 'luecke' || (e.modus === 'luecke' && /bicim:/.test(e.notiz || '')))).forEach(e => {
     const eksik = ZORUNLU.filter(z => !(e.notiz || '').includes(z));
     if (eksik.length) hata(ad, `tekrar satırında eksik ${eksik.join(' ')}: ${e.modus};${e.id};${e.notiz}`);
   });

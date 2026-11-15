@@ -32,6 +32,10 @@ const klasor = process.argv[2] || null;
     const say = await metin('.ana-sayilar');
     ok(/tekrar sırada/.test(say || '') && /3 askıda/.test(say || ''), `[${ad}] Bugün sayıları: ${say}`);
     ok(/\d+\/1000 önemli kelime/.test(say || ''), `[${ad}] önemli 1000: ${say}`);
+    // E10: önemli 1000 tek tanım (Kern.ilerleme().onemli.bilinen; A1 bilinen sayılmaz)
+    const onK = await p.evaluate(() => window.__tekrar.ilerleme().onemli);
+    ok(new RegExp(`\\b${onK.bilinen}/${onK.n} önemli kelime`).test(say || ''), `[${ad}] Bugün önemli ≠ Kern (${onK.bilinen}/${onK.n}): ${say}`);
+    ok(!/önce önemliler geliyor/.test(await metin('#ana') || ''), `[${ad}] eski "önce önemliler geliyor" metni`);
     ok(!/Birikme büyüyor/.test(await metin('#ana') || ''), `[${ad}] suçlayıcı birikme metni`);
     // Claude notları (varsa) tek satır: details kapalı
     const notK = await p.evaluate(() => { const d = document.querySelector('.notlar-kart'); return d ? { tag: d.tagName, acik: d.open, h: d.getBoundingClientRect().height } : null; });
@@ -99,11 +103,17 @@ const klasor = process.argv[2] || null;
       ok(!sonra.includes(askiId), `[${ad}] askıya alınan öğe turda yine geldi`);
     }
     for (let i = 0; i < 30; i++) { const s = await D.durum(p); if (s.tur === 'turSonu') break; await D.adim(p, { dogru: 1 }); }
-    const ts = await p.evaluate(() => ({ ip: document.querySelector('#ts-ipucsuz') && document.querySelector('#ts-ipucsuz').textContent, ot: document.querySelector('#ts-oturan') && document.querySelector('#ts-oturan').textContent, m: (document.querySelector('.tur-sonu') || {}).textContent || '' }));
-    ok(ts.ip != null && ts.ot != null && /ipucusuz bildiğin/.test(ts.m) && /bu hafta oturan/.test(ts.m), `[${ad}] tur sonu ilerleme: ${JSON.stringify(ts).slice(0, 200)}`);
+    const ts = await p.evaluate(() => ({ ip: document.querySelector('#ts-ipucsuz') && document.querySelector('#ts-ipucsuz').textContent, ot: document.querySelector('#ts-oturan') && document.querySelector('#ts-oturan').textContent,
+      on: document.querySelector('#ts-onemli') && document.querySelector('#ts-onemli').textContent, m: (document.querySelector('.tur-sonu') || {}).textContent || '' }));
+    ok(ts.ot != null && /bu hafta oturan/.test(ts.m), `[${ad}] tur sonu ilerleme: ${JSON.stringify(ts).slice(0, 200)}`);
     ok(!/seviye atlayanlar · 0/.test(ts.m), `[${ad}] "seviye atlayanlar · 0" görünüyor`);
     const turLog = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'tur').pop());
     ok(turLog && /tekrar:\d+ \| ipucusuz:\d+/.test(turLog.notiz), `[${ad}] tur satırında ipucusuz yok: ${turLog && turLog.notiz}`);
+    // E10: "bu turda ipucusuz" turda 0 ise gizli, değilse tur satırındaki sayı; önemli 1000 Kern'le aynı
+    const ipN = turLog ? +(/ipucusuz:(\d+)/.exec(turLog.notiz) || [])[1] : -1;
+    ok(ipN > 0 ? ts.ip === String(ipN) : ts.ip == null, `[${ad}] bu turda ipucusuz (${ipN}) ↔ kutu ${ts.ip}`);
+    const onK2 = await p.evaluate(() => window.__tekrar.ilerleme().onemli);
+    ok(ts.on === `${onK2.bilinen}/${onK2.n}`, `[${ad}] tur sonu önemli ${ts.on} ≠ Kern ${onK2.bilinen}/${onK2.n}`);
     await foto(p, ad + '-5-tursonu');
     ok(!p.hatalar.length, `[${ad}] sayfa hatası: ` + p.hatalar.join(' | '));
     await p.ctx.close();
@@ -158,7 +168,57 @@ const klasor = process.argv[2] || null;
   ok(denendi, 'isim boşluklu metin bulunamadı');
   ok(!p.hatalar.length, 'sayfa hatası: ' + p.hatalar.join(' | '));
   await p.ctx.close();
+  // 7) E11: artikel kural kartı (Kern sel.kuralKart): kural + aynı kuraldan örnekler + kanca, ≥ 3 sn kilit, Devam → aynı ismin flaşı;
+  //    log art;neu;bicim:kuralKart; isim başına günde bir. Kuralsız isimde (Geduld) "kural yok" kutusu, örnek yok. Mobil + masaüstü.
+  for (const mobil of [true, false]) {
+    const ad = mobil ? 'mobil' : 'masaustu';
+    const p2 = await D.sayfa(b, { mobil, zustand: D.zustandOku() });
+    await p2.evaluate(() => window.__tekrar.starte('akis', 12)); await p2.waitForTimeout(300);
+    const idOf = l => p2.evaluate(l => Object.values(window.__tekrar.byId).find(n => n.lemma === l && !n.skip).id, l);
+    const disk = await idOf('Diskussion');
+    ok(await p2.evaluate(id => window.__tekrar.kuralKartAc(id), disk), `[${ad}] kural kartı açılmadı`);
+    const k = await p2.evaluate(() => { const e = document.querySelector('#kart .kural-kart'), b = document.querySelector('#kart .devam-btn'); return e ? { m: e.textContent.replace(/\s+/g, ' '), ornek: e.querySelectorAll('.kk-ornek .chip').length, kilitli: !!(b && b.disabled), typ: window.__tekrar.aktuell.typ } : null; });
+    ok(k && /-ion/.test(k.m) && /die/.test(k.m) && k.ornek >= 2 && k.ornek <= 3, `[${ad}] kural kartı içeriği: ${JSON.stringify(k)}`);
+    ok(k && k.kilitli, `[${ad}] kural kartı Devam kilitli değil`);
+    await foto(p2, ad + '-7-kuralkart');
+    await p2.keyboard.press('Enter'); await p2.waitForTimeout(100);
+    ok(await p2.evaluate(() => !!window.__tekrar.aktuell.kuralKart), `[${ad}] kilitliyken Enter kartı geçti`);
+    await p2.waitForFunction(() => { const b = document.querySelector('#kart .devam-btn'); return b && !b.disabled; }, null, { timeout: 5000 }).catch(() => {});
+    await p2.click('#kart .devam-btn'); await p2.waitForTimeout(200);
+    const f = await D.durum(p2);
+    ok(f.art && f.id === disk, `[${ad}] kural kartından sonra aynı ismin flaşı gelmedi: ${JSON.stringify({ tur: f.tur, id: f.id, art: f.art })}`);
+    const L = await p2.evaluate(id => window.__tekrar.S.log.filter(e => e.id === id && e.modus === 'art' && e.ergebnis === 'neu'), disk);
+    ok(L.length === 1 && /^bicim:kuralKart \| kural:-ion/.test(L[0].notiz) && /örnek:/.test(L[0].notiz), `[${ad}] kural kartı log: ${JSON.stringify(L)}`);
+    ok(!(await p2.evaluate(id => window.__tekrar.kuralKartAc(id), disk)), `[${ad}] aynı isim günde ikinci kez kural kartı`);
+    const ged = await idOf('Geduld');
+    ok(await p2.evaluate(id => window.__tekrar.kuralKartAc(id), ged), `[${ad}] kuralsız isimde kart açılmadı`);
+    const k2 = await p2.evaluate(() => { const e = document.querySelector('#kart .kural-kart'); return e ? { m: e.textContent.replace(/\s+/g, ' '), ornek: e.querySelectorAll('.kk-ornek').length } : null; });
+    ok(k2 && /die/.test(k2.m) && k2.ornek === 0 && /[Kk]ural yok|İstisna|der değil/.test(k2.m), `[${ad}] kuralsız isim kartı: ${JSON.stringify(k2)}`);
+    ok(await p2.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `[${ad}] kural kartı yatay taşma`);
+    await foto(p2, ad + '-8-kuralkart-kuralsiz');
+    // E3: hedef bitince Bugün'deki bonus mesajı Kern kotasına bağlı ("yeni kelime getirir" yalnız bonus turda gerçekten yeni varsa)
+    if (mobil) {
+      await p2.evaluate(() => { const T = window.__tekrar, S = T.S, g = T.tag(), c = S.tageC[g] = S.tageC[g] || {};
+        c.__test = { n: 999, richtig: 999, fast: 0, falsch: 0, neuV: 0, neuN: 0, satz: 0, wort: 0, anlam: 0 };
+        Object.values(S.items).forEach(it => { if (it.tanit && it.tanit > Date.now() - 3 * 864e5) it.tanit -= 3 * 864e5; });   // "Dünden N kelime" satırı öne geçmesin
+        // E10 net oturan: a oturdu; b oturdu sonra çöktü; c çöktü → oturan 1, çöken 2 → −1
+        const ids = Object.keys(S.items).filter(id => S.items[id].m && S.items[id].m.S && !S.items[id].askida).slice(0, 3), h = Date.now() - 3600e3;
+        S.oturan = { [ids[0]]: h, [ids[1]]: h - 600e3 };
+        Object.keys(S.items).forEach(id => { if (S.items[id].m) delete S.items[id].m.cokT; });
+        S.items[ids[1]].m.cokT = h; S.items[ids[2]].m.cokT = h;
+        const gs = S.gs4; if (gs) gs.ekYeni = -(T.kota().q + 10);   // bugünkü kota dolu (kalan 0): mesaj yalnız bonusa bakar
+        document.querySelector('.alt-nav button[data-v="ana"]').click(); });
+      await p2.waitForTimeout(300);
+      const bm = await p2.evaluate(() => ({ merak: (document.querySelector('#ana .merak') || {}).textContent || '', by: window.__tekrar.bonusYeni(), kalan: window.__tekrar.kota().kalan }));
+      ok(bm.kalan === 0 && (bm.by > 0 ? /Bonus tur yeni kelime getirir/.test(bm.merak) : /Bonus tur: tekrar/.test(bm.merak)), `[${ad}] bonus mesajı ↔ kota: ${JSON.stringify(bm)}`);
+      const ot = await p2.evaluate(() => { const e = document.querySelector('#as-oturan'); return e ? { t: e.textContent.replace(/\s+/g, ' ').trim(), title: e.title } : null; });
+      ok(ot && /^−1 bu hafta oturdu/.test(ot.t) && /: 1;.*: 2$/.test(ot.title), `[${ad}] net oturan pili: ${JSON.stringify(ot)}`);
+      ok(bm.by === 0, `[${ad}] kota dolu (ekYeni eksi) iken bonus yeni > 0: ${JSON.stringify(bm)}`);
+    }
+    ok(!p2.hatalar.length, `[${ad}] sayfa hatası (kural kartı): ` + p2.hatalar.join(' | '));
+    await p2.ctx.close();
+  }
   await b.close();
-  console.log(hata ? `e2e_aski: ${hata} hata` : 'e2e_aski: geçti (askı, sonuç paneli, Askıda sekmesi, eş anlamlı / fazla artikel, tur sonu ilerlemesi, Bugün sayıları, ret notu)');
+  console.log(hata ? `e2e_aski: ${hata} hata` : 'e2e_aski: geçti (askı, sonuç paneli, Askıda sekmesi, eş anlamlı / fazla artikel, tur sonu ilerlemesi, Bugün sayıları, ret notu, artikel kural kartı)');
   process.exit(hata ? 1 : 0);
 })();
