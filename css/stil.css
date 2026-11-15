@@ -1213,3 +1213,7 @@ button.as-pil:hover { border-color: var(--accent); }
 .notlar-kart.katli[open] > summary .soluk { display: none; }
 .ts-ilerleme { margin-top: .4rem; }
 .ret-not { font-style: italic; }
+/* artikel kural kartı (15.11, E11): artikeli çok karışan isimde flaştan önce */
+.kural-kart .kk-ornek { margin-top: .7rem; }
+.kural-kart .kk-ornek .chips { margin-top: .3rem; }
+.kural-kart .kural { margin-top: .6rem; }

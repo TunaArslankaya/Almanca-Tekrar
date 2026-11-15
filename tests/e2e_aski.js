@@ -32,6 +32,10 @@ const klasor = process.argv[2] || null;
     const say = await metin('.ana-sayilar');
     ok(/tekrar sırada/.test(say || '') && /3 askıda/.test(say || ''), `[${ad}] Bugün sayıları: ${say}`);
     ok(/\d+\/1000 önemli kelime/.test(say || ''), `[${ad}] önemli 1000: ${say}`);
+    // E10: önemli 1000 tek tanım (Kern.ilerleme().onemli.bilinen; A1 bilinen sayılmaz)
+    const onK = await p.evaluate(() => window.__tekrar.ilerleme().onemli);
+    ok(new RegExp(`\\b${onK.bilinen}/${onK.n} önemli kelime`).test(say || ''), `[${ad}] Bugün önemli ≠ Kern (${onK.bilinen}/${onK.n}): ${say}`);
+    ok(!/önce önemliler geliyor/.test(await metin('#ana') || ''), `[${ad}] eski "önce önemliler geliyor" metni`);
     ok(!/Birikme büyüyor/.test(await metin('#ana') || ''), `[${ad}] suçlayıcı birikme metni`);
     // Claude notları (varsa) tek satır: details kapalı
     const notK = await p.evaluate(() => { const d = document.querySelector('.notlar-kart'); return d ? { tag: d.tagName, acik: d.open, h: d.getBoundingClientRect().height } : null; });
@@ -99,11 +103,17 @@ const klasor = process.argv[2] || null;
       ok(!sonra.includes(askiId), `[${ad}] askıya alınan öğe turda yine geldi`);
     }
     for (let i = 0; i < 30; i++) { const s = await D.durum(p); if (s.tur === 'turSonu') break; await D.adim(p, { dogru: 1 }); }
-    const ts = await p.evaluate(() => ({ ip: document.querySelector('#ts-ipucsuz') && document.querySelector('#ts-ipucsuz').textContent, ot: document.querySelector('#ts-oturan') && document.querySelector('#ts-oturan').textContent, m: (document.querySelector('.tur-sonu') || {}).textContent || '' }));
-    ok(ts.ip != null && ts.ot != null && /ipucusuz bildiğin/.test(ts.m) && /bu hafta oturan/.test(ts.m), `[${ad}] tur sonu ilerleme: ${JSON.stringify(ts).slice(0, 200)}`);
+    const ts = await p.evaluate(() => ({ ip: document.querySelector('#ts-ipucsuz') && document.querySelector('#ts-ipucsuz').textContent, ot: document.querySelector('#ts-oturan') && document.querySelector('#ts-oturan').textContent,
+      on: document.querySelector('#ts-onemli') && document.querySelector('#ts-onemli').textContent, m: (document.querySelector('.tur-sonu') || {}).textContent || '' }));
+    ok(ts.ot != null && /bu hafta oturan/.test(ts.m), `[${ad}] tur sonu ilerleme: ${JSON.stringify(ts).slice(0, 200)}`);
     ok(!/seviye atlayanlar · 0/.test(ts.m), `[${ad}] "seviye atlayanlar · 0" görünüyor`);
     const turLog = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'tur').pop());
     ok(turLog && /tekrar:\d+ \| ipucusuz:\d+/.test(turLog.notiz), `[${ad}] tur satırında ipucusuz yok: ${turLog && turLog.notiz}`);
+    // E10: "bu turda ipucusuz" turda 0 ise gizli, değilse tur satırındaki sayı; önemli 1000 Kern'le aynı
+    const ipN = turLog ? +(/ipucusuz:(\d+)/.exec(turLog.notiz) || [])[1] : -1;
+    ok(ipN > 0 ? ts.ip === String(ipN) : ts.ip == null, `[${ad}] bu turda ipucusuz (${ipN}) ↔ kutu ${ts.ip}`);
+    const onK2 = await p.evaluate(() => window.__tekrar.ilerleme().onemli);
+    ok(ts.on === `${onK2.bilinen}/${onK2.n}`, `[${ad}] tur sonu önemli ${ts.on} ≠ Kern ${onK2.bilinen}/${onK2.n}`);
     await foto(p, ad + '-5-tursonu');
     ok(!p.hatalar.length, `[${ad}] sayfa hatası: ` + p.hatalar.join(' | '));
     await p.ctx.close();

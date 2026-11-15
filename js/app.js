@@ -485,6 +485,14 @@
     return Math.round(Math.max(turHedefAyar() * turBoyu(), Math.min(150, tempo)));   // pazartesi 1 tur hedefi kota frenini düşürmesin
   }
   const kota = () => Kern.kota(durum4(), now());
+  // 15.11 (E3): sonraki bonus turun getireceği yeni kelime (bonus sayacı +1 ile Kern.kota; Kern bonus alanı veriyorsa o): "Bonus tur yeni kelime
+  // getirir" yalnız gerçekten > 0 iken yazılır, değilse "bonus tur: tekrar"
+  function bonusYeni() {
+    const d = durum4();
+    if (session.modus === 'aksam' || d.donus) return 0;
+    const k = Kern.kota(Object.assign(d, { bonus: (d.bonus || 0) + 1 }), now());
+    return Math.max(0, typeof k.bonusYeni === 'number' ? k.bonusYeni : k.kalan || 0);
+  }
   // ---- akşam tekrarı (Kern.aksamAdaylar / aksamUygun): bugün ilk cevap 13:00'ten önce, ≥ 8 saat geçti, aday ≥ 3 ----
   // log (bu cihaz) + hafıza (cihazlar arası): ilk cevap, bugün yanlış / fast olanlar, bu akşam sorulanlar, akşam turu bitti mi
   const AKSAM_ET = 'akşam';
@@ -1019,21 +1027,57 @@
   // (Vorurteil → das Urteil, …). Kuralsız isimde (Geduld, Rezept) set yok. Bildiği isimler önce, sonra listeden sık olanlar.
   // Kuyruk girdisi { id, neden: 'artset', at, b: 0, bicim: 'artikel', deneme: 3, kural } (deneme 3: Kern.oturumIsle yanlışta yeniden sormaz);
   // hafızaya yan kuralla yazar (yalnız vadeliyse ya da R < 0,9; görmediği isim yazılmaz).
+  // aynı artikel kuralından örnek isimler (artikel mini seti, kural kartı): kural sonek (-ion → die) ya da bileşikte son parça;
+  // kuralsız / istisna isimde null. Bildiği isimler önce, sonra listeden sık olanlar → { kural, kopfK, r, ornek: [isim] }
+  function kuralOrnekleri(n, adet, filtre) {
+    const kopfK = n.kopf && n.kopf[1] === n.art, r = !kopfK && n.regel && n.regel[1] === n.art ? n.regel : null;
+    if (!kopfK && !r) return null;
+    const uy = kopfK ? x => x.lemma === n.kopf[0] || (x.kopf && x.kopf[0] === n.kopf[0])
+      : x => x.lemma.toLowerCase().endsWith(r[0]) && !(x.kopf && x.kopf[1] !== n.art);
+    const ad = NL.filter(x => x.id !== n.id && !x.plOnly && !x.skip && x.art === n.art && uy(x) && gueltig(x.id + ':x') && (!filtre || filtre(x.id)));
+    const bilir = x => !!(S.items[x.id] && (S.items[x.id].art || S.items[x.id].m));
+    const ornek = shuffle(ad.filter(bilir)).concat(shuffle(ad.filter(x => !bilir(x)).sort((a, b) => (b.frek || 0) - (a.frek || 0) || b.tier - a.tier).slice(0, 8))).slice(0, adet);
+    return { kural: kopfK ? `son parça: ${n.kopf[0]}` : `-${r[0]}`, kopfK, r, ornek };
+  }
+  // ---------- artikel kural kartı (15.11, E11): Kern sel.kuralKart (art.lapses ≥ 5) → flaştan önce kural + kanca + aynı kuraldan 3 örnek ----------
+  // ≥ 3 sn açık (KURAL_KART_MS), Devam'la bekleyen flaş (ot.bekleyen) gelir; isim başına günde bir (gs4().kk). Log: art;<id>;…;neu;notiz bicim:kuralKart.
+  const KURAL_KART_MS = 3000;
+  function frageKuralKart(id) {
+    const n = byId[id]; if (!n) return null;
+    const ko = n.plOnly ? null : kuralOrnekleri(n, 3);
+    const A = x => `<span class="art art-${x}">${x}</span>`;
+    let kural;
+    if (ko && ko.kopfK) kural = `<div class="kural"><b>Bileşik isim: son parça belirler.</b> ${A(n.art)} ${esc(n.kopf[0])} → ${A(n.art)} ${esc(n.lemma)}</div>`;
+    else if (ko) kural = `<div class="kural"><b>-${esc(ko.r[0])}</b> ile bitenler ${HEP_EK.has(ko.r[0]) && ko.r[2] >= 100 ? 'hep' : 'çoğunlukla'} ${A(n.art)} <span class="soluk">(listede ${ko.r[3]} isim, %${ko.r[2]})</span></div>`;
+    else kural = regelHTML(n) || artTanitNot(n) || `<div class="kural">Kural yok: ${A(n.art)} ${esc(n.lemma)} <span class="soluk">(${ART_RENK[n.art] || ''})</span>; artikeliyle birlikte ezberle.</div>`;
+    const ornek = ko && ko.ornek.length ? `<div class="kk-ornek"><div class="ts-et">aynı kural</div><div class="chips">${ko.ornek.map(x => `<span class="chip">${artHTML(x)}</span>`).join('')}</div></div>` : '';
+    const a = n.plOnly ? 'pl' : n.art;
+    const q = { typ: 'tanit', id, kisa: true, kuralKart: true, kural: ko ? ko.kural : '', ornekIds: ko ? ko.ornek.map(x => x.id) : [], start: now(), kilit: true, kilitT0: now(), kilitMs: KURAL_KART_MS };
+    return Object.assign(q, {
+      html: `<div class="q-ust kural-kart"><div class="tur"><span class="yeni">artikel kuralı</span><span>bu ismin artikeli sık karışıyor · önce kurala bak</span></div>
+        <div class="art-band art-${a}">${n.plOnly ? 'die · çoğul' : n.art}</div>
+        <div class="tanit-bas"><span class="kelime">${artHTML(n)}</span>${sesBtn(label(id))}<span class="tr">${esc(kurzTr(n.tr))}</span></div>
+        ${kural}${ornek}${kancaHTML(id)}</div>
+        <div class="q-alt">${devamKilitli(q, 'act', 'tanit-devam')}</div>`,
+    });
+  }
+  function kuralKartGoster(sel) {
+    const ot = session.ot, gs = gs4(), kk = gs.kk = gs.kk || [];
+    if (!ot || !byId[sel.id] || kk.includes(sel.id)) return false;
+    const kq = frageKuralKart(sel.id); if (!kq) return false;
+    kk.push(sel.id); aktuell = kq; ot.bekleyen = { sel, kart: kq }; render(kq);
+    return true;
+  }
   function artSetKur(q, ergebnis) {
     const ot = session.ot, n = byId[q.id];
     if (!ot || !n || ot.artSet || ergebnis !== 'falsch' || session.modus === 'aksam' || ot.klavyesiz) return false;
     if (!(q.bicim === 'artikel' || q.bicim === 'artOb') || (q.sel && q.sel.neden === 'artset')) return false;
-    const kopfK = n.kopf && n.kopf[1] === n.art, r = !kopfK && n.regel && n.regel[1] === n.art ? n.regel : null;
-    if (!kopfK && !r) return false;
     const adet = Math.min(3, (ot.boy || 12) - (ot.adim || 0));
     if (adet < 2) return false;
-    const uy = kopfK ? x => x.lemma === n.kopf[0] || (x.kopf && x.kopf[0] === n.kopf[0])
-      : x => x.lemma.toLowerCase().endsWith(r[0]) && !(x.kopf && x.kopf[1] !== n.art);
-    const ad = NL.filter(x => x.id !== n.id && !x.plOnly && !x.skip && x.art === n.art && uy(x) && gueltig(x.id + ':x') && (!ot.filtre || ot.filtre(x.id)));
-    const bilir = x => !!(S.items[x.id] && (S.items[x.id].art || S.items[x.id].m));
-    const sec = shuffle(ad.filter(bilir)).concat(shuffle(ad.filter(x => !bilir(x)).sort((a, b) => (b.frek || 0) - (a.frek || 0) || b.tier - a.tier).slice(0, 8))).slice(0, adet);
+    const ko = kuralOrnekleri(n, adet, ot.filtre);
+    if (!ko) return false;
+    const sec = ko.ornek, kural = ko.kural;
     if (sec.length < 2) return false;
-    const kural = kopfK ? `son parça: ${n.kopf[0]}` : `-${r[0]}`;
     sec.forEach((x, i) => ot.kuyruk.push({ id: x.id, neden: 'artset', at: (ot.adim || 0) + i, b: 0, bicim: 'artikel', deneme: 3, kural }));
     ot.artSet = true;
     return true;
@@ -3405,6 +3449,8 @@
       if (sel.tur === 'bitti') return leerGoster(sel);
       // uzun süredir görülmeyen (R < 0,35): önce kısa yeniden tanıtım
       if (sel.yenidenTanit && sel.tur === 'm') { aktuell = frageTanit(sel.id, { kisa: true }); ot.bekleyen = { sel, kart: aktuell }; render(aktuell); return; }
+      // 15.11 (E11): artikeli çok karışan isim (Kern sel.kuralKart): önce kural kartı (isim başına günde bir), Devam'la flaş
+      if (sel.kuralKart && sel.tur === 'art' && kuralKartGoster(sel)) return;
       const q = frage(sel);
       if (q) { aktuell = q; render(q); return; }
       // bu öğeden soru üretilemedi: aralık kuralıyla bu turda yeniden seçilmesin
@@ -3450,6 +3496,11 @@
     const q = aktuell; if (!q || q.typ !== 'tanit') return;
     if (q.kilit) { kilitUyar(q); return; }
     const ot = session.ot, t = now(), id = q.id, g = Kern.gun4(t);
+    if (q.kuralKart) {
+      logEintrag({ modus: 'art', id, item: label(id), frage: 'kural kartı', antwort: '', ergebnis: 'neu', loesung: byId[id] ? byId[id].art + ' ' + byId[id].lemma : '',
+        notiz: `basamak:A | bicim:kuralKart | not:-${q.kural ? ' | kural:' + q.kural : ''}${q.ornekIds.length ? ' | örnek:' + q.ornekIds.join(',') : ''}${KANCA[id] ? ' | kanca' : ''} | sek:${Math.round((t - q.start) / 1000)}` });
+      zeige(); return;
+    }
     if (q.kisa && !(ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id)) { zeige(); return; }   // yeniden tanıtım: bekleyen soru
     const it = S.items[id], yarim = !!(it && it.yarim && !it.tanit);
     const yeni = S.items[id] = Object.assign(it || { seit: t, quelle: session.modus }, { tanit: t, yarim: 1 });
@@ -4178,7 +4229,28 @@
     const o = S.oturan = S.oturan || {}; o[id] = t;
     Object.keys(o).forEach(k => { if (o[k] < t - 30 * DAY) delete o[k]; });
   }
-  const haftaOturan = () => Object.values(S.oturan || {}).filter(x => x >= now() - 7 * DAY).length;
+  // 15.11 (E10) "bu hafta oturan" net: oturan (S.oturan) − çöken (anlam S'si tek cevapta ×0,3'ün altına düşen öğe, önceki S ≥ 7;
+  // zaman m.cokT: hafızayla birlikte cihazlar arası taşınır). Öğe başına bu haftadaki son olay sayılır (oturup çöken çöken sayılır).
+  const COKUS = { oran: 0.3, minS: 7 };
+  function haftaOturanNet() {
+    const g7 = now() - 7 * DAY, o = S.oturan || {}, ids = new Set(Object.keys(o).filter(id => o[id] >= g7));
+    Object.keys(S.items).forEach(id => { const m = S.items[id] && S.items[id].m; if (m && (m.cokT || 0) >= g7) ids.add(id); });
+    let otur = 0, cok = 0;
+    ids.forEach(id => {
+      const m = S.items[id] && S.items[id].m, to = (o[id] || 0) >= g7 ? o[id] : 0, tc = m && (m.cokT || 0) >= g7 ? m.cokT : 0;
+      if (to > tc) otur++; else if (tc) cok++;
+    });
+    return { net: otur - cok, otur, cok };
+  }
+  const haftaOturan = () => haftaOturanNet().net;
+  const oturanMetin = x => x.net < 0 ? '−' + (-x.net) : String(x.net);
+  const oturanBaslik = x => `Bu hafta ilk kez ipucusuz bildiğin ya da seviyesi kalıcı yükselen: ${x.otur}; bu hafta hafızası çöken (bir cevapta güç ×0,3'ün altına): ${x.cok}`;
+  // "önemli 1000" (E10): tek tanım Kern.ilerleme().onemli (genel sıklıkta ilk 1000; bilinen = ipucusuz yazdığı / emekli / oturmuş, askı hariç;
+  // A1 yalnız gerçekten görülmüşse). Veride önem yoksa null (gizli).
+  function onemliBin() {
+    const o = Kern.ilerleme(S, now()).onemli;
+    return o && o.n ? { x: o.bilinen, n: o.n } : null;
+  }
   function hafizaYaz(q, sonuc, t, opt) {
     opt = opt || {};
     const id = q.id, sel = q.sel || {}, bicim = sonuc.bicim || q.bicim;
@@ -4218,6 +4290,7 @@
     // (anlam hafızası yazıldı ve bm yükseldi ya da ilk kez ipucusuz üretim: pk 0 → ≥ 1)
     if (ergebnis === 'richtig' && !ipuclu && !q.itiraz && ILERLEME_BICIM.has(bicim) && session.tur && !session.tur.bitti) { const l = session.tur.ipucsuz = session.tur.ipucsuz || []; if (!l.includes(id)) l.push(id); }
     if (yaz(out.m) && it && it.m && ((bm0 != null && (it.m.bm || 0) > bm0) || (pk0 === 0 && (it.m.pk || 0) >= 1))) oturanEkle(id, t);
+    if (yaz(out.m) && it && it.m && m0 && (m0.S || 0) >= COKUS.minS && (it.m.S || 0) < COKUS.oran * m0.S) it.m.cokT = t;   // E10: çöken (net oturan)
     if (yaz(out.m)) parca.push('m' + not.m); if (yaz(out.a)) parca.push('a' + not.a); if (yaz(out.k)) parca.push('k' + not.k);
     const ana = artB ? out.a : eski === 'stamm' ? out.k : out.m;
     const R0 = ana ? ana.R : anaH && anaH.S ? Kern.R(anaH, t) : null, S1 = ana ? ana.S : anaH && anaH.S ? anaH.S : null;
@@ -5255,6 +5328,15 @@
     const en = Object.entries(say).sort((a, b) => b[1] - a[1])[0];
     return en ? en[0] : '19:00';
   }
+  // tur sonu ilerleme kutuları (E10): bu turda ipucusuz bildiğin (0 ise gizli) · bu hafta oturan (net; Bugün'deki şeritle aynı) ·
+  // önemli 1000'den bildiğin (Kern.ilerleme; Bugün'deki şeritle aynı)
+  function ilerlemeIstat(ipN) {
+    const otu = haftaOturanNet(), onB = onemliBin();
+    const h = [ipN ? `<div><b id="ts-ipucsuz">${ipN}</b><span>bu turda ipucusuz</span></div>` : '',
+      `<div title="${esc(oturanBaslik(otu))}"><b id="ts-oturan">${oturanMetin(otu)}</b><span>bu hafta oturan</span></div>`,
+      onB ? `<div><b id="ts-onemli">${onB.x}/${onB.n}</b><span>önemli kelime</span></div>` : ''].filter(Boolean);
+    return `<div class="ts-istat ts-ilerleme" style="grid-template-columns:repeat(${h.length},1fr)">${h.join('')}</div>`;
+  }
   function turSonuRender(sebep, teklif) {
     clearTimers();
     kart.classList.remove('fx-dogru', 'fx-fast', 'fx-yanlis', 'cevaplandi', 'duzen');
@@ -5297,17 +5379,14 @@
         <div><b id="ts-dogruluk">${oran == null ? '–' : '%' + oran}</b><span>doğruluk</span></div>
         <div><b>${dk}</b><span>dakika</span></div>
       </div>
-      ${sebep === 'leer' && !tu.n ? '' : `<div class="ts-istat ts-ilerleme" style="grid-template-columns:repeat(2,1fr)">
-        <div><b id="ts-ipucsuz">${ipucsuz.length}</b><span>ipucusuz bildiğin</span></div>
-        <div><b id="ts-oturan">${haftaOturan()}</b><span>bu hafta oturan</span></div>
-      </div>`}
+      ${sebep === 'leer' && !tu.n ? '' : ilerlemeIstat(ipucsuz.length)}
       ${gr && gr.n ? `<div class="ts-grup"><div class="ts-et">gramer · ${gr.n} soru</div><div class="soluk">${gr.richtig} doğru${gr.fast ? ` · ${gr.fast} küçük hata` : ''}${gr.falsch ? ` · ${gr.falsch} yanlış (yakında tekrar)` : ''}</div></div>` : ''}
       ${grup(`seviye atlayanlar · ${seviye.length}`, seviye, 'altin')}
       ${grup('tanıştıkların', yeniIds, 'yeni')}
       ${grup('yakında tekrar', zor, 'kehribar')}
       ${grup('takılanlar 🪝 (Claude kanca yazacak)', takilan, 'kehribar')}
       <div class="ts-seri${seriYeni ? ' yeni' : ''}">🔥 <b>${seri} gün</b>${seriYeni ? ' · bugün seriye sayıldı' : ''} · ${hedefYeni || d.n >= z ? `${turHedef}/${turHedef} tur ✓` : `${turYapilan}/${turHedef} tur`}${session.dondurucuKazandi ? ' · ❄️ bir seri dondurucu kazandın' : ''}</div>
-      ${hedefYeni ? '<div class="ts-hedef ok">✓ Günlük hedef tamam. Bundan sonraki turlar bonus: yeni kelime getirir.</div>' : ''}
+      ${hedefYeni ? `<div class="ts-hedef ok">✓ Günlük hedef tamam. ${bonusYeni() > 0 ? 'Bundan sonraki turlar bonus: yeni kelime getirir.' : 'Bundan sonraki turlar bonus: tekrar (bugünkü yeni kelime kotası doldu).'}</div>` : ''}
       ${notlar.length ? `<div class="ts-notlar">${notlar.map(m => `<div>${m}</div>`).join('')}</div>` : ''}
       <div class="ts-btns">
         ${teklif ? '<button class="btn ana buyuk" data-act="ek-yeni" type="button">+3 yeni kelime <kbd>Enter</kbd></button>' : sebep === 'leer' || (aksamTur && !aksamKalan) ? '' : `<button class="btn ana buyuk" data-act="tur-devam" type="button">Bir tur daha <kbd>Enter</kbd></button>`}
@@ -5447,15 +5526,6 @@
     return `bu hızla ${gunMetni(g)}${hizlanir ? ` · 4. tur ${gunMetni(g4)}e indirir` : ''}`;
   }
   const dkOnce = t => { const d = Math.round((now() - t) / 60000); return d < 1 ? 'az önce' : d < 60 ? `${d} dk önce` : d < 1440 ? `${Math.round(d / 60)} saat önce` : `${Math.round(d / 1440)} gün önce`; };
-  // "önemli 1000'den x" (D11): build'in onem 1 öğeleri onemP sırasıyla ilk 1000; x = hafızada anlamı olan (askıda değil) ya da A1 (anlamı sorulmaz,
-  // bilinen sayılır). Kayıtlarda onem yoksa null (gizli).
-  let _onemBin = null;
-  function onemliBin() {
-    if (!_onemBin) _onemBin = [].concat(NL, VERBEN, WOERTER).filter(x => x && x.onem === 1).sort((a, b) => (a.onemP || 1e9) - (b.onemP || 1e9)).slice(0, 1000);
-    if (!_onemBin.length) return null;
-    const x = _onemBin.filter(o => { const it = S.items[o.id]; return it && it.askida ? false : !!(it && it.m && it.m.S) || o.tier === 1; }).length;
-    return { x, n: _onemBin.length };
-  }
   // bu hafta seviye atlayan kelime (tur satırlarındaki seviye+)
   const haftaSeviye = () => { const sinir = zeitStr(now() - 7 * DAY); return S.log.filter(e => e.modus === 'tur' && e.zeit >= sinir).reduce((a, e) => a + (+(/seviye\+:(\d+)/.exec(e.notiz || '') || [])[1] || 0), 0); };
   // ---------- günün özeti: "Bugün ne yaptın" (Bugün kartı) ve son 14 gün (İlerleme) ----------
@@ -5686,21 +5756,21 @@
     // merak satırı: dün tanıştığın kelimeler ya da turdaki yeni kelimeler (sayı borç değil, merak)
     const dun = Kern.gun4(now() - DAY);
     const dunden = Object.values(S.items).filter(it => it.tanit && Kern.gun4(it.tanit) === dun && it.m && it.m.S && it.m.due <= now() + 6 * 3600000).length;
-    const merak = siradaki ? `${bloklar.filter(x => x.bitti).length}/3 blok bitti · sırada ${siradaki.no}. blok` : session.ot && session.ot.donus ? 'Önce bildiklerin: kısa bir ısınma turu' : dunden ? `Dünden ${dunden} kelime seni bekliyor` : kt.kalan > 0 ? `İçinde ${Math.min(kt.kalan, 2)} yeni kelime` : tamam ? 'Bonus tur yeni kelime getirir' : 'Bugün eskileri sağlamlaştırıyoruz';
+    const merak = siradaki ? `${bloklar.filter(x => x.bitti).length}/3 blok bitti · sırada ${siradaki.no}. blok` : session.ot && session.ot.donus ? 'Önce bildiklerin: kısa bir ısınma turu' : dunden ? `Dünden ${dunden} kelime seni bekliyor` : kt.kalan > 0 ? `İçinde ${Math.min(kt.kalan, 2)} yeni kelime` : tamam ? (bonusYeni() > 0 ? 'Bonus tur yeni kelime getirir' : 'Bonus tur: tekrar, eskileri sağlamlaştırır') : 'Bugün eskileri sağlamlaştırıyoruz';
     // toparlanma: yalnız birikme 1,2 günlük işten büyükken; sayı yok, süre var
     askiBildir();
     const vad = faellig().filter(x => !askidaMi(x.id)).length, gunIs = 0.75 * gunHedef();
     let toparlanma = '';
-    // 15.11 (D11): suçlamasız ("Birikme büyüyor · tur eklemek eritir" yerine): bu tempoda toparlanmıyorsa bugünün hedefi yeter, önce önemliler gelir
+    // 15.11 (D11): suçlamasız ("Birikme büyüyor · tur eklemek eritir" yerine): bu tempoda toparlanmıyorsa bugünün hedefi yeter, önce zayıflar ve önemliler gelir (Kern vadeli sırası: R + önem, E6)
     if (vad > 1.2 * gunIs && !ilkGun) {
-      { const tm = toparlanmaMetni(turHedef); toparlanma = `<div class="toparlanma">${/^bu tempoda birikme büyüyor/.test(tm) ? `Bugün ${turHedef} tur yeter · önce önemliler geliyor` : 'Toparlanıyor · ' + tm}</div>`; }
+      { const tm = toparlanmaMetni(turHedef); toparlanma = `<div class="toparlanma">${/^bu tempoda birikme büyüyor/.test(tm) ? `Bugün ${turHedef} tur yeter · önce zayıflar ve önemliler geliyor` : 'Toparlanıyor · ' + tm}</div>`; }
     }
     // ilerleme sayıları (D11): gerçek vadeli yük · önemli 1000'den bildiğin (kayıtlarda onem yoksa gizli) · bu hafta oturan · askıda
-    const onB = onemliBin(), askSay = askidakiler().length, otu = haftaOturan();
+    const onB = onemliBin(), askSay = askidakiler().length, otu = haftaOturanNet();
     const sayilar = ilkGun ? '' : `<div class="ana-sayilar">
         <span class="as-pil" title="Şu an sırası gelmiş tekrar (askıdakiler hariç)"><b>${vad}</b> tekrar sırada</span>
-        ${onB ? `<span class="as-pil" title="Genel sıklığa göre en önemli 1000 kelimeden hafızanda olanlar (A1 kelimeleri bilinen sayılır)"><b>${onB.x}/${onB.n}</b> önemli kelime</span>` : ''}
-        ${otu ? `<span class="as-pil" title="Bu hafta ilk kez ipucusuz bildiğin ya da seviyesi kalıcı yükselen"><b>${otu}</b> bu hafta oturdu</span>` : ''}
+        ${onB ? `<span class="as-pil" id="as-onemli" title="Genel sıklığa göre en önemli ${onB.n} kelimeden ipucusuz yazdığın ya da oturmuş olanlar"><b>${onB.x}/${onB.n}</b> önemli kelime</span>` : ''}
+        ${otu.otur || otu.cok ? `<span class="as-pil" id="as-oturan" title="${esc(oturanBaslik(otu))}"><b>${oturanMetin(otu)}</b> bu hafta oturdu</span>` : ''}
         ${askSay ? `<button class="as-pil tikla" data-act-ana="aski-git" type="button" title="Askıdaki kelimeler sorulmaz; Kelimeler → Askıda'dan geri alırsın"><b>${askSay}</b> askıda</button>` : ''}
       </div>`;
     // Kern'in otomatik askısından sonra bir kez (o gün, Tamam'a kadar)
@@ -6535,6 +6605,8 @@
     satzWahl, tazeCumle, kxSay, kxEkle, yazIpucu, frageYaz, kokSatz: id => frageStammSatz(vById[id]),
     // test: Kern seçimi (sel) ile soruyu doğrudan çiz (artOb / kalip / ayir / kok …); ayirCiftleri, artSetKur
     soruGoster: sel => { const q = frage(Object.assign({ b: 0, tur: 'm', kaynak: 'test' }, sel)); if (!q) return null; aktuell = q; render(q); return { bicim: q.bicim, typ: q.typ, ziel: q.ziel, frageText: q.frageText }; },
+    // test: artikel kural kartı (sel.kuralKart) → Devam'la flaş; önce bir tur başlatılmış olmalı
+    kuralKartAc: id => kuralKartGoster({ id, tur: 'art', kaynak: 'vadeli', b: 0, bicim: 'artikel', kuralKart: true }),
     ayirCiftleri: () => ayirCiftleri(), ayirKoy: () => { session.ot.ayirVar = false; return ayirKoy(session.ot); },
     // test: metin etkinliğini (art 'luecke') doğrudan aç; adaylar = hafızası olan öğeler (14.11: dikte kaldırıldı)
     metinAc: art => { const ad = Object.keys(S.items).filter(id => S.items[id].m && S.items[id].m.S && kind(id) !== 'p').slice(0, 40); const q = metinKur({ tur: 'metin', adaylar: ad }); if (!q || (art && q.art !== art)) return false; aktuell = q; render(q); return true; },
