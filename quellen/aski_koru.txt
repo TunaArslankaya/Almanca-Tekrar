@@ -51,3 +51,17 @@ n0668 | die Krankenkasse | sağlık sigortası
 n1320 | die Versichertenkarte | sağlık: sigorta kartı
 v678 | krankschreiben | sağlık: rapor vermek
 n0852 | die Notaufnahme | sağlık: acil servis
+
+# B2 kursu (15.11, E8): tartışma / görüş bildirme ve toplum konularının soyut kelimeleri (Schreiben, Sprechen B2); genel sıklık
+# listesinde nadir görünse de B2'de gerekli. Otomatik askıdan geri alınır (Kern.duzen1511), bir daha kendiliğinden askıya alınmaz.
+x1557 | das Vorurteil | B2: tartışma, toplum (önyargı)
+x1504 | die Behauptung | B2: görüş bildirme (iddia)
+v039 | sich anstrengen | B2: çaba göstermek
+w0170 | fließend | B2: dil becerisi (akıcı)
+x1571 | die Anfrage | B2: resmî e-posta (talep, soru)
+x1547 | die Toleranz | B2: toplum, değerler
+x1551 | die Gleichberechtigung | B2: toplum, değerler
+x1554 | die Solidarität | B2: toplum, değerler
+n0795 | die Minderheit | B2: toplum
+w0169 | flexibel | B2: iş, çalışma hayatı
+v688 | bewältigen | B2: sorunla başa çıkmak

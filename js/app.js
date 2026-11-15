@@ -4578,6 +4578,11 @@
     const ilkOnr = !S.onarim1411;
     const d = Kern.duzen1411(S, now(), { log: S.log, sinif: onarimSinif });
     if (ilkOnr && S.onarim1411 && d.onarim.length) logEintrag({ modus: 'akt', id: 'onarim1411', item: 'metin boşluğu onarımı', frage: '', antwort: '', ergebnis: 'gelesen', loesung: '', notiz: d.onarim.map(x => `${x.id} ${f1(x.S0)}→${f1(x.S1)} -${x.k}`).join(', ') });
+    // 15.11 (Kern.duzen1511): B2'de gerekli kelimeler otomatik askıdan geri (E8), takılan havuzu sınırı (E4) — log satırları burada;
+    // hava / Ünite 4 küme askısı (E12, neden 'oto') askiBildir'de (Bugün bilgi kartı)
+    const d5 = d.d1511 || {};
+    (d5.geri || []).forEach(id => askiLog(id, 'geri', 'oto-geri'));
+    (d5.takildi || []).forEach(id => { const a = S.items[id] && S.items[id].askida; if (a) a.log = 1; askiLog(id, 'askida', 'oto-takildi'); });
     return d;
   }
   function uzakBirlestir(uz) {
