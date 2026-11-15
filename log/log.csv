@@ -4608,3 +4608,30 @@
 2026-11-15 11:52:16;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich anstrengen;falsch;sich aufregen über (über + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.71 | S:0.2 | düzeltti | sek:10 | ipucu:2 | ipucu-tür:tr
 2026-11-15 11:52:22;wort;x1560:wort;das Bedürfnis;ihtiyaç;das Bedürfnis;richtig;das Bedürfnis;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.5 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-15 11:52:33;satz;v221:satz;erhöhen;Die Temperatur unseres Körpers _____ sich dabei nicht so sehr an Armen und Beinen, sondern mehr an Bauch, Brust und Kopf.;erhöht;richtig;erhöht;basamak:B2 | bicim:bos0 | not:m3 | R:0.92 | S:10.6 | kapı:7g | sek:10 | ipucu:0
+2026-11-15 11:52:44;abr;v063:abr;sich aufregen über;(bir şeye) sinirlenmek, heyecanlanmak;sich aufregen über;richtig;sich aufregen über (über + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:2 | ipucu-tür:tr
+2026-11-15 11:52:44;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:116 | dk:3 | yeni:1 | seviye+:1 | tekrar:13 | ipucusuz:2 | gram:1/1
+2026-11-15 11:52:54;art;n0937:art;das Projekt;Weil das Geld fehlte, hat die Stadt ___ Projekt gestoppt. [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.88 | S:14.0 | hâl:Nom/Akk | sek:6
+2026-11-15 11:53:00;prod;w0388:prod;politisch;siyasi;politsch;fast;politisch;basamak:B2 | bicim:yaz0 | not:m3 | R:0.74 | S:1.2 | kısmi | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-15 11:53:15;wort;x1550:wort;die Gerechtigkeit;adalet | Viele Menschen demonstrieren für mehr _____.;Gerecht;falsch;die Gerechtigkeit;basamak:B2 | bicim:yaz | not:m1 | R:0.92 | S:1.3 | düzeltti | kelime yanlış | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-15 11:53:23;abr;v561:abr;unterschreiben;imzalamak;unterschriften;falsch;unterschreiben (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.91 | S:1.6 | düzeltti | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-15 11:53:23;leech;v561;unterschreiben;imzalamak;;takiliyor;;günler:2026-10-03,2026-10-09,2026-11-15
+2026-11-15 11:53:40;nsatz;n1240:nsatz;das Training;Nach dem _____ bin ich so müde, dass ich sofort einschlafe.;Training;richtig;Training;basamak:B3 | bicim:bos | not:m3 | R:0.91 | S:59.6 | sek:17 | ipucu:1
+2026-11-15 11:54:30;gram;g:adjektiv:49;adjektiv/dativ;İstanbul'da eski arkadaşlarımla buluştum.;Ich habe mich mit meiner alten Frudenden in Istanbuk getroffen;richtig;Ich habe mich in Istanbul mit meinen alten Freunden getroffen.;tur:akis | tür:ceviri | z:3 | öneri:falsch | sek:29
+2026-11-15 11:54:35;nsatz;w0170:nsatz;fließend;Er liest schon ziemlich _____, obwohl er erst sechs ist.;fließend;richtig;fließend;basamak:B2 | bicim:bos0 | not:m3 | R:0.74 | S:1.2 | sek:5 | ipucu:0
+2026-11-15 11:54:41;abr;v481:abr;sorgen für;"(bir şeyi) sağlamak; (birine) bakmak";sorgen für;richtig;sorgen für (für + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:3.6 | kurtarma | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-15 11:54:46;wort;x1550:wort;die Gerechtigkeit;adalet;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.3 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-15 11:54:58;abr;v561:abr;unterschreiben;imzalamak | _____ Sie bitte hier unten rechts.;Unterschriften;falsch;unterschreiben (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-15 11:55:01;art;n0313:art;die Erlaubnis;mit ___ Erlaubnis [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.82 | S:7.9 | hâl:Dat | sek:3
+2026-11-15 11:55:06;prod;w0108:prod;drinnen;içeride;drüben;falsch;drinnen;basamak:B2 | bicim:yaz | not:m1 | R:0.76 | S:0.6 | düzeltti | farklı | sek:2 | ipucu:2 | ipucu-tür:tr
+2026-11-15 11:55:06;leech;w0108;drinnen;içeride;;takiliyor;;günler:2026-10-07,2026-11-05,2026-11-15
+2026-11-15 11:55:14;nsatz;n0596:nsatz;die Karriere;Mein Bruder hat große Pläne. Er will _____ machen.;Karriere;richtig;Karriere;basamak:B3 | bicim:bos | not:m4 | R:0.91 | S:39.5 | zor | sek:7 | ipucu:1
+2026-11-15 11:55:26;prod;w0600:prod;vor Gericht gehen;mahkemeye gitmek;vor Gerecht gehen;fast;vor Gericht gehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:4.5 | kısmi | yazım | sek:6 | ipucu:0 | ipucu-tür:tr | öneri:falsch
+2026-11-15 11:55:31;prod;w0108:prod;drinnen;içeride | Es regnet, deshalb bleiben wir _____.;drinnen;richtig;drinnen;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:2 | ipucu-tür:trcumle
+2026-11-15 11:55:31;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:130 | dk:3 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:3 | gram:1/1
+2026-11-15 11:55:41;art;n1240:art;das Training;Der Trainer hat ___ Training wegen des Regens abgesagt. [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.87 | S:19.4 | hâl:Nom/Akk | sek:8
+2026-11-15 11:55:51;nsatz;w0079:nsatz;dabei;Schön, dass du da bist. Ist deine Familie auch _____?;anwesend;falsch;dabei;basamak:B2 | bicim:bos | not:m1 | R:0.77 | S:0.4 | düzeltti | farklı | sek:6 | ipucu:1
+2026-11-15 11:55:51;leech;w0079;dabei;"bu sırada; yanında";;takiliyor;;günler:2026-11-05,2026-11-08,2026-11-15
+2026-11-15 11:55:56;nsatz;n1044:nsatz;der Schmerz;Ich kann vor _____ nicht laufen.;Schmerzen;richtig;Schmerzen;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:5.2 | sek:5 | ipucu:0
+2026-11-15 11:56:02;prod;w0328:prod;miteinander;birbiriyle | Sprechen Sie bitte _____.;miteinander;richtig;miteinander;basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:5.8 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-15 11:56:05;art;n0973;der Regen;kural kartı;;neu;der Regen;bicim:kuralKart | kanca | sek:3
+2026-11-15 11:56:09;art;n0973:art;der Regen;Wegen ___ starken Regens ist das Spiel ausgefallen. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.51 | S:1.7 | hâl:Gen | sek:3
