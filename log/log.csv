@@ -4710,3 +4710,26 @@
 2026-11-15 12:04:58;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:10 | küçük:0 | yanlış:3 | puan:101 | dk:2 | yeni:0 | seviye+:1 | tekrar:13 | ipucusuz:2
 2026-11-16 10:51:14;nsatz;x1556:nsatz;die Bildung;In vielen Ländern hängt eine gute _____ leider vom Geld der Eltern ab.;Bildung;richtig;Bildung;basamak:B3 | bicim:bos | not:m3 | R:0.99 | S:11.0 | ısınma | sek:13 | ipucu:1
 2026-11-16 10:51:18;abr;v626:abr;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen (Dat, Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.96 | S:4.4 | ısınma | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-16 10:51:32;wort;x1549:wort;die Ehrlichkeit;dürüstlük;die Fairness;falsch;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:m1 | R:0.95 | S:0.5 | ısınma | düzeltti | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:tr
+2026-11-16 10:51:37;yeni;n0678;der Krieg;tanıtım;;neu;savaş;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-16 10:51:43;yeni;n0182;das Blut;tanıtım;;neu;kan;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-11-16 10:51:53;yeni;w0163;fest;tanıtım;;neu;sağlam, sabit;basamak:B0 | bicim:tanit | not:- | parti | sek:10
+2026-11-16 10:51:56;erk;w0132:erk;einzig;tek, biricik;einzig;richtig;einzig;basamak:B1 | bicim:sec | not:m3 | R:0.77 | S:0.6 | şık:w0560/w0131/w0130 | çeldirici:biçim/karışma/biçim | sek:3
+2026-11-16 10:52:00;erk;w0485:erk;überhaupt;hiç (überhaupt nicht);überhaupt;richtig;überhaupt;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | şık:w0057/w0486/w0484 | çeldirici:bilinen/biçim/biçim | sek:3
+2026-11-16 10:52:34;gram;g:n-deklination:55;n-deklination/kontrast;Doktor küçük oğlanı muayene ediyor.;Der Arzt untersucht der kline Junge.;falsch;Der Arzt untersucht den kleinen Jungen.;tur:akis | tür:ceviri | z:2 | artikel/çekim | yanlış kelime | ghost:1 | sek:27
+2026-11-16 10:52:41;satz;v642:satz;sich wenden an;Bei Fragen _____ Sie sich an Frau Müller.;melden;falsch;wenden;basamak:B2 | bicim:bos | not:m1 | R:0.72 | S:0.2 | düzeltti | farklı | sek:4 | ipucu:1
+2026-11-16 10:52:45;wort;n0678:wort;der Krieg;savaş;der Krieg;richtig;der Krieg;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-16 10:52:56;wort;x1549:wort;die Ehrlichkeit;dürüstlük | Vielen Dank für … _____, auch wenn die Wahrheit wehtut.;die Gerechtkeit;falsch;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 10:52:59;prod;w0163:prod;fest;sağlam, sabit;fest;richtig;fest;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 10:53:02;wort;n0182:wort;das Blut;kan;das Blut;richtig;das Blut;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 10:53:22;abr;v590:abr;sich verlaufen;(yürürken) yolunu kaybetmek | Ich habe mich in der Stadt _____.;verloren;falsch;sich verlaufen;basamak:B2 | bicim:yaz | not:m1 | R:0.72 | S:0.3 | kurtarma | düzeltti | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 10:53:35;abr;v642:abr;sich wenden an;(birine) başvurmak | _____ Sie sich bitte … die Information!;sich Wenden an;fast;sich wenden an (an + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım, groß/klein | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 10:53:35;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:7 | küçük:1 | yanlış:5 | puan:83 | dk:3 | yeni:3 | seviye+:1 | tekrar:9 | ipucusuz:2 | gram:0/1
+2026-11-16 10:53:47;abr;v256:abr;feststellen;tespit etmek | Die Polizei konnte nicht _____, wer den Unfall verursacht hat.;feststellen;richtig;feststellen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:3.2 | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 10:53:49;erk;n1228:erk;der Tod;ölüm;der Tod;richtig;der Tod;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | şık:n1389/n1232/n0524 | çeldirici:konu/biçim/konu | sek:2
+2026-11-16 10:53:57;erk;n1096:erk;die Sorge;Sorgen machte ihm immer wieder die Situation seiner Familie in Tigray, wo zwischen 2020 und 2022 Krieg herrschte.;endişe, kaygı;richtig;endişe, kaygı;basamak:B1 | bicim:metinde | not:m3 | R:0.95 | S:5.3 | şık:n0380/x1475/n1095 | çeldirici:biçim/biçim/biçim | sek:8
+2026-11-16 10:54:11;yeni;v430;reichen;tanıtım;;neu;yetmek;basamak:B0 | bicim:tanit | not:- | parti | sek:13
+2026-11-16 10:54:15;yeni;v437;retten;tanıtım;;neu;kurtarmak;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-16 10:54:21;abr;v205:abr;entscheiden;(bir şeye) karar vermek | Das musst du selbst _____.;entscheiden;richtig;entscheiden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:5.8 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 10:54:33;bed;v502:bed;sterben an;(bir şeyden) ölmek;sterben an;richtig;sterben an;basamak:B1 | bicim:sec | not:m3 | R:0.95 | S:3.4 | şık:v509/v511/v500 | çeldirici:biçim/biçim/biçim | sek:11
+2026-11-16 10:54:48;gram;g:nominal-verbal:26;nominal-verbal/bei;Yemek yaparken müzik dinlerim.;Während ich koche, höre ich Musik.;richtig;Beim Kochen höre ich Musik.;tur:akis | tür:ceviri | z:2 | sek:13
