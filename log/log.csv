@@ -4831,3 +4831,6 @@
 2026-11-16 11:07:17;prod;w0095:prod;deutlich;açık, belirgin | Es macht _____, dass die Einwohner einer Stadt gemeinsame Abmachungen und Regeln brauchen.;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:2.1 | sek:9 | ipucu:0 | ipucu-tür:decumle
 2026-11-16 11:07:17;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:1 | yanlış:5 | puan:85 | dk:3 | yeni:0 | seviye+:0 | tekrar:12 | ipucusuz:0
 2026-11-16 11:07:22;wort;n0229:wort;die Daten;veriler (çoğul);die Daten;richtig;die Daten;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:7.4 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-16 20:14:39;prod;w0445:prod;sogar;hatta, bile | Auf dem Berg war es so kalt. Es hat _____ geschneit.;sorge;falsch;sogar;basamak:B2 | bicim:yaz0 | not:m1 | R:0.91 | S:0.4 | düzeltti | farklı | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 20:14:39;leech;w0445;sogar;hatta, bile;;takiliyor;;günler:2026-11-06,2026-11-09,2026-11-16
+2026-11-16 20:14:48;prod;w0504:prod;verantwortlich;sorumlu | Die Polizei weiß noch nicht, wer für den Unfall _____ ist.;verantworlich;fast;verantwortlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:1.9 | kısmi | yazım | sek:6 | ipucu:0 | ipucu-tür:trcumle
