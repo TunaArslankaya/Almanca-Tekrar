@@ -4762,3 +4762,33 @@
 2026-11-16 10:58:03;nsatz;n0914:nsatz;die Politik;Eine Zeitung ist meist in verschiedene Abschnitte gegliedert, die man Rubriken nennt: _____, Lokales, Wirtschaft, Medien oder Sport.;politisch;falsch;Politik;basamak:B3 | bicim:bos | not:m1 | R:0.91 | S:4.6 | düzeltti | farklı | sek:13 | ipucu:1
 2026-11-16 10:58:18;wort;n1358:wort;die Ware;mal, ürün | Wir liefern Ihnen … _____ direkt ins Haus.;die Würd;falsch;die Ware;basamak:B2 | bicim:yaz0 | not:m1 | R:0.79 | S:0.7 | düzeltti | kelime yanlış | sek:12 | ipucu:0 | ipucu-tür:trcumle
 2026-11-16 10:58:26;wort;x1575:wort;die Regierung;hükümet | Viele Menschen sind mit der Politik … _____ nicht zufrieden.;die Regierung;richtig;die Regierung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.92 | S:2.4 | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 10:58:29;art;n1096:art;die Sorge;Sorge;die;richtig;die Sorge;basamak:A | bicim:artikel | not:a3 | R:0.95 | S:5.3 | sek:1
+2026-11-16 10:58:31;erk;n0236:erk;der Dialekt;Dialekte gibt es in jeder Sprache.;lehçe, şive;richtig;lehçe, şive;basamak:B1 | bicim:metinde | not:m3 | R:0.79 | S:5.8 | kurtarma | şık:n0432/n0237/n1142 | çeldirici:konu/biçim/konu | sek:2
+2026-11-16 10:58:35;wort;n0914:wort;die Politik;siyaset;die Politik;richtig;die Politik;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:4.6 | tekrar:1 | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-16 10:58:39;wort;n1358:wort;die Ware;mal, ürün | Außerdem bittet man dort nicht einen Verkäufer, … di… _____ zu geben.;die Ware;richtig;die Ware;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 10:58:54;luecke;w0056:nsatz;bereit;Wir waren beide _____ zu einem Kompromiss.;bereit;richtig;bereit;basamak:B3 | bicim:metin | not:m3 | R:0.89 | S:20.2 | kaynak:u1:t1
+2026-11-16 10:58:54;luecke;v184:satz;sich einigen auf;Am Ende haben wir uns auf einen Putzplan _____.;einigen;fast;geeinigt;basamak:B3 | bicim:metin | not:m2 | R:0.86 | S:14.7 | kapı:14g | kaynak:u1:t1 | çekim: geeinigt
+2026-11-16 10:58:54;akt;luecke:u1:t1;metinde boşluk;Wir waren beide bereit zu einem Kompromiss. Am Ende haben wir uns auf einen Putzplan geeinigt. Jetzt gibt es wieder Harmonie in der Wohnung.;bereit / einigen;fast;bereit / geeinigt;puan:2/2 | boşluk:2
+2026-11-16 10:59:07;wort;n0341:wort;der Fall;durum, vaka | Gleichzeitig wissen sie aber, dass … _____ politisch heikel ist.;der Fall;richtig;der Fall;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.92 | S:1.8 | sek:9 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 10:59:07;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:91 | dk:2 | yeni:0 | seviye+:1 | tekrar:12 | ipucusuz:2
+2026-11-16 10:59:18;nsatz;w0084:nsatz;damit;Meistens meint man _____ die Liebe bei einem Pärchen.;damit;richtig;damit;basamak:B2 | bicim:bos | not:m3 | R:0.80 | S:11.3 | sek:10 | ipucu:1
+2026-11-16 10:59:23;art;n1384:art;das Wissen;Wissen;die;falsch;das Wissen;basamak:A | bicim:artikel | not:a1 | R:0.95 | S:0.6 | artikel die → das | sek:2
+2026-11-16 10:59:35;abr;v572:abr;verbinden;"bağlamak; (yarayı) sarmak | Wir müssen die Wunde sofort _____.";verwanden;falsch;verbinden (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.3 | düzeltti | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 10:59:44;wort;x1504:wort;die Behauptung;iddia | Das ist nur … _____, du hast keine Beweise.;die Behaptung;fast;die Behauptung;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.91 | S:6.7 | kısmi | yazım | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 10:59:45;art;n1320:art;die Versichertenkarte;Versichertenkarte;die;richtig;die Versichertenkarte;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:43.3 | sek:1
+2026-11-16 10:59:48;abr;v466:abr;schweigen;susmak;schweigen;richtig;schweigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.1 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 10:59:50;prod;w0172:prod;frech;arsız, şımarık;frech;richtig;frech;basamak:B2 | bicim:yaz0 | not:m3 | R:0.80 | S:5.6 | kurtarma | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-16 10:59:54;abr;v572:abr;verbinden;"bağlamak; (yarayı) sarmak";verbinden;richtig;verbinden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:00:04;stamm;v642:stamm;sich wenden an;Ich habe mich an die Beratung _____.;gewunden;falsch;gewandt;basamak:K | bicim:kokSatz | not:k1 | R:0.79 | S:0.5 | kök:wenden | Partizip: gewandt | sek:5
+2026-11-16 11:00:19;wort;n0047:wort;der Antrag;başvuru, dilekçe | Ich habe … _____ auf Verlängerung meiner Aufenthaltserlaubnis gestellt.;die ;falsch;der Antrag;basamak:B2 | bicim:yaz | not:m1 | R:0.88 | S:1.1 | düzeltti | kelime yanlış | sek:11 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 11:00:19;leech;n0047;der Antrag;başvuru, dilekçe;;takiliyor;;günler:2026-10-04,2026-10-21,2026-11-16
+2026-11-16 11:00:24;wort;x1568:wort;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:2.0 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:00:38;abr;v191:abr;einsetzen;kullanmak, devreye sokmak | Ich glaube, wir müssen jemanden _____, der sich um die Organisation kümmert.;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.87 | S:1.6 | sek:14 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 11:00:45;prod;w0636:prod;sich Mühe geben;çaba göstermek;sich Mühe geben;richtig;sich Mühe geben;basamak:B2 | bicim:yaz | not:m3 | R:0.86 | S:13.3 | sek:6 | ipucu:2 | ipucu-tür:tr
+2026-11-16 11:00:59;prod;w0067:prod;bisher;şimdiye kadar;bisher;richtig;bisher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.87 | S:1.6 | sek:14 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:01:03;wort;n0047:wort;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.1 | tekrar:1 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:01:03;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:114 | dk:2 | yeni:0 | seviye+:2 | tekrar:15 | ipucusuz:2
+2026-11-16 11:01:06;art;n1336:art;das Visum;Visum;das;richtig;das Visum;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:66.5 | sek:2
+2026-11-16 11:01:09;nsatz;n0660:nsatz;die Kosten;Audi gab für 2025 zusätzliche _____ von etwa 1,2 Milliarden Euro an.;die Kosten;richtig;Kosten;basamak:B3 | bicim:bos | not:m4 | R:0.86 | S:29.1 | sek:3 | ipucu:1
+2026-11-16 11:01:15;wort;n0800:wort;das Mittel;"araç; ilaç";die Miitel;fast;das Mittel;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.86 | S:1.1 | kısmi | yazım, artikel die → das | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:01:23;art;n1173:art;der Supermarkt;___ Supermarkt an der Ecke hat bis 22 Uhr geöffnet. [Nom];Das;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.76 | S:0.2 | hâl:Nom | artikel das → der | sek:4
