@@ -4817,3 +4817,17 @@
 2026-11-16 11:04:24;abr;v039:abr;sich anstrengen;çabalamak, gayret etmek | Du musst dich mehr _____.;anstrengend;falsch;sich anstrengen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.0 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:7 | ipucu:0 | ipucu-tür:trcumle
 2026-11-16 11:04:24;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:7 | küçük:1 | yanlış:5 | puan:90 | dk:2 | yeni:0 | seviye+:3 | tekrar:13 | ipucusuz:4
 2026-11-16 11:04:55;wort;n0758:wort;die Mannschaft;takım | … _____ hat 0:1 verloren.;;falsch;die Mannschaft;basamak:B2 | bicim:yaz0 | not:m1 | R:0.83 | S:0.7 | düzeltti | sek:20 | ipucu:0 | ipucu-tür:trcumle | bilmiyorum
+2026-11-16 11:05:00;prod;w0164:prod;fett;yağlı | Die Wurst ist mir zu _____.;fett;richtig;fett;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:5.3 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 11:05:17;wort;n0875:wort;die Organisation;organizasyon, kuruluş;das Verein;falsch;die Organisation;basamak:B2 | bicim:yaz | not:m1 | R:0.82 | S:1.3 | düzeltti | kelime yanlış | sek:12 | ipucu:2 | ipucu-tür:tr
+2026-11-16 11:05:24;satz;v399:satz;nennen;Können Sie mir ein Beispiel _____?;nennen;richtig;nennen;basamak:B2 | bicim:bos0 | not:m3 | R:0.82 | S:14.6 | kapı:7g | sek:5 | ipucu:0
+2026-11-16 11:06:00;wort;x1523:wort;das Gehirn;beyin | Sport ist nicht nur gut für den Körper, sondern auch für … _____.;das Geheim;falsch;das Gehirn;basamak:B2 | bicim:yaz0 | not:m1 | R:0.82 | S:0.8 | düzeltti | kelime yanlış | sek:33 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 11:06:14;nsatz;w0595:nsatz;eigen;Manche Leute haben keine _____ Meinung.;eiginen;falsch;eigene;basamak:B2 | bicim:bos0 | not:m1 | R:0.82 | S:0.8 | düzeltti | farklı | sek:7 | ipucu:0
+2026-11-16 11:06:14;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-16 11:06:25;wort;n0758:wort;die Mannschaft;takım | Da tritt jeweils … _____ pro Land an.;die Mannschaft;richtig;die Mannschaft;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:11 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 11:06:37;wort;n0875:wort;die Organisation;organizasyon, kuruluş | … _____ hilft Menschen in Not.;die Organisation;richtig;die Organisation;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.3 | tekrar:1 | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 11:06:42;wort;x1523:wort;das Gehirn;beyin | Der Regler für die Temperatur unseres Körpers sitzt in … _____.;das Gehirn;richtig;das Gehirn;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.8 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 11:06:55;prod;w0595:prod;eigen;kendi (-ne ait);eignen;falsch;eigen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | düzeltti | farklı | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-16 11:07:08;nsatz;w0586:nsatz;zuverlässig;_____ Daten zu den Oberflächentemperaturen der Meere gibt es erst seit den 1980er-Jahren.;Zuverlässig;fast;Zuverlässige;basamak:B2 | bicim:bos0 | not:m2 | R:0.81 | S:4.4 | kurtarma | çekim | sek:10 | ipucu:0
+2026-11-16 11:07:17;prod;w0095:prod;deutlich;açık, belirgin | Es macht _____, dass die Einwohner einer Stadt gemeinsame Abmachungen und Regeln brauchen.;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:2.1 | sek:9 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 11:07:17;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:1 | yanlış:5 | puan:85 | dk:3 | yeni:0 | seviye+:0 | tekrar:12 | ipucusuz:0
+2026-11-16 11:07:22;wort;n0229:wort;die Daten;veriler (çoğul);die Daten;richtig;die Daten;basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:7.4 | sek:4 | ipucu:0 | ipucu-tür:tr
