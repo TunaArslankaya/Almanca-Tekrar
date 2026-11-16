@@ -4708,3 +4708,5 @@
 2026-11-15 12:04:51;prod;w0081:prod;dagegen;buna karşı;dagegen;richtig;dagegen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:6.2 | sek:3 | ipucu:0 | ipucu-tür:tr
 2026-11-15 12:04:58;abr;v191:abr;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
 2026-11-15 12:04:58;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:10 | küçük:0 | yanlış:3 | puan:101 | dk:2 | yeni:0 | seviye+:1 | tekrar:13 | ipucusuz:2
+2026-11-16 10:51:14;nsatz;x1556:nsatz;die Bildung;In vielen Ländern hängt eine gute _____ leider vom Geld der Eltern ab.;Bildung;richtig;Bildung;basamak:B3 | bicim:bos | not:m3 | R:0.99 | S:11.0 | ısınma | sek:13 | ipucu:1
+2026-11-16 10:51:18;abr;v626:abr;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen (Dat, Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.96 | S:4.4 | ısınma | sek:4 | ipucu:2 | ipucu-tür:tr
