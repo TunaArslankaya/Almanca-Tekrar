@@ -4882,3 +4882,33 @@
 2026-11-17 12:15:46;wort;n0914:wort;die Politik;siyaset | Ich interessiere mich nicht für _____.;die Politik;richtig;die Politik;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:5.9 | ısınma | sek:6 | ipucu:2 | ipucu-tür:trcumle
 2026-11-17 12:15:56;abr;v443:abr;schaffen;başarmak, yetiştirmek | Wir _____ das zusammen.;schaffen;richtig;schaffen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.94 | S:5.5 | ısınma | sek:10 | ipucu:0 | ipucu-tür:trcumle
 2026-11-17 12:16:01;yeni;n0647;der König;tanıtım;;neu;kral;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-17 12:16:08;yeni;w0587;zwar … aber;tanıtım;;neu;gerçi … ama;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-17 12:16:16;bed;v437:bed;retten;Eine Organspende hätte ihr das Leben retten können.;kavga etmek, tartışmak;falsch;kurtarmak;basamak:B1 | bicim:metinde | not:m1 | R:0.76 | S:0.1 | şık:v509/v429/v434 | çeldirici:biçim/biçim/karışma | sek:4
+2026-11-17 12:16:20;ayir;n0914~w0388;die Politik ~ politisch;siyaset;die Politik;richtig;die Politik;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-17 12:16:53;gram;g:vergleich:60;vergleich/als-wie;Ich bin 25 Jahre alt. Mein Bruder ist 28 Jahre alt. → als;Als ich 25 Jahre alt bin, ist Mein Burder 28 Jahre alt.;falsch;Mein Bruder ist älter als ich.;tur:akis | tür:umform | z:2 | yazım | artikel/çekim | kelime sırası | fazla kelime | yanlış kelime | sek:28
+2026-11-17 12:17:11;nsatz;w0117:nsatz;eben;Ich gebe auf. Ich habe _____ kein Glück!;eben;richtig;eben;basamak:B2 | bicim:bos0 | not:m3 | R:0.57 | S:0.2 | sek:4 | ipucu:0
+2026-11-17 12:17:14;wort;n0647:wort;der König;kral;der König;richtig;der König;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:17:18;abr;v437:abr;retten;kurtarmak | Der Arzt konnte das Kind noch _____.;retten;richtig;retten (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:17:20;prod;w0587:prod;zwar … aber;gerçi … ama;zwar aber;richtig;zwar … aber;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:17:33;nsatz;n0448:nsatz;die Gemeinschaft;In einer WG muss jeder Rücksicht auf die _____ nehmen.;die Gemeinschaft;richtig;Gemeinschaft;basamak:B2 | bicim:bos0 | not:m3 | R:0.79 | S:3.7 | kurtarma | fazla artikel | sek:6 | ipucu:0 | öneri:fast
+2026-11-17 12:17:38;prod;w0094:prod;deswegen;bu nedenle;deswegen;richtig;deswegen;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
+2026-11-17 12:17:38;yeni;w0094;deswegen;yoklama;deswegen;bekannt;bu nedenle;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-17 12:17:38;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:114 | dk:2 | yeni:2 | seviye+:0 | tekrar:8 | ipucusuz:3 | gram:0/1
+2026-11-17 12:17:47;abr;v572:abr;verbinden;"bağlamak; (yarayı) sarmak";verbinden;richtig;verbinden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:0.5 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:17:49;erk;n0780:erk;die Menge;miktar;die Menge;richtig;die Menge;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:3.5 | şık:n0818/n0781/n0783 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-17 12:17:55;bed;v430:bed;reichen;Das reicht oft schon, damit viele Touristinnen und Touristen kommen, sagt Spode.;hesaba katmak, beklemek;falsch;yetmek;basamak:B1 | bicim:metinde | not:m1 | R:0.94 | S:0.6 | şık:v425/v117/v235 | çeldirici:biçim/biçim/biçim | sek:4
+2026-11-17 12:18:00;yeni;n1326;das Vertrauen;tanıtım;;neu;güven;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-17 12:18:03;prod;w0108:prod;drinnen;içeride;drinnen;richtig;drinnen;basamak:B2 | bicim:yaz | not:m4 | R:0.80 | S:1.6 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:18:05;erk;n0182:erk;das Blut;Früher sagte man: „Sie haben dasselbe Blut“.;kan;richtig;kan;basamak:B1 | bicim:metinde | not:m3 | R:0.94 | S:5.5 | şık:n0179/n0180/n0201 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-17 12:18:14;gram;g:vergleich:59;vergleich/als-wie;Im Winter ist es in Bremen so kalt als in Berlin.;als;richtig;Im Winter ist es in Bremen so kalt wie in Berlin.;tur:akis | tür:fehler | z:2 | sek:8
+2026-11-17 12:18:27;abr;v430:abr;reichen;yetmek | Kannst du mir bitte das Salz _____?;reihen;falsch;reichen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:18:37;wort;n1326:wort;das Vertrauen;güven;das Verhaltsada;falsch;das Vertrauen;basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | kelime yanlış | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:18:48;nsatz;n1307:nsatz;das Verhalten;Die Lehrerin hat mit den Eltern über das _____ von Tim gesprochen.;das Verhalten;fast;Verhalten;basamak:B2 | bicim:bos | not:m3 | R:0.73 | S:1.1 | fazla artikel | sek:7 | ipucu:1
+2026-11-17 12:18:51;abr;v605:abr;verschreiben;(birine ilaç) yazmak;verschreiben;richtig;verschreiben (Dat, Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.80 | S:8.1 | kurtarma | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:18:57;erk;w0163:erk;fest;sağlam, sabit;fest;richtig;fest;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:3.5 | şık:w0164/w0627/w0448 | çeldirici:biçim/bilinen/bilinen | sek:5
+2026-11-17 12:19:00;erk;n0678:erk;der Krieg;savaş;der Krieg;richtig;der Krieg;basamak:B1 | bicim:sec | not:m3 | R:0.94 | S:3.5 | şık:n0999/n0682/n1085 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-17 12:19:00;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:1 | yanlış:3 | puan:79 | dk:1 | yeni:1 | seviye+:0 | tekrar:10 | ipucusuz:2 | gram:1/1
+2026-11-17 12:19:03;wort;n0341:wort;der Fall;durum, vaka;der Fall;richtig;der Fall;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.93 | S:2.5 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:19:08;prod;w0067:prod;bisher;şimdiye kadar | _____ ist alles in Ordnung.;Bisher;richtig;bisher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:2.9 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:19:15;abr;v589:abr;sich verlassen auf;Bana güvenebilirsin. | (birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf (auf + Akk);basamak:B2 | bicim:kalip | not:m3 | R:0.90 | S:2.1 | sek:7 | ipucu:2
+2026-11-17 12:19:19;abr;v191:abr;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:2.9 | sek:3 | ipucu:0 | ipucu-tür:tr
