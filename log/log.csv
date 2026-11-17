@@ -4862,3 +4862,23 @@
 2026-11-16 20:18:15;wort;n0766:wort;die Maschine;makine | … _____ soll um 7 Uhr 10 starten.;die ;falsch;die Maschine;basamak:B2 | bicim:yaz0 | not:m1 | R:0.81 | S:0.7 | düzeltti | kelime yanlış | sek:16 | ipucu:0 | ipucu-tür:trcumle
 2026-11-16 20:18:18;art;n0926;die Praxis;kural kartı;;neu;die Praxis;bicim:kuralKart | kanca | sek:3
 2026-11-16 20:18:25;art;n0926:art;die Praxis;In ___ Praxis war das Wartezimmer total voll. [Dat];dem;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.89 | S:1.0 | hâl:Dat | artikel dem → der | sek:4
+2026-11-16 20:18:39;wort;x1554:wort;die Solidarität;dayanışma | Die Gewerkschaft ruft zu … _____ mit den streikenden Arbeitern auf.;die Fairness;falsch;die Solidarität;basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:1.0 | düzeltti | kelime yanlış | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 20:18:39;leech;x1554;die Solidarität;dayanışma;;takiliyor;;günler:2026-10-24,2026-10-27,2026-11-16
+2026-11-16 20:18:50;prod;w0199:prod;gerecht;adaletli | Ich finde diese Entscheidung nicht _____.;Gerechtig;fast;gerecht;basamak:B2 | bicim:yaz | not:m2 | R:0.85 | S:7.4 | çekim | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 20:19:12;wort;n0380:wort;die Folge;"sonuç; bölüm (dizi) | … _____ des Regens war ein Stau auf der Autobahn.";Wegen;falsch;die Folge;basamak:B2 | bicim:yaz0 | not:m1 | R:0.81 | S:0.7 | düzeltti | kelime yanlış | sek:14 | ipucu:0 | ipucu-tür:trcumle
+2026-11-16 20:19:12;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-16 20:19:15;prod;w0209:prod;glatt;"kaygan; pürüzsüz";glatt;richtig;glatt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.81 | S:7.3 | kurtarma | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-16 20:19:19;wort;n0766:wort;die Maschine;makine | Das ist … _____, aus der Lichtstrahlen kommen.;die Maschine;richtig;die Maschine;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-16 20:19:35;art;n0957:art;der Rat;Meine Lehrerin hat mir ___ Rat gegeben, früh mit der Wohnungssuche anzufangen. [Akk];der;fast;den;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:13.3 | hâl:Akk | hâl | sek:13
+2026-11-16 20:19:41;wort;x1554:wort;die Solidarität;dayanışma;die Solidarität;richtig;die Solidarität;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:1.0 | tekrar:1 | sek:6 | ipucu:2 | ipucu-tür:tr
+2026-11-16 20:19:46;wort;n0380:wort;die Folge;"sonuç; bölüm (dizi)";die Folge;richtig;die Folge;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-16 20:19:59;wort;n0432:wort;das Gedicht;şiir | Im Deutschkurs mussten wir … kurz… _____ auswendig lernen und vortragen.;der Rat;falsch;das Gedicht;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:0.9 | düzeltti | kelime yanlış | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-16 20:20:06;nsatz;n1038:nsatz;der Schirm;Mein _____ ist kaputt, kann ich mir deinen leihen?;Schrim;fast;Schirm;basamak:B2 | bicim:bos0 | not:m3 | R:0.84 | S:6.2 | kısmi | yazım | sek:4 | ipucu:0
+2026-11-16 20:20:15;satz;v425:satz;rechnen mit;Damit habe ich nicht _____.;erwartet;falsch;gerechnet;basamak:B3 | bicim:bos | not:m1 | R:0.83 | S:1.2 | zor | düzeltti | farklı | sek:5 | ipucu:1
+2026-11-16 20:20:15;leech;v425;rechnen mit;(bir şeyi) hesaba katmak, beklemek;;takiliyor;;günler:2026-10-06,2026-10-07,2026-11-16
+2026-11-16 20:20:18;wort;n0432:wort;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:0.9 | tekrar:1 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-16 20:20:18;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:5 | küçük:4 | yanlış:6 | puan:90 | dk:3 | yeni:0 | seviye+:0 | tekrar:15 | ipucusuz:2
+2026-11-17 12:15:39;nsatz;w0149:nsatz;etwa;Das Wort Heirat bedeutet _____ „Hausgemeinschaft“.;etwa;richtig;etwa;basamak:B2 | bicim:bos | not:m4 | R:0.97 | S:4.6 | ısınma | sek:4 | ipucu:1
+2026-11-17 12:15:46;wort;n0914:wort;die Politik;siyaset | Ich interessiere mich nicht für _____.;die Politik;richtig;die Politik;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:5.9 | ısınma | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 12:15:56;abr;v443:abr;schaffen;başarmak, yetiştirmek | Wir _____ das zusammen.;schaffen;richtig;schaffen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.94 | S:5.5 | ısınma | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:16:01;yeni;n0647;der König;tanıtım;;neu;kral;basamak:B0 | bicim:tanit | not:- | parti | sek:4
