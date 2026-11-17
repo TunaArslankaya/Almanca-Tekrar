@@ -4937,3 +4937,33 @@
 2026-11-17 12:22:02;art;n1384:art;das Wissen;wegen ___ Wissens [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:2.4 | hâl:Gen | sek:2
 2026-11-17 12:22:11;wort;n0137:wort;die Behörde;resmî kurum | … _____ ist für Ausländer zuständig.;die Behörde;richtig;die Behörde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.93 | S:1.6 | sek:8 | ipucu:0 | ipucu-tür:trcumle
 2026-11-17 12:22:31;wort;n0432:wort;das Gedicht;şiir | Meine Tochter hat für ihre Oma … _____ geschrieben.;der Geschicte;falsch;das Gedicht;basamak:B2 | bicim:yaz | not:m1 | R:0.92 | S:0.3 | düzeltti | kelime yanlış | sek:17 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 12:22:37;abr;v545:abr;übertreiben;abartmak | Man sollte beim Sport nicht _____.;übertreiben;richtig;übertreiben (Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:10.8 | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 12:22:41;wort;x1523:wort;das Gehirn;beyin;das Gehirn;richtig;das Gehirn;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:1.4 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:22:57;wort;x1554:wort;die Solidarität;dayanışma | In unserer WG gibt es viel _____: Wer krank ist, bekommt Suppe.;die Solidarität;richtig;die Solidarität;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.92 | S:1.6 | sek:16 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 12:23:00;wort;n0432:wort;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:23:00;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:1 | yanlış:2 | puan:135 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:3 | gram:1/1
+2026-11-17 12:23:06;art;n0678:art;der Krieg;Krieg;der;richtig;der Krieg;basamak:A | bicim:artikel | not:a3 | R:0.94 | S:5.5 | sek:2
+2026-11-17 12:23:11;prod;w0595:prod;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.4 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:23:14;wort;n1358:wort;die Ware;mal, ürün;die Ware;richtig;die Ware;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.87 | S:1.8 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:23:23;yeni;n1089;der Sitz;tanıtım;;neu;"koltuk; merkez";basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-17 12:23:35;satz;v211:satz;entstehen;Die ersten Häuser in diesem Viertel _____ vor hundert Jahren.;gebaude;falsch;entstanden;basamak:B3 | bicim:bos | not:m1 | R:0.87 | S:2.7 | düzeltti | farklı | sek:7 | ipucu:1
+2026-11-17 12:23:39;abr;v288:abr;gelten;geçerli olmak;gelten;richtig;gelten;basamak:B2 | bicim:yaz0 | not:m3 | R:0.87 | S:1.8 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:23:45;gram;g:n-deklination:27;n-deklination/kontrast;Ich habe gestern mit dem Arzten telefoniert.;Arzten;richtig;Ich habe gestern mit dem Arzt telefoniert.;tur:akis | tür:fehler | z:2 | ghost:2 | sek:4
+2026-11-17 12:24:02;abr;v125:abr;sich beschweren bei;Müşteriler firmaya şikâyette bulundu. | (birine) şikâyette bulunmak;sich schweren bei;falsch;sich beschweren bei (bei + Dat);basamak:B2 | bicim:kalip | not:m1 | R:0.81 | S:0.5 | kurtarma | düzeltti | sek:7 | ipucu:2
+2026-11-17 12:24:08;wort;n1089:wort;der Sitz;"koltuk; merkez";der Stiz;fast;der Sitz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | kısmi | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:24:11;abr;v211:abr;entstehen;oluşmak, ortaya çıkmak;entstehen;richtig;entstehen;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:2.7 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:24:19;prod;w0515:prod;verwandt;akraba | Mein Cousin und ich sind eng _____.;verhalten;falsch;verwandt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.87 | S:0.3 | düzeltti | farklı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:24:19;leech;w0515;verwandt;akraba;;takiliyor;;günler:2026-11-08,2026-11-16,2026-11-17
+2026-11-17 12:24:32;abr;v584:abr;verhindern;engellemek, önlemek;vera;falsch;verhindern (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.87 | S:0.4 | düzeltti | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:24:32;leech;v584;verhindern;engellemek, önlemek;;takiliyor;;günler:2026-11-04,2026-11-13,2026-11-17
+2026-11-17 12:24:40;prod;w0195:prod;genauso;tıpkı, aynı şekilde;genau so;falsch;genauso;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | farklı | sek:5 | ipucu:2
+2026-11-17 12:24:40;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-17 12:24:44;yeni;w0195;genauso;tanıtım;;neu;tıpkı, aynı şekilde;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-17 12:24:50;abr;v125:abr;sich beschweren bei;(birine) şikâyette bulunmak;sich beschweren bei;richtig;sich beschweren bei (bei + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:24:56;prod;w0515:prod;verwandt;akraba | In vielen Ländern ist es verboten, dass Eltern eng miteinander _____ sind.;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:decumle
+2026-11-17 12:25:03;abr;v584:abr;verhindern;engellemek, önlemek | Wir konnten den Unfall nicht _____.;verhindern;richtig;verhindern (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:25:03;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:1 | yanlış:5 | puan:107 | dk:2 | yeni:2 | seviye+:0 | tekrar:12 | ipucusuz:2 | gram:1/1
+2026-11-17 12:25:19;wort;n0758:wort;die Mannschaft;takım;die Mannschaft;richtig;die Mannschaft;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.87 | S:1.7 | sek:11 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:25:34;wort;x1550:wort;die Gerechtigkeit;adalet | Es ist eine Frage … _____, dass alle Kinder eine gute Schule besuchen können.;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.87 | S:2.4 | sek:15 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:25:52;nsatz;n0972:nsatz;die Regel;Wie geht dieses Spiel? Kennst du die _____?;Gerecht;falsch;Regeln;basamak:B3 | bicim:bos | not:m1 | R:0.84 | S:1.9 | düzeltti | farklı | sek:15 | ipucu:1
+2026-11-17 12:25:57;yeni;n0870;das Opfer;tanıtım;;neu;kurban, mağdur;basamak:B0 | bicim:tanit | not:- | parti | sek:4
