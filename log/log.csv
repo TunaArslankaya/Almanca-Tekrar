@@ -5001,3 +5001,33 @@
 2026-11-17 12:30:40;abr;v687:abr;ausbilden;yetiştirmek, (meslek) eğitimi vermek | Deutschland muss mehr Ärzte und Pflegekräfte _____.;ausbilden;richtig;ausbilden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.2 | tekrar:1 | hafıza:yazılmadı | sek:7 | ipucu:0 | ipucu-tür:trcumle
 2026-11-17 12:30:40;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:7 | küçük:0 | yanlış:8 | puan:92 | dk:3 | yeni:2 | seviye+:0 | tekrar:12 | ipucusuz:0 | gram:1/1
 2026-11-17 23:15:47;prod;w0195:prod;genauso;tıpkı, aynı şekilde;gleich;falsch;genauso;basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | akşam | düzeltti | farklı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:16:02;wort;n1326:wort;das Vertrauen;güven | Ich habe _____ zu Ihnen.;verlasse;falsch;das Vertrauen;basamak:B2 | bicim:yaz0 | not:m1 | R:0.84 | S:0.1 | akşam | düzeltti | kelime yanlış | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:16:12;wort;n0870:wort;das Opfer;kurban, mağdur | Man sollte … _____ nicht die Schuld geben.;opara;falsch;das Opfer;basamak:B2 | bicim:yaz0 | not:m1 | R:0.84 | S:0.1 | akşam | düzeltti | kelime yanlış | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:16:31;abr;v292:abr;geschehen;olmak, meydana gelmek | Der Unfall ist auf der Autobahn _____.;gerecherher;falsch;geschehen;basamak:B2 | bicim:yaz0 | not:m1 | R:0.84 | S:0.1 | akşam | düzeltti | sek:14 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:16:40;prod;w0195:prod;genauso;tıpkı, aynı şekilde | Katarina sieht _____ aus wie ihre Schwester.;genauso;richtig;genauso;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | akşam | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:16:42;erk;n0647:erk;der König;kral;der König;richtig;der König;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | akşam | şık:n1353/n0635/n0546 | çeldirici:konu/biçim/biçim | sek:3
+2026-11-17 23:16:54;wort;n1326:wort;das Vertrauen;güven | „Trauung“ hat mit … _____ zu tun, das sich die beiden Menschen schenken.;das Verlafa;falsch;das Vertrauen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | akşam | düzeltti | kelime yanlış | sek:8 | ipucu:0 | ipucu-tür:decumle
+2026-11-17 23:16:54;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-17 23:16:58;prod;w0587:prod;zwar … aber;gerçi … ama;zwar aber;richtig;zwar … aber;basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:3.8 | akşam | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:04;wort;n0870:wort;das Opfer;kurban, mağdur;der Opfer;fast;das Opfer;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:0.1 | tekrar:1 | akşam | artikel der → das | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:14;abr;v292:abr;geschehen;olmak, meydana gelmek;geschechen;fast;geschehen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | akşam | kısmi | yazım | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:16;erk;n1089:erk;der Sitz;koltuk;der Sitz;richtig;der Sitz;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | akşam | şık:n0179/n1088/n0538 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-17 23:17:19;erk;w0469:erk;tatsächlich;gerçekten de;tatsächlich;richtig;tatsächlich;basamak:B1 | bicim:sec | not:m3 | R:0.97 | S:2.9 | akşam | şık:w0522/w0109/w0274 | çeldirici:bilinen/bilinen/bilinen | sek:2
+2026-11-17 23:17:19;tur;aksam;Akşam tekrarı;;;bitti;;cevap:12 | doğru:5 | küçük:2 | yanlış:5 | puan:57 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | ipucusuz:0
+2026-11-17 23:17:24;abr;v437:abr;retten;kurtarmak;retten;richtig;retten (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:0.4 | akşam | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:28;prod;w0132:prod;einzig;tek, biricik;einzig;richtig;einzig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.85 | S:0.6 | akşam | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:30;prod;w0515:prod;verwandt;akraba;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.85 | S:0.5 | akşam | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-17 23:17:35;wort;n0432:wort;das Gedicht;şiir | Im Deutschkurs haben wir … _____ von Goethe gelesen.;das Gedicht;richtig;das Gedicht;basamak:B2 | bicim:yaz | not:m4 | R:0.86 | S:0.5 | akşam | sek:4 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 23:17:39;wort;n1303:wort;der Verein;dernek, kulüp;der Verein;richtig;der Verein;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.87 | S:27.3 | akşam | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-17 23:17:46;abr;v039:abr;sich anstrengen;çabalamak, gayret etmek | Du musst dich mehr _____.;sich anstrengen;richtig;sich anstrengen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.87 | S:0.6 | akşam | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:17:53;wort;n0800:wort;das Mittel;"araç; ilaç | Der Arzt hat mir … _____ gegen Grippe verschrieben.";der Mittel;fast;das Mittel;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.88 | S:0.6 | akşam | artikel der → das | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:17:53;tur;aksam;Akşam tekrarı;;;leer;;cevap:7 | doğru:6 | küçük:1 | yanlış:0 | puan:66 | dk:1 | yeni:0 | seviye+:1 | tekrar:7 | ipucusuz:2
+2026-11-17 23:17:59;art;x1547;die Toleranz;kural kartı;;neu;die Toleranz;bicim:kuralKart | kural:-anz | örnek:n0245 | kanca | sek:3
+2026-11-17 23:18:00;art;x1547:art;die Toleranz;mit ___ Toleranz [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.64 | S:1.6 | hâl:Dat | sek:1
+2026-11-17 23:18:09;satz;v276:satz;führen;Dieser Weg _____ zum Bahnhof.;führt;richtig;führt;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:9.2 | kapı:7g | sek:9 | ipucu:0
+2026-11-17 23:18:14;prod;w0258:prod;international;uluslararası;international;richtig;international;basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:20.7 | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-17 23:18:25;art;n0067:art;die Art;Mir gefällt ___ ruhige Art meiner neuen Kollegin. [Nom/Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.70 | S:3.5 | hâl:Nom/Akk | sek:10
+2026-11-17 23:18:30;nsatz;w0054:nsatz;beliebt;Manche Fächer an Universitäten sind sehr _____.;beliebt;richtig;beliebt;basamak:B3 | bicim:bos | not:m4 | R:0.90 | S:20.7 | sek:5 | ipucu:1
+2026-11-17 23:18:37;nsatz;w0407:nsatz;rund;Bis Berlin sind es noch _____ 40 Kilometer.;etwa;falsch;rund;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.1 | düzeltti | farklı | sek:3 | ipucu:1
+2026-11-17 23:18:43;wort;x1557:wort;das Vorurteil;önyargı | Das ist doch nur … _____!;das Vorurteil;richtig;das Vorurteil;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.81 | S:6.8 | kurtarma | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 23:18:49;abr;v117:abr;berichten über;(bir şey hakkında) haber vermek, anlatmak | Die Nachrichten _____ heute … das Hochwasser in Süddeutschland.;berichten über;richtig;berichten über (über + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.2 | sek:6 | ipucu:0 | ipucu-tür:trcumle
