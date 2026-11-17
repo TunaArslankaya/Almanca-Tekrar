@@ -4912,3 +4912,28 @@
 2026-11-17 12:19:08;prod;w0067:prod;bisher;şimdiye kadar | _____ ist alles in Ordnung.;Bisher;richtig;bisher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:2.9 | sek:4 | ipucu:0 | ipucu-tür:trcumle
 2026-11-17 12:19:15;abr;v589:abr;sich verlassen auf;Bana güvenebilirsin. | (birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf (auf + Akk);basamak:B2 | bicim:kalip | not:m3 | R:0.90 | S:2.1 | sek:7 | ipucu:2
 2026-11-17 12:19:19;abr;v191:abr;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:2.9 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:19:22;prod;w0597:prod;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:1.7 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:19:29;gram;g:nominal-verbal:86;nominal-verbal/bei;___ Frühstück lese ich immer die Zeitung. (bei + das);Beim;richtig;Beim;tur:akis | tür:luecke | z:2 | sek:6
+2026-11-17 12:19:44;nsatz;n0322:nsatz;die Erziehung;Heute kümmern sich auch viele Väter um die _____ der Kinder.;Bildung;falsch;Erziehung;basamak:B2 | bicim:bos | not:m1 | R:0.72 | S:0.2 | düzeltti | farklı | sek:9 | ipucu:1
+2026-11-17 12:19:50;wort;n1076:wort;das Semester;dönem (üniversite);das Semestar;fast;das Semester;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.80 | S:7.9 | kurtarma | kısmi | kapı:7g | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:19:53;wort;n0436:wort;das Gefühl;duygu, his;das Gefühl;richtig;das Gefühl;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:1.7 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:20:13;prod;w0522:prod;vor allem;özellikle, her şeyden önce | Bei der Prüfung ist _____ der schriftliche Teil schwierig.;voll;falsch;vor allem;basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:0.3 | düzeltti | edat | sek:17 | ipucu:2 | ipucu-tür:trcumle
+2026-11-17 12:20:13;leech;w0522;vor allem;özellikle, her şeyden önce;;takiliyor;;günler:2026-11-04,2026-11-16,2026-11-17
+2026-11-17 12:20:20;wort;n0322:wort;die Erziehung;eğitim, terbiye | Über _____ haben meine Eltern oft unterschiedliche Meinungen.;die Erziehung;richtig;die Erziehung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.2 | tekrar:1 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:20:24;wort;n0875:wort;die Organisation;organizasyon, kuruluş;die Organisation;richtig;die Organisation;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:2.5 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:20:27;art;n0780:art;die Menge;mit ___ Menge [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.94 | S:7.6 | hâl:Dat | sek:2
+2026-11-17 12:20:32;wort;n0380:wort;die Folge;"sonuç; bölüm (dizi) | … _____ des Regens war ein Stau auf der Autobahn.";die Folge;richtig;die Folge;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:1.6 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:20:34;prod;w0522:prod;vor allem;özellikle, her şeyden önce;vor allem;richtig;vor allem;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:2 | ipucu-tür:tr
+2026-11-17 12:20:34;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:1 | yanlış:2 | puan:136 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:2 | gram:1/1
+2026-11-17 12:20:46;wort;n0766:wort;die Maschine;makine;die Maschine;richtig;die Maschine;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.90 | S:1.6 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:20:55;wort;n0047:wort;der Antrag;başvuru, dilekçe | … _____ auf Wohngeld wurde abgelehnt, weil ich die Unterlagen zu spät abgegeben habe.;der Antrag;richtig;der Antrag;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.90 | S:1.6 | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:20:57;art;n0182:art;das Blut;wegen ___ Blutes [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.94 | S:7.6 | hâl:Gen | sek:2
+2026-11-17 12:21:11;wort;n0800:wort;das Mittel;"araç; ilaç | Haben Sie es schon mal mit … _____ versucht?";die Medizin;falsch;das Mittel;basamak:B2 | bicim:yaz0 | not:m1 | R:0.90 | S:0.3 | düzeltti | kelime yanlış | sek:11 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:21:11;leech;n0800;das Mittel;"araç; ilaç";;takiliyor;;günler:2026-11-14,2026-11-15,2026-11-17
+2026-11-17 12:21:20;abr;v466:abr;schweigen;susmak | Im Museum muss man nicht _____, aber man sollte leise sprechen.;schweigen;richtig;schweigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:1.5 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:21:26;gram;g:tuerkisch-fallen:130;tuerkisch-fallen/artikel;Ich lese gerade ___ interessantes Dokument. (ein);ein;richtig;ein;tur:akis | tür:luecke | z:2 | ghost:0 | sek:6
+2026-11-17 12:21:49;wort;n0969:wort;das Referat;sunum ödevi;das Referat;richtig;das Referat;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.80 | S:9.7 | kurtarma | kapı:7g | sek:22 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:22:00;wort;n0800:wort;das Mittel;"araç; ilaç";die Mittel;fast;das Mittel;basamak:B2 | bicim:yaz0 | not:a1 | R:1.00 | S:0.3 | tekrar:1 | artikel die → das | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-17 12:22:02;art;n1384:art;das Wissen;wegen ___ Wissens [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:2.4 | hâl:Gen | sek:2
+2026-11-17 12:22:11;wort;n0137:wort;die Behörde;resmî kurum | … _____ ist für Ausländer zuständig.;die Behörde;richtig;die Behörde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.93 | S:1.6 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-17 12:22:31;wort;n0432:wort;das Gedicht;şiir | Meine Tochter hat für ihre Oma … _____ geschrieben.;der Geschicte;falsch;das Gedicht;basamak:B2 | bicim:yaz | not:m1 | R:0.92 | S:0.3 | düzeltti | kelime yanlış | sek:17 | ipucu:2 | ipucu-tür:trcumle
