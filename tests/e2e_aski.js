@@ -208,6 +208,7 @@ const klasor = process.argv[2] || null;
         Object.keys(S.items).forEach(id => { if (S.items[id].m) delete S.items[id].m.cokT; });
         S.items[ids[1]].m.cokT = h; S.items[ids[2]].m.cokT = h;
         const gs = S.gs4; if (gs) gs.ekYeni = -(T.kota().q + 10);   // bugünkü kota dolu (kalan 0): mesaj yalnız bonusa bakar
+        if (T.ot) T.ot.donus = false;   // gerçek kayıt birkaç gün eski olunca dönüş turu metni öne geçiyor (18.11): bonus metnini sına
         document.querySelector('.alt-nav button[data-v="ana"]').click(); });
       await p2.waitForTimeout(300);
       const bm = await p2.evaluate(() => ({ merak: (document.querySelector('#ana .merak') || {}).textContent || '', by: window.__tekrar.bonusYeni(), kalan: window.__tekrar.kota().kalan }));

@@ -495,3 +495,8 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - Yapıldı (CLAUDE.md "15.11 Kern" / "15.11 gramer"): kişisel kalibrasyon (log'dan, λ 0,1), yo-yo sınırı (×2,5 / yumuşak düşüş), kota frende günde ≥ 3 önemli kelime, takılan havuzu (30 günlük lapse, ≤ 15; önemli kelime askıya alınmaz), kanıtlı öğeye ipucusuz soru, vadeli sırasında önem, A1 kök / artikel kalıntıları, 11 kelime askıdan geri (Vorurteil, Behauptung, sich anstrengen, fließend …), hava / Ünite 4 takılanları askıya; gramer hayalet ≤ 1/3, tuerkisch-fallen / TeKaMoLo haftada ≤ 2, gerçek B2 sırası (nominal-verbal → konnektoren-b2 → …), kural özeti + giriş kartı hedeften önce; göstergeler Kern ölçüsü (önemli 1000), net oturan, bonus mesajı kotaya bağlı, artikel kural kartı.
 - Kalibre sim (14 gün, K 36): kota 2 → 3, takılan 19→62 yerine 10→16, ipucusuz %34 → %56, yo-yo düşüş 26 → 4,7, vadeli 98 → 98.
 Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
+
+**2026-11-18 (Tuna: kurs kelimeleri listesi)**
+- 21 öğe kurs listesine (`quellen/kurs_kelimeler.txt`, CLAUDE.md "18.11 kurs listesi"): neugierig, ausgewogen (yeni), ausreichend, treiben (getrieben), die Gewalt, sich (D) etwas vornehmen (yeni), sich (D) etwas gönnen (yeni), der Gedanke (n-Dekl.), die Stirn (yeni), stärken (yeni), vereinbaren, erfüllen, unterzeichnen, veröffentlichen, enttäuscht (yeni), stolz auf, begeistert von, abhängig von, die Entwicklung, sich gewöhnen an, der Erfolg. Kurs öğeleri yeni sıranın en başında, askıya alınmaz, frende günde ≥ 4 yeni. 94 yeni çeviri cümlesi + gloss (her öğe ≥ 5), 6 kalıp satırı.
+- Tuna'nın yazımı: neugerig → neugierig, das Gewalt → die Gewalt, die Gedanke → der Gedanke, sta:rken → stärken, abha:nging → abhängig.
+Son incelenen log satırı değişmedi.
