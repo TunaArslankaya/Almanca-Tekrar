@@ -5102,3 +5102,25 @@
 2026-11-18 08:50:46;yeni;v231;erledigen;tanıtım;;neu;halletmek;basamak:B0 | bicim:tanit | not:- | parti | sek:4
 2026-11-18 08:51:09;abr;v688:abr;bewältigen;üstesinden gelmek | Die viele Arbeit können wir nur gemeinsam _____.;beschaffen;falsch;bewältigen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.4 | düzeltti | sek:19 | ipucu:0 | ipucu-tür:trcumle
 2026-11-18 08:51:19;art;n0536:art;der Himmel;mit ___ Himmel [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:18.1 | hâl:Dat | sek:9
+2026-11-18 08:51:41;abr;v111:abr;sich bemühen um;(bir şey için) çabalamak | Wir _____ uns … eine schnelle Lösung.;sich bemühen um;richtig;sich bemühen um (um + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:22 | ipucu:2 | ipucu-tür:trcumle
+2026-11-18 08:51:53;gram;g:nominal-verbal:62;nominal-verbal/wegen;Weil des Streiks konnte ich nicht zur Uni fahren.;Weil;richtig;Wegen des Streiks konnte ich nicht zur Uni fahren.;tur:akis | tür:fehler | z:2 | sek:10
+2026-11-18 08:52:06;abr;v231:abr;erledigen;halletmek;einsetzen;falsch;erledigen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:52:12;abr;v688:abr;bewältigen;üstesinden gelmek;bewältigen;richtig;bewältigen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:52:16;abr;v125:abr;sich beschweren bei;(birine) şikâyette bulunmak;sich beschweren bei;richtig;sich beschweren bei (bei + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:52:21;stamm;v626:stamm;vorschlagen;Mein Kollege hat mir ein besseres Programm _____.;vorgeschlagen;richtig;vorgeschlagen;basamak:K | bicim:kokSatz | not:k3 | R:0.00 | S:2.3 | kök:schlagen | sek:5
+2026-11-18 08:52:21;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:98 | dk:2 | yeni:1 | seviye+:0 | tekrar:9 | ipucusuz:3 | gram:1/1
+2026-11-18 08:52:26;art;n0973;der Regen;kural kartı;;neu;der Regen;bicim:kuralKart | kanca | sek:3
+2026-11-18 08:52:29;art;n0973:art;der Regen;Wegen ___ starken Regens ist das Spiel ausgefallen. [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.86 | S:3.0 | hâl:Gen | sek:3
+2026-11-18 08:52:35;art;n0179:art;der Blitz;___ Blitz hat in einen Baum im Bürgerpark eingeschlagen. [Nom];Der;richtig;Der;basamak:A | bicim:artOb | not:a3 | R:0.83 | S:109.3 | hâl:Nom | sek:6
+2026-11-18 08:52:42;stamm;v142:stamm;beweisen;beweisen — Perfekt;bewiesen;richtig;bewiesen;basamak:K | bicim:kokSatz | not:k3 | R:0.00 | S:2.3 | kök:beweisen | sek:6
+2026-11-18 08:52:46;yeni;w0260;irgendwann;tanıtım;;neu;bir gün, bir ara;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:52:51;yeni;w0493;unbedingt;tanıtım;;neu;mutlaka;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-18 08:52:56;yeni;w0579;zumindest;tanıtım;;neu;en azından;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:53:00;prod;w0260:prod;irgendwann;bir gün, bir ara;irgendwann;richtig;irgendwann;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:53:04;prod;w0579:prod;zumindest;en azından;zumindest;richtig;zumindest;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:53:44;gram;g:vergleich:58;vergleich/als-wie;Tren otobüsten daha hızlı ama daha pahalı.;Der Zug ist schneller als der Bus aber der Zug teurer als der Bus.;richtig;Der Zug ist schneller als der Bus, aber teurer.;tur:akis | tür:ceviri | z:2 | ghost:2 | öneri:falsch | sek:33
+2026-11-18 08:53:51;prod;w0493:prod;unbedingt;mutlaka;umbedingt;fast;unbedingt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | kısmi | yazım | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:53:51;tur;akis;Çalış;;;leer;;cevap:7 | doğru:6 | küçük:1 | yanlış:0 | puan:76 | dk:1 | yeni:3 | seviye+:0 | tekrar:3 | ipucusuz:0 | gram:1/1
+2026-11-18 18:35:11;bed;v231:bed;erledigen;halletmek;einsetzen;falsch;erledigen;basamak:B1 | bicim:sec | not:m1 | R:0.85 | S:0.1 | akşam | şık:v214/v232/v191 | çeldirici:biçim/biçim/karışma | sek:4
+2026-11-18 18:35:14;prod;w0373:prod;obwohl;-mesine rağmen;obwohl;richtig;obwohl;basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:3.7 | akşam | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 18:35:21;bed;v428:bed;regeln;regeln;düzenlemek, halletmek;richtig;düzenlemek, halletmek;basamak:B1 | bicim:anla | not:m3 | R:0.98 | S:3.7 | akşam | şık:v365/v429/v305 | çeldirici:biçim/biçim/biçim | sek:6
