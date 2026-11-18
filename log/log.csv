@@ -5073,3 +5073,32 @@
 2026-11-18 08:47:40;wort;n1326:wort;das Vertrauen;güven | Ich habe absolut… _____ zu dir.;das Verhalt;falsch;das Vertrauen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.0 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:22 | ipucu:0 | ipucu-tür:trcumle
 2026-11-18 08:47:45;nsatz;w0026:nsatz;anwesend;Der Chef war bei der Besprechung nicht _____.;anwesend;richtig;anwesend;basamak:B2 | bicim:bos0 | not:m3 | R:0.73 | S:0.9 | sek:4 | ipucu:0
 2026-11-18 08:47:48;wort;x1571:wort;die Anfrage;(resmî) soru, talep;die Anfrage;richtig;die Anfrage;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.3 | tekrar:1 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:47:54;abr;v177:abr;sich eignen für;Bu daire sadece iki odası olduğu için WG için uygun değil. | (bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für (für + Akk);basamak:B2 | bicim:kalip | not:m4 | R:0.85 | S:9.3 | kurtarma | sek:5 | ipucu:2
+2026-11-18 08:47:57;prod;w0132:prod;einzig;tek, biricik;einzig;richtig;einzig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:0.9 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:48:01;prod;w0515:prod;verwandt;akraba | Ich bin mit dem neuen Nachbarn nicht _____.;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:0.8 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:48:01;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:6 | küçük:2 | yanlış:4 | puan:94 | dk:2 | yeni:0 | seviye+:1 | tekrar:11 | ipucusuz:2 | gram:0/1
+2026-11-18 08:48:10;abr;v687:abr;ausbilden;yetiştirmek, (meslek) eğitimi vermek;ausbilden;richtig;ausbilden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:2.3 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:48:13;wort;n0432:wort;das Gedicht;şiir;das Gedicht;richtig;das Gedicht;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.92 | S:0.8 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:48:18;abr;v689:abr;durchführen;gerçekleştirmek, yürütmek;durchführen;richtig;durchführen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:2.2 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:48:23;nsatz;w0169:nsatz;flexibel;Bist du beim Termin _____? Am Montag habe ich nämlich keine Zeit.;flexibel;richtig;flexibel;basamak:B3 | bicim:bos | not:m4 | R:0.92 | S:45.5 | sek:5 | ipucu:1
+2026-11-18 08:48:30;abr;v437:abr;retten;kurtarmak | Der Arzt konnte das Kind noch _____.;retten;richtig;retten (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:0.7 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:48:37;gram;g:konnektoren-b2:68;konnektoren-b2/gegensatz;___ mein Bruder gern Fußball spielt, liest meine Schwester lieber.;Während;richtig;Während;tur:akis | tür:wahl | z:1 | sek:6
+2026-11-18 08:48:44;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über (über + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.82 | S:15.2 | kurtarma | kapı:7g | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:48:47;wort;n1077:wort;das Seminar;seminer;das Seminar;richtig;das Seminar;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.91 | S:4.0 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:48:54;abr;v430:abr;reichen;yetmek;rechnen;falsch;reichen;basamak:B2 | bicim:yaz0 | not:m1 | R:0.87 | S:0.2 | düzeltti | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:48:58;erk;w0195:erk;genauso;Die Berufe ändern sich also genauso wie die Wirtschaft.;tıpkı, aynı şekilde;richtig;tıpkı, aynı şekilde;basamak:B1 | bicim:metinde | not:m3 | R:0.85 | S:0.9 | şık:w0067/w0210/w0196 | çeldirici:bilinen/karışma/biçim | sek:4
+2026-11-18 08:49:08;nsatz;w0057:nsatz;bereits;Wenn ein Restaurant einen Stern hat, hat es _____ eine gehobene Küche.;allerdings;falsch;bereits;basamak:B2 | bicim:bos | not:m1 | R:0.84 | S:0.3 | düzeltti | farklı | sek:7 | ipucu:1
+2026-11-18 08:49:08;leech;w0057;bereits;zaten, çoktan;;takiliyor;;günler:2026-11-09,2026-11-16,2026-11-18
+2026-11-18 08:49:22;prod;w0388:prod;politisch;siyasi | Meine Großmutter war ihr ganzes Leben lang _____ aktiv.;politisch;richtig;politisch;basamak:B2 | bicim:yaz0 | not:m3 | R:0.83 | S:2.5 | sek:14 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:49:36;wort;n0967:wort;das Recht;"hak; hukuk | Ich hatte Vorfahrt. Ich war in … _____.";Re;falsch;das Recht;basamak:B2 | bicim:yaz0 | not:m1 | R:0.81 | S:0.3 | düzeltti | kelime yanlış | sek:12 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:49:42;abr;v430:abr;reichen;yetmek | Kannst du mir bitte das Salz _____?;reichen;richtig;reichen;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:49:50;nsatz;w0057:nsatz;bereits;Der Nationale Bildungsbericht 2026 zeigt, dass diese Ungleichheit _____ in den ersten Lebensjahren entsteht und dann den weiteren Bildungsweg von Kindern beeinflusst.;bereits;richtig;bereits;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:7 | ipucu:0
+2026-11-18 08:49:50;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:12 | küçük:0 | yanlış:3 | puan:137 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:3 | gram:1/1
+2026-11-18 08:49:56;art;n0967:art;das Recht;mit ___ Recht [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.70 | S:2.4 | hâl:Dat | sek:3
+2026-11-18 08:50:16;abr;v111:abr;sich bemühen um;(bir şey için) çabalamak;beschweren;falsch;sich bemühen um (um + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.90 | S:0.3 | düzeltti | sek:16 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:50:37;abr;v125:abr;sich beschweren bei;(birine) şikâyette bulunmak | Die Nachbarn _____ sich über den Lärm.;sich beschweren um;falsch;sich beschweren bei (bei + Dat);basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:0.2 | düzeltti | edat, edat: bei + Dat | sek:14 | ipucu:2 | ipucu-tür:trcumle
+2026-11-18 08:50:42;wort;n1002:wort;die Rolle;rol;die Rolle;richtig;die Rolle;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:4 | ipucu:2
+2026-11-18 08:50:42;yeni;n1002;die Rolle;yoklama;die Rolle;bekannt;rol;basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-11-18 08:50:46;yeni;v231;erledigen;tanıtım;;neu;halletmek;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:51:09;abr;v688:abr;bewältigen;üstesinden gelmek | Die viele Arbeit können wir nur gemeinsam _____.;beschaffen;falsch;bewältigen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.4 | düzeltti | sek:19 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:51:19;art;n0536:art;der Himmel;mit ___ Himmel [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:18.1 | hâl:Dat | sek:9
