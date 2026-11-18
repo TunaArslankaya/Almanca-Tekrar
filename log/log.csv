@@ -5032,3 +5032,26 @@
 2026-11-17 23:18:43;wort;x1557:wort;das Vorurteil;önyargı | Das ist doch nur … _____!;das Vorurteil;richtig;das Vorurteil;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.81 | S:6.8 | kurtarma | sek:5 | ipucu:0 | ipucu-tür:trcumle
 2026-11-17 23:18:49;abr;v117:abr;berichten über;(bir şey hakkında) haber vermek, anlatmak | Die Nachrichten _____ heute … das Hochwasser in Süddeutschland.;berichten über;richtig;berichten über (über + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.2 | sek:6 | ipucu:0 | ipucu-tür:trcumle
 2026-11-18 08:40:52;gram;g:konnektoren-b2;Konnektoren B2: indem, sodass, sofern, es sei denn, je nachdem, während, dennoch, zumal …;oto;;acildi;;b2:2
+2026-11-18 08:40:59;prod;w0587:prod;zwar … aber;gerçi … ama;zwar aber;richtig;zwar … aber;basamak:B2 | bicim:yaz | not:m4 | R:0.99 | S:5.9 | ısınma | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:41:06;wort;n0647:wort;der König;kral | … spanisch… _____ ist in Deutschland zu Besuch.;der König;richtig;der König;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:4.2 | ısınma | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:41:21;wort;n1089:wort;der Sitz;"koltuk; merkez | Ich suche für meinen Sohn … _____ fürs Auto. Erst ist erst drei Jahre alt.";die sehn;falsch;der Sitz;basamak:B2 | bicim:yaz0 | not:m1 | R:0.98 | S:0.6 | ısınma | düzeltti | kelime yanlış | sek:11 | ipucu:0 | ipucu-tür:decumle
+2026-11-18 08:41:26;yeni;n0589;der Kampf;tanıtım;;neu;mücadele, savaş;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:41:30;yeni;w0373;obwohl;tanıtım;;neu;-mesine rağmen;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:41:47;yeni;v428;regeln;tanıtım;;neu;düzenlemek, halletmek;basamak:B0 | bicim:tanit | not:- | parti | sek:17
+2026-11-18 08:41:51;art;n1173;der Supermarkt;kural kartı;;neu;der Supermarkt;bicim:kuralKart | kural:son parça: Markt | örnek:n0764 | kanca | sek:3
+2026-11-18 08:41:58;art;n1173:art;der Supermarkt;Donnerstags gehe ich immer in ___ Supermarkt. [Akk];dem;fast;den;basamak:A | bicim:artOb | not:a3 | R:0.71 | S:0.7 | hâl:Akk | hâl | sek:5
+2026-11-18 08:42:01;ayir;v177~w0595;sich eignen für ~ eigen;(bir şeye) uygun olmak;sich eignen für;richtig;sich eignen für;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-18 08:42:14;gram;g:konnektoren-b2:25;konnektoren-b2/folge;Er hat nicht gelernt. ___ hat er die Prüfung nicht bestanden.;Folglich;richtig;Folglich;tur:akis | tür:wahl | z:1 | sek:11
+2026-11-18 08:42:20;wort;n1089:wort;der Sitz;"koltuk; merkez";der Stiz;fast;der Sitz;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.6 | tekrar:1 | kısmi | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:42:23;nsatz;w0373:nsatz;obwohl;_____ meine Kollegin krank ist, geht sie arbeiten.;Obwohl;richtig;Obwohl;basamak:B2 | bicim:bos0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0
+2026-11-18 08:42:32;abr;v428:abr;regeln;düzenlemek, halletmek;rageln;fast;regeln (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | kısmi | yazım | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:42:36;wort;n0589:wort;der Kampf;mücadele, savaş;der Kampf;richtig;der Kampf;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-18 08:42:42;nsatz;w0118:nsatz;ebenfalls;Frau Schulz ist heute krank, Herr Becker fehlt _____.;ebenfalls;richtig;ebenfalls;basamak:B2 | bicim:bos0 | not:m3 | R:0.79 | S:1.1 | sek:3 | ipucu:0
+2026-11-18 08:42:49;erk;n1142:erk;die Stimme;ses;die Stimme;richtig;die Stimme;basamak:B1 | bicim:sec | not:m3 | R:0.82 | S:5.8 | kurtarma | şık:n1139/n1143/n1172 | çeldirici:biçim/biçim/biçim | sek:6
+2026-11-18 08:42:49;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:3 | yanlış:1 | puan:105 | dk:2 | yeni:3 | seviye+:1 | tekrar:8 | ipucusuz:1 | gram:1/1
+2026-11-18 08:43:01;wort;n0870:wort;das Opfer;kurban, mağdur | Bei der Schiffskatastrophe gab es viele _____.;der Opfer;fast;das Opfer;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.77 | S:0.3 | artikel der → das | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:43:18;prod;w0469:prod;tatsächlich;gerçekten de | Die Hose ist _____ zu klein, obwohl sie so groß aussieht.;tatsächlich;richtig;tatsächlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:4.2 | sek:17 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:43:20;prod;w0407:prod;rund;"yuvarlak; yaklaşık";rund;richtig;rund;basamak:B2 | bicim:yaz | not:m4 | R:0.97 | S:3.1 | sek:2 | ipucu:2 | ipucu-tür:tr
+2026-11-18 08:43:25;yeni;n0164;die Bewegung;tanıtım;;neu;hareket;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-18 08:43:33;abr;v292:abr;geschehen;olmak, meydana gelmek | Vielen Dank für Ihre Hilfe. – Gern _____.;geschehen;richtig;geschehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:0.3 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 08:43:48;abr;v211:abr;entstehen;oluşmak, ortaya çıkmak | Dabei _____ keine Kosten für Sie.;einsetzen;falsch;entstehen;basamak:B2 | bicim:yaz | not:m1 | R:0.96 | S:0.6 | düzeltti | sek:11 | ipucu:2 | ipucu-tür:trcumle
