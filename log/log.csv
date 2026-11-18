@@ -5138,3 +5138,8 @@
 2026-11-18 18:37:06;wort;n0967:wort;das Recht;"hak; hukuk | Auch alte und kranke Menschen haben … _____ auf ein Leben in Würde.";das Reht;fast;das Recht;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | akşam | kısmi | yazım | sek:6 | ipucu:0 | ipucu-tür:trcumle
 2026-11-18 18:37:06;tur;aksam;Akşam tekrarı;;;bitti;;cevap:15 | doğru:7 | küçük:2 | yanlış:6 | puan:88 | dk:2 | yeni:0 | seviye+:0 | tekrar:15 | ipucusuz:0
 2026-11-18 18:37:21;nsatz;w0057:nsatz;bereits;Wenige Monate später lief Petros _____ seinen ersten Zehn-Kilometer-Lauf – und gewann mit etwa zweieinhalb Minuten Vorsprung.;bereits;richtig;bereits;basamak:B2 | bicim:bos | not:m3 | R:0.87 | S:0.7 | akşam | sek:11 | ipucu:1
+2026-11-18 18:37:34;wort;x1571:wort;die Anfrage;(resmî) soru, talep | Auf … _____ habe ich noch keine Antwort bekommen.;die Anfrage;richtig;die Anfrage;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:0.6 | akşam | sek:13 | ipucu:0 | ipucu-tür:trcumle
+2026-11-18 18:37:40;wort;n0870:wort;das Opfer;kurban, mağdur;das Opfer;richtig;das Opfer;basamak:B2 | bicim:yaz0 | not:a3 | R:0.88 | S:0.3 | akşam | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-18 18:37:45;wort;n1173:wort;der Supermarkt;süpermarket;der Supermarkt;richtig;der Supermarkt;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.89 | S:39.9 | akşam | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-18 18:37:50;wort;n1089:wort;der Sitz;"koltuk; merkez | Ich suche für meinen Sohn … _____ fürs Auto. Erst ist erst drei Jahre alt.";der Sitz;richtig;der Sitz;basamak:B2 | bicim:yaz0 | not:m3 | R:0.93 | S:1.2 | akşam | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-18 18:37:50;tur;aksam;Akşam tekrarı;;;leer;;cevap:5 | doğru:5 | küçük:0 | yanlış:0 | puan:55 | dk:1 | yeni:0 | seviye+:1 | tekrar:5 | ipucusuz:2
