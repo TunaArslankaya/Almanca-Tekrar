@@ -148,3 +148,4 @@ der Quark | 3 | quark (yumuşak taze peynir)
 die Schlagsahne | 3 | krem şanti
 die Konfitüre, -n | 3 | reçel
 die Aprikose, -n | 3 | kayısı
+die Stirn, -en | 3 | alın

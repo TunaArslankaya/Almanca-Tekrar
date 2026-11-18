@@ -1789,5 +1789,59 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   K.init(ctx);
 }
 
+// ---------- 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt → kayıtta kurs, kursSira, koru) ----------
+{
+  const gT = K.gun4(T);   // kurs tarihi = bugün (T 15.10 19:00 → kurs günü 16.10 04:00'te biter)
+  const bK = Object.assign({}, byId, {
+    k1: { id: 'k1', art: 'die', lemma: 'Stirn', tier: 3, onem: 3, onemP: 60000, nadir: true, koru: true, kurs: gT, kursSira: 2 },
+    k2: { id: 'k2', art: 'der', lemma: 'Gedanke', tier: 3, onem: 1, onemP: 500, nadir: false, koru: true, kurs: gT, kursSira: 1 },
+    k3: { id: 'k3', art: 'der', lemma: 'Erfolg', tier: 3, onem: 1, onemP: 400, nadir: false, koru: true, kurs: gT, kursSira: 3 },
+    k4: { id: 'k4', art: 'die', lemma: 'Gewalt', tier: 3, onem: 1, onemP: 450, nadir: false, koru: true, kurs: gT, kursSira: 4 },
+    r1: { id: 'r1', art: 'das', lemma: 'Rad', tier: 3, onem: 1, onemP: 10, nadir: false, sik: true },
+    r2: { id: 'r2', art: 'die', lemma: 'Rede', tier: 3, onem: 2, onemP: 5000, nadir: false },
+  });
+  const cK = Object.assign({}, ctx, { byId: bK, BLITZ_ORDER: ['r1', 'r2', 'k1', 'k3', 'k2', 'k4'], VERB_ORDER: [], uniteSira: () => ['n3'], lesenWort: () => [], lemma: id => (bK[id] || {}).lemma || id });
+  K.init(cK);
+  eq(K.kursListe().join(), 'k2,k1,k3,k4', 'kurs: liste dosya sırasıyla (kursSira)');
+  ok(K.kursMi('k1') && !K.kursMi('r1'), 'kurs: kursMi');
+  // yeni sıra: kurs öğeleri en başta (yarımdan ve aktif üniteden de önce); öğrenilmiş / askıdaki kurs öğesi yok; nadir ama korunan k1 var
+  const S = yeniS({ n9: { yarim: 1, m: null }, k3: { m: { S: 4, last: T - DAY, due: T + DAY } }, k4: { askida: { t: T, neden: 'el' } } });
+  const ys = K.yeniSira(S);
+  eq(ys.slice(0, 3).join(), 'k2,k1,n9', 'kurs: yeni sıranın başı kurs (dosya sırası), sonra yarım', ys);
+  ok(!ys.includes('k3') && !ys.includes('k4'), 'kurs: öğrenilmiş ve askıdaki kurs öğesi yeni sırada yok', ys);
+  { const Sy = yeniS({ k2: { yarim: 1, tanit: T - 2 * DAY, m: null } }); eq(K.yeniSira(Sy)[0], 'k2', 'kurs: yarım kurs öğesi de en başta'); }
+  ok(K.yeniParti(yeniS({}), T, 2).ids.join() === 'k2,k1', 'kurs: yeni parti kurs öğeleriyle başlar', K.yeniParti(yeniS({}), T, 2));
+  // kota: frende bekleyen kurs öğesi varken günde en az 4; yoksa 3 (E3)
+  const fren = () => { const it = {}; for (let i = 0; i < 60; i++) it['g' + i] = { m: { S: 3, D: 5, last: T - 3 * DAY, due: T - 2 * DAY, lapses: 0 } }; return it; };
+  const kq = K.kota({ S: yeniS(fren()), kap: 36 }, T);
+  ok(kq.sebep !== 'normal' && kq.q === K.KURS_TABAN && kq.onemli, 'kurs: frende kurs öğesi varken kota 4', kq);
+  { const it = fren(); ['k1', 'k2', 'k3', 'k4'].forEach(id => { it[id] = { m: { S: 30, D: 5, last: T - DAY, due: T + 9 * DAY } }; });
+    eq(K.kota({ S: yeniS(it), kap: 36 }, T).q, K.ONEMLI_TABAN, 'kurs: bekleyen kurs öğesi yoksa frende 3'); }
+  eq(K.kota({ S: yeniS({}), kap: 36 }, T).q, 6, 'kurs: normal günde kota değişmez (6)');
+  { const it = fren(); ['k1', 'k2', 'k3', 'k4'].forEach(id => { it[id] = { yarim: 1, tanit: T - DAY, m: null }; });
+    eq(K.kota({ S: yeniS(it), kap: 36 }, T).q, K.ONEMLI_TABAN, 'kurs: tanıtılmış (yarım) kurs öğesi kota tabanını yükseltmez'); }
+  // askı: kurs gününden önce askıya alınmış kurs öğesi bir kez geri (elle de); kursG yazılır; ikinci çağrıda bir şey olmaz
+  const SA = yeniS({
+    k1: { m: { S: 2, last: T - 9 * DAY, due: T - DAY }, askida: { t: T - 5 * DAY, neden: 'el' } },
+    k2: { m: { S: 2, last: T - 9 * DAY, due: T - DAY }, askida: { t: T - 5 * DAY, neden: 'oto', sebep: 'takildi' } },
+    k3: { m: { S: 2, last: T - 9 * DAY, due: T - DAY }, askida: { t: T + 2 * DAY, neden: 'el' } },   // kurs gününden sonra: Tuna'nın kararı
+    n1: { m: { S: 2, last: T - 9 * DAY, due: T - DAY }, askida: { t: T - 5 * DAY, neden: 'el' } },   // kurs öğesi değil
+  });
+  const g1 = K.duzen1411(SA, T, {}).kurs;
+  eq(g1.join(), 'k2,k1', 'kurs: askıdaki kurs öğeleri geri (dosya sırası)');
+  ok(SA.items.k1.askida === null && SA.items.k1.askiGeri === T && SA.items.k1.kursG === gT, 'kurs: geri alma askiGeri + kursG', SA.items.k1);
+  ok(K.askidaMi(SA.items.k3) && K.askidaMi(SA.items.n1), 'kurs: kurs gününden sonraki askı ve kurs dışı öğe dokunulmaz');
+  SA.items.k1.askida = { t: T + 1000, neden: 'el' };   // Tuna aynı gün yeniden askıya aldı
+  eq(K.kursDuzen(SA, T + 2000).length, 0, 'kurs: bir kerelik (kursG): yeniden askıya alınan geri gelmez');
+  ok(K.askidaMi(SA.items.k1), 'kurs: yeniden askı korunur');
+  // birleştirme: kursG öğe alanı olarak taşınır
+  { const m = K.birlestir({ items: { k1: { m: { S: 2, last: T, due: T + DAY } } } }, { items: { k1: { m: { S: 2, last: T - DAY, due: T }, kursG: gT } } });
+    eq(m.items.k1.kursG, gT, 'kurs: birleştirmede kursG korunur'); }
+  // kurs öğesi askıya alınma adayı değil (koru)
+  ok(!K.askiAday({ m: { S: 3, lapses: 3 } }, 'k1', new Set()), 'kurs: nadir kurs öğesi otomatik askı adayı değil');
+  K.init(ctx);
+  eq(K.kursListe().length, 0, 'kurs: veride kurs yoksa liste boş');
+}
+
 console.log(fail ? `${fail}/${n} test BAŞARISIZ` : `test_kern: ${n} test geçti`);
 process.exit(fail ? 1 : 0);

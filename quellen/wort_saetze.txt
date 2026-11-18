@@ -3524,3 +3524,58 @@ n0450 | die Generation | Meine Großeltern gehören zu einer anderen Generation 
 n1304 | die Vergangenheit | Über die Vergangenheit meines Landes habe ich viel gelesen. | Ülkemin geçmişi hakkında çok okudum.
 n1304 | die Vergangenheit | Mein Großvater erzählt gern von der Vergangenheit. | Büyükbabam geçmişten anlatmayı sever.
 n0310 | die Erinnerung | Die Erinnerung an meine Kindheit macht mich froh. | Çocukluğumun anısı beni mutlu ediyor.
+# 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt)
+w0354 | neugierig | Ich bin neugierig, wie die Prüfung ausgeht. | Sınavın nasıl sonuçlanacağını merak ediyorum.
+w0354 | neugierig | Kinder sind von Natur aus neugierig. | Çocuklar doğaları gereği meraklıdır.
+w0354 | neugierig | Sei nicht so neugierig, das geht dich nichts an! | Bu kadar meraklı olma, bu seni ilgilendirmez!
+w0354 | neugierig | Meine Nachbarin stellt immer sehr neugierige Fragen. | Komşum (kadın) hep çok meraklı sorular soruyor.
+w0354 | neugierig | Ich bin schon neugierig auf das neue Semester. | Yeni dönemi şimdiden merak ediyorum.
+w0640 | ausgewogen | Eine ausgewogene Ernährung ist wichtig für die Gesundheit. | Dengeli beslenme sağlık için önemlidir.
+w0640 | ausgewogen | Ich versuche, mich ausgewogen zu ernähren. | Dengeli beslenmeye çalışıyorum.
+w0640 | ausgewogen | Der Artikel ist sehr ausgewogen und zeigt beide Seiten. | Makale çok dengeli ve iki tarafı da gösteriyor.
+w0640 | ausgewogen | Ich wünsche mir ein ausgewogenes Verhältnis zwischen Arbeit und Freizeit. | İş ile boş zaman arasında dengeli bir oran istiyorum.
+w0640 | ausgewogen | Das Mittagessen in der Mensa ist nicht immer ausgewogen. | Yemekhanedeki öğle yemeği her zaman dengeli değil.
+w0037 | ausreichend | Ich habe nicht ausreichend geschlafen und bin heute sehr müde. | Yeterince uyumadım ve bugün çok yorgunum.
+w0037 | ausreichend | Für die Wohnung brauchen Sie ein ausreichendes Einkommen. | Daire için yeterli bir gelire ihtiyacınız var.
+w0037 | ausreichend | Trink im Sommer ausreichend Wasser! | Yazın yeterince su iç!
+w0037 | ausreichend | Leider gibt es in der Innenstadt nicht ausreichend Parkplätze. | Maalesef şehir merkezinde yeterli park yeri yok.
+w0037 | ausreichend | Seine Deutschkenntnisse sind für das Studium noch nicht ausreichend. | Onun (erkek) Almanca bilgisi üniversite eğitimi için henüz yeterli değil.
+n0469 | die Gewalt | Gewalt ist keine Lösung. | Şiddet bir çözüm değildir.
+n0469 | die Gewalt | Viele Frauen leiden unter häuslicher Gewalt. | Birçok kadın ev içi şiddetten acı çekiyor.
+n0469 | die Gewalt | Die Polizei hat die Demonstration ohne Gewalt beendet. | Polis gösteriyi şiddet kullanmadan sona erdirdi.
+n0469 | die Gewalt | Im Fernsehen sieht man zu viel Gewalt. | Televizyonda çok fazla şiddet görülüyor.
+n0232 | der Gedanke | Der Gedanke an meine Familie gibt mir Kraft. | Ailemi düşünmek bana güç veriyor.
+n0232 | der Gedanke | Ich habe mir lange Gedanken über meine Zukunft gemacht. | Geleceğim hakkında uzun uzun düşündüm.
+n0232 | der Gedanke | Mach dir keine Gedanken, das schaffen wir schon! | Hiç kafana takma, bunu başarırız!
+n0232 | der Gedanke | Ich kann den Gedanken nicht ertragen, dass er allein ist. | Onun (erkek) yalnız olduğu düşüncesine dayanamıyorum.
+n0232 | der Gedanke | Die Bedeutung dieses Gedankens habe ich erst später verstanden. | Bu düşüncenin anlamını ancak sonra anladım.
+x1594 | die Stirn | Er hat sich die Stirn an der Tür gestoßen. | O (erkek) alnını kapıya çarptı.
+x1594 | die Stirn | Das Kind hat Fieber, seine Stirn ist ganz heiß. | Çocuğun ateşi var, alnı çok sıcak.
+x1594 | die Stirn | Sie wischte sich den Schweiß von der Stirn. | O (kadın) alnındaki teri sildi.
+x1594 | die Stirn | Als er das hörte, runzelte er die Stirn. | Bunu duyunca kaşlarını çattı.
+x1594 | die Stirn | Meine Großmutter gab mir einen Kuss auf die Stirn. | Büyükannem alnıma bir öpücük kondurdu.
+w0641 | enttäuscht | Ich bin von dem Film sehr enttäuscht. || Ich bin vom Film sehr enttäuscht. | Filmden çok hayal kırıklığına uğradım.
+w0641 | enttäuscht | Meine Eltern waren enttäuscht, weil ich die Prüfung nicht bestanden habe. | Sınavı geçemediğim için annemle babam hayal kırıklığına uğradı.
+w0641 | enttäuscht | Sie ist von ihrer besten Freundin enttäuscht. | O (kadın) en yakın arkadaşından hayal kırıklığına uğradı.
+w0641 | enttäuscht | Viele Fans waren vom Ergebnis des Spiels enttäuscht. || Viele Fans waren von dem Ergebnis des Spiels enttäuscht. | Birçok taraftar maçın sonucundan hayal kırıklığına uğradı.
+w0641 | enttäuscht | Er machte ein enttäuschtes Gesicht. | O (erkek) hayal kırıklığına uğramış bir yüz ifadesi takındı.
+w0464 | stolz | Meine Eltern sind sehr stolz auf mich. | Annemle babam benimle çok gurur duyuyor.
+w0464 | stolz | Ich bin stolz darauf, dass ich schon so gut Deutsch spreche. | Şimdiden bu kadar iyi Almanca konuştuğum için gurur duyuyorum.
+w0464 | stolz | Auf diese Leistung kannst du stolz sein. | Bu başarınla gurur duyabilirsin.
+w0464 | stolz | Der stolze Vater zeigte allen die Fotos von seinem Baby. | Gururlu baba herkese bebeğinin fotoğraflarını gösterdi.
+w0047 | begeistert | Die Kinder waren von dem Zirkus begeistert. || Die Kinder waren vom Zirkus begeistert. | Çocuklar sirke hayran kaldı.
+w0047 | begeistert | Ich bin von deiner Idee total begeistert. | Fikrine tamamen bayıldım.
+w0047 | begeistert | Mein Bruder ist ein begeisterter Fußballfan. | Erkek kardeşim tutkulu bir futbol hayranı.
+w0047 | begeistert | Nicht alle waren von dem Vorschlag begeistert. || Nicht alle waren vom Vorschlag begeistert. | Herkes öneriye sıcak bakmadı.
+w0003 | abhängig | Ob wir grillen, ist vom Wetter abhängig. | Mangal yapıp yapmayacağımız havaya bağlı.
+w0003 | abhängig | Viele Jugendliche sind von ihrem Handy abhängig. | Birçok genç cep telefonuna bağımlı.
+w0003 | abhängig | Der Preis ist von der Größe der Wohnung abhängig. | Fiyat dairenin büyüklüğüne bağlı.
+w0003 | abhängig | Ich möchte nicht mehr finanziell von meinen Eltern abhängig sein. | Artık maddi olarak annemle babama bağımlı olmak istemiyorum.
+n0300 | die Entwicklung | Die Entwicklung der Technik geht sehr schnell. | Teknolojinin gelişimi çok hızlı ilerliyor.
+n0300 | die Entwicklung | Ich verfolge die politischen Entwicklungen in meinem Land. | Ülkemdeki siyasi gelişmeleri takip ediyorum.
+n0300 | die Entwicklung | Diese Entwicklung macht mir Sorgen. | Bu gelişme beni endişelendiriyor.
+n0300 | die Entwicklung | Die Firma investiert viel Geld in die Entwicklung neuer Produkte. | Şirket yeni ürünlerin geliştirilmesine çok para yatırıyor.
+n0306 | der Erfolg | Der Erfolg kam erst nach vielen Jahren harter Arbeit. | Başarı ancak yıllarca süren sıkı çalışmanın ardından geldi.
+n0306 | der Erfolg | Wir hatten mit unserem Projekt großen Erfolg. | Projemizle büyük başarı elde ettik.
+n0306 | der Erfolg | Ohne Fleiß gibt es keinen Erfolg. | Çalışkanlık olmadan başarı olmaz.
+n0306 | der Erfolg | Herzlichen Glückwunsch zu deinem Erfolg! | Başarın için tebrikler!

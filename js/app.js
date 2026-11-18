@@ -4582,6 +4582,7 @@
     // 15.11 (Kern.duzen1511): B2'de gerekli kelimeler otomatik askıdan geri (E8), takılan havuzu sınırı (E4) — log satırları burada;
     // hava / Ünite 4 küme askısı (E12, neden 'oto') askiBildir'de (Bugün bilgi kartı)
     const d5 = d.d1511 || {};
+    (d.kurs || []).forEach(id => askiLog(id, 'geri', 'kurs'));   // 18.11: Tuna'nın kurs listesindeki öğe askıdan bir kez geri
     (d5.geri || []).forEach(id => askiLog(id, 'geri', 'oto-geri'));
     (d5.takildi || []).forEach(id => { const a = S.items[id] && S.items[id].askida; if (a) a.log = 1; askiLog(id, 'askida', 'oto-takildi'); });
     return d;

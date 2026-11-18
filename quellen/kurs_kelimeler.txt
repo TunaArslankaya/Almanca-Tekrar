@@ -1,0 +1,30 @@
+# Tuna'nın kurs listesi: dil kursunda gördüğü ve öğrenmek istediği kelimeler (18.11'den beri).
+# Biçim:  tarih (YYYY-MM-DD, Tuna'nın listeyi verdiği gün) | öğe kimliği | kelime (daten'deki gibi: isim artikelli, fiil anz, diğer de) | not
+# Kelime ana listede yoksa önce kurallara göre ekle (verben.txt / nomen_extra.txt / woerter.txt SONUNA), build çalıştır, kimliği buraya yaz.
+# Yeni liste: dosyanın SONUNA ekle (yeni tarihle). Kimlik kayıtla eşleşmezse ya da öğe iki kez yazılırsa build hata verir.
+# Build her kayda kurs: 'YYYY-MM-DD' ve kursSira (dosya sırası) yazar, koru: true yapar (askıya alınmaz).
+# Kern (js/kern.js): kurs öğeleri yeni kelime sırasının en başında (yarım öğelerden de önce, dosya sırasıyla); kota frendeyken de
+# önemli sayılır (günde en az 4); hafızada olan öğeye dokunulmaz, askıdaysa bir kez askıdan çıkar (log neden:kurs).
+
+# 18.11
+2026-11-18 | w0354 | neugierig | meraklı
+2026-11-18 | w0640 | ausgewogen | dengeli (ausgewogene Ernährung)
+2026-11-18 | w0037 | ausreichend | yeterli
+2026-11-18 | v529 | treiben | getrieben = Partizip II (Sport treiben; Passiv: getrieben werden)
+2026-11-18 | n0469 | die Gewalt | şiddet
+2026-11-18 | v700 | sich(D) vornehmen | sich (D) etwas vornehmen: "Ich habe mir vorgenommen, … zu …"
+2026-11-18 | v701 | sich(D) gönnen | sich (D) etwas gönnen
+2026-11-18 | n0232 | der Gedanke | n-Deklination (den Gedanken, des Gedankens)
+2026-11-18 | x1594 | die Stirn | alın
+2026-11-18 | v702 | stärken | güçlendirmek
+2026-11-18 | v577 | vereinbaren | kararlaştırmak
+2026-11-18 | v218 | erfüllen | yerine getirmek
+2026-11-18 | v695 | unterzeichnen | imzalamak
+2026-11-18 | v402 | veröffentlichen | yayımlamak
+2026-11-18 | w0641 | enttäuscht | enttäuscht von + D
+2026-11-18 | w0464 | stolz | stolz auf + A
+2026-11-18 | w0047 | begeistert | begeistert von + D
+2026-11-18 | w0003 | abhängig | abhängig von + D
+2026-11-18 | n0300 | die Entwicklung | gelişme
+2026-11-18 | v294 | sich gewöhnen an | sich gewöhnen an + A
+2026-11-18 | n0306 | der Erfolg | başarı

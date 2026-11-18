@@ -4,7 +4,7 @@
 # Yeni kelimeyi EN SONA ekle (kimlikler satır sırasından gelir, ilerleme kaybolmasın).
 ab | präp | 2 | -den itibaren (ab Montag)
 aber | konj | 1 | ama, fakat
-abhängig | adj | 3 | bağımlı (von: -e)
+abhängig | adj | 3 | bağımlı, bağlı (von + D: -e)
 absolut | adj | 3 | kesinlikle, mutlak
 abwärts | adv | 3 | aşağı doğru
 abwesend | adj | 3 | orada değil, yok
@@ -48,7 +48,7 @@ automatisch | adj | 3 | otomatik
 bald | adv | 1 | yakında
 bar | adj | 2 | nakit (bar bezahlen)
 befriedigend | adj | 3 | tatmin edici; orta (not)
-begeistert | adj | 3 | hevesli, büyülenmiş
+begeistert | adj | 3 | çok hevesli, hayran (von + D: -e)
 begrenzt | adj | 3 | sınırlı
 behindert | adj | 3 | engelli
 bei | präp | 1 | -de, yanında (+ D)
@@ -465,7 +465,7 @@ stark | adj | 2 | güçlü
 statt | präp | 3 | yerine (+ Gen)
 steil | adj | 3 | dik
 still | adj | 3 | sessiz, durgun
-stolz | adj | 3 | gururlu (auf: ile)
+stolz | adj | 3 | gururlu (auf + A: -le gurur duyan)
 streng | adj | 3 | sıkı, katı
 super | adj | 1 | süper
 süß | adj | 2 | tatlı
@@ -641,3 +641,5 @@ sich Mühe geben | andere | 3 | çaba göstermek
 eine Entscheidung treffen | andere | 3 | karar vermek
 einen Vertrag schließen | andere | 3 | antlaşma / sözleşme yapmak
 den Faden verlieren | andere | 3 | (konuşurken) konuyu kaybetmek
+ausgewogen | adj | 3 | dengeli (beslenme, oran)
+enttäuscht | adj | 3 | hayal kırıklığına uğramış (von + D: -den)

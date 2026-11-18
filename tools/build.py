@@ -12,6 +12,7 @@ Kullanım:  python3 tools/build.py
            seviye: A1 1/3, A2 1/2, Goethe B1 0,8, Goethe dışı ders kitabı kelimesi 1; listede olmayan rang = 60 000
   onem   1 önemli (onemP ≤ 3 000) · 2 orta (≤ 8 000) · 3 nadir;  nadir = onem 3
   koru   quellen/aski_koru.txt (üniversite, Bremen / Behörde, sağlık): nadir olsa da askıya alınmaz
+  kurs   quellen/kurs_kelimeler.txt (18.11, Tuna'nın kurs listesi): 'YYYY-MM-DD' + kursSira (dosya sırası); koru true
 """
 import json, re, sys, os
 
@@ -869,9 +870,30 @@ if os.path.exists(_kp):
             continue
         x["koru"] = True
         _koru_id[p_[0]] = p_[1]
+# Tuna'nın kurs listesi (18.11; quellen/kurs_kelimeler.txt): tarih | öğe_id | kelime | not
+#   kurs     listeyi verdiği gün ('YYYY-MM-DD'); kursSira dosya sırası (Kern: yeni sıranın en başı, kendi içinde bu sırayla)
+#   koru     true (kendi isteği: askıya alınmaz)
+_kurs_n = 0
+_kup = P("quellen", "kurs_kelimeler.txt")
+if os.path.exists(_kup):
+    for n, s in lines(_kup):
+        p_ = [y.strip() for y in s.split("|")]
+        if len(p_) != 4 or not all(p_[:3]) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", p_[0]):
+            errors.append(f"kurs_kelimeler.txt:{n}: 'YYYY-MM-DD | öğe_id | kelime | not' olmalı")
+            continue
+        x = _id_kayit.get(p_[1])
+        ad = x and (x.get("anz") or x.get("de") or f'{x["art"]} {x["lemma"]}')
+        if not x or ad != p_[2]:
+            errors.append(f"kurs_kelimeler.txt:{n}: {p_[1]} '{p_[2]}' ≠ kayıt '{ad}'")
+            continue
+        if x.get("kurs"):
+            errors.append(f"kurs_kelimeler.txt:{n}: {p_[1]} iki kez (ilki {x['kurs']})")
+            continue
+        _kurs_n += 1
+        x["kurs"], x["kursSira"], x["koru"] = p_[0], _kurs_n, True
 _say_onem = {k: sum(1 for x in _id_kayit.values() if x["onem"] == k) for k in (1, 2, 3)}
 print(f"önem: önemli {_say_onem[1]}, orta {_say_onem[2]}, nadir {_say_onem[3]} (rang {sum(1 for x in _id_kayit.values() if x['rang'] is not None)}), "
-      f"korunan {len(_koru_id)} (nadir {sum(1 for i in _koru_id if _id_kayit[i]['nadir'])})")
+      f"korunan {len(_koru_id)} (nadir {sum(1 for i in _koru_id if _id_kayit[i]['nadir'])}), kurs listesi {_kurs_n}")
 
 # ---------------- Çıktı ----------------
 for x in nomen:

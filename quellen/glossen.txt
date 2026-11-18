@@ -5180,3 +5180,99 @@ Meine Großeltern gehören zu einer anderen Generation als ich. | die Großelter
 Über die Vergangenheit meines Landes habe ich viel gelesen. | das Land = ülke; lesen = okumak
 Mein Großvater erzählt gern von der Vergangenheit. | der Großvater = büyükbaba; erzählen = anlatmak
 Die Erinnerung an meine Kindheit macht mich froh. | die Kindheit = çocukluk; froh = mutlu
+# 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt)
+Ich bin neugierig, wie die Prüfung ausgeht. | die Prüfung = sınav; ausgehen = sonuçlanmak
+Kinder sind von Natur aus neugierig. | von Natur aus = doğası gereği
+Sei nicht so neugierig, das geht dich nichts an! | angehen = ilgilendirmek
+Meine Nachbarin stellt immer sehr neugierige Fragen. | die Nachbarin = komşu (kadın); eine Frage stellen = soru sormak
+Ich bin schon neugierig auf das neue Semester. | das Semester = dönem; schon = şimdiden
+Eine ausgewogene Ernährung ist wichtig für die Gesundheit. | die Ernährung = beslenme; die Gesundheit = sağlık
+Ich versuche, mich ausgewogen zu ernähren. | versuchen = denemek, çalışmak; sich ernähren = beslenmek
+Der Artikel ist sehr ausgewogen und zeigt beide Seiten. | der Artikel = makale; die Seite = taraf; beide = iki(si de)
+Ich wünsche mir ein ausgewogenes Verhältnis zwischen Arbeit und Freizeit. | sich (D) wünschen = istemek, dilemek; das Verhältnis = oran, ilişki; die Freizeit = boş zaman
+Das Mittagessen in der Mensa ist nicht immer ausgewogen. | das Mittagessen = öğle yemeği; die Mensa = üniversite yemekhanesi
+Ich habe nicht ausreichend geschlafen und bin heute sehr müde. | müde = yorgun
+Für die Wohnung brauchen Sie ein ausreichendes Einkommen. | die Wohnung = daire; das Einkommen = gelir
+Trink im Sommer ausreichend Wasser! | -
+Leider gibt es in der Innenstadt nicht ausreichend Parkplätze. | leider = maalesef; die Innenstadt = şehir merkezi; der Parkplatz = park yeri
+Seine Deutschkenntnisse sind für das Studium noch nicht ausreichend. | die Deutschkenntnisse = Almanca bilgisi; das Studium = üniversite eğitimi
+Ich habe früher viel Sport getrieben, aber jetzt habe ich keine Zeit mehr. | früher = eskiden; keine … mehr = artık … yok
+Wie oft in der Woche treibst du Sport? | wie oft = ne sıklıkla, kaç kez
+Der Wind hat das Boot aufs Meer getrieben. | der Wind = rüzgâr; das Boot = tekne; das Meer = deniz
+Die Preise werden durch die hohe Nachfrage in die Höhe getrieben. | der Preis = fiyat; die Nachfrage = talep; in die Höhe = yukarı
+Was hat dich nach Deutschland getrieben? | -
+Er wurde von seiner Neugier getrieben und öffnete die Tür. | die Neugier = merak; öffnen = açmak
+Gewalt ist keine Lösung. | die Lösung = çözüm
+Viele Frauen leiden unter häuslicher Gewalt. | leiden unter = -den acı çekmek; häuslich = ev içi
+Die Polizei hat die Demonstration ohne Gewalt beendet. | die Polizei = polis; die Demonstration = gösteri; beenden = sona erdirmek
+Im Fernsehen sieht man zu viel Gewalt. | das Fernsehen = televizyon
+Ich habe mir vorgenommen, jeden Tag zwanzig Minuten Deutsch zu lernen. | jeden Tag = her gün
+Für das neue Jahr habe ich mir vorgenommen, mehr Sport zu treiben. | Sport treiben = spor yapmak
+Was hast du dir für das Wochenende vorgenommen? | das Wochenende = hafta sonu
+Wir nehmen uns vor, weniger Zeit am Handy zu verbringen. | weniger = daha az; das Handy = cep telefonu; verbringen = (zaman) geçirmek
+Er hatte sich vorgenommen, pünktlich zu sein, aber er kam wieder zu spät. | pünktlich = dakik; zu spät kommen = geç kalmak; wieder = yine
+Ich nehme mir fest vor, diesmal nicht aufzugeben. | fest = kesin; diesmal = bu sefer; aufgeben = pes etmek, vazgeçmek
+Der Gedanke an meine Familie gibt mir Kraft. | die Kraft = güç
+Ich habe mir lange Gedanken über meine Zukunft gemacht. | sich (D) Gedanken machen über = hakkında düşünmek, kafa yormak; die Zukunft = gelecek
+Mach dir keine Gedanken, das schaffen wir schon! | schaffen = başarmak
+Ich kann den Gedanken nicht ertragen, dass er allein ist. | ertragen = dayanmak, katlanmak; allein = yalnız
+Die Bedeutung dieses Gedankens habe ich erst später verstanden. | die Bedeutung = anlam; erst später = ancak sonra
+Nach der Prüfung gönne ich mir ein paar Tage Urlaub. | die Prüfung = sınav; ein paar = birkaç; der Urlaub = tatil
+Du solltest dir mal eine Pause gönnen. | die Pause = mola
+Heute habe ich mir ein Stück Kuchen gegönnt. | das Stück = parça, dilim; der Kuchen = pasta, kek
+Sie gönnt sich nie etwas, weil sie immer spart. | nie = asla, hiç; sparen = tasarruf etmek
+Nach der langen Woche haben wir uns ein gutes Essen gegönnt. | -
+Er hat sich die Stirn an der Tür gestoßen. | sich (D) … stoßen = (bir yerini) çarpmak; die Tür = kapı
+Das Kind hat Fieber, seine Stirn ist ganz heiß. | das Fieber = ateş; heiß = sıcak
+Sie wischte sich den Schweiß von der Stirn. | wischen = silmek; der Schweiß = ter
+Als er das hörte, runzelte er die Stirn. | als = -dığında; runzeln = kırıştırmak
+Meine Großmutter gab mir einen Kuss auf die Stirn. | die Großmutter = büyükanne; der Kuss = öpücük
+Sport stärkt das Immunsystem. | das Immunsystem = bağışıklık sistemi
+Das gemeinsame Projekt hat unser Team gestärkt. | gemeinsam = ortak; das Projekt = proje; das Team = ekip
+Ein gutes Frühstück stärkt dich für den ganzen Tag. | das Frühstück = kahvaltı; ganz = bütün
+Die Regierung will die Rechte der Arbeitnehmer stärken. | die Regierung = hükümet; das Recht = hak; der Arbeitnehmer = çalışan
+Das Lob des Lehrers hat ihr Selbstvertrauen gestärkt. | das Lob = övgü; das Selbstvertrauen = özgüven
+Wir müssen noch vereinbaren, wer das Protokoll schreibt. | noch = henüz; das Protokoll = tutanak
+Wir haben vereinbart, uns um acht vor dem Kino zu treffen. | sich treffen = buluşmak
+Wie vereinbart schicke ich Ihnen heute die Unterlagen. | schicken = göndermek; die Unterlagen = belgeler
+Die beiden Firmen haben einen neuen Preis vereinbart. | beide = iki(si de); die Firma = şirket; der Preis = fiyat
+Mit dem Studium in Deutschland erfülle ich mir einen Traum. | das Studium = üniversite eğitimi; der Traum = hayal, rüya
+Leider erfüllen Sie nicht alle Voraussetzungen für das Stipendium. | leider = maalesef; die Voraussetzung = koşul, ön şart; das Stipendium = burs
+Er hat sein Versprechen nicht erfüllt. | das Versprechen = söz, vaat
+Meine Eltern haben mir jeden Wunsch erfüllt. | die Eltern = anne baba; der Wunsch = dilek
+Bitte unterzeichnen Sie den Vertrag auf der letzten Seite. | der Vertrag = sözleşme; letzt = son; die Seite = sayfa
+Ich habe den Mietvertrag gestern unterzeichnet. | der Mietvertrag = kira sözleşmesi
+Die beiden Länder unterzeichnen morgen ein Abkommen. | beide = iki(si de); das Abkommen = antlaşma
+Das Formular ist erst gültig, wenn es unterzeichnet ist. | das Formular = form; erst = ancak; gültig = geçerli
+Bevor du etwas unterzeichnest, solltest du alles genau lesen. | bevor = -meden önce; genau = dikkatlice
+Die Zeitung hat einen Artikel über unsere Schule veröffentlicht. | der Artikel = makale
+Die Ergebnisse der Prüfung werden nächste Woche veröffentlicht. | das Ergebnis = sonuç; die Prüfung = sınav
+Sie möchte ihr erstes Buch im nächsten Jahr veröffentlichen. | erst = ilk
+Man sollte keine privaten Fotos im Internet veröffentlichen. | privat = özel; das Foto = fotoğraf
+Ich bin von dem Film sehr enttäuscht. | -
+Meine Eltern waren enttäuscht, weil ich die Prüfung nicht bestanden habe. | die Eltern = anne baba; die Prüfung = sınav; bestehen = (sınavı) geçmek
+Sie ist von ihrer besten Freundin enttäuscht. | -
+Viele Fans waren vom Ergebnis des Spiels enttäuscht. | der Fan = taraftar; das Ergebnis = sonuç; das Spiel = maç
+Er machte ein enttäuschtes Gesicht. | das Gesicht = yüz
+Meine Eltern sind sehr stolz auf mich. | die Eltern = anne baba
+Ich bin stolz darauf, dass ich schon so gut Deutsch spreche. | darauf = bununla (auf + es)
+Auf diese Leistung kannst du stolz sein. | die Leistung = başarı, performans
+Der stolze Vater zeigte allen die Fotos von seinem Baby. | das Foto = fotoğraf; das Baby = bebek
+Die Kinder waren von dem Zirkus begeistert. | der Zirkus = sirk
+Ich bin von deiner Idee total begeistert. | die Idee = fikir; total = tamamen
+Mein Bruder ist ein begeisterter Fußballfan. | der Fußballfan = futbol hayranı
+Nicht alle waren von dem Vorschlag begeistert. | der Vorschlag = öneri
+Ob wir grillen, ist vom Wetter abhängig. | ob = -ip -mediği; grillen = mangal yapmak
+Viele Jugendliche sind von ihrem Handy abhängig. | der/die Jugendliche = genç; das Handy = cep telefonu
+Der Preis ist von der Größe der Wohnung abhängig. | der Preis = fiyat; die Größe = büyüklük; die Wohnung = daire
+Ich möchte nicht mehr finanziell von meinen Eltern abhängig sein. | nicht mehr = artık … değil; finanziell = maddi olarak; die Eltern = anne baba
+Die Entwicklung der Technik geht sehr schnell. | die Technik = teknik, teknoloji
+Ich verfolge die politischen Entwicklungen in meinem Land. | verfolgen = takip etmek; politisch = siyasi
+Diese Entwicklung macht mir Sorgen. | die Sorge = endişe (Sorgen machen = endişelendirmek)
+Die Firma investiert viel Geld in die Entwicklung neuer Produkte. | die Firma = şirket; investieren = yatırım yapmak; das Produkt = ürün
+Ich kann mich einfach nicht daran gewöhnen, so früh aufzustehen. | einfach nicht = bir türlü; früh = erken; aufstehen = kalkmak
+Der Erfolg kam erst nach vielen Jahren harter Arbeit. | erst = ancak; hart = sıkı, zor
+Wir hatten mit unserem Projekt großen Erfolg. | das Projekt = proje
+Ohne Fleiß gibt es keinen Erfolg. | der Fleiß = çalışkanlık
+Herzlichen Glückwunsch zu deinem Erfolg! | herzlichen Glückwunsch = tebrikler
+Ich habe mir vorgenommen, mehr zu lesen. | -

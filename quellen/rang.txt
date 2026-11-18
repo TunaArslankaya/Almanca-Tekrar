@@ -1582,6 +1582,7 @@ x1590 | der Quark | 10213
 x1591 | die Schlagsahne | 20914
 x1592 | die Konfitüre | 37884
 x1593 | die Aprikose | 40642
+x1594 | die Stirn | 4919
 v001 | abbiegen | 11403
 v002 | abfahren | 5902
 v003 | abgeben | 3726
@@ -2281,6 +2282,9 @@ v696 | beitreten | 12882
 v697 | führen zu | 869
 v698 | zulassen | 2167
 v699 | würzen | 28660
+v700 | sich(D) vornehmen | 7608
+v701 | sich(D) gönnen | 9650
+v702 | stärken | 2773
 w0001 | ab | 182
 w0002 | aber | 25
 w0003 | abhängig | 6240
@@ -2920,6 +2924,8 @@ w0636 | sich Mühe geben | 2107
 w0637 | eine Entscheidung treffen | 977
 w0638 | einen Vertrag schließen | 1946
 w0639 | den Faden verlieren | 7200
+w0640 | ausgewogen | -
+w0641 | enttäuscht | 2102
 u1-007 | schätzen an | 1575
 u1-009 | aus den Augen verlieren | 703
 u1-010 | alles beim Alten bleiben | 620

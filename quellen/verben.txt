@@ -531,7 +531,7 @@ transportieren | A | 3 | taşımak (nakliye)
 träumen von | von+D | 2 | (bir şeyi) hayal etmek, rüyasında görmek
 treffen | A | 1 | (birine) rastlamak, (birini) görmek
 sich treffen mit | mit+D | 2 | (biriyle) buluşmak
-treiben | A | 3 | (spor) yapmak
+treiben | A | 3 | (spor) yapmak; sürmek, itmek
 sich trennen von | von+D | 3 | (birinden) ayrılmak
 treten | - | 3 | basmak, adım atmak
 trinken | A | 1 | içmek
@@ -703,3 +703,6 @@ beitreten | D | 3 | (bir kuruma) katılmak, üye olmak | tritt bei, trat bei, is
 führen zu | zu+D | 3 | -e yol açmak | führt, führte, hat geführt
 zulassen | A | 3 | izin vermek; (resmî) onaylamak | lässt zu, ließ zu, hat zugelassen
 würzen | A | 3 | baharatlamak | würzt, würzte, hat gewürzt
+sich(D) vornehmen | A | 3 | (bir şeyi yapmaya) karar vermek, niyet etmek | nimmt vor, nahm vor, hat vorgenommen
+sich(D) gönnen | A | 3 | (kendine bir şeyi) çok görmemek, kendini ödüllendirmek | gönnt, gönnte, hat gegönnt
+stärken | A | 3 | güçlendirmek | stärkt, stärkte, hat gestärkt

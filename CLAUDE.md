@@ -40,7 +40,7 @@
   Gezinti (v5): Bugün · Kelimeler (`#/liste`, seviye sekmeleri, satıra dokununca alt sayfa) · İlerleme (`#/gecmis`: seri takvimi, seviyeler, artikel aynası, biçim başına başarı, B1 yolu) · Diğer (`#/diger`: yan bölümler, Serbest pratik, Zayıflar `#/zayif`, Geçmiş `#/kayit`, Ayarlar `#/ayar`). Tur içinde tost yok (kuyruk tur sonunda); Devam tek bileşen `.devam-btn` (`devamBtn`).
   Görünüm adresi `#/liste` (öğe kimliğiyle çakışmasın). Testte başlatma: `window.__tekrar.starte(mod, boyu)`; `__tekrar.Kern`, `__tekrar.saat(ms)` (zaman kaydırma), `__tekrar.ot` (oturum).
   Kayıt / inceleme: `node tools/film.js <klasör> mobil|masaustu <adım> <doğruluk> <gün>` her adımın ekran görüntüsünü ve durumunu kaydeder (adımlar `tests/surucu.js` ortak sürücüsüyle).
-- Elle düzenlenen kaynaklar: `quellen/verben.txt` (**yeni fiil hep sona**: kimlik satır sırasından; Goethe'de yoksa 5. alanda çekim), `quellen/nomen.txt`, `quellen/nomen_extra.txt` (yeni isim sona), `quellen/rahmen.txt`,
+- Elle düzenlenen kaynaklar: `quellen/kurs_kelimeler.txt` (Tuna'nın kurs listesi, sona ekle; 18.11), `quellen/verben.txt` (**yeni fiil hep sona**: kimlik satır sırasından; Goethe'de yoksa 5. alanda çekim), `quellen/nomen.txt`, `quellen/nomen_extra.txt` (yeni isim sona), `quellen/rahmen.txt`,
   `quellen/woerter.txt` (sıfat/zarf/bağlaç…, **yalnız sona ekle**: kimlik satır sırasından), `quellen/pakete.txt` (konulu paketler, yeni paket sona),
   `quellen/wort_saetze.txt` (isim / diğer kelime çeviri cümleleri: `öğe | kelime | Almanca | Türkçe`),
   `quellen/saetze_refl.txt` (dönüşlü fiil çeviri cümleleri), `quellen/aufgaben.txt` (serbest yazma görevleri, sona ekle),
@@ -170,6 +170,9 @@
   - Askı (E8, E12; `Kern.duzen1511`, duzen1411 içinden, bayrak `S.duzen1511`): lz log'dan bir kez; otomatik askıdaki korunan (`aski_koru.txt`: Vorurteil, Behauptung, sich anstrengen, fließend … B2'de gerekli 11 kelime) ya da Goethe B1 + onem ≤ 2 öğe geri (log `neden:oto-geri`); onem ≥ 2, takılan ya da lapses ≥ 3 hava / Ünite 4 (Ehrenamt, Behörde, Politik) öğesi otomatik askıya; elle askıya alınana ve geri alınana dokunulmaz.
   - Artikel (E11): artset turdaki artikel sınırına sayılır (turda ≤ 3, `ART_TUR_TOP`; dolunca bekleyen artset atılır); anlamı oturmuş (S ≥ 21) isimde artikel haftada ≤ 1 (`ART_OTURMUS`); `sel.kuralKart` art.lapses ≥ 5.
   - İlerleme: `Kern.ilerleme` ek alanlar `buHaftaCoken` (oturmuş öğe düştü, `m.cokT`), `buHaftaNet`, `askiTakildi`, `takilanSinir`.
+- **18.11 kurs listesi** (Tuna'nın dil kursunda gördüğü kelimeler): `quellen/kurs_kelimeler.txt` (`tarih | öğe kimliği | kelime | not`) → build her kayda `kurs: 'YYYY-MM-DD'`, `kursSira` (dosya sırası), `koru: true`.
+  Kern: `yeniSira` kurs öğelerini (yeni ya da yarım, askıda değil: `kursBekleyen`) en başa koyar (yarımdan da önce, dosya sırasıyla); kota frendeyken kurs öğesi önemli sayılır ve henüz tanıtılmamış kurs öğesi varken günde en az 4 (`KURS_TABAN`); kota aşılmaz.
+  Hafızadaki öğeye dokunulmaz; askıdaysa bir kez geri (`Kern.kursDuzen`, `duzen1411` içinden; öğede `kursG` = kurs tarihi; kurs gününden sonraki askıya dokunmaz; log `akt;aski:<öğe>;…;geri;;neden:kurs`). Test: `node tests/test_kern.js` (kurs bölümü).
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde
@@ -217,6 +220,7 @@
 - n-Deklination listesi: `tools/build.py` içinde `WEAK_LIST` (bileşikler otomatik), tuzaklar `FALLE`. Cümle şablonları `js/grammatik.js` → `ND_PERSON / ND_TIER / ND_SACHE`.
 - Dönüşlü alıştırmadan çıkarılan fiiller: `REFL_AUS` (tümleç zorunlu ya da öznesi şey). Emir kipi yalnız `IMP_OK` fiillerinde.
 
+- **Tuna kurs kelimesi verince**: `quellen/kurs_kelimeler.txt`'in sonuna ekle (o günün tarihiyle; kelime ana listede yoksa önce verben / nomen_extra / woerter SONUNA ekle, build, kimliği yaz), her öğeye ≥ 5 kendi çeviri cümlesi + glossen; yeni kelime eklediysen `python3 tools/rang_uret.py <de_50k.txt>` (yoksa rang null kalır), sonra build.
 - Yeni isim Goethe listesinde yoksa `quellen/nomen_extra.txt`'e çoğuluyla ekle.
 - Artikel kuralı: bileşik isimde son parça (`kopf`, build.py; yalnız artikeli tutan bileşik, iki artikelli başlar `ZWEI_ART` hariç), yoksa sonek kuralı (`regel`).
 - Kalıp satırı biçimi `quellen/rahmen.txt` başında anlatılıyor (`P` kişi, `0` artikelsiz, `~` iyelik, `*` sıfat, `+` belirsiz, `(Pl)` çoğul, `T =` zamanlar, `X =` kapatılan özellikler).

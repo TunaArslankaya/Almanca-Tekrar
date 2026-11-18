@@ -347,3 +347,16 @@ v690 | Wir haben uns vom Sportkurs abgemeldet, weil er so spät am Abend stattfi
 v690 | Wenn du nicht mitkommen kannst, melde dich bitte bis Mittwoch vom Ausflug ab. || Melde dich bitte bis Mittwoch vom Ausflug ab, wenn du nicht mitkommen kannst. | Gelemeyeceksen lütfen çarşambaya kadar geziden kaydını sildir.
 v278 | Mein kleiner Bruder fürchtet sich vor dem Gewitter. | Küçük kardeşim fırtınadan korkuyor.
 v278 | Ich fürchte mich vor dem Zahnarzt, aber ich gehe trotzdem hin. | Diş hekiminden korkuyorum ama yine de gidiyorum.
+# 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt)
+v700 | Ich habe mir vorgenommen, jeden Tag zwanzig Minuten Deutsch zu lernen. | Her gün yirmi dakika Almanca çalışmaya karar verdim.
+v700 | Für das neue Jahr habe ich mir vorgenommen, mehr Sport zu treiben. | Yeni yıl için daha çok spor yapmaya karar verdim.
+v700 | Was hast du dir für das Wochenende vorgenommen? | Hafta sonu için ne planladın?
+v700 | Wir nehmen uns vor, weniger Zeit am Handy zu verbringen. | Telefonda daha az vakit geçirmeye karar veriyoruz.
+v700 | Er hatte sich vorgenommen, pünktlich zu sein, aber er kam wieder zu spät. | O (erkek) dakik olmaya karar vermişti ama yine geç kaldı.
+v700 | Ich nehme mir fest vor, diesmal nicht aufzugeben. | Bu sefer pes etmemeye kesin karar veriyorum.
+v701 | Nach der Prüfung gönne ich mir ein paar Tage Urlaub. | Sınavdan sonra kendime birkaç günlük tatil hediye ediyorum.
+v701 | Du solltest dir mal eine Pause gönnen. | Kendine biraz mola vermelisin.
+v701 | Heute habe ich mir ein Stück Kuchen gegönnt. | Bugün kendime bir dilim pasta ısmarladım.
+v701 | Sie gönnt sich nie etwas, weil sie immer spart. | O (kadın) kendine hiçbir şey ısmarlamıyor, çünkü hep tasarruf ediyor.
+v701 | Nach der langen Woche haben wir uns ein gutes Essen gegönnt. | Uzun haftanın ardından kendimize güzel bir yemek ısmarladık.
+v294 | Ich kann mich einfach nicht daran gewöhnen, so früh aufzustehen. | Bu kadar erken kalkmaya bir türlü alışamıyorum.

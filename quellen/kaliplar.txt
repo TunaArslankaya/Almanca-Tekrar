@@ -2392,3 +2392,9 @@ v671 | Darf ich zuschauen? | Seyredebilir miyim?
 v674 | jemanden zu etwas zwingen | birini bir şeye zorlamak
 v674 | Niemand zwingt dich dazu. | Kimse seni buna zorlamıyor.
 v674 | Er hat mich gezwungen zu bleiben. | Beni kalmaya zorladı.
+v700 | sich (D) vornehmen, etwas zu tun | bir şeyi yapmaya karar vermek
+v700 | Ich habe mir vorgenommen, mehr zu lesen. | Daha çok okumaya karar verdim.
+v701 | sich (D) eine Pause gönnen | kendine mola vermek
+v701 | sich (D) etwas Gutes gönnen | kendini bir şeyle ödüllendirmek
+v702 | das Immunsystem stärken | bağışıklık sistemini güçlendirmek
+v702 | das Selbstvertrauen stärken | özgüveni güçlendirmek

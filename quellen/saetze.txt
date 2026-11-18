@@ -1364,3 +1364,32 @@ v276 | Wer führt hier das Geschäft? | Burada dükkânı kim yönetiyor?
 v276 | Ein freundlicher Mitarbeiter hat uns durch die Fabrik geführt. | Güler yüzlü bir çalışan bize fabrikayı gezdirdi.
 v117 | Die Nachrichten berichten heute über die Flut in Süddeutschland. | Haberler bugün Güney Almanya'daki sel hakkında haber veriyor.
 v117 | Unsere Lehrerin berichtet im Unterricht oft über ihre Reisen. | Öğretmenimiz derste sık sık gezilerini anlatıyor.
+# 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt)
+v529 | Ich habe früher viel Sport getrieben, aber jetzt habe ich keine Zeit mehr. | Eskiden çok spor yapardım ama artık hiç vaktim yok.
+v529 | Wie oft in der Woche treibst du Sport? | Haftada kaç kez spor yapıyorsun?
+v529 | Der Wind hat das Boot aufs Meer getrieben. | Rüzgâr tekneyi denize sürükledi.
+v529 | Die Preise werden durch die hohe Nachfrage in die Höhe getrieben. | Fiyatlar yüksek talep yüzünden yukarı itiliyor.
+v529 | Was hat dich nach Deutschland getrieben? | Seni Almanya'ya ne sürükledi?
+v529 | Er wurde von seiner Neugier getrieben und öffnete die Tür. | O (erkek) merakına kapılıp kapıyı açtı.
+v702 | Sport stärkt das Immunsystem. | Spor bağışıklık sistemini güçlendirir.
+v702 | Das gemeinsame Projekt hat unser Team gestärkt. | Ortak proje ekibimizi güçlendirdi.
+v702 | Ein gutes Frühstück stärkt dich für den ganzen Tag. | İyi bir kahvaltı seni bütün gün için güçlendirir.
+v702 | Die Regierung will die Rechte der Arbeitnehmer stärken. | Hükümet çalışanların haklarını güçlendirmek istiyor.
+v702 | Das Lob des Lehrers hat ihr Selbstvertrauen gestärkt. | Öğretmenin övgüsü onun (kadın) özgüvenini güçlendirdi.
+v577 | Wir müssen noch vereinbaren, wer das Protokoll schreibt. | Tutanağı kimin yazacağını henüz kararlaştırmamız lazım.
+v577 | Wir haben vereinbart, uns um acht vor dem Kino zu treffen. | Saat sekizde sinemanın önünde buluşmak için anlaştık.
+v577 | Wie vereinbart schicke ich Ihnen heute die Unterlagen. | Kararlaştırdığımız gibi belgeleri size bugün gönderiyorum.
+v577 | Die beiden Firmen haben einen neuen Preis vereinbart. | İki şirket yeni bir fiyat üzerinde anlaştı.
+v218 | Mit dem Studium in Deutschland erfülle ich mir einen Traum. | Almanya'da okuyarak bir hayalimi gerçekleştiriyorum.
+v218 | Leider erfüllen Sie nicht alle Voraussetzungen für das Stipendium. | Maalesef burs için bütün koşulları karşılamıyorsunuz.
+v218 | Er hat sein Versprechen nicht erfüllt. | O (erkek) sözünü yerine getirmedi.
+v218 | Meine Eltern haben mir jeden Wunsch erfüllt. | Annemle babam her dileğimi yerine getirdi.
+v695 | Bitte unterzeichnen Sie den Vertrag auf der letzten Seite. | Lütfen sözleşmeyi son sayfada imzalayın.
+v695 | Ich habe den Mietvertrag gestern unterzeichnet. | Kira sözleşmesini dün imzaladım.
+v695 | Die beiden Länder unterzeichnen morgen ein Abkommen. | İki ülke yarın bir antlaşma imzalıyor.
+v695 | Das Formular ist erst gültig, wenn es unterzeichnet ist. | Form ancak imzalandığında geçerli olur.
+v695 | Bevor du etwas unterzeichnest, solltest du alles genau lesen. | Bir şey imzalamadan önce her şeyi dikkatlice okumalısın.
+v402 | Die Zeitung hat einen Artikel über unsere Schule veröffentlicht. | Gazete okulumuz hakkında bir makale yayımladı.
+v402 | Die Ergebnisse der Prüfung werden nächste Woche veröffentlicht. | Sınav sonuçları gelecek hafta yayımlanacak.
+v402 | Sie möchte ihr erstes Buch im nächsten Jahr veröffentlichen. | O (kadın) ilk kitabını gelecek yıl yayımlamak istiyor.
+v402 | Man sollte keine privaten Fotos im Internet veröffentlichen. | İnternette özel fotoğraflar yayımlanmamalı.

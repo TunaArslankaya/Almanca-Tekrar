@@ -630,10 +630,13 @@
   //  · S.aski1411: otomatik askı (veri varsa; BİR kez). opts.uniteAktif: aktif ünite öğeleri (askıya alınmaz)
   //  · emeklilik (her açılışta, yalnız uzatır) · güçlü öğe aralık uzatma (S ≥ 21: pk kapısı yok; S ≥ 30 ve lapses ≤ 1: bm kapısı yok)
   //  · S.onarim1411: metin boşluğu kaynaklı haksız anlam düşüşlerinin onarımı (onarim1411; opts.log ve opts.sinif gerekir; bir kez)
-  // → { aski: [id], emekli: n, uzat: n, onarim: [{ id, S0, S1, k }] }
+  //  · 18.11: kurs listesi öğelerinin askısı bir kez kalkar (kursDuzen, her açılışta; öğe başına bir kez)
+  // → { aski: [id], emekli: n, uzat: n, onarim: [{ id, S0, S1, k }], kurs: [id] }
   function duzen1411(S, t, opts) {
     opts = opts || {};
     const out = { aski: [], emekli: 0, uzat: 0, onarim: [] }, ret = (S.einst && S.einst.ret) || 0.85;
+    // 18.11: kurs listesindeki askıdaki öğeler bir kez geri (kursDuzen; log satırını arayüz yazar: neden:kurs)
+    out.kurs = kursDuzen(S, t);
     if (!S.aski1411 && onemVar()) {
       const us = new Set(opts.uniteAktif || (C.uniteAktif ? C.uniteAktif() : C.uniteSira()) || []);
       Object.entries(S.items || {}).forEach(([id, it]) => { if (askiAday(it, id, us) && askiyaAl(S, id, 'oto', t)) out.aski.push(id); });
@@ -783,6 +786,9 @@
     else { q = taban; sebep = 'normal'; }
     const onemli = sebep !== 'normal' && onemVar();
     if (sebep !== 'normal') q = Math.max(q, ONEMLI_TABAN);   // E3: frende de günde en az 3 (önemli)
+    // 18.11: bekleyen kurs öğesi varken frende günde en az 4 (gerekçe KURS_TABAN'da); kurs öğesi frende önemli sayılır (sec: partiAc)
+    // (yalnız henüz tanıtılmamış kurs öğesi sayılır: tanıtılmış / yarım öğe yeni kota istemez)
+    if (sebep !== 'normal' && kursListe().some(id => !(S.items || {})[id])) q = Math.max(q, KURS_TABAN);
     // E3: bonus tur +2 (günde ≤ +4) genç sayısına bakmadan; ama birikme 2 × kapasiteyi aşarken yok (Playwright oynatıcısında, Tuna'nın
     // temposunda bonusla günde 5 yeni vadeli yükü 10 günde 147 → 164 büyütüyordu): o zaman bonusYok 'birikme' (arayüz mesajı buna göre)
     const bonusEk = durum.bonus && sebep !== 'birikme' ? Math.min(4, 2 * durum.bonus) : 0;
@@ -798,11 +804,46 @@
     const yapilan = bugunYeni(S, t) + (sebep !== 'normal' && sebep !== 'dönüş' ? Math.min(1, bugunYarim(S, t)) : 0);
     return { q, qUnite, kalan: Math.max(0, q + (durum.ekYeni || 0) - yapilan), kap, genc, birikme, sebep, yapilan, bonusEk, bonusYok, onemli: onemli && sebep !== 'göç' };
   }
+  // ================= 18.11: Tuna'nın kurs listesi =================
+  // quellen/kurs_kelimeler.txt → build her kayda kurs ('YYYY-MM-DD'), kursSira (dosya sırası) ve koru: true yazar. Kurs öğesi:
+  //  · yeni sıranın EN BAŞINDA (yarım öğelerden de önce; kendi içinde dosya sırası), henüz hafızada değilse (yeni ya da yarım);
+  //  · kota frendeyken (onem 1 kuralı) önemli sayılır ve henüz tanıtılmamış kurs öğesi varken frende günde en az KURS_TABAN (4) yeni.
+  //    Gerekçe: Tuna bu kelimeleri derste gördü ve açıkça istedi; ders bağlamı tazeyken öğrenmek kolay. 3/gün ile 21 kelime 7 gün,
+  //    4/gün ile 5–6 gün sürer; fazladan 1 yeni kelime ilk hafta günde ~3–4 tekrar demek (frendeki yük için ihmal edilebilir).
+  //    Kota aşılmaz: normal günde kota zaten 6 (Ayarlar 4–10), göç / dönüş kısıtları geçerli; karışma kapısı (aynı konu ≤ 2) da geçerli.
+  //  · hafızadaki (öğrenilmiş) öğeye dokunulmaz; askıdaysa bir kez askıdan çıkar (kursDuzen; Tuna'nın elle askıya aldığı da, liste onun
+  //    isteği olduğu için). Bir kerelik: öğeye kursG = kurs tarihi yazılır (birleştirmede öğe alanı olarak taşınır); kurs gününden
+  //    (ertesi gün 04:00) sonra yapılan askıya dokunulmaz (Tuna listeden sonra kendisi askıya aldıysa onun kararı).
+  const KURS_TABAN = 4;
+  const kursOf = id => (kayit(id) || {}).kurs || null;
+  const kursMi = id => !!kursOf(id);
+  let _kurs = null;
+  function kursListe() {
+    if (_kurs && _kurs.C === C) return _kurs.l;
+    const l = [];
+    [C.byId, C.vById, C.wById].forEach(o => Object.entries(o || {}).forEach(([id, k]) => { if (k && k.kurs) l.push([id, k.kursSira || 0]); }));
+    _kurs = { C, l: l.sort((a, b) => a[1] - b[1]).map(x => x[0]) };
+    return _kurs.l;
+  }
+  // henüz öğrenilmemiş (anlam hafızası yok: yeni, yarım ya da yalnız artikel hafızası), askıda olmayan kurs öğeleri, dosya sırasıyla
+  const kursBekleyen = S => kursListe().filter(id => { const it = (S.items || {})[id]; return !it || (!(it.m && it.m.S) && !a1Mi(it) && !askidaMi(it)); });
+  function kursDuzen(S, t) {
+    const out = [];
+    kursListe().forEach(id => {
+      const it = (S.items || {})[id], k = kursOf(id);
+      if (!it || it.kursG === k) return;
+      const bitis = ertesiGun4(new Date(k + 'T12:00:00').getTime());
+      if (askidaMi(it) && (it.askida.t || 0) < bitis && askidanAl(S, id, t)) out.push(id);
+      it.kursG = k;
+    });
+    return out;
+  }
   // §5.3 yeni sıra: yarım → okurken bakılan → aktif ünite → sık B1 (build: sik, frek azalan) → Goethe sırası (B1 önce, her 3 yeniden biri fiil)
   // (B1 sprinti 28.10: okuma metinlerinde en sık 300 B1 kelimesi listenin geri kalanından önce; kota değişmez)
   // 14.11 (D1): veride önem alanı varsa sık B1 kelimeleri onemP artan (genel sıklık + okuma derlemi + Goethe), kalan liste önem
   // sınıfına göre (onem 1 → 2; aynı sınıfta B1 önce, sonra onemP); nadir (onem 3, korunmayan) yeni sıraya girmez — aktif ünite,
   // okurken bakılan ve Tuna'nın elle eklediği (yarım) kelimeler hariç. Önem alanı yoksa eski sıra (frek, Goethe sırası, her 3. fiil).
+  // 18.11: kurs listesi (quellen/kurs_kelimeler.txt) hepsinin önünde.
   function yeniSira(S) {
     const yarim = Object.keys(S.items || {}).filter(id => S.items[id].yarim && !a1Mi(S.items[id]) && !askidaMi(S.items[id]) && !(S.items[id].m && S.items[id].m.S));
     const onde = new Set();
@@ -827,7 +868,8 @@
     const lw = (C.lesenWort() || []).filter(id => !S.items[id]), un = (C.uniteSira() || []).filter(id => !S.items[id]), sk = sik.slice(), unSik = [];
     while (un.length || sk.length) unSik.push(unSik.length % 3 === 2 && sk.length ? sk.shift() : un.length ? un.shift() : sk.shift());
     const g = new Set(), out = [];
-    yarim.concat(lw, unSik, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
+    // 18.11: Tuna'nın kurs listesi en başta (yarımdan da önce; kursBekleyen: yeni ya da yarım, askıda değil)
+    kursBekleyen(S).concat(yarim, lw, unSik, karisik).forEach(id => { if (!g.has(id)) { g.add(id); out.push(id); } });
     return out;
   }
   function lev(a, b) {
@@ -1037,8 +1079,8 @@
       // (yük kapısı §11: 7. gün vadeli ≤ 0,8 × başlangıç; ünite kelimesi yine her gün en az 1 gelir)
       const kis = kt.sebep !== 'normal', n = Math.min(kt.kalan, boy >= 25 ? 5 : 3), yh = durum.donus ? 0 : (boy >= 25 ? 2 : 1);
       if (n <= 0 && (yh <= 0 || kis)) return null;
-      // 15.11 (E3): kota frendeyken yeni kelime yalnız önemli (onem 1); yarım (Tuna'nın elle eklediği) her zaman
-      const fo = kt.onemli ? id => (!o.filtre || o.filtre(id)) && ((S.items[id] && S.items[id].yarim) || onemOf(id) === 1) : o.filtre;
+      // 15.11 (E3): kota frendeyken yeni kelime yalnız önemli (onem 1); yarım (Tuna'nın elle eklediği) ve kurs öğesi (18.11) her zaman
+      const fo = kt.onemli ? id => (!o.filtre || o.filtre(id)) && ((S.items[id] && S.items[id].yarim) || kursMi(id) || onemOf(id) === 1) : o.filtre;
       const p = yeniParti(S, t, n, { yarimHak: yh, yarimGunluk: kis ? 1 : YARIM_GUN, yarimKotadan: kis, filtre: fo, yoklamaHak: o.klavyesiz ? 0 : Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
       return p.ids.length ? { tur: 'parti', kaynak: 'parti', ids: p.ids, yoklama: p.yoklama } : null;
     };
@@ -1656,6 +1698,8 @@
   const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     // 14.11
     askiyaAl, askidanAl, askidaMi, askiAday, duzen1411, onarim1411, duzen1511, takilanSinir, ASKI_KUME, emekliAday, emekliYap, takildiMi, TAKILAN, cumleIciMi, artBagli, artUygun, kokUygun, ART_OTURMUS,
+    // 18.11
+    KURS_TABAN, kursOf, kursMi, kursListe, kursBekleyen, kursDuzen,
     ONEMLI_TABAN, ART_BAGLI, ART_TAKILAN, GUCLU_UST, PK_KAPI_S, HIZLI_MS, BAGLAM_S, ART_TUR_TOP, HIZLI_KAPI, BUYUME_TAVAN, YUMUSAK, ART_TUR, RT_TUR, onemOf, onemPOf, nadirMi, onemVar, ilerleme, onemliListe,
     init, get ctx() { return C; },
     DAY, OFS, KISMI, PK_BICIM, SECMELI, SECMELI_VADE, ARA, GRAM_ADIM, VAD_DUSUK, secmeliSerbest, edatliObj,
