@@ -5235,3 +5235,27 @@
 2026-11-19 12:42:24;yeni;n0232;der Gedanke;tanıtım;;neu;düşünce;basamak:B0 | bicim:tanit | not:- | parti | sek:9
 2026-11-19 12:42:34;wort;n0800:wort;das Mittel;"araç; ilaç | Haben Sie … _____ gegen Magenschmerzen?";die Mittel;fast;das Mittel;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.88 | S:1.6 | artikel die → das | sek:5 | ipucu:0 | ipucu-tür:trcumle
 2026-11-19 12:42:37;wort;n0047:wort;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:2.4 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:42:52;gram;g:vergleich:10;vergleich/als-wie;im Sommer / ist / Bremen / genauso schön / wie / Hamburg;Bremen ist im Sommer genauso schön wie Hamburg;richtig;Im Sommer ist Bremen genauso schön wie Hamburg.;tur:akis | tür:ordnen | z:2 | sek:15
+2026-11-19 12:42:55;prod;w0132:prod;einzig;tek, biricik;einzig;richtig;einzig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.7 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:43:05;wort;n0232:wort;der Gedanke;düşünce;das Gedanke;fast;der Gedanke;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.00 | S:2.3 | ikinci | artikel das → der | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:43:11;abr;v701:abr;sich(D) gönnen;(kendine bir şeyi) çok görmemek, kendini ödüllendirmek;sich gönnen;richtig;sich(D) gönnen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:43:19;abr;v117:abr;berichten über;Gazete Bremen'deki seçim hakkında ayrıntılı haber yaptı. | (bir şey hakkında) haber vermek, anlatmak;berichten über;richtig;berichten über (über + Akk);basamak:B2 | bicim:kalip | not:m3 | R:0.88 | S:2.0 | sek:7 | ipucu:2
+2026-11-19 12:43:24;wort;n0766:wort;die Maschine;makine | Ich kann … _____ nicht bedienen.;die Maschine;richtig;die Maschine;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:3.7 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:43:30;wort;n0380:wort;die Folge;"sonuç; bölüm (dizi)";die Folge;richtig;die Folge;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:3.7 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:43:30;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:2 | yanlış:0 | puan:117 | dk:2 | yeni:2 | seviye+:1 | tekrar:9 | ipucusuz:1 | gram:1/1
+2026-11-19 12:43:35;wort;x1575:wort;die Regierung;hükümet | Regiert wird es vom Ersten Bürgermeister und dem Senat, so heißt hier … _____.;die Regierung;richtig;die Regierung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:5.4 | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:43:43;prod;w0320:prod;mehrere;birkaç, birçok | Für diese Stelle gibt es _____ Bewerber.;mehrere;richtig;mehrere;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:5.4 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:43:48;nsatz;n0432:nsatz;das Gedicht;Kennst du ein schönes _____?;Gedicht;richtig;Gedicht;basamak:B3 | bicim:bos | not:m4 | R:0.87 | S:2.0 | zor | sek:4 | ipucu:1
+2026-11-19 12:43:51;abr;v466:abr;schweigen;susmak;schweigen;richtig;schweigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:2.2 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:44:02;prod;w0195:prod;genauso;tıpkı, aynı şekilde | Die Berufe ändern sich also _____ wie die Wirtschaft.;gleich;falsch;genauso;basamak:B2 | bicim:yaz0 | not:m1 | R:0.88 | S:0.3 | düzeltti | farklı | sek:9 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:44:12;gram;g:konnektoren-b2:24;konnektoren-b2/folge;Der Film war ___ langweilig, dass ich eingeschlafen bin.;sodass;falsch;so;tur:akis | tür:wahl | z:1 | sek:5
+2026-11-19 12:44:22;wort;x1554:wort;die Solidarität;dayanışma;die Solidarität;richtig;die Solidarität;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.88 | S:3.1 | sek:9 | ipucu:2 | ipucu-tür:tr
+2026-11-19 12:44:25;prod;w0515:prod;verwandt;akraba;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.5 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:44:28;prod;w0493:prod;unbedingt;mutlaka;unbedingt;richtig;unbedingt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:1.5 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:44:36;abr;v425:abr;rechnen mit;Trenle giderken her zaman gecikmeleri hesaba katmak gerekir. | (bir şeyi) hesaba katmak, beklemek;sich rechnen ;falsch;rechnen mit (mit + Dat);basamak:B2 | bicim:kalip | not:m1 | R:0.84 | S:0.4 | düzeltti | edat, edat: mit + Dat | sek:5 | ipucu:2
+2026-11-19 12:44:40;prod;w0195:prod;genauso;tıpkı, aynı şekilde;genauso;richtig;genauso;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:44:43;wort;n0589:wort;der Kampf;mücadele, savaş;der Kampf;richtig;der Kampf;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:1.5 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:44:51;stamm;v642:stamm;sich wenden an;wenden — Perfekt;gewunden;falsch;gewandt;basamak:K | bicim:kokSatz | not:k1 | R:0.81 | S:0.2 | kök:wenden | Partizip: gewandt | sek:5
+2026-11-19 12:44:59;prod;w0504:prod;verantwortlich;sorumlu | In Deutschland ist jedes Bundesland dafür _____, in der Schweiz jeder Kanton.;verantwortlich;richtig;verantwortlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:3.3 | sek:7 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:45:02;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-19 12:45:02;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:11 | küçük:0 | yanlış:4 | puan:125 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:3 | gram:0/1
