@@ -5207,3 +5207,31 @@
 2026-11-19 12:39:08;nsatz;w0485:nsatz;überhaupt;Tut mir leid. Ich habe _____ keine Zeit.;überhaupt;richtig;überhaupt;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
 2026-11-19 12:39:21;nsatz;w0138:nsatz;entlang;Jeden Abend läuft mein Nachbar mit seinem Hund den Deich _____.;joggen;falsch;entlang;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.8 | düzeltti | farklı | sek:9 | ipucu:1
 2026-11-19 12:39:26;wort;n0236:wort;der Dialekt;lehçe, şive | … _____ ist die Art, wie jemand eine Sprache spricht.;der Dialekt;richtig;der Dialekt;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.0 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:39:32;wort;n0795:wort;die Minderheit;azınlık;die Mindheit;fast;die Minderheit;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:3.7 | tekrar:1 | kısmi | yazım | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-19 12:39:32;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:133 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:2 | gram:1/1
+2026-11-19 12:39:45;nsatz;n0301:nsatz;die Erde;An der Konferenz nehmen Vertreter aus fast allen Ländern der _____ teil.;Welt;falsch;Erde;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.1 | düzeltti | farklı | sek:7 | ipucu:1
+2026-11-19 12:39:53;nsatz;w0057:nsatz;bereits;Der Umweltschutz entstand in der Zeit, als die Menschen merkten, wie weit es mit der Umweltverschmutzung _____ gekommen ist.;schon;falsch;bereits;basamak:B2 | bicim:bos | not:m1 | R:0.90 | S:0.2 | düzeltti | farklı | sek:5 | ipucu:1
+2026-11-19 12:39:53;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-19 12:39:58;prod;w0118:prod;ebenfalls;aynı şekilde, keza | Erwachsene, die mehr als fünf Stunden pro Woche Sport machen, brauchen _____ mehr Eiweiß.;ebenfalls;richtig;ebenfalls;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:1.6 | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:40:02;yeni;n0469;die Gewalt;tanıtım;;neu;şiddet;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-19 12:40:06;yeni;v700;sich(D) vornehmen;tanıtım;;neu;(bir şeyi yapmaya) karar vermek, niyet etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-19 12:40:12;abr;v288:abr;gelten;geçerli olmak;gilten;fast;gelten;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:2.9 | kısmi | yazım | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:40:15;wort;n0301:wort;die Erde;"dünya; toprak";die Erde;richtig;die Erde;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:2.1 | tekrar:1 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-19 12:40:23;nsatz;w0057:nsatz;bereits;Die Stadtbibliothek hat _____ geschlossen.;schon;falsch;bereits;basamak:B2 | bicim:bos | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | düzeltti | farklı | sek:6 | ipucu:1
+2026-11-19 12:41:10;gram;g:vergleich:114;vergleich/je-desto;Die Wohnung ist groß. Die Miete ist hoch. → je … desto;Je die Wohnung größer, desto die Miete höher ist;falsch;Je größer die Wohnung ist, desto höher ist die Miete.;tur:akis | tür:umform | z:2 | fiil yeri | kelime sırası | eksik kelime | sek:40
+2026-11-19 12:41:15;abr;v700:abr;sich(D) vornehmen;(bir şeyi yapmaya) karar vermek, niyet etmek;sich vornehmen;richtig;sich(D) vornehmen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:41:21;wort;n0469:wort;die Gewalt;şiddet;das Gewalt;fast;die Gewalt;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.00 | S:2.3 | ikinci | artikel das → die | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:41:30;abr;v481:abr;sorgen für;"düzeni sağlamak | (bir şeyi) sağlamak; (birine) bakmak";a;falsch;sorgen für (für + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.89 | S:0.8 | düzeltti | sek:5 | ipucu:2 | bilmiyorum
+2026-11-19 12:41:35;wort;n1358:wort;die Ware;mal, ürün | Dürfen wir … _____ ins Land einführen?;die Ware;richtig;die Ware;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:4.0 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:41:43;wort;n1028:wort;der Schatten;gölge | Sie sorgen für _____ und kühlen die Umgebung durch verdunstetes Wasser.;der Schatzen;fast;der Schatten;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:4.4 | kısmi | yazım | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:41:47;prod;w0108:prod;drinnen;içeride | _____ ist es warm, draußen ist es kalt.;Drinnen;richtig;drinnen;basamak:B2 | bicim:yaz | not:m4 | R:0.88 | S:2.8 | sek:4 | ipucu:2 | ipucu-tür:trcumle
+2026-11-19 12:41:53;wort;n0758:wort;die Mannschaft;takım | … _____ aus Frankreich war ein sehr starker Gegner.;die Mannschaft;richtig;die Mannschaft;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:3.9 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:41:59;abr;v481:abr;sorgen für;"(bir şeyi) sağlamak; (birine) bakmak | Die Stadt muss … mehr Sicherheit am Bahnhof _____.";sorgen für;richtig;sorgen für (für + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:41:59;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:7 | küçük:3 | yanlış:5 | puan:102 | dk:2 | yeni:2 | seviye+:1 | tekrar:12 | ipucusuz:2 | gram:0/1
+2026-11-19 12:42:03;prod;w0597:prod;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:3.8 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:42:09;wort;n0436:wort;das Gefühl;duygu, his | Ich glaube, ich schaffe die Prüfung. Ich habe … gut… _____.;das Gefühl;richtig;das Gefühl;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.89 | S:3.8 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:42:11;art;n0991:art;der Respekt;mit ___ Respekt [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:6.7 | hâl:Dat | sek:2
+2026-11-19 12:42:16;yeni;v701;sich(D) gönnen;tanıtım;;neu;(kendine bir şeyi) çok görmemek, kendini ödüllendirmek;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-19 12:42:24;yeni;n0232;der Gedanke;tanıtım;;neu;düşünce;basamak:B0 | bicim:tanit | not:- | parti | sek:9
+2026-11-19 12:42:34;wort;n0800:wort;das Mittel;"araç; ilaç | Haben Sie … _____ gegen Magenschmerzen?";die Mittel;fast;das Mittel;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.88 | S:1.6 | artikel die → das | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:42:37;wort;n0047:wort;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.88 | S:2.4 | sek:2 | ipucu:0 | ipucu-tür:tr
