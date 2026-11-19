@@ -5259,3 +5259,7 @@
 2026-11-19 12:44:59;prod;w0504:prod;verantwortlich;sorumlu | In Deutschland ist jedes Bundesland dafür _____, in der Schweiz jeder Kanton.;verantwortlich;richtig;verantwortlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.88 | S:3.3 | sek:7 | ipucu:0 | ipucu-tür:decumle
 2026-11-19 12:45:02;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
 2026-11-19 12:45:02;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:11 | küçük:0 | yanlış:4 | puan:125 | dk:2 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:3 | gram:0/1
+2026-11-19 20:01:49;abr;v561:abr;unterschreiben;imzalamak | Bitte _____ Sie hier.;unterschreiben;richtig;unterschreiben (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.87 | S:3.7 | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 20:01:53;prod;w0595:prod;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.86 | S:2.6 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:01:55;art;n1389:art;der Wohnsitz;mit ___ Wohnsitz [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.81 | S:10.9 | hâl:Dat | sek:2
+2026-11-19 20:02:01;wort;x1523:wort;das Gehirn;beyin | Beim Lernen braucht … _____ regelmäßig Pausen.;das Gehirn;richtig;das Gehirn;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:2.6 | sek:5 | ipucu:0 | ipucu-tür:trcumle
