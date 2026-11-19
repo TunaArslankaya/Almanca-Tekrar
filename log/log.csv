@@ -5263,3 +5263,18 @@
 2026-11-19 20:01:53;prod;w0595:prod;eigen;kendi (-ne ait);eigen;richtig;eigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.86 | S:2.6 | sek:4 | ipucu:0 | ipucu-tür:tr
 2026-11-19 20:01:55;art;n1389:art;der Wohnsitz;mit ___ Wohnsitz [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.81 | S:10.9 | hâl:Dat | sek:2
 2026-11-19 20:02:01;wort;x1523:wort;das Gehirn;beyin | Beim Lernen braucht … _____ regelmäßig Pausen.;das Gehirn;richtig;das Gehirn;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:2.6 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 20:02:03;abr;v437:abr;retten;kurtarmak;retten;richtig;retten (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.84 | S:1.6 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:02:09;gram;g:konnektoren-b2:23;konnektoren-b2/folge;Es hat stark geregnet, ___ das Konzert abgesagt wurde.;sodass;richtig;sodass;tur:akis | tür:wahl | z:1 | sek:5
+2026-11-19 20:02:16;wort;n0137:wort;die Behörde;resmî kurum;die Behörde;richtig;die Behörde;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.87 | S:2.8 | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:02:26;wort;x1568:wort;das Vorhaben;plan, niyet | … _____ ist, nach dem Kurs an der Universität Bremen zu studieren.;das Vorhaben;richtig;das Vorhaben;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.86 | S:5.1 | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 20:02:33;abr;v039:abr;sich anstrengen;çabalamak, gayret etmek | Wenn du die Prüfung schaffen willst, musst du dich mehr _____.;sich anstrengen;richtig;sich anstrengen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.81 | S:1.5 | sek:6 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 20:02:37;stamm;v399:stamm;nennen;Die Zeitung hat den Namen des Täters nicht _____.;genannt;richtig;genannt;basamak:K | bicim:kokSatz | not:k3 | R:0.00 | S:2.3 | kök:nennen | sek:4
+2026-11-19 20:02:37;tur;akis;Çalış;;;leer;;cevap:10 | doğru:10 | küçük:0 | yanlış:0 | puan:110 | dk:1 | yeni:0 | seviye+:0 | tekrar:9 | ipucusuz:0 | gram:1/1
+2026-11-19 20:02:45;stamm;v588:stamm;verlassen;Ich habe die Party um 3 Uhr _____.;verlassen;richtig;verlassen;basamak:K | bicim:kokSatz | not:k3 | R:0.00 | S:2.3 | kök:verlassen | sek:5
+2026-11-19 20:02:49;yeni;x1594;die Stirn;tanıtım;;neu;alın;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-19 20:02:53;yeni;v702;stärken;tanıtım;;neu;güçlendirmek;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-19 20:02:58;yeni;v577;vereinbaren;tanıtım;;neu;kararlaştırmak;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-19 20:03:05;abr;v577:abr;vereinbaren;kararlaştırmak;verienbaren;fast;vereinbaren (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | kısmi | yazım | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:03:10;wort;x1594:wort;die Stirn;alın;die Stirn;richtig;die Stirn;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:03:13;abr;v702:abr;stärken;güçlendirmek;stärken;richtig;stärken (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:03:13;tur;akis;Çalış;;;leer;;cevap:4 | doğru:3 | küçük:1 | yanlış:0 | puan:41 | dk:1 | yeni:3 | seviye+:0 | tekrar:1 | ipucusuz:0
