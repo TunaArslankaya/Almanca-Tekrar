@@ -49,7 +49,7 @@ async function simule(p, o) {
     const sonuc = [];
     for (let tohum = 1; tohum <= o.TOHUM; tohum++) {
       const S = JSON.parse(JSON.stringify(S0)), rnd = Kr.tohum(tohum * 7919);
-      const gunler = [], yazim = {}, ihlal = [], top = { bmArt: 0, ipsz: 0, ipl: 0, mSay: 0, rt: 0, gram: 0, cevap: 0, vadGercek: 0, takilan: 0, gun3: 0, gunOge: 0, gunMax: 0, tur3: 0, turMax: 0, yeniGor: 0, yeniSay: 0, yeniOnemli: 0, yoyoU: 0, yoyoD: 0, hizli4: 0, art: 0 };
+      const gunler = [], yazim = {}, ihlal = [], top = { bmArt: 0, ipsz: 0, ipl: 0, mSay: 0, rt: 0, gram: 0, cevap: 0, vadGercek: 0, takilan: 0, gun3: 0, gunOge: 0, gunMax: 0, tur3: 0, turMax: 0, yeniGor: 0, yeniSay: 0, yeniOnemli: 0, yoyoU: 0, yoyoD: 0, hizli4: 0, art: 0, bildi: 0 };
       // 15.11: takılan havuzu (gün başı), yo-yo (tek kalıcı yazımda anlam S ×10 artış (S ≥ 5'ten) / ×0,2 düşüş (S ≥ 7'den))
       top.takBas = Kr.ilerleme(S, Kr.gunBas4(Date.now()) + 15 * 3600000).takilan;
       const yoyo = (S0, S1) => { if (!(S0 > 0) || !(S1 > 0)) return; if (S0 >= 5 && S1 >= 10 * S0) top.yoyoU++; if (S0 >= 7 && S1 <= 0.2 * S0) top.yoyoD++; };
@@ -83,8 +83,12 @@ async function simule(p, o) {
             if (sel.tur === 'parti') {
               const ids = [];
               sel.ids.forEach(id => {
-                // yoklama: tier-1 / uluslararası adayın %50'si biliniyor
-                if ((sel.yoklama || []).includes(id) && rnd() < 0.5) { Kr.uygula(S, id, Kr.notVer({ bicim: 'yoklama', tip: 'yoklama' }), t, {}); n++; cevap++; ot.adim++; return; }
+                // yoklama (19.11: her yeni kelimede ön test): adayın YOK_P'si biliniyor (varsayılan 0,6; Tuna 9–19.11 A1 / uluslararası
+                // kelimede 10/11). Bilinmeyen ön test de bir cevap, ardından tanıtım
+                if ((sel.yoklama || []).includes(id)) {
+                  n++; cevap++; ot.adim++;
+                  if (rnd() < o.YOK_P) { Kr.uygula(S, id, Kr.notVer({ bicim: 'yoklama', tip: 'yoklama' }), t, {}); top.bildi = (top.bildi || 0) + 1; return; }
+                }
                 const it = S.items[id], yarim = !!(it && it.yarim);
                 S.items[id] = Object.assign(it || { seit: t }, { tanit: t, yarim: 1 }, yarim ? { yarimGun: g } : { yeni4: g });
                 ids.push(id); yeni++; yeniIds.push(id); gor(id, tExp); if (Kr.onemOf(id) === 1) top.yeniOnemli++;
@@ -194,7 +198,7 @@ async function simule(p, o) {
     if (ilk) console.log(`açılışta: askıda ${ilk.askida} (oto ${ilk.askiOto}) · emekli ${ilk.emekli} · takılan ${ilk.takilan} · vadeli anlam ${ilk.vadeli} / artikel ${ilk.vadeliArt} · ipucusuz bilinen ${ilk.ipucusuz} · önemli ${ilk.onemli.n}'den bilinen ${ilk.onemli.bilinen}`);
   }
   console.log(`başarı modeli: ${KAL ? 'kalibre (Tuna log)' : 'eski'} ${JSON.stringify(KD)}`);
-  const r = await simule(p, { GUN, K, DELTA, TOHUM, GRAM, KD, DBG: !!process.env.DBG });
+  const r = await simule(p, { GUN, K, DELTA, TOHUM, GRAM, KD, DBG: !!process.env.DBG, YOK_P: process.env.YOK_P != null ? +process.env.YOK_P : 0.6 });
   const fehler = [];
   // Yük ölçütleri tohumların ORTALAMASI üzerinden: tek tohumun 7. gün değeri gürültülü (aynı kodda 10 tohumda 57–81;
   // HEAD'de bile 10 tohumun 5'i tek başına ölçütü aşıyordu). Tohum başına değerler yazdırılır; kota ve yazım kuralı tohum başına.
@@ -214,7 +218,7 @@ async function simule(p, o) {
     console.log(`seviye (tohum ortalaması, ${GUN} gün): bm artışı ${tp('bmArt').toFixed(1)} (metin boşluğundan ${(r.reduce((a, x) => a + (x.top.bmMetin || 0), 0) / r.length).toFixed(1)}) · anlam sorusu ${tp('mSay').toFixed(0)}: ipucusuz %${(100 * tp('ipsz') / (tp('mSay') || 1)).toFixed(0)} · ipuçlu %${(100 * tp('ipl') / (tp('mSay') || 1)).toFixed(0)} · yeniden tanıtım ${tp('rt').toFixed(1)} · gramer ${tp('gram').toFixed(0)} · ${GUN + 1}. gün vadeli anlam ${tp('vadSon').toFixed(0)} (artikel ${tp('vadSonArt').toFixed(0)})`);
     // 14.11 ölçüleri: gerçek vadeli tekrar payı (vadeli / kurtarma / ısınma / momentum / takılan yuvası / vadeli metin boşluğu), askı, takılan yuvası,
     // aynı öğe günde ≥ 3 kez görülen (öğe-gün) payı ve en çok, turda ≥ 3 kez (öğe-tur) sayısı, yeni kelimenin ilk gününde görülme ortalaması
-    console.log(`15.11 (tohum ortalaması, ${GUN} gün): yeni ${tp('yeniSay').toFixed(1)} (önemli ${tp('yeniOnemli').toFixed(1)}; günde ${(tp('yeniOnemli') / GUN).toFixed(1)}) · takılan ${tp('takBas').toFixed(0)} → ${tp('takSon').toFixed(1)} · yo-yo ↑${tp('yoyoU').toFixed(1)} ↓${tp('yoyoD').toFixed(1)} · hızlı not 4: ${tp('hizli4').toFixed(1)} · artikel payı %${(100 * tp('art') / (tp('cevap') || 1)).toFixed(1)}`);
+    console.log(`15.11 (tohum ortalaması, ${GUN} gün): yeni ${tp('yeniSay').toFixed(1)} · ön testte bildi ${tp('bildi').toFixed(1)} (önemli ${tp('yeniOnemli').toFixed(1)}; günde ${(tp('yeniOnemli') / GUN).toFixed(1)}) · takılan ${tp('takBas').toFixed(0)} → ${tp('takSon').toFixed(1)} · yo-yo ↑${tp('yoyoU').toFixed(1)} ↓${tp('yoyoD').toFixed(1)} · hızlı not 4: ${tp('hizli4').toFixed(1)} · artikel payı %${(100 * tp('art') / (tp('cevap') || 1)).toFixed(1)}`);
     console.log(`takılan askısı (havuz sınırı): ${tp('askiTak').toFixed(1)} (önemli ${tp('askiTak1').toFixed(1)})`);
     console.log(`tekrar (tohum ortalaması): gerçek vadeli tekrar %${(100 * tp('vadGercek') / (tp('cevap') || 1)).toFixed(0)} · askıda ${tp('aski').toFixed(0)} → ${tp('askiSon').toFixed(0)} · takılan yuvası ${tp('takilan').toFixed(1)} · aynı öğe günde ≥ 3: %${(100 * tp('gun3') / (tp('gunOge') || 1)).toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.gunMax))}) · turda ≥ 3: ${tp('tur3').toFixed(1)} (en çok ${Math.max(...r.map(x => x.top.turMax))}) · yeni kelime ilk gün ${(tp('yeniGor') / (tp('yeniSay') || 1)).toFixed(1)} kez (${tp('yeniSay').toFixed(0)} yeni)`);
   }

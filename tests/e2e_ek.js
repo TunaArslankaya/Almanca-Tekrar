@@ -7,8 +7,13 @@ const satir = (zeit, modus, ergebnis, notiz) => ({ zeit, modus, id: 'x', item: '
 (async () => {
   const b = await D.tarayici();
   if (!b) { console.log('e2e_ek: Playwright yok, atlandı'); return; }
+  // 19.11: gerçek kayıtta test günlerinin (14–16.11) gerçek cevapları var (hedef bitmiş görünüyordu): o günlerden sonrası kopyadan silinir
+  const z = JSON.parse(D.zustandOku());
+  ['tage', 'tageC'].forEach(k => Object.keys(z[k] || {}).forEach(d => { if (d >= '2026-11-13') delete z[k][d]; }));
+  delete z.log;
+  const zs = JSON.stringify(z);
   const ac = async (zaman, log) => {
-    const p = await D.sayfa(b, { mobil: true, zustand: D.zustandOku(), saatOfs: new Date(zaman).getTime() - Date.now() });
+    const p = await D.sayfa(b, { mobil: true, zustand: zs, saatOfs: new Date(zaman).getTime() - Date.now() });
     // başsız Chromium + file://: büyük localStorage yazımlarından hemen sonra yenilenince yazım kaybolabiliyor (e2e_ui notu) → diske işlensin diye bekle
     // log, yenilenen belgenin başında (uygulama betiğinden önce) yazılır: kapanan sayfanın pagehide kaydı ve başsız Chromium'un yenilemede yazım kaybı etkilemesin (14.11)
     if (log) { await p.addInitScript(l => { localStorage.setItem('almanca-tekrar-log', l); }, JSON.stringify(log)); await p.reload(); await p.waitForFunction(() => !!window.__tekrar, null, { timeout: 8000 }).catch(() => {}); }

@@ -899,7 +899,13 @@
     }
     return ayniKonu < 2 && ayniAlan < 2;
   }
-  const yoklamaAday = (S, id) => !S.items[id] && (C.tierOf(id) === 1 || C.uluslararasi(id));
+  // 19.11 (Tuna: "yeni kelimelerin çoğunu biliyorum, sınırı artırsak mı?"; 9–19.11 yoklamada 10/11 bildi, ama yoklama yalnız A1 / uluslararası
+  // kelimedeydi: geri kalan her kelime bilinse de tanıtım + ipuçlu sorularla genç havuza (S < 7) giriyor, genç freni kotayı 4'te tutuyordu):
+  // ön test her yeni kelimede. Bildiği kelime tanıtılmaz, kotaya ve genç sayısına girmez (S 8,3, ilk tekrar ≤ 14 g); kota yalnız bilmediği
+  // kelimeye harcanır. Kiplik edatı / bağlaç (cumleIciMi: eben, doch …) tanıtımla gelir (tek başına Türkçesinden sorulmaz).
+  // Turda en çok YOKLAMA_TUR, günde en çok YOKLAMA_GUN (her biri bir cevap; kota bitince parti, dolayısıyla ön test de durur).
+  const YOKLAMA_TUR = 5, YOKLAMA_GUN = 20;
+  const yoklamaAday = (S, id) => !S.items[id] && !cumleIciMi(id);
   // yeni parti: kotadan n yeni öğe + kotadan bağımsız en çok opts.yarimHak yarım öğe (günde en çok YARIM_GUN);
   // bugün tanıtılanlarla birlikte karışma kapısından geçer
   function yeniParti(S, t, n, opts) {
@@ -917,7 +923,7 @@
       if (!karismaOk(id, bugun.concat(sec))) continue;
       sec.push(id);
       if (yarim) yarimSay++;
-      else { yeniSay++; if (yoklama.length < (opts.yoklamaHak == null ? 2 : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id); }
+      else { yeniSay++; if (yoklama.length < (opts.yoklamaHak == null ? YOKLAMA_TUR : opts.yoklamaHak) && yoklamaAday(S, id)) yoklama.push(id); }
     }
     // yoklama kartları önce: tanıtım kartları art arda kalsın, ardından mini sorular (anlam alanı kapısı sırayı karıştırınca
     // yoklama adayı iki tanıtımın arasına düşebiliyordu)
@@ -1081,7 +1087,7 @@
       if (n <= 0 && (yh <= 0 || kis)) return null;
       // 15.11 (E3): kota frendeyken yeni kelime yalnız önemli (onem 1); yarım (Tuna'nın elle eklediği) ve kurs öğesi (18.11) her zaman
       const fo = kt.onemli ? id => (!o.filtre || o.filtre(id)) && ((S.items[id] && S.items[id].yarim) || kursMi(id) || onemOf(id) === 1) : o.filtre;
-      const p = yeniParti(S, t, n, { yarimHak: yh, yarimGunluk: kis ? 1 : YARIM_GUN, yarimKotadan: kis, filtre: fo, yoklamaHak: o.klavyesiz ? 0 : Math.min(2 - (o.yoklama || 0), 4 - (gs.yoklama || 0)) });
+      const p = yeniParti(S, t, n, { yarimHak: yh, yarimGunluk: kis ? 1 : YARIM_GUN, yarimKotadan: kis, filtre: fo, yoklamaHak: o.klavyesiz ? 0 : Math.max(0, Math.min(YOKLAMA_TUR - (o.yoklama || 0), YOKLAMA_GUN - (gs.yoklama || 0))) });
       return p.ids.length ? { tur: 'parti', kaynak: 'parti', ids: p.ids, yoklama: p.yoklama } : null;
     };
     // 2) yeni parti: turda bir kez, 3 ≤ adım ≤ boy − 7
@@ -1695,7 +1701,7 @@
     return o;
   }
 
-  const api = { aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
+  const api = { YOKLAMA_TUR, YOKLAMA_GUN, yoklamaAday, aralikKisalt, MAX_ARALIK, BM_ARALIK, ustBasamak, zorHedef, dsOf, ZOR_DS, ZOR_TUR, ZOR_YAVAS,
     // 14.11
     askiyaAl, askidanAl, askidaMi, askiAday, duzen1411, onarim1411, duzen1511, takilanSinir, ASKI_KUME, emekliAday, emekliYap, takildiMi, TAKILAN, cumleIciMi, artBagli, artUygun, kokUygun, ART_OTURMUS,
     // 18.11

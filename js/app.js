@@ -1262,9 +1262,11 @@
     return `<table class="cekim-tablo"><tbody>${sat.map(([l, i, pk]) => `<tr><td>${l}</td><td>${esc(pr[i] + z(i, pk) + pre)}</td>${pt ? `<td>${esc(pt[i] + z(i, pk) + pre)}</td>` : ''}</tr>`).join('')}
       <tr><td>Perfekt</td><td colspan="2">er ${esc(v.aux)}${v.refl ? ' sich' : ''} ${esc(v.p2s || v.p2 || '')}</td></tr></tbody></table><div class="soluk">sütunlar: Präsens${pt ? ' · Präteritum' : ''}</div>`;
   }
-  // yoklama: tanıtım göstermeden TR→DE yazma ("Bunu belki biliyorsun"); bilmiyorum yok, Göster var
+  // yoklama: tanıtım göstermeden TR→DE yazma ("Bunu belki biliyorsun"); bilmiyorum yok, Göster var.
+  // 19.11: ön test her yeni kelimede (Kern.yoklamaAday); A1 / uluslararası kelime yalnız Türkçesiyle, diğerleri Türkçe cümleyle (varsa)
   function frageYoklama(id, kaynak) {
-    const q = frageYaz(id, false, true);
+    let sade = 'cumle'; try { if (tierOf(id) === 1 || uluslararasi(id)) sade = true; } catch (e) { /* bilinmeyen öğe */ }
+    const q = frageYaz(id, false, sade);
     q.html = q.html.replace(/<div class="tur">[\s\S]*?<\/div>/, '<div class="tur"><span class="yeni">yoklama</span><span>Bunu belki biliyorsun · Almancası?</span></div>');
     return Object.assign(q, { id, yoklama: true, yoklamaKaynak: kaynak, bicim: 'yoklama', b: 2, typ: Kern.eskiTur(id, 'yoklama'), ipucuLv: 2 });
   }
@@ -1329,13 +1331,16 @@
   }
   // boşluklu cümlede cevap kelimesi başka yerde açıkça geçiyorsa (… oder sogar mehrere Wohnungen; warme Luft) ipucu cümlesi olmaz (6.11 denetim)
   const lemmaGorunur = (id, text) => { const l = String(lemmaOf(id) || '').replace(/^sich\s+/, '').split(/\s+/)[0]; if (!l || l.length < 3) return false; const k = l.toLowerCase().slice(0, Math.max(3, l.length - 2)); return String(text).toLowerCase().split(/[^\p{L}]+/u).some(w => w.length >= 3 && w.startsWith(k)); };
+  // sade 'cumle' (19.11, ön test): Türkçe cümle + boşluklu Almanca cümle varsa onunla (Türkçe karşılık tek başına belirsiz olabilir:
+  // "alın" die Stirn / almak), yoksa yalnız Türkçe; harf ipucu yok
   function yazIpucu(id, sade) {
-    if (sade) return { tur: 'tr', sade: true };
+    if (sade && sade !== 'cumle') return { tur: 'tr', sade: true };
     const son = (S.ipTur || {})[id], m = kxSay(id), p = satzPool(id);
     // Türkçesiz örnek: fiilde yalnız Goethe örneği (okuma metninde aynı biçim başka anlam olabilir: scheinen), en çok 16 kelime
     const deUygun = x => x.de.split(/\s+/).length <= 16 && (kind(id) !== 'v' || x.quelle === 'Goethe-Wortliste');
     const aday = tur => (tur === 'trcumle' ? p.own.filter(x => x.tr) : p.extra.filter(deUygun)).filter(x => kxSerbest(m, x.de))
       .map(x => ({ de: x.de, tr: x.tr, quelle: x.quelle, capraz: x.capraz, text: yazBosluk(id, x.de) })).filter(o => o.text && !lemmaGorunur(id, o.text));
+    if (sade) { const x = kxSec(id, aday('trcumle'), null, m); return x ? Object.assign({ tur: 'trcumle', anlam: kurzTr(maskTr(trOf(id), lemmaOf(id))) }, x) : { tur: 'tr', sade: true }; }
     const i0 = IPUCU_TUR.indexOf(son);
     for (const tur of IPUCU_TUR.slice(i0 + 1).concat(IPUCU_TUR.slice(0, i0 + 1))) {
       if (tur === son) continue;
@@ -4368,7 +4373,8 @@
       const bildi = r.ergebnis !== 'falsch' && !q.bos;
       if (bildi) {
         yoklamaBildi(id, q, r);
-        session.notCip = 'zaten biliyorsun ✓';   // sonraki kartın durum satırında (flash zeige'de hemen gizlenirdi)
+        session.notCip = 'zaten biliyorsun ✓ · yeni kelime hakkından düşmedi';   // sonraki kartın durum satırında (flash zeige'de hemen gizlenirdi)
+        if (session.tur) (session.tur.bildi = session.tur.bildi || []).push(id);
         if (ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id) { partiIlerle(sessiz); return; }
       } else if (ot.tanitSira && ot.tanitSira.length && ot.tanitSira[0].id === id) ot.tanitSira[0] = { id, yoklama: false, yoklamaDan: true };
       else ot.tanitSira = [{ id, yoklama: false, yoklamaDan: true }].concat(ot.tanitSira || []);
@@ -5352,7 +5358,7 @@
     // doğruluk yalnız tekrarlardan (yeni kelimenin mini / ikinci soruları sayılmaz); tekrar yoksa "–"
     // tekrar sorusu yoksa (paket turu) bütün cevaplardan
     const oran = tu.tekrar ? Math.round(tu.tekrarOk / tu.tekrar * 100) : tu.n ? Math.round(((tu.richtig || 0) + 0.5 * (tu.fast || 0)) / tu.n * 100) : null;
-    const yeniIds = [...new Set(tu.neu || [])], seviye = [...new Set(tu.seviye || [])], takilan = [...new Set(tu.takilan || [])], ipucsuz = [...new Set(tu.ipucsuz || [])];
+    const yeniIds = [...new Set(tu.neu || [])], bildiIds = [...new Set(tu.bildi || [])], seviye = [...new Set(tu.seviye || [])], takilan = [...new Set(tu.takilan || [])], ipucsuz = [...new Set(tu.ipucsuz || [])];
     const zor = Object.keys(tu.w).filter(id => tu.w[id] <= 1 && !takilan.includes(id));
     const d = bugun(), z = ziel('akis'), turHedef = turHedefi(), turYapilan = Math.min(turHedef, turYapildi());
     const hedefYeni = !tu.hedefOnce && d.n >= z, seriYeni = !tu.seriOnce && gunAktif(tag());
@@ -5389,6 +5395,7 @@
       ${gr && gr.n ? `<div class="ts-grup"><div class="ts-et">gramer · ${gr.n} soru</div><div class="soluk">${gr.richtig} doğru${gr.fast ? ` · ${gr.fast} küçük hata` : ''}${gr.falsch ? ` · ${gr.falsch} yanlış (yakında tekrar)` : ''}</div></div>` : ''}
       ${grup(`seviye atlayanlar · ${seviye.length}`, seviye, 'altin')}
       ${grup('tanıştıkların', yeniIds, 'yeni')}
+      ${grup(`zaten biliyordun · ${bildiIds.length} (hakkından düşmedi)`, bildiIds, 'iyi')}
       ${grup('yakında tekrar', zor, 'kehribar')}
       ${grup('takılanlar 🪝 (Claude kanca yazacak)', takilan, 'kehribar')}
       <div class="ts-seri${seriYeni ? ' yeni' : ''}">🔥 <b>${seri} gün</b>${seriYeni ? ' · bugün seriye sayıldı' : ''} · ${hedefYeni || d.n >= z ? `${turHedef}/${turHedef} tur ✓` : `${turYapilan}/${turHedef} tur`}${session.dondurucuKazandi ? ' · ❄️ bir seri dondurucu kazandın' : ''}</div>
@@ -5407,7 +5414,7 @@
     if (session.donusBonus && tu.n) session.donusBonus = false;
     if (sebep !== 'leer') { ton('tur'); if (hedefYeni) konfeti(); }
     if (tu.n) logEintrag({ modus: 'tur', id: session.modus, item: MODI[session.modus] ? MODI[session.modus].ad : '', frage: '', antwort: '', ergebnis: sebep === 'leer' ? 'leer' : 'bitti', loesung: '',
-      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0} | ipucusuz:${ipucsuz.length}${gr && gr.n ? ` | gram:${gr.richtig}/${gr.n}` : ''}` });
+      notiz: `cevap:${tu.n} | doğru:${tu.richtig} | küçük:${tu.fast} | yanlış:${tu.falsch} | puan:${tu.xp} | dk:${dk} | yeni:${yeniIds.length} | seviye+:${seviye.length} | tekrar:${tu.tekrar || 0} | ipucusuz:${ipucsuz.length}${gr && gr.n ? ` | gram:${gr.richtig}/${gr.n}` : ''}${bildiIds.length ? ` | bildi:${bildiIds.length}` : ''}` });
     save();
   }
   // ---- efektler: ses, titreşim, kart rengi, uçan puan, konfeti ----

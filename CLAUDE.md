@@ -87,12 +87,12 @@
     seçmeli satırında `şık:<id>/<id>/<id> | çeldirici:<kaynak>/…`; yazmada `ipucu-tür:tr|trcumle|decumle`, düzeltme kutusu `düzeltti` / `düzeltme:geç`; `akt;diktat` notiz'inde `dikte:` türleri; Dinleme modu `lesen` id `<metin>:dinle` notiz `puan:x/y | hız | geri:N`.
     "Sonuçlarıma bak"ta: `ayir` ve `karismaTablosu` çiftlerine cümle yaz (`duy` / `hoer` / `dikte:` 14.11'den beri yok; eski satırlar inceleme dışı).
   - Durum: `dikkat` (ergebnis `bas-gec` = çok hızlı/boş, `cok-yanlis`), `leech` (ergebnis `takiliyor`: üç ayrı günde yanlış → kanca yaz)
-  - Tur sonu: `tur` (id = bölüm, akşam tekrarında `aksam`; ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4 | yeni:2 | seviye+:3 | tekrar:9`): oturum uzunluğu ve sıklığı buradan okunur.
+  - Tur sonu: `tur` (id = bölüm, akşam tekrarında `aksam`; ergebnis `bitti` / `leer`, notiz `cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:85 | dk:4 | yeni:2 | seviye+:3 | tekrar:9 | ipucusuz:N | gram:x/y | bildi:N` (bildi: ön testte bildiği, 19.11)): oturum uzunluğu ve sıklığı buradan okunur.
   - Metin etkinliği özeti: `akt` (id `luecke:<metin>` notiz `puan:x/y | boşluk:n`; eski `diktat:<öğe>`, 14.11'den beri yok); göç satırı `akt;goc4`.
 - `log/zustand.json`: ilerleme yedeği. v5 hafızası: `items[id].m` (anlam; `pk` = farklı günlerde ipucusuz üretim başarısı, `b` son basamak), isimde `items[id].art`, düzensiz fiilde `S.kok[base]`,
   paket `S.pakete[pid].m`; eski `karten` dondurulmuş + 30 gün gölge yazım (`Kern.golge`: hafıza güncellemesi sorulan biçimin eski kartına da, `g4 === last`).
   Ana bölüm **`akis` (Çalış)**: 12 cevaplık tur, seçim `Kern.sec` (`sec()` sarmalayıcısı): 1) oturum kuyruğu (yanlış → 3–5 soru sonra bir alt basamaktan başka cümleyle, 3. deneme tur sonunda seçmeli;
-  yeni kelimenin mini sorusu ve ≥ 4 soru sonra ikinci hatırlaması `yaz0`, yazılmaz) 2) yeni parti (turda bir, adım 3 – boy−7; tanıtım kartları art arda, `frageTanit`; tier-1 / uluslararası adaylara yoklama `frageYoklama`)
+  yeni kelimenin mini sorusu ve ≥ 4 soru sonra ikinci hatırlaması `yaz0`, yazılmaz) 2) yeni parti (turda bir, adım 3 – boy−7; tanıtım kartları art arda, `frageTanit`; her yeni adaya ön test / yoklama `frageYoklama`, 19.11)
   3) metin etkinliği (turda bir, adım ≥ 8; gerçek paragrafta 2–4 boşluk, her boşluk bir cevap; günlük dikte 14.11'de kaldırıldı) 4) kurtarma (adım ≥ 6, R'si en düşük) 5) ısınma (yalnız günün ilk turunda, ilk 3) / momentum: R'si en yüksek, bir basamak aşağı
   6) vadeliler R azalan (aynı öğe ≥ 8 soru arayla; artikel flaşı turda ≤ 3; kök turda 1, günde 4, yeni kök günde 2) 7) vadeli yoksa parti, yoksa "şimdilik bu kadar" + günde bir "+3 yeni".
   En uzun tekrar aralığı 60 gün (`Kern.MAX_ARALIK`; açılışta `aralikKisalt` eski uzun vadeleri çeker; %85 hedefte FSRS aralığı ≈ 1,9 × S olduğundan 94 güne çıkıyordu).
@@ -173,6 +173,10 @@
 - **18.11 kurs listesi** (Tuna'nın dil kursunda gördüğü kelimeler): `quellen/kurs_kelimeler.txt` (`tarih | öğe kimliği | kelime | not`) → build her kayda `kurs: 'YYYY-MM-DD'`, `kursSira` (dosya sırası), `koru: true`.
   Kern: `yeniSira` kurs öğelerini (yeni ya da yarım, askıda değil: `kursBekleyen`) en başa koyar (yarımdan da önce, dosya sırasıyla); kota frendeyken kurs öğesi önemli sayılır ve henüz tanıtılmamış kurs öğesi varken günde en az 4 (`KURS_TABAN`); kota aşılmaz.
   Hafızadaki öğeye dokunulmaz; askıdaysa bir kez geri (`Kern.kursDuzen`, `duzen1411` içinden; öğede `kursG` = kurs tarihi; kurs gününden sonraki askıya dokunmaz; log `akt;aski:<öğe>;…;geri;;neden:kurs`). Test: `node tests/test_kern.js` (kurs bölümü).
+- **19.11 ön test** (Tuna: "yeni kelimelerin çoğunu biliyorum, sınırı artıralım mı?"; ayarı zaten 8, genç freni (118 genç öğe) kotayı 4'te tutuyordu; 9–19.11 yoklamada 10/11 bildi ama yoklama yalnız A1 / uluslararası kelimedeydi):
+  yoklama her yeni kelimede (`Kern.yoklamaAday`: hafızada değil, `cumleIciMi` değil), turda ≤ 5 (`YOKLAMA_TUR`; parti zaten ≤ 3), günde ≤ 20 (`YOKLAMA_GUN`). Bildiği kelime tanıtılmaz, kotaya ve genç sayısına girmez (S 8,3, bm 2, ilk tekrar ≤ 14 g); bilmediği tanıtılır (kotadan).
+  A1 / uluslararası kelime yalnız Türkçesiyle, diğerleri Türkçe cümle + boşluklu Almanca cümleyle (`yazIpucu(id, 'cumle')`; yoksa Türkçe), harf ipucu yok. Tur sonu "zaten biliyordun · N (hakkından düşmedi)", tur satırı sonunda `bildi:N`.
+  Sim (K 100, 14 gün, ön testte %60 biliniyor, `YOK_P`): tanıtılan 131 → 127, ön testte bilinen +115, 15. gün vadeli 80 → 97.
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde

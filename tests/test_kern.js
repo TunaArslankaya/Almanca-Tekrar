@@ -929,7 +929,15 @@ eq(K.yazimMi('Krankenversichrug', 'Krankenversicherung'), true, 'yazım: ≥ 10 
   { const Sd = yeniS({ a1: { tanit: T - 2 * DAY, m: { S: 1, due: T + DAY, last: T - 2 * DAY } } }); eq(K.yeniParti(Sd, T, 3, { yoklamaHak: 0 }).ids.join(','), 'a2,a3,a4', 'P5 parti: dünkü tanıtım bugünü kısıtlamaz'); }
   // yoklama kartı partinin başında (tanıtımlar art arda kalsın)
   K.init(Object.assign({}, c5, { uniteSira: () => [], BLITZ_ORDER: ['r1', 'n2'], VERB_ORDER: [] }));
-  { const p = K.yeniParti(yeniS({}), T, 2, {}); eq(p.ids.join(',') + '|' + p.yoklama.join(','), 'n2,r1|n2', 'P5 parti: yoklama adayı önce'); }
+  // 19.11: ön test her yeni kelimede (önceden yalnız A1 / uluslararası: n2); hak sınırlıysa ön test kartları önce, tanıtımlar art arda
+  { const p = K.yeniParti(yeniS({}), T, 2, {}); eq(p.ids.join(',') + '|' + p.yoklama.join(','), 'r1,n2|r1,n2', '19.11 parti: her yeni kelimeye ön test'); }
+  { const p = K.yeniParti(yeniS({}), T, 2, { yoklamaHak: 1 }); eq(p.ids.join(',') + '|' + p.yoklama.join(','), 'r1,n2|r1', '19.11 parti: yoklama hakkı sınırlı, yoklama kartı önce'); }
+  { const p = K.yeniParti(yeniS({}), T, 2, { yoklamaHak: 0 }); eq(p.yoklama.length, 0, 'parti: klavyesiz / hak yok → ön test yok'); }
+  ok(!K.yoklamaAday(yeniS({ r1: { yarim: 1, seit: T } }), 'r1'), '19.11: yarım (elle eklenen) öğe ön teste girmez');
+  ok(K.YOKLAMA_TUR >= 3 && K.YOKLAMA_GUN >= 12, '19.11: ön test turda ≥ 3, günde ≥ 12');
+  // kiplik edatı / bağlaç (cumleIciMi) ön teste girmez: Türkçesinden tek başına sorulmaz, tanıtımla gelir
+  K.init(Object.assign({}, c5, { wById: Object.assign({}, wB, { wk: { id: 'wk', de: 'doch', kl: 'adv', tier: 3 } }), kind: id => id === 'wk' ? 'w' : c5.kind(id), uniteSira: () => [], BLITZ_ORDER: ['r1'], VERB_ORDER: [] }));
+  ok(!K.yoklamaAday(yeniS({}), 'wk') && K.yoklamaAday(yeniS({}), 'r1'), '19.11: kiplik edatı ön testsiz, isim ön testli');
   // konu kapısı eskisi gibi (aynı konudan 2)
   K.init(Object.assign({}, c5, { konu: id => /^a/.test(id) ? 'gesellschaft' : '' }));
   ok(!K.karismaOk('a4', ['a1', 'a2']), 'P5: konu kapısı da geçerli');

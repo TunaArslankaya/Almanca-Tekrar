@@ -500,3 +500,9 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - 21 öğe kurs listesine (`quellen/kurs_kelimeler.txt`, CLAUDE.md "18.11 kurs listesi"): neugierig, ausgewogen (yeni), ausreichend, treiben (getrieben), die Gewalt, sich (D) etwas vornehmen (yeni), sich (D) etwas gönnen (yeni), der Gedanke (n-Dekl.), die Stirn (yeni), stärken (yeni), vereinbaren, erfüllen, unterzeichnen, veröffentlichen, enttäuscht (yeni), stolz auf, begeistert von, abhängig von, die Entwicklung, sich gewöhnen an, der Erfolg. Kurs öğeleri yeni sıranın en başında, askıya alınmaz, frende günde ≥ 4 yeni. 94 yeni çeviri cümlesi + gloss (her öğe ≥ 5), 6 kalıp satırı.
 - Tuna'nın yazımı: neugerig → neugierig, das Gewalt → die Gewalt, die Gedanke → der Gedanke, sta:rken → stärken, abha:nging → abhängig.
 Son incelenen log satırı değişmedi.
+
+**2026-11-19 (Tuna: "yeni kelimelerin çoğunu biliyorum, yeni kelime sınırını artıralım mı?")**
+- Veri (10–19.11): 54 tanıtım + 10 yoklamada "biliyordu"; yoklama 10/11 doğru; tanıtılanların ilk cevapları çoğunlukla doğru. Ayar zaten 8 (yeniGunluk); genç freni (118 öğe S < 7) kotayı 4'e indiriyor, günde 7–8 bonus turlarla geliyordu.
+- Karar: ham sınırı artırmak yerine ön test her yeni kelimede (önceden yalnız A1 / uluslararası). Bildiği kelime tanıtılmaz, kotaya ve genç havuzuna girmez; kota yalnız bilmediği kelimeye harcanır (CLAUDE.md "19.11 ön test"). Belirsiz Türkçede Türkçe cümleyle sorulur.
+- Testler: e2e_aski ve e2e_ek gerçek kayıttaki yeni veriden (32 askı, 14–16.11 gerçek cevapları) bağımsız yapıldı.
+Son incelenen log satırı değişmedi (bu not uygulama değişikliği).

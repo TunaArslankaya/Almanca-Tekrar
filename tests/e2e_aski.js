@@ -14,6 +14,8 @@ const klasor = process.argv[2] || null;
   const foto = async (p, ad) => { if (klasor) await p.screenshot({ path: path.join(klasor, ad + '.png'), fullPage: true }); };
   // gerçek kopya: anlamı olan ilk 3 öğe Kern'in otomatik askısındaki gibi işaretli (log satırı yok → uygulama yazar)
   const z = JSON.parse(D.zustandOku());
+  // 19.11: gerçek kayıtta 15.11'den beri askıdaki öğeler var: test yalnız kendi 3 öğesini saysın
+  Object.values(z.items).forEach(it => { delete it.askida; delete it.askiGeri; });
   const adaylar = Object.keys(z.items).filter(id => /^[nvwx]/.test(id) && z.items[id].m && z.items[id].m.S && !z.items[id].askida);
   const oto = adaylar.slice(0, 3);
   oto.forEach(id => { z.items[id].askida = { t: Date.now() - 60000, neden: 'oto' }; });
