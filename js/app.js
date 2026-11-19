@@ -552,7 +552,7 @@
   function sec() {
     const ot = session.ot, m = session.modus, f = FILTER[m] || FILTER.akis;
     ot.boy = buTurBoyu(); ot.klavyesiz = m === 'blitz';
-    ot.filtre = id => gueltig(id + ':x') && f(id);
+    ot.filtre = id => gueltig(id + ':x') && f(id) && !(ot.yoklamaErt || []).some(x => x.id === id);   // ertelenen: bu turda partiye girmez (19.11)
     ot.odak = m !== 'akis'; ot.zayif = m === 'zayif'; ot.gramVar = gramVarMi(ot);   // gramer sorusu yalnız ana turda (Kern.sec adım 5 / 10)
     // karışan çift: turda en çok 1; vadeli birikmede yok (Kern.sec o.yukKis, 12.11: tur vadeli tekrara kalsın)
     if (m === 'akis' && !ot.ayirVar && !ot.yukKis && (ot.adim || 0) >= 4 && (ot.adim || 0) <= (ot.boy || 12) - 2) ayirKoy(ot);
@@ -1214,7 +1214,8 @@
     return bsp[0] ? { de: bsp[0], tr: '' } : null;
   }
   // girdi ve odak yok: artikel bandı, lemma + çoğul, tek cümle + Türkçesi, kural çipi; fiilde kalıp (+A) ve Perfekt,
-  // düzensiz fiilde 3 form (formGesehen); varsa kanca. Devam + küçük "Biliyorum, sonra sor" (yoklama 8 soru sonra).
+  // düzensiz fiilde 3 form (formGesehen); varsa kanca. Devam + küçük "Biliyorum, sonra sor" (yoklama YOKLAMA_ARA soru sonra; ön testi
+  // bilemediği kelimenin tanıtımında yok: opts.yoklamaDan, 19.11 — az önce sorulup bilinemedi).
   // kisa: uzun süredir görülmeyen öğe (R < 0,35) ya da yarım öğe: hatırlatma
   function frageTanit(id, opts) {
     opts = opts || {};
@@ -1246,11 +1247,11 @@
     // tam çekim tablosu "çekim" düğmesinin arkasında (ilk bakışta yalnız Perfekt / 3 form)
     const cekim = k === 'v' ? `<details class="daha"><summary>çekim</summary>${cekimTablo(vById[id])}</details>` : '';
     // S6: kart en az 4 sn (hatırlatma 2,5 sn) ve kelimenin sesi bitene dek açık kalır (kilit render'da kurulur: tanitKilit)
-    const q = { typ: 'tanit', id, kisa: !!opts.kisa, start: now(), kilit: true, kilitT0: now(), kilitMs: opts.kisa ? TANIT_KISA_MS : TANIT_MIN_MS };
+    const q = { typ: 'tanit', id, kisa: !!opts.kisa, yoklamaDan: !!opts.yoklamaDan, start: now(), kilit: true, kilitT0: now(), kilitMs: opts.kisa ? TANIT_KISA_MS : TANIT_MIN_MS };
     return Object.assign(q, {
       html: `<div class="q-ust"><div class="tur"><span class="yeni">${opts.kisa ? 'hatırlatma' : 'yeni kelime'}</span><span>${opts.kisa ? 'kısa bir bakış, birazdan sorulacak' : 'tanış'}</span></div>
         ${kopf}${chips}${formlar}${satz}${cekim}${kancaHTML(id)}</div>
-        <div class="q-alt">${devamKilitli(q, 'act', 'tanit-devam')}${opts.kisa ? '' : '<div class="alt-sira" style="justify-content:center"><button class="btn mini bilmiyorum" data-act="tanit-sor" type="button">Biliyorum, sonra sor</button></div>'}</div>`,
+        <div class="q-alt">${devamKilitli(q, 'act', 'tanit-devam')}${opts.kisa || opts.yoklamaDan ? '' : '<div class="alt-sira" style="justify-content:center"><button class="btn mini bilmiyorum" data-act="tanit-sor" type="button">Biliyorum, sonra sor</button></div>'}</div>`,
     });
   }
   // tam çekim: Präsens (6 kişi), Präteritum, Perfekt; dönüşlüde zamirle
@@ -3425,7 +3426,9 @@
     if (session.modus === 'cumle') { aktuell = { typ: 'cumle' }; Cumle.yenile(); Cumle.render(); tastatur(); return; }
     const m = session.modus;
     if (!session.tur || session.tur.bitti) { turBaslat(); session.tur.mod = m; }
-    if (turBitti()) { turSonuRender(); return; }
+    // 19.11: tur biterken partinin kalan kartları (ön testi bilemediği kelimenin tanıtımı) ve "Biliyorum, sonra sor" denen kelime yarım kalmaz
+    const sonda = turBitti(), ot0 = session.ot;
+    if (sonda && !(ot0 && ((ot0.tanitSira || []).length || ertHazir('son') >= 0))) { turSonuRender(); return; }
     hinweisRender();
     $('#durum-satiri').innerHTML = '';
     if (m === 'paket') {
@@ -3436,14 +3439,9 @@
     const ot = session.ot;
     // partinin sıradaki tanıtım / yoklama kartı
     if (ot.tanitSira && ot.tanitSira.length) { tanitGoster(); return; }
-    // tanıtımda "Biliyorum, sonra sor" denen öğe: sırası geldiyse tanıtımsız yoklama
-    if (ot.yoklamaErt && ot.yoklamaErt.length) {
-      const i = ot.yoklamaErt.findIndex(x => x.at <= (ot.adim || 0));
-      if (i >= 0) {
-        const x = ot.yoklamaErt.splice(i, 1)[0];
-        if (!(S.items[x.id] && S.items[x.id].tanit)) { ot.partiIds = []; aktuell = Object.assign(frageYoklama(x.id, 'tanit'), { start: now() }); render(aktuell); return; }
-      }
-    }
+    // tanıtımda "Biliyorum, sonra sor" denen öğe: sırası geldiyse (tur biterken hemen) tanıtımsız yoklama
+    if (ertYoklama(sonda ? 'son' : 0)) return;
+    if (sonda) { turSonuRender(); return; }
     // yeniden tanıtılan öğenin bekleyen sorusu: yalnız o tanıtım kartının hemen ardından (14.11: kart başka soruyla değiştiyse —
     // test soruGoster, bölüm değişimi — bayat seçim sonraki zeige'de oturum kuyruğunun (artset, ayır, yanlış tekrarı) önüne geçiyordu)
     if (ot.bekleyen) { const s = ot.bekleyen; ot.bekleyen = null; if (s.kart === aktuell) { const q = frage(s.sel); if (q) { aktuell = q; render(q); return; } } }
@@ -3452,7 +3450,7 @@
       if (sel.tur === 'parti') { partiKur(sel); tanitGoster(); return; }
       if (sel.tur === 'metin') { ot.metin = true; const q = metinKur(sel); if (q) { aktuell = q; render(q); return; } continue; }
       if (sel.tur === 'gram') { const q = gramTurFrage(sel); if (q) { aktuell = q; gramTurRender(q); return; } ot.gramYok = true; continue; }
-      if (sel.tur === 'bitti') return leerGoster(sel);
+      if (sel.tur === 'bitti') { if (ertYoklama('hemen')) return; return leerGoster(sel); }   // soracak başka şey yok: ertelenen kelime şimdi
       // uzun süredir görülmeyen (R < 0,35): önce kısa yeniden tanıtım
       if (sel.yenidenTanit && sel.tur === 'm') { aktuell = frageTanit(sel.id, { kisa: true }); ot.bekleyen = { sel, kart: aktuell }; render(aktuell); return; }
       // 15.11 (E11): artikeli çok karışan isim (Kern sel.kuralKart): önce kural kartı (isim başına günde bir), Devam'la flaş
@@ -3463,6 +3461,20 @@
       (ot.gecmis = ot.gecmis || []).push({ id: sel.id, bicim: sel.bicim, tur: sel.tur });
     }
     leerGoster({ tur: 'bitti' });
+  }
+  // "Biliyorum, sonra sor" ile ertelenenler (ot.yoklamaErt): tanıtılmış / hafızaya girmiş olan atılır. mod 0: sırası gelen (adım ≥ at);
+  // 'son' (tur boyu doldu): en az ERT_MIN cevap önce ertelenmiş olan hemen, daha yenisi bırakılır (kelime yeni kalır: sonraki partide ön testle);
+  // 'hemen' (soracak başka şey kalmadı): beklemeden — tur "şimdilik bu kadar" diye bitip kelime kaybolmasın. Dönen: sorulacak sıra (yoksa −1)
+  function ertHazir(mod) {
+    const ot = session.ot; if (!ot || !ot.yoklamaErt || !ot.yoklamaErt.length) return -1;
+    const n = session.tur ? session.tur.n : 0, adim = ot.adim || 0;
+    ot.yoklamaErt = ot.yoklamaErt.filter(x => { const it = S.items[x.id]; return !(it && (it.tanit || (it.m && it.m.S))) && !(mod === 'son' && x.at > adim && n - (x.n0 || 0) < ERT_MIN); });
+    return ot.yoklamaErt.findIndex(x => mod || x.at <= adim);
+  }
+  function ertYoklama(mod) {
+    const i = ertHazir(mod); if (i < 0) return false;
+    const ot = session.ot, x = ot.yoklamaErt.splice(i, 1)[0];
+    ot.partiIds = []; aktuell = Object.assign(frageYoklama(x.id, 'tanit'), { start: now() }); render(aktuell); return true;
   }
   // sırada soru yok: turda cevap varsa tur sonu ("şimdilik bu kadar" + günde bir "+3 yeni"), yoksa boş ekran
   function leerGoster(sel) {
@@ -3494,7 +3506,7 @@
   }
   function tanitGoster() {
     const ot = session.ot, x = ot.tanitSira[0];
-    aktuell = x.yoklama ? Object.assign(frageYoklama(x.id, 'parti'), { start: now() }) : frageTanit(x.id, { kisa: !!(S.items[x.id] && S.items[x.id].yarim && S.items[x.id].seit && !S.items[x.id].tanit) });
+    aktuell = x.yoklama ? Object.assign(frageYoklama(x.id, 'parti'), { start: now() }) : frageTanit(x.id, { kisa: !!(S.items[x.id] && S.items[x.id].yarim && S.items[x.id].seit && !S.items[x.id].tanit), yoklamaDan: !!x.yoklamaDan });
     render(aktuell);
   }
   // tanıtım bitti: öğe kaydı (kotaya sayılır; yarım öğe sayılmaz), 'yeni;neu' satırı; parti bittiyse mini sorular kuyruğa
@@ -3528,12 +3540,16 @@
   // "Biliyorum, sonra sor": kelime ekranda göründüğü için yoklama hemen açılmaz (gördüğünü yazmak bilmek değil);
   // tanıtım kaydedilmez, öğe partiden çıkar ve YOKLAMA_ARA soru sonra tanıtımsız sorulur. Yanlışsa tanıtım o zaman gelir.
   // Tur o kadar sürmezse öğe yeni kalır (sonraki partide yeniden gelir).
-  const YOKLAMA_ARA = 8;
+  // 19.11 (Tuna: "Biliyorum, sonra sor deyince atıyor, sonra tekrar aynısı oluyor"): 8 soruluk erteleme 12'lik turda neredeyse hiç
+  // sırasına gelmiyordu; tekrar sırası boşken tur hemen "şimdilik bu kadar" diye bitiyor (kelime sorulmadan kayboluyordu) ve kelime yeni
+  // kaldığı için aynı turun sonraki partisinde yine tanıtılıyordu. Şimdi: 5 soru sonra; ertelenen kelime bu turda partiye girmez
+  // (sec: ot.filtre); soracak başka şey kalmayınca hemen, tur boyu dolunca en az ERT_MIN cevap önce ertelenmişse sorulur (ertHazir).
+  const YOKLAMA_ARA = 5, ERT_MIN = 2;
   function tanitSor() {
-    const q = aktuell; if (!q || q.typ !== 'tanit' || q.kisa) return;
+    const q = aktuell; if (!q || q.typ !== 'tanit' || q.kisa || q.yoklamaDan) return;
     const ot = session.ot;
     if (!ot || !ot.tanitSira || !ot.tanitSira.length || ot.tanitSira[0].id !== q.id) return;
-    (ot.yoklamaErt = ot.yoklamaErt || []).push({ id: q.id, at: (ot.adim || 0) + YOKLAMA_ARA });
+    (ot.yoklamaErt = ot.yoklamaErt || []).push({ id: q.id, at: (ot.adim || 0) + YOKLAMA_ARA, n0: session.tur ? session.tur.n : 0 });
     session.notCip = 'tamam, birazdan soracağım';
     partiIlerle();
   }

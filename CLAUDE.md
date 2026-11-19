@@ -174,9 +174,12 @@
   Kern: `yeniSira` kurs öğelerini (yeni ya da yarım, askıda değil: `kursBekleyen`) en başa koyar (yarımdan da önce, dosya sırasıyla); kota frendeyken kurs öğesi önemli sayılır ve henüz tanıtılmamış kurs öğesi varken günde en az 4 (`KURS_TABAN`); kota aşılmaz.
   Hafızadaki öğeye dokunulmaz; askıdaysa bir kez geri (`Kern.kursDuzen`, `duzen1411` içinden; öğede `kursG` = kurs tarihi; kurs gününden sonraki askıya dokunmaz; log `akt;aski:<öğe>;…;geri;;neden:kurs`). Test: `node tests/test_kern.js` (kurs bölümü).
 - **19.11 ön test** (Tuna: "yeni kelimelerin çoğunu biliyorum, sınırı artıralım mı?"; ayarı zaten 8, genç freni (118 genç öğe) kotayı 4'te tutuyordu; 9–19.11 yoklamada 10/11 bildi ama yoklama yalnız A1 / uluslararası kelimedeydi):
-  yoklama her yeni kelimede (`Kern.yoklamaAday`: hafızada değil, `cumleIciMi` değil), turda ≤ 5 (`YOKLAMA_TUR`; parti zaten ≤ 3), günde ≤ 20 (`YOKLAMA_GUN`). Bildiği kelime tanıtılmaz, kotaya ve genç sayısına girmez (S 8,3, bm 2, ilk tekrar ≤ 14 g); bilmediği tanıtılır (kotadan).
+  yoklama her yeni kelimede (`Kern.yoklamaAday`: hafızada değil, `cumleIciMi` değil), turda ≤ 12 (`YOKLAMA_TUR`; tekrar sırası boşken bir turda birkaç parti açılır), günde ≤ 20 (`YOKLAMA_GUN`). Bildiği kelime tanıtılmaz, kotaya ve genç sayısına girmez (S 8,3, bm 2, ilk tekrar ≤ 14 g); bilmediği tanıtılır (kotadan).
   A1 / uluslararası kelime yalnız Türkçesiyle, diğerleri Türkçe cümle + boşluklu Almanca cümleyle (`yazIpucu(id, 'cumle')`; yoksa Türkçe), harf ipucu yok. Tur sonu "zaten biliyordun · N (hakkından düşmedi)", tur satırı sonunda `bildi:N`.
   Sim (K 100, 14 gün, ön testte %60 biliniyor, `YOK_P`): tanıtılan 131 → 127, ön testte bilinen +115, 15. gün vadeli 80 → 97.
+  "Biliyorum, sonra sor" (19.11 akşam, Tuna: "deyince atıyor, sonra tekrar aynısı oluyor"): ertelenen kelime (`ot.yoklamaErt`, `{ id, at: adım + YOKLAMA_ARA (5), n0 }`) bu turda partiye girmez (`ot.filtre`; önce aynı turun sonraki partisinde yeniden tanıtılıyordu);
+  soracak başka şey kalmayınca hemen, tur boyu dolunca en az `ERT_MIN` (2) cevap önce ertelenmişse sorulur (`ertHazir` / `ertYoklama`; önce tur "şimdilik bu kadar" diye bitiyor, kelime kayboluyordu). Tur sonunda partinin kalan kartları da gösterilir.
+  Ön testi bilemediği kelimenin tanıtımında "Biliyorum, sonra sor" yok (`frageTanit` `opts.yoklamaDan`; tanıtım satırında `yoklama` etiketi). Test: `node tests/e2e_yoklama.js`.
 - Mimari ve gerekçeler: `TASARIM.md`.
 
 ## "Sonuçlarıma bak" dendiğinde

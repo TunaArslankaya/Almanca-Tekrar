@@ -904,7 +904,8 @@
   // ön test her yeni kelimede. Bildiği kelime tanıtılmaz, kotaya ve genç sayısına girmez (S 8,3, ilk tekrar ≤ 14 g); kota yalnız bilmediği
   // kelimeye harcanır. Kiplik edatı / bağlaç (cumleIciMi: eben, doch …) tanıtımla gelir (tek başına Türkçesinden sorulmaz).
   // Turda en çok YOKLAMA_TUR, günde en çok YOKLAMA_GUN (her biri bir cevap; kota bitince parti, dolayısıyla ön test de durur).
-  const YOKLAMA_TUR = 5, YOKLAMA_GUN = 20;
+  // 19.11 akşam: turda 5 → 12 (tekrar sırası boşken bir turda birkaç parti açılıyor; 5'ten sonrakiler ön testsiz tanıtılıyordu: gewöhnen, Entwicklung)
+  const YOKLAMA_TUR = 12, YOKLAMA_GUN = 20;
   const yoklamaAday = (S, id) => !S.items[id] && !cumleIciMi(id);
   // yeni parti: kotadan n yeni öğe + kotadan bağımsız en çok opts.yarimHak yarım öğe (günde en çok YARIM_GUN);
   // bugün tanıtılanlarla birlikte karışma kapısından geçer

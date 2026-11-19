@@ -506,3 +506,8 @@ Son incelenen log satırı değişmedi.
 - Karar: ham sınırı artırmak yerine ön test her yeni kelimede (önceden yalnız A1 / uluslararası). Bildiği kelime tanıtılmaz, kotaya ve genç havuzuna girmez; kota yalnız bilmediği kelimeye harcanır (CLAUDE.md "19.11 ön test"). Belirsiz Türkçede Türkçe cümleyle sorulur.
 - Testler: e2e_aski ve e2e_ek gerçek kayıttaki yeni veriden (32 askı, 14–16.11 gerçek cevapları) bağımsız yapıldı.
 Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
+
+**2026-11-19 akşam (Tuna: "Biliyorum, sonra sor deyince atıyor, sonra başka bir şeye tıklayınca tekrar aynısı oluyor")**
+- Log (20:02–20:07): erfüllen ön testte "ausfüllen" → tanıtım → ertelendi → aynı turun sonraki partisinde yine geldi; tekrar sırası boşken tur ertelenen kelimeyi sormadan "şimdilik bu kadar" diye bitiyordu (8 soruluk erteleme 12'lik turda neredeyse hiç sırasına gelmiyordu). gewöhnen / Entwicklung ön testsiz tanıtıldı (turda 5 ön test sınırı; aynı turda 4 parti açılmıştı).
+- Düzeltme (CLAUDE.md "19.11 ön test"): ertelenen kelime bu turda partiye girmez, soracak şey kalmayınca hemen / tur sonunda sorulur; ön testten gelen tanıtımda "Biliyorum, sonra sor" yok; turda ön test 12. Yeni test `tests/e2e_yoklama.js` (eski kodda hatayı birebir veriyor: 5 hata).
+Son incelenen log satırı değişmedi (bu not uygulama değişikliği).

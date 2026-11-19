@@ -274,7 +274,8 @@ async function yenile(p, opts) {
     // tanıtım kartı: Devam ≥ 4 sn kapalı (test zamanlayıcıları ×0,25 → ≥ 1 sn)
     const t = await D.sayfa(b, { mobil: true });
     await t.evaluate(() => window.__tekrar.starte('akis')); await t.waitForTimeout(150);
-    for (let i = 0; i < 6; i++) { const s = await D.durum(t); if (s.tur === 'tanit') break; if (s.tur === 'leer' || s.tur === 'turSonu') break; await D.adim(t, { dogru: 1 }); }
+    // 19.11: yeni kelime önce ön testle gelir; bilemeyince tanıtım kartı
+    for (let i = 0; i < 8; i++) { const s = await D.durum(t); if (s.tur === 'tanit') break; if (s.tur === 'leer' || s.tur === 'turSonu') break; await D.adim(t, { dogru: s.yoklama ? 0 : 1 }); }
     const s0 = await D.durum(t);
     if (s0.tur === 'tanit') {
       // süre kartın kendi kilit başlangıcından (kilitT0, sayfa saati): sürücünün kartı fark etme gecikmesi ölçüye girmesin (8.11: geçiş zamanlaması değişince 950 → 900 ms sınırına düşüyordu)
