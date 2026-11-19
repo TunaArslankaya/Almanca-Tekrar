@@ -5177,3 +5177,33 @@
 2026-11-19 12:36:06;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:108 | dk:1 | yeni:1 | seviye+:2 | tekrar:10 | ipucusuz:2 | gram:0/1
 2026-11-19 12:36:10;art;x1557;das Vorurteil;kural kartı;;neu;das Vorurteil;bicim:kuralKart | kural:son parça: Urteil | örnek:n1292 | kanca | sek:3
 2026-11-19 12:36:13;art;x1557:art;das Vorurteil;mit ___ Vorurteil [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:2.1 | hâl:Dat | sek:3
+2026-11-19 12:36:22;abr;v292:abr;geschehen;olmak, meydana gelmek;geschehen;richtig;geschehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.80 | S:1.0 | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:36:35;wort;n1096:wort;die Sorge;endişe, kaygı | … _____, das kann jedem passieren.;die Sogre;fast;die Sorge;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.93 | S:11.7 | kısmi | yazım | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-19 12:36:38;wort;n1089:wort;der Sitz;"koltuk; merkez";der Sitz;richtig;der Sitz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.93 | S:2.2 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-19 12:36:41;art;n1374;das Wetter;kural kartı;;neu;das Wetter;bicim:kuralKart | kanca | sek:3
+2026-11-19 12:36:43;art;n1374:art;das Wetter;mit ___ Wetter [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:6.3 | hâl:Dat | sek:2
+2026-11-19 12:36:51;gram;g:adjektiv:9;adjektiv/unbestimmt;Mein Bruder hat ein ___ Auto gekauft. (gebraucht);gebrauchtes;richtig;gebrauchtes;tur:akis | tür:luecke | z:2 | sek:8
+2026-11-19 12:37:01;nsatz;w0079:nsatz;dabei;Ich koche gern und höre _____ Musik.;dabei;richtig;dabei;basamak:B2 | bicim:bos0 | not:m3 | R:0.69 | S:1.1 | sek:9 | ipucu:0
+2026-11-19 12:37:13;wort;x1549:wort;die Ehrlichkeit;dürüstlük;die Fairness;falsch;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:m1 | R:0.75 | S:0.2 | düzeltti | kelime yanlış | sek:9 | ipucu:2 | ipucu-tür:tr
+2026-11-19 12:37:13;leech;x1549;die Ehrlichkeit;dürüstlük;;takiliyor;;günler:2026-10-18,2026-11-16,2026-11-19
+2026-11-19 12:37:16;prod;w0067:prod;bisher;şimdiye kadar | In Deutschland war das _____ verboten.;bisher;richtig;bisher;basamak:B2 | bicim:yaz0 | not:m3 | R:0.92 | S:5.2 | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-19 12:37:21;nsatz;n1044:nsatz;der Schmerz;Haben Sie _____?;Schmerzen;richtig;Schmerzen;basamak:B2 | bicim:bos0 | not:m3 | R:0.92 | S:7.6 | sek:4 | ipucu:0
+2026-11-19 12:37:27;wort;n0875:wort;die Organisation;organizasyon, kuruluş | … _____ des Festes war sehr gut.;die Organisation;richtig;die Organisation;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.92 | S:4.7 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:37:33;wort;n0341:wort;der Fall;durum, vaka | Rufen Sie auf … _____ vorher noch einmal an.;der Fall;richtig;der Fall;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:3.7 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-19 12:37:41;wort;x1549:wort;die Ehrlichkeit;dürüstlük | Der Chef hat … _____ des neuen Mitarbeiters gelobt.;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:0.2 | tekrar:1 | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-19 12:37:41;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:11 | küçük:1 | yanlış:1 | puan:133 | dk:2 | yeni:0 | seviye+:0 | tekrar:12 | ipucusuz:1 | gram:1/1
+2026-11-19 12:37:45;art;x1460;das Missverständnis;kural kartı;;neu;das Missverständnis;bicim:kuralKart | kural:son parça: Verständnis | örnek:n1323 | kanca | sek:3
+2026-11-19 12:37:48;art;x1460:art;das Missverständnis;Wir haben ___ Missverständnis schnell geklärt. [Nom/Akk];das;richtig;das;basamak:A | bicim:artOb | not:a3 | R:0.82 | S:5.1 | hâl:Nom/Akk | sek:2
+2026-11-19 12:37:55;abr;v502:abr;sterben an;Kalp krizinden öldü. | (bir şeyden) ölmek;sterben an;richtig;sterben an (an + Dat);basamak:B2 | bicim:kalip | not:m3 | R:0.91 | S:8.5 | sek:7 | ipucu:2
+2026-11-19 12:38:03;prod;w0600:prod;vor Gericht gehen;mahkemeye gitmek;vor Gerecht gehen;fast;vor Gericht gehen;basamak:B2 | bicim:yaz | not:m3 | R:0.91 | S:6.9 | kısmi | yazım | sek:5 | ipucu:2 | ipucu-tür:tr | öneri:falsch
+2026-11-19 12:38:06;art;x1559:art;der Umgang;wegen ___ Umgangs [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.62 | S:0.9 | hâl:Gen | sek:2
+2026-11-19 12:38:14;nsatz;n1228:nsatz;der Tod;Hier ist es umgekehrt: Man ist nach dem _____ automatisch Spender oder Spenderin, wenn man dem nicht widersprochen hat.;Tod;richtig;Tod;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:8.5 | kapı:7g | sek:8 | ipucu:0
+2026-11-19 12:38:22;gram;g:nominal-verbal:11;nominal-verbal/wegen;wegen / des Regens / ist / das Konzert / ausgefallen;wegen des Regens ist das Konzert ausgefallen;richtig;Wegen des Regens ist das Konzert ausgefallen.;tur:akis | tür:ordnen | z:2 | ghost:2 | sek:7
+2026-11-19 12:38:31;nsatz;w0485:nsatz;überhaupt;Die Suppe schmeckt mir _____ nicht.;gar;falsch;überhaupt;basamak:B2 | bicim:bos | not:m1 | R:0.91 | S:0.8 | düzeltti | farklı | sek:5 | ipucu:1
+2026-11-19 12:38:36;abr;v589:abr;sich verlassen auf;Otobüse güvenilmez. | (birine / bir şeye) güvenmek;sich verlassen auf;richtig;sich verlassen auf (auf + Akk);basamak:B2 | bicim:kalip | not:m4 | R:0.90 | S:4.0 | sek:5 | ipucu:2
+2026-11-19 12:38:43;satz;v256:satz;feststellen;Der Arzt hat mich untersucht, konnte aber nichts _____.;feststellen;richtig;feststellen;basamak:B2 | bicim:bos0 | not:m3 | R:0.90 | S:4.4 | sek:7 | ipucu:0
+2026-11-19 12:38:54;wort;n0236:wort;der Dialekt;lehçe, şive | Ich verstehe dich besser, wenn du nicht _____ sprichst.;deutlich;falsch;der Dialekt;basamak:B2 | bicim:yaz | not:m1 | R:0.94 | S:1.0 | düzeltti | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-19 12:39:04;nsatz;n0795:nsatz;die Minderheit;Nur eine kleine _____ hat gegen den Vorschlag gestimmt.;vorschlage;falsch;Minderheit;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:3.7 | düzeltti | farklı | sek:6 | ipucu:1
+2026-11-19 12:39:08;nsatz;w0485:nsatz;überhaupt;Tut mir leid. Ich habe _____ keine Zeit.;überhaupt;richtig;überhaupt;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-19 12:39:21;nsatz;w0138:nsatz;entlang;Jeden Abend läuft mein Nachbar mit seinem Hund den Deich _____.;joggen;falsch;entlang;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.8 | düzeltti | farklı | sek:9 | ipucu:1
+2026-11-19 12:39:26;wort;n0236:wort;der Dialekt;lehçe, şive | … _____ ist die Art, wie jemand eine Sprache spricht.;der Dialekt;richtig;der Dialekt;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.0 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:decumle
