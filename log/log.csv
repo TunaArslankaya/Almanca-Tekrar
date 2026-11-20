@@ -5346,3 +5346,29 @@
 2026-11-20 04:52:20;wort;n0207:wort;die Burg;kale, şato;die Burg;richtig;die Burg;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.91 | S:75.9 | sek:3 | ipucu:2 | ipucu-tür:tr
 2026-11-20 04:52:26;art;n0186:art;die Botschaft;Das Visum habe ich von ___ Botschaft bekommen. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:10.3 | hâl:Dat | sek:5
 2026-11-20 04:52:35;wort;n0795:wort;die Minderheit;azınlık | Frauen sind in unserer Firma in … _____.;die Mindheit;fast;die Minderheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:4.0 | kısmi | yazım | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-20 04:52:57;gram;g:konnektoren-b2:3;konnektoren-b2/indem;Er hat sein Fahrrad repariert, ___ er den Reifen gewechselt hat.;indem;richtig;indem;tur:akis | tür:luecke | z:1 | sek:21
+2026-11-20 04:53:29;nsatz;x1551:nsatz;die Gleichberechtigung;_____ bedeutet auch, dass Frauen für die gleiche Arbeit das gleiche Geld bekommen.;die Gleichrecht;falsch;Gleichberechtigung;basamak:B2 | bicim:bos | not:m1 | R:0.81 | S:0.5 | düzeltti | farklı | sek:16 | ipucu:1
+2026-11-20 04:53:40;wort;n0915:wort;der Politiker;politikacı;der Politiker;richtig;der Politiker;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:20.7 | sek:11 | ipucu:2 | ipucu-tür:tr
+2026-11-20 04:53:53;nsatz;w0565:nsatz;wohl;Kann ich nach Hause gehen? Ich fühle mich nicht _____.;gut;falsch;wohl;basamak:B2 | bicim:bos | not:m1 | R:0.89 | S:0.8 | düzeltti | farklı | sek:7 | ipucu:1
+2026-11-20 04:53:56;bed;v701:bed;sich(D) gönnen;(kendine bir şeyi) çok görmemek, kendini ödüllendirmek;sich(D) gönnen;richtig;sich(D) gönnen;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | şık:v294/v399/v347 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-20 04:54:05;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.5 | tekrar:1 | sek:9 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:54:20;wort;x1550:wort;die Gerechtigkeit;adalet;die Gerechkeit;falsch;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.6 | düzeltti | kelime yanlış | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:54:20;leech;x1550;die Gerechtigkeit;adalet;;takiliyor;;günler:2026-10-18,2026-11-15,2026-11-20
+2026-11-20 04:54:23;nsatz;w0565:nsatz;wohl;Sie hat sich in Bremen sofort _____ gefühlt.;wohl;richtig;wohl;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-20 04:54:41;prod;w0461:prod;statt;yerine (+ Gen) | Die nächste Prüfung findet Ende August _____.;sogar;falsch;statt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.86 | S:0.5 | düzeltti | farklı | sek:15 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:54:51;wort;x1550:wort;die Gerechtigkeit;adalet | Das Gericht soll für _____ sorgen.;die Gerechtigkeit;richtig;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.6 | tekrar:1 | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:54:51;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:10 | küçük:1 | yanlış:4 | puan:121 | dk:3 | yeni:0 | seviye+:1 | tekrar:14 | ipucusuz:2 | gram:1/1
+2026-11-20 04:54:56;prod;w0195:prod;genauso;tıpkı, aynı şekilde | Er sieht _____ aus wie sein Vater.;genauso;richtig;genauso;basamak:B2 | bicim:yaz0 | not:m3 | R:0.83 | S:0.7 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:55:29;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek | Morgen muss man … Regen _____.;erwarten;falsch;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:m1 | R:0.86 | S:0.1 | düzeltti | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-20 04:55:42;abr;v620:abr;verzichten auf;Çocuklarının yanında kalmak istediği için kariyerinden vazgeçti. | (bir şeyden) vazgeçmek;sich verlassen auf;falsch;verzichten auf (auf + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.86 | S:0.3 | düzeltti | sek:6 | ipucu:2
+2026-11-20 04:55:52;wort;n0521:wort;die Haut;cilt, deri | Haben Sie eine Creme für trocken… _____?;d;falsch;die Haut;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:7 | ipucu:2 | ipucu-tür:trcumle | bilmiyorum
+2026-11-20 04:55:52;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:1
+2026-11-20 04:55:56;yeni;n0521;die Haut;tanıtım;;neu;cilt, deri;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-20 04:56:15;prod;w0343:prod;nämlich;çünkü, yani (açıklama) | Ich muss leider gehen. Ich habe _____ noch einen Termin beim Zahnarzt.;noch;falsch;nämlich;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | farklı | sek:14 | ipucu:2 | ipucu-tür:trcumle
+2026-11-20 04:56:20;yeni;w0343;nämlich;tanıtım;;neu;çünkü, yani (açıklama);basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:6
+2026-11-20 04:56:24;wort;x1571:wort;die Anfrage;(resmî) soru, talep;die Anfrage;richtig;die Anfrage;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.83 | S:1.3 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:56:29;art;x1561;die Not;kural kartı;;neu;die Not;bicim:kuralKart | sek:4
+2026-11-20 04:56:34;art;x1561:art;die Not;Nach dem Krieg war ___ Not in der Stadt groß. [Nom/Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.84 | S:1.7 | hâl:Nom/Akk | sek:4
+2026-11-20 04:56:36;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-20 04:56:40;abr;v620:abr;verzichten auf;(bir şeyden) vazgeçmek;verzichten auf;richtig;verzichten auf (auf + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-20 04:56:48;prod;w0343:prod;nämlich;çünkü, yani (açıklama) | Sie konnten nur sehr wenig, _____ Zahlen zusammenzählen.;nasda;falsch;nämlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | farklı | sek:4 | ipucu:0 | ipucu-tür:decumle
