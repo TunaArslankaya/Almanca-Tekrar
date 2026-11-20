@@ -5346,3 +5346,13 @@
 2026-11-20 04:52:20;wort;n0207:wort;die Burg;kale, şato;die Burg;richtig;die Burg;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.91 | S:75.9 | sek:3 | ipucu:2 | ipucu-tür:tr
 2026-11-20 04:52:26;art;n0186:art;die Botschaft;Das Visum habe ich von ___ Botschaft bekommen. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:10.3 | hâl:Dat | sek:5
 2026-11-20 04:52:35;wort;n0795:wort;die Minderheit;azınlık | Frauen sind in unserer Firma in … _____.;die Mindheit;fast;die Minderheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:4.0 | kısmi | yazım | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-20 04:52:57;gram;g:konnektoren-b2:3;konnektoren-b2/indem;Er hat sein Fahrrad repariert, ___ er den Reifen gewechselt hat.;indem;richtig;indem;tur:akis | tür:luecke | z:1 | sek:21
+2026-11-20 04:53:29;nsatz;x1551:nsatz;die Gleichberechtigung;_____ bedeutet auch, dass Frauen für die gleiche Arbeit das gleiche Geld bekommen.;die Gleichrecht;falsch;Gleichberechtigung;basamak:B2 | bicim:bos | not:m1 | R:0.81 | S:0.5 | düzeltti | farklı | sek:16 | ipucu:1
+2026-11-20 04:53:40;wort;n0915:wort;der Politiker;politikacı;der Politiker;richtig;der Politiker;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.90 | S:20.7 | sek:11 | ipucu:2 | ipucu-tür:tr
+2026-11-20 04:53:53;nsatz;w0565:nsatz;wohl;Kann ich nach Hause gehen? Ich fühle mich nicht _____.;gut;falsch;wohl;basamak:B2 | bicim:bos | not:m1 | R:0.89 | S:0.8 | düzeltti | farklı | sek:7 | ipucu:1
+2026-11-20 04:53:56;bed;v701:bed;sich(D) gönnen;(kendine bir şeyi) çok görmemek, kendini ödüllendirmek;sich(D) gönnen;richtig;sich(D) gönnen;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | şık:v294/v399/v347 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-20 04:54:05;wort;x1551:wort;die Gleichberechtigung;eşit haklılık (kadın–erkek eşitliği);die Gleichberechtigung;richtig;die Gleichberechtigung;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.5 | tekrar:1 | sek:9 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:54:20;wort;x1550:wort;die Gerechtigkeit;adalet;die Gerechkeit;falsch;die Gerechtigkeit;basamak:B2 | bicim:yaz0 | not:m1 | R:0.89 | S:0.6 | düzeltti | kelime yanlış | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:54:20;leech;x1550;die Gerechtigkeit;adalet;;takiliyor;;günler:2026-10-18,2026-11-15,2026-11-20
+2026-11-20 04:54:23;nsatz;w0565:nsatz;wohl;Sie hat sich in Bremen sofort _____ gefühlt.;wohl;richtig;wohl;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0
+2026-11-20 04:54:41;prod;w0461:prod;statt;yerine (+ Gen) | Die nächste Prüfung findet Ende August _____.;sogar;falsch;statt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.86 | S:0.5 | düzeltti | farklı | sek:15 | ipucu:0 | ipucu-tür:trcumle
