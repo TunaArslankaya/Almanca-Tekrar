@@ -5291,3 +5291,8 @@
 2026-11-19 20:06:56;abr;v294:abr;sich gewöhnen an;(bir şeye) alışmak;sich gewöhnen an;richtig;sich gewöhnen an (an + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:6 | ipucu:0 | ipucu-tür:tr
 2026-11-19 20:07:37;yeni;n0300;die Entwicklung;tanıtım;;neu;gelişme;basamak:B0 | bicim:tanit | not:- | parti | sek:4
 2026-11-19 20:07:41;wort;n0300:wort;die Entwicklung;gelişme;die Entwicklung;richtig;die Entwicklung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:07:54;yeni;w0003;abhängig;tanıtım;;neu;bağımlı, bağlı (von + D: -e);basamak:B0 | bicim:tanit | not:- | parti | sek:9
+2026-11-19 20:07:59;prod;w0003:prod;abhängig;bağımlı, bağlı (von + D: -e);abhängig;richtig;abhängig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-19 20:07:59;tur;akis;Çalış;;;leer;;cevap:8 | doğru:7 | küçük:0 | yanlış:1 | puan:72 | dk:4 | yeni:3 | seviye+:0 | tekrar:0 | ipucusuz:4 | bildi:4
+2026-11-20 04:46:44;prod;w0003:prod;abhängig;bağımlı, bağlı (von + D: -e) | Ob wir grillen, ist vom Wetter _____.;ansond;falsch;abhängig;basamak:B2 | bicim:yaz0 | not:m1 | R:0.98 | S:0.5 | ısınma | düzeltti | farklı | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:46:53;wort;n0300:wort;die Entwicklung;gelişme | Genug Schlaf ist wichtig für … _____ Ihres Kindes.;die Entwicklung;richtig;die Entwicklung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.98 | S:3.5 | ısınma | sek:9 | ipucu:0 | ipucu-tür:trcumle
