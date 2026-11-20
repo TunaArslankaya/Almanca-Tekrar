@@ -86,6 +86,17 @@
   // 15.11 sabah (E9): sıra gerçek B2'den başlar (eskiden ilk 9 konu B1 düzeyindeydi: konjunktiv2-verg, passiv, relativ …; gerçek B2 ~27. günde).
   const B2_SIRA = ['nominal-verbal', 'konnektoren-b2', 'zweiteilig', 'passiversatz', 'partizipialattribut', 'konjunktiv1',
     'konjunktiv2-verg', 'passiv', 'relativ', 'partizip-adj', 'genitiv', 'praep-verben'];
+  // 20.11 (Tuna: "daha B1.2'yi bitirmedim, niye B2 gramer var"; 6.11'den beri B1.2'yi tekrar ediyor, 14.11'deki "B2 olduğum hâlde" yanlış
+  // anlaşılmıştı): gramer seviyesi S.einst.gramSeviye — 'B1' (varsayılan) | 'B2' (Ayarlar → Gramer seviyesi). B1'de B2 konuları (B2_KONU ya da
+  // @stufe B2) kendiliğinden açılmaz, turda (hayalet dahil) sorulmaz, Bugün'de / tekrar listesinde önerilmez, bölümde ayrı başlıkta (yalnız kural);
+  // kendiliğinden açılış sırası B1_SIRA: Netzwerk neu B1.2 (Kapitel 7–12) konuları, sonra B1 çekirdeği. Açılmış B2 konusunun durumu silinmez
+  // (B2'ye geçince kaldığı yerden).
+  const B2_KONU = new Set(['nominal-verbal', 'konnektoren-b2', 'passiversatz', 'partizipialattribut', 'konjunktiv1']);
+  const B1_SIRA = ['plusquamperfekt', 'temporal', 'konjunktiv2-verg', 'adjektiv', 'negation', 'wortbildung', 'passiv', 'relativ', 'je-desto', 'partizip-adj',
+    'zweiteilig', 'genitiv', 'praep-verben', 'zu-infinitiv', 'damit-um-zu', 'statt-ohne-zu', 'lassen-brauchen', 'nomen-verb', 'konjunktiv2'];
+  const gramB2 = () => { st(); return !!(S && S.einst && S.einst.gramSeviye === 'B2'); };
+  const b2KonuMu = id => B2_KONU.has(id) || /^B2/.test(String(((GR[id] || {}).kopf || {}).stufe || ''));
+  const kapali = id => b2KonuMu(id) && !gramB2();
   const OTO_ARALIK = 3;     // gün: iki kendiliğinden açılış arası
   const ODAK_GUN = 7;       // açılan / odak konu bu kadar gün turda öncelikli (kartı vadeli olmasa da)
   // turda yalnız hayalet olarak (yanlıştan sonra) gelen konular: tanıda "biliyor" olanlar + B2 için temel kalan iki konu
@@ -95,8 +106,10 @@
   // TUR_HAYALET konularının turdaki hayaleti (15.11 sabah, E9): yanlışta adım sayacı sıfırlanmaz (ertesi gün, adım korunur), turda haftada ≤ 2
   const TH_HAFTA = 2;
   const zayifVeyaYeni = id => { const s = taniSonuc(id); return !s || s === 'zayif'; };
-  const b2Sira = () => B2_SIRA.filter(id => GR[id]).map((id, i) => [id, i]).sort((a, b) => (zayifVeyaYeni(a[0]) ? 0 : 1) - (zayifVeyaYeni(b[0]) ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
-  const b2Rank = id => { const i = B2_SIRA.indexOf(id); return i < 0 ? 99 : i; };
+  // kendiliğinden açılış sırası (seviyeye göre B1_SIRA / B2_SIRA; adı eski: b2Sira / b2Rank)
+  const otoListe = () => gramB2() ? B2_SIRA : B1_SIRA;
+  const b2Sira = () => otoListe().filter(id => GR[id] && !kapali(id)).map((id, i) => [id, i]).sort((a, b) => (zayifVeyaYeni(a[0]) ? 0 : 1) - (zayifVeyaYeni(b[0]) ? 0 : 1) || a[1] - b[1]).map(x => x[0]);
+  const b2Rank = id => { const i = otoListe().indexOf(id); return i < 0 ? 99 : i; };
   // sıradaki B2 adımı: kapalı konu → aç; açık ama kaynağı oto değil, odaksız, oturmamış (S < 21) → odak; diğerleri atlanır
   const b2Adim = () => {
     for (const id of b2Sira()) {
@@ -120,12 +133,12 @@
     if (a.is === 'ac') { ks.acildi = t; ks.kaynak = 'oto'; }
     else ks.odak = t;
     turCache = null;
-    api.logEintrag && api.logEintrag({ modus: 'gram', id: 'g:' + a.id, item: titel, frage: 'oto', antwort: '', ergebnis: a.is === 'ac' ? 'acildi' : 'odak', loesung: '', notiz: `b2:${B2_SIRA.indexOf(a.id) + 1}` });
+    api.logEintrag && api.logEintrag({ modus: 'gram', id: 'g:' + a.id, item: titel, frage: 'oto', antwort: '', ergebnis: a.is === 'ac' ? 'acildi' : 'odak', loesung: '', notiz: `${gramB2() ? 'b2' : 'b1'}:${otoListe().indexOf(a.id) + 1}` });
     api.save && api.save();
     return a;
   }
   // kendiliğinden açılmış ama giriş seti yapılmamış (kartsız) konu: turdaki sorusu z1 + kural özetiyle gelir
-  const girisYok = id => { const k = st().konu[id]; return !!(k && k.acildi && k.kaynak === 'oto' && !k.karte); };
+  const girisYok = id => { const k = st().konu[id]; return !!(k && k.acildi && k.kaynak === 'oto' && !k.karte) && !kapali(id); };
   // giriş seti bekleyen bütün B2 konuları (en yeni önce; 15.11 sabah E9: eskiden yalnız en yenisi önerilirdi, eskisinin girişi kayboluyordu)
   const girisBekleyen = () => Object.keys(GR).filter(girisYok).sort((a, b) => st().konu[b].acildi - st().konu[a].acildi);
   const otoBekleyen = () => girisBekleyen()[0] || null;
@@ -135,7 +148,7 @@
   // B2 sırası → diğerleri → tanıda biliyor → tuerkisch-fallen / TeKaMoLo en sonda. İlk grubun içinde gün gün döner (kart her gün aynı konu olmasın).
   function vadeliSirali(t = now()) {
     const grup = id => { const k = st().konu[id], v = k.turV; return TUR_HAYALET.has(id) ? 4 : taniSonuc(id) === 'biliyor' ? 3 : yeniOdak(id, t) ? 0 : v && !v.ok && v.t && t - v.t < 7 * DAY ? 1 : 2; };
-    const ids = Object.keys(GR).filter(id => vadeliT(id, t)).sort((a, b) => grup(a) - grup(b) || b2Rank(a) - b2Rank(b) || konuSt(a).karte.due - konuSt(b).karte.due);
+    const ids = Object.keys(GR).filter(id => vadeliT(id, t) && !kapali(id)).sort((a, b) => grup(a) - grup(b) || b2Rank(a) - b2Rank(b) || konuSt(a).karte.due - konuSt(b).karte.due);
     if (!ids.length) return ids;
     const g0 = grup(ids[0]), n = ids.filter(id => grup(id) === g0).length, r = n > 1 ? Math.floor(new Date(gun(t) + 'T12:00:00').getTime() / DAY) % n : 0;
     return ids.slice(r, n).concat(ids.slice(0, r), ids.slice(n));
@@ -144,7 +157,7 @@
   // o.girisHaric: giriş bekleyenler atlanır (Bugün'de ayrı giriş kartı onları zaten gösteriyor)
   function gunOnerisi(t = now(), sec = {}) {
     const gb = sec.girisHaric ? [] : girisBekleyen(); if (gb.length) return { id: gb[0], is: 'giris', ad: GR[gb[0]].kopf.titel, bekleyen: gb };
-    const o = Object.keys(GR).find(id => { const k = st().konu[id]; return k && k.odak && yeniOdak(id, t); });
+    const o = Object.keys(GR).find(id => { const k = st().konu[id]; return k && k.odak && yeniOdak(id, t) && !kapali(id); });
     if (o && !bugunYapildi(t)) return { id: o, is: 'derin', ad: GR[o].kopf.titel };
     const v = vadeliSirali(t); if (v.length) return { id: v[0], is: 'tekrar', ad: GR[v[0]].kopf.titel, n: v.length };
     return null;
@@ -226,7 +239,7 @@
     return yeniSira()[0] || null;
   }
   // sprint dışında yeni konu sırası: B2 sırası (kapalı, tanıda biliyor değil) → kalanlar eski açılış sırasıyla
-  const yeniSira = () => { const b2 = b2Sira().filter(id => !acik(id) && taniSonuc(id) !== 'biliyor'); return b2.concat(acilabilir().filter(id => !b2.includes(id))); };
+  const yeniSira = () => { const b2 = b2Sira().filter(id => !acik(id) && taniSonuc(id) !== 'biliyor'); return b2.concat(acilabilir().filter(id => !b2.includes(id) && !kapali(id))); };
   // blok bitince isteğe bağlı +1 (sprintte günde en çok 2)
   const ekYeni = (t = now()) => (sprintYeniVar(t) && bugunAcilan(t).length === 1 ? sprintAday() : null);
   function konuDurum(id) {
@@ -425,10 +438,10 @@
   // turdaki normal (hayalet olmayan) soru adayı: tanıda biliyor / tuerkisch-fallen / TeKaMoLo değil (onlar yalnız hayalet) ve
   // ya yeni / odak (son 7 gün, kartı vadeli olmasa da) ya da kartı vadeli ya da kendiliğinden açılıp giriş seti yapılmamış (kartsız: turda
   // çalışılmaya devam eder); hepsinde 12.11 turV takvimi (turHazir)
-  const turAday = (id, t) => { const k = st().konu[id]; return !yalnizHayalet(id) && acik(id) && (yeniOdak(id, t) || vadeliT(id, t) || (k.kaynak === 'oto' && !k.karte && k.acildi <= t)) && turHazir(id, t); };
+  const turAday = (id, t) => { const k = st().konu[id]; return !yalnizHayalet(id) && acik(id) && !kapali(id) && (yeniOdak(id, t) || vadeliT(id, t) || (k.kaynak === 'oto' && !k.karte && k.acildi <= t)) && turHazir(id, t); };
   const TUR_EK_GUN = 2;
   const odakT = id => { const k = st().konu[id] || {}; return k.kaynak === 'oto' ? k.acildi || 0 : k.odak || 0; };
-  const ekAday = (id, t) => !yalnizHayalet(id) && acik(id) && yeniOdak(id, t) && turSayi(id, t) < TUR_EK_GUN;
+  const ekAday = (id, t) => !yalnizHayalet(id) && acik(id) && !kapali(id) && yeniOdak(id, t) && turSayi(id, t) < TUR_EK_GUN;
   // { konu, n, tur, ghost?, ek? } | null — haric = bu turda sorulan konular. Sıra: açık konuların hazır hayaletleri (önceki tur sorusu hayaletse ve
   // normal aday varsa önce normal: hayalet art arda en çok 1), sonra yeni / odak B2 konusu, sonra vadeli konular (turda az sorulan, turV'de az doğrulu,
   // B2 sırası, en eski vade). "Hata bul" en çok 1/3 (fehlerTurIzin).
@@ -451,7 +464,7 @@
     if (!(son && son.ghost && normalBul()) && hayaletIzin()) {
       for (const k of hayaletHazir(t)) {
         const [id, kod] = k.split(':');
-        if (!GR[id] || !acik(id) || h.has(id) || !turHayaletUygun(id, t)) continue;
+        if (!GR[id] || !acik(id) || kapali(id) || h.has(id) || !turHayaletUygun(id, t)) continue;
         const u = turUebung(id, kod, st().ghost[k].son, { fehlerYok }); if (u) { soru = { konu: id, n: u.n, tur: u.tur, ghost: k }; break; }
       }
     }
@@ -854,9 +867,10 @@
     otoAc();
     const sp = sprintAktif(), td = taniDurum(), by = bugunYeni();
     // 15.11: kendiliğinden açılan (giriş seti bekleyen) B2 konuları ve odak konu en üstte; tekrar listesi vadeliSirali (tuerkisch-fallen / TeKaMoLo sonda)
-    const bekle = ids.filter(id => { const k = st().konu[id]; return k && k.acildi && k.kaynak === 'oto' && !k.karte; }).sort((a, b) => st().konu[b].acildi - st().konu[a].acildi);
-    const odak = ids.filter(id => { const k = st().konu[id]; return k && k.odak && yeniOdak(id, now()); });
-    const due = vadeliSirali(), ac = ids.filter(id => acik(id) && !vadeli(id) && !bekle.includes(id) && !odak.includes(id)).sort((a, b) => (TUR_HAYALET.has(a) ? 1 : 0) - (TUR_HAYALET.has(b) ? 1 : 0)), yeni = sp ? sprintSira().filter(id => !acik(id) && taniSonuc(id) !== 'biliyor') : yeniSira();
+    const bekle = ids.filter(id => { const k = st().konu[id]; return k && k.acildi && k.kaynak === 'oto' && !k.karte && !kapali(id); }).sort((a, b) => st().konu[b].acildi - st().konu[a].acildi);
+    const odak = ids.filter(id => { const k = st().konu[id]; return k && k.odak && yeniOdak(id, now()) && !kapali(id); });
+    const b2ler = ids.filter(kapali);   // 20.11: B1 seviyesinde B2 konuları ayrı başlıkta, yalnız kural
+    const due = vadeliSirali(), ac = ids.filter(id => acik(id) && !vadeli(id) && !bekle.includes(id) && !odak.includes(id) && !kapali(id)).sort((a, b) => (TUR_HAYALET.has(a) ? 1 : 0) - (TUR_HAYALET.has(b) ? 1 : 0)), yeni = sp ? sprintSira().filter(id => !acik(id) && taniSonuc(id) !== 'biliyor' && !kapali(id)) : yeniSira();
     const ghosts = hayaletHazir();
     const pil = id => { const Sg = kararlilik(id); return !acik(id) ? (taniSonuc(id) === 'zayif' ? '<span class="durum-pil schwach">testte zayıf</span>' : '') : vadeli(id) ? '<span class="durum-pil schwach">tekrar</span>' : Sg >= 21 ? '<span class="durum-pil sitzt">oturdu</span>' : '<span class="durum-pil lernt">öğreniliyor</span>'; };
     const satir = (id, btn) => { const k = GR[id].kopf; return `<div class="oge g-oge"><span class="de">${esc(k.titel)}${k.goethe.stufe === 3 ? ' <span class="soluk">★ sınavda şart</span>' : ''}</span><span class="tr">${esc(k.tr)}${k.kapitel ? ` · <span class="soluk">${esc(kapTemiz(k.kapitel))}</span>` : ''}</span><span class="yan">${pil(id)} ${btn}</span></div>`; };
@@ -864,7 +878,7 @@
     if (!td.bitti) h.push(`<div class="kural">📝 Gramer testi: ${td.yapilan}/${td.toplam} konu · bildiğin konular açılır, bilmediklerin sırayla öğretilir <button class="btn mini ana" data-g="tani" type="button">${td.yapilan ? 'Devam et' : 'Başla'}</button></div>`);
     if (sp) h.push(`<div class="sira"><button class="btn${bugunYapildi() ? '' : ' ana'}" data-g="blok" type="button">${bugunYapildi() ? '✓ ' : ''}Günün gramer bloğu${!td.bitti ? ' · test' : by && !(acik(by) && konuSt(by).karte) ? ' · yeni: ' + esc(GR[by].kopf.titel) : ''}</button></div>`);
     if (ghosts.length) h.push(`<div class="kural">⚡ ${ghosts.length} hayalet tekrar hazır (az önce yanlış yaptığın kurallar) <button class="btn mini ana" data-g="ghost-basla" type="button">Çöz</button></div>`);
-    if (bekle.length) h.push(`<h2>B2 sırası · yeni açıldı</h2><p class="aciklama">Kendiliğinden açıldı (3 günde bir): alıştırmaları turlarda geliyor. Kuralı okuyup giriş setini yaparsan daha iyi oturur.</p>` + bekle.map(id => satir(id, `<button class="btn mini ana" data-g="ac" data-id="${id}" type="button">Başla</button>`)).join(''));
+    if (bekle.length) h.push(`<h2>Yeni açıldı</h2><p class="aciklama">Kendiliğinden açıldı (3 günde bir): alıştırmaları turlarda geliyor. Kuralı okuyup giriş setini yaparsan daha iyi oturur.</p>` + bekle.map(id => satir(id, `<button class="btn mini ana" data-g="ac" data-id="${id}" type="button">Başla</button>`)).join(''));
     if (odak.length) h.push(`<h2>Bu hafta odak</h2>` + odak.map(id => satir(id, `<button class="btn mini" data-g="oku" data-id="${id}" type="button">Kural</button> <button class="btn mini ana" data-g="derin" data-id="${id}" type="button">Boylu boyuna</button>`)).join(''));
     if (due.length) h.push(`<h2>Tekrar zamanı (${due.length})</h2>${due.length > 1 ? `<div class="sira"><button class="btn ana" data-g="karisik" type="button">Karışık tekrar · ${due.length} konu</button></div>` : ''}` + due.map(id => satir(id, `<button class="btn mini ana" data-g="tekrar" data-id="${id}" type="button">Tekrar et</button> <button class="btn mini" data-g="derin" data-id="${id}" type="button">Boylu boyuna</button>`)).join(''));
     if (ac.length) h.push(`<h2>Açık konular</h2>` + ac.map(id => satir(id, `<button class="btn mini" data-g="oku" data-id="${id}" type="button">Kural</button> <button class="btn mini" data-g="tekrar" data-id="${id}" type="button">5 alıştırma</button> <button class="btn mini ana" data-g="derin" data-id="${id}" type="button">Boylu boyuna</button>`)).join(''));
@@ -876,6 +890,8 @@
       h.push(`<h2>Yeni konu${sp ? ' · sprint sırası' : ''}</h2>${sinir ? `<p class="aciklama">${not}</p>` : ''}` +
         yeni.slice(0, 8).map(id => satir(id, `<button class="btn mini${sinir || (sp && id !== by) ? '' : ' ana'}" data-g="ac" data-id="${id}" type="button">Başla</button>`)).join(''));
     }
+    if (b2ler.length) h.push(`<h2>B2 konuları · B1.2 bitince</h2><p class="aciklama">Turlarda sorulmaz, önerilmez. B1.2'yi bitirince Ayarlar → Gramer seviyesi → B2.</p>` +
+      b2ler.map(id => satir(id, `<button class="btn mini" data-g="oku" data-id="${id}" type="button">Kural</button>`)).join(''));
     el().innerHTML = h.join('');
   }
   // ---- tanıtım ----
@@ -1441,7 +1457,7 @@
     // B1 sprinti (S2): durum, günün bloğu, ana turda soru
     SPRINT_SIRA, sprintDurum, blokBaslat, turSorusu, turRender, turKlick, turTus, turBitir,
     // 15.11 B2 sırası: vadeli konular öncelik sırasıyla (tuerkisch-fallen / TeKaMoLo sonda), Bugün'deki gramer kartı önerisi { id, is: 'giris'|'derin'|'tekrar', ad, n? } | null
-    B2_SIRA, vadeliSirali: t => vadeliSirali(t == null ? now() : t), gunOnerisi: (t, o) => { otoAc(t == null ? now() : t); return gunOnerisi(t == null ? now() : t, o || {}); },
+    B2_SIRA, B1_SIRA, B2_KONU, kapali: id => kapali(id), vadeliSirali: t => vadeliSirali(t == null ? now() : t), gunOnerisi: (t, o) => { otoAc(t == null ? now() : t); return gunOnerisi(t == null ? now() : t, o || {}); },
     // giriş seti bekleyen (kendiliğinden açılmış, kartsız) konular, en yeni önce: [{ id, ad, tr }] (Bugün'deki giriş kartı; hedef bitmeden de)
     girisBekleyen: t => { otoAc(t == null ? now() : t); return girisBekleyen().map(id => ({ id, ad: GR[id].kopf.titel, tr: GR[id].kopf.tr })); },
     // bugün gramer bölümünde bir set ya da tanı oturumu bitti mi (turdaki tek tek gramer soruları sayılmaz; Bugün → ikinci iş için)

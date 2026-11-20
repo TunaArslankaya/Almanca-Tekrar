@@ -511,3 +511,8 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - Log (20:02–20:07): erfüllen ön testte "ausfüllen" → tanıtım → ertelendi → aynı turun sonraki partisinde yine geldi; tekrar sırası boşken tur ertelenen kelimeyi sormadan "şimdilik bu kadar" diye bitiyordu (8 soruluk erteleme 12'lik turda neredeyse hiç sırasına gelmiyordu). gewöhnen / Entwicklung ön testsiz tanıtıldı (turda 5 ön test sınırı; aynı turda 4 parti açılmıştı).
 - Düzeltme (CLAUDE.md "19.11 ön test"): ertelenen kelime bu turda partiye girmez, soracak şey kalmayınca hemen / tur sonunda sorulur; ön testten gelen tanıtımda "Biliyorum, sonra sor" yok; turda ön test 12. Yeni test `tests/e2e_yoklama.js` (eski kodda hatayı birebir veriyor: 5 hata).
 Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
+
+**2026-11-20 (Tuna: "daha B1.2'yi bitirmedim, niye B2 gramer var" + "bazı çeviriler berbat")**
+- Gramer: 15.11'de kendiliğinden açılış sırası B2'ye çevrilmişti (14.11'deki "B2 olduğum hâlde" yanlış anlaşıldı); turlara nominal-verbal (15.11) ve konnektoren-b2 (18.11) girmişti (14.11'den beri turdaki gramerin 17/39'u). Şimdi gramer seviyesi B1 (varsayılan; Ayarlar'dan B2): B2 konuları turda / önerilerde yok, sıradaki açılışlar Netzwerk neu B1.2 (K7–12) konularından (ilk: Plusquamperfekt). Açılmış B2 konularının durumu duruyor.
+- Çeviri: 5 ajan bütün cümle ve anlam dosyalarını denetledi, 230 satır düzeltildi (11'i Almanca hata). Sonuç panelinde "çeviri kötü" düğmesi (log `akt;ceviri:<öğe>`), gece işi düzeltir.
+Son incelenen log satırı değişmedi (bu not uygulama / içerik değişikliği).

@@ -35,7 +35,7 @@ der Angehörige | 3 | yakın, akraba (erkek)
 die Angehörige | 3 | yakın, akraba (kadın)
 die Angst | 2 | korku
 die Ankunft | 2 | varış
-die Anlage | 3 | tesis; (müzik) sistemi; ek (mektupta)
+die Anlage | 3 | tesis; müzik seti; ek (mektupta)
 die Anleitung | 3 | kullanım talimatı
 die Anmeldung | 1 | kayıt; resepsiyon
 die Annonce | 3 | ilan
@@ -45,8 +45,8 @@ der Anrufbeantworter | 2 | telesekreter
 die Ansage | 3 | anons
 der Anschluss | 2 | bağlantı (aktarma treni, hat)
 der Anspruch | 3 | hak, talep
-der Angestellte | 2 | memur, çalışan (erkek)
-die Angestellte | 2 | memur, çalışan (kadın)
+der Angestellte | 2 | çalışan, personel (erkek)
+die Angestellte | 2 | çalışan, personel (kadın)
 der Antrag | 3 | başvuru, dilekçe
 die Antwort | 1 | cevap
 der Anwalt | 3 | avukat (erkek)
@@ -334,7 +334,7 @@ die Fachfrau | 3 | uzman (kadın)
 die Fachleute | 3 | uzmanlar (çoğul)
 die Fähigkeit | 3 | yetenek
 die Fähre | 3 | feribot
-die Fahrbahn | 3 | şerit, yol
+die Fahrbahn | 3 | taşıt yolu, yol (araçların gittiği kısım)
 der Fahrer | 2 | sürücü
 die Fahrkarte | 1 | bilet (ulaşım)
 der Fahrplan | 1 | sefer tarifesi
@@ -679,7 +679,7 @@ der Kreis | 3 | daire, çember; ilçe
 das Kreuz | 3 | haç, çarpı işareti
 die Kreuzung | 3 | kavşak
 der Krieg | 3 | savaş
-die Kriminalpolizei | 3 | cinayet masası (polis)
+die Kriminalpolizei | 3 | adli polis, suç soruşturma polisi (Kripo)
 der Krimi | 3 | polisiye (film, roman)
 die Krise | 3 | kriz
 die Kritik | 3 | eleştiri

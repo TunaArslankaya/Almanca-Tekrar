@@ -145,7 +145,7 @@ entspannend | adj | 3 | rahatlatıcı
 entweder … oder | konj | 3 | ya … ya da
 erfolgreich | adj | 3 | başarılı
 erforderlich | adj | 3 | gerekli (resmî)
-erkältet | adj | 2 | üşütmüş, nezle
+erkältet | adj | 2 | üşütmüş, nezle olmuş
 ernst | adj | 3 | ciddi
 erschöpft | adj | 3 | bitkin
 erst | adv | 2 | ancak, daha (erst morgen); önce
@@ -213,7 +213,7 @@ giftig | adj | 3 | zehirli
 glatt | adj | 3 | kaygan; pürüzsüz
 gleich | adv | 1 | hemen; aynı
 gleichfalls | adv | 3 | size de (karşılık)
-gleichberechtigt | adj | 3 | eşit haklı
+gleichberechtigt | adj | 3 | eşit haklara sahip
 gleichzeitig | adj | 3 | aynı anda
 glücklich | adj | 2 | mutlu
 gratis | adj | 3 | bedava
@@ -599,7 +599,7 @@ diplomatisch | adj | 3 | diplomatik, ölçülü
 eigen | adj | 3 | kendi (-ne ait)
 kommerziell | adj | 3 | ticari
 selbe | pron | 3 | aynı (im selben Haus)
-entgegen | präp | 3 | -e rağmen, aksine (+ G)
+entgegen | präp | 3 | -e rağmen, aksine (+ D)
 eingespannt sein | andere | 3 | çok meşgul olmak (iş yüzünden)
 vor Gericht gehen | andere | 3 | mahkemeye gitmek
 blutig | adj | 3 | kanlı; az pişmiş (et)

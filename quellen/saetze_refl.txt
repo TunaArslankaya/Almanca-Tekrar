@@ -14,7 +14,7 @@ v035 | Wir müssen uns im Flugzeug anschnallen. | Uçakta kemerlerimizi takmak z
 v036 | Ich sehe mir heute Abend einen Film an. | Bu akşam bir film izliyorum.
 v036 | Hast du dir die Wohnung angesehen? | Daireye baktın mı?
 v036 | Wir haben uns gestern das Museum angesehen. | Dün müzeyi gezip gördük.
-v036 | Sehen Sie sich bitte dieses Foto an! | Lütfen bu fotoğrafa bakın (siz, kibar).
+v036 | Sehen Sie sich bitte dieses Foto an! | Lütfen bu fotoğrafa bakın (siz).
 v039 | Du musst dich mehr anstrengen. | Daha çok çabalaman gerekiyor.
 v039 | Ich habe mich bei der Prüfung sehr angestrengt. | Sınavda çok çabaladım.
 v039 | Er strengt sich in der Schule nicht an. | O (erkek) okulda çabalamıyor.
@@ -33,7 +33,7 @@ v063 | Warum regt ihr euch über das Wetter auf? | Siz (ikiniz) neden havaya sin
 v063 | Ich rege mich auf, wenn jemand zu spät kommt. | Biri geç kalınca sinirleniyorum.
 v075 | Ich muss mich ein bisschen ausruhen. | Biraz dinlenmem gerekiyor.
 v075 | Hast du dich am Wochenende ausgeruht? | Hafta sonu dinlendin mi?
-v075 | Ruhen Sie sich nach der Operation aus! | Ameliyattan sonra dinlenin (siz, kibar).
+v075 | Ruhen Sie sich nach der Operation aus! | Ameliyattan sonra dinlenin (siz).
 v075 | Wir ruhen uns nach dem Essen kurz aus. | Yemekten sonra kısa bir süre dinleniyoruz.
 v080 | Such dir ein Buch aus! | Kendine bir kitap seç!
 v080 | Ich habe mir ein neues Handy ausgesucht. | Kendime yeni bir cep telefonu seçtim.
@@ -57,7 +57,7 @@ v096 | Ich befinde mich gerade in Bremen. | Şu anda Bremen'de bulunuyorum.
 v096 | Das Hotel hat sich früher am Markt befunden. | Otel eskiden pazar yerinde bulunuyordu.
 v111 | Ich bemühe mich um einen Studienplatz. | Üniversitede bir yer bulmak için çabalıyorum.
 v111 | Er hat sich sehr um seine Gäste bemüht. | O (erkek) misafirleri için çok çaba gösterdi.
-v111 | Bemühen Sie sich bitte nicht! | Lütfen zahmet etmeyin (siz, kibar).
+v111 | Bemühen Sie sich bitte nicht! | Lütfen zahmet etmeyin (siz).
 v111 | Wir bemühen uns, pünktlich zu sein. | Dakik olmaya çabalıyoruz.
 v119 | Beruhige dich doch! | Sakinleş artık!
 v119 | Sie hat sich schnell beruhigt. | O (kadın) çabuk sakinleşti.
@@ -92,7 +92,7 @@ v177 | Eignet sich die Wohnung für eine Familie? | Daire bir aile için uygun m
 v177 | Ich eigne mich nicht für diesen Beruf. | Bu meslek için uygun değilim.
 v177 | Der Raum hat sich gut für die Feier geeignet. | Oda kutlama için çok uygun oldu.
 v184 | Wir haben uns auf einen Termin geeinigt. | Bir randevu tarihinde anlaştık.
-v184 | Habt ihr euch auf ein Restaurant geeinigt? | Siz (ikiniz) bir restoranda anlaştınız mı?
+v184 | Habt ihr euch auf ein Restaurant geeinigt? | Siz (ikiniz) bir restoran üzerinde anlaştınız mı?
 v184 | Die Kollegen einigen sich auf einen Plan. | İş arkadaşları bir plan üzerinde anlaşıyor.
 v184 | Ich hoffe, dass wir uns schnell einigen. | Umarım çabuk anlaşırız.
 v206 | Ich habe mich für das blaue Hemd entschieden. | Mavi gömlekte karar kıldım.
@@ -106,7 +106,7 @@ v207 | Hast du dich zu einem Sprachkurs entschlossen? | Bir dil kursuna gitmeye 
 v209 | Ich entschuldige mich für die Verspätung. | Gecikme için özür dilerim.
 v209 | Hast du dich bei ihr entschuldigt? | Ondan (kadın) özür diledin mi?
 v209 | Er hat sich bei seinem Freund für den Fehler entschuldigt. | O (erkek) hata için arkadaşından özür diledi.
-v209 | Entschuldigen Sie sich bitte bei der Nachbarin! | Lütfen (kadın) komşudan özür dileyin (siz, kibar).
+v209 | Entschuldigen Sie sich bitte bei der Nachbarin! | Lütfen komşu kadından özür dileyin (siz).
 v214 | Der Unfall hat sich gestern Abend ereignet. | Kaza dün akşam meydana geldi.
 v214 | Wo hat sich das ereignet? | Bu nerede meydana geldi?
 v214 | Solche Dinge ereignen sich leider oft. | Böyle şeyler maalesef sık sık meydana geliyor.
@@ -126,7 +126,7 @@ v225 | Die Kinder haben sich im Schwimmbad erkältet. | Çocuklar yüzme havuzun
 v228 | Ich erkundige mich nach dem Weg. | Yolu soruyorum.
 v228 | Hast du dich nach den Preisen erkundigt? | Fiyatları sordun mu?
 v228 | Sie hat sich nach meiner Mutter erkundigt. | O (kadın) annemi sordu.
-v228 | Erkundigen Sie sich bitte am Schalter! | Lütfen gişeden bilgi alın (siz, kibar).
+v228 | Erkundigen Sie sich bitte am Schalter! | Lütfen gişeden bilgi alın (siz).
 v233 | Ich ernähre mich gesund. | Sağlıklı besleniyorum.
 v233 | Ernährst du dich vegetarisch? | Vejetaryen mi besleniyorsun?
 v233 | Er hat sich lange nur von Pizza ernährt. | O (erkek) uzun süre sadece pizzayla beslendi.
@@ -138,7 +138,7 @@ v270 | Wir freuen uns auf deinen Besuch. | Ziyaretini dört gözle bekliyoruz.
 v274 | Ich fühle mich heute nicht gut. | Bugün kendimi iyi hissetmiyorum.
 v274 | Wie fühlst du dich? | Kendini nasıl hissediyorsun?
 v274 | Sie hat sich in Bremen sofort wohl gefühlt. | O (kadın) Bremen'de kendini hemen rahat hissetti.
-v274 | Fühlen Sie sich besser? | Kendinizi daha iyi hissediyor musunuz (siz, kibar)?
+v274 | Fühlen Sie sich besser? | Kendinizi daha iyi hissediyor musunuz (siz)?
 v278 | Ich fürchte mich vor Hunden. | Köpeklerden korkuyorum.
 v278 | Fürchtest du dich vor der Prüfung? | Sınavdan korkuyor musun?
 v278 | Das Kind hat sich vor dem Gewitter gefürchtet. | Çocuk fırtınadan korktu.
@@ -150,15 +150,15 @@ v294 | Wir müssen uns an die neuen Regeln gewöhnen. | Yeni kurallara alışmam
 v327 | Ich informiere mich im Internet über die Uni. | İnternette üniversite hakkında bilgi ediniyorum.
 v327 | Hast du dich über die Kurse informiert? | Kurslar hakkında bilgi edindin mi?
 v327 | Sie hat sich über die Preise informiert. | O (kadın) fiyatlar hakkında bilgi edindi.
-v327 | Informieren Sie sich bitte über die Öffnungszeiten! | Lütfen açılış saatleri hakkında bilgi edinin (siz, kibar).
+v327 | Informieren Sie sich bitte über die Öffnungszeiten! | Lütfen açılış saatleri hakkında bilgi edinin (siz).
 v330 | Ich interessiere mich für Musik. | Müzikle ilgileniyorum.
 v330 | Wofür interessierst du dich? | Neyle ilgileniyorsun?
-v330 | Er hat sich früher sehr für Fußball interessiert. | O (erkek) eskiden futbolla çok ilgilendi.
+v330 | Er hat sich früher sehr für Fußball interessiert. | O (erkek) eskiden futbolla çok ilgilenirdi.
 v330 | Wir interessieren uns für die Wohnung. | Daireyle ilgileniyoruz.
 v331 | Ich habe mich geirrt. | Yanıldım.
 v331 | Du irrst dich! | Yanılıyorsun!
 v331 | Sie irrt sich nie. | O (kadın) asla yanılmaz.
-v331 | Ich glaube, dass Sie sich irren. | Sanırım yanılıyorsunuz (siz, kibar).
+v331 | Ich glaube, dass Sie sich irren. | Sanırım yanılıyorsunuz (siz).
 v350 | Ich kann mich nicht auf die Arbeit konzentrieren. | İşe odaklanamıyorum.
 v350 | Konzentrier dich auf die Prüfung! | Sınava odaklan!
 v350 | Er hat sich ganz auf das Spiel konzentriert. | O (erkek) tamamen oyuna odaklandı.
@@ -181,8 +181,8 @@ v376 | Es lohnt sich, früh aufzustehen. | Erken kalkmaya değer.
 v376 | Ich glaube, dass sich der Kurs lohnt. | Sanırım kurs buna değer.
 v385 | Ich melde mich morgen bei dir. | Yarın sana haber veririm.
 v385 | Hast du dich bei deinen Eltern gemeldet? | Ailene haber verdin mi?
-v385 | Er hat sich lange nicht bei mir gemeldet. | O (erkek) uzun zamandır bana ulaşmadı.
-v385 | Melden Sie sich bitte bei der Sekretärin! | Lütfen (kadın) sekretere haber verin (siz, kibar).
+v385 | Er hat sich lange nicht bei mir gemeldet. | O (erkek) uzun zamandır bana haber vermedi.
+v385 | Melden Sie sich bitte bei der Sekretärin! | Lütfen kadın sekretere haber verin (siz).
 v386 | Ich kann mir die Wörter nicht merken. | Kelimeleri aklımda tutamıyorum.
 v386 | Merk dir das! | Bunu aklında tut!
 v386 | Hast du dir die Telefonnummer gemerkt? | Telefon numarasını aklında tuttun mu?
@@ -190,7 +190,7 @@ v386 | Er merkt sich alle Namen. | O (erkek) bütün isimleri aklında tutuyor.
 v397 | Der Zug nähert sich dem Bahnhof. | Tren istasyona yaklaşıyor.
 v397 | Ein Hund hat sich dem Kind genähert. | Bir köpek çocuğa yaklaştı.
 v397 | Wir nähern uns langsam dem Ziel. | Yavaş yavaş hedefe yaklaşıyoruz.
-v397 | Nähern Sie sich dem Tier nicht! | Hayvana yaklaşmayın (siz, kibar)!
+v397 | Nähern Sie sich dem Tier nicht! | Hayvana yaklaşmayın (siz)!
 v420 | Ich rasiere mich jeden Morgen. || Jeden Morgen rasiere ich mich. | Her sabah tıraş oluyorum.
 v420 | Hast du dich heute rasiert? | Bugün tıraş oldun mu?
 v420 | Er rasiert sich nur am Wochenende. | O (erkek) sadece hafta sonu tıraş oluyor.
@@ -200,7 +200,7 @@ v457 | Hast du dich heute geschminkt? | Bugün makyaj yaptın mı?
 v457 | Ich schminke mich nur selten. | Sadece nadiren makyaj yapıyorum.
 v457 | Die Schauspielerinnen haben sich vor der Show geschminkt. | Kadın oyuncular gösteriden önce makyaj yaptı.
 v473 | Setz dich bitte! | Lütfen otur!
-v473 | Darf ich mich zu Ihnen setzen? | Yanınıza oturabilir miyim (siz, kibar)?
+v473 | Darf ich mich zu Ihnen setzen? | Yanınıza oturabilir miyim (siz)?
 v473 | Er hat sich neben mich gesetzt. | O (erkek) yanıma oturdu.
 v473 | Wir setzen uns ans Fenster. | Pencerenin yanına oturuyoruz.
 v482 | Ich sorge mich um meine Mutter. | Annem için endişeleniyorum.
@@ -222,11 +222,11 @@ v530 | Ich habe gehört, dass sich die beiden getrennt haben. | İkisinin ayrıl
 v537 | Ich überlege mir das noch. | Bunu biraz daha düşünüyorum.
 v537 | Hast du dir das gut überlegt? | Bunu iyice düşündün mü?
 v537 | Wir haben uns eine Lösung überlegt. | Bir çözüm düşündük.
-v537 | Überlegen Sie sich das bitte bis morgen! | Lütfen bunu yarına kadar düşünün (siz, kibar).
-v549 | Er hat sich plötzlich umgedreht. | O (erkek) aniden arkasını döndü.
+v537 | Überlegen Sie sich das bitte bis morgen! | Lütfen bunu yarına kadar düşünün (siz).
+v549 | Er hat sich plötzlich umgedreht. | O (erkek) aniden arkasına döndü.
 v549 | Dreh dich bitte um! | Lütfen arkanı dön!
-v549 | Ich drehe mich um und sehe meinen Lehrer. | Arkamı dönüyorum ve öğretmenimi görüyorum.
-v549 | Warum drehst du dich immer um? | Neden hep arkanı dönüyorsun?
+v549 | Ich drehe mich um und sehe meinen Lehrer. | Arkama dönüyorum ve öğretmenimi görüyorum.
+v549 | Warum drehst du dich immer um? | Neden hep arkana dönüyorsun?
 v554 | Ich ziehe mich schnell um. | Hızlıca üstümü değiştiriyorum.
 v554 | Hast du dich nach dem Sport umgezogen? | Spordan sonra üstünü değiştirdin mi?
 v554 | Sie zieht sich für das Konzert um. | O (kadın) konser için üstünü değiştiriyor.
@@ -289,13 +289,13 @@ v629 | Hast du dir das so vorgestellt? | Bunu böyle mi hayal etmiştin?
 v629 | Er stellt sich sein Leben in Deutschland schön vor. | O (erkek) Almanya'daki hayatını güzel hayal ediyor.
 v636 | Ich wasche mich mit kaltem Wasser. | Soğuk suyla yıkanıyorum.
 v636 | Hast du dich gewaschen? | Yıkandın mı?
-v636 | Die Katze wäscht sich. | Kedi kendini yıkıyor.
+v636 | Die Katze wäscht sich. | Kedi kendini temizliyor.
 v636 | Er hat sich nach der Arbeit gewaschen. | O (erkek) işten sonra yıkandı.
 v640 | Er weigert sich, das Zimmer aufzuräumen. | O (erkek) odayı toplamayı reddediyor.
 v640 | Ich habe mich geweigert, mehr zu bezahlen. | Daha fazla ödemeyi reddettim.
 v640 | Warum weigerst du dich, mitzukommen? | Neden birlikte gelmeyi reddediyorsun?
 v640 | Die Arbeiter weigern sich, am Sonntag zu arbeiten. | İşçiler pazar günü çalışmayı reddediyor.
-v642 | Wenden Sie sich bitte an die Information! | Lütfen danışmaya başvurun (siz, kibar).
+v642 | Wenden Sie sich bitte an die Information! | Lütfen danışmaya başvurun (siz).
 v642 | Ich habe mich an meinen Lehrer gewendet. | Öğretmenime başvurdum.
 v642 | An wen kann ich mich wenden? | Kime başvurabilirim?
 v642 | Wende dich an den Hausmeister, wenn die Heizung kaputt ist! | Kalorifer bozuksa kapıcıya başvur!
@@ -311,15 +311,15 @@ v111 | Ich bemühe mich um eine Stelle in Bremen. | Bremen'de bir iş bulmaya u�
 v111 | Er hat sich sehr um eine gute Note bemüht. | İyi bir not için çok çabaladı.
 v642 | Mit Fragen zu den Kosten wenden Sie sich bitte an das Sekretariat. | Masraflarla ilgili sorularınız için lütfen sekreterliğe başvurun.
 v642 | Wegen der Kritik habe ich mich an meinen Lehrer gewendet. | Eleştiri yüzünden öğretmenime başvurdum.
-v589 | Ihr könnt euch auf unseren Hausmeister verlassen. | Kapıcımıza güvenebilirsiniz.
+v589 | Ihr könnt euch auf unseren Hausmeister verlassen. | Siz (hepiniz) kapıcımıza güvenebilirsiniz.
 v589 | Wir haben uns auf den Zug verlassen und sind zu spät gekommen. | Trene güvendik ve geç kaldık.
 v589 | Verlass dich nicht auf das Wetter, nimm einen Regenschirm mit. | Havaya güvenme, yanına bir şemsiye al.
 v278 | Viele Menschen fürchten sich vor Spinnen. | Birçok insan örümceklerden korkar.
 v278 | Als Kind habe ich mich vor dem Zahnarzt gefürchtet. | Çocukken dişçiden korkardım.
-v278 | Fürchtet ihr euch nicht vor der langen Reise? | Uzun yolculuktan korkmuyor musunuz?
+v278 | Fürchtet ihr euch nicht vor der langen Reise? | Siz (hepiniz) uzun yolculuktan korkmuyor musunuz?
 v590 | Ohne Handy verlaufe ich mich in jeder fremden Stadt. | Telefonsuz her yabancı şehirde yolumu kaybederim.
 v590 | Er hat sich auf dem Weg zum Bahnhof verlaufen. | Gara giderken yolunu kaybetti.
-v590 | Passt auf, dass ihr euch im Park nicht verlauft! | Dikkat edin, parkta yolunuzu kaybetmeyin!
+v590 | Passt auf, dass ihr euch im Park nicht verlauft! | Dikkat edin (hepiniz), parkta yolunuzu kaybetmeyin!
 v177 | Diese Schuhe eignen sich nicht für nasses Wetter. | Bu ayakkabılar ıslak hava için uygun değil.
 
 v629 | Ich kann mir gut vorstellen, nach dem Studium in Bremen zu arbeiten. | Üniversiteden sonra Bremen'de çalışmayı rahatlıkla hayal edebiliyorum.
@@ -327,7 +327,7 @@ v119 | Vor der Prüfung war ich sehr nervös, aber dann habe ich mich beruhigt. 
 v654 | Ich habe mich gewundert, dass die Miete in Bremen so hoch ist. || Ich habe mich darüber gewundert, dass die Miete in Bremen so hoch ist. || Ich wunderte mich, dass die Miete in Bremen so hoch ist. | Bremen'de kiranın bu kadar yüksek olmasına şaşırdım.
 v642 | Wenn Sie Fragen zur Aufenthaltserlaubnis haben, wenden Sie sich bitte an die Ausländerbehörde. || Wenden Sie sich bitte an die Ausländerbehörde, wenn Sie Fragen zur Aufenthaltserlaubnis haben. | Oturma izniyle ilgili sorularınız varsa lütfen Yabancılar Dairesi'ne başvurun.
 v111 | Ich bemühe mich sehr, im Deutschkurs jeden Tag nur Deutsch zu sprechen. | Almanca kursunda her gün sadece Almanca konuşmak için çok çabalıyorum.
-v121 | In meiner Hausarbeit beschäftige ich mich mit dem Klima in Norddeutschland. || Ich beschäftige mich in meiner Hausarbeit mit dem Klima in Norddeutschland. | Dönem ödevimde Kuzey Almanya'daki iklimle uğraşıyorum.
+v121 | In meiner Hausarbeit beschäftige ich mich mit dem Klima in Norddeutschland. || Ich beschäftige mich in meiner Hausarbeit mit dem Klima in Norddeutschland. | Dönem ödevimde Kuzey Almanya'daki iklimi ele alıyorum.
 v177 | Diese Wohnung eignet sich nicht für eine WG, weil sie nur zwei Zimmer hat. || Weil sie nur zwei Zimmer hat, eignet sich diese Wohnung nicht für eine WG. | Bu daire sadece iki odası olduğu için WG için uygun değil.
 v125 | Weil die Nachbarn jede Nacht laut sind, habe ich mich beim Vermieter beschwert. || Ich habe mich beim Vermieter beschwert, weil die Nachbarn jede Nacht laut sind. | Komşular her gece gürültü yaptığı için ev sahibine şikâyet ettim.
 v420 | Weil ich heute ein Vorstellungsgespräch habe, habe ich mich gründlich rasiert. || Ich habe mich gründlich rasiert, weil ich heute ein Vorstellungsgespräch habe. | Bugün bir iş görüşmem olduğu için güzelce tıraş oldum.
@@ -345,7 +345,7 @@ v690 | Wenn du krank bist, musst du dich von der Prüfung abmelden. | Hastaysan 
 v690 | Meine Mitbewohnerin meldet sich nächste Woche beim Einwohnermeldeamt ab, weil sie nach Spanien zieht. || Nächste Woche meldet sich meine Mitbewohnerin beim Einwohnermeldeamt ab, weil sie nach Spanien zieht. | Ev arkadaşım İspanya'ya taşındığı için gelecek hafta adres kayıt dairesinden kaydını sildiriyor.
 v690 | Wir haben uns vom Sportkurs abgemeldet, weil er so spät am Abend stattfindet. || Weil er so spät am Abend stattfindet, haben wir uns vom Sportkurs abgemeldet. | Akşam çok geç saatte yapıldığı için spor kursundan kaydımızı sildirdik.
 v690 | Wenn du nicht mitkommen kannst, melde dich bitte bis Mittwoch vom Ausflug ab. || Melde dich bitte bis Mittwoch vom Ausflug ab, wenn du nicht mitkommen kannst. | Gelemeyeceksen lütfen çarşambaya kadar geziden kaydını sildir.
-v278 | Mein kleiner Bruder fürchtet sich vor dem Gewitter. | Küçük kardeşim fırtınadan korkuyor.
+v278 | Mein kleiner Bruder fürchtet sich vor dem Gewitter. | Küçük erkek kardeşim fırtınadan korkuyor.
 v278 | Ich fürchte mich vor dem Zahnarzt, aber ich gehe trotzdem hin. | Diş hekiminden korkuyorum ama yine de gidiyorum.
 # 18.11: Tuna'nın kurs listesi (quellen/kurs_kelimeler.txt)
 v700 | Ich habe mir vorgenommen, jeden Tag zwanzig Minuten Deutsch zu lernen. | Her gün yirmi dakika Almanca çalışmaya karar verdim.

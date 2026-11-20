@@ -4113,7 +4113,7 @@
       ${erkl.length && (yanlis || o.yazili) ? `<ul class="erkl">${erkl.map(e => `<li>${e}</li>`).join('')}</ul>` : ''}
       ${ornek}
       ${yanlis ? kancaHTML(q.id) : ''}
-      <div class="notlar">${itiraz}${askiBtnHTML(q)}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', otoMs())}</div>
+      <div class="notlar">${itiraz}${askiBtnHTML(q)}${cevBtnHTML(q)}${yanlis ? devamKilitli(q, 'act', 'devam') : devamBtn('act', 'devam', otoMs())}</div>
     </div>`;
   }
   // 15.11 (D2): sonuç panelinde "Bu kelime bana gereksiz" (öğe hafızadaysa; gramer / ayır / paket yok). Basınca askıya alınır, düğme "geri al" olur.
@@ -4121,6 +4121,19 @@
     if (!q || !q.id || q.ayir || kind(q.id) === 'p' || !S.items[q.id]) return '';
     return S.items[q.id].askida ? `<span class="aski-ok soluk">askıda ✓ <button class="btn mini" data-act="aski-geri" type="button">geri al</button></span>`
       : `<button class="btn mini aski-btn" data-act="aski" type="button" title="askıya al: artık sorulmaz (Kelimeler → Askıda'dan geri alırsın)">bu kelime bana gereksiz</button>`;
+  }
+  // 20.11 (Tuna: "bazı çeviriler berbat"): cümleli soruda (Türkçe cümle / kalıp / örnek cümle) "çeviri kötü" → log `akt;ceviri:<öğe>`
+  // (frage: gösterilen Türkçe ya da anlam | cümle, antwort: Almanca cümle, notiz bicim:…); gece işi / "sonuçlarıma bak" cümleyi quellen'de düzeltir
+  function cevBtnHTML(q) {
+    if (!q || !q.id || q.ayir || !(q.kontext || q.bicim === 'kalip' || q.bicim === 'cumle')) return '';
+    return q.cevKotu ? '<span class="cev-ok soluk">not alındı ✓</span>' : '<button class="btn mini cev-btn" data-act="ceviri-kotu" type="button" title="Türkçesi ya da cümle kötüyse işaretle: düzeltilir">çeviri kötü</button>';
+  }
+  function cevPanel() {
+    const q = aktuell; if (!q || !q.id || !q.done || q.cevKotu) return;
+    q.cevKotu = true;
+    logEintrag({ modus: 'akt', id: 'ceviri:' + q.id, item: label(q.id), frage: q.frageText || '', antwort: q.kontext || '', ergebnis: 'kotu', loesung: '', notiz: `bicim:${q.bicim || '-'}${q.ipucuTur ? ' | ipucu-tür:' + q.ipucuTur : ''}` });
+    save();
+    const yer = kart.querySelector('.sonuc .cev-btn'); if (yer) yer.outerHTML = cevBtnHTML(q);
   }
   function askiPanel(geri) {
     const q = aktuell; if (!q || !q.id || !q.done) return;
@@ -5158,6 +5171,8 @@
       satir('Tur uzunluğu', '', `<select id="a-tur" aria-label="Tur uzunluğu">${TUR_SECENEK.map(n => `<option value="${n}"${n === turBoyu() ? ' selected' : ''}>${n} cevap${n === 12 ? ' (önerilen)' : ''}</option>`).join('')}</select>`),
       // 8.11: doğru cevaptan sonra kendiliğinden geçiş süresi (S.einst.otoGecis; 0 = elle, Enter / Devam); panelde fare / dokunuş / Boşluk durdurur
       satir('Doğru cevapta geçiş', 'sonraki soruya kendiliğinden · panele dokun ya da Boşluk: durur', seg('otogecis', [[1000, '1 sn'], [2000, '2 sn'], [3500, '3,5 sn'], [0, 'Elle']], otoMs())),
+      // 20.11 (Tuna: "B1.2'yi bitirmedim, niye B2 gramer var"): B1'de B2 gramer konuları turda yok, kendiliğinden açılmaz (Gramer: kapali)
+      satir('Gramer seviyesi', 'B1: B1.2 kursu (B2 konuları kapalı) · B1.2 bitince B2', seg('gramsev', [[1, 'B1'], [2, 'B2']], S.einst.gramSeviye === 'B2' ? 2 : 1)),
       satir('Ses efektleri', '', anahtar('a-ses', sesAcik())),
       // seslendirme: okuma hızı, Almanca ses (14.11: turdaki dinleme soruları ve "Sesli sorular" kaldırıldı)
       satir('Ses hızı', 'Almanca okuma (yavaş düğmeleri ayrı)', seg('seshiz', SES_HIZLAR.map(h => [h, String(h).replace('.', ',') + (h === 1 ? ',0' : '')]), sesHizi())),
@@ -6186,6 +6201,7 @@
     if (act === 'devam') ilerle();
     else if (act === 'itiraz') itirazEt();
     else if (act === 'aski' || act === 'aski-geri') askiPanel(act === 'aski-geri');
+    else if (act === 'ceviri-kotu') cevPanel();
     else if (act === 'cumle-yardim') cumleYardim();
     else if (act === 'hatirlat-evet') { const sa = $('#a-saat'); S.ayar4.saat = session.hatirlatSaat || sikSaat(); if (sa) sa.value = S.ayar4.saat; save(); googleTakvim(); const h = $('#ts-hatirlat'); if (h) h.remove(); }
     else if (act === 'hatirlat-hayir') { const h = $('#ts-hatirlat'); if (h) h.remove(); }
@@ -6380,6 +6396,7 @@
     else if (ad === 'yeni') { S.ayar4.yeniGunluk = Math.max(2, Math.min(10, v || 6)); S.ayar4.secildi = true; }
     else if (ad === 'seshiz') { S.einst.sesHiz = SES_HIZLAR.includes(v) ? v : 0.9; sprich(SES_ORNEK); }
     else if (ad === 'otogecis') S.einst.otoGecis = OTO_SECENEK.includes(v) ? v : OTO_VARSAYILAN;
+    else if (ad === 'gramsev') { const yeni = v === 2 ? 'B2' : 'B1'; if (S.einst.gramSeviye !== yeni) logEintrag({ modus: 'akt', id: 'gramSeviye', item: '', frage: '', antwort: yeni, ergebnis: 'ayar', loesung: '', notiz: '' }); S.einst.gramSeviye = yeni; }
     else if (ad === 'hedef') { S.ayar4.turHedef = Math.max(1, Math.min(8, v || 2)); S.ayar4.secildi = true; }
     save(); renderAyar();
   });

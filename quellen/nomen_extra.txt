@@ -105,7 +105,7 @@ die Toleranz | 3 | hoşgörü
 die Fairness | 3 | hakkaniyet, fair play
 die Ehrlichkeit | 3 | dürüstlük
 die Gerechtigkeit | 3 | adalet
-die Gleichberechtigung | 3 | eşit haklılık (kadın–erkek eşitliği)
+die Gleichberechtigung | 3 | hak eşitliği (kadın–erkek eşitliği)
 die Hilfsbereitschaft | 3 | yardımseverlik
 die Zivilcourage | 3 | sivil cesaret
 die Solidarität | 3 | dayanışma

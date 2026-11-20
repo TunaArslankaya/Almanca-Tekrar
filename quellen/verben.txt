@@ -39,7 +39,7 @@ anschaffen | A | 3 | satın almak, edinmek
 anschließen | A | 3 | (cihaz) bağlamak
 sich anschnallen | - | 3 | emniyet kemerini takmak
 sich(D) ansehen | A | 2 | (bir şeye) bakmak, izlemek
-ansprechen | A | 3 | (birine) hitap etmek, laf atmak; (bir konuyu) açmak
+ansprechen | A | 3 | (birine) hitap etmek, seslenmek; (bir konuyu) açmak
 anstellen | A | 3 | işe almak; (cihazı) açmak
 sich anstrengen | - | 3 | çabalamak, gayret etmek
 anwenden | A | 3 | uygulamak, kullanmak
@@ -306,7 +306,7 @@ grillen | A | 2 | ızgara yapmak, mangal yapmak
 gründen | A | 3 | kurmak (şirket, dernek)
 grüßen | A | 2 | selamlamak
 gucken | - | 2 | bakmak
-haben | A | 1 | sahip olmak, (bir şeyi) olmak
+haben | A | 1 | sahip olmak, -si olmak (vaktim var, arabam var)
 hageln | - | 3 | dolu yağmak
 halten | A | 2 | tutmak
 halten von | A von+D | 3 | (bir şey hakkında) … düşünmek (Was hältst du davon?)

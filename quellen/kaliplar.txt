@@ -58,7 +58,7 @@ v134 | Ich habe ein Taxi bestellt. | Bir taksi çağırdım.
 v136 | einen Kurs besuchen | bir kursa gitmek
 v136 | Am Wochenende besuche ich meine Eltern. | Hafta sonu ailemi ziyaret ediyorum.
 v136 | Ich besuche einen Deutschkurs in Bremen. | Bremen'de bir Almanca kursuna gidiyorum.
-v136 | Wir haben gestern ein Museum besucht. | Dün bir müzeyi gezdik.
+v136 | Wir haben gestern ein Museum besucht. | Dün bir müzeyi ziyaret ettik.
 v145 | bar bezahlen | nakit ödemek
 v145 | Kann ich mit Karte bezahlen? | Kartla ödeyebilir miyim?
 v145 | Ich bezahle die Rechnung. | Hesabı ben ödüyorum.
@@ -134,9 +134,9 @@ v296 | Ich glaube schon. | Sanırım öyle.
 v296 | Ich glaube, er kommt heute nicht. | Sanırım bugün gelmiyor.
 v296 | Glaub mir, das stimmt! | İnan bana, bu doğru!
 v296 | Ich glaube nicht an Horoskope. | Burçlara inanmam.
-v315 | jemandem beim Umzug helfen | birine taşınmada yardım etmek
+v315 | jemandem beim Umzug helfen | birine taşınmasında yardım etmek
 v315 | Kann ich Ihnen helfen? | Size yardım edebilir miyim?
-v315 | Hilf mir bitte mit den Taschen! | Çantalara yardım et lütfen!
+v315 | Hilf mir bitte mit den Taschen! | Çantaları taşımama yardım et lütfen!
 v315 | Mein Nachbar hat mir sehr geholfen. | Komşum bana çok yardım etti.
 v333 | Lebensmittel kaufen | yiyecek almak
 v333 | Ich kaufe Brot beim Bäcker. | Fırından ekmek alıyorum.
@@ -202,7 +202,7 @@ v484 | Wir gehen am Sonntag im Park spazieren. | Pazar günü parkta yürüyüş
 v484 | Ich bin gestern an der Weser spazieren gegangen. | Dün Weser kıyısında yürüyüşe çıktım.
 v484 | Gehst du mit dem Hund spazieren? | Köpeği gezdirmeye çıkıyor musun?
 v487 | mit dem Chef sprechen | patronla konuşmak
-v487 | Kann ich kurz mit Ihnen sprechen? | Sizinle kısaca konuşabilir miyim?
+v487 | Kann ich kurz mit Ihnen sprechen? | Sizinle bir dakika konuşabilir miyim?
 v487 | Ich habe schon mit meiner Lehrerin gesprochen. | Öğretmenimle zaten konuştum.
 v487 | Wir müssen mal darüber sprechen. | Bunu bir konuşmamız lazım.
 v512 | eine Wohnung suchen | ev aramak
@@ -463,7 +463,7 @@ v075 | Ruh dich erst mal aus! | Önce bir dinlen!
 v080 | sich etwas aussuchen | kendine bir şey seçmek
 v080 | Such dir einen Platz aus! | Kendine bir yer seç!
 v080 | Ich habe mir ein neues Handy ausgesucht. | Kendime yeni bir telefon seçtim.
-v080 | Hier kann man sich die Kurse selbst aussuchen. | Burada dersleri insan kendisi seçebiliyor.
+v080 | Hier kann man sich die Kurse selbst aussuchen. | Burada herkes derslerini kendisi seçebiliyor.
 v083 | sich beim Arzt ausziehen | doktorda soyunmak
 v083 | Bitte ziehen Sie sich aus. | Lütfen soyunun.
 v083 | Das Kind zieht sich allein aus. | Çocuk tek başına soyunuyor.
@@ -495,7 +495,7 @@ v113 | Hast du das Wörterbuch benutzt? | Sözlüğü kullandın mı?
 v124 | sich beim Vermieter beschweren | ev sahibine şikâyet etmek
 v124 | Ich möchte mich über den Lärm beschweren. | Gürültüden şikâyet etmek istiyorum.
 v124 | Die Nachbarn haben sich über uns beschwert. | Komşular bizden şikâyet etti.
-v124 | Worüber beschwerst du dich denn? | Neden şikâyet ediyorsun ki?
+v124 | Worüber beschwerst du dich denn? | Neyden şikâyet ediyorsun ki?
 v127 | eine Wohnung besichtigen | bir daireyi görmeye gitmek
 v127 | Wir haben gestern das Rathaus besichtigt. | Dün belediye binasını gezdik.
 v127 | Kann man die Kirche auch innen besichtigen? | Kilisenin içi de gezilebiliyor mu?
@@ -522,7 +522,7 @@ v166 | Denk bitte an den Termin morgen! | Yarınki randevuyu unutma lütfen!
 v166 | Daran habe ich nicht gedacht. | Bunu düşünmemiştim.
 v168 | über ein Thema diskutieren | bir konuyu tartışmak
 v168 | Wir haben lange über Politik diskutiert. | Uzun süre siyaset tartıştık.
-v168 | Darüber müssen wir noch diskutieren. | Bunu daha konuşmamız lazım.
+v168 | Darüber müssen wir noch diskutieren. | Bunu daha tartışmamız lazım.
 v168 | Im Kurs diskutieren wir über Umweltschutz. | Kursta çevre korumayı tartışıyoruz.
 v190 | den Computer einschalten | bilgisayarı açmak
 v190 | Kannst du bitte das Licht einschalten? | Işığı açabilir misin lütfen?
@@ -543,7 +543,7 @@ v222 | Er hat sich schnell von der Grippe erholt. | Gripten çabuk iyileşti.
 v224 | sich gut an etwas erinnern | bir şeyi iyi hatırlamak
 v224 | Erinnerst du dich an mich? | Beni hatırlıyor musun?
 v224 | Ich kann mich nicht an seinen Namen erinnern. | Adını hatırlayamıyorum.
-v224 | Daran erinnere ich mich gern. | Bunu severek hatırlıyorum.
+v224 | Daran erinnere ich mich gern. | Bunu keyifle hatırlıyorum.
 v225 | sich leicht erkälten | kolay üşütmek
 v225 | Ich habe mich erkältet. | Üşüttüm.
 v225 | Zieh eine Jacke an, sonst erkältest du dich! | Ceket giy, yoksa üşütürsün!
@@ -665,13 +665,13 @@ v473 | Darf ich mich zu dir setzen? | Yanına oturabilir miyim?
 v473 | Er hat sich auf das Sofa gesetzt. | Kanepeye oturdu.
 v483 | Geld sparen | para biriktirmek
 v483 | Ich spare für eine Reise nach Italien. | İtalya gezisi için para biriktiriyorum.
-v483 | So kann man viel Zeit sparen. | Böylece çok zaman kazanılır.
+v483 | So kann man viel Zeit sparen. | Böylece çok zaman kazanılabilir.
 v483 | Wir haben Strom und Wasser gespart. | Elektrik ve sudan tasarruf ettik.
 v488 | über ein Thema sprechen | bir konu hakkında konuşmak
 v488 | Wir sprechen heute über Umweltschutz. | Bugün çevre koruma hakkında konuşuyoruz.
 v488 | Darüber möchte ich nicht sprechen. | Bunun hakkında konuşmak istemiyorum.
 v488 | Hast du mit ihm über die Party gesprochen? | Onunla parti hakkında konuştun mu?
-v506 | Entschuldigung, darf ich kurz stören? | Pardon, kısaca rahatsız edebilir miyim?
+v506 | Entschuldigung, darf ich kurz stören? | Pardon, bir dakika rahatsız edebilir miyim?
 v506 | Der Lärm stört mich beim Lernen. | Gürültü ders çalışırken beni rahatsız ediyor.
 v506 | Stört es dich, wenn ich das Fenster öffne? | Pencereyi açsam seni rahatsız eder mi?
 v506 | Bitte nicht stören! | Lütfen rahatsız etmeyin!
@@ -687,7 +687,7 @@ v523 | eine Brille tragen | gözlük takmak
 v523 | Kannst du mir helfen, den Koffer zu tragen? | Bavulu taşımama yardım eder misin?
 v523 | Sie trägt heute ein rotes Kleid. | Bugün kırmızı bir elbise giyiyor.
 v523 | Ich habe die Einkäufe nach Hause getragen. | Alışverişi eve taşıdım.
-v526 | von einer Reise träumen | bir seyahat hayal etmek
+v526 | von einer Reise träumen | bir seyahatin hayalini kurmak
 v526 | Ich träume von einem eigenen Haus. | Kendi evimin hayalini kuruyorum.
 v526 | Wovon hast du heute Nacht geträumt? | Bu gece ne rüya gördün?
 v526 | Sie träumt davon, Ärztin zu werden. | Doktor olmayı hayal ediyor.
@@ -778,7 +778,7 @@ v639 | Das hat sehr wehgetan. | Bu çok acıttı.
 v647 | ein Wort wiederholen | bir kelimeyi tekrarlamak
 v647 | Können Sie das bitte wiederholen? | Bunu lütfen tekrarlar mısınız?
 v647 | Ich wiederhole jeden Tag die neuen Wörter. | Her gün yeni kelimeleri tekrarlıyorum.
-v647 | Er hat die Prüfung wiederholt. | Sınavı tekrar etti.
+v647 | Er hat die Prüfung wiederholt. | Sınava yeniden girdi.
 v655 | Ich wünsche dir alles Gute! | Sana her şeyin en iyisini dilerim!
 v655 | Wir wünschen Ihnen ein schönes Wochenende. | Size güzel bir hafta sonu dileriz.
 v655 | Ich wünsche dir gute Besserung. | Sana acil şifalar dilerim.
@@ -888,9 +888,9 @@ v163 | Der Kurs dauert drei Monate. | Kurs üç ay sürüyor.
 v163 | Das kann noch etwas dauern. | Bu biraz daha sürebilir.
 v163 | Die Fahrt hat zwei Stunden gedauert. | Yolculuk iki saat sürdü.
 v171 | Fotos drucken | fotoğraf bastırmak
-v171 | Der Drucker druckt nicht. | Yazıcı yazdırmıyor.
+v171 | Der Drucker druckt nicht. | Yazıcı çıktı vermiyor.
 v171 | Ich habe die Bilder in Farbe gedruckt. | Resimleri renkli bastım.
-v171 | Wo kann ich hier etwas drucken? | Burada nerede bir şey yazdırabilirim?
+v171 | Wo kann ich hier etwas drucken? | Burada nereden çıktı alabilirim?
 v172 | auf den Knopf drücken | düğmeye basmak
 v172 | Drücken Sie bitte die Taste. | Lütfen tuşa basın.
 v172 | Ich habe auf die Klingel gedrückt. | Zile bastım.
@@ -946,9 +946,9 @@ v302 | Sie hat mich nicht gegrüßt. | Bana selam vermedi.
 v303 | Fernsehen gucken | televizyon izlemek
 v303 | Guck mal! | Bak hele!
 v303 | Wir gucken heute Abend einen Film. | Bu akşam bir film izliyoruz.
-v303 | Ich habe kurz aus dem Fenster geguckt. | Kısaca pencereden dışarı baktım.
+v303 | Ich habe kurz aus dem Fenster geguckt. | Bir an pencereden dışarı baktım.
 v306 | eine Rede halten | konuşma yapmak
-v306 | Kannst du mal kurz meine Tasche halten? | Çantamı kısa bir süre tutabilir misin?
+v306 | Kannst du mal kurz meine Tasche halten? | Çantamı bir saniye tutabilir misin?
 v306 | Der Bus hält direkt vor der Uni. | Otobüs tam üniversitenin önünde duruyor.
 v306 | Was hältst du von der Idee? | Bu fikir hakkında ne düşünüyorsun?
 v309 | an der Wand hängen | duvarda asılı olmak
@@ -966,7 +966,7 @@ v342 | an der Tür klingeln | kapı zilini çalmak
 v342 | Es klingelt! | Zil çalıyor!
 v342 | Dein Handy hat geklingelt. | Telefonun çaldı.
 v342 | Der Postbote klingelt zweimal. | Postacı iki kez zili çalıyor.
-v358 | freundlich lächeln | güler yüzle gülümsemek
+v358 | freundlich lächeln | sıcak bir şekilde gülümsemek
 v358 | Sie lächelt immer. | Hep gülümsüyor.
 v358 | Er hat mich freundlich angelächelt. | Bana sıcak bir şekilde gülümsedi.
 v358 | Bitte lächeln! | Lütfen gülümseyin!
@@ -977,14 +977,14 @@ v360 | Wann landet dein Flug? | Uçağın ne zaman iniyor?
 v362 | die Haare schneiden lassen | saçını kestirmek
 v362 | Lass mich in Ruhe! | Beni rahat bırak!
 v362 | Ich lasse mein Fahrrad reparieren. | Bisikletimi tamir ettiriyorum.
-v362 | Ich habe meinen Schirm im Bus gelassen. | Şemsiyemi otobüste unuttum.
+v362 | Ich habe meinen Schirm im Bus gelassen. | Şemsiyemi otobüste bıraktım.
 v365 | etwas auf den Tisch legen | bir şeyi masaya koymak
 v365 | Leg die Schlüssel bitte in die Schublade. | Anahtarları lütfen çekmeceye koy.
 v365 | Ich habe das Buch auf dein Bett gelegt. | Kitabı yatağına koydum.
 v365 | Wohin legst du die Zeitung? | Gazeteyi nereye koyuyorsun?
 v379 | ein Problem lösen | bir sorunu çözmek
 v379 | Wir können das Problem zusammen lösen. | Sorunu birlikte çözebiliriz.
-v379 | Hast du die Aufgabe schon gelöst? | Görevi çözdün mü?
+v379 | Hast du die Aufgabe schon gelöst? | Alıştırmayı çözdün mü?
 v379 | Ich habe eine Fahrkarte gelöst. | Bir bilet aldım.
 v382 | ein Bild malen | resim yapmak
 v382 | Meine Schwester malt sehr gern. | Kız kardeşim resim yapmayı çok seviyor.
@@ -1028,7 +1028,7 @@ v441 | Wir sammeln Geld für ein Geschenk. | Bir hediye için para topluyoruz.
 v441 | Im Park haben wir Müll gesammelt. | Parkta çöp topladık.
 v446 | einen Film schauen | bir film izlemek
 v446 | Schau mal, da drüben ist der Bus! | Bak, otobüs orada!
-v446 | Ich schaue kurz auf die Uhr. | Saate kısaca bakıyorum.
+v446 | Ich schaue kurz auf die Uhr. | Saate bir göz atıyorum.
 v446 | Wir haben gestern einen Film geschaut. | Dün bir film izledik.
 v447 | Die Sonne scheint. | Güneş parlıyor.
 v447 | Heute scheint den ganzen Tag die Sonne. | Bugün bütün gün güneş parlıyor.
@@ -1162,13 +1162,13 @@ v099 | Ich begleite dich nach Hause. | Seni eve kadar götüreyim.
 v099 | Meine Freundin hat mich zum Arzt begleitet. | Kız arkadaşım benimle doktora geldi.
 v099 | Darf ich Sie begleiten? | Size eşlik edebilir miyim?
 v111 | sich um eine Stelle bemühen | bir iş için çabalamak
-v111 | Ich bemühe mich um einen Studienplatz. | Üniversitede bir yer için uğraşıyorum.
+v111 | Ich bemühe mich um einen Studienplatz. | Üniversiteye kabul almak için uğraşıyorum.
 v111 | Wir bemühen uns um eine schnelle Lösung. | Hızlı bir çözüm için çabalıyoruz.
 v111 | Er hat sich sehr bemüht. | Çok çaba gösterdi.
-v117 | über einen Unfall berichten | bir kaza hakkında haber vermek
-v117 | Die Zeitung berichtet über die Wahl. | Gazete seçim hakkında haber veriyor.
+v117 | über einen Unfall berichten | bir kaza hakkında bilgi vermek
+v117 | Die Zeitung berichtet über die Wahl. | Gazete seçimle ilgili haber yapıyor.
 v117 | Berichte doch mal von deiner Reise! | Biraz da yolculuğunu anlatsana!
-v117 | Sie hat über ihre Erfahrungen berichtet. | Deneyimleri hakkında anlattı.
+v117 | Sie hat über ihre Erfahrungen berichtet. | Deneyimlerini anlattı.
 v119 | Beruhige dich! | Sakin ol!
 v119 | Langsam beruhige ich mich wieder. | Yavaş yavaş yeniden sakinleşiyorum.
 v119 | Das Baby hat sich endlich beruhigt. | Bebek sonunda sakinleşti.
@@ -1199,13 +1199,13 @@ v180 | Was fällt dir ein? | Ne cüretle? / Aklından ne geçiyor?
 v184 | sich auf einen Termin einigen | bir tarihte anlaşmak
 v184 | Wir haben uns auf einen Preis geeinigt. | Bir fiyatta anlaştık.
 v184 | Können wir uns darauf einigen? | Bunda anlaşabilir miyiz?
-v184 | Die Gruppe einigt sich auf ein Restaurant. | Grup bir restoranda uzlaşıyor.
-v206 | sich für ein Studium entscheiden | bir bölümde karar kılmak
+v184 | Die Gruppe einigt sich auf ein Restaurant. | Grup bir restoran üzerinde anlaşıyor.
+v206 | sich für ein Studium entscheiden | bir bölüm okumaya karar vermek
 v206 | Ich habe mich für die blaue Jacke entschieden. | Mavi ceketi seçtim.
 v206 | Wofür hast du dich entschieden? | Neye karar verdin?
 v206 | Ich kann mich nicht entscheiden. | Karar veremiyorum.
 v228 | sich nach dem Weg erkundigen | yolu sormak
-v228 | Ich erkundige mich nach den Öffnungszeiten. | Açılış saatlerini soruyorum.
+v228 | Ich erkundige mich nach den Öffnungszeiten. | Çalışma saatlerini soruyorum.
 v228 | Sie hat sich nach deiner Gesundheit erkundigt. | Sağlığını sordu.
 v228 | Ich möchte mich nach dem Kurs erkundigen. | Kurs hakkında bilgi almak istiyorum.
 v262 | jemandem folgen | birini takip etmek
@@ -1215,7 +1215,7 @@ v262 | Ich folge ihr auf Instagram. | Onu Instagram'da takip ediyorum.
 v278 | sich vor Hunden fürchten | köpeklerden korkmak
 v278 | Ich fürchte mich vor der Prüfung. | Sınavdan korkuyorum.
 v278 | Das Kind fürchtet sich im Dunkeln. | Çocuk karanlıkta korkuyor.
-v278 | Wovor fürchtest du dich? | Neden korkuyorsun?
+v278 | Wovor fürchtest du dich? | Neyden korkuyorsun?
 v287 | Es ist mir gelungen. | Başardım.
 v287 | Der Kuchen ist dir gut gelungen. | Pastan çok güzel olmuş.
 v287 | Es gelingt mir nicht, früh aufzustehen. | Erken kalkmayı başaramıyorum.
@@ -1236,13 +1236,13 @@ v327 | sich im Internet informieren | internetten bilgi edinmek
 v327 | Ich informiere mich über das Studium. | Üniversite eğitimi hakkında bilgi ediniyorum.
 v327 | Hast du dich schon über die Kosten informiert? | Masraflar hakkında bilgi aldın mı?
 v327 | Wo kann ich mich darüber informieren? | Bu konuda nereden bilgi alabilirim?
-v331 | Da irrst du dich. | Orada yanılıyorsun.
-v331 | Ich habe mich im Datum geirrt. | Tarihte yanıldım.
+v331 | Da irrst du dich. | Bu konuda yanılıyorsun.
+v331 | Ich habe mich im Datum geirrt. | Tarih konusunda yanıldım.
 v331 | Wenn ich mich nicht irre, ist er Lehrer. | Yanılmıyorsam, o öğretmen.
 v350 | sich auf die Arbeit konzentrieren | işe odaklanmak
 v350 | Ich kann mich heute nicht konzentrieren. | Bugün odaklanamıyorum.
 v350 | Konzentrier dich auf die Aufgabe! | Göreve odaklan!
-v350 | Ich habe mich auf das Lernen konzentriert. | Derse odaklandım.
+v350 | Ich habe mich auf das Lernen konzentriert. | Ders çalışmaya odaklandım.
 v366 | unter Stress leiden | stresten muzdarip olmak
 v366 | Ich leide unter Kopfschmerzen. | Baş ağrısı çekiyorum.
 v366 | Viele Menschen leiden unter der Hitze. | Birçok insan sıcaktan bunalıyor.
@@ -1253,7 +1253,7 @@ v367 | Ich habe ihm 20 Euro geliehen. | Ona 20 euro borç verdim.
 v367 | Ich leihe mir ein Buch aus der Bibliothek. | Kütüphaneden bir kitap ödünç alıyorum.
 v368 | sich ein Auto leisten | kendine araba alabilmek
 v368 | Das kann ich mir nicht leisten. | Buna param yetmez.
-v368 | Wir haben uns einen schönen Urlaub geleistet. | Kendimize güzel bir tatil yaptık.
+v368 | Wir haben uns einen schönen Urlaub geleistet. | Kendimizi güzel bir tatille şımarttık.
 v368 | Heute leiste ich mir ein gutes Essen. | Bugün kendime güzel bir yemek ısmarlıyorum.
 v376 | Es lohnt sich. | Değer.
 v376 | Der Besuch im Museum lohnt sich. | Müzeyi ziyaret etmeye değer.
@@ -1268,18 +1268,18 @@ v386 | Das muss ich mir merken. | Bunu aklımda tutmalıyım.
 v386 | Ich kann mir keine Namen merken. | İsimleri aklımda tutamıyorum.
 v386 | Hast du dir die Adresse gemerkt? | Adresi aklında tuttun mu?
 v390 | jemandem etwas mitteilen | birine bir şey bildirmek
-v390 | Hiermit teile ich Ihnen mit, dass ich krank bin. | Bununla hasta olduğumu size bildiririm.
+v390 | Hiermit teile ich Ihnen mit, dass ich krank bin. | Hasta olduğumu bu yazıyla size bildiririm.
 v390 | Bitte teilen Sie uns Ihre Adresse mit. | Lütfen bize adresinizi bildirin.
 v390 | Sie hat mir die Nachricht mitgeteilt. | Bana haberi bildirdi.
 v394 | über ein Problem nachdenken | bir sorun hakkında düşünmek
 v394 | Ich muss darüber nachdenken. | Bunu düşünmem lazım.
-v394 | Ich habe lange über deine Frage nachgedacht. | Sorun üzerine uzun süre düşündüm.
+v394 | Ich habe lange über deine Frage nachgedacht. | Sorduğun soru üzerine uzun süre düşündüm.
 v394 | Denk mal darüber nach! | Bir düşün bunu!
 v420 | sich jeden Morgen rasieren | her sabah tıraş olmak
 v420 | Ich rasiere mich nur am Wochenende. | Sadece hafta sonları tıraş oluyorum.
 v420 | Hast du dich heute nicht rasiert? | Bugün tıraş olmadın mı?
 v420 | Er rasiert sich gerade im Bad. | Şu an banyoda tıraş oluyor.
-v423 | auf eine E-Mail reagieren | bir e-postaya cevap vermek
+v423 | auf eine E-Mail reagieren | bir e-postaya dönüş yapmak
 v423 | Wie hat er darauf reagiert? | Buna nasıl tepki verdi?
 v423 | Sie hat sehr freundlich reagiert. | Çok nazik bir tepki verdi.
 v423 | Ich reagiere allergisch auf Katzen. | Kedilere alerjim var.
@@ -1302,7 +1302,7 @@ v482 | Sie sorgt sich um ihre Gesundheit. | Sağlığı için endişeleniyor.
 v492 | aus der Türkei stammen | Türkiye kökenli olmak
 v492 | Meine Familie stammt aus Izmir. | Ailem İzmirli.
 v492 | Woher stammt dieses Wort? | Bu kelime nereden geliyor?
-v492 | Das Rezept stammt von meiner Oma. | Tarif büyükannemden.
+v492 | Das Rezept stammt von meiner Oma. | Tarif büyükannemden kalma.
 v509 | sich mit den Geschwistern streiten | kardeşlerle kavga etmek
 v509 | Ich habe mich mit meinem Bruder gestritten. | Kardeşimle kavga ettim.
 v509 | Streitet euch nicht! | Kavga etmeyin!
@@ -1320,11 +1320,11 @@ v549 | Dreh dich bitte um! | Lütfen arkanı dön!
 v549 | Er hat sich nicht umgedreht. | Arkasını dönmedi.
 v549 | Ich drehe mich um und sehe sie. | Arkamı dönüyorum ve onu görüyorum.
 v550 | mit Geld umgehen können | parayı idare edebilmek
-v550 | Sie kann gut mit Kindern umgehen. | Çocuklarla iyi geçinir.
+v550 | Sie kann gut mit Kindern umgehen. | Çocuklara nasıl davranacağını iyi biliyor.
 v550 | Wie gehst du mit Stress um? | Stresle nasıl başa çıkıyorsun?
 v550 | Er geht nicht gut mit Kritik um. | Eleştiriyle iyi başa çıkamıyor.
 v554 | sich schnell umziehen | hızlıca üstünü değiştirmek
-v554 | Ich ziehe mich nur kurz um. | Sadece kısaca üstümü değiştiriyorum.
+v554 | Ich ziehe mich nur kurz um. | Sadece hızlıca üstümü değiştiriyorum.
 v554 | Nach dem Sport ziehe ich mich um. | Spordan sonra üstümü değiştiririm.
 v554 | Hast du dich schon umgezogen? | Üstünü değiştirdin mi?
 v569 | sich stark verändern | çok değişmek
@@ -1368,7 +1368,7 @@ v626 | Ich schlage vor, dass wir ins Kino gehen. | Sinemaya gitmemizi öneriyoru
 v626 | Was schlägst du vor? | Ne önerirsin?
 v626 | Er hat mir eine Lösung vorgeschlagen. | Bana bir çözüm önerdi.
 v629 | Stell dir vor! | Düşünsene!
-v629 | Ich kann mir das gut vorstellen. | Bunu iyi canlandırabiliyorum.
+v629 | Ich kann mir das gut vorstellen. | Bunu rahatça hayal edebiliyorum.
 v629 | So habe ich mir Bremen nicht vorgestellt. | Bremen'i böyle hayal etmemiştim.
 v629 | Kannst du dir vorstellen, im Ausland zu leben? | Yurt dışında yaşamayı düşünebilir misin?
 v633 | vor einem Sturm warnen | bir fırtınaya karşı uyarmak
@@ -1380,7 +1380,7 @@ v642 | Bitte wenden Sie sich an das Sekretariat. | Lütfen sekreterliğe başvur
 v642 | An wen kann ich mich wenden? | Kime başvurabilirim?
 v642 | Ich habe mich an die Beratung gewandt. | Danışma merkezine başvurdum.
 v646 | jemandem offen widersprechen | birine açıkça karşı çıkmak
-v646 | Da muss ich dir widersprechen. | Burada sana itiraz etmem lazım.
+v646 | Da muss ich dir widersprechen. | Bu konuda sana itiraz etmek zorundayım.
 v646 | Er widerspricht immer seinem Chef. | Her zaman patronuna karşı çıkıyor.
 v646 | Niemand hat ihr widersprochen. | Kimse ona itiraz etmedi.
 v654 | sich über das Wetter wundern | havaya şaşırmak
@@ -1424,18 +1424,18 @@ v013 | über einen Vorschlag abstimmen | bir öneri hakkında oylama yapmak
 v013 | Wir stimmen morgen darüber ab. | Yarın bunu oylayacağız.
 v013 | Die Klasse hat über das Ausflugsziel abgestimmt. | Sınıf gezi yerini oyladı.
 v016 | eine Entscheidung akzeptieren | bir kararı kabul etmek
-v016 | Ich akzeptiere deine Meinung. | Fikrine saygı duyuyorum.
+v016 | Ich akzeptiere deine Meinung. | Fikrini kabul ediyorum.
 v016 | Akzeptieren Sie Kartenzahlung? | Kartla ödeme kabul ediyor musunuz?
 v016 | Er hat die Kritik nicht akzeptiert. | Eleştiriyi kabul etmedi.
 v018 | Daten analysieren | verileri analiz etmek
 v018 | Wir analysieren die Ergebnisse im Kurs. | Kursta sonuçları analiz ediyoruz.
 v018 | Der Arzt hat das Blut analysiert. | Doktor kanı tahlil etti.
-v021 | einen Abschluss anerkennen lassen | bir diplomayı tanıtmak (denklik almak)
+v021 | einen Abschluss anerkennen lassen | bir diploma için denklik almak
 v021 | Mein Diplom wird in Deutschland anerkannt. | Diplomam Almanya'da tanınıyor.
 v021 | Die Uni hat meine Noten nicht anerkannt. | Üniversite notlarımı kabul etmedi.
 v023 | seine Adresse angeben | adresini belirtmek
 v023 | Bitte geben Sie Ihren Namen an. | Lütfen adınızı belirtin.
-v023 | Ich habe die falsche Nummer angegeben. | Yanlış numarayı yazdım.
+v023 | Ich habe die falsche Nummer angegeben. | Yanlış numara verdim.
 v023 | Gib nicht so an! | Bu kadar hava atma!
 v027 | Es kommt darauf an. | Duruma göre değişir.
 v027 | Es kommt auf das Wetter an. | Havaya bağlı.
@@ -1453,14 +1453,14 @@ v033 | Ich will mir einen Hund anschaffen. | Kendime bir köpek almak istiyorum.
 v034 | den Drucker anschließen | yazıcıyı bağlamak
 v034 | Hast du den Fernseher schon angeschlossen? | Televizyonu bağladın mı?
 v034 | Ich schließe den Laptop an den Beamer an. | Laptopu projektöre bağlıyorum.
-v037 | ein Problem ansprechen | bir sorunu açmak
-v037 | Ein Mann hat mich auf der Straße angesprochen. | Sokakta bir adam bana seslendi.
+v037 | ein Problem ansprechen | bir sorunu dile getirmek
+v037 | Ein Mann hat mich auf der Straße angesprochen. | Sokakta bir adam yanıma gelip benimle konuştu.
 v037 | Ich möchte noch ein Thema ansprechen. | Bir konuya daha değinmek istiyorum.
 v037 | Sprich ihn doch einfach an! | Gidip onunla konuşsana!
 v038 | die Heizung anstellen | kaloriferi açmak
 v038 | Kannst du bitte das Radio anstellen? | Radyoyu açar mısın lütfen?
 v038 | Die Firma hat zwei neue Leute angestellt. | Firma iki yeni kişiyi işe aldı.
-v038 | Was hast du wieder angestellt? | Yine ne yaptın? (ne yumurtladın)
+v038 | Was hast du wieder angestellt? | Yine ne karıştırdın?
 v040 | eine Regel anwenden | bir kuralı uygulamak
 v040 | Wende die Grammatik im Text an! | Dilbilgisini metinde uygula!
 v040 | Ich habe die Creme zweimal angewendet. | Kremi iki kez kullandım.
@@ -1472,7 +1472,7 @@ v047 | Ich arbeite gerade an meiner Hausarbeit. | Şu an ödevim üzerinde çal�
 v047 | Wir arbeiten noch daran. | Hâlâ bunun üzerinde çalışıyoruz.
 v047 | Du musst an deiner Aussprache arbeiten. | Telaffuzun üzerinde çalışman lazım.
 v050 | tief atmen | derin nefes almak
-v050 | Atme ruhig ein und aus. | Sakince nefes al ver.
+v050 | Atme ruhig ein und aus. | Sakince nefes alıp ver.
 v050 | Ich kann kaum atmen. | Zor nefes alıyorum.
 v051 | jemandem auffallen | birinin dikkatini çekmek
 v051 | Mir ist etwas aufgefallen. | Bir şey dikkatimi çekti.
@@ -1512,11 +1512,11 @@ v074 | Richte ihm bitte schöne Grüße aus! | Ona lütfen selamımı ilet!
 v074 | Kann ich etwas ausrichten? | Bir mesajınız var mı, iletebilirim?
 v074 | Ich richte es ihr aus. | Ona iletirim.
 v076 | einen Fehler ausschließen | bir hatayı olasılık dışı bırakmak
-v076 | Das kann ich nicht ausschließen. | Bunu göz ardı edemem.
+v076 | Das kann ich nicht ausschließen. | Bunu ihtimal dışı bırakamam.
 v076 | Er wurde aus dem Verein ausgeschlossen. | Dernekten ihraç edildi.
 v079 | Bilder ausstellen | resim sergilemek
 v079 | Das Museum stellt moderne Kunst aus. | Müze modern sanat sergiliyor.
-v079 | Das Amt hat mir eine Bescheinigung ausgestellt. | Daire bana bir belge düzenledi.
+v079 | Das Amt hat mir eine Bescheinigung ausgestellt. | Resmî daire bana bir belge düzenledi.
 v086 | mit Kindern basteln | çocuklarla el işi yapmak
 v086 | Wir basteln Sterne für Weihnachten. | Noel için yıldızlar yapıyoruz.
 v086 | Ich habe eine Karte gebastelt. | Bir kart yaptım.
@@ -1537,7 +1537,7 @@ v100 | Bitte begründen Sie Ihre Antwort. | Lütfen cevabınızı gerekçelendir
 v100 | Er hat seine Entscheidung gut begründet. | Kararını iyi gerekçelendirdi.
 v102 | ein Geheimnis für sich behalten | bir sırrı kendine saklamak
 v102 | Den Rest können Sie behalten. | Üstü kalsın.
-v102 | Ich behalte die Wohnung. | Daireyi tutuyorum.
+v102 | Ich behalte die Wohnung. | Daireyi elimde tutuyorum.
 v102 | Ich kann Namen schlecht behalten. | İsimleri aklımda zor tutuyorum.
 v103 | einen Patienten behandeln | bir hastayı tedavi etmek
 v103 | Welcher Arzt hat Sie behandelt? | Sizi hangi doktor tedavi etti?
@@ -1565,7 +1565,7 @@ v112 | Hilfe benötigen | yardıma ihtiyaç duymak
 v112 | Benötigen Sie noch etwas? | Başka bir şeye ihtiyacınız var mı?
 v112 | Für den Antrag benötige ich ein Foto. | Başvuru için bir fotoğrafa ihtiyacım var.
 v114 | Vögel beobachten | kuşları gözlemlemek
-v114 | Ich habe den Unfall beobachtet. | Kazayı gördüm.
+v114 | Ich habe den Unfall beobachtet. | Kazaya tanık oldum.
 v114 | Er beobachtet die Leute im Café. | Kafede insanları izliyor.
 v115 | Kunden beraten | müşterilere danışmanlık yapmak
 v115 | Kann ich Sie beraten? | Size yardımcı olabilir miyim?
@@ -1582,7 +1582,7 @@ v120 | Das Paket ist beschädigt. | Paket hasarlı.
 v120 | Der Sturm hat das Dach beschädigt. | Fırtına çatıya hasar verdi.
 v122 | etwas gemeinsam beschließen | bir şeye birlikte karar vermek
 v122 | Ich habe beschlossen, nach Bremen zu ziehen. | Bremen'e taşınmaya karar verdim.
-v122 | Die Regierung beschließt ein neues Gesetz. | Hükümet yeni bir yasa kararlaştırıyor.
+v122 | Die Regierung beschließt ein neues Gesetz. | Hükümet yeni bir yasayı karara bağlıyor.
 v126 | einen Platz besetzen | bir yer tutmak
 v126 | Ist dieser Platz besetzt? | Bu yer dolu mu?
 v126 | Die Toilette ist besetzt. | Tuvalet dolu.
@@ -1662,11 +1662,11 @@ v170 | Sie dreht ein Video für YouTube. | YouTube için video çekiyor.
 v170 | Er hat sich zu mir gedreht. | Bana doğru döndü.
 v176 | sich duzen | birbirine sen diye hitap etmek
 v176 | Wollen wir uns duzen? | Senli benli konuşalım mı?
-v176 | In der WG duzen sich alle. | Ev paylaşımında herkes birbirine sen diyor.
+v176 | In der WG duzen sich alle. | Öğrenci evinde herkes birbirine sen diyor.
 v178 | Es eilt. | Acil.
 v178 | Es eilt nicht. | Acelesi yok.
 v178 | Er ist schnell nach Hause geeilt. | Hızla eve koştu.
-v179 | in eine Wohnung einbrechen | bir eve hırsız girmek
+v179 | in eine Wohnung einbrechen | bir eve zorla girmek (hırsızlık için)
 v179 | Bei uns wurde eingebrochen. | Evimize hırsız girdi.
 v179 | Jemand ist in den Keller eingebrochen. | Biri bodruma zorla girdi.
 v181 | jemanden stark beeinflussen | birini çok etkilemek
@@ -1759,7 +1759,7 @@ v223 | Kannst du mich morgen daran erinnern? | Yarın bana bunu hatırlatır mı
 v223 | Das erinnert mich an meine Heimat. | Bu bana memleketimi hatırlatıyor.
 v223 | Erinnerst du dich an mich? | Beni hatırlıyor musun?
 v226 | einen Fehler erkennen | bir hatayı fark etmek
-v226 | Ich habe dich gar nicht erkannt! | Seni hiç tanımadım!
+v226 | Ich habe dich gar nicht erkannt! | Seni hiç tanıyamadım!
 v226 | Man erkennt ihn an seiner Stimme. | Onu sesinden tanırsın.
 v230 | etwas Schönes erleben | güzel bir şey yaşamak
 v230 | Was hast du im Urlaub erlebt? | Tatilde neler yaşadın?
@@ -1800,7 +1800,7 @@ v246 | Ich kann es nicht fassen! | İnanamıyorum!
 v246 | Er hat mich am Arm gefasst. | Beni kolumdan tuttu.
 v247 | am Wochenende faulenzen | hafta sonu yan gelip yatmak
 v247 | Im Urlaub faulenze ich gern. | Tatilde tembellik etmeyi severim.
-v247 | Heute habe ich nur gefaulenzt. | Bugün sadece yattım.
+v247 | Heute habe ich nur gefaulenzt. | Bugün sadece tembellik ettim.
 v251 | sich gut festhalten | sıkıca tutunmak
 v251 | Bitte halten Sie sich fest! | Lütfen sıkıca tutunun!
 v251 | Das Kind hält die Hand der Mutter fest. | Çocuk annesinin elini sıkıca tutuyor.
@@ -1812,7 +1812,7 @@ v253 | Die Polizei hat den Mann festgenommen. | Polis adamı gözaltına aldı.
 v253 | Zwei Personen wurden festgenommen. | İki kişi gözaltına alındı.
 v254 | einen Preis festsetzen | bir fiyat belirlemek
 v254 | Die Stadt hat neue Gebühren festgesetzt. | Şehir yeni harçlar belirledi.
-v254 | Wir setzen den Termin für Freitag fest. | Tarihi cumaya sabitliyoruz.
+v254 | Wir setzen den Termin für Freitag fest. | Tarihi cuma olarak belirliyoruz.
 v255 | Es steht fest, dass … | … olduğu kesin.
 v255 | Der Termin steht noch nicht fest. | Tarih henüz kesinleşmedi.
 v255 | Steht schon fest, wann du fährst? | Ne zaman gideceğin belli oldu mu?
@@ -1899,7 +1899,7 @@ v311 | Er hebt die schwere Kiste. | Ağır kutuyu kaldırıyor.
 v311 | Ich kann das nicht allein heben. | Bunu tek başıma kaldıramam.
 v314 | die Wohnung heizen | evi ısıtmak
 v314 | Wir heizen mit Gas. | Doğalgazla ısınıyoruz.
-v314 | Im Winter heizen wir viel. | Kışın çok ısıtıyoruz.
+v314 | Im Winter heizen wir viel. | Kışın kaloriferi çok açıyoruz.
 v317 | Waren herstellen | mal üretmek
 v317 | Die Firma stellt Autos her. | Şirket araba üretiyor.
 v317 | Wo wurde das hergestellt? | Bu nerede üretildi?
@@ -1907,7 +1907,7 @@ v318 | eine Nachricht hinterlassen | mesaj bırakmak
 v318 | Sie können eine Nachricht hinterlassen. | Mesaj bırakabilirsiniz.
 v318 | Er hat einen guten Eindruck hinterlassen. | İyi bir izlenim bıraktı.
 v319 | Ich möchte darauf hinweisen, dass … | … olduğuna dikkat çekmek isterim.
-v319 | Er hat mich auf einen Fehler hingewiesen. | Bana bir hatayı gösterdi.
+v319 | Er hat mich auf einen Fehler hingewiesen. | Bir hataya dikkatimi çekti.
 v319 | Wir weisen darauf hin, dass das Büro geschlossen ist. | Ofisin kapalı olduğunu hatırlatırız.
 v320 | Fotos hochladen | fotoğraf yüklemek
 v320 | Ich lade die Datei gleich hoch. | Dosyayı hemen yüklüyorum.
@@ -1957,7 +1957,7 @@ v353 | Kriege ich noch einen Kaffee? | Bir kahve daha alabilir miyim?
 v354 | jemanden kritisieren | birini eleştirmek
 v354 | Der Lehrer kritisiert meine Aussprache. | Öğretmen telaffuzumu eleştiriyor.
 v354 | Viele Leute haben den Plan kritisiert. | Birçok kişi planı eleştirdi.
-v356 | die Wohnung kündigen | ev kira sözleşmesini feshetmek
+v356 | die Wohnung kündigen | evin kira sözleşmesini feshetmek
 v356 | Ich habe meinen Handyvertrag gekündigt. | Telefon sözleşmemi feshettim.
 v356 | Er hat bei seiner Firma gekündigt. | Şirketinden istifa etti.
 v369 | eine Firma leiten | bir şirketi yönetmek
@@ -1986,7 +1986,7 @@ v389 | Du musst Mehl und Eier gut mischen. | Unu ve yumurtayı iyice karıştır
 v389 | Er hat die Karten gemischt. | Kartları karıştırdı.
 v395 | ein Wort im Wörterbuch nachschlagen | bir kelimeye sözlükte bakmak
 v395 | Ich schlage das Wort schnell nach. | Kelimeye hemen bakıyorum.
-v395 | Hast du das schon nachgeschlagen? | Ona baktın mı?
+v395 | Hast du das schon nachgeschlagen? | Ona sözlükte baktın mı?
 v396 | eine Hose nähen | pantolon dikmek
 v396 | Meine Oma näht gern. | Babaannem dikiş dikmeyi sever.
 v396 | Sie hat das Kleid selbst genäht. | Elbiseyi kendisi dikti.
@@ -2085,7 +2085,7 @@ v458 | die Umwelt verschmutzen | çevreyi kirletmek
 v458 | Autos verschmutzen die Luft. | Arabalar havayı kirletiyor.
 v458 | Die Fabrik hat den Fluss verschmutzt. | Fabrika nehri kirletti.
 v463 | um Hilfe schreien | yardım için bağırmak
-v463 | Das Baby schreit die ganze Nacht. | Bebek bütün gece bağırıyor.
+v463 | Das Baby schreit die ganze Nacht. | Bebek bütün gece çığlık atıyor.
 v463 | Bitte schrei nicht so laut! | Lütfen o kadar yüksek sesle bağırma!
 v464 | den Kopf schütteln | başını sallamak (hayır anlamında)
 v464 | Er hat nur den Kopf geschüttelt. | Sadece başını iki yana salladı.
@@ -2164,7 +2164,7 @@ v516 | Im Urlaub sind wir viel getaucht. | Tatilde çok dalış yaptık.
 v516 | Kannst du lange unter Wasser tauchen? | Su altında uzun süre dalabilir misin?
 v517 | die Plätze tauschen | yer değiştirmek
 v517 | Wollen wir tauschen? | Değişelim mi?
-v517 | Ich habe mein Buch gegen eine CD getauscht. | Kitabımı bir CD ile değiştim.
+v517 | Ich habe mein Buch gegen eine CD getauscht. | Kitabımı bir CD'yle takas ettim.
 v518 | die Kosten teilen | masrafları paylaşmak
 v518 | Wir teilen uns eine Wohnung. | Bir daireyi paylaşıyoruz.
 v518 | Ich teile deine Meinung. | Fikrine katılıyorum.
@@ -2173,7 +2173,7 @@ v521 | Ich habe das neue Handy getestet. | Yeni telefonu test ettim.
 v521 | Testen Sie das Programm kostenlos! | Programı ücretsiz deneyin!
 v522 | eine Nachricht tippen | mesaj yazmak
 v522 | Sie tippt sehr schnell. | Çok hızlı yazıyor.
-v522 | Ich tippe, dass Bremen gewinnt. | Bence Bremen kazanır.
+v522 | Ich tippe, dass Bremen gewinnt. | Bremen'in kazanacağını tahmin ediyorum.
 v525 | Waren transportieren | mal taşımak
 v525 | Der Lkw transportiert Möbel. | Kamyon mobilya taşıyor.
 v525 | Wie hast du das Sofa transportiert? | Kanepeyi nasıl taşıdın?
@@ -2198,7 +2198,7 @@ v539 | Sie hat das Geschäft ihres Vaters übernommen. | Babasının işini devr
 v540 | die Rechnung überprüfen | faturayı kontrol etmek
 v540 | Bitte überprüfen Sie Ihre Daten. | Lütfen bilgilerinizi kontrol edin.
 v540 | Ich habe alles noch einmal überprüft. | Her şeyi bir kez daha kontrol ettim.
-v541 | die Straße überqueren | caddeyi karşıya geçmek
+v541 | die Straße überqueren | caddenin karşısına geçmek
 v541 | Überquer die Straße nur bei Grün! | Caddeyi sadece yeşilde geç!
 v541 | Wir haben die Brücke zu Fuß überquert. | Köprüyü yürüyerek geçtik.
 v542 | jemanden mit einem Geschenk überraschen | birini bir hediyeyle şaşırtmak
@@ -2206,14 +2206,14 @@ v542 | Das Ergebnis hat mich überrascht. | Sonuç beni şaşırttı.
 v542 | Wir wollen sie zum Geburtstag überraschen. | Doğum gününde ona sürpriz yapmak istiyoruz.
 v543 | jemanden zu etwas überreden | birini bir şeye ikna etmek
 v543 | Sie hat mich zum Mitkommen überredet. | Beni gelmeye ikna etti.
-v543 | Lass dich nicht überreden! | Kandırılmasına izin verme!
-v545 | Jetzt übertreibst du aber! | Şimdi ama abartıyorsun!
+v543 | Lass dich nicht überreden! | Seni ikna etmelerine izin verme!
+v545 | Jetzt übertreibst du aber! | Ama şimdi abartıyorsun!
 v545 | Er übertreibt immer ein bisschen. | Hep biraz abartıyor.
 v545 | Man sollte beim Sport nicht übertreiben. | Sporda abartmamak lazım.
 v546 | Geld auf ein Konto überweisen | bir hesaba para havale etmek
 v546 | Ich überweise dir das Geld morgen. | Parayı sana yarın havale ederim.
 v546 | Die Miete habe ich schon überwiesen. | Kirayı zaten havale ettim.
-v547 | von einer Idee überzeugt sein | bir fikre inanmak
+v547 | von einer Idee überzeugt sein | bir fikre ikna olmak
 v547 | Er hat mich von seinem Plan überzeugt. | Beni planına ikna etti.
 v547 | Das überzeugt mich nicht. | Bu beni ikna etmiyor.
 v548 | jemanden fest umarmen | birine sıkıca sarılmak
@@ -2334,7 +2334,7 @@ v615 | Er vertritt die Firma auf der Messe. | Fuarda şirketi temsil ediyor.
 v616 | jemanden zu einer Strafe verurteilen | birini bir cezaya çarptırmak
 v616 | Er wurde zu zwei Jahren Haft verurteilt. | İki yıl hapis cezasına çarptırıldı.
 v616 | Man sollte andere nicht schnell verurteilen. | Başkalarını hemen yargılamamak lazım.
-v618 | Zeit sinnvoll verwenden | zamanı anlamlı kullanmak
+v618 | Zeit sinnvoll verwenden | zamanı verimli kullanmak
 v618 | Ich verwende Olivenöl zum Kochen. | Yemek yaparken zeytinyağı kullanıyorum.
 v618 | Dieses Wort verwendet man selten. | Bu kelime nadiren kullanılır.
 v624 | Das kommt oft vor. | Bu sık olur.
@@ -2358,7 +2358,7 @@ v645 | Ich wette, du schaffst das. | Bahse girerim bunu başarırsın.
 v648 | das Gepäck wiegen | bagajı tartmak
 v648 | Der Koffer wiegt zwanzig Kilo. | Bavul yirmi kilo geliyor.
 v648 | Wie viel wiegst du? | Kaç kilosun?
-v649 | dem Taxi winken | taksiye el sallamak
+v649 | dem Taxi winken | taksiye el etmek
 v649 | Sie hat mir aus dem Zug gewinkt. | Bana trenden el salladı.
 v649 | Die Kinder winken ihren Eltern. | Çocuklar anne babalarına el sallıyor.
 v650 | müde wirken | yorgun görünmek

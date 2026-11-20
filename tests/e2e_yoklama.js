@@ -4,10 +4,13 @@
 // 2) ön testi bilemeyince gelen tanıtımda "Biliyorum, sonra sor" yok; tanıtım satırında `yoklama` etiketi
 // 3) bilinen ön test: kotadan düşmez, tur sonunda "zaten biliyordun", tur satırında bildi:N
 // 4) normal tur (vadeliler var): ertelenen kelime tur bitmeden sorulur
+// 5) "çeviri kötü" düğmesi (20.11): cümleli soruda log akt;ceviri:<öğe>
 const D = require('./surucu');
 let hata = 0;
 const ok = (k, m) => { if (!k) { hata++; console.log('HATA:', m); } };
-const GUN = '2026-11-20', SAAT = new Date(GUN + 'T10:00:00').getTime();
+// test günü: kayıttaki son çalışma gününün ertesi (bugünün yeni kelime hakkı dolu olmasın; 3+ gün ara "dönüş turu" yapar: yeni yok)
+const GUN = (() => { const z = JSON.parse(D.zustandOku()), son = Object.keys(z.tage || {}).sort().pop() || '2026-11-19', d = new Date(son + 'T12:00:00'); d.setDate(d.getDate() + 1);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; })(), SAAT = new Date(GUN + 'T10:00:00').getTime();
 // gerçek kopya; ileri: true → bütün vadeler 30 gün sonraya (tekrar sırası boş), gs4: o günün sayaçları
 function kopya(o) {
   const z = JSON.parse(D.zustandOku());
@@ -117,7 +120,35 @@ const cevapla = (p, s, dogru) => D.adim(p, { dogru: dogru ? 1 : 0 });
     await p.ctx.close();
   }
 
+  // 5) "çeviri kötü" (20.11): cümleli soruda sonuç panelinde düğme → log akt;ceviri:<öğe> (Almanca cümle antwort'ta), düğme "not alındı" olur
+  {
+    const p = await D.sayfa(b, { zustand: kopya({}), saatOfs: SAAT - Date.now() });
+    await p.waitForTimeout(400);
+    await p.evaluate(() => window.__tekrar.starte('akis', 12));
+    await p.waitForTimeout(300);
+    let tiklandi = null;
+    for (let i = 0; i < 30 && !tiklandi; i++) {
+      const s = await durum(p);
+      if (s.typ === 'turSonu' || s.typ === 'leer' || s.bos) break;
+      const kontext = await p.evaluate(() => { const q = window.__tekrar.aktuell; return q && q.input && q.kontext ? q.kontext : null; });
+      if (kontext) {
+        await D.adim(p, { dogru: 1, sonucCek: async () => {
+          if (await p.$('.sonuc [data-act="ceviri-kotu"]')) { await p.click('.sonuc [data-act="ceviri-kotu"]'); await p.waitForTimeout(80); tiklandi = { kontext, ok: !!(await p.$('.sonuc .cev-ok')) }; }
+        } });
+        continue;
+      }
+      await D.adim(p, { dogru: 1 });
+    }
+    ok(tiklandi && tiklandi.ok, '[5] "çeviri kötü" düğmesi yok ya da "not alındı" olmadı: ' + JSON.stringify(tiklandi));
+    if (tiklandi) {
+      const L = await p.evaluate(() => window.__tekrar.S.log.filter(e => e.modus === 'akt' && /^ceviri:/.test(e.id)));
+      ok(L.length === 1 && L[0].antwort === tiklandi.kontext && L[0].ergebnis === 'kotu', '[5] çeviri log satırı: ' + JSON.stringify(L));
+    }
+    ok(!p.hatalar.length, '[5] sayfa hatası: ' + p.hatalar.join(' | '));
+    await p.ctx.close();
+  }
+
   await b.close();
-  console.log(hata ? `e2e_yoklama: ${hata} hata` : 'e2e_yoklama: geçti (boş sırada "Biliyorum, sonra sor", ön testten gelen tanıtım, bildi, normal tur)');
+  console.log(hata ? `e2e_yoklama: ${hata} hata` : 'e2e_yoklama: geçti (boş sırada "Biliyorum, sonra sor", ön testten gelen tanıtım, bildi, normal tur, çeviri kötü)');
   process.exit(hata ? 1 : 0);
 })();

@@ -1196,8 +1196,8 @@ body.calis-modu .yenile-cubuk { display: none; }
 .aski-satir .oge { border-top: 0; }
 .aski-satir > .btn { margin-right: .7rem; white-space: nowrap; }
 .aski-kutu { display: flex; flex-wrap: wrap; gap: .3rem .6rem; align-items: center; font-size: .88rem; border-top: 1px solid var(--line); padding-top: .6rem; }
-.notlar .aski-btn { color: var(--muted); }
-.aski-ok { display: inline-flex; gap: .4rem; align-items: center; font-size: .88rem; }
+.notlar .aski-btn, .notlar .cev-btn { color: var(--muted); }
+.aski-ok, .cev-ok { display: inline-flex; gap: .4rem; align-items: center; font-size: .88rem; }
 .ana-bilgi.aski-bilgi { display: grid; gap: .45rem; }
 /* 15.11 (D11) Bugün: ilerleme sayıları; Claude notları tek satır */
 .ana-sayilar { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
