@@ -5324,3 +5324,25 @@
 2026-11-20 04:50:20;wort;n0168:wort;die Beziehung;ilişki;die Beziehung;richtig;die Beziehung;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-20 04:50:24;prod;w0472:prod;tief;derin | Bitte jetzt _____ einatmen!;tief;richtig;tief;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:decumle
 2026-11-20 04:50:26;erk;w0354:erk;neugierig;meraklı;neugierig;richtig;neugierig;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | şık:w0353/w0586/w0464 | çeldirici:biçim/konu/konu | sek:2
+2026-11-20 04:50:32;wort;n0301:wort;die Erde;"dünya; toprak | Die Pflanzen brauchen neu… _____.";die Erde;richtig;die Erde;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.96 | S:3.7 | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-20 04:50:41;prod;w0170:prod;fließend;akıcı;fleßig;falsch;fließend;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | düzeltti | farklı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:50:41;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:9 | küçük:0 | yanlış:5 | puan:77 | dk:2 | yeni:2 | seviye+:0 | tekrar:9 | ipucusuz:2 | gram:0/1
+2026-11-20 04:50:48;satz;v571:satz;verbieten;Diese Möglichkeit ist in Deutschland allerdings _____.;verboten;richtig;verboten;basamak:B2 | bicim:bos0 | not:m3 | R:0.93 | S:14.2 | kapı:7g | sek:6 | ipucu:0
+2026-11-20 04:50:59;nsatz;w0485:nsatz;überhaupt;Du hast dich _____ nicht verändert.;üburhaupt;fast;überhaupt;basamak:B2 | bicim:bos | not:m3 | R:0.91 | S:1.5 | kısmi | yazım | sek:8 | ipucu:1
+2026-11-20 04:51:11;abr;v481:abr;sorgen für;"(bir şeyi) sağlamak; (birine) bakmak | Können Sie bitte dafür _____, dass die Heizung funktioniert?";sorgen für;richtig;sorgen für (für + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:1.3 | sek:11 | ipucu:0 | ipucu-tür:decumle
+2026-11-20 04:51:19;abr;v428:abr;regeln;düzenlemek, halletmek | Das _____ wir später.;reichen;falsch;regeln (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.91 | S:0.2 | düzeltti | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:51:21;erk;x1594:erk;die Stirn;alın;die Stirn;richtig;die Stirn;basamak:B1 | bicim:sec | not:m3 | R:0.98 | S:2.8 | şık:n1142/n1169/n1135 | çeldirici:biçim/biçim/biçim | sek:1
+2026-11-20 04:51:35;gram;g:konnektoren-b2:54;konnektoren-b2/bedingung;Ich nehme die Stelle, ___ das Gehalt stimmt. (-mesi şartıyla);;falsch;sofern;tur:akis | tür:luecke | z:2 | bilmiyorum | ghost:1 | sek:7
+2026-11-20 04:51:48;nsatz;w0119:nsatz;eher;Ich lerne _____ abends, weil ich mich morgens nicht gut konzentrieren kann.;häufig;falsch;eher;basamak:B2 | bicim:bos | not:m1 | R:0.80 | S:0.5 | düzeltti | farklı | sek:9 | ipucu:1
+2026-11-20 04:51:53;abr;v577:abr;vereinbaren;kararlaştırmak | Können wir einen Termin _____?;vereinbaren;richtig;vereinbaren (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.98 | S:3.6 | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-20 04:51:56;abr;v191:abr;einsetzen;kullanmak, devreye sokmak;einsetzen;richtig;einsetzen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:5.7 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:51:59;abr;v428:abr;regeln;düzenlemek, halletmek;regeln;richtig;regeln (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:52:02;bed;v700:bed;sich(D) vornehmen;(bir şeyi yapmaya) karar vermek, niyet etmek;sich(D) vornehmen;richtig;sich(D) vornehmen;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | şık:v539/v667/v187 | çeldirici:biçim/biçim/biçim | sek:2
+2026-11-20 04:52:05;erk;w0037:erk;ausreichend;yeterli;ausreichend;richtig;ausreichend;basamak:B1 | bicim:sec | not:m3 | R:0.96 | S:3.1 | şık:w0026/w0640/w0407 | çeldirici:konu/karışma/bilinen | sek:3
+2026-11-20 04:52:08;nsatz;w0119:nsatz;eher;Das Klima hingegen besagt, ob es an einem Ort normalerweise _____ warm oder eher kalt ist, im Durchschnitt vieler Jahre.;eher;richtig;eher;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-20 04:52:08;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:9 | küçük:1 | yanlış:3 | puan:102 | dk:1 | yeni:0 | seviye+:0 | tekrar:12 | ipucusuz:0 | gram:0/1
+2026-11-20 04:52:13;art;x1594:art;die Stirn;Als er das hörte, runzelte er ___ Stirn. [Nom/Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.98 | S:4.4 | hâl:Nom/Akk | sek:5
+2026-11-20 04:52:17;wort;n0236:wort;der Dialekt;lehçe, şive;der Dialekt;richtig;der Dialekt;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.93 | S:1.9 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:52:20;wort;n0207:wort;die Burg;kale, şato;die Burg;richtig;die Burg;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.91 | S:75.9 | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-20 04:52:26;art;n0186:art;die Botschaft;Das Visum habe ich von ___ Botschaft bekommen. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:10.3 | hâl:Dat | sek:5
+2026-11-20 04:52:35;wort;n0795:wort;die Minderheit;azınlık | Frauen sind in unserer Firma in … _____.;die Mindheit;fast;die Minderheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.97 | S:4.0 | kısmi | yazım | sek:6 | ipucu:2 | ipucu-tür:trcumle
