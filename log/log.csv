@@ -5372,3 +5372,11 @@
 2026-11-20 04:56:36;abr;v425:abr;rechnen mit;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit (mit + Dat);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
 2026-11-20 04:56:40;abr;v620:abr;verzichten auf;(bir şeyden) vazgeçmek;verzichten auf;richtig;verzichten auf (auf + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.3 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:tr
 2026-11-20 04:56:48;prod;w0343:prod;nämlich;çünkü, yani (açıklama) | Sie konnten nur sehr wenig, _____ Zahlen zusammenzählen.;nasda;falsch;nämlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | farklı | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-20 04:56:56;wort;n0521:wort;die Haut;cilt, deri;die Hase;falsch;die Haut;basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | kelime yanlış | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-20 04:57:02;art;n0469:art;die Gewalt;mit ___ Gewalt [Dat];dem;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.80 | S:0.1 | hâl:Dat | artikel dem → der | sek:3
+2026-11-20 04:57:02;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:5 | küçük:0 | yanlış:7 | puan:64 | dk:2 | yeni:2 | seviye+:0 | tekrar:8 | ipucusuz:2
+2026-11-20 04:57:09;art;n0232:art;der Gedanke;Schon ___ Gedanke an die Prüfung macht mich ganz nervös. [Nom];die;falsch;der;basamak:A | bicim:artOb | not:a1 | R:0.80 | S:0.1 | hâl:Nom | artikel die → der | sek:4
+2026-11-22 20:34:48;gram;g:zweiteilig;Zweiteilige Konnektoren;oto;;acildi;;b2:3
+2026-11-22 20:35:05;wort;n0937:wort;das Projekt;proje;das Projekt;richtig;das Projekt;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.97 | S:37.1 | ısınma | sek:6 | ipucu:2 | ipucu-tür:tr
+2026-11-22 20:35:11;nsatz;n0067:nsatz;die Art;Man kann auf unterschiedliche _____ und Weise ein Fest feiern.;Art;richtig;Art;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:39.6 | ısınma | sek:5 | ipucu:0
+2026-11-22 20:35:15;nsatz;w0368:nsatz;nun;Nach der Landtagswahl in Sachsen-Anhalt verliert die konservative CDU _____ auch in Mecklenburg-Vorpommern und Berlin.;nun;richtig;nun;basamak:B2 | bicim:bos0 | not:m3 | R:0.95 | S:34.6 | ısınma | sek:3 | ipucu:0
