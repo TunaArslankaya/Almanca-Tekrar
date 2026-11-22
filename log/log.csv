@@ -5424,3 +5424,33 @@
 2026-11-22 21:38:20;satz;v278:satz;sich fürchten vor;Das Kind hat sich vor dem Gewitter _____.;gefürchtet;richtig;gefürchtet;basamak:B2 | bicim:bos0 | not:m3 | R:0.56 | S:0.6 | sek:6 | ipucu:0
 2026-11-22 21:38:23;abr;v518:abr;teilen;paylaşmak, bölmek | Wollen wir uns eine Pizza _____?;teilen;richtig;teilen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:decumle
 2026-11-22 21:38:28;prod;w0095:prod;deutlich;açık, belirgin;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.81 | S:4.5 | kurtarma | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:39:04;wort;x1549:wort;die Ehrlichkeit;dürüstlük;die Warhkeit;falsch;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:m1 | R:0.66 | S:0.1 | düzeltti | kelime yanlış | sek:32 | ipucu:2 | ipucu-tür:tr
+2026-11-22 21:39:10;abr;v561:abr;unterschreiben;imzalamak;unterschreiben;richtig;unterschreiben (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:5.2 | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:39:13;wort;n1358:wort;die Ware;mal, ürün | Außerdem bittet man dort nicht einen Verkäufer, … di… _____ zu geben.;die Ware;richtig;die Ware;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:7.4 | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:39:17;erk;w0640:erk;ausgewogen;dengeli (beslenme, oran);ausgewogen;richtig;ausgewogen;basamak:B1 | bicim:sec | not:m3 | R:0.65 | S:0.9 | şık:w0035/w0033/w0037 | çeldirici:biçim/biçim/karışma | sek:4
+2026-11-22 21:39:25;wort;x1549:wort;die Ehrlichkeit;dürüstlük | _____ ist mir in einer Freundschaft sehr wichtig.;die Ehrlichkeit;richtig;die Ehrlichkeit;basamak:B2 | bicim:yaz | not:a3 | R:1.00 | S:0.1 | tekrar:1 | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:39:25;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:13 | küçük:0 | yanlış:2 | puan:144 | dk:2 | yeni:1 | seviye+:1 | tekrar:12 | ipucusuz:2 | gram:1/1
+2026-11-22 21:39:32;art;n0682:art;die Kritik;Kritik;der;falsch;die Kritik;basamak:A | bicim:artikel | not:a1 | R:0.87 | S:1.0 | artikel der → die | sek:3
+2026-11-22 21:39:34;art;n0914:art;die Politik;Politik;die;richtig;die Politik;basamak:A | bicim:artikel | not:- | R:0.93 | S:9.1 | artset:-ik | hafıza:yazılmadı | sek:2
+2026-11-22 21:39:38;art;n0327:art;die Fabrik;Fabrik;die;richtig;die Fabrik;basamak:A | bicim:artikel | not:- | R:- | S:- | artset:-ik | hafıza:yazılmadı | sek:3
+2026-11-22 21:39:42;prod;w0461:prod;statt;yerine (+ Gen) | Sie können selbst herausfinden, wie sie verschiedene Schutzmaßnahmen umgehen, _____ nur die bekannte Schwachstelle zu nutzen.;statt;richtig;statt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.75 | S:1.4 | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:39:45;satz;v589:satz;sich verlassen auf;Ich _____ mich auf meine Freunde.;verlasse;richtig;verlasse;basamak:B3 | bicim:bos | not:m4 | R:0.91 | S:9.3 | zor | sek:3 | ipucu:1
+2026-11-22 21:40:08;gram;g:es-korrelat:125;es-korrelat/vorfeld;Es sind heute viele Leute im Park. → Heute …;Heute sind viele Leute im Park.;richtig;Heute sind viele Leute im Park.;tur:akis | tür:umform | z:2 | sek:20
+2026-11-22 21:40:10;erk;w0533:erk;während;sırasında (+ Gen);während;richtig;während;basamak:B1 | bicim:sec | not:m3 | R:0.87 | S:18.0 | kurtarma | kapı:14g | şık:w0138/w0461/w0541 | çeldirici:karışma/bilinen/bilinen | sek:2
+2026-11-22 21:40:19;nsatz;n0758:nsatz;die Mannschaft;Jede _____ hat elf Spieler, einer davon ist der Torwart.;die Mannschaft;fast;Mannschaft;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:7.2 | fazla artikel | sek:5 | ipucu:0
+2026-11-22 21:40:28;prod;w0003:prod;abhängig;bağımlı, bağlı (von + D: -e);abhängig;richtig;abhängig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.76 | S:1.5 | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:40:34;nsatz;n0229:nsatz;die Daten;Ein solches Bauteil ist zum Beispiel eine Anlage zur Speicherung der _____, die Festplatte oder Harddisk.;die Daten;fast;Daten;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:18.4 | kapı:7g | fazla artikel | sek:4 | ipucu:0
+2026-11-22 21:40:37;prod;w0597:prod;selbe;aynı (im selben Haus);selbe;richtig;selbe;basamak:B2 | bicim:yaz0 | not:m3 | R:0.91 | S:7.2 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:40:40;abr;v572:abr;verbinden;"bağlamak; (yarayı) sarmak";verbinden;richtig;verbinden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:2.0 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:40:40;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:104 | dk:1 | yeni:0 | seviye+:1 | tekrar:11 | ipucusuz:1 | gram:1/1
+2026-11-22 21:40:44;art;x1557;das Vorurteil;kural kartı;;neu;das Vorurteil;bicim:kuralKart | kural:son parça: Urteil | örnek:n1292 | kanca | sek:3
+2026-11-22 21:40:46;art;x1557:art;das Vorurteil;mit ___ Vorurteil [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.86 | S:3.5 | hâl:Dat | sek:2
+2026-11-22 21:41:01;prod;w0195:prod;genauso;tıpkı, aynı şekilde | Die Berufe ändern sich also _____ wie die Wirtschaft.;genauso;richtig;genauso;basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:1.9 | sek:15 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:41:10;nsatz;n0436:nsatz;das Gefühl;_____ empfinden wir oft als etwas Schlechtes oder als etwas Gutes.;Das Gefühl;fast;Gefühle;basamak:B2 | bicim:bos0 | not:m2 | R:0.91 | S:5.9 | artikel / ek | sek:6 | ipucu:0
+2026-11-22 21:41:22;abr;v220:abr;erhalten;almak (resmî dil) | Ich habe Ihre E-Mail _____.;erkommen;falsch;erhalten (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:41:29;yeni;v220;erhalten;tanıtım;;neu;almak (resmî dil);basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:6
+2026-11-22 21:41:43;wort;n1407:wort;das Zeichen;işaret | Bitte fangen Sie erst an, wenn ich Ihnen … _____ gebe.;die Not;falsch;das Zeichen;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | kelime yanlış | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:41:47;yeni;n1407;das Zeichen;tanıtım;;neu;işaret;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 21:41:52;satz;v294:satz;sich gewöhnen an;Wir haben uns an das Leben hier _____.;gewöhnt;richtig;gewöhnt;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:7.6 | kapı:7g | sek:4 | ipucu:0
+2026-11-22 21:41:55;art;n0244;die Diskussion;kural kartı;;neu;die Diskussion;bicim:kuralKart | kural:-ion | örnek:n0875,n0925,n0869 | kanca | sek:3
+2026-11-22 21:41:58;art;n0244:art;die Diskussion;In ___ Diskussion über die neuen WG-Regeln hatte jeder eine andere Meinung. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:8.5 | hâl:Dat | sek:2
