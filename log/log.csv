@@ -5398,3 +5398,29 @@
 2026-11-22 20:37:18;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:6 | küçük:2 | yanlış:6 | puan:204 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:2 | gram:0/1 | bildi:1
 2026-11-22 21:35:22;art;n0433;die Geduld;kural kartı;;neu;die Geduld;bicim:kuralKart | kanca | sek:3
 2026-11-22 21:35:25;art;n0433:art;die Geduld;wegen ___ Geduld [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.61 | S:1.3 | hâl:Gen | sek:3
+2026-11-22 21:35:31;erk;n0521:erk;die Haut;cilt, deri;die Haut;richtig;die Haut;basamak:B1 | bicim:sec | not:m3 | R:0.67 | S:0.9 | şık:n0520/x1491/n0555 | çeldirici:biçim/karışma/biçim | sek:5
+2026-11-22 21:35:43;abr;v221:abr;erhöhen;artırmak, yükseltmek | Die Regierung wird sicher bald wieder die Steuern _____.;stärken;falsch;erhöhen (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.92 | S:1.5 | düzeltti | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:35:47;wort;n0807:wort;die Möglichkeit;imkân;a;falsch;die Möglichkeit;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:2 | ipucu:2 | bilmiyorum
+2026-11-22 21:35:52;yeni;n0807;die Möglichkeit;tanıtım;;neu;imkân;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 21:36:04;wort;n0463:wort;die Gesellschaft;"toplum; şirket | … _____ verändert sich schnell.";die Geselchaft;richtig;die Gesellschaft;basamak:B2 | bicim:yoklama | not:m4,a4 | R:0.00 | S:8.3 | yoklama | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:36:04;yeni;n0463;die Gesellschaft;yoklama;die Geselchaft;bekannt;"toplum; şirket";basamak:B2 | bicim:yoklama | not:m4,a4 | yoklama
+2026-11-22 21:36:20;nsatz;n0179:nsatz;der Blitz;Bei Gewitter sollte man sich wegen der _____ nicht unter einen Baum stellen.;Donnern;falsch;Blitze;basamak:B3 | bicim:bos | not:m1 | R:0.92 | S:5.1 | düzeltti | farklı | sek:12 | ipucu:1
+2026-11-22 21:36:20;leech;n0179;der Blitz;şimşek;;takiliyor;;günler:2026-10-06,2026-10-09,2026-11-22
+2026-11-22 21:36:32;nsatz;n0520:nsatz;der Hausmeister;Wenn im Wohnheim etwas kaputt ist, muss man dem _____ eine E-Mail schreiben.;Hausmeister;richtig;Hausmeister;basamak:B3 | bicim:bos | not:m4 | R:0.93 | S:60.7 | zor | sek:11 | ipucu:1
+2026-11-22 21:36:43;gram;g:zweiteilig:8;zweiteilig/entweder;wir gehen heute Abend / entweder / ins Kino / oder / ins Theater;wir gehen heute Abend entweder ins Kino oder ins Theater;richtig;Wir gehen heute Abend entweder ins Kino oder ins Theater.;tur:akis | tür:ordnen | z:1 | sek:10
+2026-11-22 21:36:48;abr;v221:abr;erhöhen;artırmak, yükseltmek;erhöhen;richtig;erhöhen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.5 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:36:52;wort;n0807:wort;die Möglichkeit;imkân;die Möglichkeit;richtig;die Möglichkeit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:36:59;satz;v590:satz;sich verlaufen;Ohne Handy _____ ich mich sofort.;verlaufe;richtig;verlaufe;basamak:B2 | bicim:bos0 | not:m3 | R:0.61 | S:0.5 | sek:4 | ipucu:0
+2026-11-22 21:37:10;wort;n0179:wort;der Blitz;şimşek | Hast du das Foto mit _____ gemacht?;die Flasche;falsch;der Blitz;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:5.1 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:37:10;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:99 | dk:2 | yeni:1 | seviye+:1 | tekrar:8 | ipucusuz:2 | gram:1/1 | bildi:1
+2026-11-22 21:37:20;art;n0524:art;die Heimat;Das Essen aus ___ Heimat schmeckt mir immer noch am besten. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:15.7 | hâl:Dat | sek:9
+2026-11-22 21:37:30;abr;v428:abr;regeln;düzenlemek, halletmek;regeln;richtig;regeln (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.68 | S:1.0 | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:37:36;satz;v099:satz;begleiten;Unser Dozent hat uns bei der Exkursion nach Hamburg _____.;begleitet;richtig;begleitet;basamak:B2 | bicim:bos0 | not:m3 | R:0.92 | S:12.0 | kapı:7g | sek:6 | ipucu:0
+2026-11-22 21:37:46;abr;v518:abr;teilen;paylaşmak, bölmek | Mein Mann und ich _____ uns die Arbeit.;kümmere;falsch;teilen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:37:50;yeni;v518;teilen;tanıtım;;neu;paylaşmak, bölmek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 21:38:03;wort;n1142:wort;die Stimme;"ses; oy | Ich habe dich sofort an … _____ erkannt.";die Stimme;richtig;die Stimme;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.92 | S:14.4 | sek:12 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:38:09;art;n1088:art;die Situation;___ Situation im Zug war am Montag sehr schwierig. [Nom/Akk];Die;richtig;Die;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:8.7 | hâl:Nom/Akk | sek:6
+2026-11-22 21:38:14;gram;g:vergleich:4;vergleich/als-wie;Heute ist es genauso kalt ___ gestern.;wie;richtig;wie;tur:akis | tür:luecke | z:2 | sek:5
+2026-11-22 21:38:20;satz;v278:satz;sich fürchten vor;Das Kind hat sich vor dem Gewitter _____.;gefürchtet;richtig;gefürchtet;basamak:B2 | bicim:bos0 | not:m3 | R:0.56 | S:0.6 | sek:6 | ipucu:0
+2026-11-22 21:38:23;abr;v518:abr;teilen;paylaşmak, bölmek | Wollen wir uns eine Pizza _____?;teilen;richtig;teilen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:38:28;prod;w0095:prod;deutlich;açık, belirgin;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.81 | S:4.5 | kurtarma | sek:4 | ipucu:0 | ipucu-tür:tr
