@@ -5454,3 +5454,33 @@
 2026-11-22 21:41:52;satz;v294:satz;sich gewöhnen an;Wir haben uns an das Leben hier _____.;gewöhnt;richtig;gewöhnt;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:7.6 | kapı:7g | sek:4 | ipucu:0
 2026-11-22 21:41:55;art;n0244;die Diskussion;kural kartı;;neu;die Diskussion;bicim:kuralKart | kural:-ion | örnek:n0875,n0925,n0869 | kanca | sek:3
 2026-11-22 21:41:58;art;n0244:art;die Diskussion;In ___ Diskussion über die neuen WG-Regeln hatte jeder eine andere Meinung. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:8.5 | hâl:Dat | sek:2
+2026-11-22 21:42:14;gram;g:zweiteilig:62;zweiteilig/kontrast;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;aber;falsch;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;tur:akis | tür:fehler | z:1 | cümle doğruydu | sek:11
+2026-11-22 21:42:26;ayir;w0117~w0119;eben ~ eher;az önce;eher;falsch;eben;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-22 21:42:37;wort;n1407:wort;das Zeichen;işaret | Solche _____ nennt man die Mimik.;das Zeichnen;fast;das Zeichen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | kısmi | yazım | sek:5 | ipucu:0 | ipucu-tür:decumle | öneri:falsch
+2026-11-22 21:42:45;abr;v220:abr;erhalten;almak (resmî dil) | Januar haben wir _____.;enthalten;falsch;erhalten (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:42:51;luecke;n0914:nsatz;die Politik;In der tschechischen Hauptstadt Prag reagiert die _____ darauf, dass viele Menschen zwar Jobs haben, sich aber trotzdem keine Wohnung leisten können.;Politil;fast;Politik;basamak:B3 | bicim:metin | not:m3 | R:0.91 | S:8.4 | kısmi | kaynak:dw79474016 | yazım, yazım: Politik
+2026-11-22 21:42:51;luecke;w0149:nsatz;etwa;Sie bezahlen dort _____ 20 Prozent weniger Miete, als üblich wäre.;etwa;richtig;etwa;basamak:B3 | bicim:metin | not:m3 | R:0.89 | S:11.6 | kaynak:dw79474016
+2026-11-22 21:42:51;akt;luecke:dw79474016;metinde boşluk;In der tschechischen Hauptstadt Prag reagiert die Politik darauf, dass viele Menschen zwar Jobs haben, sich aber trotzdem keine Wohnung leisten können. Hier sind einige Wohnungen bestimmten wichtigen Berufsgruppen vorbehalten – zum Beispiel Polizistinnen, Müllwerkern oder Pflegekräften. Sie bezahlen;Politil / etwa;fast;Politik / etwa;puan:2/2 | boşluk:2
+2026-11-22 21:42:54;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:5 | küçük:3 | yanlış:5 | puan:86 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:1 | gram:0/1
+2026-11-22 21:42:56;art;n0474:art;das Gewitter;wegen ___ Gewitters [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.83 | S:7.2 | hâl:Gen | sek:1
+2026-11-22 21:43:01;wort;n0870:wort;das Opfer;kurban, mağdur;das Opfer;richtig;das Opfer;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.80 | S:2.5 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:43:04;wort;n0766:wort;die Maschine;makine | … _____ wandelt die Befehle in elektrische Zeichen um, die vom Computer verstanden werden können.;die Maschine;richtig;die Maschine;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:7.1 | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:43:16;abr;v539:abr;übernehmen;üstlenmek, devralmak;einsetzen;falsch;übernehmen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:8 | ipucu:2
+2026-11-22 21:43:21;yeni;v539;übernehmen;tanıtım;;neu;üstlenmek, devralmak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 21:43:30;wort;n0464:wort;das Gesetz;kanun | Das Parlament hat … neu… _____ beschlossen.;die Recht;falsch;das Gesetz;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | kelime yanlış | sek:5 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:43:38;yeni;n0464;das Gesetz;tanıtım;;neu;kanun;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:8
+2026-11-22 21:43:44;prod;w0326:prod;mindestens;en az | Bitte kommen Sie _____ eine Stunde vor Abflug zum Flughafen.;mindestens;richtig;mindestens;basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:14.4 | sek:5 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 21:43:47;art;n0994;das Rezept;kural kartı;;neu;das Rezept;bicim:kuralKart | kanca | sek:3
+2026-11-22 21:43:49;art;n0994:art;das Rezept;mit ___ Rezept [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.81 | S:5.8 | hâl:Dat | sek:2
+2026-11-22 21:43:58;gram;g:zweiteilig:8;zweiteilig/entweder;wir gehen heute Abend / entweder / ins Kino / oder / ins Theater;wir gehen heute Abend entweder ins Theater oder ins Kino;richtig;Wir gehen heute Abend entweder ins Kino oder ins Theater.;tur:akis | tür:ordnen | z:1 | sek:8
+2026-11-22 21:44:08;abr;v292:abr;geschehen;olmak, meydana gelmek | Der Unfall ist auf der Autobahn _____.;geschehen;richtig;geschehen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.80 | S:2.5 | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-22 21:44:14;wort;n0464:wort;das Gesetz;kanun | Mit … neu… _____ könnte man dieses Problem lösen.;das Gesetz;richtig;das Gesetz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:44:17;abr;v539:abr;übernehmen;üstlenmek, devralmak;übernehmen;richtig;übernehmen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-22 21:44:25;nsatz;n0380:nsatz;die Folge;Die _____ des Unfalls waren schlimm.;Folge;fast;Folgen;basamak:B2 | bicim:bos0 | not:m3 | R:0.91 | S:5.4 | kısmi | yazım | sek:4 | ipucu:0 | öneri:falsch
+2026-11-22 21:44:25;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:1 | yanlış:2 | puan:108 | dk:2 | yeni:2 | seviye+:1 | tekrar:7 | ipucusuz:1 | gram:1/1
+2026-11-22 21:44:29;art;n1082;der Service;kural kartı;;neu;der Service;bicim:kuralKart | kanca | sek:3
+2026-11-22 21:44:31;art;n1082:art;der Service;mit ___ Service [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.42 | S:0.2 | hâl:Dat | sek:2
+2026-11-22 21:44:37;stamm;v642:stamm;sich wenden an;wenden — Perfekt;gewandt;richtig;gewandt;basamak:K | bicim:kokSatz | not:k3 | R:0.74 | S:1.2 | kök:wenden | sek:5
+2026-11-22 21:44:47;wort;n0341:wort;der Fall;durum, vaka | … _____ hat Diskussionen über politische Glaubwürdigkeit und Doppelmoral ausgelöst.;die Fall;fast;der Fall;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.91 | S:5.4 | artikel die → der | sek:7 | ipucu:0 | ipucu-tür:decumle
+2026-11-22 21:44:49;art;n0552:art;der Humor;wegen ___ Humors [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.54 | S:1.0 | hâl:Gen | sek:2
+2026-11-22 21:44:56;prod;w0344:prod;nass;ıslak | Nach dem Regen war die Bank im Park noch _____.;nass;richtig;nass;basamak:B2 | bicim:yaz | not:m3 | R:0.90 | S:11.4 | sek:7 | ipucu:2 | ipucu-tür:trcumle
