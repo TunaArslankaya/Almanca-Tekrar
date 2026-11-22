@@ -5380,3 +5380,19 @@
 2026-11-22 20:35:05;wort;n0937:wort;das Projekt;proje;das Projekt;richtig;das Projekt;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.97 | S:37.1 | ısınma | sek:6 | ipucu:2 | ipucu-tür:tr
 2026-11-22 20:35:11;nsatz;n0067:nsatz;die Art;Man kann auf unterschiedliche _____ und Weise ein Fest feiern.;Art;richtig;Art;basamak:B2 | bicim:bos0 | not:m3 | R:0.96 | S:39.6 | ısınma | sek:5 | ipucu:0
 2026-11-22 20:35:15;nsatz;w0368:nsatz;nun;Nach der Landtagswahl in Sachsen-Anhalt verliert die konservative CDU _____ auch in Mecklenburg-Vorpommern und Berlin.;nun;richtig;nun;basamak:B2 | bicim:bos0 | not:m3 | R:0.95 | S:34.6 | ısınma | sek:3 | ipucu:0
+2026-11-22 20:35:38;abr;v568:abr;verändern;değiştirmek | Das geht so nicht. Wir müssen die Organisation _____.;verwandt;falsch;verändern (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:20 | ipucu:2 | ipucu-tür:trcumle
+2026-11-22 20:35:42;yeni;v568;verändern;tanıtım;;neu;değiştirmek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 20:35:51;abr;v202:abr;entfernen;çıkarmak, gidermek | Bitte _____ Sie das Etikett.;a;falsch;entfernen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:6 | ipucu:2 | ipucu-tür:trcumle | bilmiyorum
+2026-11-22 20:35:55;yeni;v202;entfernen;tanıtım;;neu;çıkarmak, gidermek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-22 20:36:05;art;n0469:art;die Gewalt;ohne ___ Gewalt [Akk];das;falsch;die;basamak:A | bicim:artOb | not:a1 | R:0.60 | S:0.1 | hâl:Akk | artikel das → die | sek:4
+2026-11-22 20:36:13;erk;w0343:erk;nämlich;çünkü, yani (açıklama);noch;falsch;nämlich;basamak:B1 | bicim:sec | not:m1 | R:0.67 | S:0.1 | şık:w0572/w0362/w0355 | çeldirici:biçim/karışma/biçim | sek:5
+2026-11-22 20:36:30;nsatz;x1460:nsatz;das Missverständnis;Um _____ zu vermeiden, schreibe ich dir alles noch einmal per E-Mail.;das Missverständnis;fast;Missverständnisse;basamak:B3 | bicim:bos | not:m2 | R:0.94 | S:40.6 | artikel / ek | sek:13 | ipucu:1
+2026-11-22 20:36:44;gram;g:vergleich:40;vergleich/je-desto;Je früher wir losfahren, desto weniger Stau wir haben.;hata yok;falsch;Je früher wir losfahren, desto weniger Stau haben wir.;tur:akis | tür:fehler | z:2 | hatayı görmedi | ghost:1 | sek:7
+2026-11-22 20:36:54;abr;v202:abr;entfernen;çıkarmak, gidermek;entlassen;falsch;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-22 20:36:54;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:1
+2026-11-22 20:36:57;prod;w0539:prod;weder … noch;ne … ne de;weder noch;richtig;weder … noch;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
+2026-11-22 20:36:57;yeni;w0539;weder … noch;yoklama;weder noch;bekannt;ne … ne de;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-22 20:37:01;abr;v568:abr;verändern;değiştirmek;verändern;richtig;verändern (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-22 20:37:07;satz;v642:satz;sich wenden an;Bitte _____ Sie sich an das Sekretariat.;wenden;richtig;wenden;basamak:B2 | bicim:bos0 | not:m3 | R:0.60 | S:0.5 | sek:3 | ipucu:0
+2026-11-22 20:37:18;prod;w0343:prod;nämlich;çünkü, yani (açıklama);nähmlich;fast;nämlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-22 20:37:18;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:6 | küçük:2 | yanlış:6 | puan:204 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:2 | gram:0/1 | bildi:1
