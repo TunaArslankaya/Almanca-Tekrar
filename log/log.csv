@@ -5396,3 +5396,5 @@
 2026-11-22 20:37:07;satz;v642:satz;sich wenden an;Bitte _____ Sie sich an das Sekretariat.;wenden;richtig;wenden;basamak:B2 | bicim:bos0 | not:m3 | R:0.60 | S:0.5 | sek:3 | ipucu:0
 2026-11-22 20:37:18;prod;w0343:prod;nämlich;çünkü, yani (açıklama);nähmlich;fast;nämlich;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:tr
 2026-11-22 20:37:18;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:6 | küçük:2 | yanlış:6 | puan:204 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:2 | gram:0/1 | bildi:1
+2026-11-22 21:35:22;art;n0433;die Geduld;kural kartı;;neu;die Geduld;bicim:kuralKart | kanca | sek:3
+2026-11-22 21:35:25;art;n0433:art;die Geduld;wegen ___ Geduld [Gen];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.61 | S:1.3 | hâl:Gen | sek:3
