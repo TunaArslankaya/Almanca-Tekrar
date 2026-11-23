@@ -5595,3 +5595,5 @@
 2026-11-23 20:43:33;art;n0926;die Praxis;kural kartı;;neu;die Praxis;bicim:kuralKart | kanca | sek:3
 2026-11-23 20:43:36;art;n0926:art;die Praxis;Ich habe in ___ Praxis angerufen und einen Termin für Dienstag bekommen. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.73 | S:2.7 | hâl:Dat | sek:3
 2026-11-23 20:43:43;wort;x1568:wort;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.91 | S:11.4 | sek:7 | ipucu:2 | ipucu-tür:tr
+2026-11-23 20:43:54;bed;v220:bed;erhalten;almak (resmî dil);enthalten;falsch;erhalten;basamak:B1 | bicim:sec | not:m1 | R:0.77 | S:0.1 | şık:v203/v218/v221 | çeldirici:karışma/biçim/biçim | sek:3
+2026-11-23 20:44:05;abr;v202:abr;entfernen;çıkarmak, gidermek | Bitte _____ Sie das Etikett.;entsorgen;falsch;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:7 | ipucu:0 | ipucu-tür:trcumle
