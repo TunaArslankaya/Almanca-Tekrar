@@ -5509,3 +5509,18 @@
 2026-11-22 21:48:22;prod;w0469:prod;tatsächlich;gerçekten de | _____ weiß man es nicht.;eigentlich;falsch;tatsächlich;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:0.9 | düzeltti | farklı | sek:5 | ipucu:2 | ipucu-tür:decumle
 2026-11-23 10:21:10;wort;n0179:wort;der Blitz;şimşek | Da Licht schneller als Schall ist, sieht man erst … _____.;der Blitzt;fast;der Blitz;basamak:B2 | bicim:yaz | not:m2,a3 | R:0.99 | S:5.5 | ısınma | çekim | sek:7 | ipucu:2 | ipucu-tür:decumle
 2026-11-23 10:21:13;abr;v539:abr;übernehmen;üstlenmek, devralmak;übernehmen;richtig;übernehmen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.1 | ısınma | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-23 10:21:38;wort;n0464:wort;das Gesetz;kanun;das Gerecht;falsch;das Gesetz;basamak:B2 | bicim:yaz0 | not:m1 | R:0.97 | S:0.6 | ısınma | düzeltti | kelime yanlış | sek:21 | ipucu:0 | ipucu-tür:tr
+2026-11-23 10:21:58;abr;v644:abr;werfen;atmak, fırlatmak;fırlatmak;falsch;werfen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:6 | ipucu:2
+2026-11-23 10:22:03;yeni;v644;werfen;tanıtım;;neu;atmak, fırlatmak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-23 10:22:12;wort;n0398:wort;die Freude;sevinç | Diese Arbeit macht mir viel _____.;das Gefühl;falsch;die Freude;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-23 10:22:17;yeni;n0398;die Freude;tanıtım;;neu;sevinç;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-23 10:22:31;abr;v368:abr;sich(D) leisten;(bir şeye) parası yetmek, kendine … almak | Das kann ich mir nicht _____.;reichen;falsch;sich(D) leisten (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:12 | ipucu:2 | ipucu-tür:trcumle
+2026-11-23 10:22:39;yeni;v368;sich(D) leisten;tanıtım;;neu;(bir şeye) parası yetmek, kendine … almak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:8
+2026-11-23 10:22:42;art;n0182:art;das Blut;mit ___ Blut [Dat];dem;richtig;dem;basamak:A | bicim:artOb | not:a3 | R:0.95 | S:2.4 | hâl:Dat | sek:2
+2026-11-23 10:22:44;ayir;v425~v430;rechnen mit ~ reichen;(bir şeyi) hesaba katmak, beklemek;rechnen mit;richtig;rechnen mit;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:2
+2026-11-23 10:22:48;gram;g:zweiteilig:62;zweiteilig/kontrast;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;hata yok;richtig;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;tur:akis | tür:fehler | z:1 | sek:4
+2026-11-23 10:23:03;nsatz;n0076:nsatz;die Aufnahme;Darf ich eine _____ von unserem Gespräch machen?;die Aufnahme;fast;Aufnahme;basamak:B2 | bicim:bos0 | not:m3 | R:0.62 | S:0.6 | fazla artikel | sek:6 | ipucu:0
+2026-11-23 10:23:16;wort;n0464:wort;das Gesetz;kanun | Die Regierung beschließt … neu… _____.;das Gesitzt;fast;das Gesetz;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.6 | tekrar:1 | çekim | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-23 10:23:19;abr;v644:abr;werfen;atmak, fırlatmak;werfen;richtig;werfen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-23 10:23:19;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:5 | küçük:3 | yanlış:4 | puan:79 | dk:2 | yeni:3 | seviye+:0 | tekrar:7 | ipucusuz:0 | gram:1/1
+2026-11-23 10:23:25;art;n0682:art;die Kritik;ohne ___ Kritik [Akk];der;fast;die;basamak:A | bicim:artOb | not:a3 | R:0.94 | S:1.5 | hâl:Akk | hâl | sek:3
