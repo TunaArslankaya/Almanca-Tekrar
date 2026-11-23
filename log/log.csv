@@ -5541,3 +5541,10 @@
 2026-11-23 10:25:19;nsatz;w0082:nsatz;daher;Ich bin erkältet, _____ kann ich heute nicht kommen.;dafür;falsch;daher;basamak:B2 | bicim:bos0 | not:m1 | R:0.00 | S:0.2 | ikinci | düzeltti | farklı | sek:9 | ipucu:0
 2026-11-23 10:25:19;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:5 | küçük:1 | yanlış:6 | puan:68 | dk:2 | yeni:3 | seviye+:0 | tekrar:6 | ipucusuz:0 | gram:1/1
 2026-11-23 10:25:25;art;n1169:art;der Sturm;Sturm;die;falsch;der Sturm;basamak:A | bicim:artikel | not:a1 | R:0.68 | S:0.4 | artikel die → der | sek:1
+2026-11-23 10:25:46;prod;w0343:prod;nämlich;çünkü, yani (açıklama) | Bist du beim Termin flexibel? Am Montag habe ich _____ keine Zeit.;;falsch;nämlich;basamak:B2 | bicim:yaz0 | not:m1 | R:0.76 | S:0.1 | düzeltti | sek:16 | ipucu:0 | ipucu-tür:trcumle | bilmiyorum
+2026-11-23 10:25:46;leech;w0343;nämlich;çünkü, yani (açıklama);;takiliyor;;günler:2026-11-20,2026-11-22,2026-11-23
+2026-11-23 10:25:53;wort;n0807:wort;die Möglichkeit;imkân | … _____ ist in Deutschland allerdings verboten.;die Möglichkeit;richtig;die Möglichkeit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.97 | S:4.1 | sek:7 | ipucu:0 | ipucu-tür:decumle
+2026-11-23 10:26:05;abr;v560:abr;unterscheiden;ayırt etmek | Ihr seid euch sehr ähnlich. Auf dem Foto kann man euch beide nicht _____.;entstehen;falsch;unterscheiden (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:9 | ipucu:2 | ipucu-tür:trcumle
+2026-11-23 10:26:10;yeni;v560;unterscheiden;tanıtım;;neu;ayırt etmek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:6
+2026-11-23 10:26:23;abr;v531:abr;treten;basmak, adım atmak | Bitte _____ Sie näher!;tan;falsch;treten;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-23 10:26:28;yeni;v531;treten;tanıtım;;neu;basmak, adım atmak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:6
