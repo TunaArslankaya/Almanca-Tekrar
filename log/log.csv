@@ -5507,3 +5507,5 @@
 2026-11-22 21:47:46;nsatz;n0647:nsatz;der König;Es gibt aber auch Staaten mit einem _____, das sind Monarchien.;der König;fast;König;basamak:B2 | bicim:bos0 | not:m3 | R:0.89 | S:10.5 | kapı:7g | fazla artikel | sek:3 | ipucu:0
 2026-11-22 21:48:12;satz;v142:satz;beweisen;Evde olduğunu kanıtlayamadı.;beweisen;falsch;Er konnte nicht beweisen, dass er zu Hause war.;basamak:B4 | bicim:cumle | not:m1 | R:0.89 | S:1.1 | zor | düzeltti | farklı cümle | sek:6 | ipucu:2
 2026-11-22 21:48:22;prod;w0469:prod;tatsächlich;gerçekten de | _____ weiß man es nicht.;eigentlich;falsch;tatsächlich;basamak:B2 | bicim:yaz | not:m1 | R:0.89 | S:0.9 | düzeltti | farklı | sek:5 | ipucu:2 | ipucu-tür:decumle
+2026-11-23 10:21:10;wort;n0179:wort;der Blitz;şimşek | Da Licht schneller als Schall ist, sieht man erst … _____.;der Blitzt;fast;der Blitz;basamak:B2 | bicim:yaz | not:m2,a3 | R:0.99 | S:5.5 | ısınma | çekim | sek:7 | ipucu:2 | ipucu-tür:decumle
+2026-11-23 10:21:13;abr;v539:abr;übernehmen;üstlenmek, devralmak;übernehmen;richtig;übernehmen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.97 | S:4.1 | ısınma | sek:3 | ipucu:0 | ipucu-tür:tr
