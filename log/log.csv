@@ -5689,3 +5689,8 @@
 2026-11-24 11:40:45;prod;w0266:prod;jedoch;ancak | Wenn man _____ fährt, ist es möglich, mit dem Körper im Gleichgewicht zu bleiben.;jedoch;richtig;jedoch;basamak:B2 | bicim:yaz | not:m4 | R:0.88 | S:14.4 | sek:5 | ipucu:2 | ipucu-tür:decumle
 2026-11-24 11:40:54;prod;w0274:prod;kaum;neredeyse hiç | Würde man versuchen, alle Verbindungen von Computer zu Computer aufzumalen, könnte man _____ etwas erkennen.;überhaupt;falsch;kaum;basamak:B2 | bicim:yaz | not:m1 | R:0.88 | S:1.1 | düzeltti | farklı | sek:6 | ipucu:2 | ipucu-tür:decumle
 2026-11-24 11:40:57;abr;v428:abr;regeln;düzenlemek, halletmek;regeln;richtig;regeln (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.86 | S:1.8 | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:41:01;prod;w0515:prod;verwandt;akraba | Sind Sie mit Frau Meyer _____?;verwandt;richtig;verwandt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.80 | S:3.4 | kurtarma | sek:4 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:41:12;wort;n1442:wort;der Zustand;durum | … _____ wird meist von starken Gefühlen begleitet, die sich auch im Körper zeigen.;das Zustand;fast;der Zustand;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.00 | S:2.3 | ikinci | artikel das → der | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-24 11:41:17;abr;v650:abr;wirken;"etki etmek; … görünmek";wirken;richtig;wirken;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:41:19;prod;w0274:prod;kaum;neredeyse hiç;kaum;richtig;kaum;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:41:19;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:7 | küçük:3 | yanlış:3 | puan:104 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:1 | bildi:1
