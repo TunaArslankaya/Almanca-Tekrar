@@ -5597,3 +5597,6 @@
 2026-11-23 20:43:43;wort;x1568:wort;das Vorhaben;plan, niyet;das Vorhaben;richtig;das Vorhaben;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.91 | S:11.4 | sek:7 | ipucu:2 | ipucu-tür:tr
 2026-11-23 20:43:54;bed;v220:bed;erhalten;almak (resmî dil);enthalten;falsch;erhalten;basamak:B1 | bicim:sec | not:m1 | R:0.77 | S:0.1 | şık:v203/v218/v221 | çeldirici:karışma/biçim/biçim | sek:3
 2026-11-23 20:44:05;abr;v202:abr;entfernen;çıkarmak, gidermek | Bitte _____ Sie das Etikett.;entsorgen;falsch;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:30:37;wort;n1354:wort;die Wahrheit;gerçek | Ich glaube nicht, dass er … _____ gesagt hat.;die Wahrheit;richtig;die Wahrheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.99 | S:14.6 | ısınma | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-24 11:30:46;wort;n1026:wort;der Schaden;hasar, zarar;das Sorge;falsch;der Schaden;basamak:B2 | bicim:yaz0 | not:m1 | R:0.94 | S:0.6 | ısınma | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:30:49;abr;v644:abr;werfen;atmak, fırlatmak;werfen;richtig;werfen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.94 | S:5.5 | ısınma | sek:2 | ipucu:0 | ipucu-tür:tr
