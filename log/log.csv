@@ -5600,3 +5600,32 @@
 2026-11-24 11:30:37;wort;n1354:wort;die Wahrheit;gerçek | Ich glaube nicht, dass er … _____ gesagt hat.;die Wahrheit;richtig;die Wahrheit;basamak:B2 | bicim:yaz | not:m3,a3 | R:0.99 | S:14.6 | ısınma | sek:8 | ipucu:2 | ipucu-tür:trcumle
 2026-11-24 11:30:46;wort;n1026:wort;der Schaden;hasar, zarar;das Sorge;falsch;der Schaden;basamak:B2 | bicim:yaz0 | not:m1 | R:0.94 | S:0.6 | ısınma | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:tr
 2026-11-24 11:30:49;abr;v644:abr;werfen;atmak, fırlatmak;werfen;richtig;werfen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.94 | S:5.5 | ısınma | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:31:00;abr;v366:abr;leiden unter;(bir şeyden) acı çekmek, muzdarip olmak | Viele Menschen _____ … der Hitze.;freut;falsch;leiden unter (unter + Dat);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-24 11:31:07;yeni;v366;leiden unter;tanıtım;;neu;(bir şeyden) acı çekmek, muzdarip olmak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:7
+2026-11-24 11:31:18;wort;n0255:wort;der Druck;"baskı; basınç | Vor der Prüfung stehe ich immer unter _____.";leiden;falsch;der Druck;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | kelime yanlış | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-24 11:31:22;yeni;n0255;der Druck;tanıtım;;neu;"baskı; basınç";basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-24 11:31:27;yeni;n0398;die Freude;tanıtım;;neu;sevinç;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-24 11:31:30;erk;w0329:erk;mitten;ortasında (mitten in);mitten;richtig;mitten;basamak:B1 | bicim:sec | not:m3 | R:0.76 | S:0.6 | şık:w0235/w0330/w0328 | çeldirici:biçim/biçim/biçim | sek:3
+2026-11-24 11:31:36;satz;v317:satz;herstellen;Die Firma _____ Autos _____.;stellt her;richtig;stellt her;basamak:B3 | bicim:bos | not:m4 | R:0.92 | S:25.4 | sek:5 | ipucu:1
+2026-11-24 11:31:41;gram;g:vergleich:45;vergleich/je-desto;Je ___ das Wetter ist, desto mehr Leute gehen an den Strand. (schön);schöner;richtig;schöner;tur:akis | tür:luecke | z:2 | ghost:2 | sek:4
+2026-11-24 11:31:49;satz;v584:satz;verhindern;Der Regen hat den Unfall nicht _____.;verhindert;richtig;verhindert;basamak:B2 | bicim:bos0 | not:m3 | R:0.64 | S:0.7 | sek:5 | ipucu:0
+2026-11-24 11:31:59;wort;n1026:wort;der Schaden;hasar, zarar | Ich hatte einen Unfall mit dem Auto. Jetzt muss ich … _____ der Versicherung melden.;der Schatzen;falsch;der Schaden;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:32:03;abr;v366:abr;leiden unter;(bir şeyden) acı çekmek, muzdarip olmak;leiden unter;richtig;leiden unter (unter + Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:32:07;wort;n0255:wort;der Druck;"baskı; basınç";der Druck;richtig;der Druck;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:32:07;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:0 | yanlış:4 | puan:98 | dk:2 | yeni:3 | seviye+:1 | tekrar:7 | ipucusuz:2 | gram:1/1
+2026-11-24 11:32:13;abr;v220:abr;erhalten;almak (resmî dil);enthalten;falsch;erhalten (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.1 | düzeltti | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:32:13;leech;v220;erhalten;almak (resmî dil);;takiliyor;;günler:2026-11-22,2026-11-23,2026-11-24
+2026-11-24 11:32:37;satz;v500:satz;steigen;Wir sind auf den Turm _____ und haben die ganze Stadt gesehen.;a;falsch;gestiegen;basamak:B3 | bicim:bos | not:m1 | R:0.92 | S:2.5 | düzeltti | sek:8 | ipucu:1 | bilmiyorum
+2026-11-24 11:32:47;refl;v119:refl;sich beruhigen;sich beruhigen | ben · Präsens;Ich beruhige mich;richtig;Ich beruhige mich.;basamak:B3 | bicim:bos | not:m3 | R:0.91 | S:92.3 | sek:10 | ipucu:1
+2026-11-24 11:33:05;wort;n0077:wort;der Auftrag;sipariş, görev | Ich komme in … _____ von Frau Müller und soll Ihnen diesen Brief geben.;a;falsch;der Auftrag;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:12 | ipucu:2 | ipucu-tür:trcumle | bilmiyorum
+2026-11-24 11:33:10;yeni;n0077;der Auftrag;tanıtım;;neu;sipariş, görev;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-24 11:33:11;art;n0682:art;die Kritik;Kritik;die;richtig;die Kritik;basamak:A | bicim:artikel | not:a3 | R:0.92 | S:2.1 | sek:1
+2026-11-24 11:33:17;abr;v220:abr;erhalten;almak (resmî dil) | Ich habe noch keine Antwort _____.;erhalten;richtig;erhalten (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:33:25;gram;g:zweiteilig:8;zweiteilig/entweder;wir gehen heute Abend / entweder / ins Kino / oder / ins Theater;wir gehen heute Abend entweder ins Kino oder ins Theater;richtig;Wir gehen heute Abend entweder ins Kino oder ins Theater.;tur:akis | tür:ordnen | z:1 | sek:8
+2026-11-24 11:33:35;abr;v500:abr;steigen;"çıkmak, tırmanmak; artmak";ersteigen;falsch;steigen;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:2.5 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-24 11:33:38;wort;n0077:wort;der Auftrag;sipariş, görev | Die Gebühr, die man für so … _____ bezahlt, heißt Kommission.;der Auftrag;richtig;der Auftrag;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-24 11:33:46;nsatz;x1547:nsatz;die Toleranz;In einer Gemeinschaft braucht man _____ gegenüber anderen Meinungen.;Toleranz;richtig;Toleranz;basamak:B2 | bicim:bos0 | not:m3 | R:0.71 | S:1.3 | sek:4 | ipucu:0
+2026-11-24 11:34:08;prod;w0493:prod;unbedingt;mutlaka | Den Film musst du dir _____ ansehen.;unzeimlich;falsch;unbedingt;basamak:B2 | bicim:yaz0 | not:m1 | R:0.80 | S:0.5 | kurtarma | düzeltti | farklı | sek:18 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:34:11;nsatz;w0011:nsatz;allerdings;Heute gibt es _____ auch große Warenhäuser und Supermärkte, darum finden viele Leute solche Märkte nicht mehr so wichtig wie früher.;allerdings;richtig;allerdings;basamak:B3 | bicim:bos | not:m4 | R:0.91 | S:20.8 | sek:3 | ipucu:1
+2026-11-24 11:34:25;abr;v202:abr;entfernen;çıkarmak, gidermek;verhindern;falsch;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.1 | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:34:25;leech;v202;entfernen;çıkarmak, gidermek;;takiliyor;;günler:2026-11-22,2026-11-23,2026-11-24
