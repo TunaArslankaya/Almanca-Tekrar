@@ -5629,3 +5629,33 @@
 2026-11-24 11:34:11;nsatz;w0011:nsatz;allerdings;Heute gibt es _____ auch große Warenhäuser und Supermärkte, darum finden viele Leute solche Märkte nicht mehr so wichtig wie früher.;allerdings;richtig;allerdings;basamak:B3 | bicim:bos | not:m4 | R:0.91 | S:20.8 | sek:3 | ipucu:1
 2026-11-24 11:34:25;abr;v202:abr;entfernen;çıkarmak, gidermek;verhindern;falsch;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.74 | S:0.1 | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
 2026-11-24 11:34:25;leech;v202;entfernen;çıkarmak, gidermek;;takiliyor;;günler:2026-11-22,2026-11-23,2026-11-24
+2026-11-24 11:34:29;prod;w0493:prod;unbedingt;mutlaka | Und sie hat festgestellt, dass auch Menschen das Angebot nutzen, die es nicht _____ brauchen.;unbedingt;richtig;unbedingt;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:0 | ipucu-tür:decumle
+2026-11-24 11:34:32;abr;v202:abr;entfernen;çıkarmak, gidermek;entfernen;richtig;entfernen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:34:32;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:0 | yanlış:6 | puan:113 | dk:2 | yeni:1 | seviye+:2 | tekrar:12 | ipucusuz:2 | gram:1/1
+2026-11-24 11:34:39;erk;w0082:erk;daher;bu yüzden;daher;richtig;daher;basamak:B1 | bicim:sec | not:m3 | R:0.76 | S:0.6 | şık:w0079/w0080/w0119 | çeldirici:biçim/karışma/biçim | sek:5
+2026-11-24 11:34:42;art;x1547;die Toleranz;kural kartı;;neu;die Toleranz;bicim:kuralKart | kural:-anz | örnek:n0245 | kanca | sek:3
+2026-11-24 11:34:44;art;x1547:art;die Toleranz;ohne ___ Toleranz [Akk];die;richtig;die;basamak:A | bicim:artOb | not:a3 | R:0.78 | S:3.5 | hâl:Akk | sek:2
+2026-11-24 11:35:09;nsatz;w0186:nsatz;geehrt;Sehr _____ Herr Professor Lange, könnten Sie mir bitte meine Note mitteilen?;Geehrte;fast;geehrter;basamak:B3 | bicim:bos | not:m2 | R:0.91 | S:87.3 | çekim | sek:21 | ipucu:1
+2026-11-24 11:35:28;wort;n1076:wort;das Semester;dönem (üniversite) | In … erst… _____ habe ich mich oft einsam gefühlt, aber jetzt habe ich viele Freunde.;die Moment;falsch;das Semester;basamak:B2 | bicim:yaz | not:m1 | R:0.91 | S:1.2 | düzeltti | kelime yanlış | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-24 11:35:34;bed;v531:bed;treten;basmak, adım atmak;treten;richtig;treten;basamak:B1 | bicim:sec | not:m3 | R:0.77 | S:0.6 | şık:v509/v138/v530 | çeldirici:biçim/biçim/karışma | sek:6
+2026-11-24 11:35:41;gram;g:zweiteilig:62;zweiteilig/kontrast;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;hata yok;richtig;Das Wetter war zwar kalt, aber wir hatten viel Spaß.;tur:akis | tür:fehler | z:1 | sek:5
+2026-11-24 11:35:47;nsatz;n0322:nsatz;die Erziehung;Die Eltern sind für die _____ ihrer Kinder verantwortlich.;Erziehung;richtig;Erziehung;basamak:B2 | bicim:bos0 | not:m3 | R:0.56 | S:0.6 | sek:5 | ipucu:0
+2026-11-24 11:35:51;wort;n1076:wort;das Semester;dönem (üniversite);das Semester;richtig;das Semester;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:35:58;wort;n0589:wort;der Kampf;mücadele, savaş | Im Schulbus gibt es immer … _____ um die Sitzplätze.;der Kampf;richtig;der Kampf;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.80 | S:3.7 | kurtarma | sek:7 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:36:00;art;n0121:art;das Bargeld;Bargeld;das;richtig;das Bargeld;basamak:A | bicim:artikel | not:a3 | R:0.90 | S:17.5 | sek:2
+2026-11-24 11:36:09;nsatz;x1503:nsatz;die Erwartung;Ich hatte keine großen _____ an den Urlaub.;die Erwartung;fast;Erwartungen;basamak:B2 | bicim:bos0 | not:m2 | R:0.91 | S:11.2 | kapı:7g | artikel / ek | sek:5 | ipucu:0
+2026-11-24 11:36:14;wort;x1557:wort;das Vorurteil;önyargı;das Vorurteil;richtig;das Vorurteil;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.90 | S:11.8 | sek:5 | ipucu:2 | ipucu-tür:tr
+2026-11-24 11:36:14;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:9 | küçük:2 | yanlış:1 | puan:105 | dk:2 | yeni:0 | seviye+:1 | tekrar:11 | ipucusuz:1 | gram:1/1
+2026-11-24 11:36:24;bed;v560:bed;unterscheiden;unterscheiden;karar vermek;falsch;ayırt etmek;basamak:B1 | bicim:anla | not:m1 | R:0.77 | S:0.1 | şık:v205/v561/v211 | çeldirici:biçim/biçim/karışma | sek:5
+2026-11-24 11:36:26;art;x1478:art;das Frühjahr;wegen ___ Frühjahrs [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.89 | S:10.0 | hâl:Gen | sek:2
+2026-11-24 11:36:35;prod;w0003:prod;abhängig;bağımlı, bağlı (von + D: -e) | Viele Jugendliche sind von ihrem Handy _____.;abhängig;richtig;abhängig;basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:3.3 | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:36:37;prod;w0461:prod;statt;yerine (+ Gen);statt;richtig;statt;basamak:B2 | bicim:yaz0 | not:m3 | R:0.89 | S:2.3 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-24 11:36:41;ayir;w0108~w0109;drinnen ~ drüben;içeride;drinnen;richtig;drinnen;basamak:B1 | bicim:ayir | not:- | R:- | S:- | sek:3
+2026-11-24 11:36:45;gram;g:adjektiv:2;adjektiv/bestimmt;Die ___ Wohnung ist leider zu teuer. (neu);neue;richtig;neue;tur:akis | tür:luecke | z:2 | ghost:2 | sek:4
+2026-11-24 11:36:57;abr;v560:abr;unterscheiden;ayırt etmek | Die beiden Wörter _____ sich kaum.;unterscheiden;richtig;unterscheiden (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:10 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:37:09;wort;x1571:wort;die Anfrage;(resmî) soru, talep | Ich habe per E-Mail … _____ an das Bürgeramt geschickt.;der Anfrag;fast;die Anfrage;basamak:B2 | bicim:yaz0 | not:m2,a1 | R:0.80 | S:2.3 | kurtarma | çekim, artikel der → die | sek:9 | ipucu:0 | ipucu-tür:trcumle
+2026-11-24 11:37:11;art;n1026:art;der Schaden;Schaden;der;richtig;der Schaden;basamak:A | bicim:artikel | not:a3 | R:0.94 | S:5.5 | sek:2
+2026-11-24 11:37:18;abr;v256:abr;feststellen;tespit etmek | Der Arzt hat mich untersucht, konnte aber nichts _____.;feststellen;richtig;feststellen (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:7.2 | sek:7 | ipucu:2 | ipucu-tür:decumle
+2026-11-24 11:37:30;nsatz;n0400:nsatz;die Freundschaft;Meist beginnt eine _____ mit gegenseitiger Sympathie.;Frundschaft;fast;Freundschaft;basamak:B3 | bicim:bos | not:m3 | R:0.89 | S:20.7 | kısmi | yazım | sek:9 | ipucu:1
+2026-11-24 11:37:37;nsatz;w0452:nsatz;sozial;Wer will, kann seitdem freiwillig zur Bundeswehr gehen oder einen Freiwilligendienst im _____ Bereich leisten.;Sosial;fast;sozialen;basamak:B3 | bicim:bos | not:m2 | R:0.89 | S:20.7 | kapı:14g | çekim | sek:4 | ipucu:1
+2026-11-24 11:37:37;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:8 | küçük:3 | yanlış:1 | puan:100 | dk:1 | yeni:0 | seviye+:1 | tekrar:11 | ipucusuz:1 | gram:1/1
