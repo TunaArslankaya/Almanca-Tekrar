@@ -5694,3 +5694,5 @@
 2026-11-24 11:41:17;abr;v650:abr;wirken;"etki etmek; … görünmek";wirken;richtig;wirken;basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:4 | ipucu:0 | ipucu-tür:tr
 2026-11-24 11:41:19;prod;w0274:prod;kaum;neredeyse hiç;kaum;richtig;kaum;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.1 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
 2026-11-24 11:41:19;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:7 | küçük:3 | yanlış:3 | puan:104 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:1 | bildi:1
+2026-11-25 12:17:20;gram;g:plusquamperfekt;Plusquamperfekt;oto;;acildi;;b1:1
+2026-11-25 12:17:42;abr;v500:abr;steigen;"çıkmak, tırmanmak; artmak | Die Mieten in Bremen _____ immer weiter.";erstärk;falsch;steigen;basamak:B2 | bicim:yaz | not:m1 | R:0.95 | S:0.6 | ısınma | düzeltti | sek:13 | ipucu:2 | ipucu-tür:trcumle
