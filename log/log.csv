@@ -5696,3 +5696,17 @@
 2026-11-24 11:41:19;tur;akis;Çalış;;;bitti;;cevap:13 | doğru:7 | küçük:3 | yanlış:3 | puan:104 | dk:2 | yeni:2 | seviye+:1 | tekrar:8 | ipucusuz:1 | bildi:1
 2026-11-25 12:17:20;gram;g:plusquamperfekt;Plusquamperfekt;oto;;acildi;;b1:1
 2026-11-25 12:17:42;abr;v500:abr;steigen;"çıkmak, tırmanmak; artmak | Die Mieten in Bremen _____ immer weiter.";erstärk;falsch;steigen;basamak:B2 | bicim:yaz | not:m1 | R:0.95 | S:0.6 | ısınma | düzeltti | sek:13 | ipucu:2 | ipucu-tür:trcumle
+2026-11-25 12:17:52;abr;v650:abr;wirken;"etki etmek; … görünmek";werden;falsch;wirken;basamak:B2 | bicim:yaz0 | not:m1 | R:0.95 | S:0.6 | ısınma | düzeltti | sek:6 | ipucu:0 | ipucu-tür:tr
+2026-11-25 12:18:05;wort;n1442:wort;der Zustand;durum;das Zustand;fast;der Zustand;basamak:B2 | bicim:yaz0 | not:m3,a1 | R:0.95 | S:5.5 | ısınma | artikel das → der | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-25 12:18:16;wort;n0825:wort;der Mut;cesaret | Man braucht viel _____, um in einem fremden Land ganz neu anzufangen.;;falsch;der Mut;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:6 | ipucu:2 | ipucu-tür:trcumle | bilmiyorum
+2026-11-25 12:18:23;yeni;n0825;der Mut;tanıtım;;neu;cesaret;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:7
+2026-11-25 12:18:39;abr;v586:abr;verlangen;talep etmek | Jeden Tag Überstunden? Das können Sie nicht _____.;möchten;falsch;verlangen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:11 | ipucu:2 | ipucu-tür:trcumle
+2026-11-25 12:18:43;yeni;v586;verlangen;tanıtım;;neu;talep etmek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-25 12:18:48;yeni;n0398;die Freude;tanıtım;;neu;sevinç;basamak:B0 | bicim:tanit | not:- | parti | sek:4
+2026-11-25 12:18:53;art;n0469:art;die Gewalt;mit ___ Gewalt [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.60 | S:0.2 | hâl:Dat | sek:5
+2026-11-25 12:19:06;abr;v560:abr;unterscheiden;ayırt etmek;untersuchen;falsch;unterscheiden (Akk);basamak:B2 | bicim:yaz0 | not:m1 | R:0.69 | S:0.1 | düzeltti | sek:7 | ipucu:0 | ipucu-tür:tr
+2026-11-25 12:19:06;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-25 12:19:06;leech;v560;unterscheiden;ayırt etmek;;takiliyor;;günler:2026-11-23,2026-11-24,2026-11-25
+2026-11-25 12:19:15;abr;v500:abr;steigen;"çıkmak, tırmanmak; artmak";steigen;richtig;steigen;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:9 | ipucu:2 | ipucu-tür:tr
+2026-11-25 12:19:40;gram;g:plusquamperfekt:6;plusquamperfekt/bildung;ich / hatte / den Brief / schon / abgeschickt;ich hatte den Brief schon abgeschickt;richtig;Ich hatte den Brief schon abgeschickt.;tur:akis | tür:ordnen | z:1 | sek:24
+2026-11-25 12:19:46;abr;v650:abr;wirken;"etki etmek; … görünmek";wirken;richtig;wirken;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
