@@ -5719,3 +5719,6 @@
 2026-11-26 21:25:59;yeni;n0903;die Pflicht;tanıtım;;neu;görev, yükümlülük;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
 2026-11-26 21:26:04;yeni;n0398;die Freude;tanıtım;;neu;sevinç;basamak:B0 | bicim:tanit | not:- | parti | sek:5
 2026-11-26 21:26:07;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-26 21:31:52;art;n1000:art;das Risiko;Risiko;der;falsch;das Risiko;basamak:A | bicim:artikel | not:a1 | R:0.68 | S:0.1 | artikel der → das | sek:3
+2026-11-26 21:32:03;wort;n0464:wort;das Gesetz;kanun | Mit … neu… _____ könnte man dieses Problem lösen.;das Gesitz;fast;das Gesetz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.74 | S:1.6 | kısmi | yazım | sek:8 | ipucu:0 | ipucu-tür:decumle
+2026-11-26 21:32:07;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak;sich wundern über;richtig;sich wundern über (über + Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.6 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:0 | ipucu-tür:tr
