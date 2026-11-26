@@ -5712,3 +5712,10 @@
 2026-11-25 12:19:46;abr;v650:abr;wirken;"etki etmek; … görünmek";wirken;richtig;wirken;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
 2026-11-26 21:24:53;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak | Wir _____ uns, dass er nicht gekommen ist.;wundern;falsch;sich wundern über (über + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.6 | ısınma | düzeltti | edat, edat: über + Akk | sek:5 | ipucu:2 | ipucu-tür:trcumle
 2026-11-26 21:25:06;wort;n1096:wort;die Sorge;endişe, kaygı;der Angst;falsch;die Sorge;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:2.9 | ısınma | düzeltti | kelime yanlış | sek:10 | ipucu:2 | ipucu-tür:tr
+2026-11-26 21:25:23;wort;n0807:wort;die Möglichkeit;imkân;die Möglichkeit;richtig;die Möglichkeit;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.91 | S:10.2 | ısınma | kapı:7g | sek:16 | ipucu:0 | ipucu-tür:tr
+2026-11-26 21:25:34;abr;v658:abr;zählen;saymak | Bitte _____ Sie das Wechselgeld sofort nach.;Geld;falsch;zählen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-26 21:25:43;yeni;v658;zählen;tanıtım;;neu;saymak;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:9
+2026-11-26 21:25:54;wort;n0903:wort;die Pflicht;görev, yükümlülük | Als Autofahrer müssen Sie eine Versicherung haben. Das ist _____.;Per;falsch;die Pflicht;basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | kelime yanlış | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-26 21:25:59;yeni;n0903;die Pflicht;tanıtım;;neu;görev, yükümlülük;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-26 21:26:04;yeni;n0398;die Freude;tanıtım;;neu;sevinç;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-26 21:26:07;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
