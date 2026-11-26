@@ -5710,3 +5710,5 @@
 2026-11-25 12:19:15;abr;v500:abr;steigen;"çıkmak, tırmanmak; artmak";steigen;richtig;steigen;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:9 | ipucu:2 | ipucu-tür:tr
 2026-11-25 12:19:40;gram;g:plusquamperfekt:6;plusquamperfekt/bildung;ich / hatte / den Brief / schon / abgeschickt;ich hatte den Brief schon abgeschickt;richtig;Ich hatte den Brief schon abgeschickt.;tur:akis | tür:ordnen | z:1 | sek:24
 2026-11-25 12:19:46;abr;v650:abr;wirken;"etki etmek; … görünmek";wirken;richtig;wirken;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:tr
+2026-11-26 21:24:53;abr;v654:abr;sich wundern über;(bir şeye) şaşırmak | Wir _____ uns, dass er nicht gekommen ist.;wundern;falsch;sich wundern über (über + Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:1.6 | ısınma | düzeltti | edat, edat: über + Akk | sek:5 | ipucu:2 | ipucu-tür:trcumle
+2026-11-26 21:25:06;wort;n1096:wort;die Sorge;endişe, kaygı;der Angst;falsch;die Sorge;basamak:B2 | bicim:yaz | not:m1 | R:0.93 | S:2.9 | ısınma | düzeltti | kelime yanlış | sek:10 | ipucu:2 | ipucu-tür:tr
