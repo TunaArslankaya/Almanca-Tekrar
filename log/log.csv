@@ -5750,3 +5750,20 @@
 2026-11-26 21:35:24;wort;n1228:wort;der Tod;ölüm | Ich habe ihn vor … _____ noch einmal gesehen.;Sterben;falsch;der Tod;basamak:B2 | bicim:yaz | not:m1 | R:0.91 | S:1.3 | düzeltti | kelime yanlış | sek:8 | ipucu:2 | ipucu-tür:trcumle
 2026-11-26 21:35:41;nsatz;w0109:nsatz;drüben;Die Toiletten sind da _____, neben dem Aufzug.;liegt;falsch;drüben;basamak:B3 | bicim:bos | not:m1 | R:0.91 | S:0.8 | zor | düzeltti | farklı | sek:13 | ipucu:1
 2026-11-26 21:35:41;dikkat;;;;;cok-yanlis;;son8 yanlış:5 hızlı/boş:0
+2026-11-26 21:35:48;abr;v257:abr;finanzieren;finanse etmek | Ich weiß nicht, wie ich das Auto _____ soll.;finanzieren;richtig;finanzieren (Akk);basamak:B2 | bicim:yaz | not:m3 | R:0.91 | S:29.1 | kapı:14g | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-26 21:36:29;gram;g:adjektiv:119;adjektiv/kontrast;Eski telefonum daha iyiydi, yenisi çok yavaş.;Mein alte Handy war besser, neues ist sehr langsam.;richtig;Mein altes Handy war besser, das neue ist sehr langsam.;tur:akis | tür:ceviri | z:3 | öneri:falsch | sek:28
+2026-11-26 21:36:32;wort;n1228:wort;der Tod;ölüm;der Tod;richtig;der Tod;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.3 | tekrar:1 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-26 21:36:38;nsatz;w0117:nsatz;eben;Ich bin _____ erst angekommen.;gerade;falsch;eben;basamak:B2 | bicim:bos | not:m1 | R:0.53 | S:0.1 | düzeltti | farklı | sek:4 | ipucu:1
+2026-11-26 21:36:41;prod;w0109:prod;drüben;karşıda, öte tarafta;drüben;richtig;drüben;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.8 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:2 | ipucu-tür:tr
+2026-11-26 21:36:51;luecke;w0094:nsatz;deswegen;_____ wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;Deswegen;richtig;Deswegen;basamak:B3 | bicim:metin | not:m3 | R:0.89 | S:20.7 | kaynak:dw77708174
+2026-11-26 21:36:51;luecke;v545:satz;übertreiben;Deswegen wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie _____.;überweisen;falsch;übertreiben;basamak:B3 | bicim:metin | not:m1 | R:0.91 | S:2.7 | kaynak:dw77708174
+2026-11-26 21:36:55;akt;luecke:dw77708174;metinde boşluk;Deswegen wird oft nicht an diese Menschen und ihre Bedürfnisse gedacht – und manchmal wird sogar behauptet, dass sie übertreiben.;Deswegen / überweisen;falsch;Deswegen / übertreiben;puan:1/2 | boşluk:2 | düzeltti
+2026-11-26 21:37:11;nsatz;w0485:nsatz;überhaupt;Hast du mir _____ zugehört?;zumindest;falsch;überhaupt;basamak:B2 | bicim:bos | not:m1 | R:0.77 | S:0.5 | kurtarma | düzeltti | farklı | sek:13 | ipucu:1
+2026-11-26 21:37:13;art;n0914:art;die Politik;mit ___ Politik [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.90 | S:13.8 | hâl:Dat | sek:2
+2026-11-26 21:37:16;nsatz;w0117:nsatz;eben;Das Auto ist alt, deshalb ist es _____ billig.;eben;richtig;eben;basamak:B2 | bicim:bos0 | not:- | R:1.00 | S:0.1 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0
+2026-11-26 21:37:28;nsatz;w0485:nsatz;überhaupt;Die Überschrift passt _____ nicht zum Inhalt des Artikels.;überhaupt;richtig;überhaupt;basamak:B2 | bicim:bos | not:- | R:1.00 | S:0.5 | tekrar:1 | hafıza:yazılmadı | sek:11 | ipucu:1
+2026-11-26 21:37:28;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:0 | yanlış:6 | puan:120 | dk:2 | yeni:0 | seviye+:2 | tekrar:14 | ipucusuz:4 | gram:1/1
+2026-11-27 19:50:16;wort;n1096:wort;die Sorge;endişe, kaygı;die Sorge;richtig;die Sorge;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.96 | S:4.8 | ısınma | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-27 19:50:19;abr;v545:abr;übertreiben;abartmak;übertreiben;richtig;übertreiben (Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.96 | S:3.5 | ısınma | sek:3 | ipucu:2 | ipucu-tür:tr
+2026-11-27 19:50:23;abr;v658:abr;zählen;saymak;zählen;richtig;zählen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.95 | S:5.2 | ısınma | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:50:35;abr;v282:abr;gebrauchen;kullanmak | Wir können diese Möbel gut _____.;verhandlung;falsch;gebrauchen (Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:9 | ipucu:2 | ipucu-tür:trcumle
