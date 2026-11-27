@@ -5916,3 +5916,33 @@
 2026-11-27 20:05:33;nsatz;w0565:nsatz;wohl;Ich fühle mich in Bremen sehr _____.;wohl;richtig;wohl;basamak:B2 | bicim:bos | not:m4 | R:0.84 | S:5.0 | sek:4 | ipucu:1
 2026-11-27 20:05:46;abr;v400:abr;nutzen;kullanmak, yararlanmak | Ich möchte das schöne Wetter _____ und spazieren gehen.;nenenn;falsch;nutzen (Akk);basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.2 | düzeltti | sek:10 | ipucu:2 | ipucu-tür:trcumle
 2026-11-27 20:06:10;satz;v402:satz;veröffentlichen;Stoffel ist Legastheniker: Mit den neuen Hilfsmitteln hat er endlich den Mut gefunden, seine Texte zu _____.;veröffentlich;fast;veröffentlichen;basamak:B3 | bicim:bos | not:m2 | R:0.90 | S:20.7 | kapı:14g | çekim | sek:21 | ipucu:1
+2026-11-27 20:06:17;satz;v218:satz;erfüllen;Meine Eltern haben mir jeden Wunsch _____.;a;falsch;erfüllt;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.1 | düzeltti | sek:4 | ipucu:1 | bilmiyorum
+2026-11-27 20:06:25;wort;n1353:wort;die Wahl;seçim;die Wählung;falsch;die Wahl;basamak:B2 | bicim:yaz | not:m1 | R:0.84 | S:1.2 | düzeltti | kelime yanlış | sek:5 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:06:31;erk;n0168:erk;die Beziehung;ilişki;die Beziehung;richtig;die Beziehung;basamak:B1 | bicim:sec | not:m3 | R:0.80 | S:5.8 | kurtarma | şık:x1575/n0164/n0322 | çeldirici:biçim/biçim/biçim | sek:6
+2026-11-27 20:06:34;abr;v400:abr;nutzen;kullanmak, yararlanmak;nutzen;richtig;nutzen (Akk);basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:1.2 | tekrar:1 | hafıza:yazılmadı | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-27 20:06:37;nsatz;w0328:nsatz;miteinander;Anders ist das, wenn ein Mann und eine Frau schon immer _____ verwandt waren, weil sie zur selben Familie gehören.;miteinander;richtig;miteinander;basamak:B2 | bicim:bos0 | not:m3 | R:0.84 | S:14.4 | kapı:7g | sek:4 | ipucu:0
+2026-11-27 20:06:56;nsatz;w0641:nsatz;enttäuscht;Sie ist von ihrer besten Freundin _____.;aufreget;falsch;enttäuscht;basamak:B3 | bicim:bos | not:m1 | R:0.90 | S:2.1 | düzeltti | farklı | sek:14 | ipucu:1
+2026-11-27 20:07:00;abr;v218:abr;erfüllen;yerine getirmek (dilek, koşul) | Wir _____ Ihnen jeden Wunsch.;erfüllen;richtig;erfüllen (Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:2.1 | tekrar:1 | hafıza:yazılmadı | sek:3 | ipucu:2 | ipucu-tür:decumle
+2026-11-27 20:07:05;wort;n1353:wort;die Wahl;seçim | … nächst… _____ ist im Herbst.;die Wahl;richtig;die Wahl;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:1.2 | tekrar:1 | sek:5 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 20:07:08;nsatz;w0164:nsatz;fett;Das Essen in der Mensa ist oft zu _____, deshalb koche ich lieber selbst.;fett;richtig;fett;basamak:B2 | bicim:bos0 | not:m3 | R:0.84 | S:9.8 | kapı:7g | sek:2 | ipucu:0
+2026-11-27 20:07:13;prod;w0469:prod;tatsächlich;gerçekten de | Die Hose ist _____ zu klein, obwohl sie so groß aussieht.;tatsächlich;richtig;tatsächlich;basamak:B2 | bicim:yaz0 | not:m3 | R:0.83 | S:4.4 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 20:07:26;prod;w0641:prod;enttäuscht;hayal kırıklığına uğramış (von + D: -den);enttäuscht;richtig;enttäuscht;basamak:B2 | bicim:yaz | not:- | R:1.00 | S:2.1 | tekrar:1 | hafıza:yazılmadı | sek:12 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:07:26;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:9 | küçük:2 | yanlış:4 | puan:125 | dk:2 | yeni:0 | seviye+:0 | tekrar:15 | ipucusuz:3
+2026-11-27 20:07:51;akt;aski:n0496;die Gymnastik;;;geri;;neden:oto
+2026-11-27 20:07:52;akt;aski:n1375;der Wetterbericht;;;geri;;neden:oto
+2026-11-27 20:07:56;akt;aski:w0325;mild;;;geri;;neden:oto
+2026-11-27 20:08:01;akt;aski:v690;sich abmelden;;;geri;;neden:oto
+2026-11-27 20:08:02;akt;aski:w0165;feucht;;;geri;;neden:oto
+2026-11-27 20:08:06;akt;aski:x1576;der Bundestag;;;geri;;neden:oto
+2026-11-27 20:08:14;akt;aski:w0599;eingespannt sein;;;geri;;neden:oto
+2026-11-27 20:08:17;akt;aski:w0625;ehrenamtlich;;;geri;;neden:oto
+2026-11-27 20:08:19;akt;aski:v272;frieren;;;geri;;neden:oto
+2026-11-27 20:08:21;akt;aski:w0626;bedürftig;;;geri;;neden:oto
+2026-11-27 20:08:34;abr;v142:abr;beweisen;kanıtlamak | Mit der Quittung kann ich _____, dass ich die Jacke hier gekauft habe.;beweisen;richtig;beweisen (Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.82 | S:4.1 | sek:4 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 20:08:39;abr;v626:abr;vorschlagen;(birine bir şeyi) önermek;vorschlagen;richtig;vorschlagen (Dat, Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.82 | S:10.8 | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:08:53;prod;w0626:prod;bedürftig;muhtaç, yoksul;bedürftnis;falsch;bedürftig;basamak:B2 | bicim:yaz0 | not:m1 | R:0.57 | S:0.3 | düzeltti | farklı | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-27 20:08:53;leech;w0626;bedürftig;muhtaç, yoksul;;takiliyor;;günler:2026-11-05,2026-11-11,2026-11-27
+2026-11-27 20:09:00;prod;w0195:prod;genauso;tıpkı, aynı şekilde;gleich;falsch;genauso;basamak:B2 | bicim:yaz0 | not:m1 | R:0.82 | S:0.6 | düzeltti | farklı | sek:3 | ipucu:0 | ipucu-tür:tr
+2026-11-27 20:09:00;leech;w0195;genauso;tıpkı, aynı şekilde;;takiliyor;;günler:2026-11-17,2026-11-19,2026-11-27
+2026-11-27 20:09:04;prod;w0325:prod;mild;"ılık; yumuşak";mild;richtig;mild;basamak:B2 | bicim:yaz | not:m4 | R:0.87 | S:37.9 | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:09:10;wort;n0521:wort;die Haut;cilt, deri;die Haze;falsch;die Haut;basamak:B2 | bicim:yaz0 | not:m1 | R:0.82 | S:0.1 | düzeltti | kelime yanlış | sek:3 | ipucu:0 | ipucu-tür:tr
