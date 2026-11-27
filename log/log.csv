@@ -5857,3 +5857,33 @@
 2026-11-27 20:00:01;abr;v586:abr;verlangen;talep etmek | Wie viel _____ Sie für das Auto?;verlangen;richtig;verlangen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:decumle
 2026-11-27 20:00:04;prod;w0262:prod;je … desto;ne kadar … o kadar;je desto;richtig;je … desto;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
 2026-11-27 20:00:04;yeni;w0262;je … desto;yoklama;je desto;bekannt;ne kadar … o kadar;basamak:B2 | bicim:yoklama | not:m4 | yoklama
+2026-11-27 20:00:10;stamm;v626:stamm;vorschlagen;Er hat mir eine Lösung _____.;vorgeschlagen;richtig;vorgeschlagen;basamak:K | bicim:kokSatz | not:k3 | R:0.78 | S:24.5 | kök:schlagen | sek:6
+2026-11-27 20:00:17;prod;w0388:prod;politisch;siyasi | Gleichzeitig wissen sie aber, dass der Fall _____ heikel ist.;politisch;richtig;politisch;basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:5.7 | sek:6 | ipucu:0 | ipucu-tür:decumle
+2026-11-27 20:00:23;prod;w0109:prod;drüben;karşıda, öte tarafta | Dort _____ ist die Haltestelle.;drüben;richtig;drüben;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:1.3 | sek:6 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 20:00:23;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:1 | yanlış:1 | puan:114 | dk:1 | yeni:1 | seviye+:1 | tekrar:9 | ipucusuz:3 | gram:0/1 | bildi:1
+2026-11-27 20:00:27;art;n0360;die Feuerwehr;kural kartı;;neu;die Feuerwehr;bicim:kuralKart | kanca | sek:3
+2026-11-27 20:00:28;art;n0360:art;die Feuerwehr;mit ___ Feuerwehr [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.83 | S:6.3 | hâl:Dat | sek:1
+2026-11-27 20:00:37;wort;n0047:wort;der Antrag;başvuru, dilekçe | Haben Sie schon … _____ für das Wohngeld ausgefüllt?;der Austrag;falsch;der Antrag;basamak:B2 | bicim:yaz0 | not:m1 | R:0.80 | S:0.7 | düzeltti | kelime yanlış | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 20:00:43;prod;w0600:prod;vor Gericht gehen;mahkemeye gitmek;vor Gericht gehen;richtig;vor Gericht gehen;basamak:B2 | bicim:yaz | not:m4 | R:0.89 | S:15.1 | sek:6 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:00:53;abr;v146:abr;bieten;(birine bir şey) sunmak, teklif etmek | Wie viel _____ Sie für das Fahrrad?;zählen;falsch;bieten (Dat, Akk);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:7 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 20:00:57;yeni;v146;bieten;tanıtım;;neu;(birine bir şey) sunmak, teklif etmek;basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-27 20:01:02;nsatz;w0373:nsatz;obwohl;_____ ihr Amt für die Demokratie eine wichtige Rolle spielt, mangelt es in vielen Kommunen an Unterstützung und Geld.;Obwohl;richtig;Obwohl;basamak:B2 | bicim:bos | not:m4 | R:0.88 | S:15.1 | kapı:14g | sek:4 | ipucu:1
+2026-11-27 20:01:04;art;n0067:art;die Art;Art;die;richtig;die Art;basamak:A | bicim:artikel | not:a3 | R:0.81 | S:7.0 | sek:2
+2026-11-27 20:01:08;wort;n0047:wort;der Antrag;başvuru, dilekçe;der Antrag;richtig;der Antrag;basamak:B2 | bicim:yaz0 | not:a3 | R:1.00 | S:0.7 | tekrar:1 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-27 20:01:22;gram;g:plusquamperfekt:47;plusquamperfekt/nachdem;nachdem / sie / eine Stelle / gefunden / hatte / zog / sie / nach Hamburg;nachdem sie eine Stelle gefunden hatte zog sie nach Hamburg;richtig;Nachdem sie eine Stelle gefunden hatte, zog sie nach Hamburg.;tur:akis | tür:ordnen | z:2 | sek:13
+2026-11-27 20:01:24;abr;v146:abr;bieten;(birine bir şey) sunmak, teklif etmek;bieten;richtig;bieten (Dat, Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-27 20:01:33;abr;v620:abr;verzichten auf;Bugün kahveden vazgeçiyorum. | (bir şeyden) vazgeçmek;sich verlassen auf;falsch;verzichten auf (auf + Akk);basamak:B2 | bicim:kalip | not:m1 | R:0.78 | S:0.4 | kurtarma | düzeltti | sek:5 | ipucu:2
+2026-11-27 20:01:40;stamm;v142:stamm;beweisen;beweisen — Perfekt;beweisen;falsch;bewiesen;basamak:K | bicim:kokSatz | not:k1 | R:0.78 | S:0.8 | kök:beweisen | Partizip: bewiesen, biçim karıştı: mastar | sek:3
+2026-11-27 20:01:46;satz;v177:satz;sich eignen für;Ich _____ mich nicht für diesen Beruf.;eignen;fast;eigne;basamak:B3 | bicim:bos | not:m2 | R:0.90 | S:11.8 | çekim | sek:3 | ipucu:1
+2026-11-27 20:01:51;wort;n0164:wort;die Bewegung;hareket;die Bewegung;richtig;die Bewegung;basamak:B2 | bicim:yaz | not:m4,a3 | R:0.88 | S:15.0 | kapı:14g | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:01:55;abr;v620:abr;verzichten auf;(bir şeyden) vazgeçmek;verzichten auf;richtig;verzichten auf (auf + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.4 | tekrar:1 | hafıza:yazılmadı | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:01:55;tur;akis;Çalış;;;bitti;;cevap:14 | doğru:9 | küçük:1 | yanlış:4 | puan:113 | dk:2 | yeni:1 | seviye+:3 | tekrar:11 | ipucusuz:4 | gram:1/1
+2026-11-27 20:01:57;art;n1442:art;der Zustand;wegen ___ Zustands [Gen];des;richtig;des;basamak:A | bicim:artOb | not:a3 | R:0.61 | S:0.9 | hâl:Gen | sek:1
+2026-11-27 20:02:02;stamm;v642:stamm;sich wenden an;wenden — Perfekt;gewendent;fast;gewandt;basamak:K | bicim:kokSatz | not:k2 | R:0.78 | S:2.1 | kök:wenden | Partizip: gewendet | sek:3
+2026-11-27 20:02:07;nsatz;w0260:nsatz;irgendwann;Daraus könnten dann _____ bessere Behandlungsmöglichkeiten für Asthma, Heuschnupfen und Neurodermitis entstehen – „aber eben nicht bald“, erklärt Ege.;irgendwann;richtig;irgendwann;basamak:B2 | bicim:bos0 | not:m3 | R:0.88 | S:15.0 | kapı:7g | sek:5 | ipucu:0
+2026-11-27 20:02:15;art;n0232:art;der Gedanke;___ Gedanke an das Unglück macht uns traurig. [Nom];die;falsch;Der;basamak:A | bicim:artOb | not:a1 | R:0.66 | S:0.2 | hâl:Nom | artikel die → der | sek:4
+2026-11-27 20:02:15;leech;n0232;der Gedanke;düşünce;;takiliyor;;günler:2026-11-20,2026-11-22,2026-11-27
+2026-11-27 20:02:23;prod;w0579:prod;zumindest;en azından;mindestens;falsch;zumindest;basamak:B2 | bicim:yaz | not:m1 | R:0.88 | S:1.2 | düzeltti | farklı | sek:4 | ipucu:2 | ipucu-tür:tr
+2026-11-27 20:02:34;nsatz;x1556:nsatz;die Bildung;Die Regierung will mehr Geld für _____ ausgeben.;Bildung;richtig;Bildung;basamak:B3 | bicim:bos | not:m3 | R:0.90 | S:25.7 | sek:11 | ipucu:1
+2026-11-27 20:02:54;gram;g:adjektiv:82;adjektiv/bestimmt;ich / finde / den / blauen / Rock / schöner / als / den / roten;ich finde den blauen Rock schöner als den roten;richtig;Ich finde den blauen Rock schöner als den roten.;tur:akis | tür:ordnen | z:3 | ghost:0 | sek:19
+2026-11-27 20:02:55;akt;aski:n0306;der Erfolg;;;askida;;neden:el
