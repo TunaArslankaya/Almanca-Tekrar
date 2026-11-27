@@ -5827,3 +5827,33 @@
 2026-11-27 19:56:11;abr;v561:abr;unterschreiben;imzalamak | Bitte _____ Sie das Formular.;unterschreiben;richtig;unterschreiben (Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:8.8 | sek:6 | ipucu:2 | ipucu-tür:trcumle
 2026-11-27 19:56:26;nsatz;w0003:nsatz;abhängig;Der Preis ist von der Größe der Wohnung _____.;abhängig von;falsch;abhängig;basamak:B2 | bicim:bos0 | not:m1 | R:0.90 | S:0.7 | düzeltti | farklı | sek:9 | ipucu:0
 2026-11-27 19:56:39;abr;v650:abr;wirken;"etki etmek; … görünmek";werden;falsch;wirken;basamak:B2 | bicim:yaz0 | not:m1 | R:0.78 | S:0.2 | düzeltti | sek:10 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:56:54;abr;v117:abr;berichten über;(bir şey hakkında) haber vermek, anlatmak | Können Sie kurz … Ihre Erfahrungen im Praktikum _____?;berichten über;richtig;berichten über (über + Akk);basamak:B2 | bicim:yaz | not:- | R:1.00 | S:0.6 | tekrar:1 | hafıza:yazılmadı | sek:15 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 19:57:04;abr;v650:abr;wirken;"etki etmek; … görünmek";witten;falsch;wirken;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.2 | tekrar:1 | hafıza:yazılmadı | düzeltti | sek:8 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:57:09;prod;w0003:prod;abhängig;bağımlı, bağlı (von + D: -e) | Das ist auch vom Land und von der Kultur _____, in der man lebt.;abhängig;richtig;abhängig;basamak:B2 | bicim:yaz0 | not:- | R:1.00 | S:0.7 | tekrar:1 | hafıza:yazılmadı | sek:5 | ipucu:0 | ipucu-tür:decumle
+2026-11-27 19:57:09;tur;akis;Çalış;;;bitti;;cevap:15 | doğru:8 | küçük:1 | yanlış:6 | puan:100 | dk:2 | yeni:0 | seviye+:2 | tekrar:14 | ipucusuz:4 | gram:0/1
+2026-11-27 19:57:12;art;n0682:art;die Kritik;mit ___ Kritik [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.86 | S:4.2 | hâl:Dat | sek:2
+2026-11-27 19:57:15;abr;v466:abr;schweigen;susmak;schweigen;richtig;schweigen;basamak:B2 | bicim:yaz0 | not:m3 | R:0.79 | S:3.9 | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:57:22;abr;v481:abr;sorgen für;"(bir şeyi) sağlamak; (birine) bakmak | Die Stadt muss … mehr Sicherheit am Bahnhof _____.";sorgen für;richtig;sorgen für (für + Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:5.3 | sek:6 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 19:57:39;abr;v421:abr;raten;"(birine) tavsiye etmek; tahmin etmek | Ich möchte billig Urlaub machen. Was _____ Sie mir?";schlangen;falsch;raten (Dat);basamak:B2 | bicim:yoklama | not:- | R:- | S:- | yoklama | sek:14 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 19:57:44;yeni;v421;raten;tanıtım;;neu;"(birine) tavsiye etmek; tahmin etmek";basamak:B0 | bicim:tanit | not:- | parti | yoklama | sek:4
+2026-11-27 19:57:49;yeni;n0825;der Mut;tanıtım;;neu;cesaret;basamak:B0 | bicim:tanit | not:- | parti | sek:6
+2026-11-27 19:57:55;abr;v276:abr;führen;"yönetmek; (birini bir yere) götürmek";führen;richtig;führen (Akk);basamak:B2 | bicim:yaz | not:m4 | R:0.90 | S:23.1 | kapı:14g | sek:6 | ipucu:2 | ipucu-tür:tr
+2026-11-27 19:58:02;art;n0182:art;das Blut;Blut;der;falsch;das Blut;basamak:A | bicim:artikel | not:a1 | R:0.85 | S:0.6 | artikel der → das | sek:3
+2026-11-27 19:58:11;gram;g:zweiteilig:8;zweiteilig/entweder;wir gehen heute Abend / entweder / ins Kino / oder / ins Theater;wir gehen heute Abend entweder ins Kino oder ins Theater;richtig;Wir gehen heute Abend entweder ins Kino oder ins Theater.;tur:akis | tür:ordnen | z:1 | sek:9
+2026-11-27 19:58:19;abr;v689:abr;durchführen;gerçekleştirmek, yürütmek | Wir müssen das Projekt bis zum Ende des Semesters _____.;durchführen;richtig;durchführen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.77 | S:5.4 | kurtarma | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 19:58:21;abr;v421:abr;raten;"(birine) tavsiye etmek; tahmin etmek";raten;richtig;raten (Dat);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:2 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:58:24;wort;n0825:wort;der Mut;cesaret | Gleichzeitig fordert Penfrat stärkere Regulierungen und mehr politisch… _____.;der Mut;richtig;der Mut;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.00 | S:2.3 | ikinci | sek:2 | ipucu:0 | ipucu-tür:decumle
+2026-11-27 19:58:55;nsatz;n0432:nsatz;das Gedicht;Şiiri ezbere biliyor musun?;Weißt du das Gedicht auswendig?;richtig;Kannst du das Gedicht auswendig?;basamak:B4 | bicim:cumle | not:m3 | R:0.78 | S:4.3 | sek:16 | ipucu:2 | öneri:falsch
+2026-11-27 19:58:59;abr;v539:abr;übernehmen;üstlenmek, devralmak;übernehmen;richtig;übernehmen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.90 | S:2.0 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:58:59;tur;akis;Çalış;;;bitti;;cevap:12 | doğru:10 | küçük:0 | yanlış:2 | puan:113 | dk:2 | yeni:2 | seviye+:2 | tekrar:8 | ipucusuz:1 | gram:1/1
+2026-11-27 19:59:03;art;n0688:art;die Kultur;mit ___ Kultur [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.85 | S:24.3 | hâl:Dat | sek:3
+2026-11-27 19:59:08;wort;n1089:wort;der Sitz;"koltuk; merkez";der Sitz;richtig;der Sitz;basamak:B2 | bicim:yaz0 | not:m3,a3 | R:0.79 | S:5.5 | sek:4 | ipucu:0 | ipucu-tür:tr
+2026-11-27 19:59:16;prod;w0095:prod;deutlich;açık, belirgin | Die Ärztin hat mir _____ gesagt, dass ich mit dem Rauchen aufhören soll.;deutlich;richtig;deutlich;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:8.3 | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 19:59:20;yeni;v586;verlangen;tanıtım;;neu;talep etmek;basamak:B0 | bicim:tanit | not:- | parti | sek:5
+2026-11-27 19:59:33;prod;w0504:prod;verantwortlich;sorumlu | Herr Klein ist in unserer Firma für die Ausbildung _____.;verantvortlich;fast;verantwortlich;basamak:B2 | bicim:yaz | not:m3 | R:0.89 | S:6.2 | kısmi | yazım | sek:8 | ipucu:2 | ipucu-tür:trcumle
+2026-11-27 19:59:41;art;n1142:art;die Stimme;Ich habe dich sofort an ___ Stimme erkannt. [Dat];der;richtig;der;basamak:A | bicim:artOb | not:a3 | R:0.84 | S:18.0 | hâl:Dat | sek:7
+2026-11-27 19:59:49;gram;g:vergleich:5;vergleich/als-wie;Mein Zimmer ist größer wie deins.;größer;falsch;Mein Zimmer ist größer als deins.;tur:akis | tür:fehler | z:2 | yanlış kelime seçildi | ghost:1 | sek:4
+2026-11-27 19:59:58;abr;v687:abr;ausbilden;yetiştirmek, (meslek) eğitimi vermek | Deutschland muss mehr Ärzte und Pflegekräfte _____.;ausbilden;richtig;ausbilden (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.78 | S:5.8 | kurtarma | sek:8 | ipucu:0 | ipucu-tür:trcumle
+2026-11-27 20:00:01;abr;v586:abr;verlangen;talep etmek | Wie viel _____ Sie für das Auto?;verlangen;richtig;verlangen (Akk);basamak:B2 | bicim:yaz0 | not:m3 | R:0.00 | S:2.3 | ikinci | sek:3 | ipucu:0 | ipucu-tür:decumle
+2026-11-27 20:00:04;prod;w0262:prod;je … desto;ne kadar … o kadar;je desto;richtig;je … desto;basamak:B2 | bicim:yoklama | not:m4 | R:0.00 | S:8.3 | yoklama | sek:3 | ipucu:2
+2026-11-27 20:00:04;yeni;w0262;je … desto;yoklama;je desto;bekannt;ne kadar … o kadar;basamak:B2 | bicim:yoklama | not:m4 | yoklama
