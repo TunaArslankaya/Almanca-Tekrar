@@ -81,7 +81,13 @@ jobs:
           node tools/feedback_json.js
 
       - name: Commit ve push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # 28.11: claude-code-action (13.11'den beri) çıkışta git kimlik bilgisini siliyor; push "could not read Password for
+          # 'https://x-access-token@github.com'" ile düşüyordu (13–28.11 her gece). Kimlik burada yeniden kurulur.
+          git config --local --unset-all http.https://github.com/.extraheader || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
           git config user.name "claude-gece[bot]"
           git config user.email "claude-gece@users.noreply.github.com"
           git add -A quellen daten log/feedback.json VERLAUF.md index.html sw.js

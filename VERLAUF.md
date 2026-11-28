@@ -516,3 +516,7 @@ Son incelenen log satırı değişmedi (bu not uygulama değişikliği).
 - Gramer: 15.11'de kendiliğinden açılış sırası B2'ye çevrilmişti (14.11'deki "B2 olduğum hâlde" yanlış anlaşıldı); turlara nominal-verbal (15.11) ve konnektoren-b2 (18.11) girmişti (14.11'den beri turdaki gramerin 17/39'u). Şimdi gramer seviyesi B1 (varsayılan; Ayarlar'dan B2): B2 konuları turda / önerilerde yok, sıradaki açılışlar Netzwerk neu B1.2 (K7–12) konularından (ilk: Plusquamperfekt). Açılmış B2 konularının durumu duruyor.
 - Çeviri: 5 ajan bütün cümle ve anlam dosyalarını denetledi, 230 satır düzeltildi (11'i Almanca hata). Sonuç panelinde "çeviri kötü" düğmesi (log `akt;ceviri:<öğe>`), gece işi düzeltir.
 Son incelenen log satırı değişmedi (bu not uygulama / içerik değişikliği).
+
+**2026-11-28 (Tuna: "uzun süredir hata veriyor")**
+- Gece işi (`.github/workflows/gece.yml`) 13.11'den beri her gece "failure": Claude adımı ve build / testler başarılı, ama son adımdaki push `could not read Password for 'https://x-access-token@github.com'` ile düşüyordu (claude-code-action çıkışta git kimlik bilgisini siliyor). 13–28.11 arası gece incelemeleri, düzeltmeler ve günün içeriği kaydedilmedi.
+- Düzeltme: push adımı kimliği `GITHUB_TOKEN` ile yeniden kuruyor (eski extraheader silinir, remote URL token'lı). Gece işi bundan sonra 12.11'den beri birikmiş log'u inceleyecek (son incelenen satır 2026-11-12 10:48:38).
