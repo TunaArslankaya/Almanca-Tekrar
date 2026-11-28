@@ -5276,3 +5276,9 @@ Wir hatten mit unserem Projekt großen Erfolg. | das Projekt = proje
 Ohne Fleiß gibt es keinen Erfolg. | der Fleiß = çalışkanlık
 Herzlichen Glückwunsch zu deinem Erfolg! | herzlichen Glückwunsch = tebrikler
 Ich habe mir vorgenommen, mehr zu lesen. | -
+Kannst du Zwillinge immer sicher unterscheiden? | der Zwilling = ikiz; sicher = kesin
+Man muss zwischen Freunden und Bekannten unterscheiden. | der Bekannte = tanıdık
+Bitte entfernen Sie Ihre Fahrräder aus dem Hausflur. | der Hausflur = apartman koridoru
+Er hat den Fleck mit Salz entfernt. | der Fleck = leke; das Salz = tuz
+Der Zaun soll verhindern, dass Kinder auf die Straße laufen. | der Zaun = çit
+Wir müssen verhindern, dass sich das Problem wiederholt. | sich wiederholen = tekrarlanmak

@@ -1393,3 +1393,9 @@ v402 | Die Zeitung hat einen Artikel über unsere Schule veröffentlicht. | Gaze
 v402 | Die Ergebnisse der Prüfung werden nächste Woche veröffentlicht. | Sınav sonuçları gelecek hafta yayımlanacak.
 v402 | Sie möchte ihr erstes Buch im nächsten Jahr veröffentlichen. | O (kadın) ilk kitabını gelecek yıl yayımlamak istiyor.
 v402 | Man sollte keine privaten Fotos im Internet veröffentlichen. | İnternette özel fotoğraflar yayımlanmamalı.
+v560 | Kannst du Zwillinge immer sicher unterscheiden? | İkizleri her zaman kesin olarak ayırt edebilir misin?
+v560 | Man muss zwischen Freunden und Bekannten unterscheiden. | Arkadaşlarla tanıdıkları ayırt etmek gerekir.
+v202 | Bitte entfernen Sie Ihre Fahrräder aus dem Hausflur. | Lütfen bisikletlerinizi apartman koridorundan kaldırın.
+v202 | Er hat den Fleck mit Salz entfernt. | O (erkek) lekeyi tuzla çıkardı.
+v584 | Der Zaun soll verhindern, dass Kinder auf die Straße laufen. | Çit, çocukların yola koşmasını engellemeli.
+v584 | Wir müssen verhindern, dass sich das Problem wiederholt. | Sorunun tekrarlanmasını önlemeliyiz.

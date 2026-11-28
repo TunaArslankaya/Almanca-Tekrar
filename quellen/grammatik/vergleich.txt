@@ -210,3 +210,7 @@ ceviri | 2 | Almanca İngilizce kadar kolay değil. | Deutsch ist nicht so leich
 luecke | 2 | Der Bus ist nicht so schnell ___ die Straßenbahn. | wie | | Otobüs tramvay kadar hızlı değil. | nicht so + yalın sıfat + wie (als yalnız Komparativ'ten sonra). | der Bus; schnell; die Straßenbahn
 umform | 2 | Mein Bruder ist 25 Jahre alt. Ich bin 22 Jahre alt. → nicht so … wie | Ich bin nicht so alt wie mein Bruder. | | Ben ağabeyim kadar yaşlı değilim. | Küçük olan özne olur: nicht so + yalın sıfat (alt) + wie. | alt
 ceviri | 3 | Bremen Berlin kadar büyük değil ama çok güzel. | Bremen ist nicht so groß wie Berlin, aber sehr schön. / Bremen ist nicht so groß wie Berlin, aber es ist sehr schön. | | - | nicht so groß wie Berlin; aber bağlaçtır, yer kaplamaz. | groß; schön
+@teil anders
+wahl | 1 | Mein Handy ist ganz anders ___ dein Handy. | als | als / wie / so | Benim telefonum seninkinden çok farklı. | anders als = "-den farklı". | das Handy; anders
+luecke | 2 | Das Wetter in Bremen ist anders ___ in Antalya. | als | | Bremen'de hava Antalya'dakinden farklı. | anders als + yer: anders als in Antalya. | das Wetter; anders
+ceviri | 3 | Türkiye'de yemek Almanya'dakinden farklı. | In der Türkei ist das Essen anders als in Deutschland. | | - | anders als; ülke adı in + Dat. | das Essen; anders
